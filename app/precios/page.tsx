@@ -64,15 +64,15 @@ export default function PreciosPage() {
       (grupos, med) => {
         const nombre = med.nombre.toLowerCase()
 
-        // Medicamentos aprobados específicamente para TDAH
-        if (nombre.includes("atomoxetina") || nombre.includes("metilfenidato")) {
-          if (nombre.includes("atomoxetina")) {
-            if (!grupos.aprobados.atomoxetina) grupos.aprobados.atomoxetina = []
-            grupos.aprobados.atomoxetina.push(med)
-          } else if (nombre.includes("metilfenidato")) {
-            if (!grupos.aprobados.metilfenidato) grupos.aprobados.metilfenidato = []
-            grupos.aprobados.metilfenidato.push(med)
-          }
+        // Estimulantes aprobados para TDAH
+        if (nombre.includes("metilfenidato")) {
+          if (!grupos.estimulantes.metilfenidato) grupos.estimulantes.metilfenidato = []
+          grupos.estimulantes.metilfenidato.push(med)
+        }
+        // No estimulantes aprobados para TDAH
+        else if (nombre.includes("atomoxetina")) {
+          if (!grupos.noestimulantes.atomoxetina) grupos.noestimulantes.atomoxetina = []
+          grupos.noestimulantes.atomoxetina.push(med)
         }
         // Medicamentos off-label para TDAH
         else if (nombre.includes("modafinilo") || nombre.includes("armodafinilo") || nombre.includes("bupropion")) {
@@ -91,7 +91,8 @@ export default function PreciosPage() {
         return grupos
       },
       {
-        aprobados: {} as Record<string, Medicamento[]>,
+        estimulantes: {} as Record<string, Medicamento[]>,
+        noestimulantes: {} as Record<string, Medicamento[]>,
         offlabel: {} as Record<string, Medicamento[]>,
       },
     )
@@ -225,77 +226,157 @@ export default function PreciosPage() {
             </TabsList>
 
             <TabsContent value="agrupado" className="space-y-8">
-              {/* Medicamentos Aprobados para TDAH */}
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="h-1 w-8 bg-green-500 rounded"></div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Medicamentos Aprobados para TDAH</h2>
-                  <Badge
-                    variant="secondary"
-                    className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                  >
-                    FDA Aprobados
-                  </Badge>
-                </div>
-
-                {Object.entries(medicamentosAgrupados.aprobados).map(([principio, meds]) => (
-                  <div key={principio} className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                      {principio} ({meds.length} medicamentos)
-                    </h3>
-                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                      {meds.map((medicamento) => (
-                        <Card
-                          key={medicamento.codigo}
-                          className="hover:shadow-md transition-shadow border-l-4 border-l-green-500"
-                        >
-                          <CardHeader className="pb-3">
-                            <div className="flex justify-between items-start">
-                              <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
-                              <div className="flex flex-col gap-1">
-                                <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                  Farmacity
-                                </Badge>
-                                <Badge
-                                  variant="secondary"
-                                  className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs"
-                                >
-                                  FDA
-                                </Badge>
-                              </div>
-                            </div>
-                            <CardDescription>{medicamento.concentracion}</CardDescription>
-                          </CardHeader>
-                          <CardContent className="space-y-3">
-                            <div className="flex items-center gap-2">
-                              <Building2 className="h-4 w-4 text-gray-400" />
-                              <span className="text-sm">{medicamento.laboratorio}</span>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                              <Package className="h-4 w-4 text-gray-400" />
-                              <span className="text-sm">{medicamento.presentacion}</span>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                              <Clock className="h-4 w-4 text-gray-400" />
-                              <span className="text-sm">
-                                {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
-                              </span>
-                            </div>
-
-                            <div className="pt-2 border-t">
-                              <span className="text-2xl font-bold text-green-600">
-                                {formatearPrecio(medicamento.precio)}
-                              </span>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
+              {/* Estimulantes Aprobados para TDAH */}
+              {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="h-1 w-8 bg-green-500 rounded"></div>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      Estimulantes Aprobados para TDAH
+                    </h2>
+                    <Badge
+                      variant="secondary"
+                      className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+                    >
+                      FDA Aprobados - Estimulantes
+                    </Badge>
                   </div>
-                ))}
-              </div>
+
+                  {Object.entries(medicamentosAgrupados.estimulantes).map(([principio, meds]) => (
+                    <div key={principio} className="mb-8">
+                      <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
+                        {principio} ({meds.length} medicamentos)
+                      </h3>
+                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {meds.map((medicamento) => (
+                          <Card
+                            key={medicamento.codigo}
+                            className="hover:shadow-md transition-shadow border-l-4 border-l-green-500"
+                          >
+                            <CardHeader className="pb-3">
+                              <div className="flex justify-between items-start">
+                                <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
+                                <div className="flex flex-col gap-1">
+                                  <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                                    Farmacity
+                                  </Badge>
+                                  <Badge
+                                    variant="secondary"
+                                    className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs"
+                                  >
+                                    Estimulante
+                                  </Badge>
+                                </div>
+                              </div>
+                              <CardDescription>{medicamento.concentracion}</CardDescription>
+                            </CardHeader>
+                            <CardContent className="space-y-3">
+                              <div className="flex items-center gap-2">
+                                <Building2 className="h-4 w-4 text-gray-400" />
+                                <span className="text-sm">{medicamento.laboratorio}</span>
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                <Package className="h-4 w-4 text-gray-400" />
+                                <span className="text-sm">{medicamento.presentacion}</span>
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                <Clock className="h-4 w-4 text-gray-400" />
+                                <span className="text-sm">
+                                  {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
+                                </span>
+                              </div>
+
+                              <div className="pt-2 border-t">
+                                <span className="text-2xl font-bold text-green-600">
+                                  {formatearPrecio(medicamento.precio)}
+                                </span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* No Estimulantes Aprobados para TDAH */}
+              {Object.keys(medicamentosAgrupados.noestimulantes).length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="h-1 w-8 bg-blue-500 rounded"></div>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      No Estimulantes Aprobados para TDAH
+                    </h2>
+                    <Badge
+                      variant="secondary"
+                      className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+                    >
+                      FDA Aprobados - No Estimulantes
+                    </Badge>
+                  </div>
+
+                  {Object.entries(medicamentosAgrupados.noestimulantes).map(([principio, meds]) => (
+                    <div key={principio} className="mb-8">
+                      <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
+                        {principio} ({meds.length} medicamentos)
+                      </h3>
+                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {meds.map((medicamento) => (
+                          <Card
+                            key={medicamento.codigo}
+                            className="hover:shadow-md transition-shadow border-l-4 border-l-blue-500"
+                          >
+                            <CardHeader className="pb-3">
+                              <div className="flex justify-between items-start">
+                                <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
+                                <div className="flex flex-col gap-1">
+                                  <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                                    Farmacity
+                                  </Badge>
+                                  <Badge
+                                    variant="secondary"
+                                    className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs"
+                                  >
+                                    No Estimulante
+                                  </Badge>
+                                </div>
+                              </div>
+                              <CardDescription>{medicamento.concentracion}</CardDescription>
+                            </CardHeader>
+                            <CardContent className="space-y-3">
+                              <div className="flex items-center gap-2">
+                                <Building2 className="h-4 w-4 text-gray-400" />
+                                <span className="text-sm">{medicamento.laboratorio}</span>
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                <Package className="h-4 w-4 text-gray-400" />
+                                <span className="text-sm">{medicamento.presentacion}</span>
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                <Clock className="h-4 w-4 text-gray-400" />
+                                <span className="text-sm">
+                                  {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
+                                </span>
+                              </div>
+
+                              <div className="pt-2 border-t">
+                                <span className="text-2xl font-bold text-green-600">
+                                  {formatearPrecio(medicamento.precio)}
+                                </span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Medicamentos Off-Label para TDAH */}
               {Object.keys(medicamentosAgrupados.offlabel).length > 0 && (
