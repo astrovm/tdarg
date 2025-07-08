@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -5,7 +7,6 @@ import {
   FileText,
   Calendar,
   ExternalLink,
-  Download,
   AlertTriangle,
   CheckCircle,
   XCircle,
@@ -25,6 +26,8 @@ const leyes = [
     tipo: "Nacional",
     organismo: "Congreso Nacional",
     impactoReal: "alto",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/actualizacion",
+    ultimaActualizacion: "2016-11-04",
     analisisIA: {
       beneficios: [
         "Reconocimiento legal del TDAH como condición neurobiológica",
@@ -55,6 +58,8 @@ const leyes = [
     tipo: "Nacional",
     organismo: "Congreso Nacional",
     impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
+    ultimaActualizacion: "2020-08-11",
     analisisIA: {
       beneficios: [
         "Regulación de calidad de medicamentos psicotrópicos",
@@ -81,6 +86,42 @@ const leyes = [
     ],
   },
   {
+    numero: "Ley 27.553",
+    titulo: "Ley de Recetas Electrónicas o Digitales",
+    descripcion: "Establece el sistema de recetas electrónicas y telemedicina en Argentina",
+    fecha: "2020-08-11",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Congreso Nacional",
+    impactoReal: "alto",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27553-340919/actualizacion",
+    ultimaActualizacion: "2023-12-21",
+    analisisIA: {
+      beneficios: [
+        "Permite prescripciones electrónicas para medicamentos TDAH",
+        "Habilita consultas de telemedicina para psiquiatría",
+        "Reduce burocracia en renovación de recetas",
+        "Moderniza el sistema de salud digital",
+        "Facilita acceso a especialistas en zonas remotas",
+      ],
+      problemas: [
+        "Requiere infraestructura tecnológica en todo el país",
+        "Depende de la adopción por parte de médicos",
+        "Necesita alfabetización digital de pacientes",
+        "Posibles problemas de conectividad en zonas rurales",
+      ],
+      puntuacion: 8.2,
+      recomendacion: "Ley muy positiva para TDAH - falta mejor implementación y capacitación",
+    },
+    puntosClave: [
+      "Prescripciones electrónicas válidas nacionalmente",
+      "Telemedicina habilitada para consultas psiquiátricas",
+      "Protección de datos médicos personales",
+      "Farmacias obligadas a aceptar recetas digitales",
+      "Plataformas de telemedicina reguladas",
+    ],
+  },
+  {
     numero: "Decreto 432/2017",
     titulo: "Reglamentación de la Ley 27.306",
     descripcion: "Reglamenta la aplicación de la Ley Nacional de TDAH",
@@ -89,6 +130,8 @@ const leyes = [
     tipo: "Nacional",
     organismo: "Poder Ejecutivo Nacional",
     impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/decreto-432-2017-274900/actualizacion",
+    ultimaActualizacion: "2017-06-15",
     analisisIA: {
       beneficios: [
         "Establece procedimientos específicos",
@@ -175,34 +218,35 @@ const proyectosActuales = [
 
 const propuestasNecesarias = [
   {
-    titulo: "Reforma a la Ley 19.303 - Modernización de Prescripción de Psicotrópicos para TDAH",
-    descripcion: "Propuesta para reformar la Ley 19.303 permitiendo receta electrónica y renovaciones automáticas para tratamientos crónicos como TDAH",
-    problemaQueResuelve: "Receta triplicada manuscrita obligatoria y prohibición de repetición",
+    titulo: "Integración de Ley 27.553 con Ley 19.303 - Recetas Electrónicas para Medicamentos Controlados TDAH",
+    descripcion: "Propuesta para actualizar la Ley 19.303 para que sea compatible con la Ley 27.553 de recetas electrónicas, permitiendo prescripciones digitales para medicamentos controlados como metilfenidato y atomoxetina",
+    problemaQueResuelve: "La Ley 27.553 permite recetas electrónicas, pero la Ley 19.303 aún exige receta triplicada manuscrita para medicamentos TDAH",
     beneficiosEsperados: [
-      "Eliminación de receta triplicada manuscrita para TDAH",
-      "Receta electrónica con firma digital médica",
-      "Renovaciones automáticas para pacientes estables",
-      "Reducción de costos y tiempo para pacientes",
-      "Modernización del sistema farmacológico"
+      "Aplicación de receta electrónica (Ley 27.553) a medicamentos controlados TDAH",
+      "Eliminación de receta triplicada manuscrita manteniendo control de seguridad",
+      "Firma digital médica para prescripciones de psicotrópicos",
+      "Renovaciones electrónicas para pacientes estables",
+      "Integración completa entre telemedicina y medicamentos controlados"
     ],
     desafios: [
-      "Requiere modificar ley de 1971 con intereses creados",
-      "Necesita implementación gradual y capacitación",
-      "Posible resistencia de colegios médicos tradicionales"
+      "Armonizar dos leyes diferentes (27.553 y 19.303)",
+      "Mantener controles de seguridad en formato digital",
+      "Capacitación masiva de médicos y farmacéuticos",
+      "Implementación gradual del sistema integrado"
     ],
-    impacto: "Crítico - afecta directamente a todos los pacientes con TDAH",
+    impacto: "Crítico - permitiría que los pacientes TDAH se beneficien completamente de la telemedicina",
     estado: "PROPUESTA - No presentada oficialmente",
-    accionNecesaria: "La comunidad TDAH debe impulsar que algún legislador presente esta reforma"
+    accionNecesaria: "Impulsar una reglamentación que integre ambas leyes para medicamentos controlados"
   }
 ]
 
 const problemasReales = [
   {
-    problema: "Receta triplicada manuscrita obligatoria",
-    descripcion: "Ley 19.303 exige recetas escritas a mano en triplicado para medicamentos TDAH",
-    impacto: "Pacientes deben ir al médico cada mes solo para renovar recetas",
-    solucion: "Permitir receta electrónica para tratamientos crónicos",
-    estado: "Regulado por Ley 19.303 - Requiere modificación",
+    problema: "Receta triplicada manuscrita obligatoria para medicamentos controlados",
+    descripcion: "Ley 19.303 exige recetas manuscritas para medicamentos TDAH, a pesar de que la Ley 27.553 permite recetas electrónicas para otros medicamentos",
+    impacto: "Pacientes TDAH no pueden usar telemedicina completamente - deben ir presencialmente para renovar recetas",
+    solucion: "Integrar Ley 27.553 con Ley 19.303 para medicamentos controlados",
+    estado: "Conflicto entre Ley 27.553 (2020) y Ley 19.303 (1971)",
   },
   {
     problema: "Sistema de prescripción arcaico",
@@ -602,10 +646,14 @@ export default function LegislacionPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="flex items-center text-sm text-gray-600">
                       <Calendar className="h-4 w-4 mr-2" />
                       Sancionada: {new Date(ley.fecha).toLocaleDateString("es-AR")}
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Clock className="h-4 w-4 mr-2" />
+                      Actualizada: {new Date(ley.ultimaActualizacion).toLocaleDateString("es-AR")}
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
                       <FileText className="h-4 w-4 mr-2" />
@@ -614,13 +662,9 @@ export default function LegislacionPage() {
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button size="sm">
-                      <Download className="h-4 w-4 mr-2" />
-                      Descargar
-                    </Button>
-                    <Button size="sm" variant="outline">
+                    <Button size="sm" onClick={() => window.open(ley.url, '_blank')}>
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver Original
+                      Ver Ley
                     </Button>
                   </div>
                 </CardContent>
