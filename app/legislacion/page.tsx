@@ -16,37 +16,41 @@ import {
 } from "lucide-react"
 import { Header } from "@/components/header"
 
+// Leyes ordenadas cronológicamente
 const leyes = [
   {
-    numero: "Ley 27.306",
-    titulo: "Ley Nacional de TDAH",
-    descripcion: "Establece el marco legal para la atención integral del TDAH en Argentina",
-    fecha: "2016-11-04",
+    numero: "Ley 17.565",
+    titulo: "Ley de Medicamentos",
+    descripcion: "Regula la actividad farmacéutica, farmacias y expendio de medicamentos en Argentina",
+    fecha: "1967-12-12",
     estado: "Vigente",
     tipo: "Nacional",
     organismo: "Congreso Nacional",
-    impactoReal: "alto",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/actualizacion",
-    ultimaActualizacion: "2016-11-04",
+    impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-17565-19424/actualizacion",
+    ultimaActualizacion: "2023-12-21",
     analisisIA: {
       beneficios: [
-        "Reconocimiento legal del TDAH como condición neurobiológica",
-        "Cobertura obligatoria del 100% por obras sociales",
-        "Marco legal sólido para exigir derechos",
+        "Regula la calidad y seguridad de medicamentos",
+        "Establece responsabilidades profesionales de farmacéuticos",
+        "Control de expendio de medicamentos controlados",
+        "Marco legal para funcionamiento de farmacias",
       ],
       problemas: [
-        "Implementación deficiente en la práctica",
-        "Falta de protocolos claros para médicos",
-        "Demoras en autorizaciones de tratamientos",
+        "No contempla especificidades del tratamiento TDAH",
+        "Burocracia adicional para medicamentos controlados",
+        "Falta de protocolos específicos para renovaciones",
+        "No diferencia medicamentos crónicos de agudos",
       ],
-      puntuacion: 8.5,
-      recomendacion: "Ley fundamental pero necesita mejor reglamentación",
+      puntuacion: 6.2,
+      recomendacion: "Ley base necesaria pero requiere adaptación para tratamientos crónicos como TDAH",
     },
     puntosClave: [
-      "Reconocimiento del TDAH como condición neurobiológica",
-      "Derecho a diagnóstico y tratamiento integral",
-      "Cobertura obligatoria por obras sociales y prepagas",
-      "Adaptaciones educativas necesarias",
+      "Licencias obligatorias para farmacias",
+      "Verificación de prescripciones médicas",
+      "Control de medicamentos controlados",
+      "Responsabilidad profesional de farmacéuticos",
+      "Mantenimiento de registros de dispensación",
     ],
   },
   {
@@ -86,6 +90,44 @@ const leyes = [
     ],
   },
   {
+    numero: "Ley 27.306",
+    titulo: "Abordaje Integral de Dificultades Específicas del Aprendizaje (DEA)",
+    descripcion: "Establece el marco legal para la atención integral de sujetos con dificultades específicas del aprendizaje, incluyendo TDAH",
+    fecha: "2016-11-04",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Congreso Nacional",
+    impactoReal: "alto",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/texto",
+    ultimaActualizacion: "2016-11-04",
+    analisisIA: {
+      beneficios: [
+        "Reconocimiento legal de DEA como alteraciones neurobiológicas",
+        "Cobertura sanitaria obligatoria para detección, diagnóstico y tratamiento",
+        "Adaptaciones curriculares específicas (tiempo extra, evaluaciones personalizadas)",
+        "Formación docente obligatoria para detección temprana",
+        "Incluye TDAH dentro del espectro de dificultades de aprendizaje",
+      ],
+      problemas: [
+        "No menciona específicamente 'TDAH' en el texto legal",
+        "Enfoque principalmente educativo, no médico",
+        "Falta de protocolos específicos para medicación",
+        "No aborda tratamiento farmacológico del TDAH",
+        "Implementación depende de reglamentación posterior",
+      ],
+      puntuacion: 7.1,
+      recomendacion: "Ley importante para aspectos educativos del TDAH, pero insuficiente para tratamiento médico integral",
+    },
+    puntosClave: [
+      "Definición de DEA como alteraciones neurobiológicas",
+      "Procedimientos de detección temprana en escuelas",
+      "Adaptaciones curriculares específicas (tiempo extra, evaluación oral)",
+      "Formación docente obligatoria",
+      "Cobertura sanitaria para detección, diagnóstico y tratamiento",
+      "Campañas de concientización y sensibilización",
+    ],
+  },
+  {
     numero: "Ley 27.553",
     titulo: "Ley de Recetas Electrónicas o Digitales",
     descripcion: "Establece el sistema de recetas electrónicas y telemedicina en Argentina",
@@ -121,6 +163,10 @@ const leyes = [
       "Plataformas de telemedicina reguladas",
     ],
   },
+]
+
+// Decretos ordenados cronológicamente
+const decretos = [
   {
     numero: "Decreto 432/2017",
     titulo: "Reglamentación de la Ley 27.306",
@@ -151,41 +197,6 @@ const leyes = [
       "Protocolos de tratamiento",
       "Obligaciones de obras sociales",
       "Mecanismos de control y seguimiento",
-    ],
-  },
-  {
-    numero: "Ley 17.565",
-    titulo: "Ley de Medicamentos",
-    descripcion: "Regula la actividad farmacéutica, farmacias y expendio de medicamentos en Argentina",
-    fecha: "1967-12-12",
-    estado: "Vigente",
-    tipo: "Nacional",
-    organismo: "Congreso Nacional",
-    impactoReal: "medio",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-17565-19424/actualizacion",
-    ultimaActualizacion: "2023-12-21",
-    analisisIA: {
-      beneficios: [
-        "Regula la calidad y seguridad de medicamentos",
-        "Establece responsabilidades profesionales de farmacéuticos",
-        "Control de expendio de medicamentos controlados",
-        "Marco legal para funcionamiento de farmacias",
-      ],
-      problemas: [
-        "No contempla especificidades del tratamiento TDAH",
-        "Burocracia adicional para medicamentos controlados",
-        "Falta de protocolos específicos para renovaciones",
-        "No diferencia medicamentos crónicos de agudos",
-      ],
-      puntuacion: 6.2,
-      recomendacion: "Ley base necesaria pero requiere adaptación para tratamientos crónicos como TDAH",
-    },
-    puntosClave: [
-      "Licencias obligatorias para farmacias",
-      "Verificación de prescripciones médicas",
-      "Control de medicamentos controlados",
-      "Responsabilidad profesional de farmacéuticos",
-      "Mantenimiento de registros de dispensación",
     ],
   },
 ]
@@ -594,7 +605,7 @@ export default function LegislacionPage() {
 
         {/* Current Laws */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Legislación Vigente - Análisis</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Leyes Vigentes - Análisis</h2>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -684,6 +695,106 @@ export default function LegislacionPage() {
                     <Button size="sm" onClick={() => window.open(ley.url, '_blank')}>
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Ver Ley
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Current Decrees */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Decretos Vigentes - Análisis</h2>
+          <div className="space-y-6">
+            {decretos.map((decreto, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <CardTitle className="text-xl">{decreto.numero}</CardTitle>
+                      <CardDescription className="text-base font-medium text-gray-900 mt-1">
+                        {decreto.titulo}
+                      </CardDescription>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Badge variant={decreto.estado === "Vigente" ? "default" : "secondary"}>{decreto.estado}</Badge>
+                      <Badge
+                        variant={
+                          decreto.impactoReal === "alto" ? "default" : decreto.impactoReal === "medio" ? "secondary" : "outline"
+                        }
+                      >
+                        Impacto {decreto.impactoReal}
+                      </Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700 mb-4">{decreto.descripcion}</p>
+
+                  {/* AI Analysis for Decrees */}
+                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="font-semibold flex items-center space-x-2">
+                        <Brain className="h-4 w-4" />
+                        <span>Análisis de Efectividad</span>
+                      </h4>
+                      <Badge variant={decreto.analisisIA.puntuacion >= 8 ? "default" : "secondary"}>
+                        {decreto.analisisIA.puntuacion}/10
+                      </Badge>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                      <div>
+                        <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Logros</h5>
+                        <ul className="space-y-1 text-sm">
+                          {decreto.analisisIA.beneficios.map((beneficio, idx) => (
+                            <li key={idx} className="flex items-start space-x-2">
+                              <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                              <span>{beneficio}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ Fallas</h5>
+                        <ul className="space-y-1 text-sm">
+                          {decreto.analisisIA.problemas.map((problema, idx) => (
+                            <li key={idx} className="flex items-start space-x-2">
+                              <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                              <span>{problema}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-md">
+                      <p className="font-medium text-sm">
+                        <strong>Análisis:</strong> {decreto.analisisIA.recomendacion}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      Sancionado: {new Date(decreto.fecha).toLocaleDateString("es-AR")}
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Clock className="h-4 w-4 mr-2" />
+                      Actualizado: {new Date(decreto.ultimaActualizacion).toLocaleDateString("es-AR")}
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <FileText className="h-4 w-4 mr-2" />
+                      Organismo: {decreto.organismo}
+                    </div>
+                  </div>
+
+                  <div className="flex space-x-2">
+                    <Button size="sm" onClick={() => window.open(decreto.url, '_blank')}>
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Ver Decreto
                     </Button>
                   </div>
                 </CardContent>
