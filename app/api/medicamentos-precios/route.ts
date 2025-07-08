@@ -112,12 +112,12 @@ function eliminarDuplicados(medicamentos: Medicamento[]): Medicamento[] {
 
 // Obtener medicamentos TDAH
 async function obtenerMedicamentosTDAH(): Promise<Medicamento[]> {
-  const terminos = ["atomoxetina", "metilfenidato"]
+  const terminos = ["atomoxetina", "metilfenidato", "modafinilo", "armodafinilo", "bupropion"]
   const resultados: Medicamento[] = []
 
   console.log("🌐 Consultando Farmacity...")
 
-  // Buscar ambos términos en paralelo
+  // Buscar todos los términos en paralelo
   const promesas = terminos.map((termino) =>
     obtenerMedicamentos(termino).catch((error) => {
       console.warn(`⚠️ Error para ${termino}:`, error.message)
