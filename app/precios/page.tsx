@@ -240,6 +240,14 @@ export default function PreciosPage() {
                     >
                       FDA Aprobados - Estimulantes
                     </Badge>
+                    <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950">
+                      <AlertCircle className="h-4 w-4 text-blue-600" />
+                      <AlertDescription className="text-blue-800 dark:text-blue-200">
+                        <strong>Nota importante:</strong> Otros estimulantes como Adderall (anfetamina mixta) y Vyvanse
+                        (lisdexanfetamina) están aprobados por FDA para TDAH pero no están disponibles en Argentina.
+                        Solo el metilfenidato está comercializado en el país.
+                      </AlertDescription>
+                    </Alert>
                   </div>
 
                   {Object.entries(medicamentosAgrupados.estimulantes).map(([principio, meds]) => (
