@@ -9,11 +9,9 @@ import { useState } from "react"
 
 const navigationItems = [
   { href: "/precios", label: "Precios" },
-  { href: "/guias", label: "Guías" },
   { href: "/medicos", label: "Médicos" },
   { href: "/diagnosticos", label: "Diagnósticos" },
   { href: "/legislacion", label: "Legislación" },
-  { href: "/investigacion", label: "Investigación" },
 ]
 
 export function Header() {

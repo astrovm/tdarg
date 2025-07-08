@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Heart, Users, FileText, Stethoscope, Scale, GraduationCap, TrendingUp, AlertCircle } from "lucide-react"
+import { Heart, Users, Stethoscope, Scale, TrendingUp, AlertCircle } from "lucide-react"
 import { Header } from "@/components/header"
 
 export default function HomePage() {
@@ -18,14 +18,14 @@ export default function HomePage() {
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
             Tu recurso integral para información actualizada sobre el Trastorno por Déficit de Atención e
-            Hiperactividad. Precios oficiales, guías médicas, legislación y más.
+            Hiperactividad. Precios oficiales, directorio médico, diagnósticos y análisis legislativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <Link href="/precios">Ver Precios de Medicamentos</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/guias">Consultar Guías</Link>
+              <Link href="/legislacion">Análisis de Legislación</Link>
             </Button>
           </div>
         </div>
@@ -75,18 +75,6 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <FileText className="h-8 w-8 text-green-600 mb-2" />
-                <CardTitle>Guías Clínicas</CardTitle>
-                <CardDescription>Guías de diagnóstico y tratamiento basadas en evidencia científica</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button asChild className="w-full">
-                  <Link href="/guias">Consultar Guías</Link>
-                </Button>
-              </CardContent>
-            </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
@@ -127,18 +115,6 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <GraduationCap className="h-8 w-8 text-indigo-600 mb-2" />
-                <CardTitle>Investigación</CardTitle>
-                <CardDescription>Papers y estudios científicos sobre TDAH</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button asChild className="w-full">
-                  <Link href="/investigacion">Ver Papers</Link>
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
@@ -181,11 +157,6 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/guias" className="hover:text-white">
-                    Guías
-                  </Link>
-                </li>
-                <li>
                   <Link href="/medicos" className="hover:text-white">
                     Médicos
                   </Link>
@@ -203,11 +174,6 @@ export default function HomePage() {
                 <li>
                   <Link href="/legislacion" className="hover:text-white">
                     Legislación
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/investigacion" className="hover:text-white">
-                    Investigación
                   </Link>
                 </li>
               </ul>

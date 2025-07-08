@@ -47,6 +47,40 @@ const leyes = [
     ],
   },
   {
+    numero: "Ley 19.303",
+    titulo: "Ley de Psicotrópicos",
+    descripcion: "Regula la fabricación, distribución y uso de sustancias psicotrópicas incluyendo medicamentos para TDAH",
+    fecha: "1971-10-28",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Congreso Nacional",
+    impactoReal: "medio",
+    analisisIA: {
+      beneficios: [
+        "Regulación de calidad de medicamentos psicotrópicos",
+        "Prevención de uso indebido de estimulantes",
+        "Control farmacológico estricto",
+        "Seguimiento médico cercano obligatorio",
+      ],
+      problemas: [
+        "Proceso burocrático complejo para recetas",
+        "Receta triplicada manuscrita obligatoria",
+        "Prohibición de repetición sin nueva consulta médica",
+        "Costos administrativos adicionales para pacientes",
+        "Archivo de recetas por 2 años genera burocracia",
+      ],
+      puntuacion: 6.8,
+      recomendacion: "Ley necesaria pero requiere modernización digital urgente para medicamentos crónicos como TDAH",
+    },
+    puntosClave: [
+      "Clasificación de medicamentos TDAH en listas controladas",
+      "Receta triplicada manuscrita obligatoria",
+      "Prescripción exclusiva por médicos matriculados",
+      "Despacho por única vez sin repetición",
+      "Control estricto de cantidades dispensadas",
+    ],
+  },
+  {
     numero: "Decreto 432/2017",
     titulo: "Reglamentación de la Ley 27.306",
     descripcion: "Reglamenta la aplicación de la Ley Nacional de TDAH",
@@ -139,7 +173,37 @@ const proyectosActuales = [
   },
 ]
 
+const propuestasNecesarias = [
+  {
+    titulo: "Reforma a la Ley 19.303 - Modernización de Prescripción de Psicotrópicos para TDAH",
+    descripcion: "Propuesta para reformar la Ley 19.303 permitiendo receta electrónica y renovaciones automáticas para tratamientos crónicos como TDAH",
+    problemaQueResuelve: "Receta triplicada manuscrita obligatoria y prohibición de repetición",
+    beneficiosEsperados: [
+      "Eliminación de receta triplicada manuscrita para TDAH",
+      "Receta electrónica con firma digital médica",
+      "Renovaciones automáticas para pacientes estables",
+      "Reducción de costos y tiempo para pacientes",
+      "Modernización del sistema farmacológico"
+    ],
+    desafios: [
+      "Requiere modificar ley de 1971 con intereses creados",
+      "Necesita implementación gradual y capacitación",
+      "Posible resistencia de colegios médicos tradicionales"
+    ],
+    impacto: "Crítico - afecta directamente a todos los pacientes con TDAH",
+    estado: "PROPUESTA - No presentada oficialmente",
+    accionNecesaria: "La comunidad TDAH debe impulsar que algún legislador presente esta reforma"
+  }
+]
+
 const problemasReales = [
+  {
+    problema: "Receta triplicada manuscrita obligatoria",
+    descripcion: "Ley 19.303 exige recetas escritas a mano en triplicado para medicamentos TDAH",
+    impacto: "Pacientes deben ir al médico cada mes solo para renovar recetas",
+    solucion: "Permitir receta electrónica para tratamientos crónicos",
+    estado: "Regulado por Ley 19.303 - Requiere modificación",
+  },
   {
     problema: "Sistema de prescripción arcaico",
     descripcion: "Médicos deben completar formularios en papel, con múltiples sellos y autorizaciones",
@@ -148,17 +212,17 @@ const problemasReales = [
     estado: "Sin proyecto de ley",
   },
   {
+    problema: "Prohibición de repetición de recetas",
+    descripcion: "Ley 19.303 prohíbe dispensar medicamentos TDAH sin nueva consulta médica",
+    impacto: "Costos mensuales adicionales y tiempo perdido en consultas innecesarias",
+    solucion: "Permitir renovaciones automáticas para pacientes estables",
+    estado: "Regulado por Ley 19.303 - Requiere modificación",
+  },
+  {
     problema: "Falta de médicos especializados",
     descripcion: "Pocos profesionales capacitados en TDAH adulto",
     impacto: "Listas de espera de meses para diagnóstico",
     solucion: "Programa de capacitación masiva",
-    estado: "Sin proyecto de ley",
-  },
-  {
-    problema: "Medicación desabastecida",
-    descripcion: "Frecuentes faltantes de atomoxetina y metilfenidato",
-    impacto: "Interrupción de tratamientos",
-    solucion: "Reserva estratégica nacional",
     estado: "Sin proyecto de ley",
   },
 ]
@@ -350,10 +414,90 @@ export default function LegislacionPage() {
           </div>
         </div>
 
+        {/* Propuestas Necesarias */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Propuestas Legislativas Necesarias
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            Proyectos de ley que la comunidad TDAH debe impulsar para resolver problemas reales
+          </p>
+          <div className="space-y-6">
+            {propuestasNecesarias.map((propuesta, index) => (
+              <Card key={index} className="border-orange-500 dark:border-orange-400 bg-orange-50 dark:bg-orange-900/10">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <CardTitle className="text-xl text-orange-900 dark:text-orange-100">
+                        {propuesta.titulo}
+                      </CardTitle>
+                      <CardDescription className="text-base font-medium text-orange-800 dark:text-orange-200 mt-1">
+                        {propuesta.descripcion}
+                      </CardDescription>
+                    </div>
+                    <Badge variant="outline" className="border-orange-500 text-orange-700 dark:text-orange-300">
+                      {propuesta.estado}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-red-700 dark:text-red-400 mb-2">
+                      🎯 Problema que resuelve:
+                    </h5>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                      {propuesta.problemaQueResuelve}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Beneficios esperados</h5>
+                      <ul className="space-y-1 text-sm">
+                        {propuesta.beneficiosEsperados.map((beneficio, idx) => (
+                          <li key={idx} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{beneficio}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-amber-700 dark:text-amber-400 mb-2">⚠️ Desafíos</h5>
+                      <ul className="space-y-1 text-sm">
+                        {propuesta.desafios.map((desafio, idx) => (
+                          <li key={idx} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{desafio}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-blue-600 dark:text-blue-400 font-semibold">Impacto:</div>
+                      <div className="text-blue-800 dark:text-blue-200">{propuesta.impacto}</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-purple-600 dark:text-purple-400 font-semibold">Acción necesaria:</div>
+                      <div className="text-purple-800 dark:text-purple-200">{propuesta.accionNecesaria}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Real Problems Ignored */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Problemas Reales Ignorados por el Congreso
+            Problemas Reales Identificados
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {problemasReales.map((item, index) => (
