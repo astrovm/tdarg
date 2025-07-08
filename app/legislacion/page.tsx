@@ -199,6 +199,42 @@ const decretos = [
       "Mecanismos de control y seguimiento",
     ],
   },
+  {
+    numero: "Decreto 345/2024",
+    titulo: "Digitalización de Recetas Médicas",
+    descripcion: "Establece la obligatoriedad de recetas electrónicas y digitaliza el sistema de prescripción médica",
+    fecha: "2024-04-22",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Poder Ejecutivo Nacional",
+    impactoReal: "alto",
+    url: "https://www.argentina.gob.ar/normativa/nacional/decreto-345-2024-398297/texto",
+    ultimaActualizacion: "2024-04-22",
+    analisisIA: {
+      beneficios: [
+        "Digitalización completa del sistema de prescripciones",
+        "Registro unificado de recetas electrónicas",
+        "Mejora la eficiencia en dispensación de medicamentos",
+        "Facilita seguimiento de tratamientos crónicos como TDAH",
+        "Reduce errores de prescripción y falsificaciones",
+      ],
+      problemas: [
+        "Requiere adaptación tecnológica masiva",
+        "Posible resistencia de médicos y farmacéuticos",
+        "Necesita infraestructura digital en todo el país",
+        "No resuelve conflicto con receta triplicada de Ley 19.303",
+      ],
+      puntuacion: 8.7,
+      recomendacion: "Decreto muy positivo para TDAH - moderniza sistema pero necesita integración con leyes existentes",
+    },
+    puntosClave: [
+      "Recetas electrónicas obligatorias a nivel nacional",
+      "Registro centralizado de prescripciones",
+      "Dispensación de medicamentos por canales electrónicos",
+      "Interoperabilidad entre plataformas de salud",
+      "Seguridad y protección de datos médicos",
+    ],
+  },
 ]
 
 const proyectosActuales = [
