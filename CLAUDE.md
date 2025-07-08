@@ -8,7 +8,7 @@ This is a Next.js 15 application called "TDAH Argentina" - a comprehensive infor
 
 ## Development Commands
 
-```bash
+\`\`\`bash
 # Install dependencies
 bun install
 
@@ -23,7 +23,7 @@ bun start
 
 # Lint code
 bun lint
-```
+\`\`\`
 
 ## Architecture Overview
 
@@ -44,7 +44,7 @@ bun lint
 
 ### Application Structure
 
-```
+\`\`\`
 app/
 ├── api/
 │   ├── legislacion-tracker/   # AI legislation tracking endpoint
@@ -53,7 +53,7 @@ app/
 ├── legislacion/               # Legislation analysis and tracking
 ├── medicos/                   # Medical professionals directory
 └── precios/                   # Medication pricing interface
-```
+\`\`\`
 
 ### Key Components
 

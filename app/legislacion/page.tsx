@@ -15,6 +15,7 @@ import {
   Clock,
 } from "lucide-react"
 import { Header } from "@/components/header"
+import { useLegislacionTracker } from "@/hooks/use-legislacion-tracker"
 
 // Leyes ordenadas de más recientes a más antiguas
 const leyes = [
@@ -57,7 +58,8 @@ const leyes = [
   {
     numero: "Ley 27.306",
     titulo: "Abordaje Integral de Dificultades Específicas del Aprendizaje (DEA)",
-    descripcion: "Establece el marco legal para la atención integral de sujetos con dificultades específicas del aprendizaje, incluyendo TDAH",
+    descripcion:
+      "Establece el marco legal para la atención integral de sujetos con dificultades específicas del aprendizaje, incluyendo TDAH",
     fecha: "2016-11-04",
     estado: "Vigente",
     tipo: "Nacional",
@@ -81,7 +83,8 @@ const leyes = [
         "Implementación depende de reglamentación posterior",
       ],
       puntuacion: 7.1,
-      recomendacion: "Ley importante para aspectos educativos del TDAH, pero insuficiente para tratamiento médico integral",
+      recomendacion:
+        "Ley importante para aspectos educativos del TDAH, pero insuficiente para tratamiento médico integral",
     },
     puntosClave: [
       "Definición de DEA como alteraciones neurobiológicas",
@@ -95,7 +98,8 @@ const leyes = [
   {
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
-    descripcion: "Regula la fabricación, distribución y uso de sustancias psicotrópicas incluyendo medicamentos para TDAH",
+    descripcion:
+      "Regula la fabricación, distribución y uso de sustancias psicotrópicas incluyendo medicamentos para TDAH",
     fecha: "1971-10-28",
     estado: "Vigente",
     tipo: "Nacional",
@@ -193,7 +197,8 @@ const decretos = [
         "No resuelve conflicto con receta triplicada de Ley 19.303",
       ],
       puntuacion: 8.7,
-      recomendacion: "Decreto muy positivo para TDAH - moderniza sistema pero necesita integración con leyes existentes",
+      recomendacion:
+        "Decreto muy positivo para TDAH - moderniza sistema pero necesita integración con leyes existentes",
     },
     puntosClave: [
       "Recetas electrónicas obligatorias a nivel nacional",
@@ -242,7 +247,8 @@ const resoluciones = [
   {
     numero: "Resolución 5744/2024",
     titulo: "Repositorios de Recetas Electrónicas",
-    descripcion: "Regula los repositorios de recetas electrónicas y mejora la interoperabilidad del sistema de prescripciones",
+    descripcion:
+      "Regula los repositorios de recetas electrónicas y mejora la interoperabilidad del sistema de prescripciones",
     fecha: "2024-11-29",
     estado: "Vigente",
     tipo: "Nacional",
@@ -265,7 +271,8 @@ const resoluciones = [
         "Depende de adopción por parte de farmacias",
       ],
       puntuacion: 8.4,
-      recomendacion: "Resolución muy positiva - complementa perfectamente el Decreto 345/2024 para modernizar el sistema",
+      recomendacion:
+        "Resolución muy positiva - complementa perfectamente el Decreto 345/2024 para modernizar el sistema",
     },
     puntosClave: [
       "Repositorios de recetas accesibles a todas las plataformas",
@@ -277,94 +284,55 @@ const resoluciones = [
   },
 ]
 
-const proyectosActuales = [
-  {
-    titulo: "Proyecto de Resolución - Día Nacional del TDAH",
-    descripcion: "Propone establecer el 13 de julio como Día Nacional del TDAH",
-    estado: "En tratamiento",
-    camara: "Senado",
-    fecha: "2024-01-20",
-    autor: "Sen. Carlos Rodríguez",
-    impactoReal: "bajo",
-    analisisIA: {
-      beneficios: ["Mayor visibilidad del TDAH", "Posible concientización social"],
-      problemas: [
-        "No resuelve problemas reales",
-        "Distrae de temas prioritarios",
-        "Gasto público innecesario en eventos",
-      ],
-      puntuacion: 3.1,
-      recomendacion: "PROYECTO IRRELEVANTE - Priorizar otros temas",
-    },
-    urgencia: "baja",
-  },
-  {
-    titulo: "Proyecto de Ley - Registro Nacional de TDAH",
-    descripcion: "Propone crear un registro nacional obligatorio de personas con TDAH",
-    estado: "Presentado",
-    camara: "Diputados",
-    fecha: "2023-11-10",
-    autor: "Dip. Ana Martínez",
-    impactoReal: "negativo",
-    analisisIA: {
-      beneficios: ["Posibles estadísticas para políticas públicas"],
-      problemas: [
-        "GRAVE RIESGO DE PRIVACIDAD",
-        "Posible discriminación laboral/educativa",
-        "Estigmatización de pacientes",
-        "Costo elevado sin beneficio real",
-        "Violación de datos médicos sensibles",
-      ],
-      puntuacion: 1.8,
-      recomendacion: "PROYECTO PELIGROSO - Oponerse activamente",
-    },
-    urgencia: "critica",
-  },
-]
-
 const propuestasNecesarias = [
   {
     titulo: "Integración de Ley 27.553 con Ley 19.303 - Recetas Electrónicas para Medicamentos Controlados TDAH",
-    descripcion: "Propuesta para actualizar la Ley 19.303 para que sea compatible con la Ley 27.553 de recetas electrónicas, permitiendo prescripciones digitales para medicamentos controlados como metilfenidato y atomoxetina",
-    problemaQueResuelve: "La Ley 27.553 permite recetas electrónicas, pero la Ley 19.303 aún exige receta triplicada manuscrita para medicamentos TDAH",
+    descripcion:
+      "Propuesta para actualizar la Ley 19.303 para que sea compatible con la Ley 27.553 de recetas electrónicas, permitiendo prescripciones digitales para medicamentos controlados como metilfenidato y atomoxetina",
+    problemaQueResuelve:
+      "La Ley 27.553 permite recetas electrónicas, pero la Ley 19.303 aún exige receta triplicada manuscrita para medicamentos TDAH",
     beneficiosEsperados: [
       "Aplicación de receta electrónica (Ley 27.553) a medicamentos controlados TDAH",
       "Eliminación de receta triplicada manuscrita manteniendo control de seguridad",
       "Firma digital médica para prescripciones de psicotrópicos",
       "Renovaciones electrónicas para pacientes estables",
-      "Integración completa entre telemedicina y medicamentos controlados"
+      "Integración completa entre telemedicina y medicamentos controlados",
     ],
     desafios: [
       "Armonizar dos leyes diferentes (27.553 y 19.303)",
       "Mantener controles de seguridad en formato digital",
       "Capacitación masiva de médicos y farmacéuticos",
-      "Implementación gradual del sistema integrado"
+      "Implementación gradual del sistema integrado",
     ],
     impacto: "Crítico - permitiría que los pacientes TDAH se beneficien completamente de la telemedicina",
     estado: "PROPUESTA - No presentada oficialmente",
-    accionNecesaria: "Impulsar una reglamentación que integre ambas leyes para medicamentos controlados"
-  }
+    accionNecesaria: "Impulsar una reglamentación que integre ambas leyes para medicamentos controlados",
+  },
 ]
 
 const problemasReales = [
   {
     problema: "🚨 CRÍTICO 2025: Te siguen pidiendo receta triplicada manuscrita",
-    descripcion: "TÉCNICAMENTE es legal usar receta electrónica (Artículo 18 bis de Ley 19.303), PERO las farmacias siguen pidiendo papel porque los artículos 43-44 contradicen esto y falta reglamentación clara de la 'autoridad de aplicación'",
-    impacto: "Artículo 18 bis permite recetas electrónicas, pero farmacias tienen miedo a infracciones por la confusión legal entre artículos contradictorios",
-    solucion: "Reglamentación clara del artículo 18 bis + capacitación a farmacias + armonizar artículos 43-44 con recetas electrónicas",
+    descripcion:
+      "TÉCNICAMENTE es legal usar receta electrónica (Artículo 18 bis de Ley 19.303), PERO las farmacias siguen pidiendo papel porque los artículos 43-44 contradicen esto y falta reglamentación clara de la 'autoridad de aplicación'",
+    impacto:
+      "Artículo 18 bis permite recetas electrónicas, pero farmacias tienen miedo a infracciones por la confusión legal entre artículos contradictorios",
+    solucion:
+      "Reglamentación clara del artículo 18 bis + capacitación a farmacias + armonizar artículos 43-44 con recetas electrónicas",
     estado: "URGENTE - Ley permite recetas electrónicas pero implementación práctica falla",
     esUrgente: true,
     articulosAfectados: [
-      "Artículo 18 bis: 'recetas redactadas electrónicamente' ✅ PERMITE", 
+      "Artículo 18 bis: 'recetas redactadas electrónicamente' ✅ PERMITE",
       "Artículo 43: 'Las recetas serán manuscritas... por triplicado' ❌ CONTRADICE",
-      "Artículo 44: 'Se despacharán por una sola vez... sin repetición' ❌ CONTRADICE"
+      "Artículo 44: 'Se despacharán por una sola vez... sin repetición' ❌ CONTRADICE",
     ],
     urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
-    problemaReal: "Falta de conocimiento y reglamentación del artículo 18 bis (2020)"
+    problemaReal: "Falta de conocimiento y reglamentación del artículo 18 bis (2020)",
   },
   {
     problema: "Receta triplicada manuscrita obligatoria para medicamentos controlados",
-    descripcion: "Ley 19.303 exige recetas manuscritas para medicamentos TDAH, a pesar de que la Ley 27.553 permite recetas electrónicas para otros medicamentos",
+    descripcion:
+      "Ley 19.303 exige recetas manuscritas para medicamentos TDAH, a pesar de que la Ley 27.553 permite recetas electrónicas para otros medicamentos",
     impacto: "Pacientes TDAH no pueden usar telemedicina completamente - deben ir presencialmente para renovar recetas",
     solucion: "Integrar Ley 27.553 con Ley 19.303 para medicamentos controlados",
     estado: "Conflicto entre Ley 27.553 (2020) y Ley 19.303 (1971)",
@@ -393,6 +361,8 @@ const problemasReales = [
 ]
 
 export default function LegislacionPage() {
+  const { proyectos, loading, error, refresh } = useLegislacionTracker()
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
@@ -409,21 +379,25 @@ export default function LegislacionPage() {
           </p>
         </div>
 
-
         {/* Real Problems Ignored - NOW AT TOP */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Problemas Reales Identificados
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Problemas Reales Identificados</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {problemasReales.map((item, index) => (
-              <Card key={index} className={`${item.esUrgente ? 'border-red-500 bg-red-50 dark:bg-red-900/20' : 'border-orange-200 dark:border-orange-800'}`}>
+              <Card
+                key={index}
+                className={`${item.esUrgente ? "border-red-500 bg-red-50 dark:bg-red-900/20" : "border-orange-200 dark:border-orange-800"}`}
+              >
                 <CardHeader>
-                  <CardTitle className={`text-lg flex items-center space-x-2 ${item.esUrgente ? 'text-red-900 dark:text-red-100' : ''}`}>
-                    <Clock className={`h-5 w-5 ${item.esUrgente ? 'text-red-600' : 'text-orange-600'}`} />
+                  <CardTitle
+                    className={`text-lg flex items-center space-x-2 ${item.esUrgente ? "text-red-900 dark:text-red-100" : ""}`}
+                  >
+                    <Clock className={`h-5 w-5 ${item.esUrgente ? "text-red-600" : "text-orange-600"}`} />
                     <span>{item.problema}</span>
                   </CardTitle>
-                  <CardDescription className={item.esUrgente ? 'text-red-800 dark:text-red-200' : ''}>{item.descripcion}</CardDescription>
+                  <CardDescription className={item.esUrgente ? "text-red-800 dark:text-red-200" : ""}>
+                    {item.descripcion}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
@@ -440,7 +414,10 @@ export default function LegislacionPage() {
                         <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-1">Conflicto Legal</h5>
                         <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
                           {item.articulosAfectados.map((articulo, idx) => (
-                            <li key={idx} className={`${articulo.includes('✅') ? 'text-green-600 dark:text-green-400' : articulo.includes('❌') ? 'text-red-600 dark:text-red-400' : ''}`}>
+                            <li
+                              key={idx}
+                              className={`${articulo.includes("✅") ? "text-green-600 dark:text-green-400" : articulo.includes("❌") ? "text-red-600 dark:text-red-400" : ""}`}
+                            >
                               • {articulo}
                             </li>
                           ))}
@@ -457,7 +434,12 @@ export default function LegislacionPage() {
                       {item.estado}
                     </Badge>
                     {item.urlLey && (
-                      <Button size="sm" variant="outline" className="w-full" onClick={() => window.open(item.urlLey, '_blank')}>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="w-full bg-transparent"
+                        onClick={() => window.open(item.urlLey, "_blank")}
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Ver Ley Completa
                       </Button>
@@ -502,59 +484,59 @@ export default function LegislacionPage() {
         {/* Current Projects Analysis */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Proyectos Actuales - Análisis IA</h2>
-          <div className="space-y-6">
-            {proyectosActuales.map((proyecto, index) => (
-              <Card
-                key={index}
-                className={`hover:shadow-lg transition-shadow ${
-                  proyecto.impactoReal === "alto"
-                    ? "border-green-200 dark:border-green-800"
-                    : proyecto.impactoReal === "negativo"
-                      ? "border-red-200 dark:border-red-800"
-                      : "border-yellow-200 dark:border-yellow-800"
-                }`}
-              >
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-xl flex items-center space-x-2">
-                        <span>{proyecto.titulo}</span>
-                        {proyecto.impactoReal === "alto" && <CheckCircle className="h-5 w-5 text-green-600" />}
-                        {proyecto.impactoReal === "negativo" && <XCircle className="h-5 w-5 text-red-600" />}
-                        {proyecto.impactoReal === "bajo" && <AlertTriangle className="h-5 w-5 text-yellow-600" />}
-                      </CardTitle>
-                      <CardDescription className="text-base font-medium text-gray-900 mt-1">
-                        {proyecto.descripcion}
-                      </CardDescription>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Badge variant={proyecto.estado === "En comisión" ? "default" : "secondary"}>
-                        {proyecto.estado}
-                      </Badge>
-                      <Badge
-                        variant={
-                          proyecto.urgencia === "alta"
-                            ? "destructive"
-                            : proyecto.urgencia === "critica"
-                              ? "destructive"
-                              : "outline"
-                        }
-                      >
-                        {proyecto.urgencia === "critica" ? "CRÍTICO" : proyecto.urgencia?.toUpperCase()}
-                      </Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  {/* AI Analysis */}
-                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-semibold flex items-center space-x-2">
-                        <Brain className="h-4 w-4" />
-                        <span>Análisis IA</span>
-                      </h4>
+          {loading ? (
+            <div className="space-y-4">
+              {[1, 2, 3].map((i) => (
+                <Card key={i} className="animate-pulse">
+                  <CardHeader>
+                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
+                    <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : error ? (
+            <div className="text-red-600">Error: {error}</div>
+          ) : (
+            <div className="space-y-6">
+              {proyectos.map((proyecto, index) => (
+                <Card
+                  key={index}
+                  className={`hover:shadow-lg transition-shadow ${
+                    proyecto.analisisIA.impactoReal === "alto"
+                      ? "border-green-200 dark:border-green-800"
+                      : proyecto.analisisIA.impactoReal === "negativo"
+                        ? "border-red-200 dark:border-red-800"
+                        : "border-yellow-200 dark:border-yellow-800"
+                  }`}
+                >
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle className="text-xl flex items-center space-x-2">
+                          <span>{proyecto.titulo}</span>
+                          {proyecto.analisisIA.impactoReal === "alto" && (
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          )}
+                          {proyecto.analisisIA.impactoReal === "negativo" && (
+                            <XCircle className="h-5 w-5 text-red-600" />
+                          )}
+                          {proyecto.analisisIA.impactoReal === "bajo" && (
+                            <AlertTriangle className="h-5 w-5 text-yellow-600" />
+                          )}
+                        </CardTitle>
+                        <CardDescription className="text-base font-medium text-gray-900 mt-1">
+                          {proyecto.descripcion}
+                        </CardDescription>
+                      </div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-sm text-gray-600">Puntuación:</span>
+                        <Badge variant={proyecto.estado === "En comisión" ? "default" : "secondary"}>
+                          {proyecto.estado}
+                        </Badge>
                         <Badge
                           variant={
                             proyecto.analisisIA.puntuacion >= 8
@@ -568,82 +550,91 @@ export default function LegislacionPage() {
                         </Badge>
                       </div>
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                      <div>
-                        <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Beneficios</h5>
-                        <ul className="space-y-1 text-sm">
-                          {proyecto.analisisIA.beneficios.map((beneficio, idx) => (
-                            <li key={idx} className="flex items-start space-x-2">
-                              <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{beneficio}</span>
-                            </li>
-                          ))}
-                        </ul>
+                  </CardHeader>
+                  <CardContent>
+                    {/* AI Analysis */}
+                    <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="font-semibold flex items-center space-x-2">
+                          <Brain className="h-4 w-4" />
+                          <span>Análisis IA</span>
+                        </h4>
                       </div>
-                      <div>
-                        <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ Problemas</h5>
-                        <ul className="space-y-1 text-sm">
-                          {proyecto.analisisIA.problemas.map((problema, idx) => (
-                            <li key={idx} className="flex items-start space-x-2">
-                              <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{problema}</span>
-                            </li>
-                          ))}
-                        </ul>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                        <div>
+                          <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Beneficios</h5>
+                          <ul className="space-y-1 text-sm">
+                            {proyecto.analisisIA.beneficios.map((beneficio, idx) => (
+                              <li key={idx} className="flex items-start space-x-2">
+                                <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <span>{beneficio}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ Problemas</h5>
+                          <ul className="space-y-1 text-sm">
+                            {proyecto.analisisIA.problemas.map((problema, idx) => (
+                              <li key={idx} className="flex items-start space-x-2">
+                                <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <span>{problema}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div
+                        className={`p-3 rounded-md ${
+                          proyecto.analisisIA.puntuacion >= 8
+                            ? "bg-green-100 dark:bg-green-900/20"
+                            : proyecto.analisisIA.puntuacion >= 5
+                              ? "bg-yellow-100 dark:bg-yellow-900/20"
+                              : "bg-red-100 dark:bg-red-900/20"
+                        }`}
+                      >
+                        <p className="font-medium text-sm">
+                          <strong>Recomendación IA:</strong> {proyecto.analisisIA.recomendacion}
+                        </p>
                       </div>
                     </div>
 
-                    <div
-                      className={`p-3 rounded-md ${
-                        proyecto.analisisIA.puntuacion >= 8
-                          ? "bg-green-100 dark:bg-green-900/20"
-                          : proyecto.analisisIA.puntuacion >= 5
-                            ? "bg-yellow-100 dark:bg-yellow-900/20"
-                            : "bg-red-100 dark:bg-red-900/20"
-                      }`}
-                    >
-                      <p className="font-medium text-sm">
-                        <strong>Recomendación IA:</strong> {proyecto.analisisIA.recomendacion}
-                      </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        {new Date(proyecto.fecha).toLocaleDateString("es-AR")}
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <FileText className="h-4 w-4 mr-2" />
+                        {proyecto.autor}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      {new Date(proyecto.fecha).toLocaleDateString("es-AR")}
+                    <div className="flex space-x-2">
+                      <Button size="sm" variant={proyecto.analisisIA.impactoReal === "alto" ? "default" : "outline"}>
+                        {proyecto.analisisIA.impactoReal === "alto"
+                          ? "Apoyar Proyecto"
+                          : proyecto.analisisIA.impactoReal === "negativo"
+                            ? "Oponerse"
+                            : "Ver Detalles"}
+                      </Button>
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Seguir en Congreso
+                      </Button>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <FileText className="h-4 w-4 mr-2" />
-                      {proyecto.autor}
-                    </div>
-                  </div>
-
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant={proyecto.impactoReal === "alto" ? "default" : "outline"}>
-                      {proyecto.impactoReal === "alto"
-                        ? "Apoyar Proyecto"
-                        : proyecto.impactoReal === "negativo"
-                          ? "Oponerse"
-                          : "Ver Detalles"}
-                    </Button>
-                    <Button size="sm" variant="outline">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Seguir en Congreso
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Propuestas Necesarias */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Propuestas Legislativas Necesarias
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Propuestas Legislativas Necesarias</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Proyectos de ley que la comunidad TDAH debe impulsar para resolver problemas reales
           </p>
@@ -653,9 +644,7 @@ export default function LegislacionPage() {
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div>
-                      <CardTitle className="text-xl text-orange-900 dark:text-orange-100">
-                        {propuesta.titulo}
-                      </CardTitle>
+                      <CardTitle className="text-xl text-orange-900 dark:text-orange-100">{propuesta.titulo}</CardTitle>
                       <CardDescription className="text-base font-medium text-orange-800 dark:text-orange-200 mt-1">
                         {propuesta.descripcion}
                       </CardDescription>
@@ -667,12 +656,8 @@ export default function LegislacionPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="mb-4">
-                    <h5 className="font-semibold text-red-700 dark:text-red-400 mb-2">
-                      🎯 Problema que resuelve:
-                    </h5>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
-                      {propuesta.problemaQueResuelve}
-                    </p>
+                    <h5 className="font-semibold text-red-700 dark:text-red-400 mb-2">🎯 Problema que resuelve:</h5>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{propuesta.problemaQueResuelve}</p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -712,41 +697,6 @@ export default function LegislacionPage() {
                       <div className="text-purple-600 dark:text-purple-400 font-semibold">Acción necesaria:</div>
                       <div className="text-purple-800 dark:text-purple-200">{propuesta.accionNecesaria}</div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Real Problems Ignored */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            Problemas Reales Identificados
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {problemasReales.map((item, index) => (
-              <Card key={index} className="border-orange-200 dark:border-orange-800">
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center space-x-2">
-                    <Clock className="h-5 w-5 text-orange-600" />
-                    <span>{item.problema}</span>
-                  </CardTitle>
-                  <CardDescription>{item.descripcion}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h5 className="font-medium text-red-700 dark:text-red-400 mb-1">Impacto Actual</h5>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{item.impacto}</p>
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-1">Solución Propuesta</h5>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{item.solucion}</p>
-                    </div>
-                    <Badge variant="destructive" className="w-full justify-center">
-                      {item.estado}
-                    </Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -843,7 +793,7 @@ export default function LegislacionPage() {
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button size="sm" onClick={() => window.open(ley.url, '_blank')}>
+                    <Button size="sm" onClick={() => window.open(ley.url, "_blank")}>
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Ver Ley
                     </Button>
@@ -872,7 +822,11 @@ export default function LegislacionPage() {
                       <Badge variant={decreto.estado === "Vigente" ? "default" : "secondary"}>{decreto.estado}</Badge>
                       <Badge
                         variant={
-                          decreto.impactoReal === "alto" ? "default" : decreto.impactoReal === "medio" ? "secondary" : "outline"
+                          decreto.impactoReal === "alto"
+                            ? "default"
+                            : decreto.impactoReal === "medio"
+                              ? "secondary"
+                              : "outline"
                         }
                       >
                         Impacto {decreto.impactoReal}
@@ -943,7 +897,7 @@ export default function LegislacionPage() {
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button size="sm" onClick={() => window.open(decreto.url, '_blank')}>
+                    <Button size="sm" onClick={() => window.open(decreto.url, "_blank")}>
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Ver Decreto
                     </Button>
@@ -969,10 +923,16 @@ export default function LegislacionPage() {
                       </CardDescription>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Badge variant={resolucion.estado === "Vigente" ? "default" : "secondary"}>{resolucion.estado}</Badge>
+                      <Badge variant={resolucion.estado === "Vigente" ? "default" : "secondary"}>
+                        {resolucion.estado}
+                      </Badge>
                       <Badge
                         variant={
-                          resolucion.impactoReal === "alto" ? "default" : resolucion.impactoReal === "medio" ? "secondary" : "outline"
+                          resolucion.impactoReal === "alto"
+                            ? "default"
+                            : resolucion.impactoReal === "medio"
+                              ? "secondary"
+                              : "outline"
                         }
                       >
                         Impacto {resolucion.impactoReal}
@@ -1043,7 +1003,7 @@ export default function LegislacionPage() {
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button size="sm" onClick={() => window.open(resolucion.url, '_blank')}>
+                    <Button size="sm" onClick={() => window.open(resolucion.url, "_blank")}>
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Ver Resolución
                     </Button>

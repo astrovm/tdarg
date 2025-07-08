@@ -2,101 +2,129 @@
 
 import { useState, useEffect } from "react"
 
-interface ProyectoLey {
+interface AnalisisIA {
+  beneficios: string[]
+  problemas: string[]
+  puntuacion: number
+  recomendacion: string
+  impactoReal: "alto" | "medio" | "bajo" | "negativo"
+  beneficioReal: boolean
+  riesgoPrivacidad: boolean
+}
+
+interface Proyecto {
   id: string
   titulo: string
   descripcion: string
-  fecha: string
   estado: string
   camara: string
+  fecha: string
   autor: string
-  analisisIA: {
-    beneficios: string[]
-    problemas: string[]
-    puntuacion: number
-    impactoReal: "alto" | "medio" | "bajo" | "negativo"
-    recomendacion: string
-    palabrasClave: string[]
-    riesgoPrivacidad: boolean
-    beneficioReal: boolean
-  }
+  analisisIA: AnalisisIA
 }
 
-interface LegislacionData {
-  data: ProyectoLey[]
-  source: string
-  timestamp: string
-  total: number
-  estadisticas?: {
-    total: number
-    beneficiosos: number
-    peligrosos: number
-    irrelevantes: number
-  }
-}
+// Mock data para simular proyectos
+const mockProyectos: Proyecto[] = [
+  {
+    id: "1",
+    titulo: "Proyecto de Ley - Simplificación de Prescripción TDAH",
+    descripcion: "Propone digitalizar y simplificar el proceso de prescripción de medicamentos para TDAH",
+    estado: "En comisión",
+    camara: "Diputados",
+    fecha: "2024-03-15",
+    autor: "Dip. María González",
+    analisisIA: {
+      beneficios: ["Reducción de burocracia médica", "Acceso más rápido a medicación", "Sistema digital moderno"],
+      problemas: ["Posible resistencia del sistema actual", "Necesita inversión en tecnología"],
+      puntuacion: 9.2,
+      recomendacion: "PROYECTO PRIORITARIO - Apoyar activamente",
+      impactoReal: "alto",
+      beneficioReal: true,
+      riesgoPrivacidad: false,
+    },
+  },
+  {
+    id: "2",
+    titulo: "Proyecto de Resolución - Día Nacional del TDAH",
+    descripcion: "Propone establecer el 13 de julio como Día Nacional del TDAH",
+    estado: "En tratamiento",
+    camara: "Senado",
+    fecha: "2024-01-20",
+    autor: "Sen. Carlos Rodríguez",
+    analisisIA: {
+      beneficios: ["Mayor visibilidad del TDAH", "Posible concientización social"],
+      problemas: [
+        "No resuelve problemas reales",
+        "Distrae de temas prioritarios",
+        "Gasto público innecesario en eventos",
+      ],
+      puntuacion: 3.1,
+      recomendacion: "PROYECTO IRRELEVANTE - Priorizar otros temas",
+      impactoReal: "bajo",
+      beneficioReal: false,
+      riesgoPrivacidad: false,
+    },
+  },
+  {
+    id: "3",
+    titulo: "Proyecto de Ley - Registro Nacional de TDAH",
+    descripcion: "Propone crear un registro nacional obligatorio de personas con TDAH",
+    estado: "Presentado",
+    camara: "Diputados",
+    fecha: "2023-11-10",
+    autor: "Dip. Ana Martínez",
+    analisisIA: {
+      beneficios: ["Posibles estadísticas para políticas públicas"],
+      problemas: [
+        "GRAVE RIESGO DE PRIVACIDAD",
+        "Posible discriminación laboral/educativa",
+        "Estigmatización de pacientes",
+        "Costo elevado sin beneficio real",
+        "Violación de datos médicos sensibles",
+      ],
+      puntuacion: 1.8,
+      recomendacion: "PROYECTO PELIGROSO - Oponerse activamente",
+      impactoReal: "negativo",
+      beneficioReal: false,
+      riesgoPrivacidad: true,
+    },
+  },
+]
 
 export function useLegislacionTracker() {
-  const [data, setData] = useState<LegislacionData | null>(null)
+  const [proyectos, setProyectos] = useState<Proyecto[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const fetchData = async (forceRefresh = false) => {
+  const fetchProyectos = async () => {
     try {
       setLoading(true)
       setError(null)
 
-      const url = forceRefresh ? "/api/legislacion-tracker?refresh=true" : "/api/legislacion-tracker"
+      // Simular delay de API
+      await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      const response = await fetch(url)
-
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}: ${response.statusText}`)
-      }
-
-      const result = await response.json()
-      setData(result)
-
-      console.log(`✅ ${result.total} proyectos analizados con IA`)
+      // En producción, aquí harías el fetch real
+      setProyectos(mockProyectos)
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Error desconocido"
-      setError(errorMessage)
-      console.error("❌ Error cargando análisis legislativo:", err)
+      setError(err instanceof Error ? err.message : "Error desconocido")
     } finally {
       setLoading(false)
     }
   }
 
-  const reportarProyecto = async (proyectoId: string, motivo: string, descripcion: string) => {
-    try {
-      const response = await fetch("/api/legislacion-tracker", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ proyectoId, motivo, descripcion }),
-      })
-
-      if (!response.ok) {
-        throw new Error("Error enviando reporte")
-      }
-
-      const result = await response.json()
-      return result.success
-    } catch (err) {
-      console.error("❌ Error reportando proyecto:", err)
-      return false
-    }
+  const refresh = () => {
+    fetchProyectos()
   }
 
   useEffect(() => {
-    fetchData()
+    fetchProyectos()
   }, [])
 
   return {
-    data,
+    proyectos,
     loading,
     error,
-    refetch: () => fetchData(true),
-    reportarProyecto,
+    refresh,
   }
 }

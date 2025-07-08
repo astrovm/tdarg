@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Tu recurso completo para información sobre TDAH en Argentina. Precios de medicamentos, guías médicas, especialistas, legislación y más.",
   keywords: "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, médicos, legislación",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -20,9 +20,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+    <html lang="es" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          suppressHydrationWarning
+        >
           {children}
         </ThemeProvider>
       </body>
