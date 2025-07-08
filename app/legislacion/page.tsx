@@ -348,6 +348,16 @@ const propuestasNecesarias = [
 
 const problemasReales = [
   {
+    problema: "🚨 CRÍTICO 2025: Te siguen pidiendo receta triplicada manuscrita",
+    descripcion: "A pesar del Decreto 345/2024 y Resolución 5744/2024 que digitalizaron las recetas, la Ley 19.303 (artículos 43 y 44) sigue exigiendo receta manuscrita triplicada para medicamentos controlados como metilfenidato",
+    impacto: "Farmacias siguen pidiendo papel por miedo a infracciones - pacientes TDAH no se benefician de la digitalización",
+    solucion: "Modificar artículos 43 y 44 de Ley 19.303 para integrar con leyes de receta electrónica",
+    estado: "URGENTE - Conflicto legal entre normativas nuevas y antiguas",
+    esUrgente: true,
+    articulosAfectados: ["Artículo 43: 'Las recetas serán manuscritas... por triplicado'", "Artículo 44: 'Se despacharán por una sola vez... sin repetición'"],
+    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion"
+  },
+  {
     problema: "Receta triplicada manuscrita obligatoria para medicamentos controlados",
     descripcion: "Ley 19.303 exige recetas manuscritas para medicamentos TDAH, a pesar de que la Ley 27.553 permite recetas electrónicas para otros medicamentos",
     impacto: "Pacientes TDAH no pueden usar telemedicina completamente - deben ir presencialmente para renovar recetas",
@@ -392,6 +402,58 @@ export default function LegislacionPage() {
             Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente
             beneficia a los pacientes vs. el "teatro político".
           </p>
+        </div>
+
+
+        {/* Real Problems Ignored - NOW AT TOP */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Problemas Reales Identificados
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {problemasReales.map((item, index) => (
+              <Card key={index} className={`${item.esUrgente ? 'border-red-500 bg-red-50 dark:bg-red-900/20' : 'border-orange-200 dark:border-orange-800'}`}>
+                <CardHeader>
+                  <CardTitle className={`text-lg flex items-center space-x-2 ${item.esUrgente ? 'text-red-900 dark:text-red-100' : ''}`}>
+                    <Clock className={`h-5 w-5 ${item.esUrgente ? 'text-red-600' : 'text-orange-600'}`} />
+                    <span>{item.problema}</span>
+                  </CardTitle>
+                  <CardDescription className={item.esUrgente ? 'text-red-800 dark:text-red-200' : ''}>{item.descripcion}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div>
+                      <h5 className="font-medium text-red-700 dark:text-red-400 mb-1">Impacto Actual</h5>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{item.impacto}</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-1">Solución Propuesta</h5>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{item.solucion}</p>
+                    </div>
+                    {item.articulosAfectados && (
+                      <div>
+                        <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-1">Artículos a Modificar</h5>
+                        <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                          {item.articulosAfectados.map((articulo, idx) => (
+                            <li key={idx}>• {articulo}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    <Badge variant={item.esUrgente ? "destructive" : "destructive"} className="w-full justify-center">
+                      {item.estado}
+                    </Badge>
+                    {item.urlLey && (
+                      <Button size="sm" variant="outline" className="w-full" onClick={() => window.open(item.urlLey, '_blank')}>
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Ver Ley Completa
+                      </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* AI Analysis Alert */}
