@@ -4,54 +4,53 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 application called "TDAH Argentina" - a comprehensive information portal about ADHD (Attention Deficit Hyperactivity Disorder) in Argentina. The site provides real-time medication pricing, medical guides, legislation tracking, and professional directories.
+This is a Next.js 15 application called "TDAH Argentina" - a comprehensive information portal about ADHD (Attention Deficit Hyperactivity Disorder) in Argentina. The site provides real-time medication pricing, medical professional directories, diagnostic information, and intelligent legislation analysis.
 
 ## Development Commands
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Development server
-pnpm dev
+bun dev
 
 # Production build
-pnpm build
+bun run build
 
 # Start production server
-pnpm start
+bun start
 
 # Lint code
-pnpm lint
+bun lint
 ```
 
 ## Architecture Overview
 
 ### Core Technology Stack
+
 - **Framework**: Next.js 15 with App Router
 - **Styling**: Tailwind CSS with shadcn/ui components
-- **Package Manager**: pnpm
+- **Package Manager**: Bun
 - **TypeScript**: Full TypeScript implementation
 - **Theme**: Dark/light mode with next-themes
 
 ### Key Features
+
 1. **Real-time Medication Pricing**: Fetches ADHD medication prices from Farmacity API
-2. **AI-powered Legislation Tracking**: Analyzes congressional bills related to ADHD
+2. **AI-powered Legislation Analysis**: Analyzes approved laws and congressional bills related to ADHD
 3. **Professional Directory**: Database of ADHD specialists
-4. **Medical Guides**: Clinical guidelines and diagnostic information
-5. **Research Portal**: Scientific papers and studies
+4. **Diagnostic Information**: Clinical guidelines and diagnostic tools
 
 ### Application Structure
 
 ```
 app/
 ├── api/
-│   ├── legislacion-tracker/    # AI legislation analysis endpoint
-│   └── medicamentos-precios/   # Medication pricing API
-├── diagnosticos/               # Diagnostic information pages
-├── guias/                     # Medical guides
-├── investigacion/             # Research papers
-├── legislacion/               # Legislation tracking
+│   ├── legislacion-tracker/   # AI legislation tracking endpoint
+│   └── medicamentos-precios/  # Medication pricing API
+├── diagnosticos/              # Diagnostic information pages
+├── legislacion/               # Legislation analysis and tracking
 ├── medicos/                   # Medical professionals directory
 └── precios/                   # Medication pricing interface
 ```
@@ -64,19 +63,21 @@ app/
 
 ### Custom Hooks
 
-- **`use-legislacion-tracker.ts`**: Manages AI-powered legislation analysis
+- **`use-legislacion-tracker.ts`**: Manages AI-powered legislation analysis of congressional projects
 - **`use-medicamentos-reales.ts`**: Handles real-time medication pricing with caching
 - **`use-mobile.tsx`**: Responsive design utilities
 
 ### API Endpoints
 
 #### `/api/medicamentos-precios`
+
 - **GET**: Fetches current medication prices from Farmacity
 - **DELETE**: Clears medication price cache
 - **Caching**: 15-minute TTL with fallback mechanisms
 - **Search Terms**: atomoxetina, metilfenidato
 
 #### `/api/legislacion-tracker`
+
 - **GET**: Returns AI-analyzed congressional bills
 - **POST**: Reports problematic legislation
 - **AI Analysis**: Scores bills on privacy risks, real benefits, and impact level
@@ -85,7 +86,7 @@ app/
 ### Data Flow
 
 1. **Medication Pricing**: Farmacity API → Cache → React Hook → UI
-2. **Legislation Analysis**: Congress scraping → AI analysis → Cache → React Hook → UI
+2. **Legislation Analysis**: Static data with AI analysis → React Hook → UI
 3. **Theme Management**: next-themes → Theme Provider → Components
 
 ### Important Implementation Details
@@ -95,6 +96,7 @@ app/
 - **Responsive Design**: Mobile-first approach with Tailwind breakpoints
 - **Performance**: Automatic caching, request deduplication, and timeout handling
 - **SEO**: Proper metadata and Spanish language support
+- **Legislation System**: Static analysis with manually curated data
 
 ### Development Notes
 
@@ -103,10 +105,31 @@ app/
 - The medication pricing system includes duplicate detection and data normalization
 - The AI legislation analysis uses keyword-based scoring with privacy risk assessment
 - Components follow consistent naming conventions and include proper TypeScript types
+- **Current focus**: Only 4 main sections - Prices, Doctors, Diagnostics, and Legislation
+- **Removed sections**: Guides and Research (files completely removed from codebase)
 
 ### Testing and Quality
 
 - No specific test framework is configured yet
-- ESLint is configured via `pnpm lint`
+- ESLint is configured via `bun run lint`
 - TypeScript strict mode is enabled
 - The app includes proper error boundaries and loading states
+
+### Key Files and Services
+
+#### Core APIs
+
+- **`/app/api/medicamentos-precios/route.ts`**: Medication pricing from Farmacity
+- **`/app/api/legislacion-tracker/route.ts`**: Congressional projects tracking (currently with mock data)
+
+#### Main Pages
+
+- **`/app/legislacion/page.tsx`**: Main legislation analysis interface with static data
+- **`/app/precios/page.tsx`**: Medication pricing interface
+- **`/app/medicos/page.tsx`**: Medical professionals directory
+- **`/app/diagnosticos/page.tsx`**: Diagnostic information
+
+#### Core Hooks
+
+- **`/hooks/use-legislacion-tracker.ts`**: Manages simulated legislation analysis
+- **`/hooks/use-medicamentos-reales.ts`**: Handles real-time medication pricing
