@@ -349,13 +349,18 @@ const propuestasNecesarias = [
 const problemasReales = [
   {
     problema: "🚨 CRÍTICO 2025: Te siguen pidiendo receta triplicada manuscrita",
-    descripcion: "A pesar del Decreto 345/2024 y Resolución 5744/2024 que digitalizaron las recetas, la Ley 19.303 (artículos 43 y 44) sigue exigiendo receta manuscrita triplicada para medicamentos controlados como metilfenidato",
-    impacto: "Farmacias siguen pidiendo papel por miedo a infracciones - pacientes TDAH no se benefician de la digitalización",
-    solucion: "Modificar artículos 43 y 44 de Ley 19.303 para integrar con leyes de receta electrónica",
-    estado: "URGENTE - Conflicto legal entre normativas nuevas y antiguas",
+    descripcion: "TÉCNICAMENTE es legal usar receta electrónica (Artículo 18 bis de Ley 19.303), PERO las farmacias siguen pidiendo papel porque los artículos 43-44 contradicen esto y falta reglamentación clara de la 'autoridad de aplicación'",
+    impacto: "Artículo 18 bis permite recetas electrónicas, pero farmacias tienen miedo a infracciones por la confusión legal entre artículos contradictorios",
+    solucion: "Reglamentación clara del artículo 18 bis + capacitación a farmacias + armonizar artículos 43-44 con recetas electrónicas",
+    estado: "URGENTE - Ley permite recetas electrónicas pero implementación práctica falla",
     esUrgente: true,
-    articulosAfectados: ["Artículo 43: 'Las recetas serán manuscritas... por triplicado'", "Artículo 44: 'Se despacharán por una sola vez... sin repetición'"],
-    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion"
+    articulosAfectados: [
+      "Artículo 18 bis: 'recetas redactadas electrónicamente' ✅ PERMITE", 
+      "Artículo 43: 'Las recetas serán manuscritas... por triplicado' ❌ CONTRADICE",
+      "Artículo 44: 'Se despacharán por una sola vez... sin repetición' ❌ CONTRADICE"
+    ],
+    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
+    problemaReal: "Falta de conocimiento y reglamentación del artículo 18 bis (2020)"
   },
   {
     problema: "Receta triplicada manuscrita obligatoria para medicamentos controlados",
@@ -432,12 +437,20 @@ export default function LegislacionPage() {
                     </div>
                     {item.articulosAfectados && (
                       <div>
-                        <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-1">Artículos a Modificar</h5>
+                        <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-1">Conflicto Legal</h5>
                         <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
                           {item.articulosAfectados.map((articulo, idx) => (
-                            <li key={idx}>• {articulo}</li>
+                            <li key={idx} className={`${articulo.includes('✅') ? 'text-green-600 dark:text-green-400' : articulo.includes('❌') ? 'text-red-600 dark:text-red-400' : ''}`}>
+                              • {articulo}
+                            </li>
                           ))}
                         </ul>
+                      </div>
+                    )}
+                    {item.problemaReal && (
+                      <div className="bg-yellow-100 dark:bg-yellow-900/20 p-3 rounded-lg">
+                        <h5 className="font-medium text-yellow-800 dark:text-yellow-200 mb-1">💡 Problema Real</h5>
+                        <p className="text-xs text-yellow-700 dark:text-yellow-300">{item.problemaReal}</p>
                       </div>
                     )}
                     <Badge variant={item.esUrgente ? "destructive" : "destructive"} className="w-full justify-center">
