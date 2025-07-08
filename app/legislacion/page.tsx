@@ -153,25 +153,44 @@ const leyes = [
       "Mecanismos de control y seguimiento",
     ],
   },
+  {
+    numero: "Ley 17.565",
+    titulo: "Ley de Medicamentos",
+    descripcion: "Regula la actividad farmacéutica, farmacias y expendio de medicamentos en Argentina",
+    fecha: "1967-12-12",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Congreso Nacional",
+    impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-17565-19424/actualizacion",
+    ultimaActualizacion: "2023-12-21",
+    analisisIA: {
+      beneficios: [
+        "Regula la calidad y seguridad de medicamentos",
+        "Establece responsabilidades profesionales de farmacéuticos",
+        "Control de expendio de medicamentos controlados",
+        "Marco legal para funcionamiento de farmacias",
+      ],
+      problemas: [
+        "No contempla especificidades del tratamiento TDAH",
+        "Burocracia adicional para medicamentos controlados",
+        "Falta de protocolos específicos para renovaciones",
+        "No diferencia medicamentos crónicos de agudos",
+      ],
+      puntuacion: 6.2,
+      recomendacion: "Ley base necesaria pero requiere adaptación para tratamientos crónicos como TDAH",
+    },
+    puntosClave: [
+      "Licencias obligatorias para farmacias",
+      "Verificación de prescripciones médicas",
+      "Control de medicamentos controlados",
+      "Responsabilidad profesional de farmacéuticos",
+      "Mantenimiento de registros de dispensación",
+    ],
+  },
 ]
 
 const proyectosActuales = [
-  {
-    titulo: "Proyecto de Ley - Simplificación de Prescripción TDAH",
-    descripcion: "Propone digitalizar y simplificar el proceso de prescripción de medicamentos para TDAH",
-    estado: "En comisión",
-    camara: "Diputados",
-    fecha: "2024-03-15",
-    autor: "Dip. María González",
-    impactoReal: "alto",
-    analisisIA: {
-      beneficios: ["Reducción de burocracia médica", "Acceso más rápido a medicación", "Sistema digital moderno"],
-      problemas: ["Posible resistencia del sistema actual", "Necesita inversión en tecnología"],
-      puntuacion: 9.2,
-      recomendacion: "PROYECTO PRIORITARIO - Apoyar activamente",
-    },
-    urgencia: "alta",
-  },
   {
     titulo: "Proyecto de Resolución - Día Nacional del TDAH",
     descripcion: "Propone establecer el 13 de julio como Día Nacional del TDAH",
