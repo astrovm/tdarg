@@ -11,7 +11,6 @@ import {
   CheckCircle,
   XCircle,
   Brain,
-  TrendingUp,
   Clock,
 } from "lucide-react"
 import { Header } from "@/components/header"
@@ -483,7 +482,79 @@ export default function LegislacionPage() {
           </div>
         </div>
 
-        {/* AI Analysis Alert */}
+        {/* Propuestas Necesarias - MOVED HERE after problems */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Propuestas Legislativas Necesarias</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            Proyectos de ley que la comunidad TDAH debe impulsar para resolver problemas reales
+          </p>
+          <div className="space-y-6">
+            {propuestasNecesarias.map((propuesta, index) => (
+              <Card key={index} className="border-orange-500 dark:border-orange-400 bg-orange-50 dark:bg-orange-900/10">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <CardTitle className="text-xl text-orange-900 dark:text-orange-100">{propuesta.titulo}</CardTitle>
+                      <CardDescription className="text-base font-medium text-orange-800 dark:text-orange-200 mt-1">
+                        {propuesta.descripcion}
+                      </CardDescription>
+                    </div>
+                    <Badge variant="outline" className="border-orange-500 text-orange-700 dark:text-orange-300">
+                      {propuesta.estado}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-red-700 dark:text-red-400 mb-2">🎯 Problema que resuelve:</h5>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{propuesta.problemaQueResuelve}</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Beneficios esperados</h5>
+                      <ul className="space-y-1 text-sm">
+                        {propuesta.beneficiosEsperados.map((beneficio, idx) => (
+                          <li key={idx} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{beneficio}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-amber-700 dark:text-amber-400 mb-2">⚠️ Desafíos</h5>
+                      <ul className="space-y-1 text-sm">
+                        {propuesta.desafios.map((desafio, idx) => (
+                          <li key={idx} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{desafio}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-blue-600 dark:text-blue-400 font-semibold">Impacto:</div>
+                      <div className="text-blue-800 dark:text-blue-200">{propuesta.impacto}</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-purple-600 dark:text-purple-400 font-semibold">Acción necesaria:</div>
+                      <div className="text-purple-800 dark:text-purple-200">{propuesta.accionNecesaria}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* AI Analysis Alert - SIMPLIFIED */}
         <Card className="mb-8 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
           <CardContent className="pt-6">
             <div className="flex items-start space-x-4">
@@ -492,22 +563,12 @@ export default function LegislacionPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-2">
-                  Análisis con IA - Última actualización: {new Date().toLocaleDateString("es-AR")}
+                  Análisis con IA - Última actualización: 9 de julio, 2025
                 </h3>
-                <p className="text-purple-800 dark:text-purple-200 mb-3">
+                <p className="text-purple-800 dark:text-purple-200">
                   Nuestro sistema analiza automáticamente cada proyecto de ley, evaluando su impacto real en la vida de
                   las personas con TDAH vs. beneficios políticos superficiales.
                 </p>
-                <div className="flex space-x-2">
-                  <Button size="sm">
-                    <TrendingUp className="h-4 w-4 mr-2" />
-                    Ver Tendencias
-                  </Button>
-                  <Button size="sm" variant="outline">
-                    <AlertTriangle className="h-4 w-4 mr-2" />
-                    Alertas Críticas
-                  </Button>
-                </div>
               </div>
             </div>
           </CardContent>
@@ -664,77 +725,6 @@ export default function LegislacionPage() {
           )}
         </div>
 
-        {/* Propuestas Necesarias */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Propuestas Legislativas Necesarias</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Proyectos de ley que la comunidad TDAH debe impulsar para resolver problemas reales
-          </p>
-          <div className="space-y-6">
-            {propuestasNecesarias.map((propuesta, index) => (
-              <Card key={index} className="border-orange-500 dark:border-orange-400 bg-orange-50 dark:bg-orange-900/10">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-xl text-orange-900 dark:text-orange-100">{propuesta.titulo}</CardTitle>
-                      <CardDescription className="text-base font-medium text-orange-800 dark:text-orange-200 mt-1">
-                        {propuesta.descripcion}
-                      </CardDescription>
-                    </div>
-                    <Badge variant="outline" className="border-orange-500 text-orange-700 dark:text-orange-300">
-                      {propuesta.estado}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <h5 className="font-semibold text-red-700 dark:text-red-400 mb-2">🎯 Problema que resuelve:</h5>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{propuesta.problemaQueResuelve}</p>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Beneficios esperados</h5>
-                      <ul className="space-y-1 text-sm">
-                        {propuesta.beneficiosEsperados.map((beneficio, idx) => (
-                          <li key={idx} className="flex items-start space-x-2">
-                            <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                            <span>{beneficio}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-amber-700 dark:text-amber-400 mb-2">⚠️ Desafíos</h5>
-                      <ul className="space-y-1 text-sm">
-                        {propuesta.desafios.map((desafio, idx) => (
-                          <li key={idx} className="flex items-start space-x-2">
-                            <div className="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
-                            <span>{desafio}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="text-blue-600 dark:text-blue-400 font-semibold">Impacto:</div>
-                      <div className="text-blue-800 dark:text-blue-200">{propuesta.impacto}</div>
-                    </div>
-                  </div>
-
-                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
-                    <div className="flex items-start space-x-3">
-                      <div className="text-purple-600 dark:text-purple-400 font-semibold">Acción necesaria:</div>
-                      <div className="text-purple-800 dark:text-purple-200">{propuesta.accionNecesaria}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         {/* Current Laws */}
         <div className="mb-12">
