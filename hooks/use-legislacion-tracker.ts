@@ -27,24 +27,6 @@ interface Proyecto {
 const mockProyectos: Proyecto[] = [
   {
     id: "1",
-    titulo: "Proyecto de Ley - Simplificación de Prescripción TDAH",
-    descripcion: "Propone digitalizar y simplificar el proceso de prescripción de medicamentos para TDAH",
-    estado: "En comisión",
-    camara: "Diputados",
-    fecha: "2024-03-15",
-    autor: "Dip. María González",
-    analisisIA: {
-      beneficios: ["Reducción de burocracia médica", "Acceso más rápido a medicación", "Sistema digital moderno"],
-      problemas: ["Posible resistencia del sistema actual", "Necesita inversión en tecnología"],
-      puntuacion: 9.2,
-      recomendacion: "PROYECTO PRIORITARIO - Apoyar activamente",
-      impactoReal: "alto",
-      beneficioReal: true,
-      riesgoPrivacidad: false,
-    },
-  },
-  {
-    id: "2",
     titulo: "Proyecto de Resolución - Día Nacional del TDAH",
     descripcion: "Propone establecer el 13 de julio como Día Nacional del TDAH",
     estado: "En tratamiento",
@@ -66,7 +48,7 @@ const mockProyectos: Proyecto[] = [
     },
   },
   {
-    id: "3",
+    id: "2",
     titulo: "Proyecto de Ley - Registro Nacional de TDAH",
     descripcion: "Propone crear un registro nacional obligatorio de personas con TDAH",
     estado: "Presentado",
