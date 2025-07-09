@@ -312,52 +312,78 @@ const propuestasNecesarias = [
 
 const problemasReales = [
   {
-    problema: "🚨 CRÍTICO 2025: Te siguen pidiendo receta triplicada manuscrita",
+    problema: "🚨 CRÍTICO 2025: Conflicto entre Ley 27.553 y Ley 19.303 sobre recetas electrónicas",
     descripcion:
-      "TÉCNICAMENTE es legal usar receta electrónica (Artículo 18 bis de Ley 19.303), PERO las farmacias siguen pidiendo papel porque los artículos 43-44 contradicen esto y falta reglamentación clara de la 'autoridad de aplicación'",
+      "Ley 27.553 permite recetas electrónicas, pero Ley 19.303 (artículos 13 y 14) exige específicamente recetas manuscritas para psicotrópicos TDAH. Artículo 18 bis permite electrónicas pero falta reglamentación de autoridad competente.",
     impacto:
-      "Artículo 18 bis permite recetas electrónicas, pero farmacias tienen miedo a infracciones por la confusión legal entre artículos contradictorios",
+      "Farmacias rechazan recetas electrónicas por miedo a infracciones. Pacientes TDAH deben ir presencialmente pese a telemedicina disponible.",
     solucion:
-      "Reglamentación clara del artículo 18 bis + capacitación a farmacias + armonizar artículos 43-44 con recetas electrónicas",
-    estado: "URGENTE - Ley permite recetas electrónicas pero implementación práctica falla",
+      "Reglamentación específica que integre artículo 18 bis con Decreto 345/2024 para medicamentos controlados + capacitación farmacéutica",
+    estado: "URGENTE - Conflicto legal sin resolver",
     esUrgente: true,
     articulosAfectados: [
-      "Artículo 18 bis: 'recetas redactadas electrónicamente' ✅ PERMITE",
-      "Artículo 43: 'Las recetas serán manuscritas... por triplicado' ❌ CONTRADICE",
-      "Artículo 44: 'Se despacharán por una sola vez... sin repetición' ❌ CONTRADICE",
+      "Ley 27.553: Recetas electrónicas válidas ✅",
+      "Ley 19.303 Art. 18 bis: Permite electrónicas 'según autoridad' ⚠️",
+      "Ley 19.303 Art. 13: Exige manuscritas para Lista II ❌",
+      "Ley 19.303 Art. 14: Manuscritas, firmadas, una sola vez ❌"
     ],
     urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
-    problemaReal: "Falta de conocimiento y reglamentación del artículo 18 bis (2020)",
+    leyConflictiva: "Ley 19.303 vs Ley 27.553",
+    problemaReal: "Falta reglamentación específica del artículo 18 bis para psicotrópicos"
   },
   {
-    problema: "Receta triplicada manuscrita obligatoria para medicamentos controlados",
+    problema: "Límite de 20 días en prescripción de medicamentos TDAH",
     descripcion:
-      "Ley 19.303 exige recetas manuscritas para medicamentos TDAH, a pesar de que la Ley 27.553 permite recetas electrónicas para otros medicamentos",
-    impacto: "Pacientes TDAH no pueden usar telemedicina completamente - deben ir presencialmente para renovar recetas",
-    solucion: "Integrar Ley 27.553 con Ley 19.303 para medicamentos controlados",
-    estado: "Conflicto entre Ley 27.553 (2020) y Ley 19.303 (1971)",
+      "Artículo 16 de Ley 19.303 limita prescripciones de Lista II (metilfenidato) a máximo 20 días, requiriendo consulta médica cada 20 días para pacientes crónicos estables.",
+    impacto:
+      "Costos médicos excesivos, tiempo perdido, saturación del sistema de salud por consultas innecesarias para renovar medicación estable.",
+    solucion:
+      "Modificar artículo 16 para permitir prescripciones de hasta 90 días en pacientes TDAH estables con seguimiento trimestral",
+    estado: "Regulado por Ley 19.303 Art. 16 - Requiere modificación",
+    esUrgente: false,
+    articulosAfectados: [
+      "Ley 19.303 Art. 16: Máximo 20 días para Lista II ❌"
+    ],
+    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
+    leyConflictiva: "Ley 19.303 Art. 16",
+    problemaReal: "Enfoque agudo para tratamiento crónico"
   },
   {
-    problema: "Sistema de prescripción arcaico",
-    descripcion: "Médicos deben completar formularios en papel, con múltiples sellos y autorizaciones",
-    impacto: "Demoras de semanas para acceder a medicación",
-    solucion: "Digitalización completa del proceso",
-    estado: "Sin proyecto de ley",
+    problema: "Archivo obligatorio de recetas por 2 años genera burocracia farmacéutica",
+    descripcion:
+      "Artículo 14 de Ley 19.303 exige archivo físico de recetas por 2 años. Con Decreto 345/2024 digital, genera doble archivo: físico y digital.",
+    impacto:
+      "Farmacias prefieren evitar medicamentos controlados por costos administrativos. Reduce puntos de dispensación disponibles para pacientes TDAH.",
+    solucion:
+      "Integrar artículo 14 con Decreto 345/2024 para archivo digital único con misma validez legal",
+    estado: "Ley 19.303 Art. 14 vs Decreto 345/2024",
+    esUrgente: false,
+    articulosAfectados: [
+      "Ley 19.303 Art. 14: Archivo físico 2 años ❌",
+      "Decreto 345/2024: Sistema digital ✅"
+    ],
+    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
+    leyConflictiva: "Ley 19.303 vs Decreto 345/2024",
+    problemaReal: "Doble burocracia: física + digital"
   },
   {
-    problema: "Prohibición de repetición de recetas",
-    descripcion: "Ley 19.303 prohíbe dispensar medicamentos TDAH sin nueva consulta médica",
-    impacto: "Costos mensuales adicionales y tiempo perdido en consultas innecesarias",
-    solucion: "Permitir renovaciones automáticas para pacientes estables",
-    estado: "Regulado por Ley 19.303 - Requiere modificación",
-  },
-  {
-    problema: "Falta de médicos especializados",
-    descripcion: "Pocos profesionales capacitados en TDAH adulto",
-    impacto: "Listas de espera de meses para diagnóstico",
-    solucion: "Programa de capacitación masiva",
-    estado: "Sin proyecto de ley",
-  },
+    problema: "Falta de especialistas en TDAH adulto sin marco legal de formación",
+    descripcion:
+      "Sin leyes específicas que regulen formación en TDAH adulto. Ley 27.306 enfoca aprendizaje escolar, no especialización médica adulta.",
+    impacto:
+      "Listas de espera de 3-6 meses para diagnóstico TDAH adulto. Pacientes derivan a neurología o psiquiatría general sin especialización.",
+    solucion:
+      "Ley específica de formación en TDAH adulto + reconocimiento de subespecialidad médica",
+    estado: "Sin marco legal - Vacío regulatorio",
+    esUrgente: false,
+    articulosAfectados: [
+      "Ley 27.306: Solo DEA escolar ⚠️",
+      "Falta: Ley de especialización TDAH adulto ❌"
+    ],
+    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/texto",
+    leyConflictiva: "Vacío legal en Ley 27.306",
+    problemaReal: "Marco legal incompleto para TDAH adulto"
+  }
 ]
 
 export default function LegislacionPage() {
@@ -422,6 +448,12 @@ export default function LegislacionPage() {
                             </li>
                           ))}
                         </ul>
+                      </div>
+                    )}
+                    {item.leyConflictiva && (
+                      <div className="bg-blue-100 dark:bg-blue-900/20 p-3 rounded-lg mb-2">
+                        <h5 className="font-medium text-blue-800 dark:text-blue-200 mb-1">⚖️ Conflicto Legal</h5>
+                        <p className="text-xs text-blue-700 dark:text-blue-300">{item.leyConflictiva}</p>
                       </div>
                     )}
                     {item.problemaReal && (
