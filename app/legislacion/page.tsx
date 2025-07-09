@@ -387,7 +387,7 @@ const problemasReales = [
 ]
 
 export default function LegislacionPage() {
-  const { proyectos, loading, error, refresh } = useLegislacionTracker()
+  const { proyectos, loading, error } = useLegislacionTracker()
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
