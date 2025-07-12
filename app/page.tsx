@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Heart, Users, Stethoscope, Scale, TrendingUp, AlertCircle } from "lucide-react"
+import { Heart, Stethoscope, Scale, TrendingUp, AlertCircle } from "lucide-react"
 import { Header } from "@/components/header"
 
 export default function HomePage() {
@@ -89,18 +89,6 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Users className="h-8 w-8 text-orange-600 mb-2" />
-                <CardTitle>Diagnósticos</CardTitle>
-                <CardDescription>Información sobre el proceso diagnóstico y herramientas de evaluación</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button asChild className="w-full">
-                  <Link href="/diagnosticos">Ver Diagnósticos</Link>
-                </Button>
-              </CardContent>
-            </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
@@ -166,11 +154,6 @@ export default function HomePage() {
             <div>
               <h5 className="font-semibold mb-4">Información</h5>
               <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/diagnosticos" className="hover:text-white">
-                    Diagnósticos
-                  </Link>
-                </li>
                 <li>
                   <Link href="/legislacion" className="hover:text-white">
                     Legislación

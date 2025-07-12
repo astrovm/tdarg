@@ -49,7 +49,6 @@ app/
 ├── api/
 │   ├── legislacion-tracker/   # AI legislation tracking endpoint
 │   └── medicamentos-precios/  # Medication pricing API
-├── diagnosticos/              # Diagnostic information pages
 ├── legislacion/               # Legislation analysis and tracking
 ├── medicos/                   # Medical professionals directory
 └── precios/                   # Medication pricing interface
@@ -105,7 +104,7 @@ app/
 - The medication pricing system includes duplicate detection and data normalization
 - The AI legislation analysis uses keyword-based scoring with privacy risk assessment
 - Components follow consistent naming conventions and include proper TypeScript types
-- **Current focus**: Only 4 main sections - Prices, Doctors, Diagnostics, and Legislation
+- **Current focus**: Only 3 main sections - Prices, Doctors, and Legislation
 - **Removed sections**: Guides and Research (files completely removed from codebase)
 
 ### Testing and Quality
@@ -127,7 +126,6 @@ app/
 - **`/app/legislacion/page.tsx`**: Main legislation analysis interface with static data
 - **`/app/precios/page.tsx`**: Medication pricing interface
 - **`/app/medicos/page.tsx`**: Medical professionals directory
-- **`/app/diagnosticos/page.tsx`**: Diagnostic information
 
 #### Core Hooks
 
