@@ -14,10 +14,10 @@ export default function HomePage() {
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Información Completa sobre TDAH en Argentina
+            TDAH en Argentina
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Tu recurso integral para información actualizada sobre el Trastorno por Déficit de Atención e
+            Información actualizada sobre el Trastorno por Déficit de Atención e
             Hiperactividad. Precios oficiales, directorio médico, diagnósticos y análisis legislativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -132,9 +132,9 @@ export default function HomePage() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Heart className="h-6 w-6" />
-                <span className="text-lg font-semibold">TDAH Argentina</span>
+                <span className="text-lg font-semibold">Tdarg</span>
               </div>
-              <p className="text-gray-400">Información confiable sobre TDAH para la comunidad argentina.</p>
+              <p className="text-gray-400">TDAH en Argentina.</p>
             </div>
             <div>
               <h5 className="font-semibold mb-4">Recursos</h5>
@@ -169,7 +169,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 TDAH Argentina. Información con fines educativos.</p>
+            <p>&copy; 2025 Tdarg. Información con fines educativos.</p>
           </div>
         </div>
       </footer>

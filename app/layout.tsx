@@ -7,9 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TDAH Argentina - Información Integral sobre TDAH",
+  title: "Tdarg - TDAH en Argentina",
   description:
-    "Tu recurso completo para información sobre TDAH en Argentina. Precios de medicamentos, guías médicas, especialistas, legislación y más.",
+    "Precios de medicamentos, especialistas, legislación y más.",
   keywords: "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, médicos, legislación",
   generator: "v0.dev",
 }

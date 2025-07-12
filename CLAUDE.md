@@ -4,24 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 application called "TDAH Argentina" - a comprehensive information portal about ADHD (Attention Deficit Hyperactivity Disorder) in Argentina. The site provides real-time medication pricing, medical professional directories, diagnostic information, and intelligent legislation analysis.
+This is a Next.js 15 application called "Tdarg" (TDAH Argentina) - a comprehensive information portal about ADHD (Attention Deficit Hyperactivity Disorder) in Argentina. The site provides real-time medication pricing, medical professional directories, diagnostic information, and intelligent legislation analysis.
 
 ## Development Commands
 
 \`\`\`bash
+
 # Install dependencies
+
 bun install
 
 # Development server
+
 bun dev
 
 # Production build
+
 bun run build
 
 # Start production server
+
 bun start
 
 # Lint code
+
 bun lint
 \`\`\`
 
@@ -47,11 +53,11 @@ bun lint
 \`\`\`
 app/
 ├── api/
-│   ├── legislacion-tracker/   # AI legislation tracking endpoint
-│   └── medicamentos-precios/  # Medication pricing API
-├── legislacion/               # Legislation analysis and tracking
-├── medicos/                   # Medical professionals directory
-└── precios/                   # Medication pricing interface
+│ ├── legislacion-tracker/ # AI legislation tracking endpoint
+│ └── medicamentos-precios/ # Medication pricing API
+├── legislacion/ # Legislation analysis and tracking
+├── medicos/ # Medical professionals directory
+└── precios/ # Medication pricing interface
 \`\`\`
 
 ### Key Components
