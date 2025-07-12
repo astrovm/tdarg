@@ -229,7 +229,7 @@ export default function PreciosPage() {
               {/* Estimulantes Aprobados para TDAH */}
               {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
                 <div>
-                  <div className="flex items-center gap-2 mb-6">
+                  <div className="flex items-center gap-2 mb-4">
                     <div className="h-1 w-8 bg-green-500 rounded"></div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                       Estimulantes Aprobados para TDAH
@@ -240,15 +240,16 @@ export default function PreciosPage() {
                     >
                       FDA Aprobados - Estimulantes
                     </Badge>
-                    <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950">
-                      <AlertCircle className="h-4 w-4 text-blue-600" />
-                      <AlertDescription className="text-blue-800 dark:text-blue-200">
-                        <strong>Nota importante:</strong> Otros estimulantes como Adderall (anfetamina mixta) y Vyvanse
-                        (lisdexanfetamina) están aprobados por FDA para TDAH pero no están disponibles en Argentina.
-                        Solo el metilfenidato está comercializado en el país.
-                      </AlertDescription>
-                    </Alert>
                   </div>
+                  
+                  <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden">
+                    <AlertCircle className="h-4 w-4 text-blue-600" />
+                    <AlertDescription className="text-blue-800 dark:text-blue-200 break-all overflow-wrap-anywhere">
+                      <strong>Nota importante:</strong> Otros estimulantes como Adderall (anfetamina mixta) y Vyvanse
+                      (lisdexanfetamina) están aprobados por FDA para TDAH pero no están disponibles en Argentina.
+                      Solo el metilfenidato está comercializado en el país.
+                    </AlertDescription>
+                  </Alert>
 
                   {Object.entries(medicamentosAgrupados.estimulantes).map(([principio, meds]) => (
                     <div key={principio} className="mb-8">
