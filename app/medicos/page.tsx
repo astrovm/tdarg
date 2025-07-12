@@ -6,94 +6,227 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, MapPin, Phone, Mail, Star, Clock } from "lucide-react"
+import { Search, MapPin, Phone, Mail, Star, Clock, ExternalLink, Building2 } from "lucide-react"
 import { Header } from "@/components/header"
 
 const medicos = [
+  // CAPITAL FEDERAL / GBA
   {
-    nombre: "Dr. Carlos Mendoza",
-    especialidad: "Psiquiatra Infantil",
+    nombre: "Dr. Osvaldo Rovere",
+    especialidad: "Psiquiatra",
     provincia: "Buenos Aires",
     ciudad: "CABA",
-    direccion: "Av. Corrientes 1234, Piso 5",
-    telefono: "+54 11 4567-8901",
-    email: "cmendoza@hospital.com",
-    hospital: "Hospital de Niños Ricardo Gutiérrez",
-    experiencia: "15 años",
-    rating: 4.8,
-    obraSocial: ["OSDE", "Swiss Medical", "Galeno"],
-    horarios: "Lun-Vie 9:00-17:00",
+    direccion: "Consulta privada",
+    telefono: "+54 9 11 5483-7442",
+    email: "osvaldorovere@gmail.com",
+    hospital: "Consulta privada",
+    experiencia: "Especialista en TDAH adultos",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Consultar",
+    tipo: "privado"
   },
   {
-    nombre: "Dra. María Elena Rodríguez",
-    especialidad: "Neuróloga Pediátrica",
+    nombre: "Dra. Natalia Fiorentino",
+    especialidad: "Neuropsicóloga",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "M.T de Alvear 1632",
+    telefono: "0810-266-4203",
+    email: "info@ineco.org.ar",
+    hospital: "INECO - Instituto de Neurología Cognitiva",
+    experiencia: "Programa de diagnóstico acelerado TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie",
+    tipo: "instituto",
+    url: "https://www.ineco.org.ar/programa-de-diagnostico-acelerado-tdah/"
+  },
+  {
+    nombre: "Dra. Rosario Figueras",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "M.T de Alvear 1632",
+    telefono: "+54 9 291 573-2919",
+    email: "info@ineco.org.ar",
+    hospital: "INECO - Instituto de Neurología Cognitiva",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie",
+    tipo: "instituto"
+  },
+  {
+    nombre: "Dra. Mirta Romalde",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "M.T de Alvear 1632",
+    telefono: "+54 9 11 5929-9467",
+    email: "info@ineco.org.ar",
+    hospital: "INECO - Instituto de Neurología Cognitiva",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie",
+    tipo: "instituto"
+  },
+  {
+    nombre: "Dr. Gabriel Emilio Brenner",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "Consultar ubicación",
+    telefono: "+54 9 11 2794-0095",
+    email: "info@inecap.org",
+    hospital: "INECAP - Instituto de Neurociencia Cognitiva Aplicada",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie 9:00-20:00",
+    tipo: "instituto"
+  },
+  {
+    nombre: "Dra. Norma Cristina Echavarria",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "Hurlingham",
+    direccion: "Sargento Salazar 1536 entre Hidalgo y Richieri",
+    telefono: "44528765 / +54 9 11 4173-3220",
+    email: "info@athentun.org",
+    hospital: "ATHENTUN",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Mar-Vie 8:00-11:00",
+    tipo: "centro_especializado"
+  },
+  {
+    nombre: "Dra. Ariadna Echavarria",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "Hurlingham",
+    direccion: "Sargento Salazar 1536 entre Hidalgo y Richieri",
+    telefono: "+54 9 11 2391-3130",
+    email: "ariadnaechavarria@gmail.com",
+    hospital: "ATHENTUN",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Mar-Vie 8:00-11:00",
+    tipo: "centro_especializado"
+  },
+  {
+    nombre: "Dr. Chrem Mendez Patricio",
+    especialidad: "Neurólogo",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "FLENI",
+    telefono: "5777-3200",
+    email: "Consultar",
+    hospital: "FLENI - Neurología Cognitiva",
+    experiencia: "Neurología Cognitiva",
+    rating: null,
+    obraSocial: ["Múltiples obras sociales"],
+    horarios: "Lun-Vie 8:00-20:00",
+    tipo: "hospital"
+  },
+  {
+    nombre: "Dr. Juan Pablo García Lombardi",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "FLENI",
+    telefono: "5777-3200",
+    email: "Consultar",
+    hospital: "FLENI - Neurología Cognitiva",
+    experiencia: "Magíster en Neuropsicofarmacología",
+    rating: null,
+    obraSocial: ["Múltiples obras sociales"],
+    horarios: "Lun-Vie 8:00-20:00",
+    tipo: "hospital"
+  },
+  {
+    nombre: "Dra. María Cecilia Rodríguez",
+    especialidad: "Psiquiatra",
+    provincia: "Buenos Aires",
+    ciudad: "CABA",
+    direccion: "Hospital Italiano",
+    telefono: "Consultar",
+    email: "Consultar",
+    hospital: "Hospital Italiano",
+    experiencia: "Diagnóstico TDAH infantil - Buen trato",
+    rating: null,
+    obraSocial: ["Múltiples obras sociales"],
+    horarios: "Consultar",
+    tipo: "hospital",
+    url: "https://www1.hospitalitaliano.org.ar/#!/home/psiquiatria/inicio"
+  },
+  // LA PLATA
+  {
+    nombre: "Dra. Cecilia Di Virgilio",
+    especialidad: "Especialista TDAH",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
-    direccion: "Calle 7 N° 456",
-    telefono: "+54 221 456-7890",
-    email: "mrodriguez@clinica.com",
-    hospital: "Hospital de Niños Sor María Ludovica",
-    experiencia: "12 años",
-    rating: 4.9,
-    obraSocial: ["IOMA", "OSDE", "Medicus"],
-    horarios: "Mar-Jue 14:00-18:00",
+    direccion: "20 Nº 389 e/39 y 40",
+    telefono: "+54 221 523-6577",
+    email: "neurocienciascienn@gmail.com",
+    hospital: "CIENN - Solo niños",
+    experiencia: "Centro especializado en neurodesarrollo infantil",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie 8:00-20:00, Sáb 9:00-13:00",
+    tipo: "centro_especializado"
   },
   {
-    nombre: "Dr. Alejandro Fernández",
-    especialidad: "Psiquiatra de Adultos",
+    nombre: "Dra. Silvina Gutierrez",
+    especialidad: "Especialista TDAH",
+    provincia: "Buenos Aires",
+    ciudad: "La Plata",
+    direccion: "115 Nro. 425 (Clínica San Juan)",
+    telefono: "+54 221 641-9144",
+    email: "Consultar",
+    hospital: "Clínica San Juan",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Consultar",
+    tipo: "clinica"
+  },
+  // CITY BELL
+  {
+    nombre: "Dra. Marina Drake",
+    especialidad: "Neuropsicóloga",
+    provincia: "Buenos Aires",
+    ciudad: "City Bell",
+    direccion: "Esmeralda 961 6° Piso, Depto. H",
+    telefono: "+54 11 4311-7864",
+    email: "contacto@neuropsicologia.com.ar",
+    hospital: "NEUROPSIC Consultorios",
+    experiencia: "Neuropsicología",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie 14:00-19:00",
+    tipo: "consultorio"
+  },
+  // CÓRDOBA
+  {
+    nombre: "Luis Santiago Vaggione",
+    especialidad: "Psicólogo",
     provincia: "Córdoba",
     ciudad: "Córdoba Capital",
-    direccion: "Av. Colón 789",
-    telefono: "+54 351 234-5678",
-    email: "afernandez@psiquiatria.com",
-    hospital: "Hospital Privado Universitario",
-    experiencia: "20 años",
-    rating: 4.7,
-    obraSocial: ["APROSS", "OSDE", "Sancor Salud"],
-    horarios: "Lun-Mie-Vie 10:00-16:00",
-  },
-  {
-    nombre: "Dra. Laura Gómez",
-    especialidad: "Psicóloga Clínica",
-    provincia: "Santa Fe",
-    ciudad: "Rosario",
-    direccion: "San Martín 1122",
-    telefono: "+54 341 567-8901",
-    email: "lgomez@psicologia.com",
-    hospital: "Centro de Salud Mental",
-    experiencia: "8 años",
-    rating: 4.6,
-    obraSocial: ["IAPOS", "OSDE", "Federada Salud"],
-    horarios: "Lun-Vie 8:00-14:00",
-  },
-  {
-    nombre: "Dr. Roberto Silva",
-    especialidad: "Neuropediatra",
-    provincia: "Mendoza",
-    ciudad: "Mendoza Capital",
-    direccion: "Las Heras 567",
-    telefono: "+54 261 345-6789",
-    email: "rsilva@neuro.com",
-    hospital: "Hospital Pediátrico Humberto Notti",
-    experiencia: "18 años",
-    rating: 4.8,
-    obraSocial: ["OSEP", "OSDE", "Prevención Salud"],
-    horarios: "Mar-Jue 9:00-13:00",
-  },
-  {
-    nombre: "Dra. Ana Martínez",
-    especialidad: "Psiquiatra Infantil",
-    provincia: "Tucumán",
-    ciudad: "San Miguel de Tucumán",
-    direccion: "24 de Septiembre 890",
-    telefono: "+54 381 456-7890",
-    email: "amartinez@infantil.com",
-    hospital: "Hospital del Niño Jesús",
-    experiencia: "14 años",
-    rating: 4.7,
-    obraSocial: ["OSPIT", "OSDE", "Medife"],
-    horarios: "Lun-Mie-Vie 15:00-19:00",
-  },
+    direccion: "Fundación Nascendi",
+    telefono: "Consultar",
+    email: "lsvaggione@yahoo.com.ar",
+    hospital: "Fundación Nascendi",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Consultar",
+    tipo: "fundacion",
+    redes: "@luissantiagovaggione (Instagram)"
+  }
 ]
 
 const provincias = [
@@ -188,11 +321,11 @@ export default function MedicosPage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="todas">Todas las especialidades</SelectItem>
-                  <SelectItem value="Psiquiatra Infantil">Psiquiatra Infantil</SelectItem>
-                  <SelectItem value="Psiquiatra de Adultos">Psiquiatra de Adultos</SelectItem>
-                  <SelectItem value="Neuróloga Pediátrica">Neuróloga Pediátrica</SelectItem>
-                  <SelectItem value="Neuropediatra">Neuropediatra</SelectItem>
-                  <SelectItem value="Psicóloga Clínica">Psicóloga Clínica</SelectItem>
+                  <SelectItem value="Psiquiatra">Psiquiatra</SelectItem>
+                  <SelectItem value="Neuropsicóloga">Neuropsicóloga</SelectItem>
+                  <SelectItem value="Neurólogo">Neurólogo</SelectItem>
+                  <SelectItem value="Psicólogo">Psicólogo</SelectItem>
+                  <SelectItem value="Especialista TDAH">Especialista TDAH</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -215,14 +348,32 @@ export default function MedicosPage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <CardTitle className="text-xl">{medico.nombre}</CardTitle>
-                    <CardDescription className="text-base font-medium text-blue-600">
+                    <CardDescription className="text-base font-medium text-blue-600 mb-2">
                       {medico.especialidad}
                     </CardDescription>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-xs">
+                        {medico.tipo === "privado" && "Consulta Privada"}
+                        {medico.tipo === "instituto" && "Instituto"}
+                        {medico.tipo === "centro_especializado" && "Centro Especializado"}
+                        {medico.tipo === "hospital" && "Hospital"}
+                        {medico.tipo === "clinica" && "Clínica"}
+                        {medico.tipo === "consultorio" && "Consultorio"}
+                        {medico.tipo === "fundacion" && "Fundación"}
+                      </Badge>
+                      {medico.hospital.includes("Solo niños") && (
+                        <Badge variant="secondary" className="text-xs">
+                          Solo Niños
+                        </Badge>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-medium">{medico.rating}</span>
-                  </div>
+                  {medico.rating && (
+                    <div className="flex items-center space-x-1">
+                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <span className="text-sm font-medium">{medico.rating}</span>
+                    </div>
+                  )}
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -269,8 +420,24 @@ export default function MedicosPage() {
                   </div>
                 </div>
                 <div className="flex space-x-2 pt-2">
-                  <Button className="flex-1">Solicitar Turno</Button>
-                  <Button variant="outline">Ver Perfil</Button>
+                  <Button 
+                    className="flex-1" 
+                    onClick={() => medico.telefono !== "Consultar" && window.open(`tel:${medico.telefono}`)}
+                    disabled={medico.telefono === "Consultar"}
+                  >
+                    {medico.telefono !== "Consultar" ? "Llamar" : "Consultar Teléfono"}
+                  </Button>
+                  {medico.url && (
+                    <Button variant="outline" onClick={() => window.open(medico.url, "_blank")}>
+                      <ExternalLink className="h-4 w-4 mr-1" />
+                      Web
+                    </Button>
+                  )}
+                  {medico.email && medico.email !== "Consultar" && (
+                    <Button variant="outline" onClick={() => window.open(`mailto:${medico.email}`)}>
+                      <Mail className="h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -300,37 +467,76 @@ export default function MedicosPage() {
         )}
 
         {/* Additional Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           <Card>
             <CardHeader>
-              <CardTitle>¿Cómo elegir un especialista?</CardTitle>
+              <CardTitle>Proceso de Diagnóstico</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-start space-x-2">
                 <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                <p className="text-sm text-gray-700">Verifica que tenga experiencia específica en TDAH</p>
+                <p className="text-sm text-gray-700">Entrevista de admisión inicial</p>
               </div>
               <div className="flex items-start space-x-2">
                 <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                <p className="text-sm text-gray-700">Consulta si acepta tu obra social</p>
+                <p className="text-sm text-gray-700">Test neurocognitivo y entrevistas adicionales</p>
               </div>
               <div className="flex items-start space-x-2">
                 <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                <p className="text-sm text-gray-700">Considera la ubicación y horarios disponibles</p>
+                <p className="text-sm text-gray-700">Descarte de patologías similares</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Evaluación de comorbidades (TEA, TOC, etc.)</p>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>¿Eres un profesional?</CardTitle>
+              <CardTitle>Cobertura y Costos</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-700 mb-4">
-                Si eres un especialista en TDAH y quieres aparecer en nuestro directorio, contáctanos para incluir tu
-                información.
-              </p>
-              <Button className="w-full">Registrarse como Profesional</Button>
+            <CardContent className="space-y-3">
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">El diagnóstico tiene costos, pero es más caro no tenerlo</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Hospital Italiano tiene algún tipo de cobertura</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">INECO ofrece diagnóstico acelerado (útil para interior)</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Muchas obras sociales cubren medicamentos crónicos</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Información Importante</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Pregunta si evaluaron comorbidades</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Entiende el porqué del medicamento recetado</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Metilfenidato: 70% eficacia vs Atomoxetina: 20%</p>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                <p className="text-sm text-gray-700">Necesitas receta triplicada para metilfenidato</p>
+              </div>
             </CardContent>
           </Card>
         </div>
