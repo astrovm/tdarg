@@ -11,7 +11,7 @@ interface LawConfig {
   id: string;
   name: string;
   url: string;
-  type: 'ley' | 'decreto' | 'resolucion';
+  type: 'ley';
 }
 
 interface DownloadResult {
@@ -33,49 +33,31 @@ interface ProcessingResult {
 
 type MetadataRecord = Record<string, LawMetadata>;
 
-// Configuration of laws to download
+// Configuration of laws to download using InfoLeg URLs
 const LAWS_CONFIG: LawConfig[] = [
   {
     id: 'ley-19303-psicotropicos',
     name: 'Ley 19.303 - Psicotrópicos',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20966/texact.htm',
     type: 'ley'
   },
   {
     id: 'ley-27553-recetas-electronicas',
-    name: 'Ley 27.553 - Recetas Electrónicas',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/ley-27553-340919/actualizacion',
+    name: 'Ley 27.553 - Recetas Electrónicas', 
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/340000-344999/340919/texact.htm',
     type: 'ley'
   },
   {
     id: 'ley-27306-dea',
     name: 'Ley 27.306 - DEA',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/texto',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/265000-269999/267234/norma.htm',
     type: 'ley'
   },
   {
     id: 'ley-17565-medicamentos',
     name: 'Ley 17.565 - Medicamentos',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/ley-17565-19424/actualizacion',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19424/texact.htm',
     type: 'ley'
-  },
-  {
-    id: 'decreto-345-2024-recetas-digitales',
-    name: 'Decreto 345/2024 - Recetas Digitales',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/decreto-345-2024-398297/texto',
-    type: 'decreto'
-  },
-  {
-    id: 'decreto-432-2017-reglamentacion',
-    name: 'Decreto 432/2017 - Reglamentación',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/decreto-432-2017-274900/actualizacion',
-    type: 'decreto'
-  },
-  {
-    id: 'resolucion-5744-2024-repositorios',
-    name: 'Resolución 5744/2024 - Repositorios',
-    url: 'https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-5744-2024-406757/texto',
-    type: 'resolucion'
   }
 ];
 
@@ -97,12 +79,15 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
       hostname: parsedUrl.hostname,
       path: parsedUrl.pathname + parsedUrl.search,
       method: 'GET',
+      // Disable SSL verification for InfoLeg government site
+      rejectUnauthorized: false,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; TDAH-Argentina-Bot/1.0)',
+        'User-Agent': 'Mozilla/5.0 (compatible; TDAH-Argentina-Bot/1.0; +https://tdarg.com.ar)',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'es-AR,es;q=0.9,en;q=0.8',
-        'Accept-Encoding': 'identity', // Don't accept compressed content
+        'Accept-Encoding': 'identity',
         'Connection': 'keep-alive',
+        'Referer': 'https://servicios.infoleg.gob.ar/',
         'Upgrade-Insecure-Requests': '1'
       }
     };
