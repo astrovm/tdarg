@@ -7,9 +7,6 @@ import {
   FileText,
   Calendar,
   ExternalLink,
-  AlertTriangle,
-  CheckCircle,
-  XCircle,
   Brain,
   Clock,
   ChevronDown,
@@ -18,7 +15,6 @@ import {
   Edit3,
 } from "lucide-react"
 import { Header } from "@/components/header"
-import { useLegislacionTracker } from "@/hooks/use-legislacion-tracker"
 import { useState } from "react"
 
 // Leyes ordenadas de más recientes a más antiguas
@@ -517,7 +513,6 @@ const problemasReales = [
 ]
 
 export default function LegislacionPage() {
-  const { proyectos, loading, error } = useLegislacionTracker()
   const [expandedLaw, setExpandedLaw] = useState<string | null>(null)
 
   const toggleLawDetails = (lawNumber: string) => {
@@ -691,156 +686,6 @@ export default function LegislacionPage() {
         </div>
 
 
-        {/* Current Projects Analysis */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Proyectos Actuales - Análisis IA</h2>
-          {loading ? (
-            <div className="space-y-4">
-              {[1, 2, 3].map((i) => (
-                <Card key={i} className="animate-pulse">
-                  <CardHeader>
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                    <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
-                    <div className="h-3 bg-gray-200 rounded w-2/3"></div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : error ? (
-            <div className="text-red-600">Error: {error}</div>
-          ) : (
-            <div className="space-y-6">
-              {proyectos.map((proyecto, index) => (
-                <Card
-                  key={index}
-                  className={`hover:shadow-lg transition-shadow ${
-                    proyecto.analisisIA.impactoReal === "alto"
-                      ? "border-green-200 dark:border-green-800"
-                      : proyecto.analisisIA.impactoReal === "negativo"
-                        ? "border-red-200 dark:border-red-800"
-                        : "border-yellow-200 dark:border-yellow-800"
-                  }`}
-                >
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-xl flex items-center space-x-2">
-                          <span>{proyecto.titulo}</span>
-                          {proyecto.analisisIA.impactoReal === "alto" && (
-                            <CheckCircle className="h-5 w-5 text-green-600" />
-                          )}
-                          {proyecto.analisisIA.impactoReal === "negativo" && (
-                            <XCircle className="h-5 w-5 text-red-600" />
-                          )}
-                          {proyecto.analisisIA.impactoReal === "bajo" && (
-                            <AlertTriangle className="h-5 w-5 text-yellow-600" />
-                          )}
-                        </CardTitle>
-                        <CardDescription className="text-base font-medium text-gray-900 mt-1">
-                          {proyecto.descripcion}
-                        </CardDescription>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Badge variant={proyecto.estado === "En comisión" ? "default" : "secondary"}>
-                          {proyecto.estado}
-                        </Badge>
-                        <Badge
-                          variant={
-                            proyecto.analisisIA.puntuacion >= 8
-                              ? "default"
-                              : proyecto.analisisIA.puntuacion >= 5
-                                ? "secondary"
-                                : "destructive"
-                          }
-                        >
-                          {proyecto.analisisIA.puntuacion}/10
-                        </Badge>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    {/* AI Analysis */}
-                    <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold flex items-center space-x-2">
-                          <Brain className="h-4 w-4" />
-                          <span>Análisis IA</span>
-                        </h4>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                        <div>
-                          <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Beneficios</h5>
-                          <ul className="space-y-1 text-sm">
-                            {proyecto.analisisIA.beneficios.map((beneficio, idx) => (
-                              <li key={idx} className="flex items-start space-x-2">
-                                <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <span>{beneficio}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ Problemas</h5>
-                          <ul className="space-y-1 text-sm">
-                            {proyecto.analisisIA.problemas.map((problema, idx) => (
-                              <li key={idx} className="flex items-start space-x-2">
-                                <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <span>{problema}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div
-                        className={`p-3 rounded-md ${
-                          proyecto.analisisIA.puntuacion >= 8
-                            ? "bg-green-100 dark:bg-green-900/20"
-                            : proyecto.analisisIA.puntuacion >= 5
-                              ? "bg-yellow-100 dark:bg-yellow-900/20"
-                              : "bg-red-100 dark:bg-red-900/20"
-                        }`}
-                      >
-                        <p className="font-medium text-sm">
-                          <strong>Recomendación IA:</strong> {proyecto.analisisIA.recomendacion}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        {new Date(proyecto.fecha).toLocaleDateString("es-AR")}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <FileText className="h-4 w-4 mr-2" />
-                        {proyecto.autor}
-                      </div>
-                    </div>
-
-                    <div className="flex space-x-2">
-                      <Button size="sm" variant={proyecto.analisisIA.impactoReal === "alto" ? "default" : "outline"}>
-                        {proyecto.analisisIA.impactoReal === "alto"
-                          ? "Apoyar Proyecto"
-                          : proyecto.analisisIA.impactoReal === "negativo"
-                            ? "Oponerse"
-                            : "Ver Detalles"}
-                      </Button>
-                      <Button size="sm" variant="outline">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Seguir en Congreso
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
 
 
         {/* Current Laws */}
@@ -1330,51 +1175,6 @@ export default function LegislacionPage() {
           </div>
         </div>
 
-        {/* Action Center */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="border-green-200 dark:border-green-800">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-600" />
-                <span>Proyectos para Apoyar</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-700 mb-4">
-                Estos proyectos realmente benefician a las personas con TDAH. Contacta a tus representantes para
-                apoyarlos.
-              </p>
-              <div className="space-y-2">
-                <Button className="w-full">Enviar Email a Diputados</Button>
-                <Button variant="outline" className="w-full bg-transparent">
-                  Compartir en Redes Sociales
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-red-200 dark:border-red-800">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <XCircle className="h-5 w-5 text-red-600" />
-                <span>Proyectos Peligrosos</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-700 mb-4">
-                Estos proyectos pueden dañar nuestros derechos o privacidad. Es importante oponerse activamente.
-              </p>
-              <div className="space-y-2">
-                <Button variant="destructive" className="w-full">
-                  Oponerse Formalmente
-                </Button>
-                <Button variant="outline" className="w-full bg-transparent">
-                  Alertar a la Comunidad
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </div>
   )
