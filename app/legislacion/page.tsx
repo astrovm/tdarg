@@ -22,38 +22,129 @@ const leyes = [
   {
     numero: "Ley 27.553",
     titulo: "Ley de Recetas Electrónicas o Digitales",
-    descripcion: "Establece el sistema de recetas electrónicas y telemedicina en Argentina",
+    descripcion: "Establece que las prescripciones solo pueden ser redactadas a través de plataformas electrónicas habilitadas y habilita la telemedicina",
     fecha: "2020-08-11",
     estado: "Vigente",
     tipo: "Nacional",
-    organismo: "Congreso Nacional",
+    organismo: "Honorable Congreso de la Nación Argentina",
     impactoReal: "alto",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-27553-340919/actualizacion",
     ultimaActualizacion: "2023-12-21",
     analisisIA: {
       beneficios: [
-        "Permite prescripciones electrónicas para medicamentos TDAH",
-        "Habilita consultas de telemedicina para psiquiatría",
-        "Reduce burocracia en renovación de recetas",
-        "Moderniza el sistema de salud digital",
-        "Facilita acceso a especialistas en zonas remotas",
+        "Art. 1º: Establece recetas electrónicas obligatorias para toda prescripción",
+        "Art. 2º: Medicamentos dispensables en cualquier farmacia del territorio nacional",
+        "Art. 6º: Habilita telemedicina para medicina y odontología",
+        "Art. 11: Agrega Art. 18 bis a Ley 19.303 permitiendo recetas electrónicas",
+        "Art. 12: Digitalización obligatoria de estupefacientes y psicotrópicos",
       ],
       problemas: [
-        "Requiere infraestructura tecnológica en todo el país",
-        "Depende de la adopción por parte de médicos",
-        "Necesita alfabetización digital de pacientes",
-        "Posibles problemas de conectividad en zonas rurales",
+        "Art. 3º: Plazo de implementación vencido (1º julio 2024)",
+        "Falta reglamentación específica para medicamentos controlados",
+        "Art. 11 solo 'permite' recetas electrónicas en Ley 19.303, no las obliga",
+        "Conflicto: esta ley obliga electrónicas, Ley 19.303 exige manuscritas",
+        "Farmacias no adoptan por miedo a conflicto legal",
       ],
-      puntuacion: 8.2,
-      recomendacion: "Ley muy positiva para TDAH - falta mejor implementación y capacitación",
+      puntuacion: 6.8,
+      recomendacion: "Ley excelente en teoría pero mal implementada - conflicto no resuelto con Ley 19.303 para medicamentos TDAH",
     },
     puntosClave: [
-      "Prescripciones electrónicas válidas nacionalmente",
-      "Telemedicina habilitada para consultas psiquiátricas",
-      "Protección de datos médicos personales",
-      "Farmacias obligadas a aceptar recetas digitales",
-      "Plataformas de telemedicina reguladas",
+      "Art. 1º: Recetas electrónicas obligatorias (en teoría)",
+      "Art. 2º: Dispensación nacional en cualquier farmacia",
+      "Art. 6º: Telemedicina habilitada oficialmente",
+      "Art. 11: Modifica Ley 19.303 agregando Art. 18 bis",
+      "Art. 3º: Plazo implementación vencido (julio 2024)",
     ],
+    analisisDetallado: {
+      articulosProblematicos: [
+        {
+          articulo: "Artículo 1º",
+          titulo: "Objeto de la Ley - Recetas Electrónicas Obligatorias",
+          textoActual: `La presente ley tiene por objeto:
+
+Establecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin.
+
+Establecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente.`,
+          problemasIdentificados: [
+            "Dice 'solo puedan' pero no deroga explícitamente las recetas manuscritas",
+            "No menciona cómo resolver conflictos con leyes anteriores",
+            "Falta especificidad sobre medicamentos controlados",
+            "No establece sanciones por incumplimiento"
+          ],
+          propuestaReescritura: `La presente ley tiene por objeto:
+
+a) Establecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, DEBEN ser redactadas y firmadas exclusivamente a través de plataformas electrónicas habilitadas, reemplazando definitivamente las recetas manuscritas.
+
+b) Derogar expresamente toda disposición legal que exija recetas manuscritas, incluidos los artículos 13 y 14 de la Ley 19.303.
+
+c) Establecer que los medicamentos controlados (psicotrópicos y estupefacientes) se rigen por esta ley, manteniendo controles de seguridad en formato digital.
+
+d) Habilitar plataformas de teleasistencia en salud con las mismas garantías de seguridad y privacidad.`,
+          impactoTDAH: "Crítico - Si fuera aplicado correctamente resolvería el problema de recetas manuscritas"
+        },
+        {
+          articulo: "Artículo 3º",
+          titulo: "Plazo de Implementación Vencido",
+          textoActual: `El Poder Ejecutivo Nacional establece los plazos necesarios para alcanzar la digitalización total en prescripción y dispensación de medicamentos y toda otra prescripción, el cual no podrá superar el 1° de julio de 2024, y regular el uso de plataformas de teleasistencia en salud.`,
+          problemasIdentificados: [
+            "Plazo vencido sin implementación efectiva",
+            "No especifica sanciones por incumplimiento del plazo",
+            "Falta autoridad de aplicación clara",
+            "No hay mecanismo de seguimiento del cumplimiento"
+          ],
+          propuestaReescritura: `La autoridad de aplicación debe:
+
+a) Implementar inmediatamente la digitalización total, sin excepciones.
+
+b) Establecer un nuevo plazo máximo de 90 días para completar la migración.
+
+c) Crear un sistema de monitoreo público del avance de implementación.
+
+d) Aplicar sanciones a instituciones que no cumplan con la digitalización.
+
+e) Designar una autoridad de aplicación específica con presupuesto asignado.`,
+          impactoTDAH: "Alto - Plazo vencido mantiene el limbo legal actual"
+        },
+        {
+          articulo: "Artículo 11",
+          titulo: "Modificación Insuficiente de Ley 19.303",
+          textoActual: `Incorpórase el artículo 18 bis a la ley 19.303, el que quedará redactado de la siguiente manera:
+
+Artículo 18 bis: En caso de que las recetas mencionadas en la presente ley sean redactadas electrónicamente, o en caso de que los registros obligatorios sean llevados electrónicamente, la firma y demás requisitos técnicos y legales deben adecuarse a la legislación especial vigente y a lo que establezca la autoridad de aplicación.`,
+          problemasIdentificados: [
+            "Solo 'permite' recetas electrónicas, no las obliga",
+            "No deroga los artículos 13-14 que exigen manuscritas",
+            "Frase 'en caso de que' mantiene opcionalidad",
+            "Falta reglamentación específica de la autoridad"
+          ],
+          propuestaReescritura: `Sustitúyanse los artículos 13, 14 y 16 de la Ley 19.303, los que quedarán redactados de la siguiente manera:
+
+Artículo 13: Los sicotrópicos incluidos en la Lista II solo podrán ser prescriptos por profesionales médicos matriculados mediante recetas electrónicas con firma digital certificada. Para medicación crónica como TDAH, se permite prescripción por hasta 90 días con renovación trimestral.
+
+Artículo 14: Los sicotrópicos incluidos en las Listas III y IV solo podrán despacharse bajo receta electrónica archivada digitalmente por 5 años.
+
+Artículo 16: Las prescripciones de Lista II para medicación crónica pueden extenderse hasta 90 días de tratamiento, con controles médicos según criterio profesional.`,
+          impactoTDAH: "Crítico - Reforma insuficiente mantiene conflicto legal"
+        }
+      ],
+      articulosPropuestos: [],
+      resumenImpacto: {
+        problemasPrincipales: [
+          "Ley excelente en principio pero mal redactada para resolver conflictos",
+          "Plazo de implementación vencido sin consecuencias",
+          "Modificación insuficiente de Ley 19.303 mantiene ambigüedad",
+          "Falta autoridad de aplicación con poder real"
+        ],
+        beneficiosReforma: [
+          "Reforma completa de artículos conflictivos de Ley 19.303",
+          "Nuevo plazo con sanciones por incumplimiento",
+          "Autoridad de aplicación específica con presupuesto",
+          "Sistema de monitoreo público de implementación"
+        ],
+        urgencia: "Alta - Ley vigente pero inaplicable por conflictos legales",
+        estimacionImpacto: "Resolvería completamente el problema de recetas para 500,000+ pacientes TDAH"
+      }
+    }
   },
   {
     numero: "Ley 27.306",
