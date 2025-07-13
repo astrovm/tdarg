@@ -43,7 +43,7 @@ const LAWS_CONFIG: LawConfig[] = [
   },
   {
     id: 'ley-27553-recetas-electronicas',
-    name: 'Ley 27.553 - Recetas Electrónicas', 
+    name: 'Ley 27.553 - Recetas Electrónicas',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/340000-344999/340919/texact.htm',
     type: 'ley'
   },
@@ -57,6 +57,12 @@ const LAWS_CONFIG: LawConfig[] = [
     id: 'ley-17565-medicamentos',
     name: 'Ley 17.565 - Medicamentos',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19424/texact.htm',
+    type: 'ley'
+  },
+  {
+    id: 'ley-17132-arte-curar',
+    name: 'Ley 17.132 - Arte de Curar (Ejercicio de la Medicina y Odontología)',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19429/texact.htm',
     type: 'ley'
   }
 ];
@@ -73,7 +79,7 @@ if (!fs.existsSync(DATA_DIR)) {
 function downloadFile(url: string, filename: string): Promise<DownloadResult> {
   return new Promise((resolve, reject) => {
     console.log(`📥 Downloading: ${filename}`);
-    
+
     const parsedUrl = new URL(url);
     const options: https.RequestOptions = {
       hostname: parsedUrl.hostname,
@@ -94,7 +100,7 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
 
     const req = https.request(options, (res) => {
       let data = '';
-      
+
       // Handle redirects
       if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         console.log(`🔄 Redirecting to: ${res.headers.location}`);
@@ -111,7 +117,7 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
       // Handle different content encodings
       let stream: NodeJS.ReadableStream = res;
       const encoding = res.headers['content-encoding'];
-      
+
       if (encoding === 'gzip') {
         stream = res.pipe(zlib.createGunzip());
       } else if (encoding === 'deflate') {
@@ -120,7 +126,7 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
 
       // Handle data as Buffer to properly detect encoding
       let buffer = Buffer.alloc(0);
-      
+
       stream.on('data', (chunk: Buffer) => {
         buffer = Buffer.concat([buffer, chunk]);
       });
@@ -130,7 +136,7 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
           // Convert buffer to string with proper encoding detection
           let data: string;
           const bufferString = buffer.toString();
-          
+
           // Check if it's likely Windows-1252 by looking for specific byte patterns
           if (bufferString.includes('�') || bufferString.includes('charset=windows-1252') || bufferString.includes('charset=ISO-8859-1')) {
             // Try to decode as Windows-1252
@@ -139,7 +145,7 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
             // Default to UTF-8
             data = buffer.toString('utf8');
           }
-          
+
           const filePath = path.join(DATA_DIR, filename);
           fs.writeFileSync(filePath, data, 'utf8');
           console.log(`✅ Saved: ${filename} (${data.length} bytes)`);
@@ -195,50 +201,50 @@ function saveMetadata(metadata: MetadataRecord): void {
 function needsUpdate(lawId: string, metadata: MetadataRecord): boolean {
   const filename = `${lawId}.html`;
   const filePath = path.join(DATA_DIR, filename);
-  
+
   // If file doesn't exist, definitely needs update
   if (!fs.existsSync(filePath)) {
     return true;
   }
-  
+
   // If no metadata, assume it needs update
   if (!metadata[lawId]) {
     return true;
   }
-  
+
   // For now, always update if file is older than 24 hours
   const lastDownload = new Date(metadata[lawId].downloadedAt);
   const now = new Date();
   const hoursSinceDownload = (now.getTime() - lastDownload.getTime()) / (1000 * 60 * 60);
-  
+
   return hoursSinceDownload > 24;
 }
 
 // Main download function
 async function downloadLaws(): Promise<void> {
   console.log('🚀 Starting law download process...');
-  
+
   const metadata = loadMetadata();
   const results: ProcessingResult[] = [];
-  
+
   for (const law of LAWS_CONFIG) {
     const filename = `${law.id}.html`;
-    
+
     try {
       if (needsUpdate(law.id, metadata)) {
         console.log(`📋 Processing: ${law.name}`);
-        
+
         const result = await downloadFile(law.url, filename);
-        
+
         // Update metadata
         metadata[law.id] = {
           ...law,
           ...result,
           lastChecked: new Date().toISOString()
         };
-        
+
         results.push({ law: law.name, status: 'downloaded' });
-        
+
         // Small delay to be respectful to the server
         await new Promise(resolve => setTimeout(resolve, 1000));
       } else {
@@ -251,27 +257,27 @@ async function downloadLaws(): Promise<void> {
       results.push({ law: law.name, status: 'failed', error: errorMessage });
     }
   }
-  
+
   // Save updated metadata
   saveMetadata(metadata);
-  
+
   // Print summary
   console.log('\n📊 Download Summary:');
   console.log('====================');
-  
+
   const downloaded = results.filter(r => r.status === 'downloaded');
   const skipped = results.filter(r => r.status === 'skipped');
   const failed = results.filter(r => r.status === 'failed');
-  
+
   console.log(`✅ Downloaded: ${downloaded.length}`);
   console.log(`⏭️  Skipped: ${skipped.length}`);
   console.log(`❌ Failed: ${failed.length}`);
-  
+
   if (failed.length > 0) {
     console.log('\n❌ Failed downloads:');
     failed.forEach(f => console.log(`  - ${f.law}: ${f.error}`));
   }
-  
+
   console.log(`\n📁 Files saved to: ${DATA_DIR}`);
   console.log('🎉 Download process completed!');
 }
