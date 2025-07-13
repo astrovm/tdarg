@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, MapPin, Phone, Mail, Star, Clock, ExternalLink, Building2 } from "lucide-react"
+import { Search, MapPin, Phone, Mail, Star, Clock, ExternalLink, Building2, MessageCircle } from "lucide-react"
 import { Header } from "@/components/header"
 
 const especialistas = [
@@ -429,10 +429,11 @@ export default function EspecialistasPage() {
                 <div className="flex space-x-2 pt-2">
                   <Button 
                     className="flex-1" 
-                    onClick={() => especialista.telefono !== "Consultar" && window.open(`tel:${especialista.telefono}`)}
+                    onClick={() => especialista.telefono !== "Consultar" && window.open(`https://wa.me/${especialista.telefono.replace(/[^0-9]/g, '')}`)}
                     disabled={especialista.telefono === "Consultar"}
                   >
-                    {especialista.telefono !== "Consultar" ? "Llamar" : "Consultar Teléfono"}
+                    <MessageCircle className="h-4 w-4 mr-1" />
+                    {especialista.telefono !== "Consultar" ? "WhatsApp" : "Consultar Teléfono"}
                   </Button>
                   {especialista.url && (
                     <Button variant="outline" onClick={() => window.open(especialista.url, "_blank")}>
