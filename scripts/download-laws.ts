@@ -1,13 +1,40 @@
-#!/usr/bin/env node
+#!/usr/bin/env tsx
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
-const zlib = require('zlib');
-const { URL } = require('url');
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
+import zlib from 'zlib';
+import { URL } from 'url';
+
+// Type definitions
+interface LawConfig {
+  id: string;
+  name: string;
+  url: string;
+  type: 'ley' | 'decreto' | 'resolucion';
+}
+
+interface DownloadResult {
+  filename: string;
+  size: number;
+  downloadedAt: string;
+  url: string;
+}
+
+interface LawMetadata extends LawConfig, DownloadResult {
+  lastChecked: string;
+}
+
+interface ProcessingResult {
+  law: string;
+  status: 'downloaded' | 'skipped' | 'failed';
+  error?: string;
+}
+
+type MetadataRecord = Record<string, LawMetadata>;
 
 // Configuration of laws to download
-const LAWS_CONFIG = [
+const LAWS_CONFIG: LawConfig[] = [
   {
     id: 'ley-19303-psicotropicos',
     name: 'Ley 19.303 - Psicotrópicos',
@@ -61,12 +88,12 @@ if (!fs.existsSync(DATA_DIR)) {
 }
 
 // Helper function to download a URL
-function downloadFile(url, filename) {
+function downloadFile(url: string, filename: string): Promise<DownloadResult> {
   return new Promise((resolve, reject) => {
     console.log(`📥 Downloading: ${filename}`);
     
     const parsedUrl = new URL(url);
-    const options = {
+    const options: https.RequestOptions = {
       hostname: parsedUrl.hostname,
       path: parsedUrl.pathname + parsedUrl.search,
       method: 'GET',
@@ -84,7 +111,7 @@ function downloadFile(url, filename) {
       let data = '';
       
       // Handle redirects
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+      if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         console.log(`🔄 Redirecting to: ${res.headers.location}`);
         return downloadFile(res.headers.location, filename)
           .then(resolve)
@@ -97,7 +124,7 @@ function downloadFile(url, filename) {
       }
 
       // Handle different content encodings
-      let stream = res;
+      let stream: NodeJS.ReadableStream = res;
       const encoding = res.headers['content-encoding'];
       
       if (encoding === 'gzip') {
@@ -108,7 +135,7 @@ function downloadFile(url, filename) {
 
       stream.setEncoding('utf8');
       
-      stream.on('data', (chunk) => {
+      stream.on('data', (chunk: string) => {
         data += chunk;
       });
 
@@ -128,17 +155,17 @@ function downloadFile(url, filename) {
         }
       });
 
-      stream.on('error', (error) => {
+      stream.on('error', (error: Error) => {
         reject(error);
       });
     });
 
-    req.on('error', (error) => {
+    req.on('error', (error: Error) => {
       reject(error);
     });
 
     req.setTimeout(30000, () => {
-      req.abort();
+      req.destroy();
       reject(new Error('Request timeout'));
     });
 
@@ -147,11 +174,11 @@ function downloadFile(url, filename) {
 }
 
 // Load existing metadata
-function loadMetadata() {
+function loadMetadata(): MetadataRecord {
   if (fs.existsSync(METADATA_FILE)) {
     try {
       const content = fs.readFileSync(METADATA_FILE, 'utf8');
-      return JSON.parse(content);
+      return JSON.parse(content) as MetadataRecord;
     } catch (error) {
       console.warn('⚠️  Could not load metadata, starting fresh');
       return {};
@@ -161,12 +188,12 @@ function loadMetadata() {
 }
 
 // Save metadata
-function saveMetadata(metadata) {
+function saveMetadata(metadata: MetadataRecord): void {
   fs.writeFileSync(METADATA_FILE, JSON.stringify(metadata, null, 2), 'utf8');
 }
 
 // Check if file needs update (simple check based on existence)
-function needsUpdate(lawId, metadata) {
+function needsUpdate(lawId: string, metadata: MetadataRecord): boolean {
   const filename = `${lawId}.html`;
   const filePath = path.join(DATA_DIR, filename);
   
@@ -183,17 +210,17 @@ function needsUpdate(lawId, metadata) {
   // For now, always update if file is older than 24 hours
   const lastDownload = new Date(metadata[lawId].downloadedAt);
   const now = new Date();
-  const hoursSinceDownload = (now - lastDownload) / (1000 * 60 * 60);
+  const hoursSinceDownload = (now.getTime() - lastDownload.getTime()) / (1000 * 60 * 60);
   
   return hoursSinceDownload > 24;
 }
 
 // Main download function
-async function downloadLaws() {
+async function downloadLaws(): Promise<void> {
   console.log('🚀 Starting law download process...');
   
   const metadata = loadMetadata();
-  const results = [];
+  const results: ProcessingResult[] = [];
   
   for (const law of LAWS_CONFIG) {
     const filename = `${law.id}.html`;
@@ -220,8 +247,9 @@ async function downloadLaws() {
         results.push({ law: law.name, status: 'skipped' });
       }
     } catch (error) {
-      console.error(`❌ Failed to download ${law.name}:`, error.message);
-      results.push({ law: law.name, status: 'failed', error: error.message });
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error(`❌ Failed to download ${law.name}:`, errorMessage);
+      results.push({ law: law.name, status: 'failed', error: errorMessage });
     }
   }
   
@@ -250,11 +278,20 @@ async function downloadLaws() {
 }
 
 // Run the download process
-if (require.main === module) {
-  downloadLaws().catch(error => {
+async function main(): Promise<void> {
+  try {
+    await downloadLaws();
+  } catch (error) {
     console.error('💥 Fatal error:', error);
     process.exit(1);
-  });
+  }
 }
 
-module.exports = { downloadLaws, LAWS_CONFIG, DATA_DIR };
+// Export for module use
+export { downloadLaws, LAWS_CONFIG, DATA_DIR };
+export type { LawConfig, DownloadResult, LawMetadata, ProcessingResult, MetadataRecord };
+
+// Run if this is the main module
+if (require.main === module) {
+  main();
+}
