@@ -324,77 +324,34 @@ const propuestasNecesarias = [
 
 const problemasReales = [
   {
-    problema: "🚨 CRÍTICO 2025: Conflicto entre Ley 27.553 y Ley 19.303 sobre recetas electrónicas",
+    problema: "Ausencia de receta electrónica para medicamentos TDAH",
     descripcion:
-      "Ley 27.553 permite recetas electrónicas, pero Ley 19.303 (artículos 13 y 14) exige específicamente recetas manuscritas para psicotrópicos TDAH. Artículo 18 bis permite electrónicas pero falta reglamentación de autoridad competente.",
-    impacto:
-      "Farmacias rechazan recetas electrónicas por miedo a infracciones. Pacientes TDAH deben ir presencialmente pese a telemedicina disponible.",
-    solucion:
-      "Reglamentación específica que integre artículo 18 bis con Decreto 345/2024 para medicamentos controlados + capacitación farmacéutica",
-    estado: "URGENTE - Conflicto legal sin resolver",
+      "Los medicamentos TDAH requieren receta manuscrita triplicada, no se pueden prescribir electrónicamente pese a que la telemedicina está habilitada.",
     esUrgente: true,
-    articulosAfectados: [
-      "Ley 27.553: Recetas electrónicas válidas ✅",
-      "Ley 19.303 Art. 18 bis: Permite electrónicas 'según autoridad' ⚠️",
-      "Ley 19.303 Art. 13: Exige manuscritas para Lista II ❌",
-      "Ley 19.303 Art. 14: Manuscritas, firmadas, una sola vez ❌"
-    ],
-    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
-    leyConflictiva: "Ley 19.303 vs Ley 27.553",
-    problemaReal: "Falta reglamentación específica del artículo 18 bis para psicotrópicos"
   },
   {
-    problema: "Límite de 20 días en prescripción de medicamentos TDAH",
+    problema: "Receta triplicada de papel obligatoria",
     descripcion:
-      "Artículo 16 de Ley 19.303 limita prescripciones de Lista II (metilfenidato) a máximo 20 días, requiriendo consulta médica cada 20 días para pacientes crónicos estables.",
-    impacto:
-      "Costos médicos excesivos, tiempo perdido, saturación del sistema de salud por consultas innecesarias para renovar medicación estable.",
-    solucion:
-      "Modificar artículo 16 para permitir prescripciones de hasta 90 días en pacientes TDAH estables con seguimiento trimestral",
-    estado: "Regulado por Ley 19.303 Art. 16 - Requiere modificación",
+      "Los medicamentos como metilfenidato requieren receta manuscrita triplicada que debe completar el médico a mano, generando burocracia y errores.",
     esUrgente: false,
-    articulosAfectados: [
-      "Ley 19.303 Art. 16: Máximo 20 días para Lista II ❌"
-    ],
-    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
-    leyConflictiva: "Ley 19.303 Art. 16",
-    problemaReal: "Enfoque agudo para tratamiento crónico"
   },
   {
-    problema: "Archivo obligatorio de recetas por 2 años genera burocracia farmacéutica",
+    problema: "Límite de 20 días por receta",
     descripcion:
-      "Artículo 14 de Ley 19.303 exige archivo físico de recetas por 2 años. Con Decreto 345/2024 digital, genera doble archivo: físico y digital.",
-    impacto:
-      "Farmacias prefieren evitar medicamentos controlados por costos administrativos. Reduce puntos de dispensación disponibles para pacientes TDAH.",
-    solucion:
-      "Integrar artículo 14 con Decreto 345/2024 para archivo digital único con misma validez legal",
-    estado: "Ley 19.303 Art. 14 vs Decreto 345/2024",
+      "Las prescripciones de metilfenidato están limitadas a máximo 20 días, obligando a consultas médicas cada 20 días para renovar medicación crónica.",
     esUrgente: false,
-    articulosAfectados: [
-      "Ley 19.303 Art. 14: Archivo físico 2 años ❌",
-      "Decreto 345/2024: Sistema digital ✅"
-    ],
-    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
-    leyConflictiva: "Ley 19.303 vs Decreto 345/2024",
-    problemaReal: "Doble burocracia: física + digital"
   },
   {
-    problema: "Falta de especialistas en TDAH adulto sin marco legal de formación",
+    problema: "Opciones limitadas de medicación",
     descripcion:
-      "Sin leyes específicas que regulen formación en TDAH adulto. Ley 27.306 enfoca aprendizaje escolar, no especialización médica adulta.",
-    impacto:
-      "Listas de espera de 3-6 meses para diagnóstico TDAH adulto. Pacientes derivan a neurología o psiquiatría general sin especialización.",
-    solucion:
-      "Ley específica de formación en TDAH adulto + reconocimiento de subespecialidad médica",
-    estado: "Sin marco legal - Vacío regulatorio",
+      "En Argentina solo está disponible metilfenidato. No existen Vyvanse (lisdexanfetamina), Adderall (anfetamina mixta) ni otros estimulantes aprobados por FDA.",
     esUrgente: false,
-    articulosAfectados: [
-      "Ley 27.306: Solo DEA escolar ⚠️",
-      "Falta: Ley de especialización TDAH adulto ❌"
-    ],
-    urlLey: "https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/texto",
-    leyConflictiva: "Vacío legal en Ley 27.306",
-    problemaReal: "Marco legal incompleto para TDAH adulto"
+  },
+  {
+    problema: "Falta de especialistas en TDAH adulto",
+    descripcion:
+      "No existe formación específica ni reconocimiento oficial de especialización en TDAH adulto, resultando en listas de espera de 3-6 meses para diagnóstico.",
+    esUrgente: false,
   }
 ]
 
@@ -421,79 +378,20 @@ export default function LegislacionPage() {
           </p>
         </div>
 
-        {/* Real Problems Ignored - NOW AT TOP */}
+        {/* Real Problems - SIMPLIFIED */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Problemas Reales Identificados</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {problemasReales.map((item, index) => (
-              <Card
-                key={index}
-                className={`${item.esUrgente ? "border-red-500 bg-red-50 dark:bg-red-900/20" : "border-orange-200 dark:border-orange-800"}`}
-              >
+              <Card key={index} className="border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/10">
                 <CardHeader>
-                  <CardTitle
-                    className={`text-lg flex items-center space-x-2 ${item.esUrgente ? "text-red-900 dark:text-red-100" : ""}`}
-                  >
-                    <Clock className={`h-5 w-5 ${item.esUrgente ? "text-red-600" : "text-orange-600"}`} />
-                    <span>{item.problema}</span>
+                  <CardTitle className="text-lg text-red-900 dark:text-red-100">
+                    {item.problema}
                   </CardTitle>
-                  <CardDescription className={item.esUrgente ? "text-red-800 dark:text-red-200" : ""}>
+                  <CardDescription className="text-red-800 dark:text-red-200">
                     {item.descripcion}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div>
-                      <h5 className="font-medium text-red-700 dark:text-red-400 mb-1">Impacto Actual</h5>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{item.impacto}</p>
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-1">Solución Propuesta</h5>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{item.solucion}</p>
-                    </div>
-                    {item.articulosAfectados && (
-                      <div>
-                        <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-1">Conflicto Legal</h5>
-                        <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
-                          {item.articulosAfectados.map((articulo, idx) => (
-                            <li
-                              key={idx}
-                              className={`${articulo.includes("✅") ? "text-green-600 dark:text-green-400" : articulo.includes("❌") ? "text-red-600 dark:text-red-400" : ""}`}
-                            >
-                              • {articulo}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {item.leyConflictiva && (
-                      <div className="bg-blue-100 dark:bg-blue-900/20 p-3 rounded-lg mb-2">
-                        <h5 className="font-medium text-blue-800 dark:text-blue-200 mb-1">⚖️ Conflicto Legal</h5>
-                        <p className="text-xs text-blue-700 dark:text-blue-300">{item.leyConflictiva}</p>
-                      </div>
-                    )}
-                    {item.problemaReal && (
-                      <div className="bg-yellow-100 dark:bg-yellow-900/20 p-3 rounded-lg">
-                        <h5 className="font-medium text-yellow-800 dark:text-yellow-200 mb-1">💡 Problema Real</h5>
-                        <p className="text-xs text-yellow-700 dark:text-yellow-300">{item.problemaReal}</p>
-                      </div>
-                    )}
-                    <Badge variant={item.esUrgente ? "destructive" : "destructive"} className="w-full justify-center">
-                      {item.estado}
-                    </Badge>
-                    {item.urlLey && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="w-full bg-transparent"
-                        onClick={() => window.open(item.urlLey, "_blank")}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Ver Ley Completa
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
               </Card>
             ))}
           </div>
