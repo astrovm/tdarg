@@ -118,14 +118,28 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
         stream = res.pipe(zlib.createInflate());
       }
 
-      stream.setEncoding('utf8');
+      // Handle data as Buffer to properly detect encoding
+      let buffer = Buffer.alloc(0);
       
-      stream.on('data', (chunk: string) => {
-        data += chunk;
+      stream.on('data', (chunk: Buffer) => {
+        buffer = Buffer.concat([buffer, chunk]);
       });
 
       stream.on('end', () => {
         try {
+          // Convert buffer to string with proper encoding detection
+          let data: string;
+          const bufferString = buffer.toString();
+          
+          // Check if it's likely Windows-1252 by looking for specific byte patterns
+          if (bufferString.includes('�') || bufferString.includes('charset=windows-1252') || bufferString.includes('charset=ISO-8859-1')) {
+            // Try to decode as Windows-1252
+            data = buffer.toString('latin1');
+          } else {
+            // Default to UTF-8
+            data = buffer.toString('utf8');
+          }
+          
           const filePath = path.join(DATA_DIR, filename);
           fs.writeFileSync(filePath, data, 'utf8');
           console.log(`✅ Saved: ${filename} (${data.length} bytes)`);
