@@ -298,27 +298,74 @@ e) La autoridad sanitaria establecerá protocolos específicos para el diagnóst
 
 const propuestasNecesarias = [
   {
-    titulo: "Integración de Ley 27.553 con Ley 19.303 - Recetas Electrónicas para Medicamentos Controlados TDAH",
+    titulo: "Modernización del Sistema de Recetas para Medicamentos TDAH",
     descripcion:
-      "Propuesta para actualizar la Ley 19.303 para que sea compatible con la Ley 27.553 de recetas electrónicas, permitiendo prescripciones digitales para medicamentos controlados como metilfenidato y atomoxetina",
+      "Reforma integral de la Ley 19.303 para permitir recetas electrónicas y extender el período de prescripción para medicamentos TDAH, eliminando la burocracia del sistema triplicado manuscrito",
     problemaQueResuelve:
-      "La Ley 27.553 permite recetas electrónicas, pero la Ley 19.303 aún exige receta triplicada manuscrita para medicamentos TDAH",
+      "Sistema de recetas obsoleto y burocrático que obliga a consultas presenciales cada 20 días",
     beneficiosEsperados: [
-      "Aplicación de receta electrónica (Ley 27.553) a medicamentos controlados TDAH",
-      "Eliminación de receta triplicada manuscrita manteniendo control de seguridad",
-      "Firma digital médica para prescripciones de psicotrópicos",
-      "Renovaciones electrónicas para pacientes estables",
-      "Integración completa entre telemedicina y medicamentos controlados",
+      "Recetas electrónicas con firma digital médica para medicamentos TDAH",
+      "Prescripciones de 90 días para pacientes estables (vs. 20 días actuales)",
+      "Integración completa con telemedicina",
+      "Eliminación de formularios triplicados manuscritos",
+      "Renovaciones automáticas para medicación crónica",
+      "Archivo digital único reemplazando papelería física",
     ],
     desafios: [
-      "Armonizar dos leyes diferentes (27.553 y 19.303)",
+      "Modificar artículos específicos de la Ley 19.303",
       "Mantener controles de seguridad en formato digital",
-      "Capacitación masiva de médicos y farmacéuticos",
-      "Implementación gradual del sistema integrado",
+      "Capacitación del sistema de salud",
+      "Resistencia del sector farmacéutico tradicional",
     ],
-    impacto: "Crítico - permitiría que los pacientes TDAH se beneficien completamente de la telemedicina",
-    estado: "PROPUESTA - No presentada oficialmente",
-    accionNecesaria: "Impulsar una reglamentación que integre ambas leyes para medicamentos controlados",
+    impacto: "Alto - Reduciría costos y tiempo para pacientes, mejorando acceso a tratamiento",
+    estado: "PROPUESTA - Requiere modificación legislativa",
+    accionNecesaria: "Impulsar reforma de la Ley 19.303 integrándola con recetas electrónicas",
+  },
+  {
+    titulo: "Ampliación del Vademécum de Medicamentos TDAH",
+    descripcion:
+      "Aprobación y registro de medicamentos adicionales para TDAH como lisdexanfetamina (Vyvanse) y anfetamina mixta (Adderall) que están aprobados por FDA pero no disponibles en Argentina",
+    problemaQueResuelve:
+      "Opciones limitadas de medicación para pacientes que no responden a metilfenidato o atomoxetina",
+    beneficiosEsperados: [
+      "Acceso a lisdexanfetamina (Vyvanse) para pacientes con respuesta limitada",
+      "Disponibilidad de anfetamina mixta (Adderall) como alternativa",
+      "Mejores opciones para pacientes con efectos adversos",
+      "Tratamientos personalizados según perfil del paciente",
+      "Reducción de abandono de tratamiento por falta de opciones",
+    ],
+    desafios: [
+      "Proceso de registro ANMAT para nuevos medicamentos",
+      "Negociación con laboratorios internacionales",
+      "Estudios de costo-efectividad locales",
+      "Capacitación médica en nuevas opciones terapéuticas",
+    ],
+    impacto: "Medio - Beneficiaría especialmente a pacientes con respuesta inadecuada a opciones actuales",
+    estado: "PROPUESTA - Requiere gestión con ANMAT",
+    accionNecesaria: "Solicitar a ANMAT la evaluación y registro de medicamentos TDAH adicionales",
+  },
+  {
+    titulo: "Reconocimiento Oficial de Especialización en TDAH Adulto",
+    descripcion:
+      "Creación de una subespecialidad médica oficialmente reconocida en TDAH adulto, con programas de formación específicos y certificación para profesionales",
+    problemaQueResuelve:
+      "Falta de especialistas capacitados que resulta en listas de espera largas y tratamiento inadecuado",
+    beneficiosEsperados: [
+      "Formación específica y certificada en TDAH adulto",
+      "Reducción de listas de espera para diagnóstico",
+      "Mejora en calidad de diagnóstico y tratamiento",
+      "Mayor número de profesionales capacitados",
+      "Protocolos estandarizados de atención",
+    ],
+    desafios: [
+      "Desarrollo de currícula específica para TDAH adulto",
+      "Coordinación entre universidades y sociedades médicas",
+      "Financiamiento de programas de capacitación",
+      "Tiempo de implementación y certificación",
+    ],
+    impacto: "Alto - Mejoraría significativamente el acceso y calidad de atención",
+    estado: "PROPUESTA - Requiere coordinación educativa y regulatoria",
+    accionNecesaria: "Impulsar reconocimiento ministerial de la subespecialidad y programas de formación",
   },
 ]
 
