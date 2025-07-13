@@ -690,25 +690,6 @@ export default function LegislacionPage() {
           </div>
         </div>
 
-        {/* AI Analysis Alert - SIMPLIFIED */}
-        <Card className="mb-8 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
-          <CardContent className="pt-6">
-            <div className="flex items-start space-x-4">
-              <div className="bg-purple-100 dark:bg-purple-800 rounded-full p-3">
-                <Brain className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-purple-900 dark:text-purple-100 mb-2">
-                  Análisis con IA - Última actualización: 9 de julio, 2025
-                </h3>
-                <p className="text-purple-800 dark:text-purple-200">
-                  Nuestro sistema analiza automáticamente cada proyecto de ley, evaluando su impacto real en la vida de
-                  las personas con TDAH vs. beneficios políticos superficiales.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Current Projects Analysis */}
         <div className="mb-12">
