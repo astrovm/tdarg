@@ -150,41 +150,162 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     numero: "Ley 27.306",
     titulo: "Abordaje Integral de Dificultades Específicas del Aprendizaje (DEA)",
     descripcion:
-      "Establece el marco legal para la atención integral de sujetos con dificultades específicas del aprendizaje, incluyendo TDAH",
-    fecha: "2016-11-04",
+      "Declara de interés nacional el abordaje integral de DEA. Define DEA como alteraciones neurobiológicas que afectan lenguaje, lectura, escritura y/o cálculo matemático",
+    fecha: "2016-10-19",
     estado: "Vigente",
     tipo: "Nacional",
-    organismo: "Congreso Nacional",
-    impactoReal: "alto",
+    organismo: "Honorable Congreso de la Nación Argentina",
+    impactoReal: "medio",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-27306-267234/texto",
-    ultimaActualizacion: "2016-11-04",
+    ultimaActualizacion: "2016-10-19",
     analisisIA: {
       beneficios: [
-        "Reconocimiento legal de DEA como alteraciones neurobiológicas",
-        "Cobertura sanitaria obligatoria para detección, diagnóstico y tratamiento",
-        "Adaptaciones curriculares específicas (tiempo extra, evaluaciones personalizadas)",
-        "Formación docente obligatoria para detección temprana",
-        "Incluye TDAH dentro del espectro de dificultades de aprendizaje",
+        "Art. 3º: Define DEA como alteraciones neurobiológicas (incluye TDAH)",
+        "Art. 6º: Adaptaciones curriculares específicas (tiempo extra, evaluación oral)",
+        "Art. 9º: Cobertura obligatoria PMO para detección, diagnóstico y tratamiento",
+        "Art. 5º: Formación docente para detección temprana",
+        "Art. 8º: Protocolos de diagnóstico a través del Consejo Federal de Salud",
       ],
       problemas: [
-        "No menciona específicamente 'TDAH' en el texto legal",
-        "Enfoque principalmente educativo, no médico",
-        "Falta de protocolos específicos para medicación",
-        "No aborda tratamiento farmacológico del TDAH",
-        "Implementación depende de reglamentación posterior",
+        "Nunca menciona específicamente 'TDAH' en el texto legal",
+        "Enfoque exclusivamente educativo y de aprendizaje escolar",
+        "No contempla TDAH adulto fuera del ámbito educativo",
+        "No aborda tratamiento farmacológico ni recetas",
+        "Autoridad de aplicación no especificada (Art. 4º)",
       ],
-      puntuacion: 7.1,
+      puntuacion: 6.5,
       recomendacion:
-        "Ley importante para aspectos educativos del TDAH, pero insuficiente para tratamiento médico integral",
+        "Ley importante para TDAH escolar pero insuficiente para TDAH adulto y tratamiento farmacológico",
     },
     puntosClave: [
-      "Definición de DEA como alteraciones neurobiológicas",
-      "Procedimientos de detección temprana en escuelas",
-      "Adaptaciones curriculares específicas (tiempo extra, evaluación oral)",
-      "Formación docente obligatoria",
-      "Cobertura sanitaria para detección, diagnóstico y tratamiento",
-      "Campañas de concientización y sensibilización",
+      "Art. 3º: DEA como alteraciones neurobiológicas",
+      "Art. 6º: Adaptaciones curriculares (tiempo extra, oralidad)",
+      "Art. 9º: Cobertura PMO obligatoria",
+      "Enfoque educativo, no contempla TDAH adulto",
+      "No menciona específicamente TDAH",
     ],
+    analisisDetallado: {
+      articulosProblematicos: [
+        {
+          articulo: "Artículo 3º",
+          titulo: "Definición de DEA - No menciona TDAH específicamente",
+          textoActual: `Se entiende por Dificultades Específicas del Aprendizaje (DEA) a las alteraciones de base neurobiológica, que afectan a los procesos cognitivos relacionados con el lenguaje, la lectura, la escritura y/o el cálculo matemático, con implicaciones significativas, leves, moderadas o graves en el ámbito escolar.`,
+          problemasIdentificados: [
+            "No menciona específicamente TDAH, déficit de atención o hiperactividad",
+            "Se limita a 'ámbito escolar', excluyendo TDAH adulto",
+            "Enfoque solo en aprendizaje, no en aspectos ejecutivos del TDAH",
+            "Definición restrictiva que puede excluir casos de TDAH sin problemas de aprendizaje"
+          ],
+          propuestaReescritura: `Se entiende por Dificultades Específicas del Aprendizaje (DEA) y Trastornos del Neurodesarrollo a las alteraciones de base neurobiológica que afectan:
+
+a) Procesos cognitivos relacionados con el lenguaje, la lectura, la escritura y/o el cálculo matemático;
+b) Funciones ejecutivas, atención sostenida y control inhibitorio (TDAH);
+c) Procesamiento sensorial y habilidades sociales relacionadas;
+
+Con implicaciones significativas en el ámbito escolar, laboral, social y de la vida diaria, afectando a niños, adolescentes y adultos.`,
+          impactoTDAH: "Alto - Definición restrictiva excluye muchos casos de TDAH"
+        },
+        {
+          articulo: "Artículo 4º",
+          titulo: "Autoridad de Aplicación No Especificada",
+          textoActual: `La Autoridad de Aplicación será determinada por el Poder Ejecutivo nacional.`,
+          problemasIdentificados: [
+            "8 años después sigue sin autoridad de aplicación específica",
+            "Falta de presupuesto asignado para implementación",
+            "No hay coordinación clara entre Educación y Salud",
+            "Imposibilita implementación efectiva de la ley"
+          ],
+          propuestaReescritura: `La Autoridad de Aplicación será el Ministerio de Educación en coordinación con el Ministerio de Salud, quienes designarán una Dirección Nacional de DEA y TDAH con presupuesto específico.
+
+Esta dirección tendrá facultades para:
+a) Coordinar políticas entre jurisdicciones;
+b) Establecer protocolos diagnósticos unificados;
+c) Supervisar cumplimiento de adaptaciones curriculares;
+d) Monitorear cobertura sanitaria obligatoria.`,
+          impactoTDAH: "Crítico - Sin autoridad de aplicación la ley es inaplicable"
+        },
+        {
+          articulo: "Artículo 6º",
+          titulo: "Adaptaciones Curriculares - Solo Ámbito Escolar",
+          textoActual: `La Autoridad de Aplicación deberá elaborar la adaptación curricular... Para garantizar el acceso al curriculum común, en el caso de Dificultades Específicas del Aprendizaje tendrá en cuenta las siguientes consideraciones orientativas:
+
+a) Dar prioridad a la oralidad, tanto en la enseñanza de contenidos como en las evaluaciones;
+b) Otorgar mayor cantidad de tiempo para la realización de tareas y/o evaluaciones;
+c) Asegurar que se han entendido las consignas;
+[...continúa con adaptaciones escolares]`,
+          problemasIdentificados: [
+            "Solo contempla adaptaciones para ámbito escolar",
+            "No incluye adaptaciones para educación superior o laboral",
+            "No considera adultos con TDAH en el trabajo",
+            "Falta de protocolos para transición escuela-trabajo"
+          ],
+          propuestaReescritura: `Las adaptaciones deben aplicarse en todos los ámbitos educativos y laborales:
+
+ÁMBITO EDUCATIVO (todos los niveles):
+a) Tiempo adicional en evaluaciones (50% extra mínimo);
+b) Evaluaciones orales como alternativa;
+c) Uso de tecnología de apoyo;
+d) Ambientes de evaluación reducidos en distracciones;
+
+ÁMBITO LABORAL:
+e) Adaptaciones razonables en puestos de trabajo;
+f) Flexibilidad horaria para consultas médicas;
+g) Ambientes laborales adaptados para personas con TDAH;
+
+EDUCACIÓN SUPERIOR:
+h) Servicios de apoyo académico especializados;
+i) Adaptaciones en exámenes de ingreso universitario.`,
+          impactoTDAH: "Alto - Ampliaría protección a adultos con TDAH"
+        },
+        {
+          articulo: "Artículo 9º",
+          titulo: "PMO - Falta Especificidad para TDAH",
+          textoActual: `Los agentes de salud... tendrán a su cargo, con carácter obligatorio, las prestaciones necesarias para la detección temprana, diagnóstico y tratamiento de las Dificultades Específicas del Aprendizaje (DEA).
+
+Las prestaciones citadas en los incisos b) y c) del artículo 8° de la presente quedan incorporadas de pleno derecho al Programa Médico Obligatorio (PMO).`,
+          problemasIdentificados: [
+            "No especifica prestaciones para TDAH específicamente",
+            "Falta de protocolos claros para diagnóstico TDAH adulto",
+            "No garantiza cobertura de medicación para TDAH",
+            "Ausencia de seguimiento farmacoterapéutico específico"
+          ],
+          propuestaReescritura: `Quedan incorporadas al PMO las siguientes prestaciones específicas para TDAH:
+
+DIAGNÓSTICO:
+a) Evaluación neuropsicológica completa;
+b) Consultas con psiquiatría especializada en TDAH;
+c) Escalas de evaluación específicas (ADHD-RS, ASRS);
+
+TRATAMIENTO:
+d) Medicación para TDAH (metilfenidato, atomoxetina);
+e) Terapia cognitivo-conductual especializada;
+f) Entrenamiento en habilidades ejecutivas;
+g) Seguimiento farmacoterapéutico trimestral;
+
+APOYO:
+h) Capacitación familiar en manejo de TDAH;
+i) Adaptaciones laborales y educativas.`,
+          impactoTDAH: "Crítico - Garantizaría cobertura específica para TDAH"
+        }
+      ],
+      articulosPropuestos: [],
+      resumenImpacto: {
+        problemasPrincipales: [
+          "Nunca menciona TDAH específicamente pese a estar incluido conceptualmente",
+          "Enfoque exclusivamente educativo excluye TDAH adulto",
+          "8 años sin autoridad de aplicación específica",
+          "PMO sin prestaciones específicas para TDAH"
+        ],
+        beneficiosReforma: [
+          "Inclusión explícita de TDAH en definición legal",
+          "Extensión de protecciones al ámbito laboral y adulto",
+          "Autoridad de aplicación específica con presupuesto",
+          "PMO con prestaciones detalladas para TDAH"
+        ],
+        urgencia: "Alta - Ley vigente pero inaplicable sin reglamentación específica",
+        estimacionImpacto: "Beneficiaría educativamente a niños con TDAH pero no resuelve problemas de adultos ni medicación"
+      }
+    }
   },
   {
     numero: "Ley 19.303",
@@ -330,37 +451,139 @@ Las recetas electrónicas tendrán la misma validez legal que las manuscritas y 
   {
     numero: "Ley 17.565",
     titulo: "Ley de Medicamentos",
-    descripcion: "Regula la actividad farmacéutica, farmacias y expendio de medicamentos en Argentina",
+    descripcion: "Regula la actividad farmacéutica, farmacias y expendio de medicamentos. Actualizada en 2023 para incluir formatos digitales",
     fecha: "1967-12-12",
     estado: "Vigente",
     tipo: "Nacional",
-    organismo: "Congreso Nacional",
+    organismo: "Poder Ejecutivo Nacional",
     impactoReal: "medio",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-17565-19424/actualizacion",
     ultimaActualizacion: "2023-12-21",
     analisisIA: {
       beneficios: [
-        "Regula la calidad y seguridad de medicamentos",
-        "Establece responsabilidades profesionales de farmacéuticos",
-        "Control de expendio de medicamentos controlados",
-        "Marco legal para funcionamiento de farmacias",
+        "Art. 9º: Actualizado en 2023 para permitir recetas en formato digital",
+        "Art. 10: Archivos digitales habilitados por autoridad sanitaria",
+        "Marco legal base para funcionamiento de farmacias",
+        "Control de medicamentos controlados modernizado",
+        "Conservación digital de recetas por 3 años (vs. 2 años de Ley 19.303)",
       ],
       problemas: [
-        "No contempla especificidades del tratamiento TDAH",
-        "Burocracia adicional para medicamentos controlados",
-        "Falta de protocolos específicos para renovaciones",
-        "No diferencia medicamentos crónicos de agudos",
+        "Sigue subordinada a leyes específicas como Ley 19.303 para psicotrópicos",
+        "No resuelve conflicto entre formatos digitales y manuscritos obligatorios",
+        "Falta especificidad para medicamentos crónicos TDAH",
+        "Modificaciones recientes (2023) aún no implementadas completamente",
       ],
-      puntuacion: 6.2,
-      recomendacion: "Ley base necesaria pero requiere adaptación para tratamientos crónicos como TDAH",
+      puntuacion: 7.1,
+      recomendacion: "Ley bien actualizada para era digital pero subordinada a Ley 19.303 para medicamentos TDAH",
     },
     puntosClave: [
-      "Licencias obligatorias para farmacias",
-      "Verificación de prescripciones médicas",
-      "Control de medicamentos controlados",
-      "Responsabilidad profesional de farmacéuticos",
-      "Mantenimiento de registros de dispensación",
+      "Art. 9º: Expendio bajo receta (digital o manuscrita)",
+      "Art. 10: Archivos digitales obligatorios en farmacias", 
+      "Conservación digital de recetas por 3 años",
+      "Actualizada por Decreto 70/2023 para era digital",
+      "Compatible con recetas electrónicas de Ley 27.553",
     ],
+    analisisDetallado: {
+      articulosProblematicos: [
+        {
+          articulo: "Artículo 9º",
+          titulo: "Expendio de Medicamentos - Modernizado 2023",
+          textoActual: `En las farmacias el expendio de drogas, medicamentos o especialidades medicinales se ajusta a las siguientes formas de acuerdo a lo que establezca la legislación vigente o determine la autoridad sanitaria:
+
+1. Expendio legalmente restringido;
+2. Expendio bajo receta archivada;
+3. Expendio bajo receta;
+
+Deben conservarse las recetas correspondientes a los puntos 1 y 2, en formato digital, durante un plazo no menor de tres (3) años, después de dicho plazo pueden ser borradas, previa comunicación a la autoridad sanitaria.
+
+(Artículo sustituido por art. 317 del Decreto N° 70/2023 B.O. 21/12/2023)`,
+          problemasIdentificados: [
+            "Dice 'de acuerdo a lo que establezca la legislación vigente' - subordinada a Ley 19.303",
+            "No especifica qué hacer cuando hay conflicto entre leyes",
+            "Formato digital permitido pero no obligatorio para todas las categorías",
+            "Falta claridad sobre cuál ley prevalece en caso de conflicto"
+          ],
+          propuestaReescritura: `En las farmacias el expendio de drogas, medicamentos o especialidades medicinales se ajusta exclusivamente a recetas electrónicas según Ley 27.553, excepto en casos de emergencia debidamente justificados:
+
+1. Expendio legalmente restringido (Lista II Ley 19.303): Solo recetas electrónicas;
+2. Expendio bajo receta archivada: Solo recetas electrónicas;
+3. Expendio bajo receta: Solo recetas electrónicas;
+
+Las recetas electrónicas se conservan automáticamente en formato digital durante cinco (5) años. Esta ley prevalece sobre disposiciones manuscritas de leyes anteriores para efectos de dispensación farmacéutica.`,
+          impactoTDAH: "Medio - Ley actualizada pero no resuelve subordinación a Ley 19.303"
+        },
+        {
+          articulo: "Artículo 10",
+          titulo: "Archivos Digitales en Farmacias",
+          textoActual: `En las farmacias deben llevarse los siguientes archivos digitales habilitados por la autoridad sanitaria:
+
+a) Recetario;
+b) Contralor de estupefacientes;
+c) Contralor de psicotrópicos;
+d) Inspecciones;
+e) Otros archivos digitales que la autoridad competente estime pertinentes.
+
+Los libros electrónicos, la firma electrónica o digital y los demás requisitos técnicos y legales deben adecuarse a lo que establezca la autoridad de aplicación, asegurando la inalterabilidad de los registros.
+
+(Artículo sustituido por art. 318 del Decreto N° 70/2023 B.O. 21/12/2023)`,
+          problemasIdentificados: [
+            "Archivos digitales obligatorios pero compatible con recetas manuscritas",
+            "No integra automáticamente con recetas electrónicas",
+            "Falta especificación sobre cómo manejar doble registro (digital + manuscrito)",
+            "Autoridad de aplicación no especificada claramente"
+          ],
+          propuestaReescritura: `En las farmacias deben llevarse exclusivamente los siguientes archivos digitales integrados con el sistema nacional de recetas electrónicas:
+
+a) Recetario electrónico unificado con sistema nacional;
+b) Contralor automático de estupefacientes via sistema digital;
+c) Contralor automático de psicotrópicos via sistema digital;
+d) Registro de inspecciones digitales;
+e) Otros archivos integrados que establezca la autoridad sanitaria.
+
+Todos los registros se sincronizan automáticamente con el sistema nacional de prescripciones, eliminando registros manuales duplicados. La autoridad de aplicación es el Ministerio de Salud en coordinación con ANMAT.`,
+          impactoTDAH: "Alto - Integración completa eliminaría burocracia farmacéutica"
+        },
+        {
+          articulo: "Artículo 1º",
+          titulo: "Monopolio Farmacéutico vs. Accesibilidad",
+          textoActual: `La preparación de recetas, la dispensa de drogas, medicamentos, y de especialidades farmacéuticas que requieren recetas, solo podrán ser efectuadas en todo el territorio de la Nación en farmacias habilitadas.
+
+Su venta y despacho fuera de estos establecimientos se considera ejercicio ilegal de la farmacia y, sin perjuicio de las sanciones establecidas por la ley, los que la efectúen podrán ser denunciados por infracción al Código Penal.`,
+          problemasIdentificados: [
+            "Monopolio farmacéutico puede limitar acceso en zonas remotas",
+            "No contempla dispensación por correo para medicación crónica",
+            "Restricción estricta puede dificultar acceso a medicamentos TDAH",
+            "No considera telemedicina moderna y entrega a domicilio"
+          ],
+          propuestaReescritura: `La dispensación de medicamentos con receta debe realizarse por:
+
+a) Farmacias habilitadas tradicionales;
+b) Farmacias digitales autorizadas con entrega certificada;
+c) Servicios de farmacia hospitalaria;
+d) Programas especiales para medicación crónica con seguimiento médico.
+
+Para medicamentos crónicos como los de TDAH, se permite dispensación por correo certificado desde farmacias autorizadas, previa verificación digital de la receta electrónica y seguimiento farmacoterapéutico.`,
+          impactoTDAH: "Medio - Mayor flexibilidad mejoraría acceso pero no resuelve problema principal"
+        }
+      ],
+      articulosPropuestos: [],
+      resumenImpacto: {
+        problemasPrincipales: [
+          "Ley bien modernizada en 2023 pero subordinada a Ley 19.303 para psicotrópicos",
+          "Permite archivos digitales pero no los integra completamente",
+          "Monopolio farmacéutico tradicional no adaptado a telemedicina",
+          "Falta autoridad de aplicación específica para integración digital"
+        ],
+        beneficiosReforma: [
+          "Integración completa con sistema nacional de recetas electrónicas",
+          "Eliminación de registros duplicados (digital + manuscrito)",
+          "Flexibilización para medicación crónica con entrega a domicilio",
+          "Autoridad de aplicación clara con presupuesto asignado"
+        ],
+        urgencia: "Media - Ley actualizada pero necesita mayor integración",
+        estimacionImpacto: "Facilitaría dispensación para pacientes TDAH pero no resuelve el conflicto principal con Ley 19.303"
+      }
+    }
   },
 ]
 
