@@ -324,33 +324,21 @@ const propuestasNecesarias = [
 
 const problemasReales = [
   {
-    problema: "Ausencia de receta electrónica para medicamentos TDAH",
+    problema: "Sistema de recetas obsoleto y burocrático",
     descripcion:
-      "Los medicamentos TDAH requieren receta manuscrita triplicada, no se pueden prescribir electrónicamente pese a que la telemedicina está habilitada.",
+      "Los medicamentos TDAH requieren receta manuscrita triplicada que no se puede enviar electrónicamente. Esto obliga a consultas presenciales cada 20 días, incluso para pacientes estables con medicación crónica.",
     esUrgente: true,
-  },
-  {
-    problema: "Receta triplicada de papel obligatoria",
-    descripcion:
-      "Los medicamentos como metilfenidato requieren receta manuscrita triplicada que debe completar el médico a mano, generando burocracia y errores.",
-    esUrgente: false,
-  },
-  {
-    problema: "Límite de 20 días por receta",
-    descripcion:
-      "Las prescripciones de metilfenidato están limitadas a máximo 20 días, obligando a consultas médicas cada 20 días para renovar medicación crónica.",
-    esUrgente: false,
   },
   {
     problema: "Opciones limitadas de medicación",
     descripcion:
-      "En Argentina solo está disponible metilfenidato. No existen Vyvanse (lisdexanfetamina), Adderall (anfetamina mixta) ni otros estimulantes aprobados por FDA.",
+      "En Argentina solo está disponible metilfenidato y atomoxetina. No existen Vyvanse (lisdexanfetamina), Adderall (anfetamina mixta) ni otros estimulantes aprobados por FDA para pacientes que no responden bien a las opciones actuales.",
     esUrgente: false,
   },
   {
     problema: "Falta de especialistas en TDAH adulto",
     descripcion:
-      "No existe formación específica ni reconocimiento oficial de especialización en TDAH adulto, resultando en listas de espera de 3-6 meses para diagnóstico.",
+      "No existe formación específica ni reconocimiento oficial de especialización en TDAH adulto, resultando en listas de espera de 3-6 meses para diagnóstico y tratamiento inadecuado por médicos sin especialización.",
     esUrgente: false,
   }
 ]
