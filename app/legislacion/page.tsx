@@ -99,37 +99,38 @@ const leyes = [
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
-      "Regula la fabricación, distribución y uso de sustancias psicotrópicas incluyendo medicamentos para TDAH",
+      "Regula la fabricación, comercialización, circulación y uso de sustancias psicotrópicas. Incluye metilfenidato en Lista II con restricciones estrictas",
     fecha: "1971-10-28",
     estado: "Vigente",
     tipo: "Nacional",
-    organismo: "Congreso Nacional",
-    impactoReal: "medio",
+    organismo: "Poder Ejecutivo Nacional",
+    impactoReal: "alto",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
     ultimaActualizacion: "2020-08-11",
     analisisIA: {
       beneficios: [
-        "Regulación de calidad de medicamentos psicotrópicos",
-        "Prevención de uso indebido de estimulantes",
-        "Control farmacológico estricto",
-        "Seguimiento médico cercano obligatorio",
+        "Marco legal para control de psicotrópicos desde 1971",
+        "Prevención del uso indebido y tráfico ilícito",
+        "Control de calidad y seguridad de medicamentos",
+        "Artículo 18 bis permite recetas electrónicas (agregado 2020)",
+        "Sistema de listas según riesgo de abuso",
       ],
       problemas: [
-        "Proceso burocrático complejo para recetas",
-        "Receta triplicada manuscrita obligatoria",
-        "Prohibición de repetición sin nueva consulta médica",
-        "Costos administrativos adicionales para pacientes",
-        "Archivo de recetas por 2 años genera burocracia",
+        "Artículos 13-14: Exigen recetas manuscritas triplicadas para metilfenidato",
+        "Artículo 16: Límite de 20 días máximo por prescripción",
+        "Una sola dispensación por receta impide renovaciones",
+        "Archivo físico obligatorio de recetas por 2 años",
+        "Conflicto con Ley 27.553 de recetas electrónicas",
       ],
-      puntuacion: 6.8,
-      recomendacion: "Ley necesaria pero requiere modernización digital urgente para medicamentos crónicos como TDAH",
+      puntuacion: 4.2,
+      recomendacion: "Ley desactualizada para TDAH - obstaculiza tratamiento moderno con burocracia de los años 70",
     },
     puntosClave: [
-      "Clasificación de medicamentos TDAH en listas controladas",
-      "Receta triplicada manuscrita obligatoria",
-      "Prescripción exclusiva por médicos matriculados",
-      "Despacho por única vez sin repetición",
-      "Control estricto de cantidades dispensadas",
+      "Metilfenidato clasificado en Lista II (máximo control)",
+      "Art. 13: Receta triplicada manuscrita obligatoria",
+      "Art. 16: Máximo 20 días de tratamiento por prescripción",
+      "Art. 14: Una sola dispensación, archivo 2 años",
+      "Art. 18 bis: Permite recetas electrónicas (no reglamentado)",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -215,30 +216,7 @@ Las recetas electrónicas tendrán la misma validez legal que las manuscritas y 
           impactoTDAH: "Alto - Clave para modernización del sistema"
         }
       ],
-      articulosPropuestos: [
-        {
-          articulo: "Artículo 13 TER",
-          titulo: "Tratamiento TDAH en Adultos",
-          justificacion: "Necesario para regular específicamente el tratamiento TDAH adulto",
-          textoPropuesto: `Para el tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH) en pacientes adultos:
-
-a) Los profesionales médicos especializados en psiquiatría, neurología, o medicina interna con formación específica en TDAH adulto, podrán prescribir medicamentos de Lista II por períodos de hasta noventa (90) días.
-
-b) La prescripción inicial requerirá evaluación diagnóstica completa con criterios DSM-5 o CIE-11.
-
-c) Las renovaciones posteriores podrán realizarse mediante telemedicina con control trimestral presencial.
-
-d) El paciente debe ser informado sobre efectos adversos y firmará consentimiento informado.
-
-e) La autoridad sanitaria establecerá protocolos específicos para el diagnóstico y seguimiento del TDAH adulto.`,
-          beneficiosEsperados: [
-            "Reconocimiento legal del TDAH adulto",
-            "Tratamiento especializado por profesionales capacitados",
-            "Integración con telemedicina",
-            "Protocolos específicos de diagnóstico y seguimiento"
-          ]
-        }
-      ],
+      articulosPropuestos: [],
       resumenImpacto: {
         problemasPrincipales: [
           "Recetas manuscritas obligatorias impiden modernización digital",
@@ -733,49 +711,6 @@ export default function LegislacionPage() {
                         </div>
                       </div>
 
-                      {/* Proposed New Articles */}
-                      {ley.analisisDetallado.articulosPropuestos.length > 0 && (
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                            ➕ Artículos Propuestos
-                          </h3>
-                          <div className="space-y-4">
-                            {ley.analisisDetallado.articulosPropuestos.map((articuloPropuesto, idx) => (
-                              <div key={idx} className="border border-orange-200 dark:border-orange-700 rounded-lg p-4 bg-orange-50 dark:bg-orange-900/20">
-                                <div className="mb-3">
-                                  <h4 className="font-medium text-orange-900 dark:text-orange-100">
-                                    {articuloPropuesto.articulo}: {articuloPropuesto.titulo}
-                                  </h4>
-                                  <p className="text-sm text-orange-700 dark:text-orange-300 mt-1">
-                                    {articuloPropuesto.justificacion}
-                                  </p>
-                                </div>
-                                
-                                <div className="space-y-3">
-                                  <div>
-                                    <h5 className="font-medium text-orange-800 dark:text-orange-200 mb-2">📝 Texto Propuesto</h5>
-                                    <div className="bg-orange-100 dark:bg-orange-800/30 p-3 rounded text-sm text-orange-900 dark:text-orange-100 whitespace-pre-wrap">
-                                      {articuloPropuesto.textoPropuesto}
-                                    </div>
-                                  </div>
-                                  
-                                  <div>
-                                    <h5 className="font-medium text-orange-800 dark:text-orange-200 mb-2">💡 Beneficios Esperados</h5>
-                                    <ul className="text-sm text-orange-700 dark:text-orange-300 space-y-1">
-                                      {articuloPropuesto.beneficiosEsperados.map((beneficio, beneficioIdx) => (
-                                        <li key={beneficioIdx} className="flex items-start space-x-2">
-                                          <span className="text-orange-600 mt-1">•</span>
-                                          <span>{beneficio}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </CardContent>
                 )}
