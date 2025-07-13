@@ -9,9 +9,11 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Tdarg - TDAH en Argentina",
   description:
-    "Precios de medicamentos, especialistas, legislación y más.",
-  keywords: "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, médicos, legislación",
-  generator: "v0.dev",
+    "Precios de medicamentos, especialistas, legislación y más sobre TDAH en Argentina.",
+  keywords: "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, especialistas, legislación",
+  authors: [{ name: "Tdarg" }],
+  creator: "Tdarg",
+  publisher: "Tdarg",
 }
 
 export default function RootLayout({
