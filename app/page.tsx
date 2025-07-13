@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Heart, Stethoscope, Scale, TrendingUp, AlertCircle } from "lucide-react"
+import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle } from "lucide-react"
 import { Header } from "@/components/header"
 
 export default function HomePage() {
@@ -131,7 +131,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Heart className="h-6 w-6" />
+                <Brain className="h-6 w-6" />
                 <span className="text-lg font-semibold">Tdarg</span>
               </div>
               <p className="text-gray-400">TDAH en Argentina.</p>

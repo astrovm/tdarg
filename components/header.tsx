@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Heart, Menu, X } from "lucide-react"
+import { Brain, Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -23,7 +23,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-blue-600" />
+            <Brain className="h-8 w-8 text-blue-600" />
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Tdarg</h1>
           </Link>
 
