@@ -18,7 +18,7 @@ export default function HomePage() {
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
             Información actualizada sobre el Trastorno por Déficit de Atención e
-            Hiperactividad. Precios oficiales, directorio médico, diagnósticos y análisis legislativo.
+            Hiperactividad. Precios oficiales, directorio de especialistas, diagnósticos y análisis legislativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
@@ -79,12 +79,12 @@ export default function HomePage() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Stethoscope className="h-8 w-8 text-purple-600 mb-2" />
-                <CardTitle>Directorio Médico</CardTitle>
+                <CardTitle>Directorio de Especialistas</CardTitle>
                 <CardDescription>Encuentra especialistas en TDAH en tu provincia</CardDescription>
               </CardHeader>
               <CardContent>
                 <Button asChild className="w-full">
-                  <Link href="/medicos">Buscar Médicos</Link>
+                  <Link href="/especialistas">Buscar Especialistas</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -145,8 +145,8 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/medicos" className="hover:text-white">
-                    Médicos
+                  <Link href="/especialistas" className="hover:text-white">
+                    Especialistas
                   </Link>
                 </li>
               </ul>

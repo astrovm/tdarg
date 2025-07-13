@@ -9,7 +9,7 @@ import { useState } from "react"
 
 const navigationItems = [
   { href: "/precios", label: "Precios" },
-  { href: "/medicos", label: "Médicos" },
+  { href: "/especialistas", label: "Especialistas" },
   { href: "/legislacion", label: "Legislación" },
 ]
 

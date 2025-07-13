@@ -56,7 +56,7 @@ app/
 │ ├── legislacion-tracker/ # AI legislation tracking endpoint
 │ └── medicamentos-precios/ # Medication pricing API
 ├── legislacion/ # Legislation analysis and tracking
-├── medicos/ # Medical professionals directory
+├── especialistas/ # Medical professionals directory
 └── precios/ # Medication pricing interface
 \`\`\`
 
@@ -131,7 +131,7 @@ app/
 
 - **`/app/legislacion/page.tsx`**: Main legislation analysis interface with static data
 - **`/app/precios/page.tsx`**: Medication pricing interface
-- **`/app/medicos/page.tsx`**: Medical professionals directory
+- **`/app/especialistas/page.tsx`**: Medical professionals directory
 
 #### Core Hooks
 

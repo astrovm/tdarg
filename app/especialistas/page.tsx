@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, MapPin, Phone, Mail, Star, Clock, ExternalLink, Building2 } from "lucide-react"
 import { Header } from "@/components/header"
 
-const medicos = [
+const especialistas = [
   // CAPITAL FEDERAL / GBA
   {
     nombre: "Dr. Osvaldo Rovere",
@@ -262,19 +262,19 @@ const provincias = [
   "Tierra del Fuego",
 ]
 
-export default function MedicosPage() {
+export default function EspecialistasPage() {
   const [filtroNombre, setFiltroNombre] = useState("")
   const [provincia, setProvincia] = useState("todas")
   const [especialidad, setEspecialidad] = useState("todas")
 
-  const medicosFiltrados = medicos.filter((medico) => {
+  const especialistasFiltrados = especialistas.filter((especialista) => {
     const coincideNombre =
-      medico.nombre.toLowerCase().includes(filtroNombre.toLowerCase()) ||
-      medico.ciudad.toLowerCase().includes(filtroNombre.toLowerCase()) ||
-      medico.hospital.toLowerCase().includes(filtroNombre.toLowerCase())
+      especialista.nombre.toLowerCase().includes(filtroNombre.toLowerCase()) ||
+      especialista.ciudad.toLowerCase().includes(filtroNombre.toLowerCase()) ||
+      especialista.hospital.toLowerCase().includes(filtroNombre.toLowerCase())
 
-    const coincideProvincia = provincia === "todas" || medico.provincia === provincia
-    const coincideEspecialidad = especialidad === "todas" || medico.especialidad === especialidad
+    const coincideProvincia = provincia === "todas" || especialista.provincia === provincia
+    const coincideEspecialidad = especialidad === "todas" || especialista.especialidad === especialidad
 
     return coincideNombre && coincideProvincia && coincideEspecialidad
   })
@@ -289,7 +289,7 @@ export default function MedicosPage() {
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Directorio de Especialistas en TDAH</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
             Encuentra profesionales especializados en el diagnóstico y tratamiento del TDAH en tu provincia. Todos los
-            médicos listados tienen experiencia específica en trastornos de atención.
+            especialistas listados tienen experiencia específica en trastornos de atención.
           </p>
         </div>
 
@@ -342,43 +342,43 @@ export default function MedicosPage() {
         {/* Results */}
         <div className="mb-4">
           <p className="text-gray-600 dark:text-gray-300">
-            Mostrando {medicosFiltrados.length} especialista{medicosFiltrados.length !== 1 ? "s" : ""}
+            Mostrando {especialistasFiltrados.length} especialista{especialistasFiltrados.length !== 1 ? "s" : ""}
             {provincia !== "todas" && ` en ${provincia}`}
           </p>
         </div>
 
         {/* Doctors Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {medicosFiltrados.map((medico, index) => (
+          {especialistasFiltrados.map((especialista, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-xl">{medico.nombre}</CardTitle>
+                    <CardTitle className="text-xl">{especialista.nombre}</CardTitle>
                     <CardDescription className="text-base font-medium text-blue-600 mb-2">
-                      {medico.especialidad}
+                      {especialista.especialidad}
                     </CardDescription>
                     <div className="flex items-center gap-2">
                       <Badge variant="outline" className="text-xs">
-                        {medico.tipo === "privado" && "Consulta Privada"}
-                        {medico.tipo === "instituto" && "Instituto"}
-                        {medico.tipo === "centro_especializado" && "Centro Especializado"}
-                        {medico.tipo === "hospital" && "Hospital"}
-                        {medico.tipo === "clinica" && "Clínica"}
-                        {medico.tipo === "consultorio" && "Consultorio"}
-                        {medico.tipo === "fundacion" && "Fundación"}
+                        {especialista.tipo === "privado" && "Consulta Privada"}
+                        {especialista.tipo === "instituto" && "Instituto"}
+                        {especialista.tipo === "centro_especializado" && "Centro Especializado"}
+                        {especialista.tipo === "hospital" && "Hospital"}
+                        {especialista.tipo === "clinica" && "Clínica"}
+                        {especialista.tipo === "consultorio" && "Consultorio"}
+                        {especialista.tipo === "fundacion" && "Fundación"}
                       </Badge>
-                      {medico.hospital.includes("Solo niños") && (
+                      {especialista.hospital.includes("Solo niños") && (
                         <Badge variant="secondary" className="text-xs">
                           Solo Niños
                         </Badge>
                       )}
                     </div>
                   </div>
-                  {medico.rating && (
+                  {especialista.rating && (
                     <div className="flex items-center space-x-1">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">{medico.rating}</span>
+                      <span className="text-sm font-medium">{especialista.rating}</span>
                     </div>
                   )}
                 </div>
@@ -390,34 +390,34 @@ export default function MedicosPage() {
                       <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
                       <div className="text-sm">
                         <div className="font-medium">
-                          {medico.ciudad}, {medico.provincia}
+                          {especialista.ciudad}, {especialista.provincia}
                         </div>
-                        <div className="text-gray-600 dark:text-gray-300">{medico.direccion}</div>
-                        <div className="text-gray-600 dark:text-gray-300">{medico.hospital}</div>
+                        <div className="text-gray-600 dark:text-gray-300">{especialista.direccion}</div>
+                        <div className="text-gray-600 dark:text-gray-300">{especialista.hospital}</div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Phone className="h-4 w-4 text-gray-400" />
-                      <span className="text-sm">{medico.telefono}</span>
+                      <span className="text-sm">{especialista.telefono}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Mail className="h-4 w-4 text-gray-400" />
-                      <span className="text-sm">{medico.email}</span>
+                      <span className="text-sm">{especialista.email}</span>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-2">
                       <Clock className="h-4 w-4 text-gray-400" />
-                      <span className="text-sm">{medico.horarios}</span>
+                      <span className="text-sm">{especialista.horarios}</span>
                     </div>
                     <div>
                       <div className="text-sm font-medium mb-1">Experiencia:</div>
-                      <div className="text-sm text-gray-600">{medico.experiencia}</div>
+                      <div className="text-sm text-gray-600">{especialista.experiencia}</div>
                     </div>
                     <div>
                       <div className="text-sm font-medium mb-2">Obras Sociales:</div>
                       <div className="flex flex-wrap gap-1">
-                        {medico.obraSocial.map((obra, idx) => (
+                        {especialista.obraSocial.map((obra, idx) => (
                           <Badge key={idx} variant="outline" className="text-xs">
                             {obra}
                           </Badge>
@@ -429,19 +429,19 @@ export default function MedicosPage() {
                 <div className="flex space-x-2 pt-2">
                   <Button 
                     className="flex-1" 
-                    onClick={() => medico.telefono !== "Consultar" && window.open(`tel:${medico.telefono}`)}
-                    disabled={medico.telefono === "Consultar"}
+                    onClick={() => especialista.telefono !== "Consultar" && window.open(`tel:${especialista.telefono}`)}
+                    disabled={especialista.telefono === "Consultar"}
                   >
-                    {medico.telefono !== "Consultar" ? "Llamar" : "Consultar Teléfono"}
+                    {especialista.telefono !== "Consultar" ? "Llamar" : "Consultar Teléfono"}
                   </Button>
-                  {medico.url && (
-                    <Button variant="outline" onClick={() => window.open(medico.url, "_blank")}>
+                  {especialista.url && (
+                    <Button variant="outline" onClick={() => window.open(especialista.url, "_blank")}>
                       <ExternalLink className="h-4 w-4 mr-1" />
                       Web
                     </Button>
                   )}
-                  {medico.email && medico.email !== "Consultar" && (
-                    <Button variant="outline" onClick={() => window.open(`mailto:${medico.email}`)}>
+                  {especialista.email && especialista.email !== "Consultar" && (
+                    <Button variant="outline" onClick={() => window.open(`mailto:${especialista.email}`)}>
                       <Mail className="h-4 w-4" />
                     </Button>
                   )}
@@ -452,7 +452,7 @@ export default function MedicosPage() {
         </div>
 
         {/* No Results */}
-        {medicosFiltrados.length === 0 && (
+        {especialistasFiltrados.length === 0 && (
           <Card className="text-center py-12">
             <CardContent>
               <div className="text-gray-500 mb-4">
