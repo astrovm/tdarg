@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Brain, Menu, X } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Brain, Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const navigationItems = [
   { href: "/precios", label: "Precios" },
   { href: "/especialistas", label: "Especialistas" },
   { href: "/legislacion", label: "Legislación" },
-]
+];
 
 export function Header() {
-  const pathname = usePathname()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800">
@@ -24,7 +24,9 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Brain className="h-8 w-8 text-blue-600" />
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Tdarg</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Tdarg
+            </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,7 +58,11 @@ export function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="h-9 w-9 px-0"
             >
-              {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              {mobileMenuOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
               <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
@@ -85,5 +91,5 @@ export function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }

@@ -1,16 +1,17 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tdarg - TDAH en Argentina",
   description:
     "Precios de medicamentos, especialistas, legislación y más sobre TDAH en Argentina.",
-  keywords: "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, especialistas, legislación",
+  keywords:
+    "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, especialistas, legislación",
   authors: [{ name: "Tdarg" }],
   creator: "Tdarg",
   publisher: "Tdarg",
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
@@ -38,5 +39,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

@@ -1,8 +1,14 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   FileText,
   Calendar,
@@ -14,9 +20,9 @@ import {
   Gavel,
   Download,
   Eye,
-} from "lucide-react"
-import { Header } from "@/components/header"
-import { useState } from "react"
+} from "lucide-react";
+import { Header } from "@/components/header";
+import { useState } from "react";
 
 // Contenido completo de los documentos - Optimizado para lectura
 const decretoContent = `# DECRETO N° XXX/2025
@@ -109,7 +115,7 @@ c) Cumplir con los protocolos de seguridad establecidos por la autoridad sanitar
 
 **ARTÍCULO 13**.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
 
-MILEI - Mario Antonio Russo`
+MILEI - Mario Antonio Russo`;
 
 const proyectoLeyContent = `# PROYECTO DE LEY
 
@@ -207,14 +213,15 @@ DADA EN LA SALA DE SESIONES DEL CONGRESO ARGENTINO, EN BUENOS AIRES, A LOS ___ D
 
 REGISTRADA BAJO EL N° _____
 
-[Presidente de la Cámara de Diputados] - [Presidente del Senado] - [Secretario Administrativo] - [Secretario Parlamentario]`
+[Presidente de la Cámara de Diputados] - [Presidente del Senado] - [Secretario Administrativo] - [Secretario Parlamentario]`;
 
 // Leyes principales relevantes para TDAH
 const leyes = [
   {
     numero: "Ley 27.553",
     titulo: "Ley de Recetas Electrónicas o Digitales",
-    descripcion: "Establece que las prescripciones solo pueden ser redactadas a través de plataformas electrónicas habilitadas y habilita la telemedicina",
+    descripcion:
+      "Establece que las prescripciones solo pueden ser redactadas a través de plataformas electrónicas habilitadas y habilita la telemedicina",
     fecha: "2020-08-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -238,7 +245,8 @@ const leyes = [
         "Farmacias no adoptan por miedo a conflicto legal",
       ],
       puntuacion: 6.8,
-      recomendacion: "Ley excelente en teoría pero mal implementada - conflicto no resuelto con Ley 19.303 para medicamentos TDAH",
+      recomendacion:
+        "Ley excelente en teoría pero mal implementada - conflicto no resuelto con Ley 19.303 para medicamentos TDAH",
     },
     puntosClave: [
       "Art. 1º: Recetas electrónicas obligatorias (en teoría)",
@@ -261,7 +269,7 @@ Establecer que puedan utilizarse plataformas de teleasistencia en salud, en todo
             "Dice 'solo puedan' pero no deroga explícitamente las recetas manuscritas",
             "No menciona cómo resolver conflictos con leyes anteriores",
             "Falta especificidad sobre medicamentos controlados",
-            "No establece sanciones por incumplimiento"
+            "No establece sanciones por incumplimiento",
           ],
           propuestaReescritura: `La presente ley tiene por objeto:
 
@@ -272,7 +280,8 @@ b) Derogar expresamente toda disposición legal que exija recetas manuscritas, i
 c) Establecer que los medicamentos controlados (psicotrópicos y estupefacientes) se rigen por esta ley, manteniendo controles de seguridad en formato digital.
 
 d) Habilitar plataformas de teleasistencia en salud con las mismas garantías de seguridad y privacidad.`,
-          impactoTDAH: "Crítico - Si fuera aplicado correctamente resolvería el problema de recetas manuscritas"
+          impactoTDAH:
+            "Crítico - Si fuera aplicado correctamente resolvería el problema de recetas manuscritas",
         },
         {
           articulo: "Artículo 3º",
@@ -282,7 +291,7 @@ d) Habilitar plataformas de teleasistencia en salud con las mismas garantías de
             "Plazo vencido sin implementación efectiva",
             "No especifica sanciones por incumplimiento del plazo",
             "Falta autoridad de aplicación clara",
-            "No hay mecanismo de seguimiento del cumplimiento"
+            "No hay mecanismo de seguimiento del cumplimiento",
           ],
           propuestaReescritura: `La autoridad de aplicación debe:
 
@@ -295,7 +304,7 @@ c) Crear un sistema de monitoreo público del avance de implementación.
 d) Aplicar sanciones a instituciones que no cumplan con la digitalización.
 
 e) Designar una autoridad de aplicación específica con presupuesto asignado.`,
-          impactoTDAH: "Alto - Plazo vencido mantiene el limbo legal actual"
+          impactoTDAH: "Alto - Plazo vencido mantiene el limbo legal actual",
         },
         {
           articulo: "Artículo 11",
@@ -307,7 +316,7 @@ Artículo 18 bis: En caso de que las recetas mencionadas en la presente ley sean
             "Solo 'permite' recetas electrónicas, no las obliga",
             "No deroga los artículos 13-14 que exigen manuscritas",
             "Frase 'en caso de que' mantiene opcionalidad",
-            "Falta reglamentación específica de la autoridad"
+            "Falta reglamentación específica de la autoridad",
           ],
           propuestaReescritura: `Sustitúyanse los artículos 13, 14 y 16 de la Ley 19.303, los que quedarán redactados de la siguiente manera:
 
@@ -316,8 +325,9 @@ Artículo 13: Los sicotrópicos incluidos en la Lista II solo podrán ser prescr
 Artículo 14: Los sicotrópicos incluidos en las Listas III y IV solo podrán despacharse bajo receta electrónica archivada digitalmente por 5 años.
 
 Artículo 16: Las prescripciones de Lista II para medicación crónica pueden extenderse hasta 90 días de tratamiento, con controles médicos según criterio profesional.`,
-          impactoTDAH: "Crítico - Reforma insuficiente mantiene conflicto legal"
-        }
+          impactoTDAH:
+            "Crítico - Reforma insuficiente mantiene conflicto legal",
+        },
       ],
       articulosPropuestos: [],
       resumenImpacto: {
@@ -325,13 +335,15 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
           "Ley excelente en principio pero mal redactada para resolver conflictos",
           "Plazo de implementación vencido sin consecuencias",
           "Modificación insuficiente de Ley 19.303 mantiene ambigüedad",
-          "Falta autoridad de aplicación con poder real"
+          "Falta autoridad de aplicación con poder real",
         ],
-        solucionSimple: "Decreto que clarifique implementación inmediata de recetas electrónicas sin excepciones",
+        solucionSimple:
+          "Decreto que clarifique implementación inmediata de recetas electrónicas sin excepciones",
         urgencia: "Alta - Ley vigente pero inaplicable por conflictos legales",
-        estimacionImpacto: "Resolvería completamente el problema de recetas para 500,000+ pacientes TDAH"
-      }
-    }
+        estimacionImpacto:
+          "Resolvería completamente el problema de recetas para 500,000+ pacientes TDAH",
+      },
+    },
   },
   {
     numero: "Ley 19.303",
@@ -361,7 +373,8 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
         "Conflicto con Ley 27.553 de recetas electrónicas",
       ],
       puntuacion: 4.2,
-      recomendacion: "Ley desactualizada para TDAH - obstaculiza tratamiento moderno con burocracia de los años 70",
+      recomendacion:
+        "Ley desactualizada para TDAH - obstaculiza tratamiento moderno con burocracia de los años 70",
     },
     puntosClave: [
       "Metilfenidato clasificado en Lista II (máximo control)",
@@ -379,9 +392,10 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
           problemasIdentificados: [
             "Manuscritas obligatorias incompatibles con recetas electrónicas",
             "Sistema triplicado genera burocracia innecesaria",
-            "Una sola dispensación imposibilita medicación crónica"
+            "Una sola dispensación imposibilita medicación crónica",
           ],
-          impactoTDAH: "Crítico - Impide acceso a medicación crónica como metilfenidato"
+          impactoTDAH:
+            "Crítico - Impide acceso a medicación crónica como metilfenidato",
         },
         {
           articulo: "Artículo 16",
@@ -390,42 +404,45 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
           problemasIdentificados: [
             "Obliga consultas médicas cada 20 días para medicación crónica",
             "Inapropiado para TDAH que requiere tratamiento continuo",
-            "Sobrecarga innecesaria del sistema de salud"
+            "Sobrecarga innecesaria del sistema de salud",
           ],
-          impactoTDAH: "Crítico - Principal barrera para tratamiento TDAH"
-        }
+          impactoTDAH: "Crítico - Principal barrera para tratamiento TDAH",
+        },
       ],
       resumenImpacto: {
         problemasPrincipales: [
           "Conflicto directo con Ley 27.553 de recetas electrónicas",
           "Límite de 20 días inadecuado para medicación crónica TDAH",
-          "Sistema manuscrito obsoleto en era digital"
+          "Sistema manuscrito obsoleto en era digital",
         ],
-        solucionSimple: "Decreto presidencial que clarifique prevalencia de Ley 27.553 para medicamentos TDAH",
-        urgencia: "Alta - Afecta a 500,000+ pacientes TDAH en Argentina"
-      }
-    }
+        solucionSimple:
+          "Decreto presidencial que clarifique prevalencia de Ley 27.553 para medicamentos TDAH",
+        urgencia: "Alta - Afecta a 500,000+ pacientes TDAH en Argentina",
+      },
+    },
   },
-]
-
+];
 
 const propuestasNecesarias = [
   {
     titulo: "Decreto para Recetas Electrónicas TDAH",
-    resumenEjecutivo: "Solución inmediata vía poder ejecutivo para resolver conflicto legal",
-    descripcion: "Decreto que establece prevalencia de Ley 27.553 sobre Ley 19.303 para medicamentos TDAH",
-    problemaQueResuelve: "Conflicto legal impide recetas electrónicas para TDAH",
+    resumenEjecutivo:
+      "Solución inmediata vía poder ejecutivo para resolver conflicto legal",
+    descripcion:
+      "Decreto que establece prevalencia de Ley 27.553 sobre Ley 19.303 para medicamentos TDAH",
+    problemaQueResuelve:
+      "Conflicto legal impide recetas electrónicas para TDAH",
     beneficiosClave: [
       "✅ Recetas electrónicas inmediatas",
       "⏱️ Prescripciones de 90 días vs 20 actuales",
       "💰 Ahorro $450k anuales por paciente",
-      "🏥 Compatible con telemedicina"
+      "🏥 Compatible con telemedicina",
     ],
     ventajas: [
       "🚀 Implementación inmediata (30 días)",
       "💵 Sin costo al Estado",
       "⚖️ Base constitucional sólida (Art. 99)",
-      "📋 Precedente exitoso (Decreto 345/24)"
+      "📋 Precedente exitoso (Decreto 345/24)",
     ],
     impacto: "🎯 500,000+ pacientes beneficiados inmediatamente",
     urgencia: "🔥 Crítico",
@@ -437,24 +454,27 @@ const propuestasNecesarias = [
   },
   {
     titulo: "Proyecto de Ley Modernización TDAH",
-    resumenEjecutivo: "Solución permanente vía Congreso para conflicto normativo",
-    descripcion: "Reforma artículos 13 y 16 de Ley 19.303 para habilitar recetas electrónicas definitivamente",
-    problemaQueResuelve: "Necesidad de solución legislativa permanente al conflicto legal",
+    resumenEjecutivo:
+      "Solución permanente vía Congreso para conflicto normativo",
+    descripcion:
+      "Reforma artículos 13 y 16 de Ley 19.303 para habilitar recetas electrónicas definitivamente",
+    problemaQueResuelve:
+      "Necesidad de solución legislativa permanente al conflicto legal",
     beneficiosClave: [
       "🔒 Solución permanente no reversible",
       "⚖️ Mayor legitimidad democrática",
       "🌍 Alineación con estándares internacionales",
-      "🏥 Integración completa con telemedicina"
+      "🏥 Integración completa con telemedicina",
     ],
     ventajas: [
       "📜 Reforma definitiva de la ley",
       "🗳️ Respaldo parlamentario",
       "💵 Sin costo presupuestario",
-      "🌎 Precedentes Reino Unido/España"
+      "🌎 Precedentes Reino Unido/España",
     ],
     impacto: "🎯 Solución definitiva para todas las administraciones",
     urgencia: "📋 Planificación",
-    estado: "📝 PROPUESTA", 
+    estado: "📝 PROPUESTA",
     tiempoImplementacion: "6-12 meses",
     responsable: "Congreso Nacional",
     accionNecesaria: "Impulsar en Cámara de Diputados",
@@ -462,20 +482,23 @@ const propuestasNecesarias = [
   },
   {
     titulo: "Registro de Lisdexanfetamina (Vyvanse)",
-    resumenEjecutivo: "Ampliar opciones terapéuticas para pacientes resistentes",
-    descripcion: "Gestión ANMAT para registro de lisdexanfetamina (aprobada FDA/EMA)",
-    problemaQueResuelve: "Opciones limitadas para pacientes que no responden a medicación actual",
+    resumenEjecutivo:
+      "Ampliar opciones terapéuticas para pacientes resistentes",
+    descripcion:
+      "Gestión ANMAT para registro de lisdexanfetamina (aprobada FDA/EMA)",
+    problemaQueResuelve:
+      "Opciones limitadas para pacientes que no responden a medicación actual",
     beneficiosClave: [
       "💊 Nueva opción para pacientes resistentes",
       "🎯 Tratamiento personalizado por perfil",
       "📉 Reducción abandono de tratamiento",
-      "✅ Medicamento probado FDA/EMA"
+      "✅ Medicamento probado FDA/EMA",
     ],
     ventajas: [
       "🌍 Ya aprobado internacionalmente",
       "⚡ Proceso regulatorio estándar",
       "💵 Sin costo al Estado",
-      "📊 Evidencia científica sólida"
+      "📊 Evidencia científica sólida",
     ],
     impacto: "🎯 ~30% pacientes con respuesta inadecuada",
     urgencia: "⚡ Moderado",
@@ -484,41 +507,44 @@ const propuestasNecesarias = [
     responsable: "ANMAT",
     accionNecesaria: "Solicitar evaluación prioritaria",
   },
-]
+];
 
 // Problemas identificados - Estructura optimizada
 const problemasReales = [
   {
     problema: "Sistema de recetas obsoleto y burocrático",
-    descripcion: "Recetas manuscritas triplicadas + consultas cada 20 días para medicación crónica",
-    resumen: "Ley 19.303 vs Ley 27.553: conflicto legal impide recetas electrónicas",
+    descripcion:
+      "Recetas manuscritas triplicadas + consultas cada 20 días para medicación crónica",
+    resumen:
+      "Ley 19.303 vs Ley 27.553: conflicto legal impide recetas electrónicas",
     urgencia: "🔥 Crítico",
     impacto: "500,000+ pacientes afectados",
   },
   {
     problema: "Opciones limitadas de medicación",
     descripcion: "Solo metilfenidato y atomoxetina disponibles en Argentina",
-    resumen: "Falta Vyvanse, Adderall y otros estimulantes para pacientes resistentes",
+    resumen:
+      "Falta Vyvanse, Adderall y otros estimulantes para pacientes resistentes",
     urgencia: "📋 Planificación",
     impacto: "~30% pacientes sin opciones",
-  }
-]
+  },
+];
 
 export default function LegislacionPage() {
-  const [expandedLaw, setExpandedLaw] = useState<string | null>(null)
-  const [viewingDocument, setViewingDocument] = useState<string | null>(null)
+  const [expandedLaw, setExpandedLaw] = useState<string | null>(null);
+  const [viewingDocument, setViewingDocument] = useState<string | null>(null);
 
   const toggleLawDetails = (lawNumber: string) => {
-    setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber)
-  }
+    setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber);
+  };
 
   const handleViewDocument = (documentType: string) => {
-    setViewingDocument(documentType)
-  }
+    setViewingDocument(documentType);
+  };
 
   const handleCloseDocument = () => {
-    setViewingDocument(null)
-  }
+    setViewingDocument(null);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -531,26 +557,34 @@ export default function LegislacionPage() {
             Análisis Inteligente de Legislación TDAH
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
-            Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente
-            beneficia a los pacientes vs. el "teatro político".
+            Seguimiento automático con IA de leyes y proyectos relacionados al
+            TDAH. Identificamos qué realmente beneficia a los pacientes vs. el
+            "teatro político".
           </p>
         </div>
 
         {/* Real Problems - SIMPLIFIED */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Problemas Identificados</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Problemas Identificados
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Análisis de los obstáculos principales para acceso a medicación TDAH
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {problemasReales.map((item, index) => (
-              <Card key={index} className="border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/10">
+              <Card
+                key={index}
+                className="border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/10"
+              >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-2">
                     <Badge variant="outline" className="text-xs">
                       {item.urgencia}
                     </Badge>
-                    <span className="text-xs text-gray-500">{item.impacto}</span>
+                    <span className="text-xs text-gray-500">
+                      {item.impacto}
+                    </span>
                   </div>
                   <CardTitle className="text-lg text-red-900 dark:text-red-100 leading-tight">
                     {item.problema}
@@ -569,13 +603,18 @@ export default function LegislacionPage() {
 
         {/* Propuestas Necesarias */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Soluciones Propuestas</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Soluciones Propuestas
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Propuestas listas para presentación oficial
           </p>
           <div className="space-y-6">
             {propuestasNecesarias.map((propuesta, index) => (
-              <Card key={index} className="border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-900/10">
+              <Card
+                key={index}
+                className="border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-900/10"
+              >
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div className="flex-1">
@@ -586,7 +625,9 @@ export default function LegislacionPage() {
                         <Badge variant="secondary" className="text-xs">
                           {propuesta.estado}
                         </Badge>
-                        <span className="text-xs text-gray-500">{propuesta.tiempoImplementacion}</span>
+                        <span className="text-xs text-gray-500">
+                          {propuesta.tiempoImplementacion}
+                        </span>
                       </div>
                       <CardTitle className="text-xl text-blue-900 dark:text-blue-100 mb-1">
                         {propuesta.titulo}
@@ -603,7 +644,9 @@ export default function LegislacionPage() {
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-2 text-sm">Beneficios Clave</h5>
+                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-2 text-sm">
+                        Beneficios Clave
+                      </h5>
                       <ul className="space-y-1 text-sm">
                         {propuesta.beneficiosClave.map((beneficio, idx) => (
                           <li key={idx} className="text-sm">
@@ -613,7 +656,9 @@ export default function LegislacionPage() {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-2 text-sm">Ventajas</h5>
+                      <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-2 text-sm">
+                        Ventajas
+                      </h5>
                       <ul className="space-y-1 text-sm">
                         {propuesta.ventajas.map((ventaja, idx) => (
                           <li key={idx} className="text-sm">
@@ -626,41 +671,63 @@ export default function LegislacionPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-sm">
                     <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
-                      <div className="font-medium text-green-800 dark:text-green-200">Impacto</div>
-                      <div className="text-green-700 dark:text-green-300">{propuesta.impacto}</div>
+                      <div className="font-medium text-green-800 dark:text-green-200">
+                        Impacto
+                      </div>
+                      <div className="text-green-700 dark:text-green-300">
+                        {propuesta.impacto}
+                      </div>
                     </div>
                     <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg">
-                      <div className="font-medium text-purple-800 dark:text-purple-200">Responsable</div>
-                      <div className="text-purple-700 dark:text-purple-300">{propuesta.responsable}</div>
+                      <div className="font-medium text-purple-800 dark:text-purple-200">
+                        Responsable
+                      </div>
+                      <div className="text-purple-700 dark:text-purple-300">
+                        {propuesta.responsable}
+                      </div>
                     </div>
                     <div className="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg">
-                      <div className="font-medium text-orange-800 dark:text-orange-200">Próximo Paso</div>
-                      <div className="text-orange-700 dark:text-orange-300">{propuesta.accionNecesaria}</div>
+                      <div className="font-medium text-orange-800 dark:text-orange-200">
+                        Próximo Paso
+                      </div>
+                      <div className="text-orange-700 dark:text-orange-300">
+                        {propuesta.accionNecesaria}
+                      </div>
                     </div>
                   </div>
 
                   {(propuesta as any).documentType && (
                     <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                       <div className="flex flex-col sm:flex-row gap-2">
-                        <Button 
-                          onClick={() => handleViewDocument((propuesta as any).documentType)}
+                        <Button
+                          onClick={() =>
+                            handleViewDocument((propuesta as any).documentType)
+                          }
                           className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium"
                         >
                           <Eye className="h-4 w-4 mr-2" />
                           Ver Documento Completo
                         </Button>
-                        <Button 
+                        <Button
                           onClick={() => {
-                            const content = (propuesta as any).documentType === 'decreto' ? decretoContent : proyectoLeyContent
-                            const filename = (propuesta as any).documentType === 'decreto' ? 'decreto-recetas-electronicas-tdah.md' : 'proyecto-ley-modernizacion-tdah.md'
-                            const blob = new Blob([content], { type: 'text/markdown' })
-                            const link = document.createElement('a')
-                            link.href = URL.createObjectURL(blob)
-                            link.download = filename
-                            document.body.appendChild(link)
-                            link.click()
-                            document.body.removeChild(link)
-                            URL.revokeObjectURL(link.href)
+                            const content =
+                              (propuesta as any).documentType === "decreto"
+                                ? decretoContent
+                                : proyectoLeyContent;
+                            const filename =
+                              (propuesta as any).documentType === "decreto"
+                                ? "decreto-recetas-electronicas-tdah.md"
+                                : "proyecto-ley-modernizacion-tdah.md";
+                            const blob = new Blob([content], {
+                              type: "text/markdown",
+                            });
+                            const link = document.createElement("a");
+                            link.href = URL.createObjectURL(blob);
+                            link.download = filename;
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                            URL.revokeObjectURL(link.href);
                           }}
                           variant="outline"
                           className="flex-1 border-green-200 hover:bg-green-50 dark:border-green-800 dark:hover:bg-green-900/20"
@@ -677,12 +744,11 @@ export default function LegislacionPage() {
           </div>
         </div>
 
-
-
-
         {/* Current Laws */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Leyes Vigentes - Análisis</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Leyes Vigentes - Análisis
+          </h2>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -695,10 +761,20 @@ export default function LegislacionPage() {
                       </CardDescription>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Badge variant={ley.estado === "Vigente" ? "default" : "secondary"}>{ley.estado}</Badge>
                       <Badge
                         variant={
-                          ley.impactoReal === "alto" ? "default" : ley.impactoReal === "medio" ? "secondary" : "outline"
+                          ley.estado === "Vigente" ? "default" : "secondary"
+                        }
+                      >
+                        {ley.estado}
+                      </Badge>
+                      <Badge
+                        variant={
+                          ley.impactoReal === "alto"
+                            ? "default"
+                            : ley.impactoReal === "medio"
+                            ? "secondary"
+                            : "outline"
                         }
                       >
                         Impacto {ley.impactoReal}
@@ -716,17 +792,28 @@ export default function LegislacionPage() {
                         <Brain className="h-4 w-4" />
                         <span>Análisis de Efectividad</span>
                       </h4>
-                      <Badge variant={ley.analisisIA.puntuacion >= 8 ? "default" : "secondary"}>
+                      <Badge
+                        variant={
+                          ley.analisisIA.puntuacion >= 8
+                            ? "default"
+                            : "secondary"
+                        }
+                      >
                         {ley.analisisIA.puntuacion}/10
                       </Badge>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                       <div>
-                        <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ Logros</h5>
+                        <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">
+                          ✅ Logros
+                        </h5>
                         <ul className="space-y-1 text-sm">
                           {ley.analisisIA.beneficios.map((beneficio, idx) => (
-                            <li key={idx} className="flex items-start space-x-2">
+                            <li
+                              key={idx}
+                              className="flex items-start space-x-2"
+                            >
                               <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
                               <span>{beneficio}</span>
                             </li>
@@ -734,10 +821,15 @@ export default function LegislacionPage() {
                         </ul>
                       </div>
                       <div>
-                        <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ Fallas</h5>
+                        <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">
+                          ❌ Fallas
+                        </h5>
                         <ul className="space-y-1 text-sm">
                           {ley.analisisIA.problemas.map((problema, idx) => (
-                            <li key={idx} className="flex items-start space-x-2">
+                            <li
+                              key={idx}
+                              className="flex items-start space-x-2"
+                            >
                               <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
                               <span>{problema}</span>
                             </li>
@@ -748,7 +840,8 @@ export default function LegislacionPage() {
 
                     <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-md">
                       <p className="font-medium text-sm">
-                        <strong>Análisis:</strong> {ley.analisisIA.recomendacion}
+                        <strong>Análisis:</strong>{" "}
+                        {ley.analisisIA.recomendacion}
                       </p>
                     </div>
                   </div>
@@ -756,11 +849,15 @@ export default function LegislacionPage() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="flex items-center text-sm text-gray-600">
                       <Calendar className="h-4 w-4 mr-2" />
-                      Sancionada: {new Date(ley.fecha).toLocaleDateString("es-AR")}
+                      Sancionada:{" "}
+                      {new Date(ley.fecha).toLocaleDateString("es-AR")}
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
                       <Clock className="h-4 w-4 mr-2" />
-                      Actualizada: {new Date(ley.ultimaActualizacion).toLocaleDateString("es-AR")}
+                      Actualizada:{" "}
+                      {new Date(ley.ultimaActualizacion).toLocaleDateString(
+                        "es-AR"
+                      )}
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
                       <FileText className="h-4 w-4 mr-2" />
@@ -769,14 +866,17 @@ export default function LegislacionPage() {
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button size="sm" onClick={() => window.open(ley.url, "_blank")}>
+                    <Button
+                      size="sm"
+                      onClick={() => window.open(ley.url, "_blank")}
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Ver Ley
                     </Button>
                     {ley.analisisDetallado && (
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
+                      <Button
+                        size="sm"
+                        variant="outline"
                         onClick={() => toggleLawDetails(ley.numero)}
                       >
                         <Gavel className="h-4 w-4 mr-2" />
@@ -795,7 +895,7 @@ export default function LegislacionPage() {
                     )}
                   </div>
                 </CardContent>
-                
+
                 {/* Detailed Analysis Section */}
                 {expandedLaw === ley.numero && ley.analisisDetallado && (
                   <CardContent className="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
@@ -811,12 +911,17 @@ export default function LegislacionPage() {
                               ❌ Problemas Principales
                             </h4>
                             <ul className="text-sm text-red-700 dark:text-red-300 space-y-1">
-                              {ley.analisisDetallado.resumenImpacto.problemasPrincipales.map((problema, idx) => (
-                                <li key={idx} className="flex items-start space-x-2">
-                                  <span className="text-red-600 mt-1">•</span>
-                                  <span>{problema}</span>
-                                </li>
-                              ))}
+                              {ley.analisisDetallado.resumenImpacto.problemasPrincipales.map(
+                                (problema, idx) => (
+                                  <li
+                                    key={idx}
+                                    className="flex items-start space-x-2"
+                                  >
+                                    <span className="text-red-600 mt-1">•</span>
+                                    <span>{problema}</span>
+                                  </li>
+                                )
+                              )}
                             </ul>
                           </div>
                           <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
@@ -824,21 +929,29 @@ export default function LegislacionPage() {
                               ✅ Solución Simple
                             </h4>
                             <p className="text-sm text-green-700 dark:text-green-300">
-                              {ley.analisisDetallado.resumenImpacto.solucionSimple || "Reforma integral necesaria"}
+                              {ley.analisisDetallado.resumenImpacto
+                                .solucionSimple || "Reforma integral necesaria"}
                             </p>
                           </div>
                         </div>
                         <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                           <p className="text-sm">
-                            <strong className="text-yellow-800 dark:text-yellow-200">Urgencia:</strong>{" "}
+                            <strong className="text-yellow-800 dark:text-yellow-200">
+                              Urgencia:
+                            </strong>{" "}
                             <span className="text-yellow-700 dark:text-yellow-300">
                               {ley.analisisDetallado.resumenImpacto.urgencia}
                             </span>
                           </p>
                           <p className="text-sm mt-1">
-                            <strong className="text-yellow-800 dark:text-yellow-200">Impacto Estimado:</strong>{" "}
+                            <strong className="text-yellow-800 dark:text-yellow-200">
+                              Impacto Estimado:
+                            </strong>{" "}
                             <span className="text-yellow-700 dark:text-yellow-300">
-                              {ley.analisisDetallado.resumenImpacto.estimacionImpacto}
+                              {
+                                ley.analisisDetallado.resumenImpacto
+                                  .estimacionImpacto
+                              }
                             </span>
                           </p>
                         </div>
@@ -850,47 +963,68 @@ export default function LegislacionPage() {
                           ⚖️ Artículos Problemáticos
                         </h3>
                         <div className="space-y-4">
-                          {ley.analisisDetallado.articulosProblematicos.map((articulo, idx) => (
-                            <div key={idx} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-                              <div className="flex items-start justify-between mb-3">
-                                <div>
-                                  <h4 className="font-medium text-gray-900 dark:text-white">
-                                    {articulo.articulo}: {articulo.titulo}
-                                  </h4>
-                                  <Badge 
-                                    variant={articulo.impactoTDAH.startsWith("Crítico") ? "destructive" : "secondary"}
-                                    className="mt-1"
-                                  >
-                                    {articulo.impactoTDAH}
-                                  </Badge>
-                                </div>
-                              </div>
-                              
-                              <div className="space-y-3">
-                                <div>
-                                  <h5 className="font-medium text-gray-800 dark:text-gray-200 mb-2">📜 Texto Actual</h5>
-                                  <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
-                                    {articulo.textoActual}
+                          {ley.analisisDetallado.articulosProblematicos.map(
+                            (articulo, idx) => (
+                              <div
+                                key={idx}
+                                className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                              >
+                                <div className="flex items-start justify-between mb-3">
+                                  <div>
+                                    <h4 className="font-medium text-gray-900 dark:text-white">
+                                      {articulo.articulo}: {articulo.titulo}
+                                    </h4>
+                                    <Badge
+                                      variant={
+                                        articulo.impactoTDAH.startsWith(
+                                          "Crítico"
+                                        )
+                                          ? "destructive"
+                                          : "secondary"
+                                      }
+                                      className="mt-1"
+                                    >
+                                      {articulo.impactoTDAH}
+                                    </Badge>
                                   </div>
                                 </div>
-                                
-                                <div>
-                                  <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ Problemas Identificados</h5>
-                                  <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                                    {articulo.problemasIdentificados.map((problema, problemIdx) => (
-                                      <li key={problemIdx} className="flex items-start space-x-2">
-                                        <span className="text-red-600 mt-1">•</span>
-                                        <span>{problema}</span>
-                                      </li>
-                                    ))}
-                                  </ul>
+
+                                <div className="space-y-3">
+                                  <div>
+                                    <h5 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
+                                      📜 Texto Actual
+                                    </h5>
+                                    <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+                                      {articulo.textoActual}
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">
+                                      ❌ Problemas Identificados
+                                    </h5>
+                                    <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                                      {articulo.problemasIdentificados.map(
+                                        (problema, problemIdx) => (
+                                          <li
+                                            key={problemIdx}
+                                            className="flex items-start space-x-2"
+                                          >
+                                            <span className="text-red-600 mt-1">
+                                              •
+                                            </span>
+                                            <span>{problema}</span>
+                                          </li>
+                                        )
+                                      )}
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            )
+                          )}
                         </div>
                       </div>
-
                     </div>
                   </CardContent>
                 )}
@@ -905,35 +1039,66 @@ export default function LegislacionPage() {
             <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
               <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {viewingDocument === 'decreto' ? 'Decreto para Recetas Electrónicas en Medicamentos TDAH' : 'Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH'}
+                  {viewingDocument === "decreto"
+                    ? "Decreto para Recetas Electrónicas en Medicamentos TDAH"
+                    : "Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH"}
                 </h3>
-                <Button 
-                  onClick={handleCloseDocument}
-                  variant="ghost"
-                  size="sm"
-                >
+                <Button onClick={handleCloseDocument} variant="ghost" size="sm">
                   ✕
                 </Button>
               </div>
               <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
                 <div className="prose prose-sm max-w-none dark:prose-invert">
-                  <div 
+                  <div
                     className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
                     dangerouslySetInnerHTML={{
-                      __html: (viewingDocument === 'decreto' ? decretoContent : proyectoLeyContent)
-                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                        .replace(/^# (.*$)/gm, '<h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">$1</h1>')
-                        .replace(/^## (.*$)/gm, '<h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">$1</h2>')
-                        .replace(/^### (.*$)/gm, '<h3 class="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">$1</h3>')
-                        .replace(/^\*\*ARTÍCULO (\d+).*?\*\*\.-(.*)$/gm, '<div class="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong class="text-blue-900 dark:text-blue-200">ARTÍCULO $1°</strong><span class="text-gray-700 dark:text-gray-300">$2</span></div>')
-                        .replace(/^\*\*CONSIDERANDO:\*\*$/gm, '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 mt-6">CONSIDERANDO:</h2>')
-                        .replace(/^\*\*POR ELLO,\*\*$/gm, '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 mt-6">POR ELLO,</h2>')
-                        .replace(/^\*\*DECRETA:\*\*$/gm, '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">DECRETA:</h2>')
-                        .replace(/^\*\*LEY:\*\*$/gm, '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">LEY:</h2>')
-                        .replace(/^Que (.*)$/gm, '<p class="mb-2 pl-4 text-gray-600 dark:text-gray-400">Que $1</p>')
-                        .replace(/^([a-z]\)) (.*)$/gm, '<div class="ml-4 mb-2"><span class="font-medium text-gray-800 dark:text-gray-200">$1</span> $2</div>')
-                        .replace(/\n\n/g, '<br><br>')
-                        .replace(/\n/g, '<br>')
+                      __html: (viewingDocument === "decreto"
+                        ? decretoContent
+                        : proyectoLeyContent
+                      )
+                        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                        .replace(
+                          /^# (.*$)/gm,
+                          '<h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">$1</h1>'
+                        )
+                        .replace(
+                          /^## (.*$)/gm,
+                          '<h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">$1</h2>'
+                        )
+                        .replace(
+                          /^### (.*$)/gm,
+                          '<h3 class="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">$1</h3>'
+                        )
+                        .replace(
+                          /^\*\*ARTÍCULO (\d+).*?\*\*\.-(.*)$/gm,
+                          '<div class="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong class="text-blue-900 dark:text-blue-200">ARTÍCULO $1°</strong><span class="text-gray-700 dark:text-gray-300">$2</span></div>'
+                        )
+                        .replace(
+                          /^\*\*CONSIDERANDO:\*\*$/gm,
+                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 mt-6">CONSIDERANDO:</h2>'
+                        )
+                        .replace(
+                          /^\*\*POR ELLO,\*\*$/gm,
+                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 mt-6">POR ELLO,</h2>'
+                        )
+                        .replace(
+                          /^\*\*DECRETA:\*\*$/gm,
+                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">DECRETA:</h2>'
+                        )
+                        .replace(
+                          /^\*\*LEY:\*\*$/gm,
+                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">LEY:</h2>'
+                        )
+                        .replace(
+                          /^Que (.*)$/gm,
+                          '<p class="mb-2 pl-4 text-gray-600 dark:text-gray-400">Que $1</p>'
+                        )
+                        .replace(
+                          /^([a-z]\)) (.*)$/gm,
+                          '<div class="ml-4 mb-2"><span class="font-medium text-gray-800 dark:text-gray-200">$1</span> $2</div>'
+                        )
+                        .replace(/\n\n/g, "<br><br>")
+                        .replace(/\n/g, "<br>"),
                     }}
                   />
                 </div>
@@ -941,8 +1106,7 @@ export default function LegislacionPage() {
             </div>
           </div>
         )}
-
       </div>
     </div>
-  )
+  );
 }

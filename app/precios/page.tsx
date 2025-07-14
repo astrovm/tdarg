@@ -1,102 +1,129 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Building2, Package, AlertCircle, RefreshCw, Pill, Clock } from "lucide-react"
-import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales"
-import { Header } from "@/components/header"
+import { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Search,
+  Building2,
+  Package,
+  AlertCircle,
+  RefreshCw,
+  Pill,
+  Clock,
+} from "lucide-react";
+import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales";
+import { Header } from "@/components/header";
 
 interface Medicamento {
-  codigo: string
-  nombre: string
-  marca: string
-  laboratorio: string
-  precio: number
-  presentacion: string
-  concentracion: string
-  fechaActualizacion: string
+  codigo: string;
+  nombre: string;
+  marca: string;
+  laboratorio: string;
+  precio: number;
+  presentacion: string;
+  concentracion: string;
+  fechaActualizacion: string;
 }
 
 export default function PreciosPage() {
-  const [filtro, setFiltro] = useState("")
-  const [medicamentosFiltrados, setMedicamentosFiltrados] = useState<Medicamento[]>([])
-  const { medicamentos, loading, error, estadisticas, refetch } = useMedicamentosReales()
+  const [filtro, setFiltro] = useState("");
+  const [medicamentosFiltrados, setMedicamentosFiltrados] = useState<
+    Medicamento[]
+  >([]);
+  const { medicamentos, loading, error, estadisticas, refetch } =
+    useMedicamentosReales();
 
   // Filtrar medicamentos
   useEffect(() => {
     if (!medicamentos) {
-      setMedicamentosFiltrados([])
-      return
+      setMedicamentosFiltrados([]);
+      return;
     }
 
     if (!filtro.trim()) {
-      setMedicamentosFiltrados(medicamentos)
-      return
+      setMedicamentosFiltrados(medicamentos);
+      return;
     }
 
-    const filtroLower = filtro.toLowerCase()
+    const filtroLower = filtro.toLowerCase();
     const filtrados = medicamentos.filter(
       (med) =>
         med.nombre.toLowerCase().includes(filtroLower) ||
         med.marca.toLowerCase().includes(filtroLower) ||
-        med.laboratorio.toLowerCase().includes(filtroLower),
-    )
+        med.laboratorio.toLowerCase().includes(filtroLower)
+    );
 
-    setMedicamentosFiltrados(filtrados)
-  }, [medicamentos, filtro])
+    setMedicamentosFiltrados(filtrados);
+  }, [medicamentos, filtro]);
 
   const formatearPrecio = (precio: number) => {
     return new Intl.NumberFormat("es-AR", {
       style: "currency",
       currency: "ARS",
       minimumFractionDigits: 2,
-    }).format(precio)
-  }
+    }).format(precio);
+  };
 
   const agruparPorAprobacion = (medicamentos: Medicamento[]) => {
     return medicamentos.reduce(
       (grupos, med) => {
-        const nombre = med.nombre.toLowerCase()
+        const nombre = med.nombre.toLowerCase();
 
         // Estimulantes aprobados para TDAH
         if (nombre.includes("metilfenidato")) {
-          if (!grupos.estimulantes.metilfenidato) grupos.estimulantes.metilfenidato = []
-          grupos.estimulantes.metilfenidato.push(med)
+          if (!grupos.estimulantes.metilfenidato)
+            grupos.estimulantes.metilfenidato = [];
+          grupos.estimulantes.metilfenidato.push(med);
         }
         // No estimulantes aprobados para TDAH
         else if (nombre.includes("atomoxetina")) {
-          if (!grupos.noestimulantes.atomoxetina) grupos.noestimulantes.atomoxetina = []
-          grupos.noestimulantes.atomoxetina.push(med)
+          if (!grupos.noestimulantes.atomoxetina)
+            grupos.noestimulantes.atomoxetina = [];
+          grupos.noestimulantes.atomoxetina.push(med);
         }
         // Medicamentos off-label para TDAH
-        else if (nombre.includes("modafinilo") || nombre.includes("armodafinilo") || nombre.includes("bupropion")) {
-          if (nombre.includes("modafinilo") && !nombre.includes("armodafinilo")) {
-            if (!grupos.offlabel.modafinilo) grupos.offlabel.modafinilo = []
-            grupos.offlabel.modafinilo.push(med)
+        else if (
+          nombre.includes("modafinilo") ||
+          nombre.includes("armodafinilo") ||
+          nombre.includes("bupropion")
+        ) {
+          if (
+            nombre.includes("modafinilo") &&
+            !nombre.includes("armodafinilo")
+          ) {
+            if (!grupos.offlabel.modafinilo) grupos.offlabel.modafinilo = [];
+            grupos.offlabel.modafinilo.push(med);
           } else if (nombre.includes("armodafinilo")) {
-            if (!grupos.offlabel.armodafinilo) grupos.offlabel.armodafinilo = []
-            grupos.offlabel.armodafinilo.push(med)
+            if (!grupos.offlabel.armodafinilo)
+              grupos.offlabel.armodafinilo = [];
+            grupos.offlabel.armodafinilo.push(med);
           } else if (nombre.includes("bupropion")) {
-            if (!grupos.offlabel.bupropion) grupos.offlabel.bupropion = []
-            grupos.offlabel.bupropion.push(med)
+            if (!grupos.offlabel.bupropion) grupos.offlabel.bupropion = [];
+            grupos.offlabel.bupropion.push(med);
           }
         }
 
-        return grupos
+        return grupos;
       },
       {
         estimulantes: {} as Record<string, Medicamento[]>,
         noestimulantes: {} as Record<string, Medicamento[]>,
         offlabel: {} as Record<string, Medicamento[]>,
-      },
-    )
-  }
+      }
+    );
+  };
 
   if (loading) {
     return (
@@ -106,7 +133,9 @@ export default function PreciosPage() {
 
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-4">Precios de Medicamentos TDAH</h1>
+            <h1 className="text-3xl font-bold mb-4">
+              Precios de Medicamentos TDAH
+            </h1>
             <Skeleton className="h-10 w-full mb-6" />
           </div>
 
@@ -126,7 +155,7 @@ export default function PreciosPage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -140,7 +169,12 @@ export default function PreciosPage() {
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
               Error al cargar los precios: {error}
-              <Button variant="outline" size="sm" onClick={() => refetch()} className="ml-4 bg-transparent">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => refetch()}
+                className="ml-4 bg-transparent"
+              >
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Reintentar
               </Button>
@@ -148,10 +182,10 @@ export default function PreciosPage() {
           </Alert>
         </div>
       </div>
-    )
+    );
   }
 
-  const medicamentosAgrupados = agruparPorAprobacion(medicamentosFiltrados)
+  const medicamentosAgrupados = agruparPorAprobacion(medicamentosFiltrados);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -161,7 +195,9 @@ export default function PreciosPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Precios de Medicamentos TDAH</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            Precios de Medicamentos TDAH
+          </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
             Precios actualizados de medicamentos para TDAH desde Farmacity
           </p>
@@ -174,7 +210,9 @@ export default function PreciosPage() {
                   <div className="flex items-center gap-2">
                     <Pill className="h-4 w-4 text-blue-600" />
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">Total</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Total
+                      </p>
                       <p className="text-2xl font-bold">{estadisticas.total}</p>
                     </div>
                   </div>
@@ -185,8 +223,12 @@ export default function PreciosPage() {
                   <div className="flex items-center gap-2">
                     <Package className="h-4 w-4 text-green-600" />
                     <div>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">Con Precio</p>
-                      <p className="text-2xl font-bold">{estadisticas.con_precio}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Con Precio
+                      </p>
+                      <p className="text-2xl font-bold">
+                        {estadisticas.con_precio}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -216,7 +258,9 @@ export default function PreciosPage() {
         {medicamentosFiltrados.length === 0 ? (
           <Alert>
             <AlertCircle className="h-4 w-4" />
-            <AlertDescription>No se encontraron medicamentos que coincidan con tu búsqueda.</AlertDescription>
+            <AlertDescription>
+              No se encontraron medicamentos que coincidan con tu búsqueda.
+            </AlertDescription>
           </Alert>
         ) : (
           <Tabs defaultValue="agrupado" className="w-full">
@@ -241,73 +285,87 @@ export default function PreciosPage() {
                       FDA Aprobados - Estimulantes
                     </Badge>
                   </div>
-                  
+
                   <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden">
                     <AlertCircle className="h-4 w-4 text-blue-600" />
                     <AlertDescription className="text-blue-800 dark:text-blue-200 break-words">
-                      <strong>Nota importante:</strong> Otros estimulantes como Adderall (anfetamina mixta) y Vyvanse
-                      (lisdexanfetamina) están aprobados por FDA para TDAH pero no están disponibles en Argentina.
-                      Solo el metilfenidato está comercializado en el país.
+                      <strong>Nota importante:</strong> Otros estimulantes como
+                      Adderall (anfetamina mixta) y Vyvanse (lisdexanfetamina)
+                      están aprobados por FDA para TDAH pero no están
+                      disponibles en Argentina. Solo el metilfenidato está
+                      comercializado en el país.
                     </AlertDescription>
                   </Alert>
 
-                  {Object.entries(medicamentosAgrupados.estimulantes).map(([principio, meds]) => (
-                    <div key={principio} className="mb-8">
-                      <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                        {principio} ({meds.length} medicamentos)
-                      </h3>
-                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {meds.map((medicamento) => (
-                          <Card
-                            key={medicamento.codigo}
-                            className="hover:shadow-md transition-shadow border-l-4 border-l-green-500"
-                          >
-                            <CardHeader className="pb-3">
-                              <div className="flex justify-between items-start">
-                                <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
-                                <div className="flex flex-col gap-1">
-                                  <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                    Farmacity
-                                  </Badge>
-                                  <Badge
-                                    variant="secondary"
-                                    className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs"
-                                  >
-                                    Estimulante
-                                  </Badge>
+                  {Object.entries(medicamentosAgrupados.estimulantes).map(
+                    ([principio, meds]) => (
+                      <div key={principio} className="mb-8">
+                        <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
+                          {principio} ({meds.length} medicamentos)
+                        </h3>
+                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                          {meds.map((medicamento) => (
+                            <Card
+                              key={medicamento.codigo}
+                              className="hover:shadow-md transition-shadow border-l-4 border-l-green-500"
+                            >
+                              <CardHeader className="pb-3">
+                                <div className="flex justify-between items-start">
+                                  <CardTitle className="text-lg leading-tight">
+                                    {medicamento.marca}
+                                  </CardTitle>
+                                  <div className="flex flex-col gap-1">
+                                    <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                                      Farmacity
+                                    </Badge>
+                                    <Badge
+                                      variant="secondary"
+                                      className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs"
+                                    >
+                                      Estimulante
+                                    </Badge>
+                                  </div>
                                 </div>
-                              </div>
-                              <CardDescription>{medicamento.concentracion}</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-3">
-                              <div className="flex items-center gap-2">
-                                <Building2 className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">{medicamento.laboratorio}</span>
-                              </div>
+                                <CardDescription>
+                                  {medicamento.concentracion}
+                                </CardDescription>
+                              </CardHeader>
+                              <CardContent className="space-y-3">
+                                <div className="flex items-center gap-2">
+                                  <Building2 className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {medicamento.laboratorio}
+                                  </span>
+                                </div>
 
-                              <div className="flex items-center gap-2">
-                                <Package className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">{medicamento.presentacion}</span>
-                              </div>
+                                <div className="flex items-center gap-2">
+                                  <Package className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {medicamento.presentacion}
+                                  </span>
+                                </div>
 
-                              <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">
-                                  {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
-                                </span>
-                              </div>
+                                <div className="flex items-center gap-2">
+                                  <Clock className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {new Date(
+                                      medicamento.fechaActualizacion
+                                    ).toLocaleDateString("es-AR")}
+                                  </span>
+                                </div>
 
-                              <div className="pt-2 border-t">
-                                <span className="text-2xl font-bold text-green-600">
-                                  {formatearPrecio(medicamento.precio)}
-                                </span>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
+                                <div className="pt-2 border-t">
+                                  <span className="text-2xl font-bold text-green-600">
+                                    {formatearPrecio(medicamento.precio)}
+                                  </span>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               )}
 
@@ -327,63 +385,75 @@ export default function PreciosPage() {
                     </Badge>
                   </div>
 
-                  {Object.entries(medicamentosAgrupados.noestimulantes).map(([principio, meds]) => (
-                    <div key={principio} className="mb-8">
-                      <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                        {principio} ({meds.length} medicamentos)
-                      </h3>
-                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {meds.map((medicamento) => (
-                          <Card
-                            key={medicamento.codigo}
-                            className="hover:shadow-md transition-shadow border-l-4 border-l-blue-500"
-                          >
-                            <CardHeader className="pb-3">
-                              <div className="flex justify-between items-start">
-                                <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
-                                <div className="flex flex-col gap-1">
-                                  <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                    Farmacity
-                                  </Badge>
-                                  <Badge
-                                    variant="secondary"
-                                    className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs"
-                                  >
-                                    No Estimulante
-                                  </Badge>
+                  {Object.entries(medicamentosAgrupados.noestimulantes).map(
+                    ([principio, meds]) => (
+                      <div key={principio} className="mb-8">
+                        <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
+                          {principio} ({meds.length} medicamentos)
+                        </h3>
+                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                          {meds.map((medicamento) => (
+                            <Card
+                              key={medicamento.codigo}
+                              className="hover:shadow-md transition-shadow border-l-4 border-l-blue-500"
+                            >
+                              <CardHeader className="pb-3">
+                                <div className="flex justify-between items-start">
+                                  <CardTitle className="text-lg leading-tight">
+                                    {medicamento.marca}
+                                  </CardTitle>
+                                  <div className="flex flex-col gap-1">
+                                    <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                                      Farmacity
+                                    </Badge>
+                                    <Badge
+                                      variant="secondary"
+                                      className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs"
+                                    >
+                                      No Estimulante
+                                    </Badge>
+                                  </div>
                                 </div>
-                              </div>
-                              <CardDescription>{medicamento.concentracion}</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-3">
-                              <div className="flex items-center gap-2">
-                                <Building2 className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">{medicamento.laboratorio}</span>
-                              </div>
+                                <CardDescription>
+                                  {medicamento.concentracion}
+                                </CardDescription>
+                              </CardHeader>
+                              <CardContent className="space-y-3">
+                                <div className="flex items-center gap-2">
+                                  <Building2 className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {medicamento.laboratorio}
+                                  </span>
+                                </div>
 
-                              <div className="flex items-center gap-2">
-                                <Package className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">{medicamento.presentacion}</span>
-                              </div>
+                                <div className="flex items-center gap-2">
+                                  <Package className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {medicamento.presentacion}
+                                  </span>
+                                </div>
 
-                              <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">
-                                  {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
-                                </span>
-                              </div>
+                                <div className="flex items-center gap-2">
+                                  <Clock className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {new Date(
+                                      medicamento.fechaActualizacion
+                                    ).toLocaleDateString("es-AR")}
+                                  </span>
+                                </div>
 
-                              <div className="pt-2 border-t">
-                                <span className="text-2xl font-bold text-green-600">
-                                  {formatearPrecio(medicamento.precio)}
-                                </span>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
+                                <div className="pt-2 border-t">
+                                  <span className="text-2xl font-bold text-green-600">
+                                    {formatearPrecio(medicamento.precio)}
+                                  </span>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               )}
 
@@ -406,68 +476,82 @@ export default function PreciosPage() {
                   <Alert className="mb-6 border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-950">
                     <AlertCircle className="h-4 w-4 text-orange-600" />
                     <AlertDescription className="text-orange-800 dark:text-orange-200">
-                      Estos medicamentos se usan para TDAH pero no están específicamente aprobados por FDA para esta
-                      indicación. Siempre consulte con su médico antes de usar cualquier medicamento.
+                      Estos medicamentos se usan para TDAH pero no están
+                      específicamente aprobados por FDA para esta indicación.
+                      Siempre consulte con su médico antes de usar cualquier
+                      medicamento.
                     </AlertDescription>
                   </Alert>
 
-                  {Object.entries(medicamentosAgrupados.offlabel).map(([principio, meds]) => (
-                    <div key={principio} className="mb-8">
-                      <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                        {principio} ({meds.length} medicamentos)
-                      </h3>
-                      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {meds.map((medicamento) => (
-                          <Card
-                            key={medicamento.codigo}
-                            className="hover:shadow-md transition-shadow border-l-4 border-l-orange-500"
-                          >
-                            <CardHeader className="pb-3">
-                              <div className="flex justify-between items-start">
-                                <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
-                                <div className="flex flex-col gap-1">
-                                  <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                    Farmacity
-                                  </Badge>
-                                  <Badge
-                                    variant="secondary"
-                                    className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300 text-xs"
-                                  >
-                                    Off-Label
-                                  </Badge>
+                  {Object.entries(medicamentosAgrupados.offlabel).map(
+                    ([principio, meds]) => (
+                      <div key={principio} className="mb-8">
+                        <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
+                          {principio} ({meds.length} medicamentos)
+                        </h3>
+                        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                          {meds.map((medicamento) => (
+                            <Card
+                              key={medicamento.codigo}
+                              className="hover:shadow-md transition-shadow border-l-4 border-l-orange-500"
+                            >
+                              <CardHeader className="pb-3">
+                                <div className="flex justify-between items-start">
+                                  <CardTitle className="text-lg leading-tight">
+                                    {medicamento.marca}
+                                  </CardTitle>
+                                  <div className="flex flex-col gap-1">
+                                    <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                                      Farmacity
+                                    </Badge>
+                                    <Badge
+                                      variant="secondary"
+                                      className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300 text-xs"
+                                    >
+                                      Off-Label
+                                    </Badge>
+                                  </div>
                                 </div>
-                              </div>
-                              <CardDescription>{medicamento.concentracion}</CardDescription>
-                            </CardHeader>
-                            <CardContent className="space-y-3">
-                              <div className="flex items-center gap-2">
-                                <Building2 className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">{medicamento.laboratorio}</span>
-                              </div>
+                                <CardDescription>
+                                  {medicamento.concentracion}
+                                </CardDescription>
+                              </CardHeader>
+                              <CardContent className="space-y-3">
+                                <div className="flex items-center gap-2">
+                                  <Building2 className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {medicamento.laboratorio}
+                                  </span>
+                                </div>
 
-                              <div className="flex items-center gap-2">
-                                <Package className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">{medicamento.presentacion}</span>
-                              </div>
+                                <div className="flex items-center gap-2">
+                                  <Package className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {medicamento.presentacion}
+                                  </span>
+                                </div>
 
-                              <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-gray-400" />
-                                <span className="text-sm">
-                                  {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
-                                </span>
-                              </div>
+                                <div className="flex items-center gap-2">
+                                  <Clock className="h-4 w-4 text-gray-400" />
+                                  <span className="text-sm">
+                                    {new Date(
+                                      medicamento.fechaActualizacion
+                                    ).toLocaleDateString("es-AR")}
+                                  </span>
+                                </div>
 
-                              <div className="pt-2 border-t">
-                                <span className="text-2xl font-bold text-green-600">
-                                  {formatearPrecio(medicamento.precio)}
-                                </span>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
+                                <div className="pt-2 border-t">
+                                  <span className="text-2xl font-bold text-green-600">
+                                    {formatearPrecio(medicamento.precio)}
+                                  </span>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               )}
             </TabsContent>
@@ -475,36 +559,51 @@ export default function PreciosPage() {
             <TabsContent value="lista">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {medicamentosFiltrados.map((medicamento) => (
-                  <Card key={medicamento.codigo} className="hover:shadow-md transition-shadow">
+                  <Card
+                    key={medicamento.codigo}
+                    className="hover:shadow-md transition-shadow"
+                  >
                     <CardHeader className="pb-3">
                       <div className="flex justify-between items-start">
-                        <CardTitle className="text-lg leading-tight">{medicamento.marca}</CardTitle>
+                        <CardTitle className="text-lg leading-tight">
+                          {medicamento.marca}
+                        </CardTitle>
                         <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
                           Farmacity
                         </Badge>
                       </div>
-                      <CardDescription>{medicamento.concentracion}</CardDescription>
+                      <CardDescription>
+                        {medicamento.concentracion}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <div className="flex items-center gap-2">
                         <Building2 className="h-4 w-4 text-gray-400" />
-                        <span className="text-sm">{medicamento.laboratorio}</span>
+                        <span className="text-sm">
+                          {medicamento.laboratorio}
+                        </span>
                       </div>
 
                       <div className="flex items-center gap-2">
                         <Package className="h-4 w-4 text-gray-400" />
-                        <span className="text-sm">{medicamento.presentacion}</span>
+                        <span className="text-sm">
+                          {medicamento.presentacion}
+                        </span>
                       </div>
 
                       <div className="flex items-center gap-2">
                         <Clock className="h-4 w-4 text-gray-400" />
                         <span className="text-sm">
-                          {new Date(medicamento.fechaActualizacion).toLocaleDateString("es-AR")}
+                          {new Date(
+                            medicamento.fechaActualizacion
+                          ).toLocaleDateString("es-AR")}
                         </span>
                       </div>
 
                       <div className="pt-2 border-t">
-                        <span className="text-2xl font-bold text-green-600">{formatearPrecio(medicamento.precio)}</span>
+                        <span className="text-2xl font-bold text-green-600">
+                          {formatearPrecio(medicamento.precio)}
+                        </span>
                       </div>
                     </CardContent>
                   </Card>
@@ -515,5 +614,5 @@ export default function PreciosPage() {
         )}
       </div>
     </div>
-  )
+  );
 }
