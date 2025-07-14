@@ -12,9 +12,202 @@ import {
   ChevronDown,
   ChevronUp,
   Gavel,
+  Download,
+  Eye,
 } from "lucide-react"
 import { Header } from "@/components/header"
 import { useState } from "react"
+
+// Contenido completo de los documentos
+const decretoContent = `# DECRETO N° XXX/2025
+
+**SALUD**
+
+Decreto XXX/2025
+
+DECTO-2025-XXX-APN-PTE - Ley 19.303. Medicamentos TDAH. Recetas electrónicas. Reglamentación.
+
+Ciudad de Buenos Aires, XX de XXXX de 2025
+
+**VISTO** el Expediente N° EX-2025-XXXXXXX-APN-SCS#MS, las Leyes Nros. 17.132 y sus modificatorias, 17.565 y sus modificaciones, 19.303 y sus modificatorias, 27.553 y su modificación, 25.506 y los Decretos Nros. 7123 del 15 de noviembre de 1968 y sus modificatorios, 98 del 27 de febrero de 2023, 345 del 19 de abril de 2024, y
+
+**CONSIDERANDO:**
+
+Que la Ley N° 27.553 tiene por objeto establecer que la prescripción y dispensación de medicamentos y toda otra prescripción solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin, así como establecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente, Historia Clínica y Consentimiento Informado.
+
+Que la Ley N° 19.303 regula la fabricación, comercialización, circulación y uso de sustancias psicotrópicas, estableciendo en su artículo 13 que los medicamentos incluidos en la Lista II solo podrán ser prescriptos por profesionales médicos matriculados mediante recetas extendidas en formularios oficializados, por triplicado, en forma manuscrita.
+
+Que por el Decreto N° 98/23 se aprobó la Reglamentación de la citada Ley N° 27.553, estableciéndose al MINISTERIO DE SALUD en carácter de Autoridad de Aplicación.
+
+Que por el Decreto N° 345/24 se modificó la reglamentación de la Ley N° 27.553, estableciendo expresamente que "La receta electrónica y/o digital es el medio obligatorio para la prescripción de medicamentos, órdenes de estudios, prácticas y cualquier otra indicación que los profesionales de la salud consideren pertinentes para sus pacientes, en todo el territorio de la REPÚBLICA ARGENTINA".
+
+Que el artículo 11 de la Ley N° 27.553 incorporó el artículo 18 bis a la Ley N° 19.303, estableciendo que "En caso de que las recetas mencionadas en la presente ley sean redactadas electrónicamente, o en caso de que los registros obligatorios sean llevados electrónicamente, la firma y demás requisitos técnicos y legales deben adecuarse a la legislación especial vigente y a lo que establezca la autoridad de aplicación".
+
+Que el artículo 12 de la Ley N° 27.553 establece que "todos los procedimientos relativos a la regulación de la prescripción, dispensa y circuitos para la provisión de psicotrópicos (Lista I, II, III y IV) y estupefacientes deben ser digitalizados según los plazos y criterios que fije la autoridad competente".
+
+Que el Trastorno por Déficit de Atención e Hiperactividad (TDAH) constituye una condición neurobiológica crónica que requiere tratamiento farmacológico continuo con medicamentos incluidos en la Lista II de la Ley N° 19.303, específicamente metilfenidato y atomoxetina.
+
+Que el sistema de prescripción manuscrita triplicada obligatoria para medicamentos de Lista II genera barreras administrativas que dificultan el acceso a tratamiento continuo para pacientes con TDAH, siendo incompatible con la telemedicina habilitada por la Ley N° 27.553.
+
+Que el límite de veinte (20) días de tratamiento establecido en el artículo 16 de la Ley N° 19.303 resulta inadecuado para el manejo de condiciones crónicas estables como el TDAH, obligando a consultas médicas excesivamente frecuentes que sobrecargan innecesariamente el sistema de salud.
+
+Que propender a la informatización de las recetas para medicamentos TDAH optimiza y simplifica los procesos asistenciales, propicia un incremento en la calidad brindada, reduce costos innecesarios al Sistema de Salud, así como también marca un avance hacia la digitalización y modernización de dicho Sistema.
+
+Que estos sistemas resultan más seguros para garantizar el resguardo de la información y la trazabilidad de sustancias controladas, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y con la Ley N° 26.529 de Derechos del Paciente, Historia Clínica y Consentimiento Informado.
+
+Que del análisis del plexo normativo vigente surge la necesidad de adecuar la aplicación de la Ley N° 19.303 a las disposiciones de la Ley N° 27.553 para medicamentos destinados al tratamiento del TDAH, de manera que se garantice el acceso efectivo a estos medicamentos mediante recetas electrónicas.
+
+Que la DIRECCIÓN GENERAL DE ASUNTOS JURÍDICOS del MINISTERIO DE SALUD ha tomado la intervención de su competencia.
+
+Que la presente medida se dicta en uso de las atribuciones emergentes del artículo 99, incisos 1 y 2 de la CONSTITUCIÓN NACIONAL.
+
+**POR ELLO,**
+
+**EL PRESIDENTE DE LA NACIÓN ARGENTINA**
+**DECRETA:**
+
+**ARTÍCULO 1°**.- Establécese que para los medicamentos psicotrópicos incluidos en la Lista II de la Ley N° 19.303 destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), prevalecerán las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales sobre los requisitos de prescripción manuscrita establecidos en los artículos 13 y 14 de la Ley N° 19.303.
+
+**ARTÍCULO 2°**.- Los medicamentos comprendidos en el artículo 1° podrán ser prescriptos mediante recetas electrónicas certificadas con firma digital médica, conforme al sistema nacional de prescripción electrónica establecido por la autoridad sanitaria nacional.
+
+**ARTÍCULO 3°**.- Las recetas electrónicas para medicamentos TDAH deberán contener obligatoriamente:
+
+a) Identificación completa del prescriptor con número de matrícula;
+b) Datos completos del paciente;
+c) Denominación del medicamento según denominación común internacional;
+d) Dosis, posología y duración del tratamiento;
+e) Diagnóstico según clasificación CIE-10/CIE-11;
+f) Firma digital certificada del médico prescriptor;
+g) Fecha y hora de emisión.
+
+**ARTÍCULO 4°**.- Para pacientes con TDAH en tratamiento crónico estable, las prescripciones podrán extenderse hasta noventa (90) días de tratamiento, debiendo el médico indicar expresamente "TRATAMIENTO CRÓNICO TDAH" en la receta electrónica.
+
+**ARTÍCULO 5°**.- Las recetas electrónicas emitidas conforme al presente decreto serán válidas en todo el territorio nacional y podrán dispensarse en cualquier farmacia habilitada que cuente con acceso al sistema nacional de prescripción electrónica.
+
+**ARTÍCULO 6°**.- El sistema nacional de prescripción electrónica garantizará:
+
+a) Registro automático y trazabilidad completa de la prescripción y dispensación;
+b) Cumplimiento de los controles de seguridad requeridos para sustancias de Lista II;
+c) Generación automática de reportes a la autoridad sanitaria competente;
+d) Interoperabilidad con sistemas provinciales existentes.
+
+**ARTÍCULO 7°**.- Los profesionales médicos matriculados que prescriban medicamentos TDAH mediante recetas electrónicas deberán:
+
+a) Contar con firma digital certificada vigente;
+b) Estar registrados en el sistema nacional de prescripción electrónica;
+c) Cumplir con los protocolos de seguridad establecidos por la autoridad sanitaria nacional.
+
+**ARTÍCULO 8°**.- Las farmacias que dispensen medicamentos prescriptos conforme al presente decreto deberán mantener conectividad con el sistema nacional de prescripción electrónica y registrar automáticamente cada dispensación.
+
+**ARTÍCULO 9°**.- En casos excepcionales donde no sea posible acceder al sistema electrónico por razones técnicas debidamente documentadas, se podrá utilizar transitoriamente el sistema de recetas manuscritas previsto en la Ley N° 19.303, debiendo regularizarse en el sistema electrónico dentro de las 48 horas.
+
+**ARTÍCULO 10**.- La autoridad de aplicación del presente decreto será el MINISTERIO DE SALUD, quien dictará las normas complementarias necesarias para su implementación en coordinación con la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT).
+
+**ARTÍCULO 11**.- Las disposiciones del presente decreto entrarán en vigor a los TREINTA (30) días de su publicación en el Boletín Oficial, plazo durante el cual la autoridad de aplicación realizará las adecuaciones técnicas necesarias en el sistema nacional de prescripción electrónica.
+
+**ARTÍCULO 12**.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir al presente decreto y a adecuar sus sistemas de salud para garantizar la implementación efectiva de las recetas electrónicas para medicamentos TDAH.
+
+**ARTÍCULO 13**.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
+
+MILEI - Mario Antonio Russo`
+
+const proyectoLeyContent = `# PROYECTO DE LEY
+
+**Modernización de la Prescripción de Medicamentos para Trastorno por Déficit de Atención e Hiperactividad (TDAH)**
+
+---
+
+**El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de**
+
+**LEY:**
+
+**ARTÍCULO 1°**.- Objeto. La presente ley tiene por objeto modernizar la prescripción de medicamentos psicotrópicos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando las disposiciones de la Ley N° 19.303 con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
+
+**ARTÍCULO 2°**.- Sustitúyase el artículo 13 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+
+"Artículo 13.- Los sicotrópicos incluidos en la Lista II podrán ser prescriptos por profesionales médicos matriculados ante autoridad competente, mediante:
+
+a) Recetas electrónicas certificadas con firma digital médica, conforme al sistema nacional de prescripción electrónica establecido por la autoridad sanitaria nacional; o
+
+b) Subsidiariamente, recetas extendidas en formularios oficializados, por triplicado, conforme al modelo aprobado por la autoridad sanitaria nacional.
+
+Las recetas electrónicas deberán contener: denominación del sicotrópico según denominación común internacional, dosis, posología, cantidad total prescripta en números y letras, datos completos del paciente, diagnóstico según clasificación internacional vigente, y firma digital certificada del médico prescriptor.
+
+Para medicamentos de uso crónico destinados al tratamiento de trastornos neurológicos y psiquiátricos estables, incluido el Trastorno por Déficit de Atención e Hiperactividad (TDAH), el médico podrá autorizar hasta tres (3) dispensaciones del mismo tratamiento en un período de noventa (90) días, debiendo indicar expresamente 'MEDICACIÓN CRÓNICA' en la prescripción.
+
+Las recetas electrónicas serán registradas automáticamente en el sistema nacional de monitoreo de sustancias controladas, garantizando la trazabilidad y control equivalente al sistema manuscrito."
+
+**ARTÍCULO 3°**.- Sustitúyase el artículo 16 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+
+"Artículo 16.- Para sicotrópicos incluidos en la Lista II se establecen los siguientes límites de prescripción:
+
+a) Tratamientos agudos: máximo veinte (20) días de tratamiento por prescripción.
+
+b) Tratamientos crónicos estables para trastornos neurológicos y psiquiátricos, incluido el Trastorno por Déficit de Atención e Hiperactividad (TDAH): máximo noventa (90) días de tratamiento por prescripción, con renovación trimestral y evaluación médica según criterio profesional.
+
+c) El médico debe indicar claramente el tipo de tratamiento en la prescripción y justificar la condición médica que amerita tratamiento crónico.
+
+d) La autoridad sanitaria nacional establecerá mediante reglamentación los criterios específicos para calificar un tratamiento como crónico estable."
+
+**ARTÍCULO 4°**.- Sustitúyase el artículo 18 bis de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+
+"Artículo 18 bis.- Las recetas electrónicas para sicotrópicos serán válidas cuando cumplan los siguientes requisitos mínimos:
+
+a) Firma digital médica certificada por autoridad competente reconocida por la infraestructura de firma digital argentina;
+b) Identificación única del prescriptor en el sistema nacional de prescripción electrónica;
+c) Registro automático en la plataforma nacional de monitoreo de sustancias controladas;
+d) Encriptación de datos según estándares internacionalmente reconocidos;
+e) Trazabilidad completa de la prescripción, dispensación y seguimiento farmacoterapéutico.
+
+La autoridad sanitaria nacional establecerá los estándares técnicos mínimos y operará el sistema nacional de prescripción electrónica de psicotrópicos, garantizando interoperabilidad con sistemas provinciales y compatibilidad con plataformas de telemedicina.
+
+Las recetas electrónicas tendrán la misma validez legal que las manuscritas y constituirán el método preferido para prescripciones de sicotrópicos."
+
+**ARTÍCULO 5°**.- Agrégase como artículo 18 ter de la Ley N° 19.303, el siguiente:
+
+"Artículo 18 ter.- Para medicamentos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH):
+
+a) Las prescripciones electrónicas serán válidas en todo el territorio nacional;
+b) Podrán dispensarse en cualquier farmacia habilitada que cuente con acceso al sistema nacional;
+c) Los controles de seguimiento farmacoterapéutico podrán realizarse mediante telemedicina cuando el paciente esté en tratamiento estable;
+d) Se priorizará la continuidad terapéutica evitando interrupciones por razones administrativas;
+e) Los profesionales médicos especializados en psiquiatría, neurología, medicina familiar y general podrán prescribir estos medicamentos dentro de su ámbito de competencia."
+
+**ARTÍCULO 6°**.- Autoridad de aplicación. Será autoridad de aplicación de la presente ley el MINISTERIO DE SALUD de la Nación, quien coordinará su implementación con:
+
+a) La ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT);
+b) Los ministerios de salud provinciales y de la Ciudad Autónoma de Buenos Aires;
+c) Los colegios profesionales médicos y farmacéuticos;
+d) Las obras sociales y empresas de medicina prepaga.
+
+**ARTÍCULO 7°**.- Implementación gradual. La autoridad de aplicación establecerá un cronograma de implementación que no podrá exceder los CIENTO OCHENTA (180) días desde la promulgación de la presente ley, priorizando:
+
+a) Capacitación a profesionales médicos en el uso del sistema electrónico;
+b) Adecuación técnica de farmacias para conexión al sistema nacional;
+c) Campañas de información a pacientes y familiares;
+d) Monitoreo de la transición y resolución de dificultades técnicas.
+
+**ARTÍCULO 8°**.- Evaluación y seguimiento. La autoridad de aplicación deberá presentar al Honorable Congreso de la Nación un informe anual sobre:
+
+a) Cantidad de prescripciones electrónicas emitidas y dispensadas;
+b) Reducción de consultas médicas innecesarias;
+c) Ahorro económico para el sistema de salud;
+d) Nivel de satisfacción de pacientes y profesionales;
+e) Indicadores de seguridad y control de sustancias.
+
+**ARTÍCULO 9°**.- Pacto Federal. Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley y a adecuar sus marcos normativos para garantizar la implementación uniforme en todo el territorio nacional.
+
+**ARTÍCULO 10**.- Disposiciones complementarias. La presente ley será complementaria de las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales, la Ley N° 25.506 de Firma Digital, y demás normativa vigente en materia de protección de datos personales y derechos del paciente.
+
+**ARTÍCULO 11**.- Vigencia. La presente ley entrará en vigencia a partir de su publicación en el Boletín Oficial.
+
+**ARTÍCULO 12**.- Comuníquese al Poder Ejecutivo nacional.
+
+DADA EN LA SALA DE SESIONES DEL CONGRESO ARGENTINO, EN BUENOS AIRES, A LOS ___ DÍAS DEL MES DE _____ DEL AÑO DOS MIL VEINTICINCO.
+
+REGISTRADA BAJO EL N° _____
+
+[Presidente de la Cámara de Diputados] - [Presidente del Senado] - [Secretario Administrativo] - [Secretario Parlamentario]`
 
 // Leyes principales relevantes para TDAH
 const leyes = [
@@ -239,6 +432,7 @@ const propuestasNecesarias = [
     impacto: "Alto - Beneficiaría inmediatamente a 500,000+ pacientes",
     estado: "VIABLE - Solo requiere decisión ejecutiva",
     accionNecesaria: "Solicitar al Presidente que emita decreto reglamentario",
+    documentType: "decreto",
   },
   {
     titulo: "Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH",
@@ -262,6 +456,7 @@ const propuestasNecesarias = [
     impacto: "Alto - Resolvería definitivamente el conflicto legal para todas las futuras administraciones",
     estado: "PROPUESTA - Requiere impulso legislativo",
     accionNecesaria: "Impulsar proyecto de ley en Cámara de Diputados o Senado",
+    documentType: "ley",
   },
   {
     titulo: "Registro de Lisdexanfetamina (Vyvanse) en Argentina",
@@ -310,9 +505,18 @@ const problemasReales = [
 
 export default function LegislacionPage() {
   const [expandedLaw, setExpandedLaw] = useState<string | null>(null)
+  const [viewingDocument, setViewingDocument] = useState<string | null>(null)
 
   const toggleLawDetails = (lawNumber: string) => {
     setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber)
+  }
+
+  const handleViewDocument = (documentType: string) => {
+    setViewingDocument(documentType)
+  }
+
+  const handleCloseDocument = () => {
+    setViewingDocument(null)
   }
 
   return (
@@ -416,6 +620,39 @@ export default function LegislacionPage() {
                       <div className="text-purple-800 dark:text-purple-200">{propuesta.accionNecesaria}</div>
                     </div>
                   </div>
+
+                  {(propuesta as any).documentType && (
+                    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                      <div className="flex space-x-2">
+                        <Button 
+                          onClick={() => handleViewDocument((propuesta as any).documentType)}
+                          className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                        >
+                          <Eye className="h-4 w-4 mr-2" />
+                          Ver Documento Completo
+                        </Button>
+                        <Button 
+                          onClick={() => {
+                            const content = (propuesta as any).documentType === 'decreto' ? decretoContent : proyectoLeyContent
+                            const filename = (propuesta as any).documentType === 'decreto' ? 'decreto-recetas-electronicas-tdah.md' : 'proyecto-ley-modernizacion-tdah.md'
+                            const blob = new Blob([content], { type: 'text/markdown' })
+                            const link = document.createElement('a')
+                            link.href = URL.createObjectURL(blob)
+                            link.download = filename
+                            document.body.appendChild(link)
+                            link.click()
+                            document.body.removeChild(link)
+                            URL.revokeObjectURL(link.href)
+                          }}
+                          variant="outline"
+                          className="flex-1"
+                        >
+                          <Download className="h-4 w-4 mr-2" />
+                          Descargar
+                        </Button>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -644,6 +881,30 @@ export default function LegislacionPage() {
           </div>
         </div>
 
+        {/* Document Viewer Modal */}
+        {viewingDocument && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {viewingDocument === 'decreto' ? 'Decreto para Recetas Electrónicas en Medicamentos TDAH' : 'Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH'}
+                </h3>
+                <Button 
+                  onClick={handleCloseDocument}
+                  variant="ghost"
+                  size="sm"
+                >
+                  ✕
+                </Button>
+              </div>
+              <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
+                <pre className="whitespace-pre-wrap text-sm text-gray-700 dark:text-gray-300 font-mono">
+                  {viewingDocument === 'decreto' ? decretoContent : proyectoLeyContent}
+                </pre>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
