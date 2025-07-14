@@ -1,42 +1,44 @@
 # DECRETO N° XXX/2025
 
-## PODER EJECUTIVO NACIONAL
-
 **SALUD**
 
 Decreto XXX/2025
 
-Recetas electrónicas para medicamentos de tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH). Su reglamentación.
+DECTO-2025-XXX-APN-PTE - Ley 19.303. Medicamentos TDAH. Recetas electrónicas. Reglamentación.
 
-Buenos Aires, XX de XXXX de 2025
+Ciudad de Buenos Aires, XX de XXXX de 2025
 
-**VISTO** la Ley N° 27.553 de Recetas Electrónicas o Digitales, la Ley N° 19.303 de Psicotrópicos, la Ley N° 25.506 de Firma Digital, el Decreto N° 98/2023, el Decreto N° 345/2024, y
+**VISTO** el Expediente N° EX-2025-XXXXXXX-APN-SCS#MS, las Leyes Nros. 17.132 y sus modificatorias, 17.565 y sus modificaciones, 19.303 y sus modificatorias, 27.553 y su modificación, 25.506 y los Decretos Nros. 7123 del 15 de noviembre de 1968 y sus modificatorios, 98 del 27 de febrero de 2023, 345 del 19 de abril de 2024, y
 
 **CONSIDERANDO:**
 
-Que la Ley N° 27.553 establece que la prescripción y dispensación de medicamentos solo pueden ser redactadas y firmadas a través de plataformas electrónicas habilitadas, y habilita expresamente la telemedicina en todo el territorio nacional.
+Que la Ley N° 27.553 tiene por objeto establecer que la prescripción y dispensación de medicamentos y toda otra prescripción solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin, así como establecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente, Historia Clínica y Consentimiento Informado.
 
-Que el artículo 11 de la Ley N° 27.553 incorporó el artículo 18 bis a la Ley N° 19.303, permitiendo que las recetas mencionadas en dicha ley sean redactadas electrónicamente cuando la firma y demás requisitos técnicos se adecúen a la legislación especial vigente.
+Que la Ley N° 19.303 regula la fabricación, comercialización, circulación y uso de sustancias psicotrópicas, estableciendo en su artículo 13 que los medicamentos incluidos en la Lista II solo podrán ser prescriptos por profesionales médicos matriculados mediante recetas extendidas en formularios oficializados, por triplicado, en forma manuscrita.
 
-Que el artículo 12 de la Ley N° 27.553 establece que todos los procedimientos relativos a la regulación de la prescripción, dispensa y circuitos para la provisión de psicotrópicos deben ser digitalizados según los plazos y criterios fijados por la autoridad competente.
+Que por el Decreto N° 98/23 se aprobó la Reglamentación de la citada Ley N° 27.553, estableciéndose al MINISTERIO DE SALUD en carácter de Autoridad de Aplicación.
 
-Que el plazo establecido en el artículo 3° de la Ley N° 27.553 para alcanzar la digitalización total venció el 1° de julio de 2024, siendo necesario su implementación inmediata.
+Que por el Decreto N° 345/24 se modificó la reglamentación de la Ley N° 27.553, estableciendo expresamente que "La receta electrónica y/o digital es el medio obligatorio para la prescripción de medicamentos, órdenes de estudios, prácticas y cualquier otra indicación que los profesionales de la salud consideren pertinentes para sus pacientes, en todo el territorio de la REPÚBLICA ARGENTINA".
 
-Que el Trastorno por Déficit de Atención e Hiperactividad (TDAH) constituye una condición médica crónica que requiere tratamiento farmacológico continuo con medicamentos incluidos en la Lista II de la Ley N° 19.303.
+Que el artículo 11 de la Ley N° 27.553 incorporó el artículo 18 bis a la Ley N° 19.303, estableciendo que "En caso de que las recetas mencionadas en la presente ley sean redactadas electrónicamente, o en caso de que los registros obligatorios sean llevados electrónicamente, la firma y demás requisitos técnicos y legales deben adecuarse a la legislación especial vigente y a lo que establezca la autoridad de aplicación".
 
-Que la prescripción manuscrita triplicada obligatoria establecida en los artículos 13 y 16 de la Ley N° 19.303 para medicamentos de Lista II genera barreras innecesarias al acceso a tratamiento continuo para pacientes con TDAH.
+Que el artículo 12 de la Ley N° 27.553 establece que "todos los procedimientos relativos a la regulación de la prescripción, dispensa y circuitos para la provisión de psicotrópicos (Lista I, II, III y IV) y estupefacientes deben ser digitalizados según los plazos y criterios que fije la autoridad competente".
 
-Que el límite de veinte (20) días establecido en el artículo 16 de la Ley N° 19.303 resulta inadecuado para el tratamiento de condiciones crónicas estables, obligando a consultas médicas frecuentes que sobrecargan el sistema de salud.
+Que el Trastorno por Déficit de Atención e Hiperactividad (TDAH) constituye una condición neurobiológica crónica que requiere tratamiento farmacológico continuo con medicamentos incluidos en la Lista II de la Ley N° 19.303, específicamente metilfenidato y atomoxetina.
 
-Que el artículo 99 de la Constitución Nacional faculta al Poder Ejecutivo Nacional para dictar los reglamentos necesarios para la ejecución de las leyes.
+Que el sistema de prescripción manuscrita triplicada obligatoria para medicamentos de Lista II genera barreras administrativas que dificultan el acceso a tratamiento continuo para pacientes con TDAH, siendo incompatible con la telemedicina habilitada por la Ley N° 27.553.
 
-Que la implementación de recetas electrónicas para medicamentos TDAH no requiere presupuesto público adicional al utilizar la infraestructura digital existente establecida por la Ley N° 27.553.
+Que el límite de veinte (20) días de tratamiento establecido en el artículo 16 de la Ley N° 19.303 resulta inadecuado para el manejo de condiciones crónicas estables como el TDAH, obligando a consultas médicas excesivamente frecuentes que sobrecargan innecesariamente el sistema de salud.
 
-Que es necesario armonizar las disposiciones de la Ley N° 27.553 con la Ley N° 19.303 para garantizar el acceso efectivo a medicamentos para pacientes con TDAH.
+Que propender a la informatización de las recetas para medicamentos TDAH optimiza y simplifica los procesos asistenciales, propicia un incremento en la calidad brindada, reduce costos innecesarios al Sistema de Salud, así como también marca un avance hacia la digitalización y modernización de dicho Sistema.
 
-Que han sido consultados los organismos competentes.
+Que estos sistemas resultan más seguros para garantizar el resguardo de la información y la trazabilidad de sustancias controladas, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y con la Ley N° 26.529 de Derechos del Paciente, Historia Clínica y Consentimiento Informado.
 
-Que la presente medida se dicta en ejercicio de las atribuciones conferidas por el artículo 99, incisos 1 y 2 de la Constitución Nacional.
+Que del análisis del plexo normativo vigente surge la necesidad de adecuar la aplicación de la Ley N° 19.303 a las disposiciones de la Ley N° 27.553 para medicamentos destinados al tratamiento del TDAH, de manera que se garantice el acceso efectivo a estos medicamentos mediante recetas electrónicas.
+
+Que la DIRECCIÓN GENERAL DE ASUNTOS JURÍDICOS del MINISTERIO DE SALUD ha tomado la intervención de su competencia.
+
+Que la presente medida se dicta en uso de las atribuciones emergentes del artículo 99, incisos 1 y 2 de la CONSTITUCIÓN NACIONAL.
 
 **POR ELLO,**
 
@@ -95,12 +97,9 @@ c) Cumplir con los protocolos de seguridad establecidos por la autoridad sanitar
 
 **ARTÍCULO 12**.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir al presente decreto y a adecuar sus sistemas de salud para garantizar la implementación efectiva de las recetas electrónicas para medicamentos TDAH.
 
-**ARTÍCULO 13**.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro Oficial y archívese.
+**ARTÍCULO 13**.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
 
-**MILEI**
-
-Dr. Mario Russo  
-*Ministro de Salud*
+MILEI - Mario Antonio Russo
 
 ---
 
