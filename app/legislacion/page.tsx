@@ -585,6 +585,127 @@ Para medicamentos crónicos como los de TDAH, se permite dispensación por corre
       }
     }
   },
+  {
+    numero: "Ley 17.132",
+    titulo: "Ley del Arte de Curar",
+    descripcion: "Reglas para el ejercicio de la medicina, odontología y actividades de colaboración. Actualizada en 2020 y 2023 para incluir telemedicina y recetas electrónicas",
+    fecha: "1967-01-24",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Poder Ejecutivo Nacional",
+    impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-17132-19429/actualizacion",
+    ultimaActualizacion: "2023-12-21",
+    analisisIA: {
+      beneficios: [
+        "Art. 2° bis: Habilita telemedicina oficialmente (agregado por Ley 27.553)",
+        "Art. 19, inc. 7°: Permite recetas electrónicas/digitales (actualizado 2023)",
+        "Art. 21: Marco legal para especialidades médicas",
+        "Art. 19, inc. 6°: Regulación de prescripción de alcaloides",
+        "Marco general actualizado para medicina moderna",
+      ],
+      problemas: [
+        "No menciona específicamente TDAH ni psiquiatría especializada",
+        "Art. 21: Proceso de certificación de especialistas no incluye TDAH adulto",
+        "Falta reconocimiento específico de especialización en TDAH",
+        "No aborda medicamentos psicotrópicos específicamente",
+        "Subordinada a otras leyes para sustancias controladas",
+      ],
+      puntuacion: 7.3,
+      recomendacion: "Ley base bien actualizada para era digital pero necesita incluir TDAH adulto como especialización reconocida",
+    },
+    puntosClave: [
+      "Art. 2° bis: Telemedicina habilitada oficialmente",
+      "Art. 19, inc. 7°: Recetas electrónicas permitidas (2023)",
+      "Art. 21: Certificación de especialistas médicos",
+      "Marco general para ejercicio de medicina",
+      "Compatible con modernización digital",
+    ],
+    analisisDetallado: {
+      articulosProblematicos: [
+        {
+          articulo: "Artículo 2° bis",
+          titulo: "Telemedicina - Habilitada pero sin especificidad TDAH",
+          textoActual: `Se habilita la modalidad de teleasistencia para el ejercicio de la medicina, odontología y actividades de colaboración de las mismas, garantizando los derechos establecidos en la ley 26.529 de Derechos del Paciente. La teleasistencia puede desarrollarse solo para prácticas autorizadas a tal fin, de acuerdo a protocolos y plataformas aprobadas para la misma por la autoridad de aplicación.`,
+          problemasIdentificados: [
+            "No especifica qué 'prácticas autorizadas' incluyen seguimiento TDAH",
+            "Falta protocolos específicos para psiquiatría y TDAH",
+            "Autoridad de aplicación no ha desarrollado protocolos para TDAH",
+            "Vago sobre qué constituye 'teleasistencia apropiada'"
+          ],
+          propuestaReescritura: `Se habilita la modalidad de teleasistencia para el ejercicio de la medicina, odontología y actividades de colaboración, incluyendo específicamente:
+
+a) Seguimiento de medicación crónica para trastornos psiquiátricos estables como TDAH;
+b) Evaluaciones de seguimiento para pacientes con diagnósticos establecidos;
+c) Prescripción electrónica de medicamentos controlados para pacientes estables;
+d) Consultas de seguimiento psiquiátrico y neurológico.
+
+La autoridad de aplicación establecerá protocolos específicos para cada especialidad, garantizando la seguridad del paciente y el cumplimiento de normativas de sustancias controladas.`,
+          impactoTDAH: "Alto - Habilitaría oficialmente telemedicina para seguimiento TDAH"
+        },
+        {
+          articulo: "Artículo 19, inciso 7°",
+          titulo: "Recetas Electrónicas - Permitidas pero no integradas",
+          textoActual: `Prescribir o certificar en recetas cargadas en formularios electrónicos o digitales, en las que debe constar la siguiente información en idioma nacional: nombre, apellido, profesión, número de matrícula, domicilio, número telefónico y correo electrónico cuando corresponda. Solo podrán anunciarse cargos técnicos o títulos que consten registrados en la autoridad competente y en las condiciones que se reglamenten. Las prescripciones y/o recetas deberán ser formuladas en idioma nacional, fechadas y firmadas.`,
+          problemasIdentificados: [
+            "No integra con restricciones de Ley 19.303 para psicotrópicos",
+            "Falta especificación sobre firma digital para medicamentos controlados",
+            "No aborda conflicto entre recetas electrónicas y manuscritas obligatorias",
+            "Autoridad competente no especificada para sustancias controladas"
+          ],
+          propuestaReescritura: `Las recetas electrónicas o digitales para todos los medicamentos, incluidos psicotrópicos, deberán:
+
+a) Cumplir con los requisitos técnicos de firma digital según Ley 25.506;
+b) Integrarse con el sistema nacional de monitoreo de sustancias controladas;
+c) Contener identificación única del prescriptor y paciente;
+d) Prevalecer sobre requisitos manuscritos de leyes anteriores;
+e) Permitir dispensación en cualquier farmacia del territorio nacional.
+
+Para medicamentos controlados como los de TDAH, la receta electrónica será obligatoria y tendrá la misma validez legal que las manuscritas.`,
+          impactoTDAH: "Crítico - Integraría recetas electrónicas con medicamentos TDAH"
+        },
+        {
+          articulo: "Artículo 21",
+          titulo: "Especialidades Médicas - Sin TDAH Adulto",
+          textoActual: `Para emplear el título o certificado de especialista y anunciarse como tales, los profesionales que ejerzan la medicina deberán acreditar alguna de las condiciones siguientes para obtener la autorización del Ministerio de Salud y Acción Social: a) Poseer certificación otorgada por comisiones especiales de evaluación designadas al efecto por la autoridad de aplicación...`,
+          problemasIdentificados: [
+            "No incluye TDAH adulto como especialización reconocida",
+            "Falta currículas específicas para trastornos del neurodesarrollo",
+            "No hay comisiones de evaluación para especialización en TDAH",
+            "Sistema de certificación no contempla subespecialidades modernas"
+          ],
+          propuestaReescritura: `Se reconocen como especialidades médicas certificables:
+
+ESPECIALIDADES EXISTENTES: [lista actual]
+
+NUEVAS ESPECIALIDADES EN NEURODESARROLLO:
+j) Especialista en TDAH y Trastornos del Neurodesarrollo en Adultos;
+k) Especialista en Trastornos del Espectro Autista en Adultos;
+l) Especialista en Dificultades Específicas del Aprendizaje;
+
+El Ministerio de Salud establecerá comisiones de evaluación específicas y currículas de formación para estas especialidades, en coordinación con sociedades científicas y universidades.`,
+          impactoTDAH: "Alto - Crearía especialización oficial en TDAH adulto"
+        }
+      ],
+      articulosPropuestos: [],
+      resumenImpacto: {
+        problemasPrincipales: [
+          "Ley bien actualizada para era digital pero no específica para TDAH",
+          "Telemedicina habilitada pero sin protocolos específicos para psiquiatría",
+          "Recetas electrónicas permitidas pero no integradas con sustancias controladas",
+          "No reconoce TDAH adulto como especialización médica"
+        ],
+        beneficiosReforma: [
+          "Inclusión de TDAH adulto como especialización reconocida",
+          "Protocolos específicos de telemedicina para seguimiento psiquiátrico",
+          "Integración completa de recetas electrónicas con medicamentos controlados",
+          "Marco legal sólido para medicina digital especializada"
+        ],
+        urgencia: "Media - Base legal sólida que necesita especificaciones para TDAH",
+        estimacionImpacto: "Facilitaría enormemente la formación de especialistas y el acceso a telemedicina para pacientes TDAH"
+      }
+    }
+  },
 ]
 
 
