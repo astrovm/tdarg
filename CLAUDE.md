@@ -9,26 +9,23 @@ This is a Next.js 15 application called "Tdarg" (TDAH Argentina) - a comprehensi
 ## Development Commands
 
 \`\`\`bash
-
 # Install dependencies
-
 bun install
 
 # Development server
-
 bun dev
 
 # Production build
-
 bun run build
 
 # Start production server
-
 bun start
 
 # Lint code
-
 bun lint
+
+# Download legal documents (laws and decrees)
+bun run download-laws
 \`\`\`
 
 ## Architecture Overview
@@ -129,7 +126,7 @@ app/
 
 #### Main Pages
 
-- **`/app/legislacion/page.tsx`**: Main legislation analysis interface with static data
+- **`/app/legislacion/page.tsx`**: Main legislation analysis interface with comprehensive law analysis including Ley 27.553, Ley 19.303, and Ley 26.657. Contains complete decree and legislative project documents ready for official submission.
 - **`/app/precios/page.tsx`**: Medication pricing interface
 - **`/app/especialistas/page.tsx`**: Medical professionals directory
 
@@ -137,3 +134,37 @@ app/
 
 - **`/hooks/use-legislacion-tracker.ts`**: Manages simulated legislation analysis
 - **`/hooks/use-medicamentos-reales.ts`**: Handles real-time medication pricing
+
+#### Legal Document Management
+
+- **`/scripts/download-laws.ts`**: Downloads and caches legal documents from InfoLeg government site
+- **`/data/leyes/`**: Cached legal documents with metadata (automatically created by download script)
+- **`/decreto-recetas-electronicas-tdah.md`**: Complete presidential decree ready for submission
+- **`/proyecto-ley-modernizacion-tdah.md`**: Complete legislative project ready for congressional submission
+
+### Legal Document System
+
+The legislation section includes a sophisticated legal document analysis system:
+
+1. **Document Analysis**: Detailed AI-powered analysis of laws identifying specific problematic articles
+2. **Impact Assessment**: Scoring system evaluating real-world impact on TDAH patients
+3. **Solution Proposals**: Ready-to-submit legal documents (decrees and legislative projects)
+4. **Document Viewer**: Modal viewer with markdown formatting for legal documents
+5. **Download System**: Automated downloading of legal documents from official government sources
+
+The system focuses on the conflict between Ley 27.553 (electronic prescriptions) and Ley 19.303 (controlled substances) that prevents TDAH patients from accessing electronic prescriptions.
+
+### Legal Document Updates
+
+When updating legal documents in the legislation section:
+- The main law analysis is in `/app/legislacion/page.tsx` in the `leyes` array
+- Each law entry includes detailed `analisisIA` and `analisisDetallado` sections
+- Complete legal documents are embedded as constants (`decretoContent`, `proyectoLeyContent`)
+- The download script `/scripts/download-laws.ts` maintains the `LAWS_CONFIG` array for new legal documents
+- Always include comprehensive legal analysis with specific article problems and solutions
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
