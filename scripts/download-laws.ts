@@ -70,6 +70,12 @@ const LAWS_CONFIG: LawConfig[] = [
     name: 'Decreto 345/2024 - Recetas Electrónicas',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/395000-399999/398297/norma.htm',
     type: 'decreto'
+  },
+  {
+    id: 'ley-26657-salud-mental',
+    name: 'Ley 26.657 - Ley Nacional de Salud Mental',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm',
+    type: 'ley'
   }
 ];
 
@@ -105,8 +111,6 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
     };
 
     const req = https.request(options, (res) => {
-      let data = '';
-
       // Handle redirects
       if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         console.log(`🔄 Redirecting to: ${res.headers.location}`);

@@ -68,5 +68,15 @@
     "size": 20468,
     "downloadedAt": "2025-07-14T02:45:31.695Z",
     "lastChecked": "2025-07-14T02:45:31.696Z"
+  },
+  "ley-26657-salud-mental": {
+    "id": "ley-26657-salud-mental",
+    "name": "Ley 26.657 - Ley Nacional de Salud Mental",
+    "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm",
+    "type": "ley",
+    "filename": "ley-26657-salud-mental.html",
+    "size": 39966,
+    "downloadedAt": "2025-07-14T14:51:25.336Z",
+    "lastChecked": "2025-07-14T14:51:25.337Z"
   }
 }
