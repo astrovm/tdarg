@@ -76,6 +76,12 @@ const LAWS_CONFIG: LawConfig[] = [
     name: 'Ley 26.657 - Ley Nacional de Salud Mental',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm',
     type: 'ley'
+  },
+  {
+    id: 'ley-23737-codigo-penal-sustancias',
+    name: 'Ley 23.737 - Código Penal - Sustancias Medicinales',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/138/texact.htm',
+    type: 'ley'
   }
 ];
 
