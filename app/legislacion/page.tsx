@@ -241,28 +241,6 @@ const propuestasNecesarias = [
     accionNecesaria: "Solicitar al Presidente que emita decreto reglamentario",
   },
   {
-    titulo: "Registro de Lisdexanfetamina (Vyvanse) en Argentina",
-    descripcion:
-      "Gestión con ANMAT para el registro y aprobación de lisdexanfetamina, medicamento TDAH aprobado por FDA y EMA que no está disponible en Argentina",
-    problemaQueResuelve:
-      "Opciones limitadas de medicación para pacientes que no responden a metilfenidato o atomoxetina",
-    beneficiosEsperados: [
-      "Acceso a lisdexanfetamina para pacientes con respuesta limitada",
-      "Opción para pacientes con efectos adversos a medicamentos actuales",
-      "Tratamiento más personalizado según perfil del paciente",
-      "Reducción de abandono de tratamiento",
-    ],
-    ventajas: [
-      "Medicamento ya aprobado por FDA y EMA",
-      "No requiere presupuesto público - proceso normal ANMAT", 
-      "Beneficio inmediato para pacientes resistentes",
-      "Amplia evidencia científica internacional",
-    ],
-    impacto: "Medio-Alto - Beneficiaría especialmente a pacientes con respuesta inadecuada",
-    estado: "VIABLE - Requiere gestión regulatoria",
-    accionNecesaria: "Solicitar a ANMAT la evaluación y registro prioritario de lisdexanfetamina",
-  },
-  {
     titulo: "Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH",
     descripcion:
       "Modificación específica de los artículos 13 y 16 de la Ley 19.303 para permitir recetas electrónicas y prescripciones de 90 días para medicación crónica TDAH",
@@ -284,6 +262,28 @@ const propuestasNecesarias = [
     impacto: "Alto - Resolvería definitivamente el conflicto legal para todas las futuras administraciones",
     estado: "PROPUESTA - Requiere impulso legislativo",
     accionNecesaria: "Impulsar proyecto de ley en Cámara de Diputados o Senado",
+  },
+  {
+    titulo: "Registro de Lisdexanfetamina (Vyvanse) en Argentina",
+    descripcion:
+      "Gestión con ANMAT para el registro y aprobación de lisdexanfetamina, medicamento TDAH aprobado por FDA y EMA que no está disponible en Argentina",
+    problemaQueResuelve:
+      "Opciones limitadas de medicación para pacientes que no responden a metilfenidato o atomoxetina",
+    beneficiosEsperados: [
+      "Acceso a lisdexanfetamina para pacientes con respuesta limitada",
+      "Opción para pacientes con efectos adversos a medicamentos actuales",
+      "Tratamiento más personalizado según perfil del paciente",
+      "Reducción de abandono de tratamiento",
+    ],
+    ventajas: [
+      "Medicamento ya aprobado por FDA y EMA",
+      "No requiere presupuesto público - proceso normal ANMAT", 
+      "Beneficio inmediato para pacientes resistentes",
+      "Amplia evidencia científica internacional",
+    ],
+    impacto: "Medio-Alto - Beneficiaría especialmente a pacientes con respuesta inadecuada",
+    estado: "VIABLE - Requiere gestión regulatoria",
+    accionNecesaria: "Solicitar a ANMAT la evaluación y registro prioritario de lisdexanfetamina",
   },
 ]
 
