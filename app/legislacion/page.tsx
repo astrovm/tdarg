@@ -445,9 +445,6 @@ const propuestasNecesarias = [
       "📋 Precedente exitoso (Decreto 345/24)",
     ],
     impacto: "🎯 500,000+ pacientes beneficiados inmediatamente",
-    urgencia: "🔥 Crítico",
-    estado: "✅ VIABLE",
-    tiempoImplementacion: "30 días",
     responsable: "Poder Ejecutivo",
     accionNecesaria: "Presentar propuesta al Presidente",
     documentType: "decreto",
@@ -473,9 +470,6 @@ const propuestasNecesarias = [
       "🌎 Precedentes Reino Unido/España",
     ],
     impacto: "🎯 Solución definitiva para todas las administraciones",
-    urgencia: "📋 Planificación",
-    estado: "📝 PROPUESTA",
-    tiempoImplementacion: "6-12 meses",
     responsable: "Congreso Nacional",
     accionNecesaria: "Impulsar en Cámara de Diputados",
     documentType: "ley",
@@ -501,9 +495,6 @@ const propuestasNecesarias = [
       "📊 Evidencia científica sólida",
     ],
     impacto: "🎯 ~30% pacientes con respuesta inadecuada",
-    urgencia: "⚡ Moderado",
-    estado: "✅ VIABLE",
-    tiempoImplementacion: "12-18 meses",
     responsable: "ANMAT",
     accionNecesaria: "Solicitar evaluación prioritaria",
   },
@@ -517,7 +508,7 @@ const problemasReales = [
       "Recetas manuscritas triplicadas + consultas cada 20 días para medicación crónica",
     resumen:
       "Ley 19.303 vs Ley 27.553: conflicto legal impide recetas electrónicas",
-    urgencia: "🔥 Crítico",
+    urgencia: "🚨 Crítico",
     impacto: "500,000+ pacientes afectados",
   },
   {
@@ -525,7 +516,7 @@ const problemasReales = [
     descripcion: "Solo metilfenidato y atomoxetina disponibles en Argentina",
     resumen:
       "Falta Vyvanse, Adderall y otros estimulantes para pacientes resistentes",
-    urgencia: "📋 Planificación",
+    urgencia: "🚨 Crítico",
     impacto: "~30% pacientes sin opciones",
   },
 ];
@@ -618,17 +609,6 @@ export default function LegislacionPage() {
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Badge variant="outline" className="text-xs">
-                          {propuesta.urgencia}
-                        </Badge>
-                        <Badge variant="secondary" className="text-xs">
-                          {propuesta.estado}
-                        </Badge>
-                        <span className="text-xs text-gray-500">
-                          {propuesta.tiempoImplementacion}
-                        </span>
-                      </div>
                       <CardTitle className="text-xl text-blue-900 dark:text-blue-100 mb-1">
                         {propuesta.titulo}
                       </CardTitle>
