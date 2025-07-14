@@ -1,58 +1,12 @@
 # PROYECTO DE LEY
 
-## Modernización de la Prescripción de Medicamentos para Trastorno por Déficit de Atención e Hiperactividad (TDAH)
+**Modernización de la Prescripción de Medicamentos para Trastorno por Déficit de Atención e Hiperactividad (TDAH)**
 
 ---
 
-### HONORABLE CONGRESO DE LA NACIÓN
-
-**La Cámara de Diputados de la Nación sanciona con fuerza de**
+**El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de**
 
 **LEY:**
-
----
-
-## FUNDAMENTOS
-
-### Señor Presidente:
-
-El presente proyecto de ley tiene por objeto modernizar el marco normativo de prescripción de medicamentos para el Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando la Ley N° 19.303 de Psicotrópicos con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
-
-#### SITUACIÓN ACTUAL
-
-Argentina enfrenta un conflicto normativo que impide el acceso efectivo a medicamentos TDAH para más de 500,000 pacientes adultos. La Ley N° 19.303 de 1971 exige recetas manuscritas triplicadas y limita las prescripciones a 20 días, mientras que la Ley N° 27.553 de 2020 establece la obligatoriedad de recetas electrónicas.
-
-Esta contradicción legal genera:
-- Consultas médicas obligatorias cada 20 días para medicación crónica
-- Imposibilidad de utilizar telemedicina para seguimiento TDAH
-- Sobrecarga del sistema de salud con 18 consultas anuales vs. 4 necesarias
-- Costo anual promedio de $450,000 por paciente en consultas evitables
-
-#### EXPERIENCIA INTERNACIONAL
-
-Países desarrollados han modernizado exitosamente sus marcos normativos:
-
-**Reino Unido** (2015-2019): Implementó recetas electrónicas para sustancias controladas incluyendo estimulantes TDAH, con reducción significativa de prescripciones divididas.
-
-**España** (2012-presente): Estableció coexistencia digital-física con preferencia por recetas electrónicas, extendiendo períodos de tratamiento a 3 meses.
-
-**Estados Unidos** (2010-2021): 35 estados requieren prescripción electrónica para sustancias controladas, procesando 1.8 mil millones de prescripciones en 2023.
-
-#### BENEFICIOS ESPERADOS
-
-- **Acceso mejorado**: Recetas electrónicas válidas nacionalmente
-- **Eficiencia sanitaria**: Reducción de consultas innecesarias de 18 a 4 anuales
-- **Ahorro económico**: $225 mil millones anuales para el sistema de salud
-- **Integración digital**: Compatibilidad con telemedicina
-- **Seguridad mantenida**: Controles digitales equivalentes a manuscritos
-
-#### BASE CONSTITUCIONAL
-
-El proyecto se fundamenta en los artículos 42 y 75 inciso 23 de la Constitución Nacional, que garantizan los derechos de los usuarios y consumidores, y facultan al Congreso a legislar sobre el progreso de la ciencia y la técnica.
-
----
-
-## ARTICULADO
 
 **ARTÍCULO 1°**.- Objeto. La presente ley tiene por objeto modernizar la prescripción de medicamentos psicotrópicos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando las disposiciones de la Ley N° 19.303 con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
 
@@ -152,17 +106,55 @@ e) Indicadores de seguridad y control de sustancias.
 
 **ARTÍCULO 11**.- Vigencia. La presente ley entrará en vigencia a partir de su publicación en el Boletín Oficial.
 
-**ARTÍCULO 12**.- Comuníquese al Poder Ejecutivo.
+**ARTÍCULO 12**.- Comuníquese al Poder Ejecutivo nacional.
+
+DADA EN LA SALA DE SESIONES DEL CONGRESO ARGENTINO, EN BUENOS AIRES, A LOS ___ DÍAS DEL MES DE _____ DEL AÑO DOS MIL VEINTICINCO.
+
+REGISTRADA BAJO EL N° _____
+
+[Presidente de la Cámara de Diputados] - [Presidente del Senado] - [Secretario Administrativo] - [Secretario Parlamentario]
 
 ---
 
-## FUNDAMENTOS TÉCNICOS
+## EXPOSICIÓN DE MOTIVOS
 
-### I. JUSTIFICACIÓN SANITARIA
+### Señor Presidente:
 
-El TDAH afecta aproximadamente al 5% de la población adulta argentina. La evidencia científica internacional establece que requiere tratamiento farmacológico continuo para mantener la funcionalidad laboral, académica y social del paciente.
+El presente proyecto de ley tiene por objeto modernizar el marco normativo de prescripción de medicamentos para el Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando la Ley N° 19.303 de Psicotrópicos con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
 
-### II. IMPACTO ECONÓMICO
+### SITUACIÓN ACTUAL
+
+Argentina enfrenta un conflicto normativo que impide el acceso efectivo a medicamentos TDAH para más de 500,000 pacientes adultos. La Ley N° 19.303 de 1971 exige recetas manuscritas triplicadas y limita las prescripciones a 20 días, mientras que la Ley N° 27.553 de 2020 establece la obligatoriedad de recetas electrónicas.
+
+Esta contradicción legal genera:
+- Consultas médicas obligatorias cada 20 días para medicación crónica
+- Imposibilidad de utilizar telemedicina para seguimiento TDAH
+- Sobrecarga del sistema de salud con 18 consultas anuales vs. 4 necesarias
+- Costo anual promedio de $450,000 por paciente en consultas evitables
+
+### EXPERIENCIA INTERNACIONAL
+
+Países desarrollados han modernizado exitosamente sus marcos normativos:
+
+**Reino Unido** (2015-2019): Implementó recetas electrónicas para sustancias controladas incluyendo estimulantes TDAH, con reducción significativa de prescripciones divididas.
+
+**España** (2012-presente): Estableció coexistencia digital-física con preferencia por recetas electrónicas, extendiendo períodos de tratamiento a 3 meses.
+
+**Estados Unidos** (2010-2021): 35 estados requieren prescripción electrónica para sustancias controladas, procesando 1.8 mil millones de prescripciones en 2023.
+
+### BENEFICIOS ESPERADOS
+
+- **Acceso mejorado**: Recetas electrónicas válidas nacionalmente
+- **Eficiencia sanitaria**: Reducción de consultas innecesarias de 18 a 4 anuales
+- **Ahorro económico**: $225 mil millones anuales para el sistema de salud
+- **Integración digital**: Compatibilidad con telemedicina
+- **Seguridad mantenida**: Controles digitales equivalentes a manuscritos
+
+### JUSTIFICACIÓN CONSTITUCIONAL
+
+El proyecto se fundamenta en los artículos 42 y 75 inciso 23 de la Constitución Nacional, que garantizan los derechos de los usuarios y consumidores, y facultan al Congreso a legislar sobre el progreso de la ciencia y la técnica.
+
+### IMPACTO ECONÓMICO
 
 **Situación actual:**
 - 18 consultas médicas anuales obligatorias
@@ -175,11 +167,7 @@ El TDAH afecta aproximadamente al 5% de la población adulta argentina. La evide
 - Ahorro por paciente: $350,000 anuales
 - Ahorro total del sistema: $175 mil millones anuales
 
-### III. PRECEDENTES INTERNACIONALES
-
-La modernización propuesta sigue el modelo exitoso de países desarrollados que han logrado mantener el control de sustancias mientras mejoran el acceso para pacientes con condiciones crónicas.
-
-### IV. SEGURIDAD Y CONTROL
+### SEGURIDAD Y CONTROL
 
 El sistema electrónico propuesto mantiene todos los controles de seguridad del sistema manuscrito, añadiendo:
 - Trazabilidad digital completa
@@ -187,21 +175,15 @@ El sistema electrónico propuesto mantiene todos los controles de seguridad del 
 - Reportes en tiempo real a autoridades
 - Backup de seguridad permanente
 
-### V. CONSTITUCIONALIDAD
-
-El proyecto respeta los principios constitucionales de:
-- Igualdad ante la ley (Art. 16)
-- Derecho a la salud (Art. 42)
-- Progreso científico y técnico (Art. 75 inc. 23)
-- Federalismo sanitario (invitación a provincias)
+Por los fundamentos expuestos, solicito a mis pares la aprobación del presente proyecto de ley.
 
 ---
 
-**Autor/es del Proyecto:**
+**Autor/es del Proyecto:**  
 [Diputado/a - Bloque - Provincia]
 
-**Fecha de presentación:**
+**Fecha de presentación:**  
 [Fecha]
 
-**Expediente N°:**
+**Expediente N°:**  
 [Número asignado por Mesa de Entradas]
