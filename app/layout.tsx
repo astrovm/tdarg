@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Tdarg" }],
   creator: "Tdarg",
   publisher: "Tdarg",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 }
 
 export default function RootLayout({
