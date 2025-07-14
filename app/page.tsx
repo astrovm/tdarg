@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle } from "lucide-react"
+import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, Github } from "lucide-react"
 import { Header } from "@/components/header"
 
 export default function HomePage() {
@@ -162,10 +162,19 @@ export default function HomePage() {
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold mb-4">Contacto</h5>
-              <p className="text-gray-400">
-                Para sugerencias o correcciones, contactanos a través de nuestros canales oficiales.
+              <h5 className="font-semibold mb-4">Código Abierto</h5>
+              <p className="text-gray-400 mb-4">
+                Este proyecto es código abierto. Contribuye en GitHub.
               </p>
+              <a
+                href="https://github.com/astrovm/tdarg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+              >
+                <Github className="h-4 w-4" />
+                <span>Ver en GitHub</span>
+              </a>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
