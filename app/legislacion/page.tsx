@@ -18,7 +18,7 @@ import {
 import { Header } from "@/components/header"
 import { useState } from "react"
 
-// Contenido completo de los documentos
+// Contenido completo de los documentos - Optimizado para lectura
 const decretoContent = `# DECRETO N° XXX/2025
 
 **SALUD**
@@ -486,6 +486,7 @@ const propuestasNecesarias = [
   },
 ]
 
+// Problemas identificados - Estructura optimizada
 const problemasReales = [
   {
     problema: "Sistema de recetas obsoleto y burocrático",
@@ -500,13 +501,6 @@ const problemasReales = [
     resumen: "Falta Vyvanse, Adderall y otros estimulantes para pacientes resistentes",
     urgencia: "📋 Planificación",
     impacto: "~30% pacientes sin opciones",
-  },
-  {
-    problema: "Falta de especialistas en TDAH adulto",
-    descripcion: "Sin especialización oficial: 3-6 meses de espera + diagnósticos inadecuados",
-    resumen: "Necesidad de programa de formación y certificación especializada",
-    urgencia: "⚡ Moderado",
-    impacto: "Calidad diagnóstica baja",
   }
 ]
 
@@ -544,8 +538,11 @@ export default function LegislacionPage() {
 
         {/* Real Problems - SIMPLIFIED */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Problemas Identificados</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Problemas Identificados</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            Análisis de los obstáculos principales para acceso a medicación TDAH
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {problemasReales.map((item, index) => (
               <Card key={index} className="border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/10">
                 <CardHeader className="pb-4">
@@ -644,10 +641,10 @@ export default function LegislacionPage() {
 
                   {(propuesta as any).documentType && (
                     <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <div className="flex space-x-2">
+                      <div className="flex flex-col sm:flex-row gap-2">
                         <Button 
                           onClick={() => handleViewDocument((propuesta as any).documentType)}
-                          className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                          className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium"
                         >
                           <Eye className="h-4 w-4 mr-2" />
                           Ver Documento Completo
@@ -666,7 +663,7 @@ export default function LegislacionPage() {
                             URL.revokeObjectURL(link.href)
                           }}
                           variant="outline"
-                          className="flex-1"
+                          className="flex-1 border-green-200 hover:bg-green-50 dark:border-green-800 dark:hover:bg-green-900/20"
                         >
                           <Download className="h-4 w-4 mr-2" />
                           Descargar
@@ -919,9 +916,11 @@ export default function LegislacionPage() {
                 </Button>
               </div>
               <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
-                <pre className="whitespace-pre-wrap text-sm text-gray-700 dark:text-gray-300 font-mono">
-                  {viewingDocument === 'decreto' ? decretoContent : proyectoLeyContent}
-                </pre>
+                <div className="prose prose-sm max-w-none dark:prose-invert">
+                  <pre className="whitespace-pre-wrap text-sm text-gray-700 dark:text-gray-300 font-mono leading-relaxed">
+                    {viewingDocument === 'decreto' ? decretoContent : proyectoLeyContent}
+                  </pre>
+                </div>
               </div>
             </div>
           </div>
