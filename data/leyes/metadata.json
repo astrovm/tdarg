@@ -48,5 +48,25 @@
     "size": 87967,
     "downloadedAt": "2025-07-13T23:53:42.959Z",
     "lastChecked": "2025-07-13T23:53:42.959Z"
+  },
+  "decreto-345-2024-sustancias-controladas": {
+    "id": "decreto-345-2024-sustancias-controladas",
+    "name": "Decreto 345/2024 - Sustancias Controladas",
+    "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/395000-399999/398297/norma.htm",
+    "type": "decreto",
+    "filename": "decreto-345-2024-sustancias-controladas.html",
+    "size": 20468,
+    "downloadedAt": "2025-07-14T02:40:46.612Z",
+    "lastChecked": "2025-07-14T02:40:46.612Z"
+  },
+  "decreto-345-2024-recetas-electronicas": {
+    "id": "decreto-345-2024-recetas-electronicas",
+    "name": "Decreto 345/2024 - Recetas Electrónicas",
+    "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/395000-399999/398297/norma.htm",
+    "type": "decreto",
+    "filename": "decreto-345-2024-recetas-electronicas.html",
+    "size": 20468,
+    "downloadedAt": "2025-07-14T02:45:31.695Z",
+    "lastChecked": "2025-07-14T02:45:31.696Z"
   }
 }

@@ -11,7 +11,7 @@ interface LawConfig {
   id: string;
   name: string;
   url: string;
-  type: 'ley';
+  type: 'ley' | 'decreto';
 }
 
 interface DownloadResult {
@@ -64,6 +64,12 @@ const LAWS_CONFIG: LawConfig[] = [
     name: 'Ley 17.132 - Arte de Curar (Ejercicio de la Medicina y Odontología)',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19429/texact.htm',
     type: 'ley'
+  },
+  {
+    id: 'decreto-345-2024-recetas-electronicas',
+    name: 'Decreto 345/2024 - Recetas Electrónicas',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/395000-399999/398297/norma.htm',
+    type: 'decreto'
   }
 ];
 
