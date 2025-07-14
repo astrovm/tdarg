@@ -262,6 +262,29 @@ const propuestasNecesarias = [
     estado: "VIABLE - Requiere gestión regulatoria",
     accionNecesaria: "Solicitar a ANMAT la evaluación y registro prioritario de lisdexanfetamina",
   },
+  {
+    titulo: "Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH",
+    descripcion:
+      "Modificación específica de los artículos 13 y 16 de la Ley 19.303 para permitir recetas electrónicas y prescripciones de 90 días para medicación crónica TDAH",
+    problemaQueResuelve:
+      "Conflicto legal definitivo entre Ley 19.303 y Ley 27.553 que requiere solución legislativa permanente",
+    beneficiosEsperados: [
+      "Solución permanente que no puede revertirse por decreto",
+      "Recetas electrónicas legalmente válidas para medicamentos TDAH",
+      "Prescripciones de 90 días para pacientes estables",
+      "Integración completa con telemedicina",
+      "Marco legal moderno alineado con estándares internacionales",
+    ],
+    ventajas: [
+      "Mayor legitimidad democrática que un decreto",
+      "Solución permanente vs. medidas temporales",
+      "No requiere presupuesto público adicional",
+      "Precedentes exitosos internacionales (Reino Unido, España)",
+    ],
+    impacto: "Alto - Resolvería definitivamente el conflicto legal para todas las futuras administraciones",
+    estado: "PROPUESTA - Requiere impulso legislativo",
+    accionNecesaria: "Impulsar proyecto de ley en Cámara de Diputados o Senado",
+  },
 ]
 
 const problemasReales = [
