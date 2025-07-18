@@ -234,26 +234,14 @@ export const leyes = [
         {
           articulo: "Artículo 1º",
           titulo: "Objeto de la Ley - Recetas Electrónicas Obligatorias",
-          textoActual: `La presente ley tiene por objeto:
-
-Establecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin.
-
-Establecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente.`,
+          textoActual: `La presente ley tiene por objeto:\n\nEstablecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin.\n\nEstablecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente.`,
           problemasIdentificados: [
             "Dice 'solo puedan' pero no deroga explícitamente las recetas manuscritas",
             "No menciona cómo resolver conflictos con leyes anteriores",
             "Falta especificidad sobre medicamentos controlados",
             "No establece sanciones por incumplimiento",
           ],
-          propuestaReescritura: `La presente ley tiene por objeto:
-
-a) Establecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, DEBEN ser redactadas y firmadas exclusivamente a través de plataformas electrónicas habilitadas, reemplazando definitivamente las recetas manuscritas.
-
-b) Derogar expresamente toda disposición legal que exija recetas manuscritas, incluidos los artículos 13 y 14 de la Ley 19.303.
-
-c) Establecer que los medicamentos controlados (psicotrópicos y estupefacientes) se rigen por esta ley, manteniendo controles de seguridad en formato digital.
-
-d) Habilitar plataformas de teleasistencia en salud con las mismas garantías de seguridad y privacidad.`,
+          propuestaReescritura: `La presente ley tiene por objeto:\n\na) Establecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, DEBEN ser redactadas y firmadas exclusivamente a través de plataformas electrónicas habilitadas, reemplazando definitivamente las recetas manuscritas.\n\nb) Derogar expresamente toda disposición legal que exija recetas manuscritas, incluidos los artículos 13 y 14 de la Ley 19.303.\n\nc) Establecer que los medicamentos controlados (psicotrópicos y estupefacientes) se rigen por esta ley, manteniendo controles de seguridad en formato digital.\n\nd) Habilitar plataformas de teleasistencia en salud con las mismas garantías de seguridad y privacidad.`,
           impactoTDAH:
             "Crítico - Si fuera aplicado correctamente resolvería el problema de recetas manuscritas",
         },
@@ -267,38 +255,20 @@ d) Habilitar plataformas de teleasistencia en salud con las mismas garantías de
             "Falta autoridad de aplicación clara",
             "No hay mecanismo de seguimiento del cumplimiento",
           ],
-          propuestaReescritura: `La autoridad de aplicación debe:
-
-a) Implementar inmediatamente la digitalización total, sin excepciones.
-
-b) Establecer un nuevo plazo máximo de 90 días para completar la migración.
-
-c) Crear un sistema de monitoreo público del avance de implementación.
-
-d) Aplicar sanciones a instituciones que no cumplan con la digitalización.
-
-e) Designar una autoridad de aplicación específica con presupuesto asignado.`,
+          propuestaReescritura: `La autoridad de aplicación debe:\n\na) Implementar inmediatamente la digitalización total, sin excepciones.\n\nb) Establecer un nuevo plazo máximo de 90 días para completar la migración.\n\nc) Crear un sistema de monitoreo público del avance de implementación.\n\nd) Aplicar sanciones a instituciones que no cumplan con la digitalización.\n\ne) Designar una autoridad de aplicación específica con presupuesto asignado.`,
           impactoTDAH: "Alto - Plazo vencido mantiene el limbo legal actual",
         },
         {
           articulo: "Artículo 11",
           titulo: "Modificación Insuficiente de Ley 19.303",
-          textoActual: `Incorpórase el artículo 18 bis a la ley 19.303, el que quedará redactado de la siguiente manera:
-
-Artículo 18 bis: En caso de que las recetas mencionadas en la presente ley sean redactadas electrónicamente, o en caso de que los registros obligatorios sean llevados electrónicamente, la firma y demás requisitos técnicos y legales deben adecuarse a la legislación especial vigente y a lo que establezca la autoridad de aplicación.`,
+          textoActual: `Incorpórase el artículo 18 bis a la ley 19.303, el que quedará redactado de la siguiente manera:\n\nArtículo 18 bis: En caso de que las recetas mencionadas en la presente ley sean redactadas electrónicamente, o en caso de que los registros obligatorios sean llevados electrónicamente, la firma y demás requisitos técnicos y legales deben adecuarse a la legislación especial vigente y a lo que establezca la autoridad de aplicación.`,
           problemasIdentificados: [
             "Solo 'permite' recetas electrónicas, no las obliga",
             "No deroga los artículos 13-14 que exigen manuscritas",
             "Frase 'en caso de que' mantiene opcionalidad",
             "Falta reglamentación específica de la autoridad",
           ],
-          propuestaReescritura: `Sustitúyanse los artículos 13, 14 y 16 de la Ley 19.303, los que quedarán redactados de la siguiente manera:
-
-Artículo 13: Los sicotrópicos incluidos en la Lista II solo podrán ser prescriptos por profesionales médicos matriculados mediante recetas electrónicas con firma digital certificada. Para medicación crónica como TDAH, se permite prescripción por hasta 90 días con renovación trimestral.
-
-Artículo 14: Los sicotrópicos incluidos en las Listas III y IV solo podrán despacharse bajo receta electrónica archivada digitalmente por 5 años.
-
-Artículo 16: Las prescripciones de Lista II para medicación crónica pueden extenderse hasta 90 días de tratamiento, con controles médicos según criterio profesional.`,
+          propuestaReescritura: `Sustitúyanse los artículos 13, 14 y 16 de la Ley 19.303, los que quedarán redactados de la siguiente manera:\n\nArtículo 13: Los sicotrópicos incluidos en la Lista II solo podrán ser prescriptos por profesionales médicos matriculados mediante recetas electrónicas con firma digital certificada. Para medicación crónica como TDAH, se permite prescripción por hasta 90 días con renovación trimestral.\n\nArtículo 14: Los sicotrópicos incluidos en las Listas III y IV solo podrán despacharse bajo receta electrónica archivada digitalmente por 5 años.\n\nArtículo 16: Las prescripciones de Lista II para medicación crónica pueden extenderse hasta 90 días de tratamiento, con controles médicos según criterio profesional.`,
           impactoTDAH:
             "Crítico - Reforma insuficiente mantiene conflicto legal",
         },
@@ -323,7 +293,7 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     numero: "Ley 26.657",
     titulo: "Ley Nacional de Salud Mental",
     descripcion:
-      "Regula la atención de la salud mental con énfasis en el concepto de 'sufrimiento mental', buscando desmedicalizar y despatologizar la infancia. Genera debates sobre el uso de medicamentos para ADHD entre profesionales, especialmente en adultos donde el diagnóstico es más complejo y los síntomas impactan significativamente en ámbitos interpersonales, profesionales y educativos.",
+      "Regula la atención de la salud mental con un enfoque de derechos, priorizando el concepto de 'padecimiento mental' sobre 'trastorno mental'. Como se detalla en 'The Journey of ADHD in Argentina' y el nuevo estudio 'Medicalización del TDAH en Argentina', esta ley es un punto central en el debate sobre TDAH. Es frecuentemente utilizada por corrientes psicoanalíticas para argumentar en contra de la medicalización, generando tensiones con los enfoques neurobiológicos y psiquiátricos que sustentan el diagnóstico y tratamiento farmacológico.",
     fecha: "2010-11-25",
     estado: "Vigente",
     tipo: "Nacional",
@@ -345,6 +315,7 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
         "No regula específicamente el acceso a medicamentos para adultos",
         "Interpretación variable entre profesionales",
         "Puede retrasar tratamientos efectivos en adultos",
+        "Su enfoque en 'padecimiento mental' es a veces interpretado por algunos profesionales como un argumento en contra del diagnóstico y tratamiento farmacológico del TDAH, generando una barrera de acceso, como se discute en 'The Journey of ADHD in Argentina'.",
       ],
       puntuacion: 7.0,
       recomendacion:
@@ -508,9 +479,9 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
 
 export const propuestasNecesarias = [
   {
-    titulo: "Reforma Regulatoria Urgente Basada en el Consenso Clínico",
+    titulo: "Reforma Regulatoria Urgente Basada en el Consenso Clínico y la Evidencia Académica",
     resumenEjecutivo:
-      "Aplicar las recomendaciones del Primer Consenso Argentino para resolver de forma inmediata el conflicto normativo que impide el acceso al tratamiento del TDAH.",
+      "Aplicar las recomendaciones del Primer Consenso Argentino y los hallazgos de los estudios 'Global Perspectives on ADHD' y 'Medicalización del TDAH en Argentina' para resolver de forma inmediata el conflicto normativo que impide el acceso al tratamiento del TDAH.",
     descripcion:
       "Proponemos una doble vía alineada con el Consenso: 1) Un Decreto de Necesidad y Urgencia (DNU) que establezca la prevalencia de la Ley de Receta Electrónica (27.553) sobre la Ley de Psicotrópicos (19.303) para TDAH. 2) Un Proyecto de Ley para una modernización definitiva del marco regulatorio.",
     problemaQueResuelve:
@@ -537,7 +508,7 @@ export const propuestasNecesarias = [
     resumenEjecutivo:
       "Facilitar el registro de fármacos para el TDAH aprobados internacionalmente, como la lisdexanfetamina, para cubrir las necesidades de los pacientes no respondedores.",
     descripcion:
-      "El Consenso evidencia la necesidad de más opciones. Se propone una acción coordinada entre ANMAT y el Congreso para contactar laboratorios, identificar barreras de mercado y agilizar el registro de medicamentos ya aprobados por FDA y EMA.",
+      "El Consenso y la literatura internacional (ej. 'Global Perspectives on ADHD') evidencian la necesidad de más opciones. Se propone una acción coordinada entre ANMAT y el Congreso para contactar laboratorios, identificar barreras de mercado y agilizar el registro de medicamentos ya aprobados por FDA y EMA.",
     problemaQueResuelve:
       "La falta de alternativas para el ~30% de pacientes con respuesta inadecuada a la medicación disponible, un problema destacado en el Consenso.",
     beneficiosClave: [
@@ -561,7 +532,7 @@ export const problemasReales = [
   {
     problema: "Marco Regulatorio Anacrónico y Contradictorio",
     descripcion:
-      "El Primer Consenso Argentino de TDAH confirma que la Ley de Psicotrópicos (19.303) de 1971, con su exigencia de recetas triplicadas y límite de 20 días, es el principal obstáculo para el tratamiento, contradiciendo la Ley de Receta Electrónica (27.553) y las guías de práctica clínica modernas.",
+      "El Primer Consenso Argentino de TDAH, junto con el análisis de la Ley de Salud Mental (26.657), confirma que la Ley de Psicotrópicos (19.303) de 1971, con su exigencia de recetas triplicadas y límite de 20 días, es el principal obstáculo para el tratamiento, contradiciendo la Ley de Receta Electrónica (27.553) y las guías de práctica clínica modernas.",
     resumen:
       "Conflicto legal entre normativas de 1971 y 2020 genera barreras burocráticas que impiden el tratamiento crónico del TDAH.",
     urgencia: "Crítico",
@@ -570,7 +541,7 @@ export const problemasReales = [
   {
     problema: "Limitadas Opciones Farmacológicas",
     descripcion:
-      "El Consenso destaca que Argentina solo dispone de metilfenidato y atomoxetina, careciendo de opciones como la lisdexanfetamina, considerada tratamiento estándar internacional y necesaria para el ~30% de los pacientes que no responden a las terapias actuales.",
+      "El Consenso y el estudio 'Global Perspectives on ADHD' destacan que Argentina solo dispone de metilfenidato y atomoxetina, careciendo de opciones como la lisdexanfetamina, considerada tratamiento estándar internacional y necesaria para el ~30% de los pacientes que no responden a las terapias actuales.",
     resumen:
       "La falta de acceso a medicamentos modernos como la lisdexanfetamina limita severamente la efectividad del tratamiento.",
     urgencia: "Crítico",
@@ -586,12 +557,12 @@ export const problemasReales = [
     impacto: "Miles de adultos, especialmente mujeres, sin diagnóstico",
   },
   {
-    problema: "Brecha entre Evidencia Clínica y Práctica Profesional",
+    problema: "Tensión entre el Enfoque Neurobiológico y la Influencia del Psicoanálisis",
     descripcion:
-      "A pesar de la sólida evidencia científica y las guías del Consenso, persiste una tensión entre el abordaje neurobiológico del TDAH y otras corrientes profesionales, lo que genera inconsistencia en el diagnóstico y tratamiento a nivel nacional.",
+      "El estudio 'The Journey of ADHD in Argentina' (Faraone & Bianchi, 2016) y el más reciente 'Medicalización del TDAH en Argentina' (Bianchi, Faraone & Torricelli, 2020) destacan la influencia cultural y política del psicoanálisis en el país. Esta corriente frecuentemente se opone a la 'medicalización y patologización de la infancia', argumentando que el diagnóstico de TDAH y el uso de estimulantes violan la Ley de Salud Mental (26.657). Esta tensión entre el abordaje psicoanalítico y el neurobiológico (respaldado por el Consenso) genera una profunda brecha en la práctica profesional, dificultando un diagnóstico y tratamiento estandarizado y basado en evidencia.",
     resumen:
-      "La divergencia de enfoques profesionales dificulta la aplicación de un estándar de cuidado basado en la evidencia.",
-    urgencia: "Media",
-    impacto: "Afecta la calidad y consistencia del tratamiento",
+      "La fuerte influencia del psicoanálisis, que a menudo se opone al diagnóstico y tratamiento farmacológico del TDAH, crea una barrera cultural y profesional para el acceso al cuidado.",
+    urgencia: "Alta",
+    impacto: "Afecta la calidad, consistencia y acceso al tratamiento a nivel nacional",
   },
 ];
