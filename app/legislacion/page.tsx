@@ -421,28 +421,106 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
       },
     },
   },
+  {
+    numero: "Ley 26.657",
+    titulo: "Ley Nacional de Salud Mental",
+    descripcion:
+      "Regula la atención de la salud mental con énfasis en el concepto de 'sufrimiento mental', buscando desmedicalizar y despatologizar la infancia. Genera debates sobre el uso de medicamentos para ADHD entre profesionales.",
+    fecha: "2010-11-25",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Honorable Congreso de la Nación Argentina",
+    impactoReal: "alto",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-26657-175977/texto",
+    ultimaActualizacion: "2010-11-25",
+    analisisIA: {
+      beneficios: [
+        "Promueve un enfoque integral más allá de la medicalización",
+        "Empodera a profesionales contrarios a la pathologización infantil",
+        "Protege los derechos humanos en salud mental",
+        "Establece equipos interdisciplinarios para tratamiento",
+        "Previene internaciones innecesarias",
+      ],
+      problemas: [
+        "Falta claridad en su aplicación a ADHD",
+        "Genera conflictos con enfoques médicos tradicionales",
+        "No regula específicamente el acceso a medicamentos",
+        "Interpretación variable entre profesionales",
+        "Puede retrasar tratamientos efectivos",
+      ],
+      puntuacion: 7.5,
+      recomendacion:
+        "Ley clave para el debate ADHD, pero necesita reglamentación específica para tratamientos farmacológicos",
+    },
+    puntosClave: [
+      "Art. 1: Garantiza derechos humanos en salud mental",
+      "Art. 6: Medicamentos solo con enfoque interdisciplinario",
+      "Art. 8: Promueve equipos interdisciplinarios",
+      "Art. 9: Enfoque de salud mental comunitaria",
+      "Art. 14: Limita internaciones involuntarias",
+    ],
+  },
+  {
+    numero: "Ley 23.849",
+    titulo: "Convención sobre los Derechos del Niño (ONU)",
+    descripcion:
+      "Ratificada por Argentina, garantiza el derecho de los niños a la salud y a estar protegidos de crueldad e injusticia, influyendo en debates sobre la medicalización del ADHD.",
+    fecha: "1990-12-04",
+    estado: "Vigente",
+    tipo: "Internacional/Nacional",
+    organismo: "Naciones Unidas / Congreso Nacional",
+    impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-23849-249/texto",
+    ultimaActualizacion: "1990-12-04",
+    analisisIA: {
+      beneficios: [
+        "Protege los derechos de los niños en salud",
+        "Base legal para cuestionar medicalización excesiva",
+        "Fuerza internacional vinculante",
+        "Prioriza el interés superior del niño",
+        "Garantiza derecho a ser escuchado",
+      ],
+      problemas: [
+        "Aplicación indirecta al ADHD",
+        "No regula tratamientos específicos",
+        "Depende de leyes locales para implementación",
+        "Interpretación variable de 'interés superior'",
+        "Falta de mecanismos específicos de control",
+      ],
+      puntuacion: 6.0,
+      recomendacion:
+        "Marco de apoyo importante, pero insuficiente sin leyes específicas para ADHD",
+    },
+    puntosClave: [
+      "Art. 24: Derecho a la salud",
+      "Art. 19: Protección contra abusos",
+      "Art. 3: Interés superior del niño",
+      "Art. 12: Derecho a ser escuchado",
+      "Ratificada como Ley 23.849 en Argentina",
+    ],
+  },
 ];
 
 const propuestasNecesarias = [
   {
     titulo: "Decreto para Recetas Electrónicas TDAH",
     resumenEjecutivo:
-      "Solución inmediata vía poder ejecutivo para resolver conflicto legal",
+      "Solución inmediata vía poder ejecutivo para resolver conflicto legal y barreras de acceso",
     descripcion:
-      "Decreto que establece prevalencia de Ley 27.553 sobre Ley 19.303 para medicamentos TDAH",
+      "Decreto que establece prevalencia de Ley 27.553 sobre Ley 19.303 para medicamentos TDAH, eliminando recetas triplicadas y facilitando acceso a metilfenidato",
     problemaQueResuelve:
-      "Conflicto legal impide recetas electrónicas para TDAH",
+      "Conflicto legal y barreras administrativas impiden acceso a medicación crónica",
     beneficiosClave: [
-      "✅ Recetas electrónicas inmediatas",
+      "✅ Recetas electrónicas inmediatas sin triplicados",
       "⏱️ Prescripciones de 90 días vs 20 actuales",
-      "💰 Ahorro $450k anuales por paciente",
+      "💰 Mejora acceso para familias sin cobertura total",
       "🏥 Compatible con telemedicina",
     ],
     ventajas: [
       "🚀 Implementación inmediata (30 días)",
       "💵 Sin costo al Estado",
       "⚖️ Base constitucional sólida (Art. 99)",
-      "📋 Precedente exitoso (Decreto 345/24)",
+      "📋 Reduce carga administrativa de ANMAT",
     ],
     impacto: "🎯 500,000+ pacientes beneficiados inmediatamente",
     responsable: "Poder Ejecutivo",
@@ -452,21 +530,21 @@ const propuestasNecesarias = [
   {
     titulo: "Proyecto de Ley Modernización TDAH",
     resumenEjecutivo:
-      "Solución permanente vía Congreso para conflicto normativo",
+      "Solución permanente vía Congreso para conflicto normativo y acceso a medicación",
     descripcion:
-      "Reforma artículos 13 y 16 de Ley 19.303 para habilitar recetas electrónicas definitivamente",
+      "Reforma artículos 13 y 16 de Ley 19.303 para habilitar recetas electrónicas y mejorar acceso a metilfenidato, considerando exclusión de REMEDIAR y cobertura parcial",
     problemaQueResuelve:
-      "Necesidad de solución legislativa permanente al conflicto legal",
+      "Necesidad de solución legislativa permanente a regulaciones obsoletas",
     beneficiosClave: [
       "🔒 Solución permanente no reversible",
-      "⚖️ Mayor legitimidad democrática",
+      "⚖️ Elimina recetas triplicadas legalmente",
       "🌍 Alineación con estándares internacionales",
-      "🏥 Integración completa con telemedicina",
+      "🏥 Facilita acceso en sectores vulnerables",
     ],
     ventajas: [
       "📜 Reforma definitiva de la ley",
       "🗳️ Respaldo parlamentario",
-      "💵 Sin costo presupuestario",
+      "💵 Posible inclusión futura en REMEDIAR",
       "🌎 Precedentes Reino Unido/España",
     ],
     impacto: "🎯 Solución definitiva para todas las administraciones",
@@ -475,7 +553,8 @@ const propuestasNecesarias = [
     documentType: "ley",
   },
   {
-    titulo: "Iniciativa para Ampliar Opciones Terapéuticas (Registro de Lisdexanfetamina)",
+    titulo:
+      "Iniciativa para Ampliar Opciones Terapéuticas (Registro de Lisdexanfetamina)",
     resumenEjecutivo:
       "Impulsar el registro de lisdexanfetamina (Vyvanse) y otros medicamentos TDAH",
     descripcion:
@@ -513,11 +592,21 @@ const problemasReales = [
   },
   {
     problema: "Opciones de medicación limitadas por barreras de mercado",
-    descripcion: "Solo metilfenidato y atomoxetina disponibles. Laboratorios como Takeda no han solicitado registro de lisdexanfetamina (Vyvanse) ante ANMAT",
+    descripcion:
+      "Solo metilfenidato y atomoxetina disponibles. Laboratorios como Takeda no han solicitado registro de lisdexanfetamina (Vyvanse) ante ANMAT",
     resumen:
       "Las barreras burocráticas (recetas triplicadas) y percepción de mercado pequeño desincentivan la innovación, afectando al ~30% de pacientes que no responden a tratamientos actuales",
     urgencia: "🚨 Crítico",
     impacto: "~150,000 pacientes sin opciones terapéuticas",
+  },
+  {
+    problema: "Tensiones entre medicalización y enfoques psicoanalíticos",
+    descripcion:
+      "La fuerte influencia del psicoanálisis en Argentina resiste la medicalización del ADHD, generando debates sobre el uso del DSM y medicamentos como metilfenidato entre profesionales de la salud mental.",
+    resumen:
+      "Conflicto entre psiquiatría biológica y psicoanálisis afecta diagnóstico y tratamiento",
+    urgencia: "🚨 Crítico",
+    impacto: "Afecta a profesionales y pacientes en todo el país",
   },
 ];
 
