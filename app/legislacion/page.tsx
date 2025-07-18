@@ -385,45 +385,6 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     ],
   },
   {
-    numero: "Ley 23.849",
-    titulo: "Convención sobre los Derechos del Niño (ONU)",
-    descripcion:
-      "Ratificada por Argentina, garantiza el derecho de los niños a la salud y a estar protegidos de crueldad e injusticia, influyendo en debates sobre la medicalización del ADHD.",
-    fecha: "1990-09-27",
-    estado: "Vigente",
-    tipo: "Internacional/Nacional",
-    organismo: "Naciones Unidas / Congreso Nacional",
-    impactoReal: "medio",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-23849-249",
-    ultimaActualizacion: "1990-09-27",
-    analisisIA: {
-      beneficios: [
-        "Protege los derechos de los niños en salud",
-        "Base legal para cuestionar medicalización excesiva",
-        "Fuerza internacional vinculante",
-        "Prioriza el interés superior del niño",
-        "Garantiza derecho a ser escuchado",
-      ],
-      problemas: [
-        "Aplicación indirecta al ADHD",
-        "No regula tratamientos específicos",
-        "Depende de leyes locales para implementación",
-        "Interpretación variable de 'interés superior'",
-        "Falta de mecanismos específicos de control",
-      ],
-      puntuacion: 6.0,
-      recomendacion:
-        "Marco de apoyo importante, pero insuficiente sin leyes específicas para ADHD",
-    },
-    puntosClave: [
-      "Art. 24: Derecho a la salud",
-      "Art. 19: Protección contra abusos",
-      "Art. 3: Interés superior del niño",
-      "Art. 12: Derecho a ser escuchado",
-      "Ratificada como Ley 23.849 en Argentina",
-    ],
-  },
-  {
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
