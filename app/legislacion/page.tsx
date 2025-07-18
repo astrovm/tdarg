@@ -349,7 +349,7 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     numero: "Ley 26.657",
     titulo: "Ley Nacional de Salud Mental",
     descripcion:
-      "Regula la atención de la salud mental con énfasis en el concepto de 'sufrimiento mental', buscando desmedicalizar y despatologizar la infancia. Genera debates sobre el uso de medicamentos para ADHD entre profesionales.",
+      "Regula la atención de la salud mental con énfasis en el concepto de 'sufrimiento mental', buscando desmedicalizar y despatologizar la infancia. Genera debates sobre el uso de medicamentos para ADHD entre profesionales, especialmente en adultos donde el diagnóstico es más complejo y los síntomas impactan significativamente en ámbitos interpersonales, profesionales y educativos.",
     fecha: "2010-11-25",
     estado: "Vigente",
     tipo: "Nacional",
@@ -366,15 +366,15 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
         "Previene internaciones innecesarias",
       ],
       problemas: [
-        "Falta claridad en su aplicación a ADHD",
+        "Falta claridad en su aplicación a ADHD en adultos",
         "Genera conflictos con enfoques médicos tradicionales",
-        "No regula específicamente el acceso a medicamentos",
+        "No regula específicamente el acceso a medicamentos para adultos",
         "Interpretación variable entre profesionales",
-        "Puede retrasar tratamientos efectivos",
+        "Puede retrasar tratamientos efectivos en adultos",
       ],
-      puntuacion: 7.5,
+      puntuacion: 7.0,
       recomendacion:
-        "Ley clave para el debate ADHD, pero necesita reglamentación específica para tratamientos farmacológicos",
+        "Ley clave para el debate ADHD, pero necesita reglamentación específica para tratamientos farmacológicos en adultos",
     },
     puntosClave: [
       "Art. 1: Garantiza derechos humanos en salud mental",
@@ -390,27 +390,27 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
           titulo: "Definición de Salud Mental - Prohibición de Diagnóstico Basado en Factores Externos",
           textoActual: `En el marco de la presente ley se reconoce a la salud mental como un proceso determinado por componentes históricos, socio-económicos, culturales, biológicos y psicológicos. En ningún caso puede hacerse diagnóstico en el campo de la salud mental sobre la base exclusiva de: a) Status político, socio-económico, pertenencia a un grupo cultural, racial o religioso; b) Demandas familiares, laborales, falta de conformidad o adecuación con valores morales, sociales, culturales, políticos o creencias religiosas prevalecientes en la comunidad; c) Elección o identidad sexual; d) La mera existencia de antecedentes de tratamiento u hospitalización.`,
           problemasIdentificados: [
-            "Puede interpretarse como prohibición de diagnóstico de TDAH en niños con problemas escolares",
-            "Genera confusión sobre la validez de síntomas en contextos educativos",
+            "Puede interpretarse como prohibición de diagnóstico de TDAH en adultos con problemas laborales",
+            "Genera confusión sobre la validez de síntomas en contextos laborales y sociales",
             "Profesionales pueden evitar diagnósticos por miedo a violaciones legales",
             "Falta claridad sobre qué constituye 'base exclusiva' vs. evidencia complementaria",
           ],
           impactoTDAH:
-            "Alto - Crea incertidumbre sobre la legitimidad del diagnóstico TDAH en contextos escolares",
+            "Alto - Crea incertidumbre sobre la legitimidad del diagnóstico TDAH en adultos",
         },
         {
           articulo: "Artículo 12",
           titulo: "Prescripción de Medicación - Restricciones y Enfoque Interdisciplinario",
           textoActual: `La prescripción de medicación sólo debe responder a las necesidades fundamentales de la persona con padecimiento mental y se administrará exclusivamente con fines terapéuticos y nunca como castigo, por conveniencia de terceros, o para suplir la necesidad de acompañamiento terapéutico o cuidados especiales. La indicación y renovación de prescripción de medicamentos sólo puede realizarse a partir de las evaluaciones profesionales pertinentes y nunca de forma automática. Debe promoverse que los tratamientos psicofarmacológicos se realicen en el marco de abordajes interdisciplinarios.`,
           problemasIdentificados: [
-            "Puede interpretarse como prohibición de medicar para facilitar el aprendizaje",
-            "Genera resistencia en equipos educativos al tratamiento farmacológico",
-            "Ambigüedad sobre qué constituye 'conveniencia de terceros'",
-            "Requiere equipos interdisciplinarios que no siempre están disponibles",
-            "Puede retrasar tratamientos efectivos por burocracia administrativa",
+            "Puede interpretarse como prohibición de medicar para facilitar el desempeño laboral en adultos",
+            "Genera resistencia en empleadores y equipos de trabajo al tratamiento farmacológico",
+            "Ambigüedad sobre qué constituye 'conveniencia de terceros' en contextos laborales",
+            "Requiere equipos interdisciplinarios que no siempre están disponibles para adultos trabajadores",
+            "Puede retrasar tratamientos efectivos por burocracia administrativa que impacta la productividad",
           ],
           impactoTDAH:
-            "Crítico - Directamente impacta la prescripción de metilfenidato y tratamientos TDAH",
+            "Crítico - Directamente impacta la prescripción de metilfenidato y tratamientos TDAH en adultos trabajadores",
         },
         {
           articulo: "Artículo 8º",
@@ -441,16 +441,16 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
       ],
       resumenImpacto: {
         problemasPrincipales: [
-          "Ambigüedad en definiciones crea resistencia profesional a diagnósticos TDAH",
-          "Restricciones a medicación pueden interpretarse como prohibición de tratamiento farmacológico",
-          "Requisito de equipos interdisciplinarios no disponibles retrasa tratamientos",
-          "Enfoque anti-medicalización puede chocar con evidencia científica del TDAH",
+          "Ambigüedad en definiciones crea resistencia profesional a diagnósticos TDAH en adultos",
+          "Restricciones a medicación pueden interpretarse como prohibición de tratamiento farmacológico para adultos trabajadores",
+          "Requisito de equipos interdisciplinarios no disponibles retrasa tratamientos en población adulta",
+          "Enfoque anti-medicalización puede chocar con evidencia científica del TDAH especialmente en adultos",
         ],
         solucionSimple:
-          "Reglamentación específica que clarifique aplicación de la ley a trastornos del neurodesarrollo como TDAH",
+          "Reglamentación específica que clarifique aplicación de la ley a trastornos del neurodesarrollo como TDAH en adultos",
         urgencia: "Alta - Impacta directamente en acceso a tratamiento TDAH",
         estimacionImpacto:
-          "Puede afectar negativamente hasta 300,000 pacientes con TDAH por resistencia profesional",
+          "Puede afectar negativamente hasta 300,000 pacientes con TDAH por resistencia profesional, especialmente impactando adultos trabajadores y estudiantes universitarios",
       },
     },
   },
@@ -608,6 +608,30 @@ const propuestasNecesarias = [
     responsable: "Comisión de Salud del Congreso + ANMAT",
     accionNecesaria: "Solicitar informe a ANMAT y laboratorios",
   },
+  {
+    titulo: "Programa Nacional de Detección y Tratamiento del TDAH en Adultos",
+    resumenEjecutivo:
+      "Implementar un programa para mejorar el diagnóstico y tratamiento del TDAH en adultos",
+    descripcion:
+      "Capacitar a profesionales de la salud, establecer programas de detección en centros de salud mental y facilitar el acceso a tratamientos integrales.",
+    problemaQueResuelve:
+      "Infradiagnóstico y falta de acceso a tratamiento en adultos con TDAH",
+    beneficiosClave: [
+      "✅ Mejora del diagnóstico en adultos",
+      "⏱️ Reducción de comorbilidades no tratadas",
+      "💰 Ahorro en costos de salud a largo plazo",
+      "🏥 Integración con servicios de salud mental",
+    ],
+    ventajas: [
+      "🚀 Implementación en 6 meses",
+      "💵 Financiamiento a través de fondos de salud mental",
+      "⚖️ Apoyo de asociaciones profesionales",
+      "📋 Basado en evidencia científica",
+    ],
+    impacto: "🎯 Miles de adultos diagnosticados y tratados adecuadamente",
+    responsable: "Ministerio de Salud",
+    accionNecesaria: "Presentar propuesta al Ministerio de Salud",
+  },
 ];
 
 // Problemas identificados - Estructura optimizada
@@ -638,6 +662,15 @@ const problemasReales = [
       "Conflicto entre psiquiatría biológica y psicoanálisis afecta diagnóstico y tratamiento",
     urgencia: "🚨 Crítico",
     impacto: "Afecta a profesionales y pacientes en todo el país",
+  },
+  {
+    problema: "Infradiagnóstico y comorbilidades en adultos con TDAH",
+    descripcion:
+      "El TDAH en adultos es infradiagnosticado y subtratado, con comorbilidades psiquiátricas frecuentes (60-80%) que complican el diagnóstico y tratamiento.",
+    resumen:
+      "Falta de diagnóstico oportuno y manejo integral de comorbilidades",
+    urgencia: "🚨 Crítico",
+    impacto: "Afecta a miles de adultos con TDAH no diagnosticados",
   },
 ];
 
