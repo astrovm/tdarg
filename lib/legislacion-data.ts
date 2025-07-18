@@ -293,7 +293,7 @@ export const leyes = [
     numero: "Ley 26.657",
     titulo: "Ley Nacional de Salud Mental",
     descripcion:
-      "Regula la atención de la salud mental con un enfoque de derechos, priorizando el concepto de 'padecimiento mental' sobre 'trastorno mental'. Como se detalla en 'The Journey of ADHD in Argentina' y el nuevo estudio 'Medicalización del TDAH en Argentina', esta ley es un punto central en el debate sobre TDAH. Es frecuentemente utilizada por corrientes psicoanalíticas para argumentar en contra de la medicalización, generando tensiones con los enfoques neurobiológicos y psiquiátricos que sustentan el diagnóstico y tratamiento farmacológico.",
+      "Regula la atención de la salud mental con un enfoque de derechos. Como se detalla en la documentación de referencia, esta ley es un punto central en el debate sobre TDAH, y es utilizada por corrientes psicoanalíticas para argumentar en contra de la medicalización, generando tensiones con los enfoques neurobiológicos.",
     fecha: "2010-11-25",
     estado: "Vigente",
     tipo: "Nacional",
@@ -481,13 +481,13 @@ export const propuestasNecesarias = [
   {
     titulo: "Reforma Regulatoria Urgente Basada en el Consenso Clínico y la Evidencia Académica",
     resumenEjecutivo:
-      "Aplicar las recomendaciones del Primer Consenso Argentino y los hallazgos de los estudios 'Global Perspectives on ADHD' y 'Medicalización del TDAH en Argentina' para resolver de forma inmediata el conflicto normativo que impide el acceso al tratamiento del TDAH.",
+      "Aplicar las recomendaciones del Primer Consenso Argentino sobre el manejo del TDAH en la adultez y los hallazgos de los estudios 'Global Perspectives on ADHD' y 'Medicalización del TDAH en Argentina' para resolver de forma inmediata el conflicto normativo que impide el acceso al tratamiento del TDAH.",
     descripcion:
       "Proponemos una doble vía alineada con el Consenso: 1) Un Decreto de Necesidad y Urgencia (DNU) que establezca la prevalencia de la Ley de Receta Electrónica (27.553) sobre la Ley de Psicotrópicos (19.303) para TDAH. 2) Un Proyecto de Ley para una modernización definitiva del marco regulatorio.",
     problemaQueResuelve:
-      "Elimina las barreras burocráticas (receta triplicada, límite de 20 días) que impiden el tratamiento crónico, tal como lo señala el Consenso.",
+      "Elimina las barreras burocráticas (receta triplicada, límite de 20 días) que impiden el tratamiento crónico, tal como lo señala el Consenso sobre el manejo del TDAH en la adultez.",
     beneficiosClave: [
-      "✅ Alinea la regulación con la evidencia científica del Consenso.",
+      "✅ Alinea la regulación con la evidencia científica del Consenso sobre el manejo del TDAH en la adultez.",
       "⏱️ Permite prescripciones de hasta 90 días, adecuadas para un tratamiento crónico.",
       "⚖️ Otorga seguridad jurídica a médicos y farmacéuticos.",
       "🏥 Facilita la telemedicina y la continuidad del tratamiento.",
