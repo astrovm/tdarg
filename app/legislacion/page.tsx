@@ -378,11 +378,81 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     },
     puntosClave: [
       "Art. 1: Garantiza derechos humanos en salud mental",
-      "Art. 6: Medicamentos solo con enfoque interdisciplinario",
+      "Art. 12: Medicamentos solo con fines terapéuticos, nunca como castigo",
       "Art. 8: Promueve equipos interdisciplinarios",
       "Art. 9: Enfoque de salud mental comunitaria",
       "Art. 14: Limita internaciones involuntarias",
     ],
+    analisisDetallado: {
+      articulosProblematicos: [
+        {
+          articulo: "Artículo 3º",
+          titulo: "Definición de Salud Mental - Prohibición de Diagnóstico Basado en Factores Externos",
+          textoActual: `En el marco de la presente ley se reconoce a la salud mental como un proceso determinado por componentes históricos, socio-económicos, culturales, biológicos y psicológicos. En ningún caso puede hacerse diagnóstico en el campo de la salud mental sobre la base exclusiva de: a) Status político, socio-económico, pertenencia a un grupo cultural, racial o religioso; b) Demandas familiares, laborales, falta de conformidad o adecuación con valores morales, sociales, culturales, políticos o creencias religiosas prevalecientes en la comunidad; c) Elección o identidad sexual; d) La mera existencia de antecedentes de tratamiento u hospitalización.`,
+          problemasIdentificados: [
+            "Puede interpretarse como prohibición de diagnóstico de TDAH en niños con problemas escolares",
+            "Genera confusión sobre la validez de síntomas en contextos educativos",
+            "Profesionales pueden evitar diagnósticos por miedo a violaciones legales",
+            "Falta claridad sobre qué constituye 'base exclusiva' vs. evidencia complementaria",
+          ],
+          impactoTDAH:
+            "Alto - Crea incertidumbre sobre la legitimidad del diagnóstico TDAH en contextos escolares",
+        },
+        {
+          articulo: "Artículo 12",
+          titulo: "Prescripción de Medicación - Restricciones y Enfoque Interdisciplinario",
+          textoActual: `La prescripción de medicación sólo debe responder a las necesidades fundamentales de la persona con padecimiento mental y se administrará exclusivamente con fines terapéuticos y nunca como castigo, por conveniencia de terceros, o para suplir la necesidad de acompañamiento terapéutico o cuidados especiales. La indicación y renovación de prescripción de medicamentos sólo puede realizarse a partir de las evaluaciones profesionales pertinentes y nunca de forma automática. Debe promoverse que los tratamientos psicofarmacológicos se realicen en el marco de abordajes interdisciplinarios.`,
+          problemasIdentificados: [
+            "Puede interpretarse como prohibición de medicar para facilitar el aprendizaje",
+            "Genera resistencia en equipos educativos al tratamiento farmacológico",
+            "Ambigüedad sobre qué constituye 'conveniencia de terceros'",
+            "Requiere equipos interdisciplinarios que no siempre están disponibles",
+            "Puede retrasar tratamientos efectivos por burocracia administrativa",
+          ],
+          impactoTDAH:
+            "Crítico - Directamente impacta la prescripción de metilfenidato y tratamientos TDAH",
+        },
+        {
+          articulo: "Artículo 8º",
+          titulo: "Equipos Interdisciplinarios Obligatorios",
+          textoActual: `Debe promoverse que la atención en salud mental esté a cargo de un equipo interdisciplinario integrado por profesionales, técnicos y otros trabajadores capacitados con la debida acreditación de la autoridad competente. Se incluyen las áreas de psicología, psiquiatría, trabajo social, enfermería, terapia ocupacional y otras disciplinas o campos pertinentes.`,
+          problemasIdentificados: [
+            "Escasez de equipos interdisciplinarios completos en el sistema público",
+            "Puede retrasar tratamientos por falta de profesionales específicos",
+            "Genera costos adicionales que obras sociales pueden rechazar",
+            "Falta de coordinación entre disciplinas puede generar conflictos",
+          ],
+          impactoTDAH:
+            "Medio - Complica el acceso a tratamiento especializado",
+        },
+        {
+          articulo: "Artículo 27",
+          titulo: "Prohibición de Nuevas Instituciones Monovalentes",
+          textoActual: `Queda prohibida por la presente ley la creación de nuevos manicomios, neuropsiquiátricos o instituciones de internación monovalentes, públicos o privados. En el caso de los ya existentes se deben adaptar a los objetivos y principios expuestos, hasta su sustitución definitiva por los dispositivos alternativos.`,
+          problemasIdentificados: [
+            "Puede limitar la creación de centros especializados en TDAH",
+            "Falta de dispositivos alternativos específicos para trastornos del neurodesarrollo",
+            "Puede forzar tratamientos en contextos inadecuados",
+            "No distingue entre internación psiquiátrica y centros de día especializados",
+          ],
+          impactoTDAH:
+            "Bajo - Impacto indirecto en servicios especializados",
+        },
+      ],
+      resumenImpacto: {
+        problemasPrincipales: [
+          "Ambigüedad en definiciones crea resistencia profesional a diagnósticos TDAH",
+          "Restricciones a medicación pueden interpretarse como prohibición de tratamiento farmacológico",
+          "Requisito de equipos interdisciplinarios no disponibles retrasa tratamientos",
+          "Enfoque anti-medicalización puede chocar con evidencia científica del TDAH",
+        ],
+        solucionSimple:
+          "Reglamentación específica que clarifique aplicación de la ley a trastornos del neurodesarrollo como TDAH",
+        urgencia: "Alta - Impacta directamente en acceso a tratamiento TDAH",
+        estimacionImpacto:
+          "Puede afectar negativamente hasta 300,000 pacientes con TDAH por resistencia profesional",
+      },
+    },
   },
   {
     numero: "Ley 19.303",
