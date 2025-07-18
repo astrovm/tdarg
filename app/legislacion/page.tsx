@@ -475,28 +475,28 @@ const propuestasNecesarias = [
     documentType: "ley",
   },
   {
-    titulo: "Registro de Lisdexanfetamina (Vyvanse)",
+    titulo: "Iniciativa para Ampliar Opciones Terapéuticas (Registro de Lisdexanfetamina)",
     resumenEjecutivo:
-      "Ampliar opciones terapéuticas para pacientes resistentes",
+      "Impulsar el registro de lisdexanfetamina (Vyvanse) y otros medicamentos TDAH",
     descripcion:
-      "Gestión ANMAT para registro de lisdexanfetamina (aprobada FDA/EMA)",
+      "Acción coordinada entre ANMAT y el Congreso para contactar formalmente a laboratorios, analizar barreras de mercado y facilitar el proceso de registro de medicamentos ya aprobados por FDA/EMA",
     problemaQueResuelve:
-      "Opciones limitadas para pacientes que no responden a medicación actual",
+      "Falta de alternativas para el ~30% de pacientes con respuesta inadecuada a la medicación actual",
     beneficiosClave: [
-      "💊 Nueva opción para pacientes resistentes",
-      "🎯 Tratamiento personalizado por perfil",
-      "📉 Reducción abandono de tratamiento",
-      "✅ Medicamento probado FDA/EMA",
+      "💊 Nueva opción para pacientes resistentes (lisdexanfetamina)",
+      "🔍 Identificar barreras específicas del mercado",
+      "📋 Consulta formal a Takeda y otros laboratorios",
+      "📊 Estudio sobre infradiagnóstico y acceso",
     ],
     ventajas: [
-      "🌍 Ya aprobado internacionalmente",
-      "⚡ Proceso regulatorio estándar",
+      "🌍 Ya aprobado internacionalmente (FDA/EMA)",
+      "📝 Acción legislativa inmediata disponible",
+      "🏢 Diálogo directo con industria farmacéutica",
       "💵 Sin costo al Estado",
-      "📊 Evidencia científica sólida",
     ],
-    impacto: "🎯 ~30% pacientes con respuesta inadecuada",
-    responsable: "ANMAT",
-    accionNecesaria: "Solicitar evaluación prioritaria",
+    impacto: "🎯 Hasta 150,000 pacientes podrían beneficiarse",
+    responsable: "Comisión de Salud del Congreso + ANMAT",
+    accionNecesaria: "Solicitar informe a ANMAT y laboratorios",
   },
 ];
 
@@ -512,12 +512,12 @@ const problemasReales = [
     impacto: "500,000+ pacientes afectados",
   },
   {
-    problema: "Opciones limitadas de medicación",
-    descripcion: "Solo metilfenidato y atomoxetina disponibles en Argentina",
+    problema: "Opciones de medicación limitadas por barreras de mercado",
+    descripcion: "Solo metilfenidato y atomoxetina disponibles. Laboratorios como Takeda no han solicitado registro de lisdexanfetamina (Vyvanse) ante ANMAT",
     resumen:
-      "Falta Vyvanse, Adderall y otros estimulantes para pacientes resistentes",
+      "Las barreras burocráticas (recetas triplicadas) y percepción de mercado pequeño desincentivan la innovación, afectando al ~30% de pacientes que no responden a tratamientos actuales",
     urgencia: "🚨 Crítico",
-    impacto: "~30% pacientes sin opciones",
+    impacto: "~150,000 pacientes sin opciones terapéuticas",
   },
 ];
 
