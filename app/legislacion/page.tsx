@@ -215,7 +215,7 @@ REGISTRADA BAJO EL N° _____
 
 [Presidente de la Cámara de Diputados] - [Presidente del Senado] - [Secretario Administrativo] - [Secretario Parlamentario]`;
 
-// Leyes principales relevantes para TDAH
+// Leyes principales relevantes para TDAH - Ordenadas de más nuevas a más viejas
 const leyes = [
   {
     numero: "Ley 27.553",
@@ -227,7 +227,7 @@ const leyes = [
     tipo: "Nacional",
     organismo: "Honorable Congreso de la Nación Argentina",
     impactoReal: "alto",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27553-340919/actualizacion",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-27553-340919",
     ultimaActualizacion: "2023-12-21",
     analisisIA: {
       beneficios: [
@@ -346,6 +346,84 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     },
   },
   {
+    numero: "Ley 26.657",
+    titulo: "Ley Nacional de Salud Mental",
+    descripcion:
+      "Regula la atención de la salud mental con énfasis en el concepto de 'sufrimiento mental', buscando desmedicalizar y despatologizar la infancia. Genera debates sobre el uso de medicamentos para ADHD entre profesionales.",
+    fecha: "2010-11-25",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Honorable Congreso de la Nación Argentina",
+    impactoReal: "alto",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-26657-175977",
+    ultimaActualizacion: "2010-11-25",
+    analisisIA: {
+      beneficios: [
+        "Promueve un enfoque integral más allá de la medicalización",
+        "Empodera a profesionales contrarios a la pathologización infantil",
+        "Protege los derechos humanos en salud mental",
+        "Establece equipos interdisciplinarios para tratamiento",
+        "Previene internaciones innecesarias",
+      ],
+      problemas: [
+        "Falta claridad en su aplicación a ADHD",
+        "Genera conflictos con enfoques médicos tradicionales",
+        "No regula específicamente el acceso a medicamentos",
+        "Interpretación variable entre profesionales",
+        "Puede retrasar tratamientos efectivos",
+      ],
+      puntuacion: 7.5,
+      recomendacion:
+        "Ley clave para el debate ADHD, pero necesita reglamentación específica para tratamientos farmacológicos",
+    },
+    puntosClave: [
+      "Art. 1: Garantiza derechos humanos en salud mental",
+      "Art. 6: Medicamentos solo con enfoque interdisciplinario",
+      "Art. 8: Promueve equipos interdisciplinarios",
+      "Art. 9: Enfoque de salud mental comunitaria",
+      "Art. 14: Limita internaciones involuntarias",
+    ],
+  },
+  {
+    numero: "Ley 23.849",
+    titulo: "Convención sobre los Derechos del Niño (ONU)",
+    descripcion:
+      "Ratificada por Argentina, garantiza el derecho de los niños a la salud y a estar protegidos de crueldad e injusticia, influyendo en debates sobre la medicalización del ADHD.",
+    fecha: "1990-09-27",
+    estado: "Vigente",
+    tipo: "Internacional/Nacional",
+    organismo: "Naciones Unidas / Congreso Nacional",
+    impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-23849-249",
+    ultimaActualizacion: "1990-09-27",
+    analisisIA: {
+      beneficios: [
+        "Protege los derechos de los niños en salud",
+        "Base legal para cuestionar medicalización excesiva",
+        "Fuerza internacional vinculante",
+        "Prioriza el interés superior del niño",
+        "Garantiza derecho a ser escuchado",
+      ],
+      problemas: [
+        "Aplicación indirecta al ADHD",
+        "No regula tratamientos específicos",
+        "Depende de leyes locales para implementación",
+        "Interpretación variable de 'interés superior'",
+        "Falta de mecanismos específicos de control",
+      ],
+      puntuacion: 6.0,
+      recomendacion:
+        "Marco de apoyo importante, pero insuficiente sin leyes específicas para ADHD",
+    },
+    puntosClave: [
+      "Art. 24: Derecho a la salud",
+      "Art. 19: Protección contra abusos",
+      "Art. 3: Interés superior del niño",
+      "Art. 12: Derecho a ser escuchado",
+      "Ratificada como Ley 23.849 en Argentina",
+    ],
+  },
+  {
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
@@ -355,7 +433,7 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
     tipo: "Nacional",
     organismo: "Poder Ejecutivo Nacional",
     impactoReal: "alto",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966/actualizacion",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966",
     ultimaActualizacion: "2020-08-11",
     analisisIA: {
       beneficios: [
@@ -420,84 +498,6 @@ Artículo 16: Las prescripciones de Lista II para medicación crónica pueden ex
         urgencia: "Alta - Afecta a 500,000+ pacientes TDAH en Argentina",
       },
     },
-  },
-  {
-    numero: "Ley 26.657",
-    titulo: "Ley Nacional de Salud Mental",
-    descripcion:
-      "Regula la atención de la salud mental con énfasis en el concepto de 'sufrimiento mental', buscando desmedicalizar y despatologizar la infancia. Genera debates sobre el uso de medicamentos para ADHD entre profesionales.",
-    fecha: "2010-11-25",
-    estado: "Vigente",
-    tipo: "Nacional",
-    organismo: "Honorable Congreso de la Nación Argentina",
-    impactoReal: "alto",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-26657-175977/texto",
-    ultimaActualizacion: "2010-11-25",
-    analisisIA: {
-      beneficios: [
-        "Promueve un enfoque integral más allá de la medicalización",
-        "Empodera a profesionales contrarios a la pathologización infantil",
-        "Protege los derechos humanos en salud mental",
-        "Establece equipos interdisciplinarios para tratamiento",
-        "Previene internaciones innecesarias",
-      ],
-      problemas: [
-        "Falta claridad en su aplicación a ADHD",
-        "Genera conflictos con enfoques médicos tradicionales",
-        "No regula específicamente el acceso a medicamentos",
-        "Interpretación variable entre profesionales",
-        "Puede retrasar tratamientos efectivos",
-      ],
-      puntuacion: 7.5,
-      recomendacion:
-        "Ley clave para el debate ADHD, pero necesita reglamentación específica para tratamientos farmacológicos",
-    },
-    puntosClave: [
-      "Art. 1: Garantiza derechos humanos en salud mental",
-      "Art. 6: Medicamentos solo con enfoque interdisciplinario",
-      "Art. 8: Promueve equipos interdisciplinarios",
-      "Art. 9: Enfoque de salud mental comunitaria",
-      "Art. 14: Limita internaciones involuntarias",
-    ],
-  },
-  {
-    numero: "Ley 23.849",
-    titulo: "Convención sobre los Derechos del Niño (ONU)",
-    descripcion:
-      "Ratificada por Argentina, garantiza el derecho de los niños a la salud y a estar protegidos de crueldad e injusticia, influyendo en debates sobre la medicalización del ADHD.",
-    fecha: "1990-12-04",
-    estado: "Vigente",
-    tipo: "Internacional/Nacional",
-    organismo: "Naciones Unidas / Congreso Nacional",
-    impactoReal: "medio",
-    url: "https://www.argentina.gob.ar/normativa/nacional/ley-23849-249/texto",
-    ultimaActualizacion: "1990-12-04",
-    analisisIA: {
-      beneficios: [
-        "Protege los derechos de los niños en salud",
-        "Base legal para cuestionar medicalización excesiva",
-        "Fuerza internacional vinculante",
-        "Prioriza el interés superior del niño",
-        "Garantiza derecho a ser escuchado",
-      ],
-      problemas: [
-        "Aplicación indirecta al ADHD",
-        "No regula tratamientos específicos",
-        "Depende de leyes locales para implementación",
-        "Interpretación variable de 'interés superior'",
-        "Falta de mecanismos específicos de control",
-      ],
-      puntuacion: 6.0,
-      recomendacion:
-        "Marco de apoyo importante, pero insuficiente sin leyes específicas para ADHD",
-    },
-    puntosClave: [
-      "Art. 24: Derecho a la salud",
-      "Art. 19: Protección contra abusos",
-      "Art. 3: Interés superior del niño",
-      "Art. 12: Derecho a ser escuchado",
-      "Ratificada como Ley 23.849 en Argentina",
-    ],
   },
 ];
 
