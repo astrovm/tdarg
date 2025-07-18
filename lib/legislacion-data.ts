@@ -404,7 +404,7 @@ export const leyes = [
     titulo: "Ley de Psicotrópicos",
     descripcion:
       "Regula la fabricación, comercialización, circulación y uso de sustancias psicotrópicas. Incluye metilfenidato en Lista II con restricciones estrictas",
-    fecha: "1971-10-28",
+    fecha: "1971-10-11",
     estado: "Vigente",
     tipo: "Nacional",
     organismo: "Poder Ejecutivo Nacional",
@@ -559,7 +559,7 @@ export const problemasReales = [
   {
     problema: "Tensión entre el Enfoque Neurobiológico y la Influencia del Psicoanálisis",
     descripcion:
-      "El estudio 'The Journey of ADHD in Argentina' (Faraone & Bianchi, 2016) y el más reciente 'Medicalización del TDAH en Argentina' (Bianchi, Faraone & Torricelli, 2020) destacan la influencia cultural y política del psicoanálisis en el país. Esta corriente frecuentemente se opone a la 'medicalización y patologización de la infancia', argumentando que el diagnóstico de TDAH y el uso de estimulantes violan la Ley de Salud Mental (26.657). Esta tensión entre el abordaje psicoanalítico y el neurobiológico (respaldado por el Consenso) genera una profunda brecha en la práctica profesional, dificultando un diagnóstico y tratamiento estandarizado y basado en evidencia.",
+      "El estudio 'The Journey of ADHD in Argentina' (Faraone & Bianchi, 2018) y el más reciente 'Medicalización del TDAH en Argentina' (Bianchi, Faraone & Torricelli, 2020) destacan la influencia cultural y política del psicoanálisis en el país. Esta corriente frecuentemente se opone a la 'medicalización y patologización de la infancia', argumentando que el diagnóstico de TDAH y el uso de estimulantes violan la Ley de Salud Mental (26.657). Esta tensión entre el abordaje psicoanalítico y el neurobiológico (respaldado por el Consenso) genera una profunda brecha en la práctica profesional, dificultando un diagnóstico y tratamiento estandarizado y basado en evidencia.",
     resumen:
       "La fuerte influencia del psicoanálisis, que a menudo se opone al diagnóstico y tratamiento farmacológico del TDAH, crea una barrera cultural y profesional para el acceso al cuidado.",
     urgencia: "Alta",
