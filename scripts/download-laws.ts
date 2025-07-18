@@ -82,6 +82,12 @@ const LAWS_CONFIG: LawConfig[] = [
     name: 'Ley 23.737 - Código Penal - Sustancias Medicinales',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/138/texact.htm',
     type: 'ley'
+  },
+  {
+    id: 'ley-23849-convencion-derechos-nino',
+    name: 'Ley 23.849 - Convención sobre los Derechos del Niño',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/249/norma.htm',
+    type: 'ley'
   }
 ];
 
