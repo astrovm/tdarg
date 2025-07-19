@@ -37,6 +37,33 @@ export default function LegislacionPage() {
   const [expandedLaw, setExpandedLaw] = useState<string | null>(null);
   const [viewingDocument, setViewingDocument] = useState<string | null>(null);
 
+  const formatText = (text: string) => {
+    return text
+      .split('\n\n')
+      .map((paragraph, pIndex) => {
+        if (paragraph.includes('•')) {
+          const lines = paragraph.split('\n');
+          const title = lines[0];
+          const bullets = lines.slice(1).filter(line => line.trim().startsWith('•'));
+          
+          return (
+            <div key={pIndex} className="mb-3">
+              {title && <p className="mb-2 font-medium">{title}</p>}
+              <ul className="space-y-1 ml-4">
+                {bullets.map((bullet, bIndex) => (
+                  <li key={bIndex} className="text-sm flex items-start">
+                    <span className="text-blue-600 mr-2 mt-0.5">•</span>
+                    <span>{bullet.replace('•', '').trim()}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+        return <p key={pIndex} className="mb-3">{paragraph}</p>;
+      });
+  };
+
   const toggleLawDetails = (lawNumber: string) => {
     setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber);
   };
@@ -103,7 +130,7 @@ export default function LegislacionPage() {
                     {item.problema}
                   </CardTitle>
                   <CardDescription className="text-sm text-red-800 dark:text-red-200">
-                    {item.descripcion}
+                    <div>{formatText(item.descripcion)}</div>
                   </CardDescription>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 italic">
                     {item.resumen}
@@ -135,7 +162,7 @@ export default function LegislacionPage() {
                         {propuesta.titulo}
                       </CardTitle>
                       <CardDescription className="text-sm text-blue-800 dark:text-blue-200 mb-2">
-                        {propuesta.resumenEjecutivo}
+                        <div>{formatText(propuesta.resumenEjecutivo)}</div>
                       </CardDescription>
                       <p className="text-xs text-gray-600 dark:text-gray-400">
                         🎯 {propuesta.problemaQueResuelve}

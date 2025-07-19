@@ -195,7 +195,7 @@ export const leyes = [
     numero: "Ley 27.553",
     titulo: "Ley de Recetas Electrónicas o Digitales",
     descripcion:
-      "Establece que las prescripciones solo pueden ser redactadas a través de plataformas electrónicas habilitadas y habilita la telemedicina",
+      "Establece que las prescripciones solo pueden ser redactadas a través de plataformas electrónicas habilitadas. También habilita la telemedicina en todo el país.",
     fecha: "2020-08-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -293,7 +293,7 @@ export const leyes = [
     numero: "Ley 26.657",
     titulo: "Ley Nacional de Salud Mental",
     descripcion:
-      "Regula la atención de la salud mental con un enfoque de derechos. Como se detalla en la documentación de referencia, esta ley es un punto central en el debate sobre TDAH, y es utilizada por corrientes psicoanalíticas para argumentar en contra de la medicalización, generando tensiones con los enfoques neurobiológicos.",
+      "Regula la atención de la salud mental con un enfoque de derechos. Esta ley es central en el debate sobre TDAH. Las corrientes psicoanalíticas la utilizan para argumentar contra la medicalización. Esto genera tensiones con los enfoques neurobiológicos.",
     fecha: "2010-11-25",
     estado: "Vigente",
     tipo: "Nacional",
@@ -403,7 +403,7 @@ export const leyes = [
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
-      "Regula la fabricación, comercialización, circulación y uso de sustancias psicotrópicas. Incluye metilfenidato en Lista II con restricciones estrictas",
+      "Regula la fabricación, comercialización, circulación y uso de sustancias psicotrópicas. Incluye el metilfenidato en Lista II con restricciones muy estrictas para su prescripción.",
     fecha: "1971-10-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -481,9 +481,9 @@ export const propuestasNecesarias = [
   {
     titulo: "Reforma Regulatoria Urgente Basada en el Consenso Clínico y la Evidencia Académica",
     resumenEjecutivo:
-      "Aplicar las recomendaciones del Primer Consenso Argentino sobre el manejo del TDAH en la adultez y los hallazgos de los estudios 'Global Perspectives on ADHD' y 'Medicalización del TDAH en Argentina' para resolver de forma inmediata el conflicto normativo que impide el acceso al tratamiento del TDAH.",
+      "Aplicar las recomendaciones del Primer Consenso Argentino sobre TDAH en adultos. Resolver inmediatamente el conflicto normativo que impide el acceso al tratamiento.",
     descripcion:
-      "Proponemos una doble vía alineada con el Consenso: 1) Un Decreto de Necesidad y Urgencia (DNU) que establezca la prevalencia de la Ley de Receta Electrónica (27.553) sobre la Ley de Psicotrópicos (19.303) para TDAH. 2) Un Proyecto de Ley para una modernización definitiva del marco regulatorio.",
+      "Proponemos una doble estrategia:\n\n1) **Decreto de Necesidad y Urgencia (DNU)**: Establece que la Ley de Receta Electrónica (27.553) prevalece sobre la Ley de Psicotrópicos (19.303) para medicamentos TDAH.\n\n2) **Proyecto de Ley**: Modernización definitiva del marco regulatorio.",
     problemaQueResuelve:
       "Elimina las barreras burocráticas (receta triplicada, límite de 20 días) que impiden el tratamiento crónico, tal como lo señala el Consenso sobre el manejo del TDAH en la adultez.",
     beneficiosClave: [
@@ -506,9 +506,9 @@ export const propuestasNecesarias = [
   {
     titulo: "Ampliación de Opciones Terapéuticas y Registro de Medicamentos",
     resumenEjecutivo:
-      "Facilitar el registro de fármacos para el TDAH aprobados internacionalmente, como la lisdexanfetamina, para cubrir las necesidades de los pacientes no respondedores.",
+      "Facilitar el registro de nuevos medicamentos para TDAH ya aprobados internacionalmente. Incluye lisdexanfetamina para pacientes que no responden a tratamientos actuales.",
     descripcion:
-      "El Consenso y la literatura internacional (ej. 'Global Perspectives on ADHD') evidencian la necesidad de más opciones. Se propone una acción coordinada entre ANMAT y el Congreso para contactar laboratorios, identificar barreras de mercado y agilizar el registro de medicamentos ya aprobados por FDA y EMA.",
+      "El Consenso y la literatura internacional evidencian la necesidad de más opciones terapéuticas.\n\nSe propone una acción coordinada entre ANMAT y el Congreso para:\n• Contactar laboratorios farmacéuticos\n• Identificar barreras de mercado\n• Agilizar el registro de medicamentos ya aprobados por FDA y EMA",
     problemaQueResuelve:
       "La falta de alternativas para el ~30% de pacientes con respuesta inadecuada a la medicación disponible, un problema destacado en el Consenso.",
     beneficiosClave: [
@@ -532,7 +532,7 @@ export const problemasReales = [
   {
     problema: "Marco Regulatorio Anacrónico y Contradictorio",
     descripcion:
-      "El Primer Consenso Argentino de TDAH, junto con el análisis de la Ley de Salud Mental (26.657), confirma que la Ley de Psicotrópicos (19.303) de 1971, con su exigencia de recetas triplicadas y límite de 20 días, es el principal obstáculo para el tratamiento, contradiciendo la Ley de Receta Electrónica (27.553) y las guías de práctica clínica modernas.",
+      "El Primer Consenso Argentino de TDAH confirma que la Ley de Psicotrópicos (19.303) de 1971 es el principal obstáculo para el tratamiento.\n\nProblemas específicos:\n• Exige recetas triplicadas manuscritas\n• Límite máximo de 20 días por prescripción\n• Contradice la Ley de Receta Electrónica (27.553)\n• Va contra las guías de práctica clínica modernas",
     resumen:
       "Conflicto legal entre normativas de 1971 y 2020 genera barreras burocráticas que impiden el tratamiento crónico del TDAH.",
     urgencia: "Crítico",
@@ -541,7 +541,7 @@ export const problemasReales = [
   {
     problema: "Limitadas Opciones Farmacológicas",
     descripcion:
-      "El Consenso y el estudio 'Global Perspectives on ADHD' destacan que Argentina solo dispone de metilfenidato y atomoxetina, careciendo de opciones como la lisdexanfetamina, considerada tratamiento estándar internacional y necesaria para el ~30% de los pacientes que no responden a las terapias actuales.",
+      "Argentina solo dispone de dos medicamentos: metilfenidato y atomoxetina.\n\nProblemas identificados:\n• Falta lisdexanfetamina (tratamiento estándar internacional)\n• ~30% de pacientes no responden a las terapias actuales\n• Opciones limitadas para casos complejos\n• Retraso respecto a estándares internacionales",
     resumen:
       "La falta de acceso a medicamentos modernos como la lisdexanfetamina limita severamente la efectividad del tratamiento.",
     urgencia: "Crítico",
@@ -550,7 +550,7 @@ export const problemasReales = [
   {
     problema: "Infradiagnóstico en Adultos, especialmente en Mujeres",
     descripcion:
-      "El Consenso subraya el subdiagnóstico en la adultez, donde los síntomas se confunden con otras condiciones. En mujeres, la presentación predominantemente inatenta y el enmascaramiento por comorbilidades (ansiedad, depresión) retrasan o impiden el diagnóstico correcto.",
+      "El Consenso subraya el subdiagnóstico en adultos, especialmente en mujeres.\n\nFactores que complican el diagnóstico:\n• Síntomas se confunden con otras condiciones\n• En mujeres: presentación predominantemente inatenta\n• Enmascaramiento por comorbilidades (ansiedad, depresión)\n• Retraso o ausencia de diagnóstico correcto",
     resumen:
       "El sesgo de género y la diferente presentación de síntomas invisibilizan el TDAH en la población adulta y femenina.",
     urgencia: "Alta",
@@ -559,7 +559,7 @@ export const problemasReales = [
   {
     problema: "Tensión entre el Enfoque Neurobiológico y la Influencia del Psicoanálisis",
     descripcion:
-      "El estudio 'The Journey of ADHD in Argentina' (Faraone & Bianchi, 2018) y el más reciente 'Medicalización del TDAH en Argentina' (Bianchi, Faraone & Torricelli, 2020) destacan la influencia cultural y política del psicoanálisis en el país. Esta corriente frecuentemente se opone a la 'medicalización y patologización de la infancia', argumentando que el diagnóstico de TDAH y el uso de estimulantes violan la Ley de Salud Mental (26.657). Esta tensión entre el abordaje psicoanalítico y el neurobiológico (respaldado por el Consenso) genera una profunda brecha en la práctica profesional, dificultando un diagnóstico y tratamiento estandarizado y basado en evidencia.",
+      "Los estudios 'The Journey of ADHD in Argentina' (2018) y 'Medicalización del TDAH en Argentina' (2020) destacan la fuerte influencia del psicoanálisis en el país.\n\nImpacto en la práctica clínica:\n• Se opone a la 'medicalización de la infancia'\n• Argumenta que el diagnóstico TDAH viola la Ley de Salud Mental\n• Rechaza el uso de estimulantes\n• Crea tensión con el enfoque neurobiológico\n• Dificulta un diagnóstico estandarizado y basado en evidencia",
     resumen:
       "La fuerte influencia del psicoanálisis, que a menudo se opone al diagnóstico y tratamiento farmacológico del TDAH, crea una barrera cultural y profesional para el acceso al cuidado.",
     urgencia: "Alta",
