@@ -1,7 +1,4 @@
-// Contenido completo de los documentos - Optimizado para lectura
-export const decretoContent = `# DECRETO N° XXX/2025
-
-**SALUD**
+export const decretoContent = `SALUD
 
 Decreto XXX/2025
 
@@ -9,9 +6,9 @@ DECTO-2025-XXX-APN-PTE - Ley 19.303. Medicamentos TDAH. Recetas electrónicas. R
 
 Ciudad de Buenos Aires, XX de XXXX de 2025
 
-**VISTO** el Expediente N° EX-2025-XXXXXXX-APN-SCS#MS, las Leyes Nros. 17.132 y sus modificatorias, 17.565 y sus modificaciones, 19.303 y sus modificatorias, 27.553 y su modificación, 25.506 y los Decretos Nros. 7123 del 15 de noviembre de 1968 y sus modificatorios, 98 del 27 de febrero de 2023, 345 del 19 de abril de 2024, y
+VISTO el Expediente N° EX-2025-XXXXXXX-APN-SCS#MS, las Leyes Nros. 17.132 y sus modificatorias, 17.565 y sus modificaciones, 19.303 y sus modificatorias, 27.553 y su modificación, 25.506 y los Decretos Nros. 7123 del 15 de noviembre de 1968 y sus modificatorios, 98 del 27 de febrero de 2023, 345 del 19 de abril de 2024, y
 
-**CONSIDERANDO:**
+CONSIDERANDO:
 
 Que la Ley N° 27.553 tiene por objeto establecer que la prescripción y dispensación de medicamentos y toda otra prescripción solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin, así como establecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente, Historia Clínica y Consentimiento Informado.
 
@@ -41,16 +38,16 @@ Que la DIRECCIÓN GENERAL DE ASUNTOS JURÍDICOS del MINISTERIO DE SALUD ha tomad
 
 Que la presente medida se dicta en uso de las atribuciones emergentes del artículo 99, incisos 1 y 2 de la CONSTITUCIÓN NACIONAL.
 
-**POR ELLO,**
+POR ELLO,
 
-**EL PRESIDENTE DE LA NACIÓN ARGENTINA**
-**DECRETA:**
+EL PRESIDENTE DE LA NACIÓN ARGENTINA
+DECRETA:
 
-**ARTÍCULO 1°**.- Establécese que para los medicamentos psicotrópicos incluidos en la Lista II de la Ley N° 19.303 destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), prevalecerán las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales sobre los requisitos de prescripción manuscrita establecidos en los artículos 13 y 14 de la Ley N° 19.303.
+ARTÍCULO 1°.- Establécese que para los medicamentos psicotrópicos incluidos en la Lista II de la Ley N° 19.303 destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), prevalecerán las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales sobre los requisitos de prescripción manuscrita establecidos en los artículos 13 y 14 de la Ley N° 19.303.
 
-**ARTÍCULO 2°**.- Los medicamentos comprendidos en el artículo 1° podrán ser prescriptos mediante recetas electrónicas certificadas con firma digital médica, conforme al sistema nacional de prescripción electrónica establecido por la autoridad sanitaria nacional.
+ARTÍCULO 2°.- Los medicamentos comprendidos en el artículo 1° podrán ser prescriptos mediante recetas electrónicas certificadas con firma digital médica, conforme al sistema nacional de prescripción electrónica establecido por la autoridad sanitaria nacional.
 
-**ARTÍCULO 3°**.- Las recetas electrónicas para medicamentos TDAH deberán contener obligatoriamente:
+ARTÍCULO 3°.- Las recetas electrónicas para medicamentos TDAH deberán contener obligatoriamente:
 
 a) Identificación completa del prescriptor con número de matrícula;
 b) Datos completos del paciente;
@@ -60,50 +57,48 @@ e) Diagnóstico según clasificación CIE-10/CIE-11;
 f) Firma digital certificada del médico prescriptor;
 g) Fecha y hora de emisión.
 
-**ARTÍCULO 4°**.- Para pacientes con TDAH en tratamiento crónico estable, las prescripciones podrán extenderse hasta noventa (90) días de tratamiento, debiendo el médico indicar expresamente "TRATAMIENTO CRÓNICO TDAH" en la receta electrónica.
+ARTÍCULO 4°.- Para pacientes con TDAH en tratamiento crónico estable, las prescripciones podrán extenderse hasta noventa (90) días de tratamiento, debiendo el médico indicar expresamente "TRATAMIENTO CRÓNICO TDAH" en la receta electrónica.
 
-**ARTÍCULO 5°**.- Las recetas electrónicas emitidas conforme al presente decreto serán válidas en todo el territorio nacional y podrán dispensarse en cualquier farmacia habilitada que cuente con acceso al sistema nacional de prescripción electrónica.
+ARTÍCULO 5°.- Las recetas electrónicas emitidas conforme al presente decreto serán válidas en todo el territorio nacional y podrán dispensarse en cualquier farmacia habilitada que cuente con acceso al sistema nacional de prescripción electrónica.
 
-**ARTÍCULO 6°**.- El sistema nacional de prescripción electrónica garantizará:
+ARTÍCULO 6°.- El sistema nacional de prescripción electrónica garantizará:
 
 a) Registro automático y trazabilidad completa de la prescripción y dispensación;
 b) Cumplimiento de los controles de seguridad requeridos para sustancias de Lista II;
 c) Generación automática de reportes a la autoridad sanitaria competente;
 d) Interoperabilidad con sistemas provinciales existentes.
 
-**ARTÍCULO 7°**.- Los profesionales médicos matriculados que prescriban medicamentos TDAH mediante recetas electrónicas deberán:
+ARTÍCULO 7°.- Los profesionales médicos matriculados que prescriban medicamentos TDAH mediante recetas electrónicas deberán:
 
 a) Contar con firma digital certificada vigente;
 b) Estar registrados en el sistema nacional de prescripción electrónica;
 c) Cumplir con los protocolos de seguridad establecidos por la autoridad sanitaria nacional.
 
-**ARTÍCULO 8°**.- Las farmacias que dispensen medicamentos prescriptos conforme al presente decreto deberán mantener conectividad con el sistema nacional de prescripción electrónica y registrar automáticamente cada dispensación.
+ARTÍCULO 8°.- Las farmacias que dispensen medicamentos prescriptos conforme al presente decreto deberán mantener conectividad con el sistema nacional de prescripción electrónica y registrar automáticamente cada dispensación.
 
-**ARTÍCULO 9°**.- En casos excepcionales donde no sea posible acceder al sistema electrónico por razones técnicas debidamente documentadas, se podrá utilizar transitoriamente el sistema de recetas manuscritas previsto en la Ley N° 19.303, debiendo regularizarse en el sistema electrónico dentro de las 48 horas.
+ARTÍCULO 9°.- En casos excepcionales donde no sea posible acceder al sistema electrónico por razones técnicas debidamente documentadas, se podrá utilizar transitoriamente el sistema de recetas manuscritas previsto en la Ley N° 19.303, debiendo regularizarse en el sistema electrónico dentro de las 48 horas.
 
-**ARTÍCULO 10**.- La autoridad de aplicación del presente decreto será el MINISTERIO DE SALUD, quien dictará las normas complementarias necesarias para su implementación en coordinación con la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT).
+ARTÍCULO 10.- La autoridad de aplicación del presente decreto será el MINISTERIO DE SALUD, quien dictará las normas complementarias necesarias para su implementación en coordinación con la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT).
 
-**ARTÍCULO 11**.- Las disposiciones del presente decreto entrarán en vigor a los TREINTA (30) días de su publicación en el Boletín Oficial, plazo durante el cual la autoridad de aplicación realizará las adecuaciones técnicas necesarias en el sistema nacional de prescripción electrónica.
+ARTÍCULO 11.- Las disposiciones del presente decreto entrarán en vigor a los TREINTA (30) días de su publicación en el Boletín Oficial, plazo durante el cual la autoridad de aplicación realizará las adecuaciones técnicas necesarias en el sistema nacional de prescripción electrónica.
 
-**ARTÍCULO 12**.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir al presente decreto y a adecuar sus sistemas de salud para garantizar la implementación efectiva de las recetas electrónicas para medicamentos TDAH.
+ARTÍCULO 12.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir al presente decreto y a adecuar sus sistemas de salud para garantizar la implementación efectiva de las recetas electrónicas para medicamentos TDAH.
 
-**ARTÍCULO 13**.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
+ARTÍCULO 13.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
 
 MILEI - Mario Antonio Russo`;
 
-export const proyectoLeyContent = `# PROYECTO DE LEY
+export const proyectoLeyContent = `PROYECTO DE LEY
 
-**Modernización de la Prescripción de Medicamentos para Trastorno por Déficit de Atención e Hiperactividad (TDAH)**
+Modernización de la Prescripción de Medicamentos para Trastorno por Déficit de Atención e Hiperactividad (TDAH)
 
----
+El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de
 
-**El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de**
+LEY:
 
-**LEY:**
+ARTÍCULO 1°.- Objeto. La presente ley tiene por objeto modernizar la prescripción de medicamentos psicotrópicos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando las disposiciones de la Ley N° 19.303 con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
 
-**ARTÍCULO 1°**.- Objeto. La presente ley tiene por objeto modernizar la prescripción de medicamentos psicotrópicos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando las disposiciones de la Ley N° 19.303 con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
-
-**ARTÍCULO 2°**.- Sustitúyase el artículo 13 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+ARTÍCULO 2°.- Sustitúyase el artículo 13 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
 
 "Artículo 13.- Los sicotrópicos incluidos en la Lista II podrán ser prescriptos por profesionales médicos matriculados ante autoridad competente, mediante:
 
@@ -117,7 +112,7 @@ Para medicamentos de uso crónico destinados al tratamiento de trastornos neurol
 
 Las recetas electrónicas serán registradas automáticamente en el sistema nacional de monitoreo de sustancias controladas, garantizando la trazabilidad y control equivalente al sistema manuscrito."
 
-**ARTÍCULO 3°**.- Sustitúyase el artículo 16 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+ARTÍCULO 3°.- Sustitúyase el artículo 16 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
 
 "Artículo 16.- Para sicotrópicos incluidos en la Lista II se establecen los siguientes límites de prescripción:
 
@@ -129,7 +124,7 @@ c) El médico debe indicar claramente el tipo de tratamiento en la prescripción
 
 d) La autoridad sanitaria nacional establecerá mediante reglamentación los criterios específicos para calificar un tratamiento como crónico estable."
 
-**ARTÍCULO 4°**.- Sustitúyase el artículo 18 bis de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+ARTÍCULO 4°.- Sustitúyase el artículo 18 bis de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
 
 "Artículo 18 bis.- Las recetas electrónicas para sicotrópicos serán válidas cuando cumplan los siguientes requisitos mínimos:
 
@@ -143,7 +138,7 @@ La autoridad sanitaria nacional establecerá los estándares técnicos mínimos 
 
 Las recetas electrónicas tendrán la misma validez legal que las manuscritas y constituirán el método preferido para prescripciones de sicotrópicos."
 
-**ARTÍCULO 5°**.- Agrégase como artículo 18 ter de la Ley N° 19.303, el siguiente:
+ARTÍCULO 5°.- Agrégase como artículo 18 ter de la Ley N° 19.303, el siguiente:
 
 "Artículo 18 ter.- Para medicamentos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH):
 
@@ -153,21 +148,21 @@ c) Los controles de seguimiento farmacoterapéutico podrán realizarse mediante 
 d) Se priorizará la continuidad terapéutica evitando interrupciones por razones administrativas;
 e) Los profesionales médicos especializados en psiquiatría, neurología, medicina familiar y general podrán prescribir estos medicamentos dentro de su ámbito de competencia."
 
-**ARTÍCULO 6°**.- Autoridad de aplicación. Será autoridad de aplicación de la presente ley el MINISTERIO DE SALUD de la Nación, quien coordinará su implementación con:
+ARTÍCULO 6°.- Autoridad de aplicación. Será autoridad de aplicación de la presente ley el MINISTERIO DE SALUD de la Nación, quien coordinará su implementación con:
 
 a) La ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT);
 b) Los ministerios de salud provinciales y de la Ciudad Autónoma de Buenos Aires;
 c) Los colegios profesionales médicos y farmacéuticos;
 d) Las obras sociales y empresas de medicina prepaga.
 
-**ARTÍCULO 7°**.- Implementación gradual. La autoridad de aplicación establecerá un cronograma de implementación que no podrá exceder los CIENTO OCHENTA (180) días desde la promulgación de la presente ley, priorizando:
+ARTÍCULO 7°.- Implementación gradual. La autoridad de aplicación establecerá un cronograma de implementación que no podrá exceder los CIENTO OCHENTA (180) días desde la promulgación de la presente ley, priorizando:
 
 a) Capacitación a profesionales médicos en el uso del sistema electrónico;
 b) Adecuación técnica de farmacias para conexión al sistema nacional;
 c) Campañas de información a pacientes y familiares;
 d) Monitoreo de la transición y resolución de dificultades técnicas.
 
-**ARTÍCULO 8°**.- Evaluación y seguimiento. La autoridad de aplicación deberá presentar al Honorable Congreso de la Nación un informe anual sobre:
+ARTÍCULO 8°.- Evaluación y seguimiento. La autoridad de aplicación deberá presentar al Honorable Congreso de la Nación un informe anual sobre:
 
 a) Cantidad de prescripciones electrónicas emitidas y dispensadas;
 b) Reducción de consultas médicas innecesarias;
@@ -175,13 +170,13 @@ c) Ahorro económico para el sistema de salud;
 d) Nivel de satisfacción de pacientes y profesionales;
 e) Indicadores de seguridad y control de sustancias.
 
-**ARTÍCULO 9°**.- Pacto Federal. Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley y a adecuar sus marcos normativos para garantizar la implementación uniforme en todo el territorio nacional.
+ARTÍCULO 9°.- Pacto Federal. Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley y a adecuar sus marcos normativos para garantizar la implementación uniforme en todo el territorio nacional.
 
-**ARTÍCULO 10**.- Disposiciones complementarias. La presente ley será complementaria de las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales, la Ley N° 25.506 de Firma Digital, y demás normativa vigente en materia de protección de datos personales y derechos del paciente.
+ARTÍCULO 10.- Disposiciones complementarias. La presente ley será complementaria de las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales, la Ley N° 25.506 de Firma Digital, y demás normativa vigente en materia de protección de datos personales y derechos del paciente.
 
-**ARTÍCULO 11**.- Vigencia. La presente ley entrará en vigencia a partir de su publicación en el Boletín Oficial.
+ARTÍCULO 11.- Vigencia. La presente ley entrará en vigencia a partir de su publicación en el Boletín Oficial.
 
-**ARTÍCULO 12**.- Comuníquese al Poder Ejecutivo nacional.
+ARTÍCULO 12.- Comuníquese al Poder Ejecutivo nacional.
 
 DADA EN LA SALA DE SESIONES DEL CONGRESO ARGENTINO, EN BUENOS AIRES, A LOS ___ DÍAS DEL MES DE _____ DEL AÑO DOS MIL VEINTICINCO.
 
