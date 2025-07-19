@@ -38,9 +38,10 @@ Que la DIRECCIÓN GENERAL DE ASUNTOS JURÍDICOS del MINISTERIO DE SALUD ha tomad
 
 Que la presente medida se dicta en uso de las atribuciones emergentes del artículo 99, incisos 1 y 2 de la CONSTITUCIÓN NACIONAL.
 
-POR ELLO,
+Por ello,
 
 EL PRESIDENTE DE LA NACIÓN ARGENTINA
+
 DECRETA:
 
 ARTÍCULO 1°.- Establécese que para los medicamentos psicotrópicos incluidos en la Lista II de la Ley N° 19.303 destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), prevalecerán las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales sobre los requisitos de prescripción manuscrita establecidos en los artículos 13 y 14 de la Ley N° 19.303.
@@ -80,11 +81,11 @@ ARTÍCULO 9°.- En casos excepcionales donde no sea posible acceder al sistema e
 
 ARTÍCULO 10.- La autoridad de aplicación del presente decreto será el MINISTERIO DE SALUD, quien dictará las normas complementarias necesarias para su implementación en coordinación con la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT).
 
-ARTÍCULO 11.- Las disposiciones del presente decreto entrarán en vigor a los TREINTA (30) días de su publicación en el Boletín Oficial, plazo durante el cual la autoridad de aplicación realizará las adecuaciones técnicas necesarias en el sistema nacional de prescripción electrónica.
+ARTÍCULO 11.- La presente medida entrará en vigencia a partir del día 1° de julio de 2025.
 
 ARTÍCULO 12.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir al presente decreto y a adecuar sus sistemas de salud para garantizar la implementación efectiva de las recetas electrónicas para medicamentos TDAH.
 
-ARTÍCULO 13.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
+ARTÍCULO 13.- Comuníquese, publíquese, dese a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.
 
 MILEI - Mario Antonio Russo`;
 
