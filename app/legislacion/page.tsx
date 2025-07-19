@@ -542,59 +542,8 @@ export default function LegislacionPage() {
                 </Button>
               </div>
               <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
-                <div className="prose prose-sm max-w-none dark:prose-invert">
-                  <div
-                    className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
-                    dangerouslySetInnerHTML={{
-                      __html: (viewingDocument === "decreto"
-                        ? decretoContent
-                        : proyectoLeyContent
-                      )
-                        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-                        .replace(
-                          /^# (.*$)/gm,
-                          '<h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">$1</h1>'
-                        )
-                        .replace(
-                          /^## (.*$)/gm,
-                          '<h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">$1</h2>'
-                        )
-                        .replace(
-                          /^### (.*$)/gm,
-                          '<h3 class="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">$1</h3>'
-                        )
-                        .replace(
-                          /^\*\*ARTÍCULO (\d+).*?\*\*\.-\s*(.*)$/gm,
-                          '<div class="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong class="text-blue-900 dark:text-blue-200">ARTÍCULO $1°</strong><span class="text-gray-700 dark:text-gray-300">$2</span></div>'
-                        )
-                        .replace(
-                          /^\*\*CONSIDERANDO:\*\*$/gm,
-                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 mt-6">CONSIDERANDO:</h2>'
-                        )
-                        .replace(
-                          /^\*\*POR ELLO,\*\*$/gm,
-                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200 mt-6">POR ELLO,</h2>'
-                        )
-                        .replace(
-                          /^\*\*DECRETA:\*\*$/gm,
-                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">DECRETA:</h2>'
-                        )
-                        .replace(
-                          /^\*\*LEY:\*\*$/gm,
-                          '<h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">LEY:</h2>'
-                        )
-                        .replace(
-                          /^Que (.*)$/gm,
-                          '<p class="mb-2 pl-4 text-gray-600 dark:text-gray-400">Que $1</p>'
-                        )
-                        .replace(
-                          /^([a-z]\)) (.*)$/gm,
-                          '<div class="ml-4 mb-2"><span class="font-medium text-gray-800 dark:text-gray-200">$1</span> $2</div>'
-                        )
-                        .replace(/\n\n/g, "<br><br>")
-                        .replace(/\n/g, "<br>"),
-                    }}
-                  />
+                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-mono whitespace-pre-wrap">
+                  {viewingDocument === "decreto" ? decretoContent : proyectoLeyContent}
                 </div>
               </div>
             </div>
