@@ -89,17 +89,17 @@ ARTÍCULO 13.- Comuníquese, publíquese, dese a la DIRECCIÓN NACIONAL DEL REGI
 
 MILEI - Mario Antonio Russo`;
 
-export const proyectoLeyContent = `PROYECTO DE LEY
+export const proyectoLeyContent = `SALUD
 
 Modernización de la Prescripción de Medicamentos para Trastorno por Déficit de Atención e Hiperactividad (TDAH)
 
-El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de
+El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de 
 
-LEY:
+Ley:
 
-ARTÍCULO 1°.- Objeto. La presente ley tiene por objeto modernizar la prescripción de medicamentos psicotrópicos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando las disposiciones de la Ley N° 19.303 con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
+Artículo 1º- La presente ley tiene por objeto modernizar la prescripción de medicamentos psicotrópicos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH), armonizando las disposiciones de la Ley N° 19.303 con la Ley N° 27.553 de Recetas Electrónicas o Digitales.
 
-ARTÍCULO 2°.- Sustitúyase el artículo 13 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+Artículo 2º- Sustitúyase el artículo 13 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
 
 "Artículo 13.- Los sicotrópicos incluidos en la Lista II podrán ser prescriptos por profesionales médicos matriculados ante autoridad competente, mediante:
 
@@ -113,7 +113,7 @@ Para medicamentos de uso crónico destinados al tratamiento de trastornos neurol
 
 Las recetas electrónicas serán registradas automáticamente en el sistema nacional de monitoreo de sustancias controladas, garantizando la trazabilidad y control equivalente al sistema manuscrito."
 
-ARTÍCULO 3°.- Sustitúyase el artículo 16 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+Artículo 3º- Sustitúyase el artículo 16 de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
 
 "Artículo 16.- Para sicotrópicos incluidos en la Lista II se establecen los siguientes límites de prescripción:
 
@@ -125,7 +125,7 @@ c) El médico debe indicar claramente el tipo de tratamiento en la prescripción
 
 d) La autoridad sanitaria nacional establecerá mediante reglamentación los criterios específicos para calificar un tratamiento como crónico estable."
 
-ARTÍCULO 4°.- Sustitúyase el artículo 18 bis de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
+Artículo 4º- Sustitúyase el artículo 18 bis de la Ley N° 19.303, el que quedará redactado de la siguiente manera:
 
 "Artículo 18 bis.- Las recetas electrónicas para sicotrópicos serán válidas cuando cumplan los siguientes requisitos mínimos:
 
@@ -139,7 +139,7 @@ La autoridad sanitaria nacional establecerá los estándares técnicos mínimos 
 
 Las recetas electrónicas tendrán la misma validez legal que las manuscritas y constituirán el método preferido para prescripciones de sicotrópicos."
 
-ARTÍCULO 5°.- Agrégase como artículo 18 ter de la Ley N° 19.303, el siguiente:
+Artículo 5º- Agrégase como artículo 18 ter de la Ley N° 19.303, el siguiente:
 
 "Artículo 18 ter.- Para medicamentos destinados al tratamiento del Trastorno por Déficit de Atención e Hiperactividad (TDAH):
 
@@ -149,21 +149,21 @@ c) Los controles de seguimiento farmacoterapéutico podrán realizarse mediante 
 d) Se priorizará la continuidad terapéutica evitando interrupciones por razones administrativas;
 e) Los profesionales médicos especializados en psiquiatría, neurología, medicina familiar y general podrán prescribir estos medicamentos dentro de su ámbito de competencia."
 
-ARTÍCULO 6°.- Autoridad de aplicación. Será autoridad de aplicación de la presente ley el MINISTERIO DE SALUD de la Nación, quien coordinará su implementación con:
+Artículo 6º- La Autoridad de Aplicación de la presente ley será el MINISTERIO DE SALUD de la Nación, coordinando su accionar con:
 
 a) La ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT);
 b) Los ministerios de salud provinciales y de la Ciudad Autónoma de Buenos Aires;
 c) Los colegios profesionales médicos y farmacéuticos;
 d) Las obras sociales y empresas de medicina prepaga.
 
-ARTÍCULO 7°.- Implementación gradual. La autoridad de aplicación establecerá un cronograma de implementación que no podrá exceder los CIENTO OCHENTA (180) días desde la promulgación de la presente ley, priorizando:
+Artículo 7º- La autoridad de aplicación establecerá un cronograma de implementación que no podrá exceder los CIENTO OCHENTA (180) días desde la promulgación de la presente ley, priorizando:
 
 a) Capacitación a profesionales médicos en el uso del sistema electrónico;
 b) Adecuación técnica de farmacias para conexión al sistema nacional;
 c) Campañas de información a pacientes y familiares;
 d) Monitoreo de la transición y resolución de dificultades técnicas.
 
-ARTÍCULO 8°.- Evaluación y seguimiento. La autoridad de aplicación deberá presentar al Honorable Congreso de la Nación un informe anual sobre:
+Artículo 8º- La autoridad de aplicación deberá presentar al Honorable Congreso de la Nación un informe anual sobre:
 
 a) Cantidad de prescripciones electrónicas emitidas y dispensadas;
 b) Reducción de consultas médicas innecesarias;
@@ -171,13 +171,13 @@ c) Ahorro económico para el sistema de salud;
 d) Nivel de satisfacción de pacientes y profesionales;
 e) Indicadores de seguridad y control de sustancias.
 
-ARTÍCULO 9°.- Pacto Federal. Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley y a adecuar sus marcos normativos para garantizar la implementación uniforme en todo el territorio nacional.
+Artículo 9º- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley.
 
-ARTÍCULO 10.- Disposiciones complementarias. La presente ley será complementaria de las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales, la Ley N° 25.506 de Firma Digital, y demás normativa vigente en materia de protección de datos personales y derechos del paciente.
+Artículo 10.- La presente ley será complementaria de las disposiciones de la Ley N° 27.553 de Recetas Electrónicas o Digitales, la Ley N° 25.506 de Firma Digital, y demás normativa vigente en materia de protección de datos personales y derechos del paciente.
 
-ARTÍCULO 11.- Vigencia. La presente ley entrará en vigencia a partir de su publicación en el Boletín Oficial.
+Artículo 11.- El Poder Ejecutivo nacional reglamentará la presente ley dentro de los ciento veinte (120) días de su promulgación.
 
-ARTÍCULO 12.- Comuníquese al Poder Ejecutivo nacional.
+Artículo 12.- Comuníquese al Poder Ejecutivo nacional.
 
 DADA EN LA SALA DE SESIONES DEL CONGRESO ARGENTINO, EN BUENOS AIRES, A LOS ___ DÍAS DEL MES DE _____ DEL AÑO DOS MIL VEINTICINCO.
 
