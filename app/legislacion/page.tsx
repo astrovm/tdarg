@@ -25,6 +25,7 @@ import { Header } from "@/components/header";
 import React, { useState } from "react";
 import {
   decretoContent,
+  fuentesDocumentacion,
   leyes,
   problemasReales,
   propuestasNecesarias,
@@ -598,28 +599,21 @@ export default function LegislacionPage() {
       <footer className="bg-gray-100 dark:bg-gray-800 mt-12 py-8">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            Fuentes y Documentación
+            {fuentesDocumentacion.titulo}
           </h2>
           <div className="max-w-4xl mx-auto text-sm text-gray-600 dark:text-gray-400">
             <p className="mb-4">
-              El análisis presentado en esta página se basa en una revisión exhaustiva de la legislación vigente, consensos de especialistas y producción académica relevante. Los documentos clave que informan este análisis son:
+              {fuentesDocumentacion.descripcion}
             </p>
             <ul className="list-disc list-inside space-y-2 mb-6">
-              <li>
-                <strong>Primer Consenso Argentino sobre el manejo del TDAH en la adultez</strong> (Vertex, 2024) - Proporciona la base clínica y científica para las propuestas de reforma.
-              </li>
-              <li>
-                <strong>Medicalización del TDAH en Argentina</strong> (Bianchi, Faraone & Torricelli, 2020) - Analiza las tendencias y especificidades locales del tratamiento del TDAH.
-              </li>
-              <li>
-                <strong>The Journey of ADHD in Argentina</strong> (Faraone & Bianchi, 2018) - Explora el contexto histórico y las tensiones profesionales en torno al TDAH en el país.
-              </li>
-              <li>
-                <strong>Leyes Nacionales y Decretos</strong>: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Decreto 345/2024.
-              </li>
+              {fuentesDocumentacion.fuentes.map((fuente, index) => (
+                <li key={index}>
+                  <strong>{fuente.titulo}</strong> {fuente.referencia && fuente.referencia} - {fuente.descripcion}
+                </li>
+              ))}
             </ul>
             <p className="text-xs text-center italic">
-              Este es un proyecto de análisis independiente y no representa una comunicación oficial de ninguna entidad gubernamental.
+              {fuentesDocumentacion.notaLegal}
             </p>
           </div>
         </div>

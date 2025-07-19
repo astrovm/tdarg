@@ -566,3 +566,31 @@ export const problemasReales = [
     impacto: "Afecta la calidad, consistencia y acceso al tratamiento a nivel nacional",
   },
 ];
+
+export const fuentesDocumentacion = {
+  titulo: "Fuentes y Documentación",
+  descripcion: "El análisis presentado en esta página se basa en una revisión exhaustiva de la legislación vigente, consensos de especialistas y producción académica relevante. Los documentos clave que informan este análisis son:",
+  fuentes: [
+    {
+      titulo: "Primer Consenso Argentino sobre el manejo del TDAH en la adultez",
+      descripcion: "Proporciona la base clínica y científica para las propuestas de reforma.",
+      referencia: "(Vertex, 2024)"
+    },
+    {
+      titulo: "Medicalización del TDAH en Argentina",
+      descripcion: "Analiza las tendencias y especificidades locales del tratamiento del TDAH.",
+      referencia: "(Bianchi, Faraone & Torricelli, 2020)"
+    },
+    {
+      titulo: "The Journey of ADHD in Argentina",
+      descripcion: "Explora el contexto histórico y las tensiones profesionales en torno al TDAH en el país.",
+      referencia: "(Faraone & Bianchi, 2018)"
+    },
+    {
+      titulo: "Leyes Nacionales y Decretos",
+      descripcion: "Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Decreto 345/2024.",
+      referencia: ""
+    }
+  ],
+  notaLegal: "Este es un proyecto de análisis independiente y no representa una comunicación oficial de ninguna entidad gubernamental."
+};
