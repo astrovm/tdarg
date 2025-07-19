@@ -574,7 +574,7 @@ export const fuentesDocumentacion = {
     {
       titulo: "Primer Consenso Argentino sobre el manejo del TDAH en la adultez",
       descripcion: "Proporciona la base clínica y científica para las propuestas de reforma.",
-      referencia: "(Vertex, 2024)"
+      referencia: "(Vertex, 2025)"
     },
     {
       titulo: "Medicalización del TDAH en Argentina",

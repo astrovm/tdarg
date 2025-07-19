@@ -18,7 +18,6 @@ import {
   ChevronDown,
   ChevronUp,
   Gavel,
-  Download,
   Eye,
 } from "lucide-react";
 import { Header } from "@/components/header";
@@ -31,7 +30,6 @@ import {
   propuestasNecesarias,
   proyectoLeyContent,
 } from "@/lib/legislacion-data";
-import { downloadDocument } from "@/lib/download-helper";
 
 export default function LegislacionPage() {
   const [expandedLaw, setExpandedLaw] = useState<string | null>(null);
@@ -76,15 +74,6 @@ export default function LegislacionPage() {
     setViewingDocument(null);
   };
 
-  const handleDownload = (documentType: string) => {
-    const content =
-      documentType === "decreto" ? decretoContent : proyectoLeyContent;
-    const filename =
-      documentType === "decreto"
-        ? "decreto-recetas-electronicas-tdah.md"
-        : "proyecto-ley-modernizacion-tdah.md";
-    downloadDocument(content, filename);
-  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -230,23 +219,14 @@ export default function LegislacionPage() {
                       <div className="flex flex-col sm:flex-row gap-2">
                         {(propuesta as any).documentTypes.map(
                           (docType: string) => (
-                            <React.Fragment key={docType}>
-                              <Button
-                                onClick={() => handleViewDocument(docType)}
-                                className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium"
-                              >
-                                <Eye className="h-4 w-4 mr-2" />
-                                Ver {docType === "decreto" ? "Decreto" : "Proyecto de Ley"}
-                              </Button>
-                              <Button
-                                onClick={() => handleDownload(docType)}
-                                variant="outline"
-                                className="flex-1 border-green-200 hover:bg-green-50 dark:border-green-800 dark:hover:bg-green-900/20"
-                              >
-                                <Download className="h-4 w-4 mr-2" />
-                                Descargar
-                              </Button>
-                            </React.Fragment>
+                            <Button
+                              key={docType}
+                              onClick={() => handleViewDocument(docType)}
+                              className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium"
+                            >
+                              <Eye className="h-4 w-4 mr-2" />
+                              Ver {docType === "decreto" ? "Decreto" : "Proyecto de Ley"}
+                            </Button>
                           )
                         )}
                       </div>
