@@ -1,40 +1,40 @@
-// Leyes principales relevantes para TDAH - Simplificadas y actualizadas
+// Legislación relevante para TDAH en Argentina
 export const leyes = [
   {
     numero: "Resolución 2214/2025",
-    titulo: "Recetas Electrónicas Obligatorias - ¡Fin del Sistema Manuscrito!",
+    titulo: "Implementación de Recetas Electrónicas",
     descripcion:
-      "Por primera vez en 54 años, una normativa ordena recetas EXCLUSIVAMENTE electrónicas para medicamentos TDAH, con plazo de 120 días para implementar completamente. Significa el fin de las recetas triplicadas manuscritas que obligaban a consultas cada 20 días.",
+      "Establece la obligatoriedad de recetas electrónicas para todos los medicamentos, incluyendo psicotrópicos de Lista II como metilfenidato. Fija plazo de 120 días para implementación completa.",
     fecha: "2025-07-18",
-    estado: "Vigente - En Implementación",
+    estado: "Vigente",
     tipo: "Nacional",
     organismo: "Ministerio de Salud",
-    impactoReal: "revolucionario",
+    impactoReal: "alto",
     url: "https://www.boletinoficial.gob.ar/#!DetalleNorma/328614/20250721",
     ultimaActualizacion: "2025-07-21",
     analisisIA: {
       beneficios: [
-        "🚀 REVOLUCIÓN: Recetas EXCLUSIVAMENTE electrónicas (Art. 3º)",
-        "⏰ PLAZO ESPECÍFICO: 120 días para digitalizar medicamentos TDAH",
-        "🏥 ACCESO NACIONAL: Medicación disponible en cualquier farmacia del país",
-        "🔒 SEGURIDAD: Sistema CUIR elimina falsificaciones y pérdidas",
-        "📱 COMODIDAD: Fin de las consultas cada 20 días para renovar recetas",
+        "Establece recetas exclusivamente electrónicas para todos los medicamentos",
+        "Define plazo específico de 120 días para implementación",
+        "Incluye medicamentos TDAH en sistema digital obligatorio",
+        "Implementa sistema CUIR para trazabilidad",
+        "Elimina requisito de recetas manuscritas triplicadas",
       ],
       problemas: [
-        "❓ No deroga explícitamente la Ley 19.303 de 1971",
-        "⚠️ Depende de que las jurisdicciones cumplan el plazo",
-        "🏛️ Falta seguimiento del cumplimiento",
+        "No deroga explícitamente artículos conflictivos de Ley 19.303",
+        "Implementación depende de coordinación jurisdiccional",
+        "Falta mecanismo de seguimiento del cumplimiento",
       ],
-      puntuacion: 9.0,
+      puntuacion: 8.5,
       recomendacion:
-        "¡HISTÓRICO! Primera solución real en 54 años. Si se implementa correctamente, resuelve completamente el problema TDAH.",
+        "Normativa con potencial para resolver problemas de acceso a medicación TDAH. Requiere monitoreo de implementación efectiva.",
     },
     puntosClave: [
-      "🎯 EXCLUSIVAMENTE ELECTRÓNICAS: Se acabaron las recetas manuscritas",
-      "⏰ PLAZO DEFINIDO: 120 días para medicamentos TDAH (hasta noviembre 2025)",
-      "🌍 COBERTURA NACIONAL: Válida en todo el país",
-      "🔐 SISTEMA CUIR: Código único por receta, anti-falsificación",
-      "📊 TRAZABILIDAD TOTAL: Control completo sin burocracia",
+      "Recetas obligatoriamente electrónicas para todos los medicamentos",
+      "Plazo de implementación: 120 días (noviembre 2025)",
+      "Incluye medicamentos controlados Lista II",
+      "Sistema CUIR para identificación única",
+      "Repositorios digitales con acceso controlado",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -44,74 +44,74 @@ export const leyes = [
           textoActual: `Las prescripciones deberán emitirse exclusivamente en formato electrónico o digital a través de plataformas registradas en el Registro Nacional de Plataformas Digitales de Salud (ReNaPDiS).`,
           problemasIdentificados: [
             "No deroga explícitamente las recetas manuscritas de la Ley 19.303",
-            "Podría generar conflicto de interpretación con normativas anteriores",
-            "Depende de que las jurisdicciones implementen correctamente",
+            "Posible conflicto de interpretación con normativas anteriores",
+            "Implementación depende de jurisdicciones locales",
           ],
           impactoTDAH:
-            "Positivo - Si se implementa correctamente eliminaría las recetas manuscritas para TDAH",
+            "Positivo si se implementa correctamente, eliminaría recetas manuscritas para medicamentos TDAH",
         },
         {
           articulo: "Anexo I - Expendio Legalmente Restringido",
           titulo: "Digitalización de Psicotrópicos Lista II",
           textoActual: `Se establece un plazo de CIENTO VEINTE (120) días corridos desde la entrada en vigencia de la medida que aprueba el presente Anexo para que las jurisdicciones, softwares prescriptores y repositorios realicen las adecuaciones necesarias que permitan el registro, archivo y acceso a las recetas electrónicas o digitales sujetas a fiscalización.`,
           problemasIdentificados: [
-            "120 días puede ser insuficiente para implementación completa",
-            "No especifica sanciones por incumplimiento de plazos",
-            "Depende de la coordinación entre múltiples actores",
+            "Plazo de 120 días puede ser insuficiente para implementación completa",
+            "No especifica sanciones por incumplimiento",
+            "Requiere coordinación entre múltiples actores",
           ],
           impactoTDAH:
-            "Crítico Positivo - Primer plazo oficial específico para digitalizar medicamentos TDAH",
+            "Crítico - Primer plazo oficial específico para digitalizar medicamentos TDAH",
         },
       ],
       resumenImpacto: {
         problemasPrincipales: [
-          "Aún no deroga explícitamente conflictos con Ley 19.303",
+          "No deroga explícitamente conflictos con Ley 19.303",
           "Implementación depende de coordinación jurisdiccional",
-          "Plazos podrían extenderse sin sanciones claras",
+          "Posibles extensiones de plazo sin sanciones claras",
         ],
         solucionSimple:
-          "Seguimiento estricto del cumplimiento del plazo de 120 días y presión para derogación explícita de artículos conflictivos",
-        urgencia: "Media - Resolución excelente pero requiere implementación efectiva",
+          "Monitoreo estricto del cumplimiento del plazo y seguimiento de implementación efectiva",
+        urgencia: "Media - Resolución adecuada pero requiere seguimiento",
         estimacionImpacto:
-          "Potencial solución completa para 500,000+ pacientes TDAH si se implementa correctamente",
+          "Potencial solución para más de 500,000 pacientes TDAH si se implementa correctamente",
       },
     },
   },
   {
     numero: "Ley 27.553",
-    titulo: "Ley de Recetas Electrónicas - La Promesa Incumplida",
+    titulo: "Ley de Recetas Electrónicas o Digitales",
     descripcion:
-      "Ley visionaria de 2020 que prometía recetas solo electrónicas, pero quedó 5 años sin implementar por conflictos con la Ley 19.303. Habilitó telemedicina pero no resolvió el problema TDAH hasta la Resolución 2214/2025.",
+      "Establece prescripciones exclusivamente electrónicas y habilita telemedicina. Su implementación efectiva se vio limitada por conflictos normativos no resueltos con legislación previa.",
     fecha: "2020-08-11",
-    estado: "Vigente pero Inefectiva",
+    estado: "Vigente",
     tipo: "Nacional",
     organismo: "Congreso Nacional",
-    impactoReal: "limitado",
+    impactoReal: "medio",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-27553-340919",
     ultimaActualizacion: "2023-12-21",
     analisisIA: {
       beneficios: [
-        "💡 VISIÓN CORRECTA: Estableció recetas electrónicas obligatorias",
-        "🏥 TELEMEDICINA: Habilitó consultas remotas (útil para TDAH)",
-        "🌍 COBERTURA NACIONAL: Medicamentos en cualquier farmacia del país",
-        "📱 BASE TÉCNICA: Creó infraestructura para sistemas digitales",
+        "Estableció marco legal para recetas electrónicas obligatorias",
+        "Habilitó telemedicina en todo el territorio nacional",
+        "Permite dispensación de medicamentos en cualquier farmacia",
+        "Creó infraestructura básica para sistemas digitales de salud",
       ],
       problemas: [
-        "❌ PLAZO VENCIDO: 1º julio 2024 pasó sin implementación real",
-        "⚖️ CONFLICTO LEGAL: No resolvió contradicción con Ley 19.303",
-        "😕 FRUSTRACIÓN: 5 años de falsas esperanzas para pacientes TDAH",
-        "🏛️ SIN ENFORCEMENT: Faltaron sanciones por incumplimiento",
+        "Plazo de implementación vencido sin cumplimiento efectivo",
+        "No resolvió contradicciones con normativas anteriores",
+        "Falta de sanciones por incumplimiento",
+        "Implementación limitada para medicamentos controlados",
       ],
-      puntuacion: 5.5,
+      puntuacion: 6.0,
       recomendacion:
-        "Ley bien intencionada que falló por no resolver conflictos legales. Preparó terreno para Resolución 2214/2025.",
+        "Marco legal adecuado que requirió normativas complementarias para efectividad práctica.",
     },
     puntosClave: [
-      "Art. 1º: Recetas electrónicas obligatorias (en teoría)",
-      "Art. 2º: Dispensación nacional en cualquier farmacia",
-      "Art. 6º: Telemedicina habilitada oficialmente",
-      "Art. 11: Modifica Ley 19.303 agregando Art. 18 bis",
-      "Art. 3º: Plazo implementación vencido (julio 2024)",
+      "Recetas electrónicas obligatorias según normativa",
+      "Dispensación nacional en cualquier farmacia habilitada", 
+      "Telemedicina autorizada para consultas médicas",
+      "Modifica Ley 19.303 agregando Artículo 18 bis",
+      "Plazo de implementación vencido en julio 2024",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -120,12 +120,11 @@ export const leyes = [
           titulo: "Objeto de la Ley - Recetas Electrónicas Obligatorias",
           textoActual: `La presente ley tiene por objeto:\n\nEstablecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, solo puedan ser redactadas y firmadas a través de plataformas electrónicas habilitadas a tal fin.\n\nEstablecer que puedan utilizarse plataformas de teleasistencia en salud, en todo el territorio nacional, de conformidad con la Ley N° 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de Derechos del Paciente.`,
           problemasIdentificados: [
-            "Dice 'solo puedan' pero no deroga explícitamente las recetas manuscritas",
-            "No menciona cómo resolver conflictos con leyes anteriores",
+            "No deroga explícitamente recetas manuscritas de normativas anteriores",
+            "No establece mecanismo para resolver conflictos normativos",
             "Falta especificidad sobre medicamentos controlados",
             "No establece sanciones por incumplimiento",
           ],
-          propuestaReescritura: `La presente ley tiene por objeto:\n\na) Establecer que la prescripción y dispensación de medicamentos, y toda otra prescripción, DEBEN ser redactadas y firmadas exclusivamente a través de plataformas electrónicas habilitadas, reemplazando definitivamente las recetas manuscritas.\n\nb) Derogar expresamente toda disposición legal que exija recetas manuscritas, incluidos los artículos 13 y 14 de la Ley 19.303.\n\nc) Establecer que los medicamentos controlados (psicotrópicos y estupefacientes) se rigen por esta ley, manteniendo controles de seguridad en formato digital.\n\nd) Habilitar plataformas de teleasistencia en salud con las mismas garantías de seguridad y privacidad.`,
           impactoTDAH:
             "Crítico - Si fuera aplicado correctamente resolvería el problema de recetas manuscritas",
         },
@@ -139,76 +138,72 @@ export const leyes = [
             "Falta autoridad de aplicación clara",
             "No hay mecanismo de seguimiento del cumplimiento",
           ],
-          propuestaReescritura: `La autoridad de aplicación debe:\n\na) Implementar inmediatamente la digitalización total, sin excepciones.\n\nb) Establecer un nuevo plazo máximo de 90 días para completar la migración.\n\nc) Crear un sistema de monitoreo público del avance de implementación.\n\nd) Aplicar sanciones a instituciones que no cumplan con la digitalización.\n\ne) Designar una autoridad de aplicación específica con presupuesto asignado.`,
-          impactoTDAH: "Alto - Plazo vencido mantiene el limbo legal actual",
+          impactoTDAH: "Alto - Plazo vencido mantiene situación legal indefinida",
         },
         {
           articulo: "Artículo 11",
           titulo: "Modificación Insuficiente de Ley 19.303",
           textoActual: `Incorpórase el artículo 18 bis a la ley 19.303, el que quedará redactado de la siguiente manera:\n\nArtículo 18 bis: En caso de que las recetas mencionadas en la presente ley sean redactadas electrónicamente, o en caso de que los registros obligatorios sean llevados electrónicamente, la firma y demás requisitos técnicos y legales deben adecuarse a la legislación especial vigente y a lo que establezca la autoridad de aplicación.`,
           problemasIdentificados: [
-            "Solo 'permite' recetas electrónicas, no las obliga",
-            "No deroga los artículos 13-14 que exigen manuscritas",
+            "Solo permite recetas electrónicas, no las obliga",
+            "No deroga artículos que exigen recetas manuscritas",
             "Frase 'en caso de que' mantiene opcionalidad",
-            "Falta reglamentación específica de la autoridad",
+            "Falta reglamentación específica de autoridad",
           ],
-          propuestaReescritura: `Sustitúyanse los artículos 13, 14 y 16 de la Ley 19.303, los que quedarán redactados de la siguiente manera:\n\nArtículo 13: Los sicotrópicos incluidos en la Lista II solo podrán ser prescriptos por profesionales médicos matriculados mediante recetas electrónicas con firma digital certificada. Para medicación crónica como TDAH, se permite prescripción por hasta 90 días con renovación trimestral.\n\nArtículo 14: Los sicotrópicos incluidos en las Listas III y IV solo podrán despacharse bajo receta electrónica archivada digitalmente por 5 años.\n\nArtículo 16: Las prescripciones de Lista II para medicación crónica pueden extenderse hasta 90 días de tratamiento, con controles médicos según criterio profesional.`,
           impactoTDAH:
-            "Crítico - Reforma insuficiente mantiene conflicto legal",
+            "Crítico - Modificación insuficiente mantiene conflicto legal",
         },
       ],
-      articulosPropuestos: [],
       resumenImpacto: {
         problemasPrincipales: [
-          "Ley excelente en principio pero mal redactada para resolver conflictos",
+          "Ley conceptualmente correcta pero mal redactada para resolver conflictos",
           "Plazo de implementación vencido sin consecuencias",
-          "Modificación insuficiente de Ley 19.303 mantiene ambigüedad",
-          "Falta autoridad de aplicación con poder real",
+          "Modificación insuficiente de Ley 19.303 mantiene ambigüedad legal",
+          "Falta autoridad de aplicación con poder efectivo",
         ],
         solucionSimple:
-          "Decreto que clarifique implementación inmediata de recetas electrónicas sin excepciones",
+          "Reglamentación que clarifique implementación inmediata de recetas electrónicas",
         urgencia: "Alta - Ley vigente pero inaplicable por conflictos legales",
         estimacionImpacto:
-          "Resolvería completamente el problema de recetas para 500,000+ pacientes TDAH",
+          "Resolvería completamente problema de acceso para más de 500,000 pacientes TDAH",
       },
     },
   },
   {
     numero: "Ley 26.657",
-    titulo: "Ley de Salud Mental - Derechos vs. Barreras TDAH",
+    titulo: "Ley Nacional de Salud Mental",
     descripcion:
-      "Ley progresista de derechos humanos que paradójicamente creó barreras para TDAH. Algunos profesionales la interpretan como prohibición de 'medicalizar' adultos trabajadores, generando resistencia al diagnóstico y tratamiento farmacológico.",
+      "Regula atención de salud mental con enfoque de derechos humanos. Su interpretación variable entre profesionales genera debate sobre diagnóstico y tratamiento farmacológico del TDAH.",
     fecha: "2010-11-25",
     estado: "Vigente",
     tipo: "Nacional",
     organismo: "Congreso Nacional",
-    impactoReal: "contradictorio",
+    impactoReal: "medio",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-26657-175977",
     ultimaActualizacion: "2010-11-25",
     analisisIA: {
       beneficios: [
-        "🛡️ DERECHOS HUMANOS: Protege contra abusos psiquiátricos",
-        "👥 EQUIPOS INTERDISCIPLINARIOS: Tratamiento integral",
-        "🏥 ANTI-MANICOMIOS: Evita internaciones innecesarias",
-        "⚖️ MARCO LEGAL: Base sólida de derechos en salud mental",
+        "Protege derechos humanos en tratamientos de salud mental",
+        "Promueve equipos interdisciplinarios para atención integral",
+        "Previene internaciones innecesarias y abusos",
+        "Establece marco legal sólido para protección del paciente",
       ],
       problemas: [
-        "🚫 INTERPRETACIÓN ANTI-TDAH: Algunos profesionales la usan contra medicación",
-        "👔 PROBLEMAS LABORALES: Síntomas en el trabajo se ven como 'no médicos'",
-        "⏳ DEMORAS: Equipos interdisciplinarios no disponibles retrasan tratamiento",
-        "😕 CULPA: Familias se sienten culpables por buscar medicación",
-        "🤔 AMBIGÜEDAD: No aclara aplicación a trastornos neurobiológicos como TDAH",
+        "Interpretación variable genera resistencia a diagnósticos TDAH",
+        "Puede limitar acceso a tratamiento farmacológico en adultos",
+        "Escasez de equipos interdisciplinarios retrasa atención",
+        "Ambigüedad en aplicación a trastornos neurobiológicos",
       ],
-      puntuacion: 6.5,
+      puntuacion: 7.0,
       recomendacion:
-        "Excelente en derechos humanos, pero genera barreras inadvertidas para TDAH. Necesita reinterpretación que reconozca neurobiología.",
+        "Marco legal importante que requiere interpretación equilibrada para trastornos como TDAH.",
     },
     puntosClave: [
-      "Art. 1: Garantiza derechos humanos en salud mental",
-      "Art. 12: Medicamentos solo con fines terapéuticos, nunca como castigo",
-      "Art. 8: Promueve equipos interdisciplinarios",
-      "Art. 9: Enfoque de salud mental comunitaria",
-      "Art. 14: Limita internaciones involuntarias",
+      "Garantiza derechos humanos en salud mental",
+      "Medicamentos solo con fines terapéuticos",
+      "Promueve equipos interdisciplinarios",
+      "Enfoque de atención comunitaria",
+      "Interpretación variable afecta tratamientos TDAH",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -217,106 +212,79 @@ export const leyes = [
           titulo: "Definición de Salud Mental - Prohibición de Diagnóstico Basado en Factores Externos",
           textoActual: `En el marco de la presente ley se reconoce a la salud mental como un proceso determinado por componentes históricos, socio-económicos, culturales, biológicos y psicológicos. En ningún caso puede hacerse diagnóstico en el campo de la salud mental sobre la base exclusiva de: a) Status político, socio-económico, pertenencia a un grupo cultural, racial o religioso; b) Demandas familiares, laborales, falta de conformidad o adecuación con valores morales, sociales, culturales, políticos o creencias religiosas prevalecientes en la comunidad; c) Elección o identidad sexual; d) La mera existencia de antecedentes de tratamiento u hospitalización.`,
           problemasIdentificados: [
-            "Puede interpretarse como prohibición de diagnóstico de TDAH en adultos con problemas laborales",
-            "Genera confusión sobre la validez de síntomas en contextos laborales y sociales",
-            "Profesionales pueden evitar diagnósticos por miedo a violaciones legales",
+            "Puede interpretarse como prohibición de diagnóstico TDAH en adultos con problemas laborales",
+            "Genera confusión sobre validez de síntomas en contextos laborales",
+            "Profesionales pueden evitar diagnósticos por precaución legal",
             "Falta claridad sobre qué constituye 'base exclusiva' vs. evidencia complementaria",
           ],
           impactoTDAH:
-            "Alto - Crea incertidumbre sobre la legitimidad del diagnóstico TDAH en adultos",
+            "Alto - Crea incertidumbre sobre legitimidad del diagnóstico TDAH en adultos",
         },
         {
           articulo: "Artículo 12",
           titulo: "Prescripción de Medicación - Restricciones y Enfoque Interdisciplinario",
           textoActual: `La prescripción de medicación sólo debe responder a las necesidades fundamentales de la persona con padecimiento mental y se administrará exclusivamente con fines terapéuticos y nunca como castigo, por conveniencia de terceros, o para suplir la necesidad de acompañamiento terapéutico o cuidados especiales. La indicación y renovación de prescripción de medicamentos sólo puede realizarse a partir de las evaluaciones profesionales pertinentes y nunca de forma automática. Debe promoverse que los tratamientos psicofarmacológicos se realicen en el marco de abordajes interdisciplinarios.`,
           problemasIdentificados: [
-            "Puede interpretarse como prohibición de medicar para facilitar el desempeño laboral en adultos",
-            "Genera resistencia en empleadores y equipos de trabajo al tratamiento farmacológico",
-            "Ambigüedad sobre qué constituye 'conveniencia de terceros' en contextos laborales",
-            "Requiere equipos interdisciplinarios que no siempre están disponibles para adultos trabajadores",
-            "Puede retrasar tratamientos efectivos por burocracia administrativa que impacta la productividad",
+            "Puede interpretarse como prohibición de medicar para mejorar desempeño laboral",
+            "Ambigüedad sobre qué constituye 'conveniencia de terceros'",
+            "Requiere equipos interdisciplinarios no siempre disponibles",
+            "Puede retrasar tratamientos efectivos por requisitos burocráticos",
           ],
           impactoTDAH:
-            "Crítico - Directamente impacta la prescripción de metilfenidato y tratamientos TDAH en adultos trabajadores",
-        },
-        {
-          articulo: "Artículo 8º",
-          titulo: "Equipos Interdisciplinarios Obligatorios",
-          textoActual: `Debe promoverse que la atención en salud mental esté a cargo de un equipo interdisciplinario integrado por profesionales, técnicos y otros trabajadores capacitados con la debida acreditación de la autoridad competente. Se incluyen las áreas de psicología, psiquiatría, trabajo social, enfermería, terapia ocupacional y otras disciplinas o campos pertinentes.`,
-          problemasIdentificados: [
-            "Escasez de equipos interdisciplinarios completos en el sistema público",
-            "Puede retrasar tratamientos por falta de profesionales específicos",
-            "Genera costos adicionales que obras sociales pueden rechazar",
-            "Falta de coordinación entre disciplinas puede generar conflictos",
-          ],
-          impactoTDAH:
-            "Medio - Complica el acceso a tratamiento especializado",
-        },
-        {
-          articulo: "Artículo 27",
-          titulo: "Prohibición de Nuevas Instituciones Monovalentes",
-          textoActual: `Queda prohibida por la presente ley la creación de nuevos manicomios, neuropsiquiátricos o instituciones de internación monovalentes, públicos o privados. En el caso de los ya existentes se deben adaptar a los objetivos y principios expuestos, hasta su sustitución definitiva por los dispositivos alternativos.`,
-          problemasIdentificados: [
-            "Puede limitar la creación de centros especializados en TDAH",
-            "Falta de dispositivos alternativos específicos para trastornos del neurodesarrollo",
-            "Puede forzar tratamientos en contextos inadecuados",
-            "No distingue entre internación psiquiátrica y centros de día especializados",
-          ],
-          impactoTDAH:
-            "Bajo - Impacto indirecto en servicios especializados",
+            "Crítico - Impacta directamente prescripción de tratamientos TDAH en adultos",
         },
       ],
       resumenImpacto: {
         problemasPrincipales: [
-          "Ambigüedad en definiciones crea resistencia profesional a diagnósticos TDAH en adultos",
-          "Restricciones a medicación pueden interpretarse como prohibición de tratamiento farmacológico para adultos trabajadores",
-          "Requisito de equipos interdisciplinarios no disponibles retrasa tratamientos en población adulta",
-          "Enfoque anti-medicalización puede chocar con evidencia científica del TDAH especialmente en adultos",
+          "Ambigüedad en definiciones crea resistencia profesional a diagnósticos TDAH",
+          "Restricciones a medicación pueden interpretarse como prohibición de tratamiento farmacológico",
+          "Requisito de equipos interdisciplinarios no disponibles retrasa tratamientos",
+          "Enfoque anti-medicalización puede chocar con evidencia científica del TDAH",
         ],
         solucionSimple:
-          "Reglamentación específica que clarifique aplicación de la ley a trastornos del neurodesarrollo como TDAH en adultos",
-        urgencia: "Alta - Impacta directamente en acceso a tratamiento TDAH",
+          "Reglamentación específica que clarifique aplicación a trastornos del neurodesarrollo",
+        urgencia: "Alta - Impacta directamente acceso a tratamiento TDAH",
         estimacionImpacto:
-          "Puede afectar negativamente hasta 300,000 pacientes con TDAH por resistencia profesional, especialmente impactando adultos trabajadores y estudiantes universitarios",
+          "Puede afectar negativamente hasta 300,000 pacientes con TDAH por resistencia profesional",
       },
     },
   },
   {
     numero: "Ley 19.303",
-    titulo: "Ley de Psicotrópicos - El Obstáculo de 54 Años",
+    titulo: "Ley de Psicotrópicos",
     descripcion:
-      "Ley de dictadura militar (1971) que creó el infierno burocrático para TDAH: recetas manuscritas triplicadas cada 20 días. Diseñada para drogas de abuso, no para medicación crónica. La Resolución 2214/2025 finalmente la supera.",
+      "Regula fabricación, comercialización y uso de sustancias psicotrópicas desde 1971. Establece controles estrictos para metilfenidato que resultan inadecuados para tratamientos crónicos.",
     fecha: "1971-10-11",
-    estado: "Vigente pero Superada",
+    estado: "Vigente",
     tipo: "Nacional",
-    organismo: "Gobierno Militar 1971",
-    impactoReal: "obstáculo histórico",
+    organismo: "Poder Ejecutivo Nacional",
+    impactoReal: "alto",
     url: "https://www.argentina.gob.ar/normativa/nacional/ley-19303-20966",
     ultimaActualizacion: "2020-08-11",
     analisisIA: {
       beneficios: [
-        "🛡️ CONTROL HISTÓRICO: Previno abuso de psicotrópicos desde 1971",
-        "📋 SISTEMA LISTAS: Clasificación por riesgo de abuso",
-        "🔍 CALIDAD: Control de fabricación y distribución",
+        "Marco legal establecido para control de psicotrópicos",
+        "Sistema de clasificación por nivel de riesgo de abuso",
+        "Control de calidad en fabricación y distribución",
+        "Prevención del uso indebido de sustancias controladas",
       ],
       problemas: [
-        "📝 MANUSCRITAS TRIPLICADAS: Sistema prehistórico de papeles",
-        "⏰ 20 DÍAS MÁXIMO: Consultas médicas cada 3 semanas",
-        "💸 COSTO INSOSTENIBLE: 18 consultas anuales solo para recetas",
-        "📚 BUROCRACIA: Libros físicos desalientan farmacias",
-        "🚫 DISCRIMINACIÓN: Peor acceso en provincias",
-        "😞 ABANDONO: Pacientes dejan tratamiento por barreras",
+        "Recetas manuscritas triplicadas inadecuadas para era digital",
+        "Límite de 20 días inapropiado para medicación crónica",
+        "Genera consultas médicas excesivas para renovación",
+        "Burocracia farmacéutica desalienta dispensación",
+        "Acceso desigual entre diferentes regiones del país",
       ],
-      puntuacion: 2.0,
+      puntuacion: 4.0,
       recomendacion:
-        "Ley obsoleta de dictadura militar. Creó 54 años de sufrimiento innecesario. Finalmente superada por Resolución 2214/2025.",
+        "Normativa desactualizada que requiere modernización para tratamientos crónicos como TDAH.",
     },
     puntosClave: [
-      "Metilfenidato clasificado en Lista II (máximo control)",
-      "Art. 13: Receta triplicada manuscrita obligatoria",
-      "Art. 16: Máximo 20 días de tratamiento por prescripción",
-      "Art. 14: Una sola dispensación, archivo 2 años",
-      "Art. 18 bis: Permite recetas electrónicas (no reglamentado)",
+      "Metilfenidato clasificado en Lista II (control estricto)",
+      "Recetas manuscritas triplicadas obligatorias",
+      "Máximo 20 días de tratamiento por prescripción",
+      "Archivo físico obligatorio por 2 años",
+      "Artículo 18 bis permite recetas electrónicas",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -326,11 +294,11 @@ export const leyes = [
           textoActual: `Los sicotrópicos incluidos en la Lista II, sólo podrán ser prescriptos por profesionales médicos matriculados... mediante recetas extendidas en formularios oficializados, por triplicado... Las recetas deberán ser manuscritas por el médico en forma legible...`,
           problemasIdentificados: [
             "Manuscritas obligatorias incompatibles con recetas electrónicas",
-            "Sistema triplicado genera burocracia innecesaria",
-            "Una sola dispensación imposibilita medicación crónica",
+            "Sistema triplicado genera burocracia excesiva",
+            "Una sola dispensación imposibilita medicación crónica eficiente",
           ],
           impactoTDAH:
-            "Crítico - Impide acceso a medicación crónica como metilfenidato",
+            "Crítico - Impide acceso eficiente a medicación crónica como metilfenidato",
         },
         {
           articulo: "Artículo 16",
@@ -338,21 +306,21 @@ export const leyes = [
           textoActual: `En ningún caso podrán extenderse ni expenderse recetas cuya cantidad de sicotrópicos incluidos en la Lista II, exceda la necesaria para administrar... hasta veinte (20) días de tratamiento.`,
           problemasIdentificados: [
             "Obliga consultas médicas cada 20 días para medicación crónica",
-            "Inapropiado para TDAH que requiere tratamiento continuo",
+            "Inadecuado para TDAH que requiere tratamiento continuo",
             "Sobrecarga innecesaria del sistema de salud",
           ],
-          impactoTDAH: "Crítico - Principal barrera para tratamiento TDAH",
+          impactoTDAH: "Crítico - Principal barrera para tratamiento TDAH continuo",
         },
       ],
       resumenImpacto: {
         problemasPrincipales: [
           "Conflicto directo con Ley 27.553 de recetas electrónicas",
           "Límite de 20 días inadecuado para medicación crónica TDAH",
-          "Sistema manuscrito obsoleto en era digital",
+          "Sistema manuscrito obsoleto para era digital",
         ],
         solucionSimple:
-          "Decreto presidencial que clarifique prevalencia de Ley 27.553 para medicamentos TDAH",
-        urgencia: "Alta - Afecta a 500,000+ pacientes TDAH en Argentina",
+          "Modernización normativa que permita prescripciones electrónicas para medicamentos TDAH",
+        urgencia: "Alta - Afecta a más de 500,000 pacientes TDAH en Argentina",
       },
     },
   },
@@ -360,110 +328,110 @@ export const leyes = [
 
 export const propuestasNecesarias = [
   {
-    titulo: "Monitoreo y Seguimiento de la Implementación de la Resolución 2214/2025",
+    titulo: "Seguimiento de la Resolución 2214/2025",
     resumenEjecutivo:
-      "Asegurar el cumplimiento efectivo de la Resolución 2214/2025 que establece recetas exclusivamente electrónicas con plazo de 120 días para medicamentos controlados TDAH.",
+      "Monitorear el cumplimiento efectivo de la Resolución 2214/2025 que establece recetas exclusivamente electrónicas para medicamentos TDAH con plazo de 120 días.",
     descripcion:
-      "La nueva resolución es un marco normativo excelente que podría resolver completamente el problema de acceso a medicación TDAH. Se requiere:\n\n1) **Monitoreo del cumplimiento del plazo de 120 días** para implementación de recetas electrónicas de psicotrópicos Lista II.\n\n2) **Presión para derogación explícita** de artículos conflictivos de la Ley 19.303.\n\n3) **Seguimiento jurisdiccional** para asegurar que todas las provincias implementen correctamente.",
+      "La Resolución 2214/2025 representa un avance significativo que podría resolver el problema de acceso a medicación TDAH. Se requiere:\n\n1) **Monitoreo del cumplimiento del plazo de 120 días** para implementación de recetas electrónicas de psicotrópicos Lista II.\n\n2) **Seguimiento jurisdiccional** para asegurar implementación efectiva en todas las provincias.\n\n3) **Evaluación de resultados** para identificar obstáculos y proponer ajustes necesarios.",
     problemaQueResuelve:
-      "Garantizar que la excelente Resolución 2214/2025 se implemente efectivamente y no sufra dilaciones como ocurrió con la Ley 27.553.",
+      "Asegurar implementación efectiva y evitar dilaciones que limiten el impacto de esta normativa para pacientes TDAH.",
     beneficiosClave: [
-      "✅ Resolución ya establece recetas exclusivamente electrónicas obligatorias.",
-      "⏱️ Plazo específico de 120 días para medicamentos TDAH (psicotrópicos Lista II).",
-      "📋 Sistema CUIR garantiza trazabilidad completa de prescripciones.",
-      "🏥 Repositorios obligatorios con acceso a autoridades de control.",
+      "Establece recetas exclusivamente electrónicas obligatorias",
+      "Plazo específico de 120 días para medicamentos TDAH",
+      "Sistema CUIR garantiza trazabilidad completa",
+      "Repositorios digitales con acceso controlado",
     ],
     ventajas: [
-      "🎯 Marco normativo ya aprobado y vigente desde julio 2025.",
-      "⚖️ Seguridad jurídica: recetas exclusivamente electrónicas son obligatorias.",
-      "🔬 Basado en infraestructura digital moderna con estándares internacionales.",
-      "💪 Potencial de resolver completamente el problema TDAH si se implementa correctamente.",
+      "Marco normativo ya aprobado y vigente",
+      "Seguridad jurídica con obligatoriedad clara",
+      "Adopción de estándares internacionales modernos",
+      "Potencial para resolver completamente el problema de acceso",
     ],
-    impacto: "🎯 Solución potencial para más de 500,000 pacientes TDAH.",
+    impacto: "Solución potencial para más de 500,000 pacientes TDAH en Argentina",
     responsable: "Ministerio de Salud Nacional y jurisdicciones provinciales",
-    accionNecesaria: "Monitoreo estricto del cumplimiento del plazo de noviembre 2025.",
+    accionNecesaria: "Monitoreo estricto del cumplimiento del plazo de noviembre 2025",
   },
   {
-    titulo: "Ampliación de Opciones Terapéuticas y Registro de Medicamentos",
+    titulo: "Ampliación de Opciones Terapéuticas",
     resumenEjecutivo:
-      "Facilitar el registro de nuevos medicamentos para TDAH ya aprobados internacionalmente. Incluye lisdexanfetamina para pacientes que no responden a tratamientos actuales.",
+      "Facilitar el registro de nuevos medicamentos para TDAH ya aprobados internacionalmente. Argentina dispone de opciones limitadas comparado con estándares mundiales.",
     descripcion:
-      "El Consenso y la literatura internacional evidencian la necesidad de más opciones terapéuticas.\n\nSe propone una acción coordinada entre ANMAT y el Congreso para:\n• Contactar laboratorios farmacéuticos\n• Identificar barreras de mercado\n• Agilizar el registro de medicamentos ya aprobados por FDA y EMA",
+      "El Consenso y la literatura internacional evidencian la necesidad de más opciones terapéuticas.\n\nSe propone acción coordinada entre ANMAT y el Congreso para:\n• Contactar laboratorios farmacéuticos internacionales\n• Identificar barreras regulatorias y de mercado\n• Agilizar registro de medicamentos aprobados por FDA y EMA",
     problemaQueResuelve:
-      "La falta de alternativas para el ~30% de pacientes con respuesta inadecuada a la medicación disponible, un problema destacado en el Consenso.",
+      "Falta de alternativas para aproximadamente 30% de pacientes con respuesta inadecuada a medicación disponible.",
     beneficiosClave: [
-      "💊 Introduce la lisdexanfetamina y otras opciones terapéuticas.",
-      "👩‍⚕️ Ofrece más herramientas a los médicos para personalizar tratamientos.",
-      "📈 Fomenta la innovación y competitividad en el mercado farmacéutico.",
+      "Incorporación de lisdexanfetamina y otras opciones terapéuticas",
+      "Mayor arsenal farmacológico para personalización de tratamientos",
+      "Fomento de competitividad en el mercado farmacéutico",
     ],
     ventajas: [
-      "🌍 Acceso a tratamientos estándar a nivel mundial.",
-      "📝 No requiere una nueva ley, sino una acción regulatoria de ANMAT.",
-      "🏢 Diálogo directo con la industria para eliminar barreras.",
+      "Acceso a tratamientos estándar internacionales",
+      "No requiere nueva legislación, solo acción regulatoria",
+      "Diálogo directo con industria farmacéutica",
     ],
-    impacto: "🎯 Beneficio potencial para hasta 150,000 pacientes.",
+    impacto: "Beneficio potencial para hasta 150,000 pacientes",
     responsable: "ANMAT y Comisión de Salud del Congreso",
-    accionNecesaria: "Solicitar informes a ANMAT y contactar a laboratorios.",
+    accionNecesaria: "Solicitar informes a ANMAT sobre barreras regulatorias",
   },
 ];
 
-// Problemas identificados - Estructura optimizada
+// Problemas principales del TDAH en Argentina
 export const problemasReales = [
   {
-    problema: "Implementación Pendiente de la Nueva Resolución 2214/2025",
+    problema: "Implementación de la Resolución 2214/2025",
     descripcion:
-      "La nueva Resolución 2214/2025 del Ministerio de Salud es un avance revolucionario, pero su implementación efectiva es crucial.\n\nEstado actual:\n• Plazo de 120 días para implementar recetas electrónicas de psicotrópicos Lista II\n• Depende de coordinación entre jurisdicciones, softwares y repositorios\n• No deroga explícitamente los artículos conflictivos de la Ley 19.303\n• Riesgo de dilaciones sin sanciones por incumplimiento",
+      "La Resolución 2214/2025 establece por primera vez recetas exclusivamente electrónicas para medicamentos TDAH.\n\n**Aspectos positivos:**\n• Elimina recetas manuscritas obligatorias\n• Plazo específico de 120 días (noviembre 2025)\n• Sistema CUIR para trazabilidad\n• Cobertura en todo el territorio nacional\n\n**Aspectos a monitorear:**\n• Cumplimiento efectivo por parte de las jurisdicciones\n• Implementación real en farmacias\n• Resolución de conflictos normativos pendientes",
     resumen:
-      "Excelente marco normativo que podría resolver completamente el problema TDAH, pero requiere seguimiento estricto de implementación.",
-    urgencia: "Alta - Monitoreo de cumplimiento",
-    impacto: "Potencial solución para más de 500,000 pacientes",
+      "Primera normativa que puede resolver el problema de acceso a medicación TDAH. Requiere seguimiento estricto de implementación.",
+    urgencia: "Alta",
+    impacto: "Potencial solución para 500,000+ pacientes TDAH",
   },
   {
-    problema: "Limitadas Opciones Farmacológicas",
+    problema: "Opciones farmacológicas limitadas",
     descripcion:
-      "Argentina solo dispone de dos medicamentos: metilfenidato y atomoxetina.\n\nProblemas identificados:\n• Falta lisdexanfetamina (tratamiento estándar internacional)\n• ~30% de pacientes no responden a las terapias actuales\n• Opciones limitadas para casos complejos\n• Retraso respecto a estándares internacionales",
+      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n**Comparación internacional:**\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 2 medicamentos (metilfenidato y atomoxetina)\n\n**Consecuencias:**\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Falta de lisdexanfetamina (estándar internacional)\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
     resumen:
-      "La falta de acceso a medicamentos modernos como la lisdexanfetamina limita severamente la efectividad del tratamiento.",
-    urgencia: "Crítico",
-    impacto: "Afecta a ~150,000 pacientes sin alternativas terapéuticas",
+      "Brecha significativa entre opciones disponibles en Argentina y estándares internacionales. Limita efectividad del tratamiento.",
+    urgencia: "Alta",
+    impacto: "Afecta aproximadamente 150,000 pacientes sin alternativas",
   },
   {
-    problema: "Infradiagnóstico en Adultos, especialmente en Mujeres",
+    problema: "Subdiagnóstico en adultos, especialmente mujeres",
     descripcion:
-      "El Consenso subraya el subdiagnóstico en adultos, especialmente en mujeres.\n\nFactores que complican el diagnóstico:\n• Síntomas se confunden con otras condiciones\n• En mujeres: presentación predominantemente inatenta\n• Enmascaramiento por comorbilidades (ansiedad, depresión)\n• Retraso o ausencia de diagnóstico correcto",
+      "Existe una brecha significativa en el diagnóstico de TDAH en población adulta, particularmente en mujeres.\n\n**Datos relevantes:**\n• Proporción diagnóstica niños: 4:1 (hombres:mujeres)\n• Proporción real estimada en adultos: 2:1\n• Miles de mujeres adultas sin diagnóstico histórico\n\n**Factores contribuyentes:**\n• Presentación predominantemente inatenta en mujeres\n• Síntomas se confunden con otros trastornos\n• Sesgo diagnóstico hacia hiperactividad masculina\n• Estrategias compensatorias ocultan síntomas",
     resumen:
-      "El sesgo de género y la diferente presentación de síntomas invisibilizan el TDAH en la población adulta y femenina.",
+      "Sesgo diagnóstico sistemático afecta especialmente a mujeres adultas. Presenta desafíos para identificación y tratamiento oportuno.",
     urgencia: "Alta",
     impacto: "Miles de adultos, especialmente mujeres, sin diagnóstico",
   },
   {
-    problema: "Tensión entre el Enfoque Neurobiológico y la Influencia del Psicoanálisis",
+    problema: "Tensiones entre enfoques terapéuticos",
     descripcion:
-      "Los estudios 'The Journey of ADHD in Argentina' (2018) y 'Medicalización del TDAH en Argentina' (2020) destacan la fuerte influencia del psicoanálisis en el país.\n\nImpacto en la práctica clínica:\n• Se opone a la 'medicalización de la infancia'\n• Argumenta que el diagnóstico TDAH viola la Ley de Salud Mental\n• Rechaza el uso de estimulantes\n• Crea tensión con el enfoque neurobiológico\n• Dificulta un diagnóstico estandarizado y basado en evidencia",
+      "Existen diferencias conceptuales significativas entre corrientes profesionales respecto al TDAH.\n\n**Perspectivas en tensión:**\n• Enfoque neurobiológico: TDAH como condición neurológica\n• Corrientes psicoanalíticas: resistencia a medicalización\n• Interpretaciones variables de normativas existentes\n\n**Impacto en la práctica:**\n• Inconsistencia en criterios diagnósticos\n• Variabilidad en enfoques de tratamiento\n• Resistencia al tratamiento farmacológico en algunos sectores\n• Confusión en pacientes y familias",
     resumen:
-      "La fuerte influencia del psicoanálisis, que a menudo se opone al diagnóstico y tratamiento farmacológico del TDAH, crea una barrera cultural y profesional para el acceso al cuidado.",
-    urgencia: "Alta",
-    impacto: "Afecta la calidad, consistencia y acceso al tratamiento a nivel nacional",
+      "Diferencias conceptuales entre corrientes profesionales generan inconsistencias en diagnóstico y tratamiento del TDAH.",
+    urgencia: "Media",
+    impacto: "Afecta consistencia y calidad de atención a nivel nacional",
   },
 ];
 
 export const fuentesDocumentacion = {
   titulo: "Fuentes y Documentación",
-  descripcion: "El análisis presentado en esta página se basa en una revisión exhaustiva de la legislación vigente, consensos de especialistas y producción académica relevante. Los documentos clave que informan este análisis son:",
+  descripcion: "El análisis se basa en revisión exhaustiva de legislación vigente, consensos de especialistas y producción académica relevante:",
   fuentes: [
     {
       titulo: "Resolución 2214/2025 del Ministerio de Salud",
-      descripcion: "Establece la implementación integral de recetas electrónicas con plazos específicos para medicamentos controlados TDAH. Representa el avance normativo más significativo para pacientes con TDAH.",
+      descripcion: "Establece implementación integral de recetas electrónicas con plazos específicos para medicamentos controlados TDAH.",
       referencia: "(Boletín Oficial, 21/07/2025)"
     },
     {
-      titulo: "Primer Consenso Argentino sobre el manejo del TDAH en la adultez",
-      descripcion: "Proporciona la base clínica y científica para las propuestas de reforma.",
+      titulo: "Primer Consenso Argentino sobre TDAH en Adultos",
+      descripcion: "Proporciona base clínica y científica para propuestas de reforma y actualización normativa.",
       referencia: "(Vertex, 2025)"
     },
     {
       titulo: "Medicalización del TDAH en Argentina",
-      descripcion: "Analiza las tendencias y especificidades locales del tratamiento del TDAH.",
+      descripcion: "Analiza tendencias y especificidades locales del tratamiento del TDAH en el contexto argentino.",
       referencia: "(Bianchi, Faraone & Torricelli, 2020)"
     },
     {
@@ -473,9 +441,9 @@ export const fuentesDocumentacion = {
     },
     {
       titulo: "Leyes Nacionales y Decretos",
-      descripcion: "Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Decreto 345/2024.",
-      referencia: ""
+      descripcion: "Marco normativo completo: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Resolución 2214/2025.",
+      referencia: "(InfoLeg y Boletín Oficial)"
     }
   ],
-  notaLegal: "Este es un proyecto de análisis independiente y no representa una comunicación oficial de ninguna entidad gubernamental."
+  notaLegal: "Proyecto independiente de análisis. No representa comunicación oficial de entidades gubernamentales. Información verificable en fuentes públicas."
 };
