@@ -58,4 +58,3 @@ La combinación CUIR + CUIL crea un sistema robusto que permite a los pacientes 
 
 **Repositorio Centralizado para Acceso Nacional:**
 Los repositorios deben enviar información de prescripciones TDAH a un sistema centralizado, garantizando que un paciente pueda obtener su medicación en cualquier farmacia de Argentina con solo presentar su documento. Esto elimina definitivamente la fragmentación territorial que obligaba a pacientes a viajar o cambiar médicos por cambios de residencia.
-

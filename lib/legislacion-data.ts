@@ -1,5 +1,3 @@
-
-
 // Leyes principales relevantes para TDAH - Simplificadas y actualizadas
 export const leyes = [
   {
