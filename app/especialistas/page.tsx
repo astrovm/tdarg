@@ -368,136 +368,140 @@ export default function EspecialistasPage() {
             </p>
           </div>
 
-          {/* Doctors Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {especialistasFiltrados.map((especialista, index) => (
-              <Card
-                key={index}
-                className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
-              >
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-xl">{especialista.nombre}</CardTitle>
-                      <CardDescription className="text-base font-medium text-blue-600 mb-2">
-                        {especialista.especialidad}
-                      </CardDescription>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="text-xs">
-                          {especialista.tipo === "privado" && "Consulta Privada"}
-                          {especialista.tipo === "instituto" && "Instituto"}
-                          {especialista.tipo === "centro_especializado" && "Centro Especializado"}
-                          {especialista.tipo === "hospital" && "Hospital"}
-                          {especialista.tipo === "clinica" && "Clínica"}
-                          {especialista.tipo === "consultorio" && "Consultorio"}
-                          {especialista.tipo === "fundacion" && "Fundación"}
-                        </Badge>
-                        {especialista.hospital.includes("Solo niños") && (
-                          <Badge variant="secondary" className="text-xs">
-                            Solo Niños
+          {/* Doctors Grid - Only show if there are results */}
+          {especialistasFiltrados.length > 0 && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {especialistasFiltrados.map((especialista, index) => (
+                <Card
+                  key={index}
+                  className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                >
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle className="text-xl">{especialista.nombre}</CardTitle>
+                        <CardDescription className="text-base font-medium text-blue-600 mb-2">
+                          {especialista.especialidad}
+                        </CardDescription>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="outline" className="text-xs">
+                            {especialista.tipo === "privado" && "Consulta Privada"}
+                            {especialista.tipo === "instituto" && "Instituto"}
+                            {especialista.tipo === "centro_especializado" && "Centro Especializado"}
+                            {especialista.tipo === "hospital" && "Hospital"}
+                            {especialista.tipo === "clinica" && "Clínica"}
+                            {especialista.tipo === "consultorio" && "Consultorio"}
+                            {especialista.tipo === "fundacion" && "Fundación"}
                           </Badge>
-                        )}
-                      </div>
-                    </div>
-                    {especialista.rating && (
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-medium">{especialista.rating}</span>
-                      </div>
-                    )}
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-3">
-                      <div className="flex items-start space-x-2">
-                        <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
-                        <div className="text-sm">
-                          <div className="font-medium">
-                            {especialista.ciudad}, {especialista.provincia}
-                          </div>
-                          <div className="text-gray-600 dark:text-gray-300">{especialista.direccion}</div>
-                          <div className="text-gray-600 dark:text-gray-300">{especialista.hospital}</div>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Phone className="h-4 w-4 text-gray-400" />
-                        <span className="text-sm">{especialista.telefono}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Mail className="h-4 w-4 text-gray-400" />
-                        <span className="text-sm">{especialista.email}</span>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-2">
-                        <Clock className="h-4 w-4 text-gray-400" />
-                        <span className="text-sm">{especialista.horarios}</span>
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium mb-1">Experiencia:</div>
-                        <div className="text-sm text-gray-600">{especialista.experiencia}</div>
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium mb-2">Obras Sociales:</div>
-                        <div className="flex flex-wrap gap-1">
-                          {especialista.obraSocial.map((obra, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs">
-                              {obra}
+                          {especialista.hospital.includes("Solo niños") && (
+                            <Badge variant="secondary" className="text-xs">
+                              Solo Niños
                             </Badge>
-                          ))}
+                          )}
+                        </div>
+                      </div>
+                      {especialista.rating && (
+                        <div className="flex items-center space-x-1">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="text-sm font-medium">{especialista.rating}</span>
+                        </div>
+                      )}
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="flex items-start space-x-2">
+                          <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
+                          <div className="text-sm">
+                            <div className="font-medium">
+                              {especialista.ciudad}, {especialista.provincia}
+                            </div>
+                            <div className="text-gray-600 dark:text-gray-300">{especialista.direccion}</div>
+                            <div className="text-gray-600 dark:text-gray-300">{especialista.hospital}</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Phone className="h-4 w-4 text-gray-400" />
+                          <span className="text-sm">{especialista.telefono}</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Mail className="h-4 w-4 text-gray-400" />
+                          <span className="text-sm">{especialista.email}</span>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <Clock className="h-4 w-4 text-gray-400" />
+                          <span className="text-sm">{especialista.horarios}</span>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium mb-1">Experiencia:</div>
+                          <div className="text-sm text-gray-600">{especialista.experiencia}</div>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium mb-2">Obras Sociales:</div>
+                          <div className="flex flex-wrap gap-1">
+                            {especialista.obraSocial.map((obra, idx) => (
+                              <Badge key={idx} variant="outline" className="text-xs">
+                                {obra}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex space-x-2 pt-2">
-                    <Button
-                      className="flex-1"
-                      onClick={() =>
-                        especialista.telefono !== "Consultar" &&
-                        window.open(`https://wa.me/${especialista.telefono.replace(/[^0-9]/g, "")}`)
-                      }
-                      disabled={especialista.telefono === "Consultar"}
-                    >
-                      <MessageCircle className="h-4 w-4 mr-1" />
-                      {especialista.telefono !== "Consultar" ? "WhatsApp" : "Consultar Teléfono"}
-                    </Button>
-                    {especialista.url && (
-                      <Button variant="outline" onClick={() => window.open(especialista.url, "_blank")}>
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Web
+                    <div className="flex space-x-2 pt-2">
+                      <Button
+                        className="flex-1"
+                        onClick={() =>
+                          especialista.telefono !== "Consultar" &&
+                          window.open(`https://wa.me/${especialista.telefono.replace(/[^0-9]/g, "")}`)
+                        }
+                        disabled={especialista.telefono === "Consultar"}
+                      >
+                        <MessageCircle className="h-4 w-4 mr-1" />
+                        {especialista.telefono !== "Consultar" ? "WhatsApp" : "Consultar Teléfono"}
                       </Button>
-                    )}
-                    {especialista.email && especialista.email !== "Consultar" && (
-                      <Button variant="outline" onClick={() => window.open(`mailto:${especialista.email}`)}>
-                        <Mail className="h-4 w-4" />
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                      {especialista.url && (
+                        <Button variant="outline" onClick={() => window.open(especialista.url, "_blank")}>
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          Web
+                        </Button>
+                      )}
+                      {especialista.email && especialista.email !== "Consultar" && (
+                        <Button variant="outline" onClick={() => window.open(`mailto:${especialista.email}`)}>
+                          <Mail className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
 
-          {/* No Results */}
-          <Card className="text-center py-12 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
-            <CardContent>
-              <div className="text-gray-500 mb-4">
-                <Search className="h-12 w-12 mx-auto mb-4" />
-                <h3 className="text-lg font-medium">No se encontraron especialistas</h3>
-                <p>Intenta ajustar los filtros de búsqueda</p>
-              </div>
-              <Button
-                onClick={() => {
-                  setFiltroNombre("")
-                  setProvincia("todas")
-                  setEspecialidad("todas")
-                }}
-              >
-                Limpiar Filtros
-              </Button>
-            </CardContent>
-          </Card>
+          {/* No Results - Only show if there are no results */}
+          {especialistasFiltrados.length === 0 && (
+            <Card className="text-center py-12 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+              <CardContent>
+                <div className="text-gray-500 mb-4">
+                  <Search className="h-12 w-12 mx-auto mb-4" />
+                  <h3 className="text-lg font-medium">No se encontraron especialistas</h3>
+                  <p>Intenta ajustar los filtros de búsqueda</p>
+                </div>
+                <Button
+                  onClick={() => {
+                    setFiltroNombre("")
+                    setProvincia("todas")
+                    setEspecialidad("todas")
+                  }}
+                >
+                  Limpiar Filtros
+                </Button>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
 
@@ -512,19 +516,23 @@ export default function EspecialistasPage() {
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Entrevista de admisión inicial</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Entrevista de admisión inicial</p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Test neurocognitivo y entrevistas adicionales</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Test neurocognitivo y entrevistas adicionales
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Descarte de patologías similares</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Descarte de patologías similares</p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Evaluación de comorbidades (TEA, TOC, etc.)</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Evaluación de comorbidades (TEA, TOC, etc.)
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -536,19 +544,27 @@ export default function EspecialistasPage() {
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">El diagnóstico tiene costos, pero es más caro no tenerlo</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    El diagnóstico tiene costos, pero es más caro no tenerlo
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Hospital Italiano tiene algún tipo de cobertura</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Hospital Italiano tiene algún tipo de cobertura
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">INECO ofrece diagnóstico acelerado (útil para interior)</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    INECO ofrece diagnóstico acelerado (útil para interior)
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Muchas obras sociales cubren medicamentos crónicos</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Muchas obras sociales cubren medicamentos crónicos
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -560,19 +576,25 @@ export default function EspecialistasPage() {
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Pregunta si evaluaron comorbidades</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Pregunta si evaluaron comorbidades</p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Entiende el porqué del medicamento recetado</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Entiende el porqué del medicamento recetado
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Metilfenidato: 70% eficacia vs Atomoxetina: 20%</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Metilfenidato: 70% eficacia vs Atomoxetina: 20%
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700">Necesitas receta triplicada para metilfenidato</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Necesitas receta triplicada para metilfenidato
+                  </p>
                 </div>
               </CardContent>
             </Card>
