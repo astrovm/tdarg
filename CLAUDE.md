@@ -121,47 +121,63 @@ app/
 
 #### Core APIs
 
-- **`/app/api/medicamentos-precios/route.ts`**: Medication pricing from Farmacity
-- **`/app/api/legislacion-tracker/route.ts`**: Congressional projects tracking (currently with mock data)
+- **`/app/api/medicamentos-precios/route.ts`**: Medication pricing from Farmacity with caching and error handling
 
 #### Main Pages
 
-- **`/app/legislacion/page.tsx`**: Main legislation analysis interface with comprehensive law analysis including Ley 27.553, Ley 19.303, and Ley 26.657. Contains complete decree and legislative project documents ready for official submission.
-- **`/app/precios/page.tsx`**: Medication pricing interface
+- **`/app/legislacion/page.tsx`**: Legislation analysis interface displaying laws, problems, and proposed solutions
+- **`/app/precios/page.tsx`**: Medication pricing interface with real-time Farmacity integration
 - **`/app/especialistas/page.tsx`**: Medical professionals directory
 
 #### Core Hooks
 
-- **`/hooks/use-legislacion-tracker.ts`**: Manages simulated legislation analysis
-- **`/hooks/use-medicamentos-reales.ts`**: Handles real-time medication pricing
+- **`/hooks/use-medicamentos-reales.ts`**: Handles real-time medication pricing with caching
+- **`/hooks/use-mobile.tsx`**: Responsive design utilities (also available as UI component)
 
 #### Legal Document Management
 
 - **`/scripts/download-laws.ts`**: Downloads and caches legal documents from InfoLeg government site
-- **`/data/leyes/`**: Cached legal documents with metadata (automatically created by download script)
-- **`/decreto-recetas-electronicas-tdah.md`**: Complete presidential decree ready for submission
-- **`/proyecto-ley-modernizacion-tdah.md`**: Complete legislative project ready for congressional submission
+- **`/data/leyes/`**: Cached legal documents with metadata (HTML/PDF format)
+- **`/data/resumenes/`**: Markdown summaries of key legal documents and research papers
+- **`/lib/legislacion-data.ts`**: Structured TypeScript data for laws, problems, and solutions
 
 ### Legal Document System
 
-The legislation section includes a sophisticated legal document analysis system:
+The legislation section provides comprehensive analysis of TDAH-related laws in Argentina:
 
-1. **Document Analysis**: Detailed AI-powered analysis of laws identifying specific problematic articles
-2. **Impact Assessment**: Scoring system evaluating real-world impact on TDAH patients
-3. **Solution Proposals**: Ready-to-submit legal documents (decrees and legislative projects)
-4. **Document Viewer**: Modal viewer with markdown formatting for legal documents
+1. **Document Analysis**: Detailed analysis of laws identifying problematic articles and their impact
+2. **Impact Assessment**: Scoring system evaluating real-world effects on TDAH patients
+3. **Solution Proposals**: Structured proposals for legislative improvements
+4. **Document Management**: Organized storage of official documents, summaries, and analysis
 5. **Download System**: Automated downloading of legal documents from official government sources
 
-The system focuses on the conflict between Ley 27.553 (electronic prescriptions) and Ley 19.303 (controlled substances) that prevents TDAH patients from accessing electronic prescriptions.
+Key focus: Resolving conflicts between Ley 27.553 (electronic prescriptions) and Ley 19.303 (controlled substances) that complicate TDAH medication access. Recent addition of Resolución 2214/2025 analysis shows potential resolution of these conflicts.
 
 ### Legal Document Updates
 
 When updating legal documents in the legislation section:
-- The main law analysis is in `/app/legislacion/page.tsx` in the `leyes` array
+- The main law analysis is stored in `/lib/legislacion-data.ts` in the `leyes` array (not in page.tsx)
 - Each law entry includes detailed `analisisIA` and `analisisDetallado` sections
-- Complete legal documents are embedded as constants (`decretoContent`, `proyectoLeyContent`)
-- The download script `/scripts/download-laws.ts` maintains the `LAWS_CONFIG` array for new legal documents
+- The legislation page at `/app/legislacion/page.tsx` imports and displays this data
+- Complete legal documents and summaries are stored in `/data/resumenes/` as markdown files
+- The download script `/scripts/download-laws.ts` downloads official documents to `/data/leyes/`
 - Always include comprehensive legal analysis with specific article problems and solutions
+
+### Data Architecture
+
+The application uses a structured approach for legal data:
+- **Source Documents**: `/data/leyes/` contains official HTML/PDF documents
+- **Analysis Data**: `/lib/legislacion-data.ts` contains structured analysis with TypeScript types
+- **Summaries**: `/data/resumenes/` contains markdown summaries of key documents
+- **UI Components**: React components in `/app/legislacion/page.tsx` render the structured data
+
+### Content Management
+
+When updating legislation content:
+- Modify the data structures in `/lib/legislacion-data.ts` for law analysis
+- Update markdown files in `/data/resumenes/` for document summaries
+- The UI automatically reflects changes through the import system
+- Use professional, technical language avoiding sensationalist terms or excessive emojis
 
 # important-instruction-reminders
 Do what has been asked; nothing more, nothing less.
