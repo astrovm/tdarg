@@ -32,27 +32,26 @@ bun run download-laws
 
 ### Core Technology Stack
 
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS with shadcn/ui components
-- **Package Manager**: Bun
-- **TypeScript**: Full TypeScript implementation
-- **Theme**: Dark/light mode with next-themes
+- **Framework**: Next.js 15.2.4 with App Router and React 19
+- **Styling**: Tailwind CSS with complete shadcn/ui design system (32+ components)
+- **Package Manager**: Bun for superior performance and dependency management
+- **TypeScript**: Full TypeScript 5 implementation with strict mode
+- **Theme**: Dark/light mode with next-themes and CSS variable theming
+- **UI Library**: Comprehensive Radix UI primitives with custom styling
 
 ### Key Features
 
 1. **Real-time Medication Pricing**: Fetches ADHD medication prices from Farmacity API
-2. **AI-powered Legislation Analysis**: Analyzes approved laws and congressional bills related to ADHD
+2. **Legislation Analysis**: Comprehensive analysis of ADHD-related laws in Argentina
 3. **Professional Directory**: Database of ADHD specialists
-4. **Diagnostic Information**: Clinical guidelines and diagnostic tools
 
 ### Application Structure
 
 \`\`\`
 app/
 ├── api/
-│ ├── legislacion-tracker/ # AI legislation tracking endpoint
 │ └── medicamentos-precios/ # Medication pricing API
-├── legislacion/ # Legislation analysis and tracking
+├── legislacion/ # Legislation analysis interface
 ├── especialistas/ # Medical professionals directory
 └── precios/ # Medication pricing interface
 \`\`\`
@@ -63,33 +62,49 @@ app/
 - **Theme Provider**: Global dark/light theme management
 - **UI Components**: Complete shadcn/ui component library in `components/ui/`
 
-### Custom Hooks
+### Custom Hooks and Architecture Patterns
 
-- **`use-legislacion-tracker.ts`**: Manages AI-powered legislation analysis of congressional projects
-- **`use-medicamentos-reales.ts`**: Handles real-time medication pricing with caching
-- **`use-mobile.tsx`**: Responsive design utilities
+- **`use-medicamentos-reales.ts`**: Real-time medication pricing with sophisticated caching (15-min TTL), request deduplication, and abort controller management
+- **`use-mobile.tsx`**: Responsive design utilities with breakpoint detection
+- **`use-toast.ts`**: Toast notification system integrated with sonner
+
+**Key Patterns:**
+- Custom hooks abstract business logic from UI components
+- Comprehensive error handling with fallback to cached data
+- Request throttling and timeout handling (25-second API timeout)
+- Progressive loading states with skeleton components
 
 ### API Endpoints
 
 #### `/api/medicamentos-precios`
 
-- **GET**: Fetches current medication prices from Farmacity
+- **GET**: Fetches medication prices from Farmacity API with intelligent scraping
 - **DELETE**: Clears medication price cache
-- **Caching**: 15-minute TTL with fallback mechanisms
-- **Search Terms**: atomoxetina, metilfenidato
+- **Implementation Details**:
+  - 15-minute TTL caching with in-memory fallback
+  - Data deduplication and normalization
+  - Request throttling protection
+  - AbortController for request cancellation
+  - Search terms: "atomoxetina", "metilfenidato"
+  - Graceful error handling with cached data fallback
 
-#### `/api/legislacion-tracker`
 
-- **GET**: Returns AI-analyzed congressional bills
-- **POST**: Reports problematic legislation
-- **AI Analysis**: Scores bills on privacy risks, real benefits, and impact level
-- **Caching**: 1-hour TTL
+### Data Flow Architecture
 
-### Data Flow
+1. **Medication Pricing Flow**:
+   - Farmacity API → Server-side caching (15min TTL) → Client hook → UI components
+   - Auto-refresh every 20 minutes with loading states
+   - Request deduplication prevents concurrent calls
+   - Fallback to cached data on API failures
 
-1. **Medication Pricing**: Farmacity API → Cache → React Hook → UI
-2. **Legislation Analysis**: Static data with AI analysis → React Hook → UI
-3. **Theme Management**: next-themes → Theme Provider → Components
+2. **Legislation Analysis Flow**:
+   - Static TypeScript data in `lib/legislacion-data.ts` → Direct import → UI rendering
+   - Document downloads via `scripts/download-laws.ts` → `data/leyes/` storage
+   - Markdown summaries in `data/resumenes/` for detailed analysis
+
+3. **Theme Management Flow**:
+   - next-themes → CSS variables → Tailwind utilities → Component styling
+   - System/light/dark detection with persistent storage
 
 ### Important Implementation Details
 
@@ -113,9 +128,10 @@ app/
 ### Testing and Quality
 
 - No specific test framework is configured yet
-- ESLint is configured via `bun run lint`
-- TypeScript strict mode is enabled
-- The app includes proper error boundaries and loading states
+- ESLint is configured via `bun lint`
+- TypeScript strict mode is enabled with full type coverage
+- The app includes comprehensive error boundaries and loading states
+- Code quality enforced through TypeScript compiler and ESLint rules
 
 ### Key Files and Services
 
@@ -178,6 +194,31 @@ When updating legislation content:
 - Update markdown files in `/data/resumenes/` for document summaries
 - The UI automatically reflects changes through the import system
 - Use professional, technical language avoiding sensationalist terms or excessive emojis
+
+## Configuration and Build Details
+
+### Key Configuration Files
+
+- **`next.config.mjs`**: React Strict Mode disabled, error tolerance for rapid development, optimized image handling
+- **`tailwind.config.ts`**: CSS variable-based theming with dark mode support, extended design tokens
+- **`tsconfig.json`**: Strict TypeScript configuration with path mapping (`@/*` imports)
+- **`package.json`**: Uses Bun as package manager, comprehensive Radix UI component dependencies
+
+### Development Workflow
+
+1. **Code Architecture**: Next.js App Router with TypeScript-first development
+2. **Component Development**: shadcn/ui design system with Radix UI primitives
+3. **State Management**: Custom React hooks for business logic abstraction
+4. **Error Handling**: Comprehensive error boundaries with graceful fallbacks
+5. **Performance**: Multi-layer caching, request deduplication, timeout handling
+
+### Performance Optimizations
+
+- **API Caching**: In-memory caching with TTL and fallback mechanisms
+- **Request Management**: AbortController, throttling, and deduplication
+- **Loading States**: Skeleton components and progressive loading
+- **Data Normalization**: Automated cleaning and duplicate detection
+- **Theme System**: CSS variables for efficient theme switching
 
 # important-instruction-reminders
 Do what has been asked; nothing more, nothing less.
