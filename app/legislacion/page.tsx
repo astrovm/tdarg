@@ -45,30 +45,32 @@ export default function LegislacionPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <Header />
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Page Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-blue-100 to-indigo-200 dark:from-blue-900/50 dark:to-indigo-900/50 border-b border-gray-300 dark:border-gray-700">
+        <div className="container mx-auto px-4 py-12">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Análisis Inteligente de Legislación TDAH
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl">
             Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente
             beneficia a los pacientes vs. el "teatro político".
           </p>
         </div>
+      </div>
 
-        {/* Real Problems - SIMPLIFIED */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Problemas Identificados</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
+      {/* Problems Section */}
+      <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Problemas Identificados</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-400 mb-4">
             Análisis de los obstáculos principales para acceso a medicación TDAH
           </p>
 
           {/* Explicación de niveles de urgencia */}
-          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-2 border-blue-200 dark:border-blue-800">
             <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">📊 Niveles de Urgencia</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center space-x-2">
@@ -101,7 +103,10 @@ export default function LegislacionPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {problemasReales.map((item, index) => (
-              <Card key={index} className="border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/10">
+              <Card
+                key={index}
+                className="border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/10 border-2 dark:border-red-800"
+              >
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-2">
                     <Badge
@@ -130,14 +135,19 @@ export default function LegislacionPage() {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Propuestas Necesarias */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Soluciones Propuestas</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">Propuestas listas para presentación oficial</p>
+      {/* Solutions Section */}
+      <div className="bg-white dark:bg-gray-800 border-y border-gray-300 dark:border-gray-700">
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Soluciones Propuestas</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">Propuestas listas para presentación oficial</p>
           <div className="space-y-6">
             {propuestasNecesarias.map((propuesta, index) => (
-              <Card key={index} className="border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-900/10">
+              <Card
+                key={index}
+                className="border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-900/10 border-2 dark:border-blue-800"
+              >
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div className="flex-1">
@@ -194,13 +204,18 @@ export default function LegislacionPage() {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Current Laws */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Leyes Vigentes - Análisis</h2>
+      {/* Laws Section */}
+      <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Leyes Vigentes - Análisis</h2>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+              >
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div>
@@ -225,7 +240,7 @@ export default function LegislacionPage() {
                   <p className="text-gray-700 mb-4">{ley.descripcion}</p>
 
                   {/* AI Analysis for Laws */}
-                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 dark:border-gray-600">
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="font-semibold flex items-center space-x-2">
                         <Brain className="h-4 w-4" />
@@ -317,7 +332,7 @@ export default function LegislacionPage() {
                           📊 Resumen del Impacto
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                          <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 dark:border-red-800">
                             <h4 className="font-medium text-red-800 dark:text-red-200 mb-2">
                               ❌ Problemas Principales
                             </h4>
@@ -330,14 +345,14 @@ export default function LegislacionPage() {
                               ))}
                             </ul>
                           </div>
-                          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-2 dark:border-green-800">
                             <h4 className="font-medium text-green-800 dark:text-green-200 mb-2">✅ Solución Simple</h4>
                             <p className="text-sm text-green-700 dark:text-green-300">
                               {ley.analisisDetallado.resumenImpacto.solucionSimple || "Reforma integral necesaria"}
                             </p>
                           </div>
                         </div>
-                        <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                        <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-2 dark:border-yellow-800">
                           <p className="text-sm">
                             <strong className="text-yellow-800 dark:text-yellow-200">Urgencia:</strong>{" "}
                             <span className="text-yellow-700 dark:text-yellow-300">
@@ -360,7 +375,10 @@ export default function LegislacionPage() {
                         </h3>
                         <div className="space-y-4">
                           {ley.analisisDetallado.articulosProblematicos.map((articulo, idx) => (
-                            <div key={idx} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <div
+                              key={idx}
+                              className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                            >
                               <div className="flex items-start justify-between mb-3">
                                 <div>
                                   <h4 className="font-medium text-gray-900 dark:text-white">
@@ -378,7 +396,7 @@ export default function LegislacionPage() {
                               <div className="space-y-3">
                                 <div>
                                   <h5 className="font-medium text-gray-800 dark:text-gray-200 mb-2">📜 Texto Actual</h5>
-                                  <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+                                  <div className="bg-gray-100 dark:bg-gray-600 p-3 rounded text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap border-2 dark:border-gray-500">
                                     {articulo.textoActual}
                                   </div>
                                 </div>
@@ -411,12 +429,10 @@ export default function LegislacionPage() {
       </div>
 
       {/* Fuentes Section */}
-      <footer className="bg-gray-100 dark:bg-gray-800 mt-12 py-8">
+      <footer className="bg-gray-800 dark:bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            {fuentesDocumentacion.titulo}
-          </h2>
-          <div className="max-w-4xl mx-auto text-sm text-gray-600 dark:text-gray-400">
+          <h2 className="text-2xl font-bold mb-6 text-center">{fuentesDocumentacion.titulo}</h2>
+          <div className="max-w-4xl mx-auto text-sm text-gray-300">
             <p className="mb-4">{fuentesDocumentacion.descripcion}</p>
             <ul className="list-disc list-inside space-y-2 mb-6">
               {fuentesDocumentacion.fuentes.map((fuente, index) => (
