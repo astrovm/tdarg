@@ -70,3 +70,12 @@
 .dark .text-gray-500 {
   color: rgb(156 163 175) !important; /* gray-400 */
 }
+
+/* Secciones alternadas para mejor contraste */
+.section-alternate {
+  background-color: hsl(var(--secondary));
+}
+
+.section-primary {
+  background-color: hsl(var(--background));
+}

@@ -19,10 +19,10 @@ ADHD information hub for Argentina. Find real-time medication prices, healthcare
 
 ## Development
 
-```bash
+\`\`\`bash
 bun install
 bun dev
-```
+\`\`\`
 
 ## Tech Stack
 
@@ -33,8 +33,8 @@ bun dev
 
 ## Scripts
 
-```bash
+\`\`\`bash
 bun dev          # Development
 bun build        # Production
 bun lint         # Code check
-```
+\`\`\`

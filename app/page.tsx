@@ -6,15 +6,15 @@ import { Header } from "@/components/header"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       {/* Header */}
       <Header />
 
-      {/* Hero Section */}
-      <section className="py-20">
+      {/* Hero Section - Fondo azul suave */}
+      <section className="py-20 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">TDAH en Argentina</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
             Información actualizada sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
             medicamentos, directorio de especialistas y análisis legislativo.
           </p>
@@ -41,8 +41,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white dark:bg-gray-800">
+      {/* Stats Section - Fondo blanco para contraste fuerte */}
+      <section className="py-16 bg-white dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
@@ -65,12 +65,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      {/* Features Grid - Fondo gris medio para diferenciación */}
+      <section className="py-16 bg-gray-200 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Recursos Disponibles</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
               <CardHeader>
                 <TrendingUp className="h-8 w-8 text-blue-600 mb-2" />
                 <CardTitle>Precios de Medicamentos</CardTitle>
@@ -78,7 +78,7 @@ export default function HomePage() {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
               <CardHeader>
                 <Stethoscope className="h-8 w-8 text-purple-600 mb-2" />
                 <CardTitle>Directorio de Especialistas</CardTitle>
@@ -86,7 +86,7 @@ export default function HomePage() {
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
               <CardHeader>
                 <Scale className="h-8 w-8 text-red-600 mb-2" />
                 <CardTitle>Legislación</CardTitle>
@@ -97,11 +97,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Alert Section */}
-      <section className="py-16 bg-amber-50 dark:bg-amber-900/20">
+      {/* Alert Section - Fondo ámbar para destacar */}
+      <section className="py-16 bg-amber-100 dark:bg-amber-900/30 border-y border-amber-200 dark:border-amber-800">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-start space-x-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-amber-200 dark:border-amber-800">
+            <div className="flex items-start space-x-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border-2 border-amber-300 dark:border-amber-700">
               <AlertCircle className="h-6 w-6 text-amber-600 dark:text-amber-400 mt-1 flex-shrink-0" />
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Importante</h4>
@@ -115,7 +115,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - Fondo oscuro para contraste final */}
       <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -130,12 +130,12 @@ export default function HomePage() {
               <h5 className="font-semibold mb-4">Recursos</h5>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/precios" className="hover:text-white">
+                  <Link href="/precios" className="hover:text-white transition-colors">
                     Precios
                   </Link>
                 </li>
                 <li>
-                  <Link href="/especialistas" className="hover:text-white">
+                  <Link href="/especialistas" className="hover:text-white transition-colors">
                     Especialistas
                   </Link>
                 </li>
@@ -145,7 +145,7 @@ export default function HomePage() {
               <h5 className="font-semibold mb-4">Información</h5>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/legislacion" className="hover:text-white">
+                  <Link href="/legislacion" className="hover:text-white transition-colors">
                     Legislación
                   </Link>
                 </li>
