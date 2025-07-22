@@ -460,6 +460,11 @@ export const fuentesDocumentacion = {
   descripcion: "El análisis presentado en esta página se basa en una revisión exhaustiva de la legislación vigente, consensos de especialistas y producción académica relevante. Los documentos clave que informan este análisis son:",
   fuentes: [
     {
+      titulo: "Resolución 2214/2025 del Ministerio de Salud",
+      descripcion: "Establece la implementación integral de recetas electrónicas con plazos específicos para medicamentos controlados TDAH. Representa el avance normativo más significativo para pacientes con TDAH.",
+      referencia: "(Boletín Oficial, 21/07/2025)"
+    },
+    {
       titulo: "Primer Consenso Argentino sobre el manejo del TDAH en la adultez",
       descripcion: "Proporciona la base clínica y científica para las propuestas de reforma.",
       referencia: "(Vertex, 2025)"
