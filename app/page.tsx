@@ -15,18 +15,27 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">TDAH en Argentina</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Información actualizada sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios oficiales,
-            directorio de especialistas y análisis legislativo.
+            Información actualizada sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
+            medicamentos, directorio de especialistas y análisis legislativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link href="/precios">Ver Precios</Link>
+              <Link href="/precios">
+                <TrendingUp className="mr-2 h-5 w-5" />
+                Ver Precios
+              </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link href="/especialistas">Buscar Especialistas</Link>
+              <Link href="/especialistas">
+                <Stethoscope className="mr-2 h-5 w-5" />
+                Buscar Especialistas
+              </Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/legislacion">Ver Legislación</Link>
+              <Link href="/legislacion">
+                <Scale className="mr-2 h-5 w-5" />
+                Ver Legislación
+              </Link>
             </Button>
           </div>
         </div>
@@ -64,10 +73,8 @@ export default function HomePage() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <TrendingUp className="h-8 w-8 text-blue-600 mb-2" />
-                <CardTitle>Precios Actualizados</CardTitle>
-                <CardDescription>
-                  Precios oficiales de metilfenidato y atomoxetina desde el sitio del gobierno
-                </CardDescription>
+                <CardTitle>Precios de Medicamentos</CardTitle>
+                <CardDescription>Precios actualizados de metilfenidato y atomoxetina desde Farmacity</CardDescription>
               </CardHeader>
             </Card>
 
