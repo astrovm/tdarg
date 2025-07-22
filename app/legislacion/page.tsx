@@ -18,22 +18,18 @@ import {
   ChevronDown,
   ChevronUp,
   Gavel,
-  Eye,
 } from "lucide-react";
 import { Header } from "@/components/header";
 import React, { useState } from "react";
 import {
-  decretoContent,
   fuentesDocumentacion,
   leyes,
   problemasReales,
   propuestasNecesarias,
-  proyectoLeyContent,
 } from "@/lib/legislacion-data";
 
 export default function LegislacionPage() {
   const [expandedLaw, setExpandedLaw] = useState<string | null>(null);
-  const [viewingDocument, setViewingDocument] = useState<string | null>(null);
 
   const formatText = (text: string) => {
     return text
@@ -65,15 +61,6 @@ export default function LegislacionPage() {
   const toggleLawDetails = (lawNumber: string) => {
     setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber);
   };
-
-  const handleViewDocument = (documentType: string) => {
-    setViewingDocument(documentType);
-  };
-
-  const handleCloseDocument = () => {
-    setViewingDocument(null);
-  };
-
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -214,24 +201,6 @@ export default function LegislacionPage() {
                     </div>
                   </div>
 
-                  {(propuesta as any).documentTypes && (
-                    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        {(propuesta as any).documentTypes.map(
-                          (docType: string) => (
-                            <Button
-                              key={docType}
-                              onClick={() => handleViewDocument(docType)}
-                              className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium"
-                            >
-                              <Eye className="h-4 w-4 mr-2" />
-                              Ver {docType === "decreto" ? "Decreto" : "Proyecto de Ley"}
-                            </Button>
-                          )
-                        )}
-                      </div>
-                    </div>
-                  )}
                 </CardContent>
               </Card>
             ))}
@@ -527,28 +496,6 @@ export default function LegislacionPage() {
           </div>
         </div>
 
-        {/* Document Viewer Modal */}
-        {viewingDocument && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-            <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
-              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {viewingDocument === "decreto"
-                    ? "Decreto para Recetas Electrónicas en Medicamentos TDAH"
-                    : "Proyecto de Ley de Modernización de Prescripción de Medicamentos TDAH"}
-                </h3>
-                <Button onClick={handleCloseDocument} variant="ghost" size="sm">
-                  ✕
-                </Button>
-              </div>
-              <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
-                <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-mono whitespace-pre-wrap">
-                  {viewingDocument === "decreto" ? decretoContent : proyectoLeyContent}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Fuentes Section */}
