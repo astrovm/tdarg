@@ -3,6 +3,84 @@
 // Leyes principales relevantes para TDAH - Ordenadas de más nuevas a más viejas
 export const leyes = [
   {
+    numero: "Resolución 2214/2025",
+    titulo: "Implementación Integral de Recetas Electrónicas",
+    descripcion:
+      "Resolución del Ministerio de Salud que establece la implementación definitiva de las recetas electrónicas con plazos específicos para medicamentos controlados. Representa un avance significativo para pacientes con TDAH al digitalizar completamente el proceso de prescripción.",
+    fecha: "2025-07-18",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Ministerio de Salud de la Nación",
+    impactoReal: "alto",
+    url: "https://www.boletinoficial.gob.ar/#!DetalleNorma/328614/20250721",
+    ultimaActualizacion: "2025-07-21",
+    analisisIA: {
+      beneficios: [
+        "Art. 3º: Prescripciones exclusivamente en formato electrónico",
+        "Anexo I: Define claramente medicamentos de 'expendio legalmente restringido'",
+        "Anexo I: Plazo de 120 días para implementar prescripción de psicotrópicos Lista II",
+        "Art. 2º: Repositorios deben guardar recetas por 3 años mínimo",
+        "Sistema CUIR garantiza trazabilidad completa",
+      ],
+      problemas: [
+        "No deroga explícitamente artículos conflictivos de Ley 19.303",
+        "Plazo de implementación aún permite dilaciones",
+        "Depende de jurisdicciones locales para autorización de profesionales",
+        "No menciona específicamente límites de días para prescripción TDAH",
+      ],
+      puntuacion: 8.5,
+      recomendacion:
+        "Avance revolucionario que resuelve gran parte del problema TDAH - implementación correcta solucionaría el acceso a medicación",
+    },
+    puntosClave: [
+      "Art. 3º: Recetas SOLO en formato electrónico obligatorio",
+      "Anexo I: Medicamentos TDAH clasificados como 'expendio legalmente restringido'",
+      "Plazo: 120 días para implementar sistema completo",
+      "Sistema CUIR para identificación única de cada receta",
+      "Repositorios obligatorios con acceso a autoridades de control",
+    ],
+    analisisDetallado: {
+      articulosProblematicos: [
+        {
+          articulo: "Artículo 3º",
+          titulo: "Prescripciones Exclusivamente Electrónicas",
+          textoActual: `Las prescripciones deberán emitirse exclusivamente en formato electrónico o digital a través de plataformas registradas en el Registro Nacional de Plataformas Digitales de Salud (ReNaPDiS).`,
+          problemasIdentificados: [
+            "No deroga explícitamente las recetas manuscritas de la Ley 19.303",
+            "Podría generar conflicto de interpretación con normativas anteriores",
+            "Depende de que las jurisdicciones implementen correctamente",
+          ],
+          impactoTDAH:
+            "Positivo - Si se implementa correctamente eliminaría las recetas manuscritas para TDAH",
+        },
+        {
+          articulo: "Anexo I - Expendio Legalmente Restringido",
+          titulo: "Digitalización de Psicotrópicos Lista II",
+          textoActual: `Se establece un plazo de CIENTO VEINTE (120) días corridos desde la entrada en vigencia de la medida que aprueba el presente Anexo para que las jurisdicciones, softwares prescriptores y repositorios realicen las adecuaciones necesarias que permitan el registro, archivo y acceso a las recetas electrónicas o digitales sujetas a fiscalización.`,
+          problemasIdentificados: [
+            "120 días puede ser insuficiente para implementación completa",
+            "No especifica sanciones por incumplimiento de plazos",
+            "Depende de la coordinación entre múltiples actores",
+          ],
+          impactoTDAH:
+            "Crítico Positivo - Primer plazo oficial específico para digitalizar medicamentos TDAH",
+        },
+      ],
+      resumenImpacto: {
+        problemasPrincipales: [
+          "Aún no deroga explícitamente conflictos con Ley 19.303",
+          "Implementación depende de coordinación jurisdiccional",
+          "Plazos podrían extenderse sin sanciones claras",
+        ],
+        solucionSimple:
+          "Seguimiento estricto del cumplimiento del plazo de 120 días y presión para derogación explícita de artículos conflictivos",
+        urgencia: "Media - Resolución excelente pero requiere implementación efectiva",
+        estimacionImpacto:
+          "Potencial solución completa para 500,000+ pacientes TDAH si se implementa correctamente",
+      },
+    },
+  },
+  {
     numero: "Ley 27.553",
     titulo: "Ley de Recetas Electrónicas o Digitales",
     descripcion:
@@ -290,28 +368,28 @@ export const leyes = [
 
 export const propuestasNecesarias = [
   {
-    titulo: "Reforma Regulatoria Urgente Basada en el Consenso Clínico y la Evidencia Académica",
+    titulo: "Monitoreo y Seguimiento de la Implementación de la Resolución 2214/2025",
     resumenEjecutivo:
-      "Aplicar las recomendaciones del Primer Consenso Argentino sobre TDAH en adultos. Resolver inmediatamente el conflicto normativo que impide el acceso al tratamiento.",
+      "Asegurar el cumplimiento efectivo de la Resolución 2214/2025 que establece recetas exclusivamente electrónicas con plazo de 120 días para medicamentos controlados TDAH.",
     descripcion:
-      "Proponemos una doble estrategia:\n\n1) **Decreto de Necesidad y Urgencia (DNU)**: Establece que la Ley de Receta Electrónica (27.553) prevalece sobre la Ley de Psicotrópicos (19.303) para medicamentos TDAH.\n\n2) **Proyecto de Ley**: Modernización definitiva del marco regulatorio.",
+      "La nueva resolución es un marco normativo excelente que podría resolver completamente el problema de acceso a medicación TDAH. Se requiere:\n\n1) **Monitoreo del cumplimiento del plazo de 120 días** para implementación de recetas electrónicas de psicotrópicos Lista II.\n\n2) **Presión para derogación explícita** de artículos conflictivos de la Ley 19.303.\n\n3) **Seguimiento jurisdiccional** para asegurar que todas las provincias implementen correctamente.",
     problemaQueResuelve:
-      "Elimina las barreras burocráticas (receta triplicada, límite de 20 días) que impiden el tratamiento crónico, tal como lo señala el Consenso sobre el manejo del TDAH en la adultez.",
+      "Garantizar que la excelente Resolución 2214/2025 se implemente efectivamente y no sufra dilaciones como ocurrió con la Ley 27.553.",
     beneficiosClave: [
-      "✅ Alinea la regulación con la evidencia científica del Consenso sobre el manejo del TDAH en la adultez.",
-      "⏱️ Permite prescripciones de hasta 90 días, adecuadas para un tratamiento crónico.",
-      "⚖️ Otorga seguridad jurídica a médicos y farmacéuticos.",
-      "🏥 Facilita la telemedicina y la continuidad del tratamiento.",
+      "✅ Resolución ya establece recetas exclusivamente electrónicas obligatorias.",
+      "⏱️ Plazo específico de 120 días para medicamentos TDAH (psicotrópicos Lista II).",
+      "📋 Sistema CUIR garantiza trazabilidad completa de prescripciones.",
+      "🏥 Repositorios obligatorios con acceso a autoridades de control.",
     ],
     ventajas: [
-      "🚀 Solución inmediata vía DNU, respaldada por el consenso de expertos.",
-      "📜 Solución permanente a través de una nueva Ley.",
-      "🔬 Basado en la máxima autoridad clínica nacional en la materia.",
-      "💵 Reduce costos al sistema y a los pacientes al evitar consultas innecesarias.",
+      "🎯 Marco normativo ya aprobado y vigente desde julio 2025.",
+      "⚖️ Seguridad jurídica: recetas exclusivamente electrónicas son obligatorias.",
+      "🔬 Basado en infraestructura digital moderna con estándares internacionales.",
+      "💪 Potencial de resolver completamente el problema TDAH si se implementa correctamente.",
     ],
-    impacto: "🎯 Beneficio directo para más de 500,000 pacientes.",
-    responsable: "Poder Ejecutivo y Congreso Nacional",
-    accionNecesaria: "Impulsar DNU y Proyecto de Ley simultáneamente.",
+    impacto: "🎯 Solución potencial para más de 500,000 pacientes TDAH.",
+    responsable: "Ministerio de Salud Nacional y jurisdicciones provinciales",
+    accionNecesaria: "Monitoreo estricto del cumplimiento del plazo de noviembre 2025.",
   },
   {
     titulo: "Ampliación de Opciones Terapéuticas y Registro de Medicamentos",
@@ -340,13 +418,13 @@ export const propuestasNecesarias = [
 // Problemas identificados - Estructura optimizada
 export const problemasReales = [
   {
-    problema: "Marco Regulatorio Anacrónico y Contradictorio",
+    problema: "Implementación Pendiente de la Nueva Resolución 2214/2025",
     descripcion:
-      "El Primer Consenso Argentino de TDAH confirma que la Ley de Psicotrópicos (19.303) de 1971 es el principal obstáculo para el tratamiento.\n\nProblemas específicos:\n• Exige recetas triplicadas manuscritas\n• Límite máximo de 20 días por prescripción\n• Contradice la Ley de Receta Electrónica (27.553)\n• Va contra las guías de práctica clínica modernas",
+      "La nueva Resolución 2214/2025 del Ministerio de Salud es un avance revolucionario, pero su implementación efectiva es crucial.\n\nEstado actual:\n• Plazo de 120 días para implementar recetas electrónicas de psicotrópicos Lista II\n• Depende de coordinación entre jurisdicciones, softwares y repositorios\n• No deroga explícitamente los artículos conflictivos de la Ley 19.303\n• Riesgo de dilaciones sin sanciones por incumplimiento",
     resumen:
-      "Conflicto legal entre normativas de 1971 y 2020 genera barreras burocráticas que impiden el tratamiento crónico del TDAH.",
-    urgencia: "Crítico",
-    impacto: "Afecta a más de 500,000 pacientes",
+      "Excelente marco normativo que podría resolver completamente el problema TDAH, pero requiere seguimiento estricto de implementación.",
+    urgencia: "Alta - Monitoreo de cumplimiento",
+    impacto: "Potencial solución para más de 500,000 pacientes",
   },
   {
     problema: "Limitadas Opciones Farmacológicas",
