@@ -336,16 +336,16 @@ export const propuestasNecesarias = [
     problemaQueResuelve:
       "Asegurar implementación efectiva y evitar dilaciones que limiten el impacto de esta normativa para pacientes TDAH.",
     beneficiosClave: [
-      "Establece recetas exclusivamente electrónicas obligatorias",
-      "Plazo específico de 120 días para medicamentos TDAH",
-      "Sistema CUIR garantiza trazabilidad completa",
-      "Repositorios digitales con acceso controlado",
+      "✓ Establece recetas exclusivamente electrónicas obligatorias",
+      "✓ Plazo específico de 120 días para medicamentos TDAH",
+      "✓ Sistema CUIR garantiza trazabilidad completa",
+      "✓ Repositorios digitales con acceso controlado",
     ],
     ventajas: [
-      "Marco normativo ya aprobado y vigente",
-      "Seguridad jurídica con obligatoriedad clara",
-      "Adopción de estándares internacionales modernos",
-      "Potencial para resolver completamente el problema de acceso",
+      "→ Marco normativo ya aprobado y vigente",
+      "→ Seguridad jurídica con obligatoriedad clara",
+      "→ Adopción de estándares internacionales modernos",
+      "→ Potencial para resolver completamente el problema de acceso",
     ],
     impacto: "Solución potencial para más de 500,000 pacientes TDAH en Argentina",
     responsable: "Ministerio de Salud Nacional y jurisdicciones provinciales",
@@ -360,14 +360,14 @@ export const propuestasNecesarias = [
     problemaQueResuelve:
       "Falta de alternativas para aproximadamente 30% de pacientes con respuesta inadecuada a medicación disponible.",
     beneficiosClave: [
-      "Incorporación de lisdexanfetamina y otras opciones terapéuticas",
-      "Mayor arsenal farmacológico para personalización de tratamientos",
-      "Fomento de competitividad en el mercado farmacéutico",
+      "✓ Incorporación de lisdexanfetamina y otras opciones terapéuticas",
+      "✓ Mayor arsenal farmacológico para personalización de tratamientos",
+      "✓ Fomento de competitividad en el mercado farmacéutico",
     ],
     ventajas: [
-      "Acceso a tratamientos estándar internacionales",
-      "No requiere nueva legislación, solo acción regulatoria",
-      "Diálogo directo con industria farmacéutica",
+      "→ Acceso a tratamientos estándar internacionales",
+      "→ No requiere nueva legislación, solo acción regulatoria",
+      "→ Diálogo directo con industria farmacéutica",
     ],
     impacto: "Beneficio potencial para hasta 150,000 pacientes",
     responsable: "ANMAT y Comisión de Salud del Congreso",
@@ -380,7 +380,7 @@ export const problemasReales = [
   {
     problema: "Implementación de la Resolución 2214/2025",
     descripcion:
-      "La Resolución 2214/2025 establece por primera vez recetas exclusivamente electrónicas para medicamentos TDAH.\n\nAspectos positivos:\n• Elimina recetas manuscritas obligatorias\n• Plazo específico de 120 días (noviembre 2025)\n• Sistema CUIR para trazabilidad\n• Cobertura en todo el territorio nacional\n\nAspectos a monitorear:\n• Cumplimiento efectivo por parte de las jurisdicciones\n• Implementación real en farmacias\n• Resolución de conflictos normativos pendientes",
+      "La Resolución 2214/2025 establece por primera vez recetas exclusivamente electrónicas para medicamentos TDAH.\n\n→ Aspectos positivos:\n• Elimina recetas manuscritas obligatorias\n• Plazo específico de 120 días (noviembre 2025)\n• Sistema CUIR para trazabilidad\n• Cobertura en todo el territorio nacional\n\n→ Aspectos a monitorear:\n• Cumplimiento efectivo por parte de las jurisdicciones\n• Implementación real en farmacias\n• Resolución de conflictos normativos pendientes",
     resumen:
       "Primera normativa que puede resolver el problema de acceso a medicación TDAH. Requiere seguimiento estricto de implementación.",
     urgencia: "Alta",
@@ -389,7 +389,7 @@ export const problemasReales = [
   {
     problema: "Opciones farmacológicas limitadas",
     descripcion:
-      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\nComparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 2 medicamentos (metilfenidato y atomoxetina)\n\nConsecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Falta de lisdexanfetamina (estándar internacional)\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
+      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 2 medicamentos (metilfenidato y atomoxetina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Falta de lisdexanfetamina (estándar internacional)\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
     resumen:
       "Brecha significativa entre opciones disponibles en Argentina y estándares internacionales. Limita efectividad del tratamiento.",
     urgencia: "Alta",
@@ -398,7 +398,7 @@ export const problemasReales = [
   {
     problema: "Subdiagnóstico en adultos, especialmente mujeres",
     descripcion:
-      "Existe una brecha significativa en el diagnóstico de TDAH en población adulta, particularmente en mujeres.\n\nDatos relevantes:\n• Proporción diagnóstica niños: 4:1 (hombres:mujeres)\n• Proporción real estimada en adultos: 2:1\n• Miles de mujeres adultas sin diagnóstico histórico\n\nFactores contribuyentes:\n• Presentación predominantemente inatenta en mujeres\n• Síntomas se confunden con otros trastornos\n• Sesgo diagnóstico hacia hiperactividad masculina\n• Estrategias compensatorias ocultan síntomas",
+      "Existe una brecha significativa en el diagnóstico de TDAH en población adulta, particularmente en mujeres.\n\n→ Datos relevantes:\n• Proporción diagnóstica niños: 4:1 (hombres:mujeres)\n• Proporción real estimada en adultos: 2:1\n• Miles de mujeres adultas sin diagnóstico histórico\n\n→ Factores contribuyentes:\n• Presentación predominantemente inatenta en mujeres\n• Síntomas se confunden con otros trastornos\n• Sesgo diagnóstico hacia hiperactividad masculina\n• Estrategias compensatorias ocultan síntomas",
     resumen:
       "Sesgo diagnóstico sistemático afecta especialmente a mujeres adultas. Presenta desafíos para identificación y tratamiento oportuno.",
     urgencia: "Alta",
@@ -407,7 +407,7 @@ export const problemasReales = [
   {
     problema: "Tensiones entre enfoques terapéuticos",
     descripcion:
-      "Existen diferencias conceptuales significativas entre corrientes profesionales respecto al TDAH.\n\nPerspectivas en tensión:\n• Enfoque neurobiológico: TDAH como condición neurológica\n• Corrientes psicoanalíticas: resistencia a medicalización\n• Interpretaciones variables de normativas existentes\n\nImpacto en la práctica:\n• Inconsistencia en criterios diagnósticos\n• Variabilidad en enfoques de tratamiento\n• Resistencia al tratamiento farmacológico en algunos sectores\n• Confusión en pacientes y familias",
+      "Existen diferencias conceptuales significativas entre corrientes profesionales respecto al TDAH.\n\n→ Perspectivas en tensión:\n• Enfoque neurobiológico: TDAH como condición neurológica\n• Corrientes psicoanalíticas: resistencia a medicalización\n• Interpretaciones variables de normativas existentes\n\n→ Impacto en la práctica:\n• Inconsistencia en criterios diagnósticos\n• Variabilidad en enfoques de tratamiento\n• Resistencia al tratamiento farmacológico en algunos sectores\n• Confusión en pacientes y familias",
     resumen:
       "Diferencias conceptuales entre corrientes profesionales generan inconsistencias en diagnóstico y tratamiento del TDAH.",
     urgencia: "Media",
