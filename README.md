@@ -30,7 +30,7 @@ Portal web especializado que proporciona información actualizada sobre TDAH (Tr
 
 ## Instalación y Desarrollo
 
-```bash
+\`\`\`bash
 # Instalar dependencias
 bun install
 
@@ -45,7 +45,7 @@ bun start
 
 # Linting
 bun lint
-```
+\`\`\`
 
 ## APIs Integradas
 
@@ -62,7 +62,7 @@ bun lint
 
 ## Estructura del Proyecto
 
-```
+\`\`\`
 app/
 ├── api/
 │   ├── legislacion-tracker/     # API de seguimiento legislativo
@@ -79,7 +79,7 @@ hooks/
 ├── use-legislacion-tracker.ts  # Gestión de análisis legislativo
 ├── use-medicamentos-reales.ts  # Precios con caché
 └── use-mobile.tsx             # Utilidades responsive
-```
+\`\`\`
 
 ## Características Técnicas
 
@@ -103,12 +103,12 @@ Este es un proyecto independiente de análisis e información sobre TDAH en Arge
 
 ### Scripts Disponibles
 
-```bash
+\`\`\`bash
 bun dev          # Desarrollo
 bun build        # Build de producción  
 bun start        # Servidor de producción
 bun lint         # Verificación de código
-```
+\`\`\`
 
 ## Licencia
 
