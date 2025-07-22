@@ -420,11 +420,6 @@ export const fuentesDocumentacion = {
   descripcion: "El análisis se basa en revisión exhaustiva de legislación vigente, consensos de especialistas y producción académica relevante:",
   fuentes: [
     {
-      titulo: "Resolución 2214/2025 del Ministerio de Salud",
-      descripcion: "Establece implementación integral de recetas electrónicas con plazos específicos para medicamentos controlados TDAH.",
-      referencia: "(Boletín Oficial, 21/07/2025)"
-    },
-    {
       titulo: "Primer Consenso Argentino sobre TDAH en Adultos",
       descripcion: "Proporciona base clínica y científica para propuestas de reforma y actualización normativa.",
       referencia: "(Vertex, 2025)"
@@ -440,8 +435,8 @@ export const fuentesDocumentacion = {
       referencia: "(Faraone & Bianchi, 2018)"
     },
     {
-      titulo: "Leyes Nacionales y Decretos",
-      descripcion: "Marco normativo completo: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Resolución 2214/2025.",
+      titulo: "Marco Normativo Nacional",
+      descripcion: "Leyes y resoluciones analizadas: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Resolución 2214/2025 (Implementación de Recetas Electrónicas).",
       referencia: "(InfoLeg y Boletín Oficial)"
     }
   ],
