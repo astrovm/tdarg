@@ -29,7 +29,7 @@ El documento afirma categóricamente que "ya no resulta necesario producir copia
 Este anexo establece un formato único y estandarizado para todas las recetas electrónicas, eliminando la variabilidad que confundía a farmacéuticos y generaba rechazos de recetas TDAH. Las prescripciones de metilfenidato y atomoxetina seguirán el mismo formato que cualquier otro medicamento, normalizando su dispensación.
 
 **Identificación Específica para Psicotrópicos:**
-Para medicamentos de expendio legalmente restringido (TDAH), el bloque profesional debe incluir obligatoriamente la "Autorización para prescripción de psicotrópicos lista III y IV y/o estupefacientes lista III". Esto garantiza que solo médicos habilitados puedan prescribir metilfenidato, manteniendo los controles de seguridad pero eliminando la burocracia manuscrita.
+Para medicamentos de expendio legalmente restringido (TDAH), el bloque profesional debe incluir obligatoriamente la autorización jurisdiccional correspondiente para prescripción de psicotrópicos Lista II (como metilfenidato) según lo establece el Anexo I. Esto garantiza que solo médicos habilitados puedan prescribir medicamentos TDAH, manteniendo los controles de seguridad pero eliminando la burocracia manuscrita.
 
 **Denominación por Ingrediente Farmacéutico Activo:**
 El anexo prioriza la denominación por Ingrediente Farmacéutico Activo (IFA) sobre las marcas comerciales. Para TDAH, esto significa que las recetas mostrarán "metilfenidato" o "atomoxetina" de forma prominente, facilitando la dispensación genérica y reduciendo costos para pacientes que requieren tratamiento crónico.
