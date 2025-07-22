@@ -96,3 +96,4 @@ Durante el año de implementación del Decreto 345/2024, se identificaron proble
 El Decreto 345/2024 representa un hito importante en la historia de la regulación farmacéutica argentina para TDAH. Aunque no resolvió completamente los problemas heredados de la Ley 19.303, sentó las bases técnicas y legales necesarias para la solución definitiva que vendría con la Resolución 2214/2025. Su principal mérito fue demostrar la viabilidad técnica y legal de digitalizar completamente las prescripciones de medicamentos controlados, preparando el terreno para la obligatoriedad absoluta posterior.
 
 Para los pacientes con TDAH, este decreto marcó el final de la era exclusivamente manuscrita y el inicio de la transición hacia un sistema moderno, aunque esa transición tomaría más tiempo del esperado debido a resistencias institucionales y ambigüedades normativas que requerían resolución posterior.
+
