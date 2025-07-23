@@ -6,32 +6,35 @@ import { Header } from "@/components/header"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       {/* Header */}
       <Header />
 
-      {/* Hero Section - Fondo azul suave */}
-      <section className="py-20 bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/50 dark:to-indigo-900/50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">TDAH en Argentina</h2>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+      {/* Hero Section - Gradiente moderno */}
+      <section className="relative py-24 bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-6xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+            TDAH en Argentina
+          </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
             Información actualizada sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
             medicamentos, directorio de especialistas y análisis legislativo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
               <Link href="/precios">
                 <TrendingUp className="mr-2 h-5 w-5" />
                 Ver Precios
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-700 dark:text-purple-300 dark:hover:bg-purple-900/20" asChild>
               <Link href="/especialistas">
                 <Stethoscope className="mr-2 h-5 w-5" />
                 Buscar Especialistas
               </Link>
             </Button>
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="lg" variant="secondary" className="bg-white/80 text-slate-700 hover:bg-white dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-800 shadow-md hover:shadow-lg transition-all duration-300" asChild>
               <Link href="/legislacion">
                 <Scale className="mr-2 h-5 w-5" />
                 Ver Legislación
@@ -41,74 +44,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section - Fondo blanco para contraste fuerte */}
-      <section className="py-16 bg-white dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700">
+      {/* Stats Section - Diseño moderno con cards */}
+      <section className="py-20 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">5-7%</div>
-              <div className="text-gray-600 dark:text-gray-300">Prevalencia en niños</div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
+              <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-3">5-7%</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en niños</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">2.5%</div>
-              <div className="text-gray-600 dark:text-gray-300">Prevalencia en adultos</div>
+            <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
+              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent mb-3">2.5%</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3:1</div>
-              <div className="text-gray-600 dark:text-gray-300">Ratio niños:niñas</div>
+            <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
+              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3">3:1</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio niños:niñas</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">70%</div>
-              <div className="text-gray-600 dark:text-gray-300">Respuesta al tratamiento</div>
+            <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
+              <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-3">70%</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">Respuesta al tratamiento</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid - Fondo gris medio para diferenciación */}
-      <section className="py-16 bg-gray-200 dark:bg-gray-700">
+      {/* Features Grid - Diseño moderno con gradientes */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Recursos Disponibles</h3>
+          <h3 className="text-4xl font-bold text-center bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white bg-clip-text text-transparent mb-16">Recursos Disponibles</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
-              <CardHeader>
-                <TrendingUp className="h-8 w-8 text-blue-600 mb-2" />
-                <CardTitle>Precios de Medicamentos</CardTitle>
-                <CardDescription>Precios actualizados de metilfenidato y atomoxetina desde Farmacity</CardDescription>
+            <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl hover:-translate-y-2">
+              <CardHeader className="p-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <TrendingUp className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3 text-slate-800 dark:text-white">Precios de Medicamentos</CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">Precios actualizados de metilfenidato y atomoxetina desde Farmacity</CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
-              <CardHeader>
-                <Stethoscope className="h-8 w-8 text-purple-600 mb-2" />
-                <CardTitle>Directorio de Especialistas</CardTitle>
-                <CardDescription>Encuentra especialistas en TDAH en tu provincia</CardDescription>
+            <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-indigo-50 dark:from-slate-800 dark:to-indigo-900/20 border-0 shadow-xl hover:-translate-y-2">
+              <CardHeader className="p-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Stethoscope className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3 text-slate-800 dark:text-white">Directorio de Especialistas</CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">Encuentra especialistas en TDAH en tu provincia</CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
-              <CardHeader>
-                <Scale className="h-8 w-8 text-red-600 mb-2" />
-                <CardTitle>Legislación</CardTitle>
-                <CardDescription>Seguimiento de leyes y decretos relacionados con TDAH</CardDescription>
+            <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-red-50 dark:from-slate-800 dark:to-red-900/20 border-0 shadow-xl hover:-translate-y-2">
+              <CardHeader className="p-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Scale className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-2xl mb-3 text-slate-800 dark:text-white">Legislación</CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-base leading-relaxed">Seguimiento de leyes y decretos relacionados con TDAH</CardDescription>
               </CardHeader>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Alert Section - Fondo ámbar para destacar */}
-      <section className="py-16 bg-amber-100 dark:bg-amber-900/20 border-y border-amber-200 dark:border-amber-800">
+      {/* Alert Section - Diseño moderno */}
+      <section className="py-20 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-start space-x-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border-2 border-amber-300 dark:border-amber-700">
-              <AlertCircle className="h-6 w-6 text-amber-600 dark:text-amber-400 mt-1 flex-shrink-0" />
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Importante</h4>
-                <p className="text-gray-700 dark:text-gray-200">
-                  Esta información es de carácter educativo y no reemplaza la consulta médica profesional. Siempre
-                  consulte con un especialista para el diagnóstico y tratamiento del TDAH.
-                </p>
+            <div className="relative overflow-hidden bg-gradient-to-r from-white to-amber-50 dark:from-slate-800 dark:to-amber-900/20 rounded-3xl shadow-2xl border border-amber-200 dark:border-amber-800/50 p-8">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-400"></div>
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center">
+                    <AlertCircle className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">Importante</h4>
+                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Esta información es de carácter educativo y no reemplaza la consulta médica profesional. Siempre
+                    consulte con un especialista para el diagnóstico y tratamiento del TDAH.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
