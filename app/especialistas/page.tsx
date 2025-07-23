@@ -182,6 +182,22 @@ const especialistas = [
     tipo: "hospital",
     url: "https://www1.hospitalitaliano.org.ar/#!/home/psiquiatria/inicio",
   },
+  {
+    nombre: "Dra. Paula Harris Racedo",
+    especialidad: "Especialista TDAH",
+    provincia: "Buenos Aires",
+    ciudad: "Beccar",
+    direccion: "Consultar ubicación",
+    telefono: "15 4437 2878",
+    email: "paulaharrisracedo@gmail.com",
+    hospital: "Consulta privada virtual",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Consultar",
+    tipo: "privado",
+    url: "https://www.instagram.com/phd_internacional/",
+  },
   // LA PLATA
   {
     nombre: "Dra. Cecilia Di Virgilio",
