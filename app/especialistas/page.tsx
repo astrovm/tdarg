@@ -1,13 +1,34 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, MapPin, Phone, Mail, Star, Clock, ExternalLink, MessageCircle } from "lucide-react"
-import { Header } from "@/components/header"
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Search,
+  MapPin,
+  Phone,
+  Mail,
+  Star,
+  Clock,
+  ExternalLink,
+  MessageCircle,
+} from "lucide-react";
+import { Header } from "@/components/header";
 
 const especialistas = [
   // CAPITAL FEDERAL / GBA
@@ -129,7 +150,7 @@ const especialistas = [
     telefono: "5777-3200",
     email: "Consultar",
     hospital: "FLENI - Neurología Cognitiva",
-    experiencia: "Neurología Cognitiva",
+    experiencia: "Neurología Cognitiva - TDAH",
     rating: null,
     obraSocial: ["Múltiples obras sociales"],
     horarios: "Lun-Vie 8:00-20:00",
@@ -144,7 +165,7 @@ const especialistas = [
     telefono: "5777-3200",
     email: "Consultar",
     hospital: "FLENI - Neurología Cognitiva",
-    experiencia: "Magíster en Neuropsicofarmacología",
+    experiencia: "Psiquiatra - Magíster en Neuropsicofarmacología",
     rating: null,
     obraSocial: ["Múltiples obras sociales"],
     horarios: "Lun-Vie 8:00-20:00",
@@ -159,23 +180,7 @@ const especialistas = [
     telefono: "Consultar",
     email: "Consultar",
     hospital: "Hospital Italiano",
-    experiencia: "Diagnóstico TDAH infantil - Buen trato",
-    rating: null,
-    obraSocial: ["Múltiples obras sociales"],
-    horarios: "Consultar",
-    tipo: "hospital",
-    url: "https://www1.hospitalitaliano.org.ar/#!/home/psiquiatria/inicio",
-  },
-  {
-    nombre: "Dr. Golimstok",
-    especialidad: "Neurólogo",
-    provincia: "Buenos Aires",
-    ciudad: "CABA",
-    direccion: "Hospital Italiano",
-    telefono: "Consultar",
-    email: "Consultar",
-    hospital: "Hospital Italiano",
-    experiencia: "Neurología",
+    experiencia: "Psiquiatría - Buen trato con pacientes",
     rating: null,
     obraSocial: ["Múltiples obras sociales"],
     horarios: "Consultar",
@@ -250,7 +255,7 @@ const especialistas = [
   },
   // CÓRDOBA
   {
-    nombre: "Luis Santiago Vaggione",
+    nombre: "Lic. Luis Santiago Vaggione",
     especialidad: "Psicólogo",
     provincia: "Córdoba",
     ciudad: "Córdoba Capital",
@@ -264,9 +269,10 @@ const especialistas = [
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "fundacion",
-    redes: "@luissantiagovaggione (Instagram)",
+    redes:
+      "@luissantiagovaggione (Instagram), /luissantiago.vaggione (Facebook)",
   },
-]
+];
 
 const provincias = [
   "Buenos Aires",
@@ -292,24 +298,26 @@ const provincias = [
   "La Pampa",
   "Santa Cruz",
   "Tierra del Fuego",
-]
+];
 
 export default function EspecialistasPage() {
-  const [filtroNombre, setFiltroNombre] = useState("")
-  const [provincia, setProvincia] = useState("todas")
-  const [especialidad, setEspecialidad] = useState("todas")
+  const [filtroNombre, setFiltroNombre] = useState("");
+  const [provincia, setProvincia] = useState("todas");
+  const [especialidad, setEspecialidad] = useState("todas");
 
   const especialistasFiltrados = especialistas.filter((especialista) => {
     const coincideNombre =
       especialista.nombre.toLowerCase().includes(filtroNombre.toLowerCase()) ||
       especialista.ciudad.toLowerCase().includes(filtroNombre.toLowerCase()) ||
-      especialista.hospital.toLowerCase().includes(filtroNombre.toLowerCase())
+      especialista.hospital.toLowerCase().includes(filtroNombre.toLowerCase());
 
-    const coincideProvincia = provincia === "todas" || especialista.provincia === provincia
-    const coincideEspecialidad = especialidad === "todas" || especialista.especialidad === especialidad
+    const coincideProvincia =
+      provincia === "todas" || especialista.provincia === provincia;
+    const coincideEspecialidad =
+      especialidad === "todas" || especialista.especialidad === especialidad;
 
-    return coincideNombre && coincideProvincia && coincideEspecialidad
-  })
+    return coincideNombre && coincideProvincia && coincideEspecialidad;
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -319,10 +327,13 @@ export default function EspecialistasPage() {
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">Directorio de Especialistas en TDAH</h1>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+            Directorio de Especialistas en TDAH
+          </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Encuentra profesionales especializados en el diagnóstico y tratamiento del TDAH en tu provincia. Todos los
-            especialistas listados tienen experiencia específica en trastornos de atención.
+            Encuentra profesionales especializados en el diagnóstico y
+            tratamiento del TDAH en tu provincia. Todos los especialistas
+            listados tienen experiencia específica en trastornos de atención.
           </p>
 
           {/* Filters */}
@@ -364,12 +375,18 @@ export default function EspecialistasPage() {
                     <SelectValue placeholder="Especialidad" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="todas">Todas las especialidades</SelectItem>
+                    <SelectItem value="todas">
+                      Todas las especialidades
+                    </SelectItem>
                     <SelectItem value="Psiquiatra">Psiquiatra</SelectItem>
-                    <SelectItem value="Neuropsicóloga">Neuropsicóloga</SelectItem>
+                    <SelectItem value="Neuropsicóloga">
+                      Neuropsicóloga
+                    </SelectItem>
                     <SelectItem value="Neurólogo">Neurólogo</SelectItem>
                     <SelectItem value="Psicólogo">Psicólogo</SelectItem>
-                    <SelectItem value="Especialista TDAH">Especialista TDAH</SelectItem>
+                    <SelectItem value="Especialista TDAH">
+                      Especialista TDAH
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -401,18 +418,23 @@ export default function EspecialistasPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-xl">{especialista.nombre}</CardTitle>
+                        <CardTitle className="text-xl">
+                          {especialista.nombre}
+                        </CardTitle>
                         <CardDescription className="text-base font-medium text-blue-600 mb-2">
                           {especialista.especialidad}
                         </CardDescription>
                         <div className="flex items-center gap-2">
                           <Badge variant="outline" className="text-xs">
-                            {especialista.tipo === "privado" && "Consulta Privada"}
+                            {especialista.tipo === "privado" &&
+                              "Consulta Privada"}
                             {especialista.tipo === "instituto" && "Instituto"}
-                            {especialista.tipo === "centro_especializado" && "Centro Especializado"}
+                            {especialista.tipo === "centro_especializado" &&
+                              "Centro Especializado"}
                             {especialista.tipo === "hospital" && "Hospital"}
                             {especialista.tipo === "clinica" && "Clínica"}
-                            {especialista.tipo === "consultorio" && "Consultorio"}
+                            {especialista.tipo === "consultorio" &&
+                              "Consultorio"}
                             {especialista.tipo === "fundacion" && "Fundación"}
                           </Badge>
                           {especialista.hospital.includes("Solo niños") && (
@@ -425,7 +447,9 @@ export default function EspecialistasPage() {
                       {especialista.rating && (
                         <div className="flex items-center space-x-1">
                           <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-sm font-medium">{especialista.rating}</span>
+                          <span className="text-sm font-medium">
+                            {especialista.rating}
+                          </span>
                         </div>
                       )}
                     </div>
@@ -439,13 +463,19 @@ export default function EspecialistasPage() {
                             <div className="font-medium">
                               {especialista.ciudad}, {especialista.provincia}
                             </div>
-                            <div className="text-gray-600 dark:text-gray-300">{especialista.direccion}</div>
-                            <div className="text-gray-600 dark:text-gray-300">{especialista.hospital}</div>
+                            <div className="text-gray-600 dark:text-gray-300">
+                              {especialista.direccion}
+                            </div>
+                            <div className="text-gray-600 dark:text-gray-300">
+                              {especialista.hospital}
+                            </div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Phone className="h-4 w-4 text-gray-400" />
-                          <span className="text-sm">{especialista.telefono}</span>
+                          <span className="text-sm">
+                            {especialista.telefono}
+                          </span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Mail className="h-4 w-4 text-gray-400" />
@@ -455,22 +485,44 @@ export default function EspecialistasPage() {
                       <div className="space-y-3">
                         <div className="flex items-center space-x-2">
                           <Clock className="h-4 w-4 text-gray-400" />
-                          <span className="text-sm">{especialista.horarios}</span>
+                          <span className="text-sm">
+                            {especialista.horarios}
+                          </span>
                         </div>
                         <div>
-                          <div className="text-sm font-medium mb-1">Experiencia:</div>
-                          <div className="text-sm text-gray-600">{especialista.experiencia}</div>
+                          <div className="text-sm font-medium mb-1">
+                            Experiencia:
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {especialista.experiencia}
+                          </div>
                         </div>
                         <div>
-                          <div className="text-sm font-medium mb-2">Obras Sociales:</div>
+                          <div className="text-sm font-medium mb-2">
+                            Obras Sociales:
+                          </div>
                           <div className="flex flex-wrap gap-1">
                             {especialista.obraSocial.map((obra, idx) => (
-                              <Badge key={idx} variant="outline" className="text-xs">
+                              <Badge
+                                key={idx}
+                                variant="outline"
+                                className="text-xs"
+                              >
                                 {obra}
                               </Badge>
                             ))}
                           </div>
                         </div>
+                        {especialista.redes && (
+                          <div>
+                            <div className="text-sm font-medium mb-1">
+                              Redes Sociales:
+                            </div>
+                            <div className="text-sm text-gray-600 dark:text-gray-300">
+                              {especialista.redes}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="flex space-x-2 pt-2">
@@ -478,24 +530,42 @@ export default function EspecialistasPage() {
                         className="flex-1"
                         onClick={() =>
                           especialista.telefono !== "Consultar" &&
-                          window.open(`https://wa.me/${especialista.telefono.replace(/[^0-9]/g, "")}`)
+                          window.open(
+                            `https://wa.me/${especialista.telefono.replace(
+                              /[^0-9]/g,
+                              ""
+                            )}`
+                          )
                         }
                         disabled={especialista.telefono === "Consultar"}
                       >
                         <MessageCircle className="h-4 w-4 mr-1" />
-                        {especialista.telefono !== "Consultar" ? "WhatsApp" : "Consultar Teléfono"}
+                        {especialista.telefono !== "Consultar"
+                          ? "WhatsApp"
+                          : "Consultar Teléfono"}
                       </Button>
                       {especialista.url && (
-                        <Button variant="outline" onClick={() => window.open(especialista.url, "_blank")}>
+                        <Button
+                          variant="outline"
+                          onClick={() =>
+                            window.open(especialista.url, "_blank")
+                          }
+                        >
                           <ExternalLink className="h-4 w-4 mr-1" />
                           Web
                         </Button>
                       )}
-                      {especialista.email && especialista.email !== "Consultar" && (
-                        <Button variant="outline" onClick={() => window.open(`mailto:${especialista.email}`)}>
-                          <Mail className="h-4 w-4" />
-                        </Button>
-                      )}
+                      {especialista.email &&
+                        especialista.email !== "Consultar" && (
+                          <Button
+                            variant="outline"
+                            onClick={() =>
+                              window.open(`mailto:${especialista.email}`)
+                            }
+                          >
+                            <Mail className="h-4 w-4" />
+                          </Button>
+                        )}
                     </div>
                   </CardContent>
                 </Card>
@@ -509,14 +579,16 @@ export default function EspecialistasPage() {
               <CardContent>
                 <div className="text-gray-500 mb-4">
                   <Search className="h-12 w-12 mx-auto mb-4" />
-                  <h3 className="text-lg font-medium">No se encontraron especialistas</h3>
+                  <h3 className="text-lg font-medium">
+                    No se encontraron especialistas
+                  </h3>
                   <p>Intenta ajustar los filtros de búsqueda</p>
                 </div>
                 <Button
                   onClick={() => {
-                    setFiltroNombre("")
-                    setProvincia("todas")
-                    setEspecialidad("todas")
+                    setFiltroNombre("");
+                    setProvincia("todas");
+                    setEspecialidad("todas");
                   }}
                 >
                   Limpiar Filtros
@@ -538,7 +610,9 @@ export default function EspecialistasPage() {
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Entrevista de admisión inicial</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Entrevista de admisión inicial
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
@@ -548,7 +622,9 @@ export default function EspecialistasPage() {
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Descarte de patologías similares</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Descarte de patologías similares
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
@@ -598,7 +674,9 @@ export default function EspecialistasPage() {
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Pregunta si evaluaron comorbidades</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Pregunta si evaluaron comorbidades
+                  </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
@@ -609,7 +687,7 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Metilfenidato: 70% eficacia vs Atomoxetina: 20%
+                    Metilfenidato: 70% eficacia vs Atomoxetina: 40-60%
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
@@ -624,5 +702,5 @@ export default function EspecialistasPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
