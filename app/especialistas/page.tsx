@@ -174,9 +174,6 @@ export default function EspecialistasPage() {
                     </SelectItem>
                     <SelectItem value="Neurólogo">Neurólogo</SelectItem>
                     <SelectItem value="Psicólogo">Psicólogo</SelectItem>
-                    <SelectItem value="Especialista TDAH">
-                      Especialista TDAH
-                    </SelectItem>
                     <SelectItem value="Psicopedagogía">Psicopedagogía</SelectItem>
                     <SelectItem value="Equinoterapia">Equinoterapia</SelectItem>
                     <SelectItem value="Pediatra">Pediatra</SelectItem>

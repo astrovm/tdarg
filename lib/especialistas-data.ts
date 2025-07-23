@@ -178,7 +178,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Juan Pablo García Lombardi",
-    especialidad: "Neurología Cognitiva/Neuropsiquiatria",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "Belgrano",
     direccion: "FLENI - Montañeses 2325, 8vo piso, Belgrano, CABA",
@@ -464,7 +464,7 @@ const especialistas: Especialista[] = [
   // PSIQUIATRAS Y NEURÓLOGOS ADICIONALES
   {
     nombre: "Dra. Santillan",
-    especialidad: "Pediatra y Neuróloga",
+    especialidad: "Pediatra",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Instituto Niba",
@@ -494,7 +494,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Paola Grabow",
-    especialidad: "Psiquiatra Infantojuvenil",
+    especialidad: "Psiquiatra",
     provincia: "CABA",
     ciudad: "Belgrano",
     direccion: "Consultar ubicación específica",
@@ -509,7 +509,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Claudio Michanie",
-    especialidad: "Psiquiatra Infantojuvenil",
+    especialidad: "Psiquiatra",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -524,7 +524,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Guillermo Bernaldo de Quiros",
-    especialidad: "Neurólogo Pediátrico",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -539,7 +539,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Pablo Jorrat",
-    especialidad: "Neurólogo Pediátrico",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -569,7 +569,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Norma Taddey",
-    especialidad: "Psiquiatra Infantojuvenil",
+    especialidad: "Psiquiatra",
     provincia: "Buenos Aires",
     ciudad: "Vicente López",
     direccion: "Consultar ubicación específica",
@@ -584,7 +584,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Sara Panossian",
-    especialidad: "Neuróloga Pediátrica",
+    especialidad: "Neurólogo",
     provincia: "Buenos Aires",
     ciudad: "Bella Vista",
     direccion: "Consultar ubicación específica",
@@ -615,7 +615,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "CIENN",
-    especialidad: "Neurociencias Infantojuvenil",
+    especialidad: "Neurología",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "Consultar ubicación específica",
@@ -630,7 +630,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Mariano Pala",
-    especialidad: "Pediatra y Psiquiatra Infantojuvenil",
+    especialidad: "Pediatra",
     provincia: "Buenos Aires",
     ciudad: "Mar del Plata",
     direccion: "Consultar ubicación específica",
@@ -766,7 +766,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Eduardo Monese",
-    especialidad: "Neurólogo y Pediatra",
+    especialidad: "Pediatra",
     provincia: "Santa Fe",
     ciudad: "Santa Fe Capital",
     direccion: "Mendoza 3373, Santa Fe Capital",
@@ -781,7 +781,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Viviana Rios",
-    especialidad: "Neuróloga",
+    especialidad: "Neurólogo",
     provincia: "Santa Fe",
     ciudad: "Santa Fe",
     direccion: "Consultar ubicación específica",
@@ -885,7 +885,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Galli",
-    especialidad: "Neurólogo y Neuropsicólogo",
+    especialidad: "Neurólogo",
     provincia: "Santa Fe",
     ciudad: "Rafaela",
     direccion: "Calle 25 de Mayo 2048 - AMUR",
@@ -900,7 +900,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Riera",
-    especialidad: "Psiquiatra Infantojuvenil",
+    especialidad: "Psiquiatra",
     provincia: "Mendoza",
     ciudad: "Mendoza",
     direccion: "Consultar ubicación específica",
@@ -915,7 +915,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Guido Norberto Luppi",
-    especialidad: "Pediatra y Psiquiatra Infantojuvenil",
+    especialidad: "Pediatra",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Uruguay 1134 2do piso, Capital Federal",
@@ -979,7 +979,7 @@ const especialistas: Especialista[] = [
   // PSICÓLOGOS Y TCC
   {
     nombre: "Lic. Facundo Torres",
-    especialidad: "Psicólogo Infantojuvenil",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Tigre",
     direccion: "CEPSIN",
@@ -994,7 +994,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Cecilia Cid",
-    especialidad: "Psicóloga TCC",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Zona Oeste",
     direccion: "Consultar ubicación específica",
@@ -1009,7 +1009,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Lorena Lancha",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Zona Oeste",
     direccion: "Consultar ubicación específica",
@@ -1024,7 +1024,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Bettina Arredondo",
-    especialidad: "Psicóloga Cognitiva",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Temperley",
     direccion: "Consultar ubicación específica",
@@ -1039,7 +1039,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Laura Alcocer",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "CETECO",
@@ -1054,7 +1054,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Sharon Suzanne",
-    especialidad: "Psicóloga Infanto-Juvenil",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -1085,7 +1085,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Luciana Tapia",
-    especialidad: "Psicóloga Cognitivo Conductual",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Necochea",
     direccion: "Consultar ubicación específica",
@@ -1099,7 +1099,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Iris Wolff",
-    especialidad: "Psicóloga Cognitiva",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -1113,7 +1113,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Elisa Chisleanschi",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Bella Vista",
     direccion: "Consultar ubicación específica",
@@ -1128,7 +1128,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Eleonora Giusti",
-    especialidad: "Psicóloga Cognitiva",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -1158,7 +1158,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Carolina Piñero",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Tandil",
     direccion: "Consultar ubicación específica",
@@ -1186,7 +1186,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Silvana Soave",
-    especialidad: "Psicóloga Cognitivo Conductual",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Necochea",
     direccion: "Calle 60-2780",
@@ -1215,7 +1215,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Romina Rosbelke",
-    especialidad: "Psicóloga Infantil",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Quilmes",
     direccion: "Calle brandzen 253, Quilmes",
@@ -1229,7 +1229,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Maria Gabriela Marina",
-    especialidad: "Psicóloga TCC",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Atiende online",
@@ -1243,7 +1243,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Patricia Simao",
-    especialidad: "Psicóloga Infantil",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -1272,7 +1272,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Celeste Campano",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "Caballito",
     direccion: "Calle Lautaro 46 (Esquina Avenida Rivadavia) Caballito",
@@ -1288,7 +1288,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Anahi Lujan Garayo",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "La Pampa",
     ciudad: "Santa Rosa",
     direccion: "Av. Belgrano Norte, Santa Rosa 6300 La Pampa",
@@ -1303,7 +1303,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Castro Zamparella Tatiana",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "Córdoba",
     ciudad: "Córdoba Capital",
     direccion: "CNR",
@@ -1317,7 +1317,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Maria Laura De Feo",
-    especialidad: "Psicóloga TCC",
+    especialidad: "Psicólogo",
     provincia: "Santa Fe",
     ciudad: "Santa Fe",
     direccion: "San Jerónimo 2020, Santa Fe de la Vera Cruz",
@@ -1331,7 +1331,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Vivian Alexia Hudson Figueroa",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "CABA",
     ciudad: "Belgrano",
     direccion: "Belgrano (a una cuadra de Lacroze y cabildo)",
@@ -1347,7 +1347,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Valeria Linero",
-    especialidad: "Psicóloga Cognitiva Conductual",
+    especialidad: "Psicólogo",
     provincia: "Mendoza",
     ciudad: "Luján de Cuyo",
     direccion: "Rivadavia 88, Luján de Cuyo",
@@ -1378,7 +1378,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Lic. Paloma Legal",
-    especialidad: "Psicóloga",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Bahía Blanca",
     direccion: "Por ahora solo atiende Online",
