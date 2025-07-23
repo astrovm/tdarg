@@ -51,11 +51,11 @@ export default function LegislacionPage() {
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+        <div className="container mx-auto px-4 py-12 relative z-10">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Análisis Inteligente de Legislación TDAH
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl leading-relaxed">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
             Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente
             beneficia a los pacientes vs. el "teatro político".
           </p>
@@ -64,60 +64,60 @@ export default function LegislacionPage() {
 
       {/* Problems Section */}
       <div className="bg-gradient-to-br from-red-50/50 to-orange-50/50 dark:from-red-900/10 dark:to-orange-900/10 border-y border-red-100 dark:border-red-800/30">
-        <div className="container mx-auto px-4 py-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6 text-center">Problemas Identificados</h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 text-center max-w-3xl mx-auto">
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4 text-center">Problemas Identificados</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
             Análisis de los obstáculos principales para acceso a medicación TDAH
           </p>
 
           {/* Explicación de niveles de urgencia */}
-          <div className="mb-8 p-6 bg-gradient-to-r from-white to-blue-50 dark:from-slate-800 dark:to-blue-900/20 rounded-2xl shadow-lg border border-blue-200 dark:border-blue-800/50">
-            <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white text-sm">📊</span>
+          <div className="mb-6 p-4 bg-gradient-to-r from-white to-blue-50 dark:from-slate-800 dark:to-blue-900/20 rounded-xl shadow-lg border border-blue-200 dark:border-blue-800/50">
+            <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center">
+              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                <span className="text-white text-xs">📊</span>
               </div>
               Niveles de Urgencia
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-start space-x-3 p-4 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-200 dark:border-red-800/50">
-                <div className="w-4 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-1 flex-shrink-0"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="flex items-start space-x-2 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800/50">
+                <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-1 flex-shrink-0"></div>
                 <div>
-                  <span className="font-bold text-red-700 dark:text-red-300 text-lg">Crítico:</span>
-                  <p className="text-red-600 dark:text-red-200 mt-1">
+                  <span className="font-bold text-red-700 dark:text-red-300">Crítico:</span>
+                  <p className="text-red-600 dark:text-red-200 text-sm mt-1">
                     Bloquea completamente el acceso a medicación
                   </p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800/50">
-                <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mt-1 flex-shrink-0"></div>
+              <div className="flex items-start space-x-2 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800/50">
+                <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mt-1 flex-shrink-0"></div>
                 <div>
-                  <span className="font-bold text-orange-700 dark:text-orange-300 text-lg">Alto:</span>
-                  <p className="text-orange-600 dark:text-orange-200 mt-1">
+                  <span className="font-bold text-orange-700 dark:text-orange-300">Alto:</span>
+                  <p className="text-orange-600 dark:text-orange-200 text-sm mt-1">
                     Dificulta significativamente el tratamiento
                   </p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-800/50">
-                <div className="w-4 h-4 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full mt-1 flex-shrink-0"></div>
+              <div className="flex items-start space-x-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800/50">
+                <div className="w-3 h-3 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full mt-1 flex-shrink-0"></div>
                 <div>
-                  <span className="font-bold text-yellow-700 dark:text-yellow-300 text-lg">Medio:</span>
-                  <p className="text-yellow-600 dark:text-yellow-200 mt-1">Causa inconvenientes pero es manejable</p>
+                  <span className="font-bold text-yellow-700 dark:text-yellow-300">Medio:</span>
+                  <p className="text-yellow-600 dark:text-yellow-200 text-sm mt-1">Causa inconvenientes pero es manejable</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {problemasReales.map((item, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-red-50 dark:from-slate-800 dark:to-red-900/20 border-0 shadow-xl hover:-translate-y-1"
+                className="group hover:shadow-xl transition-all duration-500 bg-gradient-to-br from-white to-red-50 dark:from-slate-800 dark:to-red-900/20 border-0 shadow-lg hover:-translate-y-1"
               >
-                <CardHeader className="p-8 relative">
+                <CardHeader className="p-6 relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-orange-400"></div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3">
                     <Badge
-                      className={`px-3 py-1 text-sm font-semibold ${
+                      className={`px-2 py-1 text-xs font-semibold ${
                         item.urgencia === "Crítico"
                           ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md"
                           : item.urgencia === "Alto"
@@ -127,16 +127,16 @@ export default function LegislacionPage() {
                     >
                       {item.urgencia}
                     </Badge>
-                    <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{item.impacto}</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{item.impacto}</span>
                   </div>
-                  <CardTitle className="text-xl text-slate-800 dark:text-white leading-tight mb-4 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
+                  <CardTitle className="text-lg text-slate-800 dark:text-white leading-tight mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
                     {item.problema}
                   </CardTitle>
-                  <CardDescription className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     <div>{formatText(item.descripcion)}</div>
                   </CardDescription>
-                  <div className="mt-4 p-3 bg-slate-100 dark:bg-slate-700 rounded-lg">
-                    <p className="text-sm text-slate-600 dark:text-slate-300 italic">{item.resumen}</p>
+                  <div className="mt-3 p-2 bg-slate-100 dark:bg-slate-700 rounded-lg">
+                    <p className="text-xs text-slate-600 dark:text-slate-300 italic">{item.resumen}</p>
                   </div>
                 </CardHeader>
               </Card>
@@ -147,9 +147,9 @@ export default function LegislacionPage() {
 
       {/* Solutions Section */}
       <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 dark:from-green-900/10 dark:to-emerald-900/10 border-y border-green-100 dark:border-green-800/30">
-        <div className="container mx-auto px-4 py-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-6 text-center">Soluciones Propuestas</h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 text-center max-w-3xl mx-auto">Propuestas listas para presentación oficial</p>
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4 text-center">Soluciones Propuestas</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">Propuestas listas para presentación oficial</p>
           <div className="space-y-6">
             {propuestasNecesarias.map((propuesta, index) => (
               <Card
@@ -216,8 +216,8 @@ export default function LegislacionPage() {
 
       {/* Laws Section */}
       <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10 border-y border-blue-100 dark:border-blue-800/30">
-        <div className="container mx-auto px-4 py-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-8 text-center">Leyes Vigentes - Análisis</h2>
+        <div className="container mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6 text-center">Leyes Vigentes - Análisis</h2>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
               <Card

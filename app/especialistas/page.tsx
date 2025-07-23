@@ -318,36 +318,36 @@ export default function EspecialistasPage() {
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">Directorio de Especialistas en TDAH</h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-4xl mb-10 leading-relaxed">
+        <div className="container mx-auto px-4 py-12 relative z-10">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">Directorio de Especialistas en TDAH</h1>
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
             Encuentra profesionales especializados en el diagnóstico y tratamiento del TDAH en tu provincia. Todos los
             especialistas listados tienen experiencia específica en trastornos de atención.
           </p>
 
           {/* Filters */}
-          <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-2xl backdrop-blur-sm">
-            <CardHeader className="pb-6">
-              <CardTitle className="text-2xl text-slate-800 dark:text-white flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
+          <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl backdrop-blur-sm">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-xl text-slate-800 dark:text-white flex items-center">
+                <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
                   <Search className="h-4 w-4 text-white" />
                 </div>
                 Buscar Especialistas
               </CardTitle>
             </CardHeader>
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input
                     placeholder="Buscar por nombre, ciudad o hospital..."
                     value={filtroNombre}
                     onChange={(e) => setFiltroNombre(e.target.value)}
-                    className="pl-12 h-12 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl text-lg"
+                    className="pl-10 h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl"
                   />
                 </div>
                 <Select value={provincia} onValueChange={setProvincia}>
-                  <SelectTrigger className="h-12 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl text-lg">
+                  <SelectTrigger className="h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl">
                     <SelectValue placeholder="Seleccionar provincia" />
                   </SelectTrigger>
                   <SelectContent>
@@ -360,7 +360,7 @@ export default function EspecialistasPage() {
                   </SelectContent>
                 </Select>
                 <Select value={especialidad} onValueChange={setEspecialidad}>
-                  <SelectTrigger className="h-12 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl text-lg">
+                  <SelectTrigger className="h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl">
                     <SelectValue placeholder="Especialidad" />
                   </SelectTrigger>
                   <SelectContent>

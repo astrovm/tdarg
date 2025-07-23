@@ -155,27 +155,27 @@ export default function PreciosPage() {
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">Precios de Medicamentos TDAH</h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl">
+        <div className="container mx-auto px-4 py-12 relative z-10">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">Precios de Medicamentos TDAH</h1>
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 max-w-3xl">
             Precios actualizados de medicamentos para TDAH desde Farmacity
           </p>
 
           {/* Estadísticas */}
           {estadisticas && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Pill className="h-6 w-6 text-white" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Pill className="h-5 w-5 text-white" />
                 </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2">{estadisticas.total}</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2">{estadisticas.total}</div>
                 <div className="text-slate-600 dark:text-slate-300 font-medium">Total</div>
               </div>
-              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Package className="h-6 w-6 text-white" />
+              <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Package className="h-5 w-5 text-white" />
                 </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-2">{estadisticas.con_precio}</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-2">{estadisticas.con_precio}</div>
                 <div className="text-slate-600 dark:text-slate-300 font-medium">Con Precio</div>
               </div>
             </div>
@@ -189,12 +189,12 @@ export default function PreciosPage() {
                 placeholder="Buscar por nombre, marca o laboratorio..."
                 value={filtro}
                 onChange={(e) => setFiltro(e.target.value)}
-                className="pl-12 h-12 bg-white/90 dark:bg-slate-800/90 border-0 shadow-lg rounded-xl text-lg backdrop-blur-sm"
+                className="pl-12 h-10 bg-white/90 dark:bg-slate-800/90 border-0 shadow-md rounded-xl backdrop-blur-sm"
               />
             </div>
             <Button
               onClick={() => refetch(true)}
-              className="h-12 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
+              className="h-10 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-xl"
             >
               <RefreshCw className="h-5 w-5 mr-2" />
               Actualizar
