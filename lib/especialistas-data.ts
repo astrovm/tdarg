@@ -1142,7 +1142,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "TCM Terapia Cognitiva",
-    especialidad: "Terapia Cognitiva",
+    especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "La Matanza",
     direccion: "Zaqueira 6880, Bs. As.",
@@ -1153,8 +1153,8 @@ const especialistas: Especialista[] = [
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "centro_especializado",
-    redes: "@tcmcognitiva (Instagram)",
-    url: "https://www.instagram.com/tcmcognitiva/"
+    redes: "@tcm.psic (Instagram)",
+    url: "https://tcmcognitiva.com/"
   },
   {
     nombre: "Lic. Carolina Piñero",
