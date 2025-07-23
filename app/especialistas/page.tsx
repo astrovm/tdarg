@@ -177,6 +177,7 @@ export default function EspecialistasPage() {
                     <SelectItem value="Psicopedagogía">Psicopedagogía</SelectItem>
                     <SelectItem value="Equinoterapia">Equinoterapia</SelectItem>
                     <SelectItem value="Pediatra">Pediatra</SelectItem>
+                    <SelectItem value="Centro">Centro</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

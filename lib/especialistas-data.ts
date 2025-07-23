@@ -300,7 +300,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Centro de integración escolar",
-    especialidad: "Psicopedagogía",
+    especialidad: "Centro",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -330,7 +330,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Escuela de Equitación Hipocampo",
-    especialidad: "Equinoterapia",
+    especialidad: "Centro",
     provincia: "CABA",
     ciudad: "Palermo",
     direccion: "Av. Figueroa Alcorta 5100, Palermo, CABA",
@@ -418,7 +418,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "ÁBACO Interdisciplina",
-    especialidad: "Psicopedagogía",
+    especialidad: "Centro",
     provincia: "Córdoba",
     ciudad: "Río Tercero",
     direccion: "Esperanza 1270 1278, X5850 Río Tercero, Córdoba",
@@ -477,7 +477,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Equipo de neurología - Hospital italiano",
-    especialidad: "Neurólogo",
+    especialidad: "Centro",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Hospital Italiano",
@@ -613,7 +613,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "CIENN",
-    especialidad: "Neurólogo",
+    especialidad: "Centro",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "Consultar ubicación específica",
@@ -837,7 +837,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "CPG Salud",
-    especialidad: "Salud Mental",
+    especialidad: "Centro",
     provincia: "Buenos Aires",
     ciudad: "Zona Norte",
     direccion: "Consultar ubicación específica",
@@ -867,7 +867,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Integral-mente",
-    especialidad: "Equipo Interdisciplinario",
+    especialidad: "Centro",
     provincia: "Buenos Aires",
     ciudad: "Villa Luzuriaga",
     direccion: "Miró 2534, Villa Luzuriaga, Bs. As.",
@@ -1140,7 +1140,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "TCM Terapia Cognitiva",
-    especialidad: "Psicólogo",
+    especialidad: "Centro",
     provincia: "Buenos Aires",
     ciudad: "La Matanza",
     direccion: "Zaqueira 6880, Bs. As.",
@@ -1359,7 +1359,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Espacio para Armar",
-    especialidad: "Equipo Interdisciplinario",
+    especialidad: "Centro",
     provincia: "Buenos Aires",
     ciudad: "Lobos",
     direccion: "Laprida 178, Lobos bs.as y Alberdi 870, Lobos Bs As.",
