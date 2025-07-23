@@ -286,7 +286,7 @@ const especialistas: Especialista[] = [
     url: "http://aprendizajeyfamilia.com/"
   },
   {
-    nombre: "Margarita Peña",
+    nombre: "Lic. Margarita Peña",
     especialidad: "Psicopedagogía",
     provincia: "Buenos Aires",
     ciudad: "Bella Vista",
@@ -360,7 +360,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Analía Dussin",
+    nombre: "Lic. Analía Dussin",
     especialidad: "Psicopedagogía",
     provincia: "Córdoba",
     ciudad: "San Francisco",
@@ -405,7 +405,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Ines Christie Newbery",
+    nombre: "Lic. Ines Christie Newbery",
     especialidad: "Psicopedagogía",
     provincia: "CABA/Buenos Aires",
     ciudad: "Recoleta/Bella Vista",
@@ -433,7 +433,7 @@ const especialistas: Especialista[] = [
     tipo: "centro_especializado"
   },
   {
-    nombre: "Antonella Rizzo",
+    nombre: "Lic. Antonella Rizzo",
     especialidad: "Psicopedagogía",
     provincia: "CABA",
     ciudad: "Caballito",
@@ -447,7 +447,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Florencia Foglia",
+    nombre: "Lic. Florencia Foglia",
     especialidad: "Psicopedagogía",
     provincia: "Santa Fe",
     ciudad: "Santa Fe",
@@ -674,7 +674,7 @@ const especialistas: Especialista[] = [
     url: "https://www.fundacionfavaloro.org/neurologia-infantil/"
   },
   {
-    nombre: "María Susana Mosquera",
+    nombre: "Dra. María Susana Mosquera",
     especialidad: "Psiquiatra",
     provincia: "Buenos Aires",
     ciudad: "San Isidro",
@@ -734,7 +734,7 @@ const especialistas: Especialista[] = [
     url: "http://cetes.com.ar/ya-nos-trasladamos/"
   },
   {
-    nombre: "José Dominguez",
+    nombre: "Dr. José Dominguez",
     especialidad: "Psiquiatra",
     provincia: "Santa Fe",
     ciudad: "Santa Fe",
@@ -749,7 +749,7 @@ const especialistas: Especialista[] = [
     url: "https://www.google.com/search?q=Jos%C3%A9+Dom%C3%ADnguez+psiquiatra+santa+fe&oq=Jos%C3%A9+Dom%C3%ADnguez+psiquiatra+santa+fe&aqs=chrome..69i57.2901j0j4&sourceid=chrome&ie=UTF-8"
   },
   {
-    nombre: "Mariela Labath",
+    nombre: "Dra. Mariela Labath",
     especialidad: "Neurología",
     provincia: "Santa Fe",
     ciudad: "Paraná",
@@ -1008,7 +1008,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Lorena Lancha",
+    nombre: "Lic. Lorena Lancha",
     especialidad: "Psicóloga",
     provincia: "Buenos Aires",
     ciudad: "Zona Oeste",
@@ -1038,7 +1038,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Laura Alcocer",
+    nombre: "Lic. Laura Alcocer",
     especialidad: "Psicóloga",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
@@ -1053,7 +1053,7 @@ const especialistas: Especialista[] = [
     url: "http://www.cetecolaplata.com.ar/"
   },
   {
-    nombre: "Sharon Suzanne",
+    nombre: "Lic. Sharon Suzanne",
     especialidad: "Psicóloga Infanto-Juvenil",
     provincia: "CABA",
     ciudad: "CABA",
@@ -1069,7 +1069,7 @@ const especialistas: Especialista[] = [
     linkedin: "https://ar.linkedin.com/in/sharon-suzanne-mujica-33546338?src=aff-lilpar&veh=aff_src.aff-lilpar_c.partners_pkw.123201_plc.adgoal%20GmbH_pcrid.449670_learning&trk=aff_src.aff-lilpar_c.partners_pkw.123201_plc.adgoal%20GmbH_pcrid.449670_learning&clickid=2pe2qITY8xyOT42wUx0Mo3chUkiUlIQKUQUFVM0&irgwc=1"
   },
   {
-    nombre: "Alberto Luis Fernandez",
+    nombre: "Lic. Alberto Luis Fernandez",
     especialidad: "Psicólogo",
     provincia: "Córdoba",
     ciudad: "Córdoba Capital",
@@ -1084,7 +1084,7 @@ const especialistas: Especialista[] = [
     url: "https://www.cortexneuroterapias.com.ar/quienes-somos"
   },
   {
-    nombre: "Luciana Tapia",
+    nombre: "Lic. Luciana Tapia",
     especialidad: "Psicóloga Cognitivo Conductual",
     provincia: "Buenos Aires",
     ciudad: "Necochea",
@@ -1112,7 +1112,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Elisa Chisleanschi",
+    nombre: "Lic. Elisa Chisleanschi",
     especialidad: "Psicóloga",
     provincia: "Buenos Aires",
     ciudad: "Bella Vista",
@@ -1127,7 +1127,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Eleonora Giusti",
+    nombre: "Lic. Eleonora Giusti",
     especialidad: "Psicóloga Cognitiva",
     provincia: "CABA",
     ciudad: "CABA",
@@ -1185,7 +1185,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Silvana Soave",
+    nombre: "Lic. Silvana Soave",
     especialidad: "Psicóloga Cognitivo Conductual",
     provincia: "Buenos Aires",
     ciudad: "Necochea",
@@ -1199,7 +1199,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Manuel Pastene",
+    nombre: "Lic. Manuel Pastene",
     especialidad: "Psicólogo",
     provincia: "Buenos Aires",
     ciudad: "Vicente Lopez",
@@ -1214,7 +1214,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Romina Rosbelke",
+    nombre: "Lic. Romina Rosbelke",
     especialidad: "Psicóloga Infantil",
     provincia: "Buenos Aires",
     ciudad: "Quilmes",
@@ -1228,7 +1228,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Maria Gabriela Marina",
+    nombre: "Lic. Maria Gabriela Marina",
     especialidad: "Psicóloga TCC",
     provincia: "CABA",
     ciudad: "CABA",
@@ -1271,7 +1271,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Celeste Campano",
+    nombre: "Lic. Celeste Campano",
     especialidad: "Psicóloga",
     provincia: "CABA",
     ciudad: "Caballito",
@@ -1287,7 +1287,7 @@ const especialistas: Especialista[] = [
     url: "https://instagram.com/crianzapositivaargentina?igshid=YmMyMTA2M2Y="
   },
   {
-    nombre: "Anahi Lujan Garayo",
+    nombre: "Lic. Anahi Lujan Garayo",
     especialidad: "Psicóloga",
     provincia: "La Pampa",
     ciudad: "Santa Rosa",
@@ -1316,7 +1316,7 @@ const especialistas: Especialista[] = [
     tipo: "centro_especializado"
   },
   {
-    nombre: "Maria Laura De Feo",
+    nombre: "Lic. Maria Laura De Feo",
     especialidad: "Psicóloga TCC",
     provincia: "Santa Fe",
     ciudad: "Santa Fe",
@@ -1330,7 +1330,7 @@ const especialistas: Especialista[] = [
     tipo: "privado"
   },
   {
-    nombre: "Vivian Alexia Hudson Figueroa",
+    nombre: "Lic. Vivian Alexia Hudson Figueroa",
     especialidad: "Psicóloga",
     provincia: "CABA",
     ciudad: "Belgrano",
@@ -1377,7 +1377,7 @@ const especialistas: Especialista[] = [
     url: "https://instagram.com/espacioparaarmarlobos?igshid=1hpjjfbmytdt"
   },
   {
-    nombre: "Paloma Legal",
+    nombre: "Lic. Paloma Legal",
     especialidad: "Psicóloga",
     provincia: "Buenos Aires",
     ciudad: "Bahía Blanca",
