@@ -944,7 +944,7 @@ const especialistas: Especialista[] = [
     url: "http://www.integral-mente.com.ar/"
   },
   {
-    nombre: "Dr. Galli",
+    nombre: "Dr. Eduardo Galli",
     especialidad: "Neurólogo",
     provincia: "Santa Fe",
     ciudad: "Rafaela",
@@ -959,7 +959,7 @@ const especialistas: Especialista[] = [
     tipo: "centro_especializado"
   },
   {
-    nombre: "Dra. Riera",
+    nombre: "Dra. Silvina Rita Riera",
     especialidad: "Psiquiatra",
     provincia: "Mendoza",
     ciudad: "Mendoza",
