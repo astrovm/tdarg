@@ -23,12 +23,12 @@ import {
   MapPin,
   Phone,
   Mail,
-  Star,
   Clock,
   ExternalLink,
   MessageCircle,
   Instagram,
   Facebook,
+  Linkedin,
 } from "lucide-react";
 import { Header } from "@/components/header";
 
@@ -38,13 +38,12 @@ const especialistas = [
     nombre: "Dr. Osvaldo Rovere",
     especialidad: "Psiquiatra",
     provincia: "CABA",
-    ciudad: "CABA",
+    ciudad: "Recoleta",
     direccion: "Consulta privada",
     telefono: "+5491154837442",
     email: "osvaldorovere@gmail.com",
     hospital: "Consulta privada",
     experiencia: "Especialista en TDAH adultos",
-    rating: null,
     obraSocial: ["OSDE"],
     horarios: "Consultar",
     tipo: "privado",
@@ -59,7 +58,6 @@ const especialistas = [
     email: "info@athentun.org",
     hospital: "ATHENTUN",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Mar-Vie 8:00-11:00",
     tipo: "centro_especializado",
@@ -77,11 +75,12 @@ const especialistas = [
     email: "paulaharrisracedo@gmail.com",
     hospital: "Consulta privada virtual",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "privado",
     redes: "@phd_internacional (Instagram)",
+    url: "https://sites.google.com/view/paulaharrisracedo/",
+    linkedin: "https://www.linkedin.com/in/paula-harris-23a35a28/",
   },
   {
     nombre: "Lic. Marina Drake",
@@ -93,11 +92,11 @@ const especialistas = [
     email: "contacto@neuropsicologia.com.ar",
     hospital: "NEUROPSIC Consultorios",
     experiencia: "Neuropsicología",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie 14:00-19:00",
     tipo: "consultorio",
     url: "https://www.neuropsicologia.com.ar/",
+    whatsapp: "541166659139",
   },
   {
     nombre: "Dra. Natalia Fiorentino",
@@ -109,7 +108,6 @@ const especialistas = [
     email: "info@ineco.org.ar",
     hospital: "INECO - Instituto de Neurología Cognitiva",
     experiencia: "Programa de diagnóstico acelerado TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie",
     tipo: "instituto",
@@ -125,7 +123,6 @@ const especialistas = [
     email: "info@ineco.org.ar",
     hospital: "INECO - Instituto de Neurología Cognitiva",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie",
     tipo: "instituto",
@@ -140,7 +137,6 @@ const especialistas = [
     email: "info@ineco.org.ar",
     hospital: "INECO - Instituto de Neurología Cognitiva",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie",
     tipo: "instituto",
@@ -155,7 +151,6 @@ const especialistas = [
     email: "info@inecap.org",
     hospital: "INECAP - Instituto de Neurociencia Cognitiva Aplicada",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie 9:00-20:00",
     tipo: "instituto",
@@ -172,7 +167,6 @@ const especialistas = [
     email: "ariadnaechavarria@gmail.com",
     hospital: "ATHENTUN",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Mar-Vie 8:00-11:00",
     tipo: "centro_especializado",
@@ -187,7 +181,6 @@ const especialistas = [
     email: "Consultar",
     hospital: "FLENI - Neurología Cognitiva",
     experiencia: "Neurología Cognitiva - TDAH",
-    rating: null,
     obraSocial: ["Múltiples obras sociales"],
     horarios: "Lun-Vie 8:00-20:00",
     tipo: "hospital",
@@ -202,7 +195,6 @@ const especialistas = [
     email: "Consultar",
     hospital: "FLENI - Neurología Cognitiva",
     experiencia: "Psiquiatra - Magíster en Neuropsicofarmacología",
-    rating: null,
     obraSocial: ["Múltiples obras sociales"],
     horarios: "Lun-Vie 8:00-20:00",
     tipo: "hospital",
@@ -217,7 +209,6 @@ const especialistas = [
     email: "Consultar",
     hospital: "Hospital Italiano",
     experiencia: "Psiquiatría - Buen trato con pacientes",
-    rating: null,
     obraSocial: ["Múltiples obras sociales"],
     horarios: "Consultar",
     tipo: "hospital",
@@ -233,7 +224,6 @@ const especialistas = [
     email: "neurocienciascienn@gmail.com",
     hospital: "CIENN - Solo niños",
     experiencia: "Centro especializado en neurodesarrollo infantil",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie 8:00-20:00, Sáb 9:00-13:00",
     tipo: "centro_especializado",
@@ -251,7 +241,6 @@ const especialistas = [
     email: "Consultar",
     hospital: "Clínica San Juan",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "clinica",
@@ -267,7 +256,6 @@ const especialistas = [
     hospital: "Fundación Nascendi",
     emailFundacion: "fundacionnascendi@gmail.com",
     experiencia: "Especialista en TDAH",
-    rating: null,
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "fundacion",
@@ -476,14 +464,6 @@ export default function EspecialistasPage() {
                           )}
                         </div>
                       </div>
-                      {especialista.rating && (
-                        <div className="flex items-center space-x-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-sm font-medium">
-                            {especialista.rating}
-                          </span>
-                        </div>
-                      )}
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -509,6 +489,14 @@ export default function EspecialistasPage() {
                             {especialista.telefono}
                           </span>
                         </div>
+                        {especialista.whatsapp && (
+                          <div className="flex items-center space-x-2">
+                            <MessageCircle className="h-4 w-4 text-gray-400" />
+                            <span className="text-sm">
+                              {especialista.whatsapp}
+                            </span>
+                          </div>
+                        )}
                         <div className="flex items-center space-x-2">
                           <Mail className="h-4 w-4 text-gray-400" />
                           <span className="text-sm">{especialista.email}</span>
@@ -580,19 +568,26 @@ export default function EspecialistasPage() {
                     <div className="flex space-x-2 pt-2">
                       <Button
                         className="flex-1"
-                        onClick={() =>
-                          especialista.telefono !== "Consultar" &&
-                          window.open(
-                            `https://wa.me/${especialista.telefono.replace(
-                              /[^0-9]/g,
-                              ""
-                            )}`
-                          )
+                        onClick={() => {
+                          const whatsappNumber =
+                            especialista.whatsapp || especialista.telefono;
+                          if (whatsappNumber !== "Consultar") {
+                            window.open(
+                              `https://wa.me/${whatsappNumber.replace(
+                                /[^0-9]/g,
+                                ""
+                              )}`
+                            );
+                          }
+                        }}
+                        disabled={
+                          !especialista.whatsapp &&
+                          especialista.telefono === "Consultar"
                         }
-                        disabled={especialista.telefono === "Consultar"}
                       >
                         <MessageCircle className="h-4 w-4 mr-1" />
-                        {especialista.telefono !== "Consultar"
+                        {especialista.whatsapp ||
+                        especialista.telefono !== "Consultar"
                           ? "WhatsApp"
                           : "Consultar Teléfono"}
                       </Button>
@@ -618,6 +613,16 @@ export default function EspecialistasPage() {
                             <Mail className="h-4 w-4" />
                           </Button>
                         )}
+                      {especialista.linkedin && (
+                        <Button
+                          variant="outline"
+                          onClick={() =>
+                            window.open(especialista.linkedin, "_blank")
+                          }
+                        >
+                          <Linkedin className="h-4 w-4" />
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
