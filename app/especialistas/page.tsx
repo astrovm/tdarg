@@ -87,7 +87,7 @@ const especialistas = [
     nombre: "Lic. Marina Drake",
     especialidad: "Neuropsicóloga",
     provincia: "CABA",
-    ciudad: "City Bell",
+    ciudad: "CABA",
     direccion: "Esmeralda 961 6° Piso, Depto. H",
     telefono: "541143117864",
     email: "contacto@neuropsicologia.com.ar",
