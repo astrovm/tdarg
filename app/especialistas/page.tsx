@@ -37,7 +37,7 @@ const especialistas = [
   {
     nombre: "Dr. Osvaldo Rovere",
     especialidad: "Psiquiatra",
-    provincia: "Buenos Aires",
+    provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consulta privada",
     telefono: "+5491154837442",
@@ -48,69 +48,6 @@ const especialistas = [
     obraSocial: ["OSDE"],
     horarios: "Consultar",
     tipo: "privado",
-  },
-  {
-    nombre: "Dra. Natalia Fiorentino",
-    especialidad: "Neuropsicóloga",
-    provincia: "Buenos Aires",
-    ciudad: "CABA",
-    direccion: "M.T de Alvear 1632",
-    telefono: "08102664203",
-    email: "info@ineco.org.ar",
-    hospital: "INECO - Instituto de Neurología Cognitiva",
-    experiencia: "Programa de diagnóstico acelerado TDAH",
-    rating: null,
-    obraSocial: ["Consultar"],
-    horarios: "Lun-Vie",
-    tipo: "instituto",
-    url: "https://www.ineco.org.ar/programa-de-diagnostico-acelerado-tdah/",
-  },
-  {
-    nombre: "Dra. Rosario Figueras",
-    especialidad: "Psiquiatra",
-    provincia: "Buenos Aires",
-    ciudad: "CABA",
-    direccion: "M.T de Alvear 1632",
-    telefono: "+5492915732919",
-    email: "info@ineco.org.ar",
-    hospital: "INECO - Instituto de Neurología Cognitiva",
-    experiencia: "Especialista en TDAH",
-    rating: null,
-    obraSocial: ["Consultar"],
-    horarios: "Lun-Vie",
-    tipo: "instituto",
-  },
-  {
-    nombre: "Dra. Mirta Romalde",
-    especialidad: "Psiquiatra",
-    provincia: "Buenos Aires",
-    ciudad: "CABA",
-    direccion: "M.T de Alvear 1632",
-    telefono: "+5491159299467",
-    email: "info@ineco.org.ar",
-    hospital: "INECO - Instituto de Neurología Cognitiva",
-    experiencia: "Especialista en TDAH",
-    rating: null,
-    obraSocial: ["Consultar"],
-    horarios: "Lun-Vie",
-    tipo: "instituto",
-  },
-  {
-    nombre: "Dr. Gabriel Emilio Brenner",
-    especialidad: "Psiquiatra",
-    provincia: "Buenos Aires",
-    ciudad: "CABA",
-    direccion: "Consultar ubicación",
-    telefono: "5491127940095",
-    email: "info@inecap.org",
-    hospital: "INECAP - Instituto de Neurociencia Cognitiva Aplicada",
-    experiencia: "Especialista en TDAH",
-    rating: null,
-    obraSocial: ["Consultar"],
-    horarios: "Lun-Vie 9:00-20:00",
-    tipo: "instituto",
-    redes: "@inecap.tdah (Instagram), /inecap.org (Facebook)",
-    url: "https://inecap.org/",
   },
   {
     nombre: "Dra. Norma Cristina Echavarria",
@@ -131,6 +68,101 @@ const especialistas = [
     url: "https://www.nechavarria.com/",
   },
   {
+    nombre: "Dra. Paula Harris Racedo",
+    especialidad: "Neuropsicóloga",
+    provincia: "Buenos Aires",
+    ciudad: "Beccar",
+    direccion: "Consultar ubicación",
+    telefono: "15 4437 2878",
+    email: "paulaharrisracedo@gmail.com",
+    hospital: "Consulta privada virtual",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Consultar",
+    tipo: "privado",
+    redes: "@phd_internacional (Instagram)",
+  },
+  {
+    nombre: "Lic. Marina Drake",
+    especialidad: "Neuropsicóloga",
+    provincia: "CABA",
+    ciudad: "City Bell",
+    direccion: "Esmeralda 961 6° Piso, Depto. H",
+    telefono: "541143117864",
+    email: "contacto@neuropsicologia.com.ar",
+    hospital: "NEUROPSIC Consultorios",
+    experiencia: "Neuropsicología",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie 14:00-19:00",
+    tipo: "consultorio",
+    url: "https://www.neuropsicologia.com.ar/",
+  },
+  {
+    nombre: "Dra. Natalia Fiorentino",
+    especialidad: "Neuropsicóloga",
+    provincia: "CABA",
+    ciudad: "CABA",
+    direccion: "M.T de Alvear 1632",
+    telefono: "08102664203",
+    email: "info@ineco.org.ar",
+    hospital: "INECO - Instituto de Neurología Cognitiva",
+    experiencia: "Programa de diagnóstico acelerado TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie",
+    tipo: "instituto",
+    url: "https://www.ineco.org.ar/programa-de-diagnostico-acelerado-tdah/",
+  },
+  {
+    nombre: "Dra. Rosario Figueras",
+    especialidad: "Psiquiatra",
+    provincia: "CABA",
+    ciudad: "CABA",
+    direccion: "M.T de Alvear 1632",
+    telefono: "+5492915732919",
+    email: "info@ineco.org.ar",
+    hospital: "INECO - Instituto de Neurología Cognitiva",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie",
+    tipo: "instituto",
+  },
+  {
+    nombre: "Dra. Mirta Romalde",
+    especialidad: "Psiquiatra",
+    provincia: "CABA",
+    ciudad: "CABA",
+    direccion: "M.T de Alvear 1632",
+    telefono: "+5491159299467",
+    email: "info@ineco.org.ar",
+    hospital: "INECO - Instituto de Neurología Cognitiva",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie",
+    tipo: "instituto",
+  },
+  {
+    nombre: "Dr. Gabriel Emilio Brenner",
+    especialidad: "Psiquiatra",
+    provincia: "CABA",
+    ciudad: "CABA",
+    direccion: "Consultar ubicación",
+    telefono: "5491127940095",
+    email: "info@inecap.org",
+    hospital: "INECAP - Instituto de Neurociencia Cognitiva Aplicada",
+    experiencia: "Especialista en TDAH",
+    rating: null,
+    obraSocial: ["Consultar"],
+    horarios: "Lun-Vie 9:00-20:00",
+    tipo: "instituto",
+    redes: "@inecap.tdah (Instagram), /inecap.org (Facebook)",
+    url: "https://inecap.org/",
+  },
+  {
     nombre: "Dra. Ariadna Echavarria",
     especialidad: "Psiquiatra",
     provincia: "Buenos Aires",
@@ -148,7 +180,7 @@ const especialistas = [
   {
     nombre: "Dr. Chrem Mendez Patricio",
     especialidad: "Neurólogo",
-    provincia: "Buenos Aires",
+    provincia: "CABA",
     ciudad: "CABA",
     direccion: "FLENI",
     telefono: "5777-3200",
@@ -163,7 +195,7 @@ const especialistas = [
   {
     nombre: "Dr. Juan Pablo García Lombardi",
     especialidad: "Psiquiatra",
-    provincia: "Buenos Aires",
+    provincia: "CABA",
     ciudad: "CABA",
     direccion: "FLENI",
     telefono: "5777-3200",
@@ -178,7 +210,7 @@ const especialistas = [
   {
     nombre: "Dra. María Cecilia Rodríguez",
     especialidad: "Psiquiatra",
-    provincia: "Buenos Aires",
+    provincia: "CABA",
     ciudad: "CABA",
     direccion: "Hospital Italiano",
     telefono: "Consultar",
@@ -191,23 +223,6 @@ const especialistas = [
     tipo: "hospital",
     url: "https://www1.hospitalitaliano.org.ar/#!/home/psiquiatria/inicio",
   },
-  {
-    nombre: "Dra. Paula Harris Racedo",
-    especialidad: "Especialista TDAH",
-    provincia: "Buenos Aires",
-    ciudad: "Beccar",
-    direccion: "Consultar ubicación",
-    telefono: "15 4437 2878",
-    email: "paulaharrisracedo@gmail.com",
-    hospital: "Consulta privada virtual",
-    experiencia: "Especialista en TDAH",
-    rating: null,
-    obraSocial: ["Consultar"],
-    horarios: "Consultar",
-    tipo: "privado",
-    redes: "@phd_internacional (Instagram)",
-  },
-  // LA PLATA
   {
     nombre: "Dra. Cecilia Di Virgilio",
     especialidad: "Especialista TDAH",
@@ -241,23 +256,6 @@ const especialistas = [
     horarios: "Consultar",
     tipo: "clinica",
   },
-  // CITY BELL
-  {
-    nombre: "Dra. Marina Drake",
-    especialidad: "Neuropsicóloga",
-    provincia: "Buenos Aires",
-    ciudad: "City Bell",
-    direccion: "Esmeralda 961 6° Piso, Depto. H",
-    telefono: "541143117864",
-    email: "contacto@neuropsicologia.com.ar / citybell@neuropsicologia.com.ar",
-    hospital: "NEUROPSIC Consultorios",
-    experiencia: "Neuropsicología",
-    rating: null,
-    obraSocial: ["Consultar"],
-    horarios: "Lun-Vie 14:00-19:00",
-    tipo: "consultorio",
-  },
-  // CÓRDOBA
   {
     nombre: "Lic. Luis Santiago Vaggione",
     especialidad: "Psicólogo",
@@ -280,6 +278,7 @@ const especialistas = [
 
 const provincias = [
   "Buenos Aires",
+  "CABA",
   "Córdoba",
   "Santa Fe",
   "Mendoza",
@@ -311,30 +310,30 @@ export default function EspecialistasPage() {
 
   const parseRedes = (redesString: string) => {
     if (!redesString) return [];
-    
+
     const redes = [];
     // Buscar Instagram handles
     const instagramMatch = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
     if (instagramMatch) {
       redes.push({
-        type: 'instagram',
+        type: "instagram",
         handle: instagramMatch[1],
         url: `https://instagram.com/${instagramMatch[1]}`,
-        icon: Instagram
+        icon: Instagram,
       });
     }
-    
+
     // Buscar Facebook handles
     const facebookMatch = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
     if (facebookMatch) {
       redes.push({
-        type: 'facebook', 
+        type: "facebook",
         handle: facebookMatch[1],
         url: `https://facebook.com/${facebookMatch[1]}`,
-        icon: Facebook
+        icon: Facebook,
       });
     }
-    
+
     return redes;
   };
 
@@ -552,21 +551,27 @@ export default function EspecialistasPage() {
                               Redes Sociales:
                             </div>
                             <div className="flex gap-2">
-                              {parseRedes(especialista.redes).map((red, idx) => {
-                                const IconComponent = red.icon;
-                                return (
-                                  <Button
-                                    key={idx}
-                                    size="sm"
-                                    variant="outline"
-                                    className="h-8 px-3"
-                                    onClick={() => window.open(red.url, "_blank")}
-                                  >
-                                    <IconComponent className="h-4 w-4 mr-1" />
-                                    {red.type === 'instagram' ? 'Instagram' : 'Facebook'}
-                                  </Button>
-                                );
-                              })}
+                              {parseRedes(especialista.redes).map(
+                                (red, idx) => {
+                                  const IconComponent = red.icon;
+                                  return (
+                                    <Button
+                                      key={idx}
+                                      size="sm"
+                                      variant="outline"
+                                      className="h-8 px-3"
+                                      onClick={() =>
+                                        window.open(red.url, "_blank")
+                                      }
+                                    >
+                                      <IconComponent className="h-4 w-4 mr-1" />
+                                      {red.type === "instagram"
+                                        ? "Instagram"
+                                        : "Facebook"}
+                                    </Button>
+                                  );
+                                }
+                              )}
                             </div>
                           </div>
                         )}
