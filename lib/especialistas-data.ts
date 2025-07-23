@@ -479,7 +479,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Equipo de neurología - Hospital italiano",
-    especialidad: "Neurología",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Hospital Italiano",
@@ -554,7 +554,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Juan Tripoli",
-    especialidad: "Neurología Pediátrica",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "Belgrano",
     direccion: "Consultar ubicación específica",
@@ -615,7 +615,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "CIENN",
-    especialidad: "Neurología",
+    especialidad: "Neurólogo",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "Consultar ubicación específica",
@@ -645,7 +645,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Marcon Laureano",
-    especialidad: "Neurología",
+    especialidad: "Neurólogo",
     provincia: "Buenos Aires",
     ciudad: "Mar del Plata",
     direccion: "INEDEM",
@@ -660,7 +660,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Nicolás Schnitzler",
-    especialidad: "Neurología Infantil",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Fundación Favaloro",
@@ -705,7 +705,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dr. Adi Javier Nadin",
-    especialidad: "Neurología Infantil y Adolescente",
+    especialidad: "Neurólogo",
     provincia: "Mendoza",
     ciudad: "Godoy Cruz",
     direccion: "Panamericana 2650, Godoy Cruz, Mendoza",
@@ -750,7 +750,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Mariela Labath",
-    especialidad: "Neurología",
+    especialidad: "Neurólogo",
     provincia: "Santa Fe",
     ciudad: "Paraná",
     direccion: "Consultorios Interdisciplinarios Puerto Nuevo",
