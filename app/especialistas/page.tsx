@@ -27,6 +27,8 @@ import {
   Clock,
   ExternalLink,
   MessageCircle,
+  Instagram,
+  Facebook,
 } from "lucide-react";
 import { Header } from "@/components/header";
 
@@ -108,6 +110,7 @@ const especialistas = [
     horarios: "Lun-Vie 9:00-20:00",
     tipo: "instituto",
     redes: "@inecap.tdah (Instagram), /inecap.org (Facebook)",
+    url: "https://inecap.org/",
   },
   {
     nombre: "Dra. Norma Cristina Echavarria",
@@ -201,7 +204,7 @@ const especialistas = [
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "privado",
-    url: "https://www.instagram.com/phd_internacional/",
+    redes: "@phd_internacional (Instagram)",
   },
   // LA PLATA
   {
@@ -304,6 +307,35 @@ export default function EspecialistasPage() {
   const [filtroNombre, setFiltroNombre] = useState("");
   const [provincia, setProvincia] = useState("todas");
   const [especialidad, setEspecialidad] = useState("todas");
+
+  const parseRedes = (redesString: string) => {
+    if (!redesString) return [];
+    
+    const redes = [];
+    // Buscar Instagram handles
+    const instagramMatch = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
+    if (instagramMatch) {
+      redes.push({
+        type: 'instagram',
+        handle: instagramMatch[1],
+        url: `https://instagram.com/${instagramMatch[1]}`,
+        icon: Instagram
+      });
+    }
+    
+    // Buscar Facebook handles
+    const facebookMatch = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
+    if (facebookMatch) {
+      redes.push({
+        type: 'facebook', 
+        handle: facebookMatch[1],
+        url: `https://facebook.com/${facebookMatch[1]}`,
+        icon: Facebook
+      });
+    }
+    
+    return redes;
+  };
 
   const especialistasFiltrados = especialistas.filter((especialista) => {
     const coincideNombre =
@@ -515,11 +547,25 @@ export default function EspecialistasPage() {
                         </div>
                         {especialista.redes && (
                           <div>
-                            <div className="text-sm font-medium mb-1">
+                            <div className="text-sm font-medium mb-2">
                               Redes Sociales:
                             </div>
-                            <div className="text-sm text-gray-600 dark:text-gray-300">
-                              {especialista.redes}
+                            <div className="flex gap-2">
+                              {parseRedes(especialista.redes).map((red, idx) => {
+                                const IconComponent = red.icon;
+                                return (
+                                  <Button
+                                    key={idx}
+                                    size="sm"
+                                    variant="outline"
+                                    className="h-8 px-3"
+                                    onClick={() => window.open(red.url, "_blank")}
+                                  >
+                                    <IconComponent className="h-4 w-4 mr-1" />
+                                    {red.type === 'instagram' ? 'Instagram' : 'Facebook'}
+                                  </Button>
+                                );
+                              })}
                             </div>
                           </div>
                         )}
