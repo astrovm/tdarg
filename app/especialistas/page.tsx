@@ -128,6 +128,7 @@ const especialistas = [
     tipo: "centro_especializado",
     redes: "@espaciotdah (Instagram), /Athentun (Facebook)",
     telefonoAthentun: "5491166273265",
+    url: "https://www.nechavarria.com/",
   },
   {
     nombre: "Dra. Ariadna Echavarria",
