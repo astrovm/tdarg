@@ -207,7 +207,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Cecilia Di Virgilio",
-    especialidad: "Especialista TDAH",
+    especialidad: "Pediatra",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "20 Nº 389 e/39 y 40",
@@ -224,7 +224,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Dra. Silvina Gutierrez",
-    especialidad: "Especialista TDAH",
+    especialidad: "Psiquiatra",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "115 Nro. 425 (Clínica San Juan)",
