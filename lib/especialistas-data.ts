@@ -523,14 +523,14 @@ const especialistas: Especialista[] = [
 
   // PSIQUIATRAS Y NEURÓLOGOS ADICIONALES
   {
-    nombre: "Dra. Santillan",
-    especialidad: "Pediatra",
+    nombre: "Dra. Lorena María Santillán",
+    especialidad: "Neurólogo",
     provincia: "CABA",
     ciudad: "CABA",
-    direccion: "Instituto Niba",
+    direccion: "Hospital Italiano - Servicio de Neurología Pediátrica",
     telefono: "Consultar",
     email: "Consultar",
-    hospital: "Instituto Niba",
+    hospital: "Hospital Italiano",
     experiencia: "Pediatra y neuróloga",
     obraSocial: ["Consultar"],
     horarios: "Consultar",
