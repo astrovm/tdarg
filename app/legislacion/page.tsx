@@ -52,7 +52,7 @@ export default function LegislacionPage() {
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl font-bold text-purple-600 mb-4">
             Análisis Inteligente de Legislación TDAH
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
@@ -65,7 +65,7 @@ export default function LegislacionPage() {
       {/* Problems Section */}
       <div className="bg-gradient-to-br from-red-50/50 to-orange-50/50 dark:from-red-900/10 dark:to-orange-900/10 border-y border-red-100 dark:border-red-800/30">
         <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4 text-center">Problemas Identificados</h2>
+          <h2 className="text-3xl font-bold text-red-600 mb-4 text-center">Problemas Identificados</h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
             Análisis de los obstáculos principales para acceso a medicación TDAH
           </p>
@@ -148,7 +148,7 @@ export default function LegislacionPage() {
       {/* Solutions Section */}
       <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 dark:from-green-900/10 dark:to-emerald-900/10 border-y border-green-100 dark:border-green-800/30">
         <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4 text-center">Soluciones Propuestas</h2>
+          <h2 className="text-3xl font-bold text-green-600 mb-4 text-center">Soluciones Propuestas</h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">Propuestas listas para presentación oficial</p>
           <div className="space-y-6">
             {propuestasNecesarias.map((propuesta, index) => (
@@ -217,7 +217,7 @@ export default function LegislacionPage() {
       {/* Laws Section */}
       <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10 border-y border-blue-100 dark:border-blue-800/30">
         <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6 text-center">Leyes Vigentes - Análisis</h2>
+          <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center">Leyes Vigentes - Análisis</h2>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
               <Card

@@ -49,19 +49,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-              <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-3">5-7%</div>
+              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en niños</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
-              <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent mb-2">2.5%</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">3:1</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">3:1</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio niños:niñas</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-2">70%</div>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">70%</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Respuesta al tratamiento</div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
       {/* Features Grid - Diseño moderno con gradientes */}
       <section className="py-14 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-200 dark:to-white bg-clip-text text-transparent mb-10">Recursos Disponibles</h3>
+          <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">Recursos Disponibles</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl hover:-translate-y-2">
               <CardHeader className="p-6">

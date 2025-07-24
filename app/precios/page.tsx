@@ -156,7 +156,7 @@ export default function PreciosPage() {
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4">Precios de Medicamentos TDAH</h1>
+          <h1 className="text-4xl font-bold text-purple-600 mb-4">Precios de Medicamentos TDAH</h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 max-w-3xl">
             Precios actualizados de medicamentos para TDAH desde Farmacity
           </p>
@@ -168,14 +168,14 @@ export default function PreciosPage() {
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Pill className="h-5 w-5 text-white" />
                 </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2">{estadisticas.total}</div>
+                <div className="text-2xl font-bold text-purple-600 mb-2">{estadisticas.total}</div>
                 <div className="text-slate-600 dark:text-slate-300 font-medium">Total</div>
               </div>
               <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
                 <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Package className="h-5 w-5 text-white" />
                 </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-2">{estadisticas.con_precio}</div>
+                <div className="text-2xl font-bold text-emerald-600 mb-2">{estadisticas.con_precio}</div>
                 <div className="text-slate-600 dark:text-slate-300 font-medium">Con Precio</div>
               </div>
             </div>
