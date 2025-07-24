@@ -102,8 +102,8 @@ const especialistas: Especialista[] = [
     url: "https://www.ineco.org.ar/programa-de-diagnostico-tdah/",
   },
   {
-    nombre: "INECO - Instituto de Neurología Cognitiva",
-    especialidad: "Centro",
+    nombre: "INECO",
+    especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "M.T de Alvear 1632",
@@ -161,8 +161,8 @@ const especialistas: Especialista[] = [
     url: "https://inecap.org/",
   },
   {
-    nombre: "FLENI - Fundación para la Lucha contra las Enfermedades Neurológicas",
-    especialidad: "Centro",
+    nombre: "FLENI",
+    especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "Belgrano",
     direccion: "Montañeses 2325, Belgrano, CABA",
@@ -176,8 +176,8 @@ const especialistas: Especialista[] = [
     url: "https://www.fleni.org.ar/",
   },
   {
-    nombre: "ATHENTUN - Centro de Atención y Tratamiento de TDAH",
-    especialidad: "Centro",
+    nombre: "ATHENTUN",
+    especialidad: "Centro Especializado",
     provincia: "Buenos Aires",
     ciudad: "Hurlingham",
     direccion: "Sargento Salazar 1536 entre Hidalgo y Richieri",
@@ -192,8 +192,8 @@ const especialistas: Especialista[] = [
     url: "https://www.nechavarria.com/",
   },
   {
-    nombre: "INECAP - Instituto de Neurociencia Cognitiva Aplicada",
-    especialidad: "Centro",
+    nombre: "INECAP",
+    especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Servicios 100% online",
@@ -362,7 +362,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Centro de integración escolar",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
@@ -392,7 +392,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Escuela de Equitación Hipocampo",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "Palermo",
     direccion: "Av. Figueroa Alcorta 5100, Palermo, CABA",
@@ -480,7 +480,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "ÁBACO Interdisciplina",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "Córdoba",
     ciudad: "Río Tercero",
     direccion: "Esperanza 1270 1278, X5850 Río Tercero, Córdoba",
@@ -539,7 +539,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Equipo de neurología - Hospital italiano",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "CABA",
     direccion: "Hospital Italiano",
@@ -675,7 +675,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "CIENN",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "Buenos Aires",
     ciudad: "La Plata",
     direccion: "Consultar ubicación específica",
@@ -899,7 +899,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "CPG Salud",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "Buenos Aires",
     ciudad: "Zona Norte",
     direccion: "Consultar ubicación específica",
@@ -929,7 +929,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Integral-mente",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "Buenos Aires",
     ciudad: "Villa Luzuriaga",
     direccion: "Miró 2534, Villa Luzuriaga, Bs. As.",
@@ -1202,7 +1202,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "TCM Terapia Cognitiva",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "Buenos Aires",
     ciudad: "La Matanza",
     direccion: "Zaqueira 6880, Bs. As.",
@@ -1421,7 +1421,7 @@ const especialistas: Especialista[] = [
   },
   {
     nombre: "Espacio para Armar",
-    especialidad: "Centro",
+    especialidad: "Centro Especializado",
     provincia: "Buenos Aires",
     ciudad: "Lobos",
     direccion: "Laprida 178, Lobos bs.as y Alberdi 870, Lobos Bs As.",
