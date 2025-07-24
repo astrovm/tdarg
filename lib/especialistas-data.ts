@@ -538,7 +538,7 @@ const especialistas: Especialista[] = [
     url: "https://www.niba.com.ar/"
   },
   {
-    nombre: "Equipo de neurología - Hospital italiano",
+    nombre: "Hospital Italiano - Equipo de Neurología",
     especialidad: "Centro Especializado",
     provincia: "CABA",
     ciudad: "CABA",
