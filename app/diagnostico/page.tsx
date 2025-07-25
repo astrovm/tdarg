@@ -3,10 +3,13 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { AlertTriangle, CheckCircle, Clock, FileText, Users, Stethoscope } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Header } from "@/components/header"
 
 export default function DiagnosticoPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+      <Header />
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Guía de Diagnóstico TDAH</h1>
         <p className="text-xl text-muted-foreground">
@@ -311,6 +314,7 @@ export default function DiagnosticoPage() {
           </CardContent>
         </Card>
       </div>
+    </div>
     </div>
   )
 }

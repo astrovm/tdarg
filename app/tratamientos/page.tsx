@@ -4,10 +4,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import { Pill, Brain, Heart, Clock, AlertTriangle, CheckCircle, FileText } from "lucide-react"
+import { Header } from "@/components/header"
 
 export default function TratamientosPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+      <Header />
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Tratamientos para TDAH</h1>
         <p className="text-xl text-muted-foreground">
@@ -660,6 +663,7 @@ export default function TratamientosPage() {
           </Card>
         </TabsContent>
       </Tabs>
+    </div>
     </div>
   )
 }

@@ -5,10 +5,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { User, Users, Heart, Briefcase, GraduationCap, Clock, Zap, AlertTriangle } from "lucide-react"
+import { Header } from "@/components/header"
 
 export default function AdultosPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+      <Header />
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">TDAH en la Vida Adulta</h1>
         <p className="text-xl text-muted-foreground">
@@ -1076,6 +1079,7 @@ export default function AdultosPage() {
           </Card>
         </TabsContent>
       </Tabs>
+    </div>
     </div>
   )
 }
