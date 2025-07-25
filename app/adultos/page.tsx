@@ -36,11 +36,11 @@ export default function AdultosPage() {
       </Alert>
 
       <Tabs defaultValue="manifestaciones" className="space-y-8">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="manifestaciones">Manifestaciones</TabsTrigger>
-          <TabsTrigger value="areas-impacto">Áreas de Impacto</TabsTrigger>
-          <TabsTrigger value="mujeres">TDAH en Mujeres</TabsTrigger>
-          <TabsTrigger value="cambios-edad">Cambios con la Edad</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-1">
+          <TabsTrigger value="manifestaciones" className="text-xs md:text-sm">Manifestaciones</TabsTrigger>
+          <TabsTrigger value="areas-impacto" className="text-xs md:text-sm">Áreas de Impacto</TabsTrigger>
+          <TabsTrigger value="mujeres" className="text-xs md:text-sm">TDAH en Mujeres</TabsTrigger>
+          <TabsTrigger value="cambios-edad" className="text-xs md:text-sm">Cambios con la Edad</TabsTrigger>
         </TabsList>
 
         <TabsContent value="manifestaciones" className="space-y-6">

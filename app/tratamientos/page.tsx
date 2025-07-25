@@ -33,11 +33,11 @@ export default function TratamientosPage() {
       </Alert>
 
       <Tabs defaultValue="overview" className="space-y-8">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="overview">Visión General</TabsTrigger>
-          <TabsTrigger value="farmacologico">Farmacológico</TabsTrigger>
-          <TabsTrigger value="no-farmacologico">No Farmacológico</TabsTrigger>
-          <TabsTrigger value="seguimiento">Seguimiento</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-1">
+          <TabsTrigger value="overview" className="text-xs md:text-sm">Visión General</TabsTrigger>
+          <TabsTrigger value="farmacologico" className="text-xs md:text-sm">Farmacológico</TabsTrigger>
+          <TabsTrigger value="no-farmacologico" className="text-xs md:text-sm">No Farmacológico</TabsTrigger>
+          <TabsTrigger value="seguimiento" className="text-xs md:text-sm">Seguimiento</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-6">

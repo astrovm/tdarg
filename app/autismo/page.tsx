@@ -35,11 +35,11 @@ export default function AutismoPage() {
       </Alert>
 
       <Tabs defaultValue="comorbilidad" className="space-y-8">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="comorbilidad">Comorbilidad</TabsTrigger>
-          <TabsTrigger value="diferencial">Diagnóstico Diferencial</TabsTrigger>
-          <TabsTrigger value="tratamiento">Tratamiento</TabsTrigger>
-          <TabsTrigger value="caracteristicas">Características</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-1">
+          <TabsTrigger value="comorbilidad" className="text-xs md:text-sm">Comorbilidad</TabsTrigger>
+          <TabsTrigger value="diferencial" className="text-xs md:text-sm">Diagnóstico Diferencial</TabsTrigger>
+          <TabsTrigger value="tratamiento" className="text-xs md:text-sm">Tratamiento</TabsTrigger>
+          <TabsTrigger value="caracteristicas" className="text-xs md:text-sm">Características</TabsTrigger>
         </TabsList>
 
         <TabsContent value="comorbilidad" className="space-y-6">

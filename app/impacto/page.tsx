@@ -36,11 +36,11 @@ export default function ImpactoPage() {
       </Alert>
 
       <Tabs defaultValue="general" className="space-y-8">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="general">Visión General</TabsTrigger>
-          <TabsTrigger value="salud">Salud Física</TabsTrigger>
-          <TabsTrigger value="social">Impacto Social</TabsTrigger>
-          <TabsTrigger value="economico">Costo Económico</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-1">
+          <TabsTrigger value="general" className="text-xs md:text-sm">Visión General</TabsTrigger>
+          <TabsTrigger value="salud" className="text-xs md:text-sm">Salud Física</TabsTrigger>
+          <TabsTrigger value="social" className="text-xs md:text-sm">Impacto Social</TabsTrigger>
+          <TabsTrigger value="economico" className="text-xs md:text-sm">Costo Económico</TabsTrigger>
         </TabsList>
 
         <TabsContent value="general" className="space-y-6">

@@ -34,11 +34,11 @@ export default function RecursosPage() {
       </Alert>
 
       <Tabs defaultValue="organizacion" className="space-y-8">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="organizacion">Organización</TabsTrigger>
-          <TabsTrigger value="atencion">Atención</TabsTrigger>
-          <TabsTrigger value="emocional">Manejo Emocional</TabsTrigger>
-          <TabsTrigger value="tecnologia">Tecnología</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-1">
+          <TabsTrigger value="organizacion" className="text-xs md:text-sm">Organización</TabsTrigger>
+          <TabsTrigger value="atencion" className="text-xs md:text-sm">Atención</TabsTrigger>
+          <TabsTrigger value="emocional" className="text-xs md:text-sm">Manejo Emocional</TabsTrigger>
+          <TabsTrigger value="tecnologia" className="text-xs md:text-sm">Tecnología</TabsTrigger>
         </TabsList>
 
         <TabsContent value="organizacion" className="space-y-6">
