@@ -818,13 +818,5 @@ const tratamientosReferences: Reference[] = [
     url: "/primer-consenso-argentino-tdah-3.pdf",
     description: "Tercera parte del consenso nacional argentino enfocada en tratamientos y protocolos terapéuticos.",
     year: "2024"
-  },
-  {
-    id: 2,
-    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
-    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
-    url: "/international-consensus-208-conclusions.pdf",
-    description: "Documento científico internacional sobre efectividad de tratamientos para TDAH.",
-    year: "2021"
   }
 ]
