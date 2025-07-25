@@ -22,7 +22,7 @@ export default function DiagnosticoPage() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8">
 
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
