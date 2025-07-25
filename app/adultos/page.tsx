@@ -29,8 +29,9 @@ export default function AdultosPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Realidad:</strong> Entre el 45% y 85% de los niños con TDAH continúan con síntomas en la adultez. 
-          El TDAH no "desaparece" con la edad, sino que evoluciona.
+          <strong>Realidad:</strong> Según el consenso internacional, la <strong>prevalencia mundial en adultos es del 2.5-2.8%</strong>. 
+          Solo 1 de cada 6 jóvenes mantiene todos los criterios a los 25 años, pero <strong>aproximadamente la mitad</strong> 
+          sigue con deterioro residual significativo.
         </AlertDescription>
       </Alert>
 

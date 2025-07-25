@@ -612,26 +612,65 @@ export default function ComorbilidadesPage() {
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold mb-3">Otras Condiciones</h4>
-                  <div className="space-y-3">
-                    <div className="p-3 border rounded-lg">
-                      <h5 className="font-semibold text-sm">Trastornos del Sueño</h5>
+                  <h4 className="font-semibold mb-3">Comorbilidades Médicas (Consenso Internacional)</h4>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    <div className="p-3 border rounded-lg border-red-200 dark:border-red-800">
+                      <h5 className="font-semibold text-sm flex items-center gap-2">
+                        <span className="text-red-500">3x</span> Obesidad
+                      </h5>
                       <p className="text-xs text-muted-foreground">
-                        Insomnio, síndrome de piernas inquietas, alteraciones del ritmo circadiano
+                        Riesgo 3 veces mayor de desarrollar obesidad
                       </p>
                     </div>
-                    <div className="p-3 border rounded-lg">
-                      <h5 className="font-semibold text-sm">Migrañas</h5>
+                    <div className="p-3 border rounded-lg border-orange-200 dark:border-orange-800">
+                      <h5 className="font-semibold text-sm flex items-center gap-2">
+                        <span className="text-orange-500">45%</span> Asma
+                      </h5>
                       <p className="text-xs text-muted-foreground">
-                        Mayor frecuencia e intensidad, posible relación con disregulación neurotransmisora
+                        45% más probabilidades de tener asma
                       </p>
                     </div>
-                    <div className="p-3 border rounded-lg">
-                      <h5 className="font-semibold text-sm">Enfermedades Cardiovasculares</h5>
+                    <div className="p-3 border rounded-lg border-blue-200 dark:border-blue-800">
+                      <h5 className="font-semibold text-sm flex items-center gap-2">
+                        <span className="text-blue-500">3x</span> Diabetes Tipo 2
+                      </h5>
                       <p className="text-xs text-muted-foreground">
-                        Riesgo aumentado, parcialmente explicado por factores de estilo de vida
+                        Mayor riesgo en juventud y edad adulta
                       </p>
                     </div>
+                    <div className="p-3 border rounded-lg border-purple-200 dark:border-purple-800">
+                      <h5 className="font-semibold text-sm flex items-center gap-2">
+                        <span className="text-purple-500">2.5-3.5x</span> Epilepsia
+                      </h5>
+                      <p className="text-xs text-muted-foreground">
+                        Riesgo significativamente aumentado
+                      </p>
+                    </div>
+                    <div className="p-3 border rounded-lg border-green-200 dark:border-green-800">
+                      <h5 className="font-semibold text-sm flex items-center gap-2">
+                        <span className="text-green-500">2x</span> Enfermedades Autoinmunes
+                      </h5>
+                      <p className="text-xs text-muted-foreground">
+                        Espondilitis, colitis ulcerosa, tiroides
+                      </p>
+                    </div>
+                    <div className="p-3 border rounded-lg border-indigo-200 dark:border-indigo-800">
+                      <h5 className="font-semibold text-sm flex items-center gap-2">
+                        <span className="text-indigo-500">3.4x</span> Demencia (Adultos)
+                      </h5>
+                      <p className="text-xs text-muted-foreground">
+                        Mayor riesgo de desarrollar demencia
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
+                    <h5 className="font-semibold text-sm mb-2">Consenso Internacional - Evidencia Actualizada</h5>
+                    <p className="text-xs">
+                      Estas asociaciones se basan en las 208 conclusiones del consenso internacional, 
+                      confirmando que el TDAH aumenta significativamente el riesgo de múltiples condiciones médicas, 
+                      no solo psiquiátricas.
+                    </p>
                   </div>
                 </div>
               </div>

@@ -148,6 +148,42 @@ export default function TratamientosPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
+                {/* Efectividad según consenso internacional */}
+                <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg">
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-blue-500" />
+                    Efectividad Según Consenso Internacional (208 Conclusiones)
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-4 mb-4">
+                    <div className="text-center p-3 border rounded-lg">
+                      <div className="text-xl font-bold text-green-500 mb-1">Grandes</div>
+                      <div className="text-sm text-muted-foreground">Mejoras en niños con estimulantes</div>
+                    </div>
+                    <div className="text-center p-3 border rounded-lg">
+                      <div className="text-xl font-bold text-blue-500 mb-1">Moderadas-Grandes</div>
+                      <div className="text-sm text-muted-foreground">Mejoras en adultos con estimulantes</div>
+                    </div>
+                    <div className="text-center p-3 border rounded-lg">
+                      <div className="text-xl font-bold text-orange-500 mb-1">Moderadas</div>
+                      <div className="text-sm text-muted-foreground">Mejoras con no estimulantes</div>
+                    </div>
+                  </div>
+                  
+                  <div className="text-sm">
+                    <p className="mb-2">
+                      <strong>Recomendación por edad:</strong>
+                    </p>
+                    <ul className="space-y-1">
+                      <li>• <strong>Niños/Adolescentes:</strong> Metilfenidato como primera línea</li>
+                      <li>• <strong>Adultos:</strong> Anfetaminas como primera línea (mejor relación beneficio-riesgo)</li>
+                      <li>• <strong>No estimulantes:</strong> Alternativa válida cuando estimulantes no son adecuados</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <Separator />
+                
                 {/* Primera línea - Estimulantes */}
                 <div>
                   <div className="flex items-center gap-2 mb-4">

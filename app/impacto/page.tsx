@@ -29,9 +29,9 @@ export default function ImpactoPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Realidad crítica:</strong> Según investigación del Dr. Russell Barkley, el TDAH no tratado puede reducir 
-          la esperanza de vida en un promedio de <strong>13 años</strong>, y hasta <strong>21 años</strong> en casos severos (2/3 de los casos). 
-          Sin embargo, con tratamiento adecuado, la mayoría de estos riesgos se previenen.
+          <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones confirma que el TDAH no tratado 
+          tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong> que la población general. 
+          También puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.
         </AlertDescription>
       </Alert>
 
@@ -771,6 +771,36 @@ export default function ImpactoPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-8">
+                {/* Impacto económico global */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">Impacto Económico Global</h3>
+                  <div className="grid md:grid-cols-3 gap-4 mb-6">
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-red-500 mb-1">$143-266B</div>
+                      <div className="text-sm text-muted-foreground">Costo anual en EE.UU.</div>
+                    </div>
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-orange-500 mb-1">€20,000+</div>
+                      <div className="text-sm text-muted-foreground">Costo anual por adulto en Europa</div>
+                    </div>
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-purple-500 mb-1">22 días</div>
+                      <div className="text-sm text-muted-foreground">Pérdida laboral anual promedio</div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-red-50 dark:bg-red-950 p-4 rounded-lg">
+                    <h4 className="font-semibold mb-2">Consenso Internacional - 208 Conclusiones</h4>
+                    <p className="text-sm">
+                      El TDAH cuesta a la sociedad <strong>cientos de miles de millones de dólares anuales</strong> a nivel mundial. 
+                      Los costos incluyen no solo atención médica, sino también pérdida de productividad, desempleo, 
+                      accidentes y el impacto en las familias.
+                    </p>
+                  </div>
+                </div>
+                
+                <Separator />
+                
                 {/* Costos personales */}
                 <div>
                   <h3 className="text-lg font-semibold mb-4">Costos Económicos Personales</h3>
