@@ -2,15 +2,24 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Brain, Menu, X } from "lucide-react";
+import { Brain, Menu, X, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 
-const navigationItems = [
+const mainNavigationItems = [
   { href: "/precios", label: "Precios" },
   { href: "/especialistas", label: "Especialistas" },
   { href: "/legislacion", label: "Legislación" },
+];
+
+const guidesItems = [
   { href: "/diagnostico", label: "Diagnóstico" },
   { href: "/tratamientos", label: "Tratamientos" },
   { href: "/adultos", label: "TDAH Adulto" },
@@ -18,8 +27,13 @@ const navigationItems = [
   { href: "/autismo", label: "TDAH y Autismo" },
   { href: "/impacto", label: "Impacto" },
   { href: "/mitos", label: "Mitos" },
+];
+
+const resourcesItems = [
   { href: "/recursos", label: "Recursos" },
 ];
+
+const allNavigationItems = [...mainNavigationItems, ...guidesItems, ...resourcesItems];
 
 export function Header() {
   const pathname = usePathname();
@@ -40,7 +54,44 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             <nav className="flex space-x-6">
-              {navigationItems.map((item) => (
+              {/* Main navigation items */}
+              {mainNavigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    pathname === item.href
+                      ? "text-blue-600 dark:text-blue-400 font-medium"
+                      : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              {/* Guides dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className={`flex items-center space-x-1 ${
+                  guidesItems.some(item => pathname === item.href)
+                    ? "text-blue-600 dark:text-blue-400 font-medium"
+                    : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                }`}>
+                  <span>Guías</span>
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {guidesItems.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link href={item.href} className="w-full">
+                        {item.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
+              {/* Resources */}
+              {resourcesItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -80,7 +131,7 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-800">
             <nav className="flex flex-col space-y-3 pt-4">
-              {navigationItems.map((item) => (
+              {allNavigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
