@@ -186,7 +186,7 @@ export default function PreciosPage() {
             <div className="relative flex-1">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
               <Input
-                placeholder="Buscar por nombre, marca o laboratorio..."
+                placeholder="Buscá por nombre, marca o laboratorio..."
                 value={filtro}
                 onChange={(e) => setFiltro(e.target.value)}
                 className="pl-12 h-10 bg-white/90 dark:bg-slate-800/90 border-0 shadow-md rounded-xl backdrop-blur-sm"
@@ -209,7 +209,7 @@ export default function PreciosPage() {
           {medicamentosFiltrados.length === 0 ? (
             <Alert className="bg-white border-2 border-amber-300">
               <AlertCircle className="h-4 w-4" />
-              <AlertDescription>No se encontraron medicamentos que coincidan con tu búsqueda.</AlertDescription>
+              <AlertDescription>No se encontraron medicamentos que coincidan con lo que buscaste.</AlertDescription>
             </Alert>
           ) : (
             <Tabs defaultValue="agrupado" className="w-full">
@@ -231,16 +231,16 @@ export default function PreciosPage() {
                         variant="secondary"
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
                       >
-                        FDA Aprobados - Estimulantes
+                        Aprobados por FDA - Estimulantes
                       </Badge>
                     </div>
 
                     <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden border-2">
                       <AlertCircle className="h-4 w-4 text-blue-600" />
                       <AlertDescription className="text-blue-800 dark:text-blue-200 break-words">
-                        <strong>Nota importante:</strong> Otros estimulantes como Adderall (anfetamina mixta) y Vyvanse
-                        (lisdexanfetamina) están aprobados por FDA para TDAH pero no están disponibles en Argentina.
-                        Solo el metilfenidato está comercializado en el país.
+                        <strong>Importante:</strong> Otros estimulantes como Adderall (anfetamina mixta) y Vyvanse
+                        (lisdexanfetamina) están aprobados por la FDA para TDAH pero no están disponibles en Argentina.
+                        Solo el metilfenidato se comercializa en el país.
                       </AlertDescription>
                     </Alert>
 
@@ -316,7 +316,7 @@ export default function PreciosPage() {
                         variant="secondary"
                         className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
                       >
-                        FDA Aprobados - No Estimulantes
+                        Aprobados por FDA - No Estimulantes
                       </Badge>
                     </div>
 
@@ -392,15 +392,15 @@ export default function PreciosPage() {
                         variant="secondary"
                         className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"
                       >
-                        Uso Off-Label
+                        Uso "Off-Label" (Fuera de Etiqueta)
                       </Badge>
                     </div>
 
                     <Alert className="mb-6 border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-950 border-2">
                       <AlertCircle className="h-4 w-4 text-orange-600" />
                       <AlertDescription className="text-orange-800 dark:text-orange-200">
-                        Estos medicamentos se usan para TDAH pero no están específicamente aprobados por FDA para esta
-                        indicación. Siempre consulte con su médico antes de usar cualquier medicamento.
+                        Estos medicamentos se usan para TDAH pero no están aprobados por la FDA específicamente para esta
+                        indicación. Consultá siempre con tu médico antes de usar cualquier medicamento.
                       </AlertDescription>
                     </Alert>
 

@@ -122,7 +122,7 @@ export function Header() {
               ) : (
                 <Menu className="h-4 w-4" />
               )}
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">Abrir/cerrar menú</span>
             </Button>
           </div>
         </div>

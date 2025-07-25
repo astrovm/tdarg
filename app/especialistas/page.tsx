@@ -133,7 +133,7 @@ export default function EspecialistasPage() {
                 <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
                   <Search className="h-4 w-4 text-white" />
                 </div>
-                Buscar Especialistas
+                Buscar especialistas
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
@@ -141,7 +141,7 @@ export default function EspecialistasPage() {
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <Input
-                    placeholder="Buscar por nombre, ciudad o hospital..."
+                    placeholder="Buscá por nombre, ciudad u hospital..."
                     value={filtroNombre}
                     onChange={(e) => setFiltroNombre(e.target.value)}
                     className="pl-10 h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl"
@@ -149,7 +149,7 @@ export default function EspecialistasPage() {
                 </div>
                 <Select value={provincia} onValueChange={setProvincia}>
                   <SelectTrigger className="h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl">
-                    <SelectValue placeholder="Seleccionar provincia" />
+                    <SelectValue placeholder="Seleccioná una provincia" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="todas">Todas las provincias</SelectItem>
@@ -370,7 +370,7 @@ export default function EspecialistasPage() {
                           }
                         >
                           <ExternalLink className="h-4 w-4 mr-1" />
-                          Web
+                          Sitio Web
                         </Button>
                       )}
                       {especialista.email &&
@@ -410,7 +410,7 @@ export default function EspecialistasPage() {
                   <h3 className="text-lg font-medium">
                     No se encontraron especialistas
                   </h3>
-                  <p>Intenta ajustar los filtros de búsqueda</p>
+                  <p>Probá ajustando los filtros de búsqueda</p>
                 </div>
                 <Button
                   onClick={() => {
@@ -419,7 +419,7 @@ export default function EspecialistasPage() {
                     setEspecialidad("todas");
                   }}
                 >
-                  Limpiar Filtros
+                  Limpiar filtros
                 </Button>
               </CardContent>
             </Card>
@@ -471,25 +471,25 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    El diagnóstico tiene costos, pero es más caro no tenerlo
+                    El diagnóstico tiene un costo, pero es más caro no tenerlo
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Hospital Italiano tiene algún tipo de cobertura
+                    El Hospital Italiano ofrece cobertura para sus afiliados
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    INECO ofrece diagnóstico acelerado (útil para interior)
+                    INECO ofrece un diagnóstico acelerado (útil si viajás desde el interior)
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Muchas obras sociales cubren medicamentos crónicos
+                    Muchas obras sociales tienen cobertura para medicamentos crónicos
                   </p>
                 </div>
               </CardContent>
@@ -503,13 +503,13 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Pregunta si evaluaron comorbidades
+                    Preguntá si evaluaron comorbilidades
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Entiende el porqué del medicamento recetado
+                    Entendé por qué te recetaron ese medicamento
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
@@ -521,7 +521,7 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Necesitas receta triplicada para metilfenidato
+                    Necesitás receta triplicada para el metilfenidato
                   </p>
                 </div>
               </CardContent>

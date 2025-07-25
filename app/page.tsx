@@ -122,7 +122,7 @@ export default function HomePage() {
                   <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-3">Importante</h4>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     Esta información es de carácter educativo y no reemplaza la consulta médica profesional. Siempre
-                    consulte con un especialista para el diagnóstico y tratamiento del TDAH.
+                    consultá con un especialista para el diagnóstico y tratamiento del TDAH.
                   </p>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function HomePage() {
                 </a>
               </p>
               <h5 className="font-semibold mb-4">Código Abierto</h5>
-              <p className="text-gray-400 mb-4">Este proyecto es código abierto. Contribuye en GitHub.</p>
+              <p className="text-gray-400 mb-4">Este proyecto es de código abierto. Podés contribuir en GitHub.</p>
               <a
                 href="https://github.com/astrovm/tdarg"
                 target="_blank"
