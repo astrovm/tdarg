@@ -476,6 +476,101 @@ export default function TratamientosPage() {
               </div>
             </CardContent>
           </Card>
+          
+          {/* Ejercicio Físico */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Heart className="h-5 w-5 text-red-500" />
+                Ejercicio Físico: Medicina Natural para el TDAH
+              </CardTitle>
+              <CardDescription>
+                Una de las intervenciones más efectivas e inmediatas para mejorar los síntomas del TDAH
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-3 gap-4 mb-6">
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-2xl font-bold text-green-500 mb-1">65%</div>
+                    <div className="text-sm text-muted-foreground">Mejoran planificación tras 20-30 min</div>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-2xl font-bold text-blue-500 mb-1">70%</div>
+                    <div className="text-sm text-muted-foreground">Frecuencia cardíaca máxima objetivo</div>
+                  </div>
+                  <div className="text-center p-4 border rounded-lg">
+                    <div className="text-2xl font-bold text-purple-500 mb-1">20 min</div>
+                    <div className="text-sm text-muted-foreground">Duración mínima diaria recomendada</div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-4">
+                  <Card className="border-green-200 dark:border-green-800">
+                    <CardHeader>
+                      <CardTitle className="text-base">Actividad Aeróbica</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-1">
+                        <li>• <strong>20 min/día</strong> al 70% FCM</li>
+                        <li>• Correr, caminar rápido, bicicleta</li>
+                        <li>• Aumenta dopamina y norepinefrina</li>
+                        <li>• Mejora enfoque y motivación</li>
+                        <li>• Reduce hiperactividad e impulsividad</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-blue-200 dark:border-blue-800">
+                    <CardHeader>
+                      <CardTitle className="text-base">Entrenamiento de Equilibrio</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-1">
+                        <li>• Yoga, pilates, BOSU</li>
+                        <li>• Tablas de equilibrio (wobble board)</li>
+                        <li>• Estimula el cerebelo</li>
+                        <li>• Mejora coordinación y atención</li>
+                        <li>• <strong>80% éxito</strong> reportado por Zing Performance</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-purple-200 dark:border-purple-800">
+                    <CardHeader>
+                      <CardTitle className="text-base">Fitness Enfocado</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-1">
+                        <li>• Deportes de raqueta (tenis, ping-pong)</li>
+                        <li>• Artes marciales</li>
+                        <li>• Deportes de reacción rápida</li>
+                        <li>• Mejora funciones ejecutivas</li>
+                        <li>• Desarrolla autocontrol y disciplina</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+                
+                <div className="bg-green-50 dark:bg-green-950 p-4 rounded-lg">
+                  <h4 className="font-semibold mb-2 flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    Beneficios Inmediatos del Ejercicio
+                  </h4>
+                  <p className="text-sm mb-2">
+                    Una sola sesión de ejercicio de 20-30 minutos produce mejoras inmediatas en:
+                  </p>
+                  <ul className="text-sm space-y-1">
+                    <li>• <strong>Planificación y organización:</strong> 65% de mejora</li>
+                    <li>• <strong>Atención y concentración:</strong> Efectos duran 2-4 horas</li>
+                    <li>• <strong>Estado de ánimo:</strong> Reducción de ansiedad y depresión</li>
+                    <li>• <strong>Función ejecutiva:</strong> Mejora en toma de decisiones</li>
+                    <li>• <strong>Autorregulación:</strong> Mayor control de impulsos</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
 
         <TabsContent value="seguimiento" className="space-y-6">

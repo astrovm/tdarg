@@ -29,8 +29,9 @@ export default function ImpactoPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Realidad crítica:</strong> El TDAH no tratado aumenta el riesgo de patologías graves en un 50-300% 
-          y puede reducir la expectativa de vida. Sin embargo, con tratamiento adecuado, la mayoría de estos riesgos se previenen.
+          <strong>Realidad crítica:</strong> Según investigación del Dr. Russell Barkley, el TDAH no tratado puede reducir 
+          la esperanza de vida en un promedio de <strong>13 años</strong>, y hasta <strong>21 años</strong> en casos severos (2/3 de los casos). 
+          Sin embargo, con tratamiento adecuado, la mayoría de estos riesgos se previenen.
         </AlertDescription>
       </Alert>
 

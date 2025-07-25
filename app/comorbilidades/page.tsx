@@ -359,10 +359,14 @@ export default function ComorbilidadesPage() {
               <CardDescription>Riesgo aumentado y necesidad de tratamiento integrado</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="grid md:grid-cols-4 gap-4 mb-6">
                 <div className="text-center p-4 border rounded-lg">
-                  <div className="text-2xl font-bold text-red-500 mb-1">2x</div>
-                  <div className="text-sm text-muted-foreground">Mayor riesgo de TUS</div>
+                  <div className="text-2xl font-bold text-red-500 mb-1">5-10x</div>
+                  <div className="text-sm text-muted-foreground">Mayor riesgo de adicción</div>
+                </div>
+                <div className="text-center p-4 border rounded-lg">
+                  <div className="text-2xl font-bold text-orange-500 mb-1">80%</div>
+                  <div className="text-sm text-muted-foreground">Inician entre 13-23 años</div>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
                   <div className="text-2xl font-bold text-amber-500 mb-1">25-40%</div>
@@ -499,6 +503,75 @@ export default function ComorbilidadesPage() {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          {/* RSD - Disforia Sensible al Rechazo */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Heart className="h-5 w-5 text-rose-500" />
+                TDAH + Disforia Sensible al Rechazo (RSD)
+              </CardTitle>
+              <CardDescription>Una comorbilidad emocional recientemente reconocida y muy prevalente</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold mb-3">¿Qué es la RSD?</h4>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Dolor emocional extremo por percepción de rechazo o crítica
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Reacciones emocionales desproporcionadas al fracaso
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Muy común pero poco diagnosticada en TDAH
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Puede ser más incapacitante que el TDAH mismo
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold mb-3">Tratamiento</h4>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <strong>1 de cada 3</strong> con RSD severo mejora con clonidina + guanfacina
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Medicamentos alpha-agonistas son más efectivos que antidepresivos
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Terapia cognitivo-conductual especializada
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Estrategias de autorregulación emocional
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <Separator className="my-4" />
+              
+              <div className="bg-rose-50 dark:bg-rose-950 p-4 rounded-lg">
+                <h4 className="font-semibold mb-2">Reconocimiento Importante</h4>
+                <p className="text-sm">
+                  La RSD es una comorbilidad recientemente entendida que puede explicar muchas dificultades 
+                  emocionales en personas con TDAH. Su reconocimiento y tratamiento específico puede mejorar 
+                  significativamente la calidad de vida.
+                </p>
               </div>
             </CardContent>
           </Card>
