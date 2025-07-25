@@ -15,6 +15,7 @@ const navigationItems = [
   { href: "/tratamientos", label: "Tratamientos" },
   { href: "/adultos", label: "TDAH Adulto" },
   { href: "/comorbilidades", label: "Comorbilidades" },
+  { href: "/autismo", label: "TDAH y Autismo" },
   { href: "/impacto", label: "Impacto" },
   { href: "/mitos", label: "Mitos" },
   { href: "/recursos", label: "Recursos" },
