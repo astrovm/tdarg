@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, Github } from "lucide-react"
+import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, Github, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
 
 export default function HomePage() {
@@ -18,8 +18,8 @@ export default function HomePage() {
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Información actualizada sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
-            medicamentos, directorio de especialistas y análisis legislativo.
+            Información integral sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
+            medicamentos, directorio de especialistas, análisis legislativo y guías educativas completas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
@@ -68,10 +68,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Grid - Diseño moderno con gradientes */}
+      {/* Features Grid - Herramientas principales */}
       <section className="py-14 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">Recursos Disponibles</h3>
+          <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">Herramientas Principales</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl hover:-translate-y-2">
               <CardHeader className="p-6">
@@ -100,6 +100,147 @@ export default function HomePage() {
                 </div>
                 <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">Legislación</CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">Seguimiento de leyes y decretos relacionados con TDAH</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Educational Guides Section - Nueva sección para las guías */}
+      <section className="py-14 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">Guías Educativas</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+              Información completa basada en consensos médicos internacionales y evidencia científica
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-blue-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <Brain className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/diagnostico" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Diagnóstico
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Proceso diagnóstico, criterios DSM-5 y evaluación profesional
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-green-50 dark:from-slate-800 dark:to-green-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/tratamientos" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                    Tratamientos
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Opciones farmacológicas y no farmacológicas disponibles
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-orange-50 dark:from-slate-800 dark:to-orange-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <Users className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/adultos" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                    TDAH Adulto
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Manifestaciones y impacto del TDAH en la vida adulta
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <BookOpen className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/comorbilidades" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                    Comorbilidades
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Condiciones que frecuentemente acompañan al TDAH
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-teal-50 dark:from-slate-800 dark:to-teal-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <Brain className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/autismo" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                    TDAH y Autismo
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Comorbilidad entre TDAH y Trastorno del Espectro Autista
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-yellow-50 dark:from-slate-800 dark:to-yellow-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <Lightbulb className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/mitos" className="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+                    Mitos y Realidad
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Desmitificando conceptos erróneos sobre el TDAH
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-rose-50 dark:from-slate-800 dark:to-rose-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <TrendingUp className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/impacto" className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                    Impacto
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Consecuencias del TDAH no tratado en la vida diaria
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-indigo-50 dark:from-slate-800 dark:to-indigo-900/20 border-0 shadow-lg hover:-translate-y-1">
+              <CardHeader className="p-5">
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <BookOpen className="h-5 w-5 text-white" />
+                </div>
+                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
+                  <Link href="/recursos" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                    Recursos
+                  </Link>
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  Herramientas, apps y recursos adicionales útiles
+                </CardDescription>
               </CardHeader>
             </Card>
           </div>
@@ -143,7 +284,7 @@ export default function HomePage() {
               <p className="text-gray-400">TDAH en Argentina.</p>
             </div>
             <div>
-              <h5 className="font-semibold mb-4">Recursos</h5>
+              <h5 className="font-semibold mb-4">Herramientas</h5>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/precios" className="hover:text-white transition-colors">
@@ -155,14 +296,59 @@ export default function HomePage() {
                     Especialistas
                   </Link>
                 </li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Información</h5>
-              <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/legislacion" className="hover:text-white transition-colors">
                     Legislación
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold mb-4">Guías Educativas</h5>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <Link href="/diagnostico" className="hover:text-white transition-colors">
+                    Diagnóstico
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tratamientos" className="hover:text-white transition-colors">
+                    Tratamientos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/adultos" className="hover:text-white transition-colors">
+                    TDAH Adulto
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/comorbilidades" className="hover:text-white transition-colors">
+                    Comorbilidades
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold mb-4">Más Información</h5>
+              <ul className="space-y-2 text-gray-400">
+                <li>
+                  <Link href="/autismo" className="hover:text-white transition-colors">
+                    TDAH y Autismo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mitos" className="hover:text-white transition-colors">
+                    Mitos y Realidad
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/impacto" className="hover:text-white transition-colors">
+                    Impacto
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/recursos" className="hover:text-white transition-colors">
+                    Recursos
                   </Link>
                 </li>
               </ul>
