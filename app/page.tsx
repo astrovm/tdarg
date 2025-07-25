@@ -389,24 +389,24 @@ export default function HomePage() {
 const homepageReferences: Reference[] = [
   {
     id: 1,
-    title: "Primer Consenso Argentino sobre TDAH",
-    authors: "Asociación Argentina de Psiquiatría Infantil",
+    title: "Primer Consenso Argentino sobre TDAH: Parte 1",
+    authors: "Andrea Abadi, Marcelo Cetkovich-Bakmas, Hernán Klijnjan et al.",
     url: "/primer-consenso-argentino-tdah-1.pdf",
     description: "Primera parte del consenso nacional argentino que establece prevalencias y ratios por género en población local.",
-    year: "2019"
+    year: "2024"
   },
   {
     id: 2,
-    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
-    authors: "International Consensus Statement",
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
     url: "/international-consensus-208-conclusions.pdf",
     description: "Documento científico internacional con prevalencias mundiales en adultos basadas en metaanálisis.",
-    year: "2023"
+    year: "2021"
   },
   {
     id: 3,
-    title: "ADHD 2.0: New Science and Essential Strategies",
-    authors: "Russell A. Barkley",
+    title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
+    authors: "Edward M. Hallowell, John J. Ratey",
     url: "/adhd-2.0.pdf",
     description: "Compendio actualizado sobre efectividad de tratamientos para TDAH.",
     year: "2021"

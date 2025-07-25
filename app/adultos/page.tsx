@@ -1099,16 +1099,16 @@ export default function AdultosPage() {
 const adultosReferences: Reference[] = [
   {
     id: 1,
-    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
-    authors: "International Consensus Statement",
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
     url: "/international-consensus-208-conclusions.pdf",
     description: "Documento científico internacional que establece la prevalencia mundial del TDAH en adultos basada en metaanálisis.",
-    year: "2023"
+    year: "2021"
   },
   {
     id: 2,
-    title: "ADHD 2.0: New Science and Essential Strategies",
-    authors: "Russell A. Barkley",
+    title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
+    authors: "Edward M. Hallowell, John J. Ratey",
     url: "/adhd-2.0.pdf",
     description: "Análisis longitudinal sobre la persistencia del TDAH desde la adolescencia hasta la adultez.",
     year: "2021"

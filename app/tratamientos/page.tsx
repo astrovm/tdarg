@@ -5,6 +5,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import { Pill, Brain, Heart, Clock, AlertTriangle, CheckCircle, FileText } from "lucide-react"
 import { Header } from "@/components/header"
+import { CitationLink } from "@/components/citation-link"
+import { References, type Reference } from "@/components/references"
 
 export default function TratamientosPage() {
   return (
@@ -18,7 +20,7 @@ export default function TratamientosPage() {
             Tratamientos para TDAH
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Opciones terapéuticas disponibles en Argentina según el consenso médico nacional
+            Opciones terapéuticas disponibles en Argentina según el consenso médico nacional<CitationLink number={1} />
           </p>
         </div>
       </div>
@@ -801,7 +803,28 @@ export default function TratamientosPage() {
           </Card>
         </TabsContent>
       </Tabs>
+
+      <References references={tratamientosReferences} />
     </div>
     </div>
   )
 }
+
+const tratamientosReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Primer Consenso Argentino sobre TDAH: Parte 3",
+    authors: "Andrea Abadi, Marcelo Cetkovich-Bakmas, Hernán Klijnjan et al.",
+    url: "/primer-consenso-argentino-tdah-3.pdf",
+    description: "Tercera parte del consenso nacional argentino enfocada en tratamientos y protocolos terapéuticos.",
+    year: "2024"
+  },
+  {
+    id: 2,
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Documento científico internacional sobre efectividad de tratamientos para TDAH.",
+    year: "2021"
+  }
+]

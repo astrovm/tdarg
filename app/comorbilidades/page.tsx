@@ -801,18 +801,18 @@ export default function ComorbilidadesPage() {
 const comorbilidadesReferences: Reference[] = [
   {
     id: 1,
-    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
-    authors: "International Consensus Statement",
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
     url: "/international-consensus-208-conclusions.pdf",
     description: "Documento que establece las prevalencias de comorbilidades asociadas al TDAH basado en evidencia científica internacional.",
-    year: "2023"
+    year: "2021"
   },
   {
     id: 2,
-    title: "Primer Consenso Argentino sobre TDAH - Parte 2",
-    authors: "Asociación Argentina de Psiquiatría Infantil",
+    title: "Primer Consenso Argentino sobre TDAH: Parte 2",
+    authors: "Andrea Abadi, Marcelo Cetkovich-Bakmas, Hernán Klijnjan et al.",
     url: "/primer-consenso-argentino-tdah-2.pdf",
     description: "Segunda parte del consenso nacional argentino enfocada en comorbilidades y tratamiento integral.",
-    year: "2019"
+    year: "2024"
   }
 ]
