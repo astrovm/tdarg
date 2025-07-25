@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Building2, Package, AlertCircle, RefreshCw, Pill, Clock } from "lucide-react"
+import { Search, Building2, Package, AlertCircle, RefreshCw, Clock } from "lucide-react"
 import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales"
 import { Header } from "@/components/header"
 
@@ -161,23 +161,12 @@ export default function PreciosPage() {
             Precios actualizados de medicamentos para TDAH desde Farmacity
           </p>
 
-          {/* Estadísticas */}
+          {/* Info rápida */}
           {estadisticas && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Pill className="h-5 w-5 text-white" />
-                </div>
-                <div className="text-2xl font-bold text-purple-600 mb-2">{estadisticas.total}</div>
-                <div className="text-slate-600 dark:text-slate-300 font-medium">Total</div>
-              </div>
-              <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Package className="h-5 w-5 text-white" />
-                </div>
-                <div className="text-2xl font-bold text-emerald-600 mb-2">{estadisticas.con_precio}</div>
-                <div className="text-slate-600 dark:text-slate-300 font-medium">Con Precio</div>
-              </div>
+            <div className="mb-6">
+              <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
+                <span className="font-medium text-purple-600 dark:text-purple-400">{estadisticas.con_precio}</span> de <span className="font-medium">{estadisticas.total}</span> medicamentos con precios disponibles
+              </p>
             </div>
           )}
 
