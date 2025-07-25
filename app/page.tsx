@@ -3,8 +3,6 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button"
 import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, GitBranch, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
-import { CitationLink } from "@/components/citation-link"
-import { References, type Reference } from "@/components/references"
 
 export default function HomePage() {
   return (
@@ -51,19 +49,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%<CitationLink number={1} /></div>
+              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en niños</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%<CitationLink number={2} /></div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3:1<CitationLink number={1} /></div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">3:1</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio niños:niñas</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">70%<CitationLink number={3} /></div>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">70%</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Respuesta al tratamiento</div>
             </div>
           </div>
@@ -277,83 +275,13 @@ export default function HomePage() {
       {/* Footer - Fondo oscuro para contraste final */}
       <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Brain className="h-6 w-6" />
                 <span className="text-lg font-semibold">Tdarg</span>
               </div>
-              <p className="text-gray-400">TDAH en Argentina.</p>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Herramientas</h5>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/precios" className="hover:text-white transition-colors">
-                    Precios
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/especialistas" className="hover:text-white transition-colors">
-                    Especialistas
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/legislacion" className="hover:text-white transition-colors">
-                    Legislación
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Guías Educativas</h5>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/diagnostico" className="hover:text-white transition-colors">
-                    Diagnóstico
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tratamientos" className="hover:text-white transition-colors">
-                    Tratamientos
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/adultos" className="hover:text-white transition-colors">
-                    TDAH Adulto
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/comorbilidades" className="hover:text-white transition-colors">
-                    Comorbilidades
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Más Información</h5>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/autismo" className="hover:text-white transition-colors">
-                    TDAH y Autismo
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/mitos" className="hover:text-white transition-colors">
-                    Mitos y Realidad
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/impacto" className="hover:text-white transition-colors">
-                    Impacto
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/recursos" className="hover:text-white transition-colors">
-                    Recursos
-                  </Link>
-                </li>
-              </ul>
+              <p className="text-gray-400">Portal integral de información sobre TDAH en Argentina con herramientas prácticas y guías educativas basadas en evidencia científica.</p>
             </div>
             <div>
               <h5 className="font-semibold mb-4">Contacto</h5>
@@ -362,8 +290,13 @@ export default function HomePage() {
                   tdarg@4st.li
                 </a>
               </p>
+              <p className="text-gray-400 text-sm">
+                Para consultas, sugerencias o reportar información desactualizada.
+              </p>
+            </div>
+            <div>
               <h5 className="font-semibold mb-4">Código Abierto</h5>
-              <p className="text-gray-400 mb-4">Este proyecto es de código abierto. Podés contribuir en GitHub.</p>
+              <p className="text-gray-400 mb-4">Este proyecto es de código abierto. Podés contribuir mejorando el contenido o reportando issues.</p>
               <a
                 href="https://github.com/astrovm/tdarg"
                 target="_blank"
@@ -381,34 +314,6 @@ export default function HomePage() {
         </div>
       </footer>
 
-      <References references={homepageReferences} />
     </div>
   )
 }
-
-const homepageReferences: Reference[] = [
-  {
-    id: 1,
-    title: "Primer Consenso Argentino sobre TDAH: Parte 1",
-    authors: "Andrea Abadi, Marcelo Cetkovich-Bakmas, Hernán Klijnjan et al.",
-    url: "/primer-consenso-argentino-tdah-1.pdf",
-    description: "Primera parte del consenso nacional argentino que establece prevalencias y ratios por género en población local.",
-    year: "2024"
-  },
-  {
-    id: 2,
-    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
-    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
-    url: "/international-consensus-208-conclusions.pdf",
-    description: "Documento científico internacional con prevalencias mundiales en adultos basadas en metaanálisis.",
-    year: "2021"
-  },
-  {
-    id: 3,
-    title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
-    authors: "Edward M. Hallowell, John J. Ratey",
-    url: "/adhd-2.0.pdf",
-    description: "Compendio actualizado sobre efectividad de tratamientos para TDAH.",
-    year: "2021"
-  }
-]
