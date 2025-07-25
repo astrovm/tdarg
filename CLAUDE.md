@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 application called "Tdarg" (TDAH Argentina) - a comprehensive information portal about ADHD (Attention Deficit Hyperactivity Disorder) in Argentina. The site provides real-time medication pricing, medical professional directories, diagnostic information, and intelligent legislation analysis.
+This is a Next.js 15 application called "Tdarg" (TDAH Argentina) - a comprehensive information portal about ADHD (Attention Deficit Hyperactivity Disorder) in Argentina. The site provides real-time medication pricing, medical professional directories, intelligent legislation analysis, and extensive educational guides covering diagnosis, treatment, adult ADHD, comorbidities, and other related topics.
 
 ## Development Commands
 
@@ -44,21 +44,32 @@ bun run download-laws
 1. **Real-time Medication Pricing**: Fetches ADHD medication prices from Farmacity API
 2. **Legislation Analysis**: Comprehensive analysis of ADHD-related laws in Argentina
 3. **Professional Directory**: Database of ADHD specialists
+4. **Educational Guides**: Extensive content on diagnosis, treatment, adult ADHD, comorbidities, myths, and resources
 
 ### Application Structure
 
 \`\`\`
 app/
 ├── api/
-│ └── medicamentos-precios/ # Medication pricing API
-├── legislacion/ # Legislation analysis interface
-├── especialistas/ # Medical professionals directory
-└── precios/ # Medication pricing interface
+│   └── medicamentos-precios/    # Medication pricing API
+├── legislacion/                 # Legislation analysis interface
+├── especialistas/               # Medical professionals directory
+├── precios/                     # Medication pricing interface
+├── adultos/                     # Adult ADHD guide
+├── autismo/                     # ADHD and Autism guide
+├── comorbilidades/              # Comorbidities guide
+├── diagnostico/                 # Diagnosis guide
+├── impacto/                     # Impact guide
+├── mitos/                       # Myths guide
+├── recursos/                    # Resources guide
+└── tratamientos/                # Treatments guide
 \`\`\`
 
 ### Key Components
 
-- **Header (`components/header.tsx`)**: Main navigation with responsive mobile menu
+- **Header (`components/header.tsx`)**: Main navigation with responsive mobile menu and dropdown for guides
+  - Direct links: Precios, Especialistas, Legislación, Recursos
+  - Dropdown "Guías": Diagnóstico, Tratamientos, TDAH Adulto, Comorbilidades, TDAH y Autismo, Impacto, Mitos
 - **Theme Provider**: Global dark/light theme management
 - **UI Components**: Complete shadcn/ui component library in `components/ui/`
 
@@ -122,8 +133,9 @@ app/
 - The medication pricing system includes duplicate detection and data normalization
 - The AI legislation analysis uses keyword-based scoring with privacy risk assessment
 - Components follow consistent naming conventions and include proper TypeScript types
-- **Current focus**: Only 3 main sections - Prices, Doctors, and Legislation
-- **Removed sections**: Guides and Research (files completely removed from codebase)
+- **Current focus**: Three core sections (Prices, Doctors, Legislation) plus comprehensive educational guides
+- **Educational content**: Extensive guides covering diagnosis, treatment, adult ADHD, comorbidities, autism, myths, impact, and resources
+- **Navigation structure**: Main sections accessible directly, guides grouped under dropdown menu
 
 ### Testing and Quality
 
@@ -144,6 +156,17 @@ app/
 - **`/app/legislacion/page.tsx`**: Legislation analysis interface displaying laws, problems, and proposed solutions
 - **`/app/precios/page.tsx`**: Medication pricing interface with real-time Farmacity integration
 - **`/app/especialistas/page.tsx`**: Medical professionals directory
+
+#### Educational Guide Pages
+
+- **`/app/adultos/page.tsx`**: Comprehensive guide on adult ADHD manifestations, diagnosis, and impact
+- **`/app/diagnostico/page.tsx`**: Diagnostic criteria, process, and evaluation guidelines
+- **`/app/tratamientos/page.tsx`**: Treatment options including medications and non-pharmacological approaches
+- **`/app/comorbilidades/page.tsx`**: Information on conditions commonly associated with ADHD
+- **`/app/autismo/page.tsx`**: Relationship between ADHD and Autism Spectrum Disorder
+- **`/app/mitos/page.tsx`**: Common myths and misconceptions about ADHD debunked
+- **`/app/impacto/page.tsx`**: Social, economic, and personal impact of ADHD
+- **`/app/recursos/page.tsx`**: Additional resources, support groups, and helpful materials
 
 #### Core Hooks
 
@@ -199,7 +222,7 @@ When updating legislation content:
 
 ### Key Configuration Files
 
-- **`next.config.mjs`**: React Strict Mode disabled, error tolerance for rapid development, optimized image handling
+- **`next.config.mjs`**: React Strict Mode disabled, error tolerance for rapid development (ignores ESLint and TypeScript build errors for rapid prototyping), optimized image handling with remote patterns
 - **`tailwind.config.ts`**: CSS variable-based theming with dark mode support, extended design tokens
 - **`tsconfig.json`**: Strict TypeScript configuration with path mapping (`@/*` imports)
 - **`package.json`**: Uses Bun as package manager, comprehensive Radix UI component dependencies
