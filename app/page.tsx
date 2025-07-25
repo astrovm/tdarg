@@ -168,6 +168,12 @@ export default function HomePage() {
               </ul>
             </div>
             <div>
+              <h5 className="font-semibold mb-4">Contacto</h5>
+              <p className="text-gray-400 mb-4">
+                <a href="mailto:tdarg@4st.li" className="hover:text-white transition-colors">
+                  tdarg@4st.li
+                </a>
+              </p>
               <h5 className="font-semibold mb-4">Código Abierto</h5>
               <p className="text-gray-400 mb-4">Este proyecto es código abierto. Contribuye en GitHub.</p>
               <a
