@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { Checkbox } from "@/components/ui/checkbox"
 import { AlertTriangle, CheckCircle, Clock, FileText, Users, Stethoscope } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
@@ -78,35 +79,35 @@ export default function DiagnosticoPage() {
                 <h4 className="font-semibold mb-2">Síntomas de Inatención (necesitás 5 o más):</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Dificultad para mantener la atención en tareas o actividades
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     No parece escuchar cuando se le habla directamente
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     No sigue instrucciones y falla en completar tareas
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Dificultad para organizar tareas y actividades
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Evita tareas que requieren esfuerzo mental sostenido
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Pierde objetos necesarios para tareas
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Se distrae fácilmente con estímulos externos
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Es olvidadizo en actividades diarias
                   </li>
                 </ul>
@@ -118,39 +119,39 @@ export default function DiagnosticoPage() {
                 <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad (necesitás 5 o más):</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Mueve manos/pies o se retuerce en el asiento
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Se levanta cuando debería permanecer sentado
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Sensación de inquietud interna (en adultos)
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Dificultad para realizar actividades tranquilas
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     "En marcha" o actúa como si tuviera un motor
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Habla excesivamente
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Responde antes de que terminen las preguntas
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Dificultad para esperar su turno
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
+                    <Checkbox className="mt-0.5 flex-shrink-0" />
                     Interrumpe o se inmiscuye con otros
                   </li>
                 </ul>
@@ -280,6 +281,12 @@ export default function DiagnosticoPage() {
                 <h4 className="font-semibold">TDAH vs. Trastorno Bipolar</h4>
                 <p className="text-sm text-muted-foreground">
                   El bipolar tiene episodios definidos de manía/hipomanía; el TDAH tiene un curso más estable
+                </p>
+              </div>
+              <div className="border-l-4 border-teal-500 pl-4">
+                <h4 className="font-semibold">TDAH vs. Autismo (TEA)</h4>
+                <p className="text-sm text-muted-foreground">
+                  Desde el DSM-5 pueden coexistir. El TEA incluye dificultades sociales y patrones restrictivos; el TDAH se centra en atención e hiperactividad
                 </p>
               </div>
             </div>
