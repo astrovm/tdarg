@@ -3,8 +3,9 @@ import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
-import { AlertTriangle, Brain, Heart, Activity, Zap, Pill, Users } from "lucide-react"
+import { AlertTriangle, Brain, Heart, Activity, Zap, Pill, Users, ArrowRight } from "lucide-react"
 import { Header } from "@/components/header"
+import Link from "next/link"
 
 export default function ComorbilidadesPage() {
   return (
@@ -426,6 +427,77 @@ export default function ComorbilidadesPage() {
                       <p className="text-xs">Monitoreo continuo del uso de sustancias y adherencia al tratamiento</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          {/* TDAH + TEA */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Brain className="h-5 w-5 text-indigo-500" />
+                TDAH + Trastorno del Espectro Autista (TEA)
+              </CardTitle>
+              <CardDescription>Una comorbilidad neurológica compleja que requiere evaluación especializada</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold mb-3">Datos de Prevalencia</h4>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <strong>29.4%</strong> de adolescentes masculinos con TDAH tienen TEA
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                      DSM-5 permite el diagnóstico dual desde 2013
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Requiere evaluación por especialista en TEA
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold mb-3">Características Clave</h4>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Síntomas pueden superponerse y confundirse
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Diagnóstico diferencial complejo
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                      Tratamiento requiere adaptaciones específicas
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <Separator className="my-4" />
+              
+              <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-semibold mb-1">Información Detallada</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Consulta nuestra guía completa sobre TDAH y Autismo para diagnóstico diferencial, 
+                      tratamiento específico y características detalladas.
+                    </p>
+                  </div>
+                  <Link 
+                    href="/autismo"
+                    className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  >
+                    Ver Guía Completa
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </div>
             </CardContent>
