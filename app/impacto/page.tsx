@@ -6,6 +6,8 @@ import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AlertTriangle, TrendingDown, DollarSign, Heart, Car, GraduationCap, Users, Clock } from "lucide-react"
 import { Header } from "@/components/header"
+import { CitationLink } from "@/components/citation-link"
+import { References, type Reference } from "@/components/references"
 
 export default function ImpactoPage() {
   return (
@@ -29,9 +31,9 @@ export default function ImpactoPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones confirma que el TDAH no tratado 
-          tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong> que la población general. 
-          También puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.
+          <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones<CitationLink number={1} /> confirma que el TDAH no tratado 
+          tiene <strong>doble tasa de suicidio<CitationLink number={1} /></strong> y <strong>4x más intentos<CitationLink number={1} /></strong> que la población general. 
+          También puede reducir la esperanza de vida en promedio <strong>13 años<CitationLink number={1} /></strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.
         </AlertDescription>
       </Alert>
 
@@ -63,7 +65,7 @@ export default function ImpactoPage() {
                     <Card className="border-red-200 dark:border-red-800">
                       <CardContent className="pt-6">
                         <div className="text-center">
-                          <div className="text-3xl font-bold text-red-500 mb-2">50-300%</div>
+                          <div className="text-3xl font-bold text-red-500 mb-2">50-300%<CitationLink number={2} /></div>
                           <div className="text-sm text-muted-foreground">Aumento de riesgo de patologías graves</div>
                         </div>
                       </CardContent>
@@ -72,7 +74,7 @@ export default function ImpactoPage() {
                     <Card className="border-amber-200 dark:border-amber-800">
                       <CardContent className="pt-6">
                         <div className="text-center">
-                          <div className="text-3xl font-bold text-amber-500 mb-2">12-13</div>
+                          <div className="text-3xl font-bold text-amber-500 mb-2">12-13<CitationLink number={1} /></div>
                           <div className="text-sm text-muted-foreground">Años de reducción en expectativa de vida</div>
                         </div>
                       </CardContent>
@@ -1071,7 +1073,28 @@ export default function ImpactoPage() {
           </Card>
         </TabsContent>
       </Tabs>
+
+      <References references={impactoReferences} />
     </div>
     </div>
   )
 }
+
+const impactoReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
+    authors: "International Consensus Statement",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Documento científico internacional que recopila 208 conclusiones basadas en evidencia sobre el TDAH, incluyendo datos críticos sobre mortalidad, suicidio y expectativa de vida.",
+    year: "2023"
+  },
+  {
+    id: 2,
+    title: "ADHD 2.0: New Science and Essential Strategies",
+    authors: "Russell A. Barkley",
+    url: "/adhd-2.0.pdf", 
+    description: "Compendio actualizado sobre el TDAH que incluye estadísticas de riesgo y comorbilidades asociadas.",
+    year: "2021"
+  }
+]

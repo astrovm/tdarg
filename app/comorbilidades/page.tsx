@@ -6,6 +6,8 @@ import { Separator } from "@/components/ui/separator"
 import { AlertTriangle, Brain, Heart, Activity, Zap, Pill, Users, ArrowRight } from "lucide-react"
 import { Header } from "@/components/header"
 import Link from "next/link"
+import { CitationLink } from "@/components/citation-link"
+import { References, type Reference } from "@/components/references"
 
 export default function ComorbilidadesPage() {
   return (
@@ -29,7 +31,7 @@ export default function ComorbilidadesPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Datos clave:</strong> Entre el 70% y 80% de las personas con TDAH desarrollan al menos una condición comórbida. 
+          <strong>Datos clave:</strong> Entre el 70% y 80%<CitationLink number={1} /> de las personas con TDAH desarrollan al menos una condición comórbida. 
           La comorbilidad es la norma, no la excepción.
         </AlertDescription>
       </Alert>
@@ -788,8 +790,29 @@ export default function ComorbilidadesPage() {
             </div>
           </CardContent>
         </Card>
+
+        <References references={comorbilidadesReferences} />
       </div>
     </div>
     </div>
   )
 }
+
+const comorbilidadesReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
+    authors: "International Consensus Statement",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Documento que establece las prevalencias de comorbilidades asociadas al TDAH basado en evidencia científica internacional.",
+    year: "2023"
+  },
+  {
+    id: 2,
+    title: "Primer Consenso Argentino sobre TDAH - Parte 2",
+    authors: "Asociación Argentina de Psiquiatría Infantil",
+    url: "/primer-consenso-argentino-tdah-2.pdf",
+    description: "Segunda parte del consenso nacional argentino enfocada en comorbilidades y tratamiento integral.",
+    year: "2019"
+  }
+]

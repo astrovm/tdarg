@@ -6,6 +6,8 @@ import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { User, Users, Heart, Briefcase, GraduationCap, Clock, Zap, AlertTriangle } from "lucide-react"
 import { Header } from "@/components/header"
+import { CitationLink } from "@/components/citation-link"
+import { References, type Reference } from "@/components/references"
 
 export default function AdultosPage() {
   return (
@@ -29,8 +31,8 @@ export default function AdultosPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Realidad:</strong> Según el consenso internacional, la <strong>prevalencia mundial en adultos es del 2.5-2.8%</strong>. 
-          Solo 1 de cada 6 jóvenes mantiene todos los criterios a los 25 años, pero <strong>aproximadamente la mitad</strong> 
+          <strong>Realidad:</strong> Según el consenso internacional<CitationLink number={1} />, la <strong>prevalencia mundial en adultos es del 2.5-2.8%<CitationLink number={1} /></strong>. 
+          Solo 1 de cada 6 jóvenes mantiene todos los criterios a los 25 años<CitationLink number={2} />, pero <strong>aproximadamente la mitad<CitationLink number={2} /></strong> 
           sigue con deterioro residual significativo.
         </AlertDescription>
       </Alert>
@@ -1087,7 +1089,28 @@ export default function AdultosPage() {
           </Card>
         </TabsContent>
       </Tabs>
+
+      <References references={adultosReferences} />
     </div>
     </div>
   )
 }
+
+const adultosReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
+    authors: "International Consensus Statement",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Documento científico internacional que establece la prevalencia mundial del TDAH en adultos basada en metaanálisis.",
+    year: "2023"
+  },
+  {
+    id: 2,
+    title: "ADHD 2.0: New Science and Essential Strategies",
+    authors: "Russell A. Barkley",
+    url: "/adhd-2.0.pdf",
+    description: "Análisis longitudinal sobre la persistencia del TDAH desde la adolescencia hasta la adultez.",
+    year: "2021"
+  }
+]

@@ -1,8 +1,10 @@
 import Link from "next/link"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, Github, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
+import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, GitBranch, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
+import { CitationLink } from "@/components/citation-link"
+import { References, type Reference } from "@/components/references"
 
 export default function HomePage() {
   return (
@@ -49,19 +51,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%</div>
+              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%<CitationLink number={1} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en niños</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%<CitationLink number={2} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3:1</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">3:1<CitationLink number={1} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio niños:niñas</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">70%</div>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">70%<CitationLink number={3} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Respuesta al tratamiento</div>
             </div>
           </div>
@@ -368,7 +370,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
               >
-                <Github className="h-4 w-4" />
+                <GitBranch className="h-4 w-4" />
                 <span>Ver en GitHub</span>
               </a>
             </div>
@@ -378,6 +380,35 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      <References references={homepageReferences} />
     </div>
   )
 }
+
+const homepageReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Primer Consenso Argentino sobre TDAH",
+    authors: "Asociación Argentina de Psiquiatría Infantil",
+    url: "/primer-consenso-argentino-tdah-1.pdf",
+    description: "Primera parte del consenso nacional argentino que establece prevalencias y ratios por género en población local.",
+    year: "2019"
+  },
+  {
+    id: 2,
+    title: "Consenso Internacional de 208 Conclusiones sobre TDAH",
+    authors: "International Consensus Statement",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Documento científico internacional con prevalencias mundiales en adultos basadas en metaanálisis.",
+    year: "2023"
+  },
+  {
+    id: 3,
+    title: "ADHD 2.0: New Science and Essential Strategies",
+    authors: "Russell A. Barkley",
+    url: "/adhd-2.0.pdf",
+    description: "Compendio actualizado sobre efectividad de tratamientos para TDAH.",
+    year: "2021"
+  }
+]
