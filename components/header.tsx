@@ -11,6 +11,13 @@ const navigationItems = [
   { href: "/precios", label: "Precios" },
   { href: "/especialistas", label: "Especialistas" },
   { href: "/legislacion", label: "Legislación" },
+  { href: "/diagnostico", label: "Diagnóstico" },
+  { href: "/tratamientos", label: "Tratamientos" },
+  { href: "/adultos", label: "TDAH Adulto" },
+  { href: "/comorbilidades", label: "Comorbilidades" },
+  { href: "/impacto", label: "Impacto" },
+  { href: "/mitos", label: "Mitos" },
+  { href: "/recursos", label: "Recursos" },
 ];
 
 export function Header() {
