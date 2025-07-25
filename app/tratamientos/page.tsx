@@ -28,7 +28,7 @@ export default function TratamientosPage() {
       <Alert className="mb-8">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
-          <strong>Importante:</strong> El tratamiento debe ser multimodal e individualizado. Siempre consulta con un profesional especializado.
+          <strong>Importante:</strong> El tratamiento debe ser multimodal e individualizado. Siempre consultá con un profesional especializado.
         </AlertDescription>
       </Alert>
 

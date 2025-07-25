@@ -69,13 +69,13 @@ export default function DiagnosticoPage() {
               Auto-evaluación Inicial
             </CardTitle>
             <CardDescription>
-              Estas preguntas pueden ayudarte a identificar si necesitas una evaluación profesional
+              Estas preguntas pueden ayudarte a identificar si necesitás una evaluación profesional
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h4 className="font-semibold mb-2">Síntomas de Inatención (necesitas 5 o más):</h4>
+                <h4 className="font-semibold mb-2">Síntomas de Inatención (necesitás 5 o más):</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
@@ -115,7 +115,7 @@ export default function DiagnosticoPage() {
               <Separator />
 
               <div>
-                <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad (necesitas 5 o más):</h4>
+                <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad (necesitás 5 o más):</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <div className="w-4 h-4 border rounded mt-0.5 flex-shrink-0"></div>
