@@ -45,7 +45,7 @@ export default function ComorbilidadesPage() {
               Prevalencia de Comorbilidades
             </CardTitle>
             <CardDescription>
-              Frecuencia de condiciones psiquiátricas y médicas asociadas al TDAH
+              Frecuencia de condiciones psiquiátricas y médicas asociadas al TDAH<CitationLink number={1} />
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -180,7 +180,7 @@ export default function ComorbilidadesPage() {
                 <Zap className="h-5 w-5 text-amber-500" />
                 TDAH + Trastornos de Ansiedad
               </CardTitle>
-              <CardDescription>La comorbilidad más frecuente en adultos</CardDescription>
+              <CardDescription>La comorbilidad más frecuente en adultos<CitationLink number={1} /></CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
@@ -258,12 +258,12 @@ export default function ComorbilidadesPage() {
                 <Brain className="h-5 w-5 text-blue-500" />
                 TDAH + Depresión Mayor
               </CardTitle>
-              <CardDescription>Relación compleja entre ambas condiciones</CardDescription>
+              <CardDescription>Relación compleja entre ambas condiciones<CitationLink number={1} /></CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-4 mb-6">
                 <div className="text-center p-4 border rounded-lg">
-                  <div className="text-2xl font-bold text-blue-500 mb-1">40-50%</div>
+                  <div className="text-2xl font-bold text-blue-500 mb-1">40-50%<CitationLink number={1} /></div>
                   <div className="text-sm text-muted-foreground">Prevalencia en adultos con TDAH</div>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
@@ -329,7 +329,7 @@ export default function ComorbilidadesPage() {
                 <Activity className="h-5 w-5 text-purple-500" />
                 TDAH + Trastorno Bipolar
               </CardTitle>
-              <CardDescription>Comorbilidad compleja que requiere manejo especializado</CardDescription>
+              <CardDescription>Comorbilidad compleja que requiere manejo especializado<CitationLink number={2} /></CardDescription>
             </CardHeader>
             <CardContent>
               <Alert className="mb-4">
@@ -406,12 +406,12 @@ export default function ComorbilidadesPage() {
                 <Pill className="h-5 w-5 text-red-500" />
                 TDAH + Trastorno por Uso de Sustancias
               </CardTitle>
-              <CardDescription>Riesgo aumentado y necesidad de tratamiento integrado</CardDescription>
+              <CardDescription>Riesgo aumentado y necesidad de tratamiento integrado<CitationLink number={1} /></CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-4 gap-4 mb-6">
                 <div className="text-center p-4 border rounded-lg">
-                  <div className="text-2xl font-bold text-red-500 mb-1">5-10x</div>
+                  <div className="text-2xl font-bold text-red-500 mb-1">5-10x<CitationLink number={1} /></div>
                   <div className="text-sm text-muted-foreground">Mayor riesgo de adicción</div>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
@@ -493,7 +493,7 @@ export default function ComorbilidadesPage() {
                 <Brain className="h-5 w-5 text-indigo-500" />
                 TDAH + Trastorno del Espectro Autista (TEA)
               </CardTitle>
-              <CardDescription>Una comorbilidad neurológica compleja que requiere evaluación especializada</CardDescription>
+              <CardDescription>Una comorbilidad neurológica compleja que requiere evaluación especializada<CitationLink number={1} /></CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
@@ -502,7 +502,7 @@ export default function ComorbilidadesPage() {
                   <ul className="text-sm space-y-2">
                     <li className="flex items-start gap-2">
                       <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <strong>29.4%</strong> de adolescentes masculinos con TDAH tienen TEA
+                      <strong>29.4%</strong> de adolescentes masculinos con TDAH tienen TEA<CitationLink number={1} />
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -564,7 +564,7 @@ export default function ComorbilidadesPage() {
                 <Heart className="h-5 w-5 text-rose-500" />
                 TDAH + Disforia Sensible al Rechazo (RSD)
               </CardTitle>
-              <CardDescription>Una comorbilidad emocional recientemente reconocida y muy prevalente</CardDescription>
+              <CardDescription>Una comorbilidad emocional recientemente reconocida y muy prevalente<CitationLink number={2} /></CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
@@ -638,7 +638,7 @@ export default function ComorbilidadesPage() {
                 Condiciones Médicas Asociadas
               </CardTitle>
               <CardDescription>
-                El TDAH se asocia con mayor riesgo de diversas condiciones médicas
+                El TDAH se asocia con mayor riesgo de diversas condiciones médicas<CitationLink number={1} />
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -666,7 +666,7 @@ export default function ComorbilidadesPage() {
                   <div className="grid md:grid-cols-2 gap-3">
                     <div className="p-3 border rounded-lg border-red-200 dark:border-red-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-red-500">3x</span> Obesidad
+                        <span className="text-red-500">3x</span> Obesidad<CitationLink number={1} />
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Riesgo 3 veces mayor de desarrollar obesidad
@@ -674,7 +674,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-orange-200 dark:border-orange-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-orange-500">45%</span> Asma
+                        <span className="text-orange-500">45%</span> Asma<CitationLink number={1} />
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         45% más probabilidades de tener asma
@@ -682,7 +682,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-blue-200 dark:border-blue-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-blue-500">3x</span> Diabetes Tipo 2
+                        <span className="text-blue-500">3x</span> Diabetes Tipo 2<CitationLink number={1} />
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Mayor riesgo en juventud y edad adulta
@@ -690,7 +690,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-purple-200 dark:border-purple-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-purple-500">2.5-3.5x</span> Epilepsia
+                        <span className="text-purple-500">2.5-3.5x</span> Epilepsia<CitationLink number={1} />
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Riesgo significativamente aumentado
@@ -698,7 +698,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-green-200 dark:border-green-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-green-500">2x</span> Enfermedades Autoinmunes
+                        <span className="text-green-500">2x</span> Enfermedades Autoinmunes<CitationLink number={1} />
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Espondilitis, colitis ulcerosa, tiroides
@@ -706,7 +706,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-indigo-200 dark:border-indigo-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-indigo-500">3.4x</span> Demencia (Adultos)
+                        <span className="text-indigo-500">3.4x</span> Demencia (Adultos)<CitationLink number={1} />
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Mayor riesgo de desarrollar demencia
@@ -717,7 +717,7 @@ export default function ComorbilidadesPage() {
                   <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
                     <h5 className="font-semibold text-sm mb-2">Consenso Internacional - Evidencia Actualizada</h5>
                     <p className="text-xs">
-                      Estas asociaciones se basan en las 208 conclusiones del consenso internacional, 
+                      Estas asociaciones se basan en las 208 conclusiones del consenso internacional,<CitationLink number={1} /> 
                       confirmando que el TDAH aumenta significativamente el riesgo de múltiples condiciones médicas, 
                       no solo psiquiátricas.
                     </p>
@@ -736,7 +736,7 @@ export default function ComorbilidadesPage() {
               Manejo Integral de Comorbilidades
             </CardTitle>
             <CardDescription>
-              Principios para el tratamiento cuando el TDAH coexiste con otras condiciones
+              Principios para el tratamiento cuando el TDAH coexiste con otras condiciones<CitationLink number={2} />
             </CardDescription>
           </CardHeader>
           <CardContent>
