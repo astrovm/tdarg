@@ -6,6 +6,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { AlertTriangle, Brain, Users, Eye, MessageCircle, Zap, Target } from "lucide-react"
 import { Header } from "@/components/header"
+import { References, type Reference } from "@/components/references"
+
+const references: Reference[] = [
+  {
+    id: 1,
+    title: "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida",
+    authors: "Moina, C., et al.",
+    url: "/primer-consenso-argentino-tdah-1.pdf",
+    description: "Este consenso aborda la comorbilidad del TDAH con otros trastornos, incluyendo el Trastorno del Espectro Autista (TEA), y la importancia del diagnóstico diferencial.",
+    year: "2020",
+  },
+];
 
 export default function AutismoPage() {
   return (
@@ -1066,6 +1078,8 @@ export default function AutismoPage() {
           </div>
         </CardContent>
       </Card>
+
+      <References references={references} />
     </div>
     </div>
   )

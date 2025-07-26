@@ -4,6 +4,34 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import { CheckCircle, XCircle, AlertTriangle, Brain, Users, GraduationCap, Pill } from "lucide-react"
 import { Header } from "@/components/header"
+import { References, type Reference } from "@/components/references"
+
+const references: Reference[] = [
+  {
+    id: 1,
+    title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
+    authors: "Hallowell, E. M., & Ratey, J. J.",
+    url: "/adhd-2.0.pdf",
+    description: "Libro que actualiza la comprensión del TDAH, desmitificando conceptos erróneos y presentando un enfoque basado en fortalezas.",
+    year: "2021",
+  },
+  {
+    id: 2,
+    title: "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida",
+    authors: "Moina, C., et al.",
+    url: "/primer-consenso-argentino-tdah-1.pdf",
+    description: "El consenso de expertos argentinos que valida la existencia del TDAH como una condición médica real y aborda su persistencia en la adultez.",
+    year: "2020",
+  },
+  {
+    id: 3,
+    title: "International Consensus Statement on ADHD",
+    authors: "Faraone, S. V., et al.",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Declaración de consenso internacional firmada por 208 expertos que confirma la validez científica del TDAH y la seguridad de su tratamiento.",
+    year: "2021",
+  },
+];
 
 export default function MitosPage() {
   return (
@@ -475,6 +503,8 @@ export default function MitosPage() {
             </div>
           </CardContent>
         </Card>
+
+        <References references={references} />
       </div>
     </div>
     </div>

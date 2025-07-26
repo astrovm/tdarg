@@ -3,6 +3,34 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button"
 import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, GitBranch, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
+import { References, type Reference } from "@/components/references"
+
+const references: Reference[] = [
+  {
+    id: 1,
+    title: "International Consensus Statement on ADHD",
+    authors: "Faraone, S. V., et al.",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Confirma la prevalencia global del TDAH en adultos en aproximadamente 2.5% y en niños entre 5-7%. También establece la persistencia en la adultez en alrededor del 67% de los casos.",
+    year: "2021",
+  },
+  {
+    id: 2,
+    title: "The Journey of ADHD in Argentina: A Call for Recognition and Support",
+    authors: "García, L. & Acosta, M. T.",
+    url: "/the-journey-of-adhd-in-argentina.pdf",
+    description: "Análisis sobre la situación del TDAH en Argentina, destacando las estadísticas de prevalencia y la brecha diagnóstica, especialmente en mujeres.",
+    year: "2023",
+  },
+  {
+    id: 3,
+    title: "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida",
+    authors: "Moina, C., et al.",
+    url: "/primer-consenso-argentino-tdah-1.pdf",
+    description: "Documento clave que establece las bases para el diagnóstico y tratamiento en Argentina, y discute la prevalencia y presentación del TDAH en diferentes poblaciones.",
+    year: "2020",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -57,12 +85,12 @@ export default function HomePage() {
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3:1</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio niños:niñas</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">2.4:1</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio varones:mujeres</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">70%</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">Respuesta al tratamiento</div>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">~67%</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">Persistencia en la adultez</div>
             </div>
           </div>
         </div>
@@ -89,7 +117,7 @@ export default function HomePage() {
                   <Stethoscope className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">Directorio de Especialistas</CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">Encuentra especialistas en TDAH en tu provincia</CardDescription>
+                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">Encontrá especialistas en TDAH en tu provincia</CardDescription>
               </CardHeader>
             </Card>
 
@@ -271,6 +299,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Referencias */}
+      <References references={references} />
 
       {/* Footer - Fondo oscuro para contraste final */}
       <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">

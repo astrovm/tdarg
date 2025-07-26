@@ -5,6 +5,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { CheckCircle, Clock, Calendar, Smartphone, BookOpen, Users, Target, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
+import { References, type Reference } from "@/components/references"
+
+const references: Reference[] = [
+  {
+    id: 1,
+    title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
+    authors: "Hallowell, E. M., & Ratey, J. J.",
+    url: "/adhd-2.0.pdf",
+    description: "Fuente de numerosas estrategias prácticas y un cambio de paradigma hacia un enfoque de fortalezas para manejar el TDAH.",
+    year: "2021",
+  },
+  {
+    id: 2,
+    title: "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida - Parte 2: Tratamiento",
+    authors: "Moina, C., et al.",
+    url: "/primer-consenso-argentino-tdah-2.pdf",
+    description: "Detalla las intervenciones no farmacológicas y psicoeducativas recomendadas, que son la base de muchas de las estrategias presentadas.",
+    year: "2020",
+  },
+];
 
 export default function RecursosPage() {
   return (
@@ -1142,6 +1162,8 @@ export default function RecursosPage() {
           </div>
         </CardContent>
       </Card>
+
+      <References references={references} />
     </div>
     </div>
   )

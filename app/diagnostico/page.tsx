@@ -5,6 +5,18 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { AlertTriangle, CheckCircle, Clock, FileText, Users, Stethoscope } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
+import { References, type Reference } from "@/components/references"
+
+const references: Reference[] = [
+  {
+    id: 1,
+    title: "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida",
+    authors: "Moina, C., et al.",
+    url: "/primer-consenso-argentino-tdah-1.pdf",
+    description: "Documento de consenso que establece las pautas para el diagnóstico y tratamiento del TDAH en Argentina, incluyendo los criterios del DSM-5.",
+    year: "2020",
+  },
+];
 
 export default function DiagnosticoPage() {
   return (
@@ -76,7 +88,11 @@ export default function DiagnosticoPage() {
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h4 className="font-semibold mb-2">Síntomas de Inatención (necesitás 5 o más):</h4>
+                <h4 className="font-semibold mb-2">Síntomas de Inatención</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  <strong>Hasta 17 años:</strong> 6 o más síntomas. <br />
+                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.
+                </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <Checkbox className="mt-0.5 flex-shrink-0" />
@@ -116,7 +132,11 @@ export default function DiagnosticoPage() {
               <Separator />
 
               <div>
-                <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad (necesitás 5 o más):</h4>
+                <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  <strong>Hasta 17 años:</strong> 6 o más síntomas. <br />
+                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.
+                </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <Checkbox className="mt-0.5 flex-shrink-0" />
@@ -320,14 +340,15 @@ export default function DiagnosticoPage() {
               <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                 <h4 className="font-semibold mb-2">Impacto funcional</h4>
                 <p className="text-sm">
-                  Los síntomas deben causar deterioro significativo en al menos dos áreas: 
-                  trabajo, estudios, relaciones, o funcionamiento diario.
+                  Los síntomas deben causar deterioro significativo en el funcionamiento (social, académico, laboral). Generalmente se requiere en dos o más áreas, pero un deterioro grave en una sola puede ser suficiente.
                 </p>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
+
+      <References references={references} />
     </div>
     </div>
   )
