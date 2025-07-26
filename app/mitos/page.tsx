@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator"
 import { CheckCircle, XCircle, AlertTriangle, Brain, Users, GraduationCap, Pill } from "lucide-react"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
+import { CitationLink } from "@/components/citation-link"
 
 const references: Reference[] = [
   {
@@ -45,7 +46,7 @@ export default function MitosPage() {
             Desmitificando el TDAH
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Separando mitos de realidades basadas en evidencia científica
+            Separando mitos de realidades basadas en evidencia científica<CitationLink number={1} /><CitationLink number={2} /><CitationLink number={3} />
           </p>
         </div>
       </div>
@@ -132,7 +133,7 @@ export default function MitosPage() {
               <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                 <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300">REALIDAD CIENTÍFICA</h4>
                 <ul className="text-sm space-y-1">
-                  <li>• <strong>45-85% persiste en la adultez</strong> según estudios longitudinales</li>
+                  <li>• <strong>45-85% persiste en la adultez</strong> según estudios longitudinales<CitationLink number={2} /><CitationLink number={3} /></li>
                   <li>• <strong>2.5% de prevalencia</strong> en adultos globalmente</li>
                   <li>• <strong>Evoluciona, no desaparece:</strong> Los síntomas se adaptan a demandas adultas</li>
                   <li>• <strong>Diagnósticos tardíos crecientes:</strong> Especialmente en mujeres</li>
@@ -445,7 +446,7 @@ export default function MitosPage() {
             <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
               <h4 className="font-semibold mb-2">Mensaje para Padres</h4>
               <p className="text-sm">
-                <strong>No es su culpa.</strong> El TDAH es una condición neurobiológica con fuerte componente genético. 
+                <strong>No es su culpa.</strong> El TDAH es una condición neurobiológica con fuerte componente genético.<CitationLink number={2} /> 
                 Los padres no "causan" TDAH, pero sí pueden ayudar enormemente con tratamiento apropiado, 
                 estructura consistente y comprensión del trastorno.
               </p>

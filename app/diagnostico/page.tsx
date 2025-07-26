@@ -6,6 +6,7 @@ import { AlertTriangle, CheckCircle, Clock, FileText, Users, Stethoscope } from 
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
+import { CitationLink } from "@/components/citation-link"
 
 const references: Reference[] = [
   {
@@ -90,8 +91,8 @@ export default function DiagnosticoPage() {
               <div>
                 <h4 className="font-semibold mb-2">Síntomas de Inatención</h4>
                 <p className="text-sm text-muted-foreground mb-2">
-                  <strong>Hasta 17 años:</strong> 6 o más síntomas. <br />
-                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.
+                  <strong>Hasta 17 años:</strong> 6 o más síntomas.<CitationLink number={1} /> <br />
+                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.<CitationLink number={1} />
                 </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
@@ -134,8 +135,8 @@ export default function DiagnosticoPage() {
               <div>
                 <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad</h4>
                 <p className="text-sm text-muted-foreground mb-2">
-                  <strong>Hasta 17 años:</strong> 6 o más síntomas. <br />
-                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.
+                  <strong>Hasta 17 años:</strong> 6 o más síntomas.<CitationLink number={1} /> <br />
+                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.<CitationLink number={1} />
                 </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
@@ -340,7 +341,7 @@ export default function DiagnosticoPage() {
               <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                 <h4 className="font-semibold mb-2">Impacto funcional</h4>
                 <p className="text-sm">
-                  Los síntomas deben causar deterioro significativo en el funcionamiento (social, académico, laboral). Generalmente se requiere en dos o más áreas, pero un deterioro grave en una sola puede ser suficiente.
+                  Los síntomas deben causar deterioro significativo en el funcionamiento (social, académico, laboral). Generalmente se requiere en dos o más áreas, pero un deterioro grave en una sola puede ser suficiente.<CitationLink number={1} />
                 </p>
               </div>
             </div>

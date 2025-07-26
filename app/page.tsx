@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, GitBranch, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
+import { CitationLink } from "@/components/citation-link"
 
 const references: Reference[] = [
   {
@@ -46,7 +47,7 @@ export default function HomePage() {
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Información integral sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
+            Información integral sobre el Trastorno por Déficit de Atención e Hiperactividad.<CitationLink number={3} /> Precios de
             medicamentos, directorio de especialistas, análisis legislativo y guías educativas completas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -77,19 +78,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%</div>
+              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%<CitationLink number={1} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en niños</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%<CitationLink number={1} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
-              <div className="text-3xl font-bold text-blue-600 mb-2">2.4:1</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">2.4:1<CitationLink number={2} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio varones:mujeres</div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">~67%</div>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">~67%<CitationLink number={1} /></div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">Persistencia en la adultez</div>
             </div>
           </div>

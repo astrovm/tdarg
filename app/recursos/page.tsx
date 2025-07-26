@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import { CheckCircle, Clock, Calendar, Smartphone, BookOpen, Users, Target, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
+import { CitationLink } from "@/components/citation-link"
 
 const references: Reference[] = [
   {
@@ -38,7 +39,7 @@ export default function RecursosPage() {
             Recursos y Herramientas Prácticas
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Estrategias concretas para manejar el TDAH en la vida diaria
+            Estrategias concretas para manejar el TDAH en la vida diaria<CitationLink number={1} /><CitationLink number={2} />
           </p>
         </div>
       </div>

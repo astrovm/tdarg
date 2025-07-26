@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { AlertTriangle, Brain, Users, Eye, MessageCircle, Zap, Target } from "lucide-react"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
+import { CitationLink } from "@/components/citation-link"
 
 const references: Reference[] = [
   {
@@ -31,7 +32,7 @@ export default function AutismoPage() {
             TDAH y Autismo (TEA)
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Comprende la relación, diferencias y tratamiento cuando coexisten ambas condiciones
+            Comprende la relación, diferencias y tratamiento cuando coexisten ambas condiciones<CitationLink number={1} />
           </p>
         </div>
       </div>
@@ -42,7 +43,7 @@ export default function AutismoPage() {
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription>
           <strong>DSM-5 Actualización:</strong> El Trastorno del Espectro Autista (TEA) ya no es un criterio de exclusión 
-          para el diagnóstico de TDAH. Ambas condiciones pueden coexistir y requieren evaluación integral.
+          para el diagnóstico de TDAH. Ambas condiciones pueden coexistir y requieren evaluación integral.<CitationLink number={1} />
         </AlertDescription>
       </Alert>
 
