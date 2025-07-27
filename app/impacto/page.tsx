@@ -226,11 +226,11 @@ export default function ImpactoPage() {
                         <div className="space-y-4">
                           <div className="grid grid-cols-2 gap-4">
                             <div className="text-center p-3 border rounded-lg">
-                              <div className="text-2xl font-bold text-red-500">12%</div>
+                              <div className="text-2xl font-bold text-red-500">12%<CitationLink number={1} /></div>
                               <div className="text-xs text-muted-foreground">Reducción en empleo</div>
                             </div>
                             <div className="text-center p-3 border rounded-lg">
-                              <div className="text-2xl font-bold text-amber-500">34%</div>
+                              <div className="text-2xl font-bold text-amber-500">34%<CitationLink number={1} /></div>
                               <div className="text-xs text-muted-foreground">Reducción en ingresos</div>
                             </div>
                           </div>
@@ -330,7 +330,7 @@ export default function ImpactoPage() {
                       <CardContent>
                         <div className="space-y-3">
                           <div className="text-center p-3 bg-red-50 dark:bg-red-950 rounded-lg">
-                            <div className="text-2xl font-bold text-red-500">37%</div>
+                            <div className="text-2xl font-bold text-red-500">37%<CitationLink number={1} /></div>
                             <div className="text-sm text-muted-foreground">Mayor probabilidad de accidentes</div>
                           </div>
                           
@@ -483,7 +483,7 @@ export default function ImpactoPage() {
                           <div className="space-y-3">
                             <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg">
                               <div className="text-center">
-                                <div className="text-2xl font-bold text-blue-500">50-70%</div>
+                                <div className="text-2xl font-bold text-blue-500">50-70%<CitationLink number={1} /></div>
                                 <div className="text-sm text-muted-foreground">Tienen algún trastorno del sueño</div>
                               </div>
                             </div>
@@ -815,11 +815,11 @@ export default function ImpactoPage() {
                         <div className="space-y-4">
                           <div className="grid grid-cols-2 gap-4">
                             <div className="text-center p-3 bg-red-50 dark:bg-red-950 rounded-lg">
-                              <div className="text-2xl font-bold text-red-500">34%</div>
+                              <div className="text-2xl font-bold text-red-500">34%<CitationLink number={1} /></div>
                               <div className="text-xs text-muted-foreground">Reducción en ingresos</div>
                             </div>
                             <div className="text-center p-3 bg-amber-50 dark:bg-amber-950 rounded-lg">
-                              <div className="text-2xl font-bold text-amber-500">12%</div>
+                              <div className="text-2xl font-bold text-amber-500">12%<CitationLink number={1} /></div>
                               <div className="text-xs text-muted-foreground">Reducción en empleo</div>
                             </div>
                           </div>

@@ -389,11 +389,11 @@ export default function AdultosPage() {
                     <h4 className="font-semibold mb-2">Estadísticas de Impacto Laboral</h4>
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="text-center p-4 border rounded-lg">
-                        <div className="text-2xl font-bold text-red-500 mb-1">12%</div>
+                        <div className="text-2xl font-bold text-red-500 mb-1">12%<CitationLink number={2} /></div>
                         <div className="text-sm text-muted-foreground">Reducción en empleo</div>
                       </div>
                       <div className="text-center p-4 border rounded-lg">
-                        <div className="text-2xl font-bold text-amber-500 mb-1">34%</div>
+                        <div className="text-2xl font-bold text-amber-500 mb-1">34%<CitationLink number={2} /></div>
                         <div className="text-sm text-muted-foreground">Reducción en ingresos</div>
                       </div>
                       <div className="text-center p-4 border rounded-lg">
@@ -859,7 +859,7 @@ export default function AdultosPage() {
                   <Alert className="mt-4">
                     <AlertTriangle className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>Período crítico:</strong> Entre el 45% y 85% de adolescentes con TDAH mantienen síntomas 
+                      <strong>Período crítico:</strong> Entre el 45% y 85% de adolescentes con TDAH mantienen síntomas<CitationLink number={1} /> 
                       significativos en la adultez, aunque muchos no reciben seguimiento médico continuo.
                     </AlertDescription>
                   </Alert>

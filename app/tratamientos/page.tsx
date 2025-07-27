@@ -530,11 +530,11 @@ export default function TratamientosPage() {
               <div className="space-y-6">
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   <div className="text-center p-4 border rounded-lg">
-                    <div className="text-2xl font-bold text-green-500 mb-1">65%</div>
+                    <div className="text-2xl font-bold text-green-500 mb-1">65%<CitationLink number={1} /></div>
                     <div className="text-sm text-muted-foreground">Mejoran planificación tras 20-30 min</div>
                   </div>
                   <div className="text-center p-4 border rounded-lg">
-                    <div className="text-2xl font-bold text-blue-500 mb-1">70%</div>
+                    <div className="text-2xl font-bold text-blue-500 mb-1">70%<CitationLink number={1} /></div>
                     <div className="text-sm text-muted-foreground">Frecuencia cardíaca máxima objetivo</div>
                   </div>
                   <div className="text-center p-4 border rounded-lg">
@@ -550,7 +550,7 @@ export default function TratamientosPage() {
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-1">
-                        <li>• <strong>20 min/día</strong> al 70% FCM</li>
+                        <li>• <strong>20 min/día</strong> al 70% FCM<CitationLink number={1} /></li>
                         <li>• Correr, caminar rápido, bicicleta</li>
                         <li>• Aumenta dopamina y norepinefrina</li>
                         <li>• Mejora enfoque y motivación</li>
@@ -569,7 +569,7 @@ export default function TratamientosPage() {
                         <li>• Tablas de equilibrio (wobble board)</li>
                         <li>• Estimula el cerebelo</li>
                         <li>• Mejora coordinación y atención</li>
-                        <li>• <strong>80% éxito</strong> reportado por Zing Performance</li>
+                        <li>• <strong>80% éxito</strong> reportado por Zing Performance<CitationLink number={1} /></li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -599,7 +599,7 @@ export default function TratamientosPage() {
                     Una sola sesión de ejercicio de 20-30 minutos produce mejoras inmediatas en:
                   </p>
                   <ul className="text-sm space-y-1">
-                    <li>• <strong>Planificación y organización:</strong> 65% de mejora</li>
+                    <li>• <strong>Planificación y organización:</strong> 65% de mejora<CitationLink number={1} /></li>
                     <li>• <strong>Atención y concentración:</strong> Efectos duran 2-4 horas</li>
                     <li>• <strong>Estado de ánimo:</strong> Reducción de ansiedad y depresión</li>
                     <li>• <strong>Función ejecutiva:</strong> Mejora en toma de decisiones</li>
@@ -753,7 +753,7 @@ export default function TratamientosPage() {
             <CardHeader>
               <CardTitle>Tratamiento de Comorbilidades</CardTitle>
               <CardDescription>
-                Manejo integral cuando el TDAH coexiste con otras condiciones
+                Manejo integral cuando el TDAH coexiste con otras condiciones<CitationLink number={1} />
               </CardDescription>
             </CardHeader>
             <CardContent>
