@@ -54,7 +54,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Trastornos de Ansiedad</span>
-                    <span className="text-sm text-muted-foreground">50-60%<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">50-60%</span>
                   </div>
                   <Progress value={55} className="h-2" />
                 </div>
@@ -62,7 +62,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Trastornos del Sueño</span>
-                    <span className="text-sm text-muted-foreground">50-70%<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">50-70%</span>
                   </div>
                   <Progress value={60} className="h-2" />
                 </div>
@@ -70,7 +70,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Trastorno Depresivo Mayor</span>
-                    <span className="text-sm text-muted-foreground">40-50%<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">40-50%</span>
                   </div>
                   <Progress value={45} className="h-2" />
                 </div>
@@ -78,7 +78,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Trastorno por Uso de Sustancias</span>
-                    <span className="text-sm text-muted-foreground">25-40%<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">25-40%</span>
                   </div>
                   <Progress value={32} className="h-2" />
                 </div>
@@ -86,7 +86,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">TEA (Trastorno Espectro Autista)</span>
-                    <span className="text-sm text-muted-foreground">29.4%<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">29.4%</span>
                   </div>
                   <Progress value={29} className="h-2" />
                 </div>
@@ -94,7 +94,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Trastornos de la Conducta Alimentaria</span>
-                    <span className="text-sm text-muted-foreground">10-30%<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">10-30%</span>
                   </div>
                   <Progress value={20} className="h-2" />
                 </div>
@@ -102,7 +102,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Trastorno Bipolar</span>
-                    <span className="text-sm text-muted-foreground">15-20%<CitationLink number={2} /></span>
+                    <span className="text-sm text-muted-foreground">15-20%</span>
                   </div>
                   <Progress value={18} className="h-2" />
                 </div>
@@ -112,7 +112,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Disforia Sensible al Rechazo (RSD)</span>
-                    <span className="text-sm text-muted-foreground">Muy común<CitationLink number={2} /></span>
+                    <span className="text-sm text-muted-foreground">Muy común</span>
                   </div>
                   <Progress value={70} className="h-2" />
                 </div>
@@ -120,7 +120,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Obesidad</span>
-                    <span className="text-sm text-muted-foreground">3x riesgo<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">3x riesgo</span>
                   </div>
                   <Progress value={35} className="h-2" />
                 </div>
@@ -128,7 +128,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Asma</span>
-                    <span className="text-sm text-muted-foreground">45% ↑ riesgo<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">45% ↑ riesgo</span>
                   </div>
                   <Progress value={30} className="h-2" />
                 </div>
@@ -136,7 +136,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Diabetes Tipo 2</span>
-                    <span className="text-sm text-muted-foreground">3x riesgo<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">3x riesgo</span>
                   </div>
                   <Progress value={25} className="h-2" />
                 </div>
@@ -144,7 +144,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Epilepsia</span>
-                    <span className="text-sm text-muted-foreground">2.5-3.5x riesgo<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">2.5-3.5x riesgo</span>
                   </div>
                   <Progress value={22} className="h-2" />
                 </div>
@@ -152,7 +152,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Enfermedades Autoinmunes</span>
-                    <span className="text-sm text-muted-foreground">2x riesgo<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">2x riesgo</span>
                   </div>
                   <Progress value={20} className="h-2" />
                 </div>
@@ -160,7 +160,7 @@ export default function ComorbilidadesPage() {
                 <div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm font-medium">Demencia (Adultos Mayores)</span>
-                    <span className="text-sm text-muted-foreground">3.4x riesgo<CitationLink number={1} /></span>
+                    <span className="text-sm text-muted-foreground">3.4x riesgo</span>
                   </div>
                   <Progress value={18} className="h-2" />
                 </div>
@@ -263,7 +263,7 @@ export default function ComorbilidadesPage() {
             <CardContent>
               <div className="grid md:grid-cols-3 gap-4 mb-6">
                 <div className="text-center p-4 border rounded-lg">
-                  <div className="text-2xl font-bold text-blue-500 mb-1">40-50%<CitationLink number={1} /></div>
+                  <div className="text-2xl font-bold text-blue-500 mb-1">40-50%</div>
                   <div className="text-sm text-muted-foreground">Prevalencia en adultos con TDAH</div>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
@@ -411,7 +411,7 @@ export default function ComorbilidadesPage() {
             <CardContent>
               <div className="grid md:grid-cols-4 gap-4 mb-6">
                 <div className="text-center p-4 border rounded-lg">
-                  <div className="text-2xl font-bold text-red-500 mb-1">5-10x<CitationLink number={1} /></div>
+                  <div className="text-2xl font-bold text-red-500 mb-1">5-10x</div>
                   <div className="text-sm text-muted-foreground">Mayor riesgo de adicción</div>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
@@ -502,7 +502,7 @@ export default function ComorbilidadesPage() {
                   <ul className="text-sm space-y-2">
                     <li className="flex items-start gap-2">
                       <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <strong>29.4%</strong> de adolescentes masculinos con TDAH tienen TEA<CitationLink number={1} />
+                      <strong>29.4%</strong> de adolescentes masculinos con TDAH tienen TEA
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -666,7 +666,7 @@ export default function ComorbilidadesPage() {
                   <div className="grid md:grid-cols-2 gap-3">
                     <div className="p-3 border rounded-lg border-red-200 dark:border-red-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-red-500">3x</span> Obesidad<CitationLink number={1} />
+                        <span className="text-red-500">3x</span> Obesidad
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Riesgo 3 veces mayor de desarrollar obesidad
@@ -674,7 +674,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-orange-200 dark:border-orange-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-orange-500">45%</span> Asma<CitationLink number={1} />
+                        <span className="text-orange-500">45%</span> Asma
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         45% más probabilidades de tener asma
@@ -682,7 +682,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-blue-200 dark:border-blue-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-blue-500">3x</span> Diabetes Tipo 2<CitationLink number={1} />
+                        <span className="text-blue-500">3x</span> Diabetes Tipo 2
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Mayor riesgo en juventud y edad adulta
@@ -690,7 +690,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-purple-200 dark:border-purple-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-purple-500">2.5-3.5x</span> Epilepsia<CitationLink number={1} />
+                        <span className="text-purple-500">2.5-3.5x</span> Epilepsia
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Riesgo significativamente aumentado
@@ -698,7 +698,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-green-200 dark:border-green-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-green-500">2x</span> Enfermedades Autoinmunes<CitationLink number={1} />
+                        <span className="text-green-500">2x</span> Enfermedades Autoinmunes
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Espondilitis, colitis ulcerosa, tiroides
@@ -706,7 +706,7 @@ export default function ComorbilidadesPage() {
                     </div>
                     <div className="p-3 border rounded-lg border-indigo-200 dark:border-indigo-800">
                       <h5 className="font-semibold text-sm flex items-center gap-2">
-                        <span className="text-indigo-500">3.4x</span> Demencia (Adultos)<CitationLink number={1} />
+                        <span className="text-indigo-500">3.4x</span> Demencia (Adultos)
                       </h5>
                       <p className="text-xs text-muted-foreground">
                         Mayor riesgo de desarrollar demencia
@@ -717,7 +717,7 @@ export default function ComorbilidadesPage() {
                   <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
                     <h5 className="font-semibold text-sm mb-2">Consenso Internacional - Evidencia Actualizada</h5>
                     <p className="text-xs">
-                      Estas asociaciones se basan en las 208 conclusiones del consenso internacional,<CitationLink number={1} /> 
+                      Estas asociaciones se basan en las 208 conclusiones del consenso internacional 
                       confirmando que el TDAH aumenta significativamente el riesgo de múltiples condiciones médicas, 
                       no solo psiquiátricas.
                     </p>
