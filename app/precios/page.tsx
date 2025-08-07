@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Building2, Package, AlertCircle, RefreshCw, Clock } from "lucide-react"
+import { Search, Building2, Package, AlertCircle, RefreshCw, Clock, Shield } from "lucide-react"
 import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales"
 import { Header } from "@/components/header"
 
@@ -57,6 +57,10 @@ export default function PreciosPage() {
       currency: "ARS",
       minimumFractionDigits: 2,
     }).format(precio)
+  }
+
+  const calcularPrecioConDescuento = (precio: number) => {
+    return precio * 0.6 // 40% descuento = pagar 60%
   }
 
   const agruparPorAprobacion = (medicamentos: Medicamento[]) => {
@@ -279,10 +283,22 @@ export default function PreciosPage() {
                                   </span>
                                 </div>
 
-                                <div className="pt-2 border-t">
-                                  <span className="text-2xl font-bold text-green-600">
-                                    {formatearPrecio(medicamento.precio)}
-                                  </span>
+                                <div className="pt-2 border-t space-y-2">
+                                  <div>
+                                    <div className="text-sm text-gray-500 mb-1">Precio sin cobertura</div>
+                                    <span className="text-2xl font-bold text-green-600">
+                                      {formatearPrecio(medicamento.precio)}
+                                    </span>
+                                  </div>
+                                  <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                                    <Shield className="h-4 w-4 text-blue-600" />
+                                    <div>
+                                      <div className="text-xs text-blue-700 dark:text-blue-300">Con prepaga/obra social (40% desc.)</div>
+                                      <span className="text-lg font-bold text-blue-600">
+                                        {formatearPrecio(calcularPrecioConDescuento(medicamento.precio))}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
                               </CardContent>
                             </Card>
@@ -355,10 +371,22 @@ export default function PreciosPage() {
                                   </span>
                                 </div>
 
-                                <div className="pt-2 border-t">
-                                  <span className="text-2xl font-bold text-green-600">
-                                    {formatearPrecio(medicamento.precio)}
-                                  </span>
+                                <div className="pt-2 border-t space-y-2">
+                                  <div>
+                                    <div className="text-sm text-gray-500 mb-1">Precio sin cobertura</div>
+                                    <span className="text-2xl font-bold text-green-600">
+                                      {formatearPrecio(medicamento.precio)}
+                                    </span>
+                                  </div>
+                                  <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                                    <Shield className="h-4 w-4 text-blue-600" />
+                                    <div>
+                                      <div className="text-xs text-blue-700 dark:text-blue-300">Con prepaga/obra social (40% desc.)</div>
+                                      <span className="text-lg font-bold text-blue-600">
+                                        {formatearPrecio(calcularPrecioConDescuento(medicamento.precio))}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
                               </CardContent>
                             </Card>
@@ -439,10 +467,22 @@ export default function PreciosPage() {
                                   </span>
                                 </div>
 
-                                <div className="pt-2 border-t">
-                                  <span className="text-2xl font-bold text-green-600">
-                                    {formatearPrecio(medicamento.precio)}
-                                  </span>
+                                <div className="pt-2 border-t space-y-2">
+                                  <div>
+                                    <div className="text-sm text-gray-500 mb-1">Precio sin cobertura</div>
+                                    <span className="text-2xl font-bold text-green-600">
+                                      {formatearPrecio(medicamento.precio)}
+                                    </span>
+                                  </div>
+                                  <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                                    <Shield className="h-4 w-4 text-blue-600" />
+                                    <div>
+                                      <div className="text-xs text-blue-700 dark:text-blue-300">Con prepaga/obra social (40% desc.)</div>
+                                      <span className="text-lg font-bold text-blue-600">
+                                        {formatearPrecio(calcularPrecioConDescuento(medicamento.precio))}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
                               </CardContent>
                             </Card>
@@ -489,10 +529,22 @@ export default function PreciosPage() {
                             </span>
                           </div>
 
-                          <div className="pt-2 border-t">
-                            <span className="text-2xl font-bold text-green-600">
-                              {formatearPrecio(medicamento.precio)}
-                            </span>
+                          <div className="pt-2 border-t space-y-2">
+                            <div>
+                              <div className="text-sm text-gray-500 mb-1">Precio sin cobertura</div>
+                              <span className="text-2xl font-bold text-green-600">
+                                {formatearPrecio(medicamento.precio)}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                              <Shield className="h-4 w-4 text-blue-600" />
+                              <div>
+                                <div className="text-xs text-blue-700 dark:text-blue-300">Con prepaga/obra social (40% desc.)</div>
+                                <span className="text-lg font-bold text-blue-600">
+                                  {formatearPrecio(calcularPrecioConDescuento(medicamento.precio))}
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
