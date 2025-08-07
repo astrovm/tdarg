@@ -10,7 +10,7 @@ export const leyes = [
     tipo: "Nacional",
     organismo: "Ministerio de Salud",
     impactoReal: "alto",
-    url: "https://www.boletinoficial.gob.ar/#!DetalleNorma/328614/20250721",
+    url: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-2214-2025-415349",
     ultimaActualizacion: "2025-07-21",
     analisisIA: {
       beneficios: [
