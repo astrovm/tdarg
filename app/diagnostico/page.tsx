@@ -1,8 +1,14 @@
+"use client"
+
+import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Checkbox } from "@/components/ui/checkbox"
-import { AlertTriangle, CheckCircle, Clock, FileText, Users, Stethoscope } from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { AlertTriangle, CheckCircle, Clock, FileText, Users, Stethoscope, Info, Brain, Heart } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
@@ -20,7 +26,26 @@ const references: Reference[] = [
 ];
 
 export default function DiagnosticoPage() {
+  const [inattentionSymptoms, setInattentionSymptoms] = useState<boolean[]>(new Array(8).fill(false))
+  const [hyperactivitySymptoms, setHyperactivitySymptoms] = useState<boolean[]>(new Array(9).fill(false))
+
+  const handleInattentionChange = (index: number, checked: boolean) => {
+    const newSymptoms = [...inattentionSymptoms]
+    newSymptoms[index] = checked
+    setInattentionSymptoms(newSymptoms)
+  }
+
+  const handleHyperactivityChange = (index: number, checked: boolean) => {
+    const newSymptoms = [...hyperactivitySymptoms]
+    newSymptoms[index] = checked
+    setHyperactivitySymptoms(newSymptoms)
+  }
+
+  const inattentionCount = inattentionSymptoms.filter(Boolean).length
+  const hyperactivityCount = hyperactivitySymptoms.filter(Boolean).length
+
   return (
+    <TooltipProvider>
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
       {/* Header Section */}
@@ -87,97 +112,104 @@ export default function DiagnosticoPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold mb-2">Síntomas de Inatención</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  <strong>Hasta 17 años:</strong> 6 o más síntomas.<CitationLink number={1} /> <br />
-                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.<CitationLink number={1} />
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Dificultad para mantener la atención en tareas o actividades
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    No parece escuchar cuando se le habla directamente
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    No sigue instrucciones y falla en completar tareas
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Dificultad para organizar tareas y actividades
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Evita tareas que requieren esfuerzo mental sostenido
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Pierde objetos necesarios para tareas
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Se distrae fácilmente con estímulos externos
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Es olvidadizo en actividades diarias
-                  </li>
-                </ul>
-              </div>
+            <Alert className="mb-6">
+              <AlertTriangle className="h-4 w-4" />
+              <AlertDescription>
+                <strong>Esta herramienta no es un diagnóstico</strong> y no reemplaza la consulta con un profesional cualificado.
+              </AlertDescription>
+            </Alert>
 
-              <Separator />
+            <Tabs defaultValue="inattention" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="inattention" className="flex items-center gap-2">
+                  <Brain className="h-4 w-4" />
+                  Inatención ({inattentionCount}/8)
+                </TabsTrigger>
+                <TabsTrigger value="hyperactivity" className="flex items-center gap-2">
+                  <Heart className="h-4 w-4" />
+                  Hiperactividad ({hyperactivityCount}/9)
+                </TabsTrigger>
+              </TabsList>
 
-              <div>
-                <h4 className="font-semibold mb-2">Síntomas de Hiperactividad-Impulsividad</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  <strong>Hasta 17 años:</strong> 6 o más síntomas.<CitationLink number={1} /> <br />
-                  <strong>Mayores de 17 años:</strong> 5 o más síntomas.<CitationLink number={1} />
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Mueve manos/pies o se retuerce en el asiento
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Se levanta cuando debería permanecer sentado
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Sensación de inquietud interna (en adultos)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Dificultad para realizar actividades tranquilas
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    "En marcha" o actúa como si tuviera un motor
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Habla excesivamente
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Responde antes de que terminen las preguntas
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Dificultad para esperar su turno
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Checkbox className="mt-0.5 flex-shrink-0" />
-                    Interrumpe o se inmiscuye con otros
-                  </li>
-                </ul>
-              </div>
-            </div>
+              <TabsContent value="inattention" className="space-y-4">
+                <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Criterio DSM-5:</strong> Hasta 17 años: 6 o más síntomas • Mayores de 17 años: 5 o más síntomas<CitationLink number={1} />
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { short: "Dificultad para mantener atención", full: "A menudo falla en dar atención cercana a detalles o comete errores por descuido en el trabajo escolar, en el trabajo, o durante otras actividades" },
+                    { short: "No parece escuchar", full: "A menudo no parece escuchar cuando se le habla directamente" },
+                    { short: "No sigue instrucciones", full: "A menudo no sigue instrucciones y falla en finalizar el trabajo escolar, queehaceres, o deberes laborales" },
+                    { short: "Dificultad para organizarse", full: "A menudo tiene dificultad organizando tareas y actividades" },
+                    { short: "Evita esfuerzo mental", full: "A menudo evita, le disgusta, o es renuente a participar en tareas que requieren esfuerzo mental sostenido" },
+                    { short: "Pierde objetos", full: "A menudo pierde cosas necesarias para tareas o actividades" },
+                    { short: "Se distrae fácilmente", full: "A menudo es fácilmente distraído por estímulos externos" },
+                    { short: "Es olvidadizo", full: "A menudo es descuidado en las actividades diarias" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <Checkbox 
+                        className="mt-0.5 flex-shrink-0"
+                        checked={inattentionSymptoms[index]}
+                        onCheckedChange={(checked) => handleInattentionChange(index, checked as boolean)}
+                      />
+                      <div className="flex items-center gap-1">
+                        <span className="text-sm">{item.short}</span>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Info className="h-3 w-3 text-muted-foreground hover:text-foreground" />
+                          </TooltipTrigger>
+                          <TooltipContent className="max-w-xs">
+                            <p className="text-xs">{item.full}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="hyperactivity" className="space-y-4">
+                <div className="p-4 bg-red-50 dark:bg-red-950 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Criterio DSM-5:</strong> Hasta 17 años: 6 o más síntomas • Mayores de 17 años: 5 o más síntomas<CitationLink number={1} />
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { short: "Mueve manos/pies", full: "A menudo juguetea con las manos o pies o se squirme en el asiento" },
+                    { short: "Se levanta inapropiadamente", full: "A menudo deja el asiento en situaciones donde se espera que permanezca sentado" },
+                    { short: "Sensación de inquietud", full: "A menudo corre o trepa en situaciones donde es inapropiado (en adolescentes/adultos puede limitarse a sentirse inquieto)" },
+                    { short: "Dificultad para actividades tranquilas", full: "A menudo incapaz de jugar o participar en actividades de ocio tranquilamente" },
+                    { short: "Como si tuviera un motor", full: "A menudo está 'en movimiento', actuando como si fuera 'impulsado por un motor'" },
+                    { short: "Habla excesivamente", full: "A menudo habla excesivamente" },
+                    { short: "Responde precipitadamente", full: "A menudo suelta respuestas antes de que las preguntas hayan sido completadas" },
+                    { short: "Dificultad para esperar", full: "A menudo tiene dificultad esperando su turno" },
+                    { short: "Interrumpe", full: "A menudo interrumpe o se inmiscuye con otros" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <Checkbox 
+                        className="mt-0.5 flex-shrink-0"
+                        checked={hyperactivitySymptoms[index]}
+                        onCheckedChange={(checked) => handleHyperactivityChange(index, checked as boolean)}
+                      />
+                      <div className="flex items-center gap-1">
+                        <span className="text-sm">{item.short}</span>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Info className="h-3 w-3 text-muted-foreground hover:text-foreground" />
+                          </TooltipTrigger>
+                          <TooltipContent className="max-w-xs">
+                            <p className="text-xs">{item.full}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
           </CardContent>
         </Card>
 
@@ -188,59 +220,123 @@ export default function DiagnosticoPage() {
               <Clock className="h-5 w-5" />
               Proceso de Evaluación Profesional
             </CardTitle>
+            <CardDescription>
+              Pasos que sigue un profesional para diagnosticar TDAH
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                <div>
-                  <h4 className="font-semibold">Entrevista Clínica Inicial</h4>
-                  <p className="text-sm text-muted-foreground">
-                    El profesional explorará tus síntomas actuales y su impacto en la vida diaria
-                  </p>
-                </div>
-              </div>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="step-1">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">1</div>
+                    Entrevista Clínica Inicial
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      El profesional explorará en detalle tus síntomas actuales y su impacto en la vida diaria
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Análisis de síntomas actuales y su duración</li>
+                      <li>• Impacto en trabajo, estudios y relaciones</li>
+                      <li>• Estrategias de afrontamiento utilizadas</li>
+                      <li>• Motivación para la evaluación</li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                <div>
-                  <h4 className="font-semibold">Historia Clínica Completa</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Revisión del desarrollo desde la infancia, antecedentes médicos y familiares
-                  </p>
-                </div>
-              </div>
+              <AccordionItem value="step-2">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">2</div>
+                    Historia Clínica Completa
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Revisión exhaustiva del desarrollo desde la infancia y antecedentes relevantes
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Historia del desarrollo en la infancia</li>
+                      <li>• Rendimiento académico histórico</li>
+                      <li>• Antecedentes médicos y familiares</li>
+                      <li>• Medicaciones y tratamientos previos</li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                <div>
-                  <h4 className="font-semibold">Escalas y Cuestionarios</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Instrumentos validados como ASRS, WURS-25, y otros específicos para adultos
-                  </p>
-                </div>
-              </div>
+              <AccordionItem value="step-3">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">3</div>
+                    Escalas y Cuestionarios
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Instrumentos validados para evaluar síntomas de TDAH
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• <strong>ASRS-18:</strong> Escala de auto-reporte para adultos</li>
+                      <li>• <strong>WURS-25:</strong> Escala retrospectiva de síntomas en la infancia</li>
+                      <li>• <strong>ADHD-RS:</strong> Escala de calificación del TDAH</li>
+                      <li>• Cuestionarios para familiares o parejas</li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">4</div>
-                <div>
-                  <h4 className="font-semibold">Evaluación de Comorbilidades</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Identificación de otras condiciones como ansiedad, depresión o trastorno bipolar
-                  </p>
-                </div>
-              </div>
+              <AccordionItem value="step-4">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">4</div>
+                    Evaluación de Comorbilidades
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Identificación de otras condiciones que pueden coexistir con TDAH
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Trastornos del estado de ánimo (depresión, bipolar)</li>
+                      <li>• Trastornos de ansiedad</li>
+                      <li>• Trastornos del aprendizaje</li>
+                      <li>• Trastornos del espectro autista</li>
+                      <li>• Abuso de sustancias</li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
 
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">5</div>
-                <div>
-                  <h4 className="font-semibold">Evaluación Neuropsicológica (opcional)</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Pruebas específicas de atención, memoria de trabajo y funciones ejecutivas
-                  </p>
-                </div>
-              </div>
-            </div>
+              <AccordionItem value="step-5">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">5</div>
+                    Evaluación Neuropsicológica (opcional)
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      Pruebas específicas para evaluar funciones cognitivas afectadas en TDAH
+                    </p>
+                    <ul className="text-sm space-y-1">
+                      <li>• Pruebas de atención sostenida y selectiva</li>
+                      <li>• Evaluación de memoria de trabajo</li>
+                      <li>• Funciones ejecutivas (planificación, inhibición)</li>
+                      <li>• Velocidad de procesamiento</li>
+                    </ul>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </CardContent>
         </Card>
 
@@ -279,38 +375,157 @@ export default function DiagnosticoPage() {
         {/* Diferenciación con otras condiciones */}
         <Card>
           <CardHeader>
-            <CardTitle>TDAH vs. Otras Condiciones</CardTitle>
+            <CardTitle>Diagnóstico Diferencial</CardTitle>
             <CardDescription>
-              Es importante diferenciar el TDAH de otras condiciones con síntomas similares
+              Cómo diferenciar el TDAH de otras condiciones con síntomas similares
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              <div className="border-l-4 border-blue-500 pl-4">
-                <h4 className="font-semibold">TDAH vs. Ansiedad</h4>
-                <p className="text-sm text-muted-foreground">
-                  El TDAH es crónico desde la infancia; la ansiedad puede ser episódica y desarrollarse en cualquier momento
-                </p>
-              </div>
-              <div className="border-l-4 border-green-500 pl-4">
-                <h4 className="font-semibold">TDAH vs. Depresión</h4>
-                <p className="text-sm text-muted-foreground">
-                  La depresión mayor es episódica; el TDAH presenta síntomas constantes que pueden causar depresión secundaria
-                </p>
-              </div>
-              <div className="border-l-4 border-purple-500 pl-4">
-                <h4 className="font-semibold">TDAH vs. Trastorno Bipolar</h4>
-                <p className="text-sm text-muted-foreground">
-                  El bipolar tiene episodios definidos de manía/hipomanía; el TDAH tiene un curso más estable
-                </p>
-              </div>
-              <div className="border-l-4 border-teal-500 pl-4">
-                <h4 className="font-semibold">TDAH vs. Autismo (TEA)</h4>
-                <p className="text-sm text-muted-foreground">
-                  Desde el DSM-5 pueden coexistir. El TEA incluye dificultades sociales y patrones restrictivos; el TDAH se centra en atención e hiperactividad
-                </p>
-              </div>
-            </div>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="anxiety">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
+                    TDAH vs. Trastornos de Ansiedad
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-blue-600">TDAH</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Síntomas crónicos desde la infancia</li>
+                          <li>• Dificultades de atención constantes</li>
+                          <li>• Inquietud física y mental</li>
+                          <li>• Impulsividad en múltiples contextos</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-amber-600">Ansiedad</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Puede desarrollarse en cualquier momento</li>
+                          <li>• Preocupación excesiva específica</li>
+                          <li>• Inquietud relacionada con ansiedad</li>
+                          <li>• Evitación de situaciones específicas</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground bg-blue-50 dark:bg-blue-950 p-2 rounded">
+                      <strong>Nota:</strong> Pueden coexistir. La ansiedad puede ser secundaria al TDAH.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="depression">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                    TDAH vs. Depresión
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-blue-600">TDAH</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Síntomas estables y crónicos</li>
+                          <li>• Dificultades desde la infancia</li>
+                          <li>• Problemas de atención constantes</li>
+                          <li>• Estado de ánimo variable pero no episódico</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-green-600">Depresión</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Episodios definidos de tristeza</li>
+                          <li>• Inicio puede ser en cualquier edad</li>
+                          <li>• Dificultades de concentración episódicas</li>
+                          <li>• Anhedonia y desesperanza marcadas</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground bg-green-50 dark:bg-green-950 p-2 rounded">
+                      <strong>Nota:</strong> El TDAH puede causar depresión secundaria por frustración crónica.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="bipolar">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
+                    TDAH vs. Trastorno Bipolar
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-blue-600">TDAH</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Curso estable y crónico</li>
+                          <li>• Hiperactividad constante</li>
+                          <li>• Impulsividad no episódica</li>
+                          <li>• Sin episodios maníacos claros</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-purple-600">Trastorno Bipolar</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Episodios definidos de manía/hipomanía</li>
+                          <li>• Períodos de estado de ánimo normal</li>
+                          <li>• Comportamientos extremos durante episodios</li>
+                          <li>• Grandiosidad y euforia en manía</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground bg-purple-50 dark:bg-purple-950 p-2 rounded">
+                      <strong>Nota:</strong> Diferenciación puede ser compleja. Requiere evaluación especializada.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="autism">
+                <AccordionTrigger>
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 bg-teal-500 rounded-full"></div>
+                    TDAH vs. Trastorno del Espectro Autista
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-3">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-blue-600">TDAH</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Foco en atención e hiperactividad</li>
+                          <li>• Habilidades sociales generalmente preservadas</li>
+                          <li>• Flexibilidad en intereses</li>
+                          <li>• Sin patrones restrictivos marcados</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-sm mb-2 text-teal-600">TEA</h5>
+                        <ul className="text-sm space-y-1">
+                          <li>• Dificultades sociales y comunicativas</li>
+                          <li>• Patrones restrictivos y repetitivos</li>
+                          <li>• Intereses intensos y específicos</li>
+                          <li>• Dificultades con cambios de rutina</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground bg-teal-50 dark:bg-teal-950 p-2 rounded">
+                      <strong>Nota:</strong> Desde el DSM-5 pueden coexistir. Ambas condiciones pueden presentarse juntas.
+                    </p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </CardContent>
         </Card>
 
@@ -352,5 +567,6 @@ export default function DiagnosticoPage() {
       <References references={references} />
     </div>
     </div>
+    </TooltipProvider>
   )
 }
