@@ -3,7 +3,9 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
-import { Pill, Brain, Heart, Clock, AlertTriangle, CheckCircle, FileText } from "lucide-react"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Pill, Brain, Heart, Clock, AlertTriangle, CheckCircle, FileText, Zap, Shield } from "lucide-react"
 import { Header } from "@/components/header"
 import { CitationLink } from "@/components/citation-link"
 import { References, type Reference } from "@/components/references"
@@ -54,88 +56,112 @@ export default function TratamientosPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <h3 className="text-lg font-semibold">Objetivos del Tratamiento</h3>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      Reducir síntomas nucleares (inatención, hiperactividad, impulsividad)
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      Mejorar el funcionamiento académico/laboral
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      Fortalecer relaciones interpersonales
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      Desarrollar estrategias de autorregulación
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      Tratar comorbilidades asociadas
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-lg font-semibold">Principios Clave</h3>
-                  <div className="space-y-3">
-                    <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                      <h4 className="font-semibold text-sm">Individualización</h4>
-                      <p className="text-xs text-muted-foreground">Cada persona requiere un plan específico</p>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="objetivos">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4" />
+                      Objetivos del Tratamiento
                     </div>
-                    <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg">
-                      <h4 className="font-semibold text-sm">Combinación</h4>
-                      <p className="text-xs text-muted-foreground">Medicación + terapia = mejor resultado</p>
-                    </div>
-                    <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                      <h4 className="font-semibold text-sm">Largo Plazo</h4>
-                      <p className="text-xs text-muted-foreground">El TDAH requiere manejo continuo</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="space-y-3 text-sm">
+                      <li className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">1</div>
+                        <div>
+                          <strong>Reducir síntomas nucleares</strong>
+                          <div className="text-muted-foreground text-xs">Inatención, hiperactividad, impulsividad</div>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">2</div>
+                        <div>
+                          <strong>Mejorar funcionamiento</strong>
+                          <div className="text-muted-foreground text-xs">Académico, laboral y social</div>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">3</div>
+                        <div>
+                          <strong>Fortalecer relaciones</strong>
+                          <div className="text-muted-foreground text-xs">Interpersonales y familiares</div>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">4</div>
+                        <div>
+                          <strong>Desarrollar autorregulación</strong>
+                          <div className="text-muted-foreground text-xs">Estrategias de autocontrol</div>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">5</div>
+                        <div>
+                          <strong>Tratar comorbilidades</strong>
+                          <div className="text-muted-foreground text-xs">Ansiedad, depresión, otros trastornos</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Algoritmo de Tratamiento</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 border rounded-lg">
-                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                  <div>
-                    <h4 className="font-semibold">Evaluación Integral</h4>
-                    <p className="text-sm text-muted-foreground">Confirmación diagnóstica y evaluación de comorbilidades</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-4 border rounded-lg">
-                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                  <div>
-                    <h4 className="font-semibold">Psicoeducación</h4>
-                    <p className="text-sm text-muted-foreground">Educación sobre TDAH para paciente y familia</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-4 border rounded-lg">
-                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                  <div>
-                    <h4 className="font-semibold">Tratamiento Farmacológico</h4>
-                    <p className="text-sm text-muted-foreground">Estimulantes (primera línea) o no estimulantes</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-4 border rounded-lg">
-                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">4</div>
-                  <div>
-                    <h4 className="font-semibold">Intervenciones No Farmacológicas</h4>
-                    <p className="text-sm text-muted-foreground">TCC, entrenamiento en habilidades, apoyo familiar</p>
-                  </div>
-                </div>
-              </div>
+                <AccordionItem value="principios">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <Brain className="h-4 w-4" />
+                      Principios Clave del Tratamiento
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg text-center">
+                        <div className="text-2xl mb-2">🎯</div>
+                        <h4 className="font-semibold text-sm mb-1">Individualización</h4>
+                        <p className="text-xs text-muted-foreground">Cada persona requiere un plan específico</p>
+                      </div>
+                      <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg text-center">
+                        <div className="text-2xl mb-2">🤝</div>
+                        <h4 className="font-semibold text-sm mb-1">Combinación</h4>
+                        <p className="text-xs text-muted-foreground">Medicación + terapia = mejor resultado</p>
+                      </div>
+                      <div className="p-4 bg-purple-50 dark:bg-purple-950 rounded-lg text-center">
+                        <div className="text-2xl mb-2">⏰</div>
+                        <h4 className="font-semibold text-sm mb-1">Largo Plazo</h4>
+                        <p className="text-xs text-muted-foreground">El TDAH requiere manejo continuo</p>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="algoritmo">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      Algoritmo de Tratamiento
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="space-y-3">
+                      {[
+                        { num: 1, title: "Evaluación Integral", desc: "Confirmación diagnóstica y evaluación de comorbilidades", color: "bg-blue-500" },
+                        { num: 2, title: "Psicoeducación", desc: "Educación sobre TDAH para paciente y familia", color: "bg-green-500" },
+                        { num: 3, title: "Tratamiento Farmacológico", desc: "Estimulantes (primera línea) o no estimulantes", color: "bg-purple-500" },
+                        { num: 4, title: "Intervenciones No Farmacológicas", desc: "TCC, entrenamiento en habilidades, apoyo familiar", color: "bg-orange-500" }
+                      ].map((step, index) => (
+                        <div key={index} className="flex items-center gap-4 p-3 border rounded-lg">
+                          <div className={`w-8 h-8 ${step.color} text-white rounded-full flex items-center justify-center text-sm font-bold`}>
+                            {step.num}
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-sm">{step.title}</h4>
+                            <p className="text-xs text-muted-foreground">{step.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </CardContent>
           </Card>
         </TabsContent>
@@ -145,216 +171,242 @@ export default function TratamientosPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Pill className="h-5 w-5" />
-                Medicamentos Disponibles en Argentina
+                Medicamentos para TDAH en Argentina
               </CardTitle>
+              <CardDescription>
+                Opciones farmacológicas disponibles según evidencia científica<CitationLink number={1} />
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-6">
-                {/* Efectividad según consenso internacional */}
-                <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-blue-500" />
-                    Efectividad Según Consenso Internacional (208 Conclusiones)
-                  </h3>
-                  
-                  <div className="grid md:grid-cols-3 gap-4 mb-4">
-                    <div className="text-center p-3 border rounded-lg">
-                      <div className="text-xl font-bold text-green-500 mb-1">Grandes</div>
-                      <div className="text-sm text-muted-foreground">Mejoras en niños con estimulantes</div>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="efectividad">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4" />
+                      Efectividad Según Evidencia Científica
                     </div>
-                    <div className="text-center p-3 border rounded-lg">
-                      <div className="text-xl font-bold text-blue-500 mb-1">Moderadas-Grandes</div>
-                      <div className="text-sm text-muted-foreground">Mejoras en adultos con estimulantes</div>
-                    </div>
-                    <div className="text-center p-3 border rounded-lg">
-                      <div className="text-xl font-bold text-orange-500 mb-1">Moderadas</div>
-                      <div className="text-sm text-muted-foreground">Mejoras con no estimulantes</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-sm">
-                    <p className="mb-2">
-                      <strong>Recomendación por edad:</strong>
-                    </p>
-                    <ul className="space-y-1">
-                      <li>• <strong>Niños/Adolescentes:</strong> Metilfenidato como primera línea</li>
-                      <li>• <strong>Adultos:</strong> Anfetaminas como primera línea (mejor relación beneficio-riesgo)</li>
-                      <li>• <strong>No estimulantes:</strong> Alternativa válida cuando estimulantes no son adecuados</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <Separator />
-                
-                {/* Primera línea - Estimulantes */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Badge variant="default">Primera Línea</Badge>
-                    <h3 className="text-lg font-semibold">Estimulantes</h3>
-                  </div>
-                  
-                  <Card className="border-green-200 dark:border-green-800">
-                    <CardHeader>
-                      <CardTitle className="text-base">Metilfenidato</CardTitle>
-                      <CardDescription>Único estimulante disponible comercialmente en Argentina</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <h5 className="font-semibold mb-2">Mecanismo de Acción</h5>
-                          <p className="text-sm text-muted-foreground mb-3">
-                            Inhibe la recaptación de dopamina y noradrenalina, aumentando su disponibilidad cerebral
-                          </p>
-                          
-                          <h5 className="font-semibold mb-2">Formulaciones</h5>
-                          <ul className="text-sm space-y-1">
-                            <li>• <strong>Liberación inmediata:</strong> 2-4 horas de duración</li>
-                            <li>• <strong>Liberación modificada:</strong> 8-12 horas (preferible)</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-semibold mb-2">Ventajas</h5>
-                          <ul className="text-sm space-y-1 text-green-700 dark:text-green-300">
-                            <li>• Mayor eficacia demostrada</li>
-                            <li>• Inicio de acción rápido</li>
-                            <li>• Amplia experiencia clínica</li>
-                          </ul>
-                          
-                          <h5 className="font-semibold mb-2 mt-3">Efectos Adversos</h5>
-                          <ul className="text-sm space-y-1 text-amber-700 dark:text-amber-300">
-                            <li>• Pérdida de apetito</li>
-                            <li>• Insomnio inicial</li>
-                            <li>• Dolor de cabeza</li>
-                            <li>• Aumento de presión arterial</li>
-                          </ul>
-                        </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div className="text-center p-3 bg-green-50 dark:bg-green-950 rounded-lg">
+                        <div className="text-xl font-bold text-green-500 mb-1">Grandes</div>
+                        <div className="text-sm text-muted-foreground">Mejoras en niños con estimulantes</div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <Separator />
-
-                {/* Segunda línea - No estimulantes */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Badge variant="secondary">Segunda Línea</Badge>
-                    <h3 className="text-lg font-semibold">No Estimulantes</h3>
-                  </div>
-                  
-                  <Card className="border-blue-200 dark:border-blue-800">
-                    <CardHeader>
-                      <CardTitle className="text-base">Atomoxetina</CardTitle>
-                      <CardDescription>Principal alternativa no estimulante disponible</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <h5 className="font-semibold mb-2">Mecanismo de Acción</h5>
-                          <p className="text-sm text-muted-foreground mb-3">
-                            Inhibidor selectivo de la recaptación de noradrenalina
-                          </p>
-                          
-                          <h5 className="font-semibold mb-2">Indicaciones Preferentes</h5>
-                          <ul className="text-sm space-y-1">
-                            <li>• Intolerancia a estimulantes</li>
-                            <li>• Comorbilidad con tics</li>
-                            <li>• Historia de abuso de sustancias</li>
-                            <li>• Ansiedad comórbida significativa</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h5 className="font-semibold mb-2">Ventajas</h5>
-                          <ul className="text-sm space-y-1 text-green-700 dark:text-green-300">
-                            <li>• Sin potencial de abuso</li>
-                            <li>• Efecto de 24 horas</li>
-                            <li>• Puede mejorar ansiedad</li>
-                          </ul>
-                          
-                          <h5 className="font-semibold mb-2 mt-3">Desventajas</h5>
-                          <ul className="text-sm space-y-1 text-amber-700 dark:text-amber-300">
-                            <li>• Menor eficacia que estimulantes</li>
-                            <li>• Inicio de acción más lento (4-6 semanas)</li>
-                            <li>• Posibles efectos gastrointestinales</li>
-                          </ul>
-                        </div>
+                      <div className="text-center p-3 bg-blue-50 dark:bg-blue-950 rounded-lg">
+                        <div className="text-xl font-bold text-blue-500 mb-1">Moderadas-Grandes</div>
+                        <div className="text-sm text-muted-foreground">Mejoras en adultos con estimulantes</div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                <Separator />
-
-                {/* Tercera línea - Off-label */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Badge variant="outline">Tercera Línea</Badge>
-                    <h3 className="text-lg font-semibold">Medicamentos "Off-Label"</h3>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="text-base">Bupropión</CardTitle>
-                        <CardDescription>Antidepresivo con efecto en TDAH</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm">Más eficaz que placebo, especialmente en comorbilidad con depresión</p>
-                      </CardContent>
-                    </Card>
+                      <div className="text-center p-3 bg-orange-50 dark:bg-orange-950 rounded-lg">
+                        <div className="text-xl font-bold text-orange-500 mb-1">Moderadas</div>
+                        <div className="text-sm text-muted-foreground">Mejoras con no estimulantes</div>
+                      </div>
+                    </div>
                     
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="text-base">Clonidina</CardTitle>
-                        <CardDescription>Reduce hiperactividad e impulsividad</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm">Solo disponible como medicamento magistral en Argentina</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                    <div className="text-sm bg-gray-50 dark:bg-gray-900 p-3 rounded">
+                      <h5 className="font-semibold mb-2">Recomendaciones por edad:</h5>
+                      <ul className="space-y-1">
+                        <li>• <strong>Niños/Adolescentes:</strong> Metilfenidato como primera línea</li>
+                        <li>• <strong>Adultos:</strong> Anfetaminas como primera línea*</li>
+                        <li>• <strong>No estimulantes:</strong> Cuando los estimulantes no son adecuados</li>
+                      </ul>
+                      <p className="text-xs text-muted-foreground mt-2">*En Argentina, solo está disponible metilfenidato comercialmente</p>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
 
-          {/* Regulación en Argentina */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5" />
-                Regulación Legal en Argentina
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Alert className="mb-4">
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  <strong>Ley 19.303:</strong> El metilfenidato requiere receta oficial por triplicado con máximo 20 días de tratamiento
-                </AlertDescription>
-              </Alert>
-              
-              <div className="space-y-3">
-                <div className="p-3 border rounded-lg">
-                  <h4 className="font-semibold text-sm mb-1">Proceso de Prescripción</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Receta manuscrita en formulario oficial</li>
-                    <li>• Máximo 20 días de medicación por receta</li>
-                    <li>• Renovación mensual obligatoria</li>
-                    <li>• Registro en libro oficial por farmacia</li>
-                  </ul>
-                </div>
-                
-                <div className="p-3 border rounded-lg">
-                  <h4 className="font-semibold text-sm mb-1">Implicaciones Prácticas</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Consultas médicas más frecuentes</li>
-                    <li>• Mayor costo y tiempo para pacientes</li>
-                    <li>• Posibles interrupciones de tratamiento</li>
-                    <li>• Estigmatización del trastorno</li>
-                  </ul>
-                </div>
-              </div>
+                <AccordionItem value="estimulantes">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-4 w-4" />
+                      Medicamentos Estimulantes (Primera Línea)
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Medicamento</TableHead>
+                          <TableHead>Formulación</TableHead>
+                          <TableHead>Duración</TableHead>
+                          <TableHead>Ventajas</TableHead>
+                          <TableHead>Efectos Adversos</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell className="font-semibold">
+                            <div className="flex items-center gap-2">
+                              <Badge variant="default" className="text-xs">1ª Línea</Badge>
+                              Metilfenidato
+                            </div>
+                            <div className="text-xs text-muted-foreground mt-1">Único disponible en Argentina</div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="text-sm">
+                              <div>• Liberación inmediata</div>
+                              <div>• Liberación modificada</div>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="text-sm">
+                              <div>2-4 horas</div>
+                              <div>8-12 horas</div>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <ul className="text-xs space-y-1">
+                              <li>• Eficacia probada</li>
+                              <li>• Acción rápida</li>
+                              <li>• Experiencia clínica</li>
+                            </ul>
+                          </TableCell>
+                          <TableCell>
+                            <ul className="text-xs space-y-1 text-amber-600">
+                              <li>• Pérdida de apetito</li>
+                              <li>• Insomnio</li>
+                              <li>• Dolor de cabeza</li>
+                            </ul>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="no-estimulantes">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <Shield className="h-4 w-4" />
+                      Medicamentos No Estimulantes (Segunda Línea)
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Medicamento</TableHead>
+                          <TableHead>Mecanismo</TableHead>
+                          <TableHead>Indicaciones Preferentes</TableHead>
+                          <TableHead>Ventajas</TableHead>
+                          <TableHead>Desventajas</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell className="font-semibold">
+                            <div className="flex items-center gap-2">
+                              <Badge variant="secondary" className="text-xs">2ª Línea</Badge>
+                              Atomoxetina
+                            </div>
+                          </TableCell>
+                          <TableCell className="text-sm">
+                            Inhibidor recaptación noradrenalina
+                          </TableCell>
+                          <TableCell>
+                            <ul className="text-xs space-y-1">
+                              <li>• Intolerancia a estimulantes</li>
+                              <li>• Comorbilidad con tics</li>
+                              <li>• Riesgo de abuso</li>
+                              <li>• Ansiedad comórbida</li>
+                            </ul>
+                          </TableCell>
+                          <TableCell>
+                            <ul className="text-xs space-y-1 text-green-600">
+                              <li>• Sin potencial abuso</li>
+                              <li>• Efecto 24 horas</li>
+                              <li>• Mejora ansiedad</li>
+                            </ul>
+                          </TableCell>
+                          <TableCell>
+                            <ul className="text-xs space-y-1 text-amber-600">
+                              <li>• Menor eficacia</li>
+                              <li>• Inicio lento (4-6 sem)</li>
+                              <li>• Efectos GI</li>
+                            </ul>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="off-label">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      Opciones Off-Label (Tercera Línea)
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="p-4 border rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="outline" className="text-xs">3ª Línea</Badge>
+                          <strong className="text-sm">Bupropión</strong>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-2">Antidepresivo con efecto en TDAH</p>
+                        <ul className="text-xs space-y-1">
+                          <li>• Eficaz vs placebo</li>
+                          <li>• Útil con depresión comórbida</li>
+                          <li>• Sin potencial de abuso</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="p-4 border rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="outline" className="text-xs">3ª Línea</Badge>
+                          <strong className="text-sm">Clonidina</strong>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-2">Reduce hiperactividad e impulsividad</p>
+                        <ul className="text-xs space-y-1">
+                          <li>• Solo como magistral</li>
+                          <li>• Útil con tics</li>
+                          <li>• Sedante</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="regulacion">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                      <AlertTriangle className="h-4 w-4" />
+                      Regulación Legal en Argentina
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Alert className="mb-4">
+                      <AlertTriangle className="h-4 w-4" />
+                      <AlertDescription>
+                        <strong>Ley 19.303:</strong> El metilfenidato requiere receta oficial por triplicado con máximo 20 días de tratamiento
+                      </AlertDescription>
+                    </Alert>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded">
+                        <h4 className="font-semibold text-sm mb-2">Proceso de Prescripción</h4>
+                        <ul className="text-xs space-y-1">
+                          <li>• Receta manuscrita oficial</li>
+                          <li>• Máximo 20 días por receta</li>
+                          <li>• Renovación mensual</li>
+                          <li>• Registro en farmacia</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="p-3 bg-red-50 dark:bg-red-950 rounded">
+                        <h4 className="font-semibold text-sm mb-2">Impacto en Pacientes</h4>
+                        <ul className="text-xs space-y-1">
+                          <li>• Consultas más frecuentes</li>
+                          <li>• Mayor costo y tiempo</li>
+                          <li>• Riesgo de interrupciones</li>
+                          <li>• Estigmatización</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </CardContent>
           </Card>
         </TabsContent>
@@ -377,52 +429,45 @@ export default function TratamientosPage() {
                   <h3 className="text-lg font-semibold mb-3">Terapia Cognitivo-Conductual (TCC)</h3>
                   <Card className="border-green-200 dark:border-green-800">
                     <CardContent className="pt-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <h4 className="font-semibold mb-2">Principios Fundamentales</h4>
-                          <p className="text-sm text-muted-foreground mb-3">
-                            La TCC ayuda a entender cómo pensamientos, emociones y comportamientos se influyen mutuamente, 
-                            rompiendo ciclos negativos de frustración y evitación.
-                          </p>
-                          
-                          <h4 className="font-semibold mb-2">Modelo de Intervención</h4>
-                          <div className="text-sm space-y-2">
-                            <div className="p-2 bg-red-50 dark:bg-red-950 rounded">
-                              <strong>Experiencias de fracaso</strong> → Creencias disfuncionales
-                            </div>
-                            <div className="p-2 bg-amber-50 dark:bg-amber-950 rounded">
-                              <strong>Creencias negativas</strong> → Emociones intensas
-                            </div>
-                            <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded">
-                              <strong>Emociones negativas</strong> → Conductas de evitación
-                            </div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        La TCC rompe el ciclo: <strong>Fracasos → Creencias negativas → Emociones intensas → Evitación</strong>
+                      </p>
+                      
+                      <div className="grid md:grid-cols-3 gap-3">
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <strong className="text-sm">Psicoeducación</strong>
+                            <p className="text-xs text-muted-foreground">Comprender TDAH</p>
                           </div>
                         </div>
-                        
-                        <div>
-                          <h4 className="font-semibold mb-2">Componentes Clave</h4>
-                          <ul className="text-sm space-y-2">
-                            <li className="flex items-start gap-2">
-                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <strong>Psicoeducación:</strong> Comprender el TDAH y su impacto
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <strong>Organización:</strong> Sistemas de planificación y priorización
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <strong>Gestión del tiempo:</strong> Técnicas prácticas de manejo temporal
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <strong>Control de impulsos:</strong> Estrategias de autorregulación
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <strong>Reestructuración cognitiva:</strong> Cambiar pensamientos negativos
-                            </li>
-                          </ul>
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <strong className="text-sm">Organización</strong>
+                            <p className="text-xs text-muted-foreground">Sistemas de planificación</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <strong className="text-sm">Gestión temporal</strong>
+                            <p className="text-xs text-muted-foreground">Técnicas de tiempo</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <strong className="text-sm">Control impulsos</strong>
+                            <p className="text-xs text-muted-foreground">Autorregulación</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <strong className="text-sm">Reestructuración</strong>
+                            <p className="text-xs text-muted-foreground">Cambiar pensamientos</p>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -551,10 +596,8 @@ export default function TratamientosPage() {
                     <CardContent>
                       <ul className="text-sm space-y-1">
                         <li>• <strong>20 min/día</strong> al 70% FCM<CitationLink number={1} /></li>
-                        <li>• Correr, caminar rápido, bicicleta</li>
-                        <li>• Aumenta dopamina y norepinefrina</li>
-                        <li>• Mejora enfoque y motivación</li>
-                        <li>• Reduce hiperactividad e impulsividad</li>
+                        <li>• Correr, caminar, bicicleta</li>
+                        <li>• <strong>Potencia:</strong> Enfoque y motivación</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -565,11 +608,9 @@ export default function TratamientosPage() {
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-1">
-                        <li>• Yoga, pilates, BOSU</li>
-                        <li>• Tablas de equilibrio (wobble board)</li>
-                        <li>• Estimula el cerebelo</li>
-                        <li>• Mejora coordinación y atención</li>
-                        <li>• <strong>80% éxito</strong> reportado por Zing Performance<CitationLink number={1} /></li>
+                        <li>• Yoga, pilates, BOSU, wobble board</li>
+                        <li>• <strong>80% éxito</strong> Zing Performance<CitationLink number={1} /></li>
+                        <li>• <strong>Potencia:</strong> Coordinación cerebelo</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -580,11 +621,9 @@ export default function TratamientosPage() {
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-1">
-                        <li>• Deportes de raqueta (tenis, ping-pong)</li>
-                        <li>• Artes marciales</li>
-                        <li>• Deportes de reacción rápida</li>
-                        <li>• Mejora funciones ejecutivas</li>
-                        <li>• Desarrolla autocontrol y disciplina</li>
+                        <li>• Tenis, ping-pong, artes marciales</li>
+                        <li>• Deportes reacción rápida</li>
+                        <li>• <strong>Potencia:</strong> Autocontrol y disciplina</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -593,18 +632,16 @@ export default function TratamientosPage() {
                 <div className="bg-green-50 dark:bg-green-950 p-4 rounded-lg">
                   <h4 className="font-semibold mb-2 flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    Beneficios Inmediatos del Ejercicio
+                    Beneficios Clave (20-30 min de ejercicio)
                   </h4>
-                  <p className="text-sm mb-2">
-                    Una sola sesión de ejercicio de 20-30 minutos produce mejoras inmediatas en:
-                  </p>
-                  <ul className="text-sm space-y-1">
-                    <li>• <strong>Planificación y organización:</strong> 65% de mejora<CitationLink number={1} /></li>
-                    <li>• <strong>Atención y concentración:</strong> Efectos duran 2-4 horas</li>
-                    <li>• <strong>Estado de ánimo:</strong> Reducción de ansiedad y depresión</li>
-                    <li>• <strong>Función ejecutiva:</strong> Mejora en toma de decisiones</li>
-                    <li>• <strong>Autorregulación:</strong> Mayor control de impulsos</li>
-                  </ul>
+                  <div className="grid md:grid-cols-3 gap-3 text-sm">
+                    <div>• <strong>Planificación:</strong> 65% mejora<CitationLink number={1} /></div>
+                    <div>• <strong>Atención:</strong> Efectos 2-4h</div>
+                    <div>• <strong>Estado ánimo:</strong> ↓ Ansiedad</div>
+                    <div>• <strong>Decisiones:</strong> ↑ Función ejecutiva</div>
+                    <div>• <strong>Impulsos:</strong> ↑ Autocontrol</div>
+                    <div>• <strong>Coordinación:</strong> ↑ Cerebelo</div>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -676,19 +713,19 @@ export default function TratamientosPage() {
                           <div>
                             <h5 className="font-semibold mb-2">Estrategias</h5>
                             <ul className="text-sm space-y-1">
-                              <li>• Tomar medicación durante/después de comidas</li>
-                              <li>• Priorizar alimentos de alta densidad calórica</li>
-                              <li>• Comidas pequeñas y frecuentes</li>
-                              <li>• Suplementos nutricionales si es necesario</li>
+                              <li>• <strong>Horario:</strong> Durante/después comidas</li>
+                              <li>• <strong>Comida:</strong> Alta densidad calórica</li>
+                              <li>• <strong>Frecuencia:</strong> Pequeñas y frecuentes</li>
+                              <li>• <strong>Extra:</strong> Suplementos si necesario</li>
                             </ul>
                           </div>
                           <div>
                             <h5 className="font-semibold mb-2">Cuándo Preocuparse</h5>
                             <ul className="text-sm space-y-1">
-                              <li>• Pérdida de peso &gt; 10% del peso inicial</li>
-                              <li>• Rechazo total de comidas</li>
-                              <li>• Signos de desnutrición</li>
-                              <li>• Impacto en crecimiento (niños/adolescentes)</li>
+                              <li>• <strong>Peso:</strong> Pérdida &gt;10%</li>
+                              <li>• <strong>Rechazo:</strong> Total de comidas</li>
+                              <li>• <strong>Estado:</strong> Signos desnutrición</li>
+                              <li>• <strong>Crecimiento:</strong> Impacto en desarrollo</li>
                             </ul>
                           </div>
                         </div>
@@ -704,19 +741,19 @@ export default function TratamientosPage() {
                           <div>
                             <h5 className="font-semibold mb-2">Manejo del "Efecto Rebote"</h5>
                             <ul className="text-sm space-y-1">
-                              <li>• Ajustar horario de última dosis</li>
-                              <li>• Considerar dosis baja vespertina</li>
-                              <li>• Higiene del sueño</li>
-                              <li>• Rutinas de relajación nocturna</li>
+                              <li>• <strong>Horario:</strong> Ajustar última dosis</li>
+                              <li>• <strong>Dosis:</strong> Baja vespertina</li>
+                              <li>• <strong>Higiene:</strong> Rutina de sueño</li>
+                              <li>• <strong>Relajación:</strong> Técnicas nocturnas</li>
                             </ul>
                           </div>
                           <div>
                             <h5 className="font-semibold mb-2">Técnicas Complementarias</h5>
                             <ul className="text-sm space-y-1">
-                              <li>• Melatonina (bajo supervisión médica)</li>
-                              <li>• Ejercicio regular (no tardío)</li>
-                              <li>• Evitar cafeína después del mediodía</li>
-                              <li>• Ambiente de descanso optimizado</li>
+                              <li>• <strong>Melatonina:</strong> Supervisión médica</li>
+                              <li>• <strong>Ejercicio:</strong> Regular, no tardío</li>
+                              <li>• <strong>Cafeína:</strong> Evitar post-mediodía</li>
+                              <li>• <strong>Ambiente:</strong> Descanso optimizado</li>
                             </ul>
                           </div>
                         </div>
