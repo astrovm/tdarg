@@ -88,6 +88,18 @@ const LAWS_CONFIG: LawConfig[] = [
     name: 'Ley 23.849 - Convención sobre los Derechos del Niño',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/249/norma.htm',
     type: 'ley'
+  },
+  {
+    id: 'disposicion-1-2025-sistemas-informacion-sanitaria',
+    name: 'Disposición 1/2025 - Sistemas de Información Sanitaria',
+    url: 'https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-1-2025-415504/texto',
+    type: 'decreto'
+  },
+  {
+    id: 'resolucion-2214-2025-recetas-electronicas',
+    name: 'Resolución 2214/2025 - Recetas Electrónicas',
+    url: 'https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-2214-2025-415349/texto',
+    type: 'decreto'
   }
 ];
 

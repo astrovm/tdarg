@@ -6,8 +6,8 @@
     "type": "ley",
     "filename": "ley-19303-psicotropicos.html",
     "size": 44585,
-    "downloadedAt": "2025-07-18T18:45:58.747Z",
-    "lastChecked": "2025-07-18T18:45:58.747Z"
+    "downloadedAt": "2025-08-07T03:04:56.612Z",
+    "lastChecked": "2025-08-07T03:04:56.612Z"
   },
   "ley-27553-recetas-electronicas": {
     "id": "ley-27553-recetas-electronicas",
@@ -16,8 +16,8 @@
     "type": "ley",
     "filename": "ley-27553-recetas-electronicas.html",
     "size": 12789,
-    "downloadedAt": "2025-07-18T18:45:59.804Z",
-    "lastChecked": "2025-07-18T18:45:59.804Z"
+    "downloadedAt": "2025-08-07T03:04:57.783Z",
+    "lastChecked": "2025-08-07T03:04:57.783Z"
   },
   "ley-27306-dea": {
     "id": "ley-27306-dea",
@@ -26,8 +26,8 @@
     "type": "ley",
     "filename": "ley-27306-dea.html",
     "size": 8553,
-    "downloadedAt": "2025-07-18T18:46:00.879Z",
-    "lastChecked": "2025-07-18T18:46:00.879Z"
+    "downloadedAt": "2025-08-07T03:04:58.926Z",
+    "lastChecked": "2025-08-07T03:04:58.926Z"
   },
   "ley-17565-medicamentos": {
     "id": "ley-17565-medicamentos",
@@ -36,8 +36,8 @@
     "type": "ley",
     "filename": "ley-17565-medicamentos.html",
     "size": 70782,
-    "downloadedAt": "2025-07-18T18:46:02.011Z",
-    "lastChecked": "2025-07-18T18:46:02.011Z"
+    "downloadedAt": "2025-08-07T03:05:00.180Z",
+    "lastChecked": "2025-08-07T03:05:00.180Z"
   },
   "ley-17132-arte-curar": {
     "id": "ley-17132-arte-curar",
@@ -46,8 +46,8 @@
     "type": "ley",
     "filename": "ley-17132-arte-curar.html",
     "size": 87967,
-    "downloadedAt": "2025-07-18T18:46:03.189Z",
-    "lastChecked": "2025-07-18T18:46:03.189Z"
+    "downloadedAt": "2025-08-07T03:05:01.487Z",
+    "lastChecked": "2025-08-07T03:05:01.487Z"
   },
   "decreto-345-2024-sustancias-controladas": {
     "id": "decreto-345-2024-sustancias-controladas",
@@ -66,8 +66,8 @@
     "type": "decreto",
     "filename": "decreto-345-2024-recetas-electronicas.html",
     "size": 20468,
-    "downloadedAt": "2025-07-18T18:46:04.256Z",
-    "lastChecked": "2025-07-18T18:46:04.256Z"
+    "downloadedAt": "2025-08-07T03:05:02.653Z",
+    "lastChecked": "2025-08-07T03:05:02.653Z"
   },
   "ley-26657-salud-mental": {
     "id": "ley-26657-salud-mental",
@@ -76,8 +76,8 @@
     "type": "ley",
     "filename": "ley-26657-salud-mental.html",
     "size": 39966,
-    "downloadedAt": "2025-07-18T18:46:05.319Z",
-    "lastChecked": "2025-07-18T18:46:05.319Z"
+    "downloadedAt": "2025-08-07T03:05:03.840Z",
+    "lastChecked": "2025-08-07T03:05:03.840Z"
   },
   "ley-23737-codigo-penal-sustancias": {
     "id": "ley-23737-codigo-penal-sustancias",
@@ -86,8 +86,8 @@
     "type": "ley",
     "filename": "ley-23737-codigo-penal-sustancias.html",
     "size": 46102,
-    "downloadedAt": "2025-07-18T18:46:06.398Z",
-    "lastChecked": "2025-07-18T18:46:06.398Z"
+    "downloadedAt": "2025-08-07T03:05:05.028Z",
+    "lastChecked": "2025-08-07T03:05:05.028Z"
   },
   "ley-23849-convencion-derechos-nino": {
     "id": "ley-23849-convencion-derechos-nino",
@@ -96,7 +96,27 @@
     "type": "ley",
     "filename": "ley-23849-convencion-derechos-nino.html",
     "size": 75825,
-    "downloadedAt": "2025-07-18T18:46:07.465Z",
-    "lastChecked": "2025-07-18T18:46:07.465Z"
+    "downloadedAt": "2025-08-07T03:05:06.231Z",
+    "lastChecked": "2025-08-07T03:05:06.231Z"
+  },
+  "disposicion-1-2025-sistemas-informacion-sanitaria": {
+    "id": "disposicion-1-2025-sistemas-informacion-sanitaria",
+    "name": "Disposición 1/2025 - Sistemas de Información Sanitaria",
+    "url": "https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-1-2025-415504/texto",
+    "type": "decreto",
+    "filename": "disposicion-1-2025-sistemas-informacion-sanitaria.html",
+    "size": 63077,
+    "downloadedAt": "2025-08-07T03:05:07.276Z",
+    "lastChecked": "2025-08-07T03:05:07.276Z"
+  },
+  "resolucion-2214-2025-recetas-electronicas": {
+    "id": "resolucion-2214-2025-recetas-electronicas",
+    "name": "Resolución 2214/2025 - Recetas Electrónicas",
+    "url": "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-2214-2025-415349/texto",
+    "type": "decreto",
+    "filename": "resolucion-2214-2025-recetas-electronicas.html",
+    "size": 76911,
+    "downloadedAt": "2025-08-07T03:05:08.299Z",
+    "lastChecked": "2025-08-07T03:05:08.299Z"
   }
 }
