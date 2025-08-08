@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress"
 import { ArrowRight, ArrowLeft, CheckCircle, Pill, Brain, Heart, Shield, Target, Users, Zap } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
+import Link from "next/link"
 
 export default function TratamientosPage() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -774,11 +775,11 @@ export default function TratamientosPage() {
                   </Alert>
                   
                   <div className="mt-8 text-center space-x-4">
-                    <Button size="lg">
-                      Encontrar Profesionales
+                    <Button size="lg" asChild>
+                      <Link href="/especialistas">Encontrar Profesionales</Link>
                     </Button>
-                    <Button variant="outline" size="lg">
-                      Ver Precios Medicamentos
+                    <Button variant="outline" size="lg" asChild>
+                      <Link href="/precios">Ver Precios Medicamentos</Link>
                     </Button>
                     <Button variant="outline" onClick={() => setCurrentStep(4)}>
                       Anterior
