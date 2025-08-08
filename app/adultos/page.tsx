@@ -64,7 +64,8 @@ export default function AdultosPage() {
     prev,
     goTo,
     effectiveCompletedCount,
-    progress,
+  progress,
+  isDone,
   } = useStepProgress({ totalSteps: steps.length });
 
   return (
@@ -104,13 +105,13 @@ export default function AdultosPage() {
                 className={`p-3 rounded-lg text-left transition-all ${
                   currentStep === step.id
                     ? "bg-purple-600 text-white shadow-lg"
-                    : currentStep > step.id || completedSteps.includes(step.id)
+                    : isDone(step.id)
                     ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
                     : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1">
-                  {currentStep > step.id || completedSteps.includes(step.id) ? (
+                  {isDone(step.id) ? (
                     <CheckCircle className="h-4 w-4" />
                   ) : (
                     step.icon
