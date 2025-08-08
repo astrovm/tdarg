@@ -73,9 +73,13 @@ export default function AutismoPage() {
 
   const handleStepClick = (stepId: number) => {
     setCurrentStep(stepId)
+    // Marcar el paso como completado cuando se hace clic
+    setCompletedSteps((prev) => (prev.includes(stepId) ? prev : [...prev, stepId]))
   }
 
-  const progress = (completedSteps.length / steps.length) * 100
+  // Contar también el paso actual para reflejar avance visible
+  const effectiveCompletedCount = new Set([...completedSteps, currentStep]).size
+  const progress = (effectiveCompletedCount / steps.length) * 100
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -99,7 +103,7 @@ export default function AutismoPage() {
                 Progreso del aprendizaje
               </span>
               <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {completedSteps.length}/{steps.length} completado
+                {effectiveCompletedCount}/{steps.length} completado
               </span>
             </div>
             <Progress value={progress} className="h-2" />
@@ -114,13 +118,13 @@ export default function AutismoPage() {
                 className={`p-3 rounded-lg text-left transition-all ${
                   currentStep === step.id
                     ? 'bg-purple-600 text-white shadow-lg'
-                    : completedSteps.includes(step.id)
+                    : currentStep > step.id || completedSteps.includes(step.id)
                     ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700'
                     : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1">
-                  {completedSteps.includes(step.id) ? (
+                  {currentStep > step.id || completedSteps.includes(step.id) ? (
                     <CheckCircle className="h-4 w-4" />
                   ) : (
                     step.icon
@@ -479,7 +483,6 @@ export default function AutismoPage() {
 
             <Button
               onClick={handleNext}
-              disabled={currentStep === steps.length}
               className="flex items-center gap-2"
             >
               {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
