@@ -12,7 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import type { CheckedState } from "@radix-ui/react-checkbox"
 import { Header } from "@/components/header"
 
-export default function DiagnosticoOption2() {
+export default function DiagnosticoPage() {
   const [currentStep, setCurrentStep] = useState(1)
   const totalSteps = 4
 

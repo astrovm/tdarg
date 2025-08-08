@@ -9,7 +9,7 @@ import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Pill, Brain, Heart, Shie
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 
-export default function TratamientosOption2() {
+export default function TratamientosPage() {
   const [currentStep, setCurrentStep] = useState(1)
   const totalSteps = 5
 
