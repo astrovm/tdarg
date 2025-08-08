@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useStepProgress } from "@/hooks/use-step-progress";
 import {
   Card,
   CardContent,
@@ -28,10 +28,32 @@ import { Header } from "@/components/header";
 import Link from "next/link";
 
 export default function TratamientosPage() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 5;
-
-  const progressPercentage = (currentStep / totalSteps) * 100;
+  const steps = [
+    {
+      id: 1,
+      title: "¿Cómo funciona?",
+      subtitle: "Base del tratamiento",
+      icon: Brain,
+    },
+    {
+      id: 2,
+      title: "Medicamentos",
+      subtitle: "Opciones farmacológicas",
+      icon: Pill,
+    },
+    { id: 3, title: "Terapias", subtitle: "Apoyo psicológico", icon: Users },
+    { id: 4, title: "Ejercicio", subtitle: "Actividad física", icon: Heart },
+    { id: 5, title: "Mi plan", subtitle: "Plan personalizado", icon: Target },
+  ] as const;
+  const {
+    currentStep,
+    progress,
+    effectiveCompletedCount,
+    goTo,
+    next,
+    prev,
+    isDone,
+  } = useStepProgress({ totalSteps: steps.length });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -55,59 +77,28 @@ export default function TratamientosPage() {
                 Progreso del aprendizaje
               </span>
               <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {currentStep}/{totalSteps} completado
+                {effectiveCompletedCount}/{steps.length} completado
               </span>
             </div>
-            <Progress value={progressPercentage} className="h-2" />
+            <Progress value={progress} className="h-2" />
           </div>
 
           {/* Step Navigation */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-            {[
-              {
-                step: 1,
-                title: "¿Cómo funciona?",
-                subtitle: "Base del tratamiento",
-                icon: Brain,
-              },
-              {
-                step: 2,
-                title: "Medicamentos",
-                subtitle: "Opciones farmacológicas",
-                icon: Pill,
-              },
-              {
-                step: 3,
-                title: "Terapias",
-                subtitle: "Apoyo psicológico",
-                icon: Users,
-              },
-              {
-                step: 4,
-                title: "Ejercicio",
-                subtitle: "Actividad física",
-                icon: Heart,
-              },
-              {
-                step: 5,
-                title: "Mi plan",
-                subtitle: "Plan personalizado",
-                icon: Target,
-              },
-            ].map((step) => (
+            {steps.map((step) => (
               <button
-                key={step.step}
-                onClick={() => setCurrentStep(step.step)}
+                key={step.id}
+                onClick={() => goTo(step.id)}
                 className={`p-3 rounded-lg text-left transition-all ${
-                  currentStep === step.step
+                  currentStep === step.id
                     ? "bg-purple-600 text-white shadow-lg"
-                    : currentStep > step.step
+                    : isDone(step.id)
                     ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
                     : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1">
-                  {currentStep > step.step ? (
+                  {isDone(step.id) ? (
                     <CheckCircle className="h-4 w-4" />
                   ) : (
                     <step.icon className="h-4 w-4" />
@@ -228,7 +219,7 @@ export default function TratamientosPage() {
                   </Alert>
 
                   <div className="text-center">
-                    <Button onClick={() => setCurrentStep(2)} size="lg">
+                    <Button onClick={next} size="lg">
                       Siguiente: Medicamentos{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
@@ -390,17 +381,13 @@ export default function TratamientosPage() {
                   </div>
 
                   <div className="mt-8 text-center">
-                    <Button
-                      onClick={() => setCurrentStep(3)}
-                      size="lg"
-                      className="mr-4"
-                    >
+                    <Button onClick={next} size="lg" className="mr-4">
                       Siguiente: Terapias{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                     <Button
                       variant="outline"
-                      onClick={() => setCurrentStep(1)}
+                      onClick={prev}
                       className="flex items-center gap-2"
                     >
                       <ArrowLeft className="h-4 w-4" />
@@ -612,15 +599,11 @@ export default function TratamientosPage() {
                   </div>
 
                   <div className="mt-8 text-center">
-                    <Button
-                      onClick={() => setCurrentStep(4)}
-                      size="lg"
-                      className="mr-4"
-                    >
+                    <Button onClick={next} size="lg" className="mr-4">
                       Siguiente: Ejercicio{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
-                    <Button variant="outline" onClick={() => setCurrentStep(2)}>
+                    <Button variant="outline" onClick={prev}>
                       Anterior
                     </Button>
                   </div>
@@ -848,14 +831,10 @@ export default function TratamientosPage() {
                   </div>
 
                   <div className="mt-8 text-center">
-                    <Button
-                      onClick={() => setCurrentStep(5)}
-                      size="lg"
-                      className="mr-4"
-                    >
+                    <Button onClick={next} size="lg" className="mr-4">
                       Siguiente: Mi plan <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
-                    <Button variant="outline" onClick={() => setCurrentStep(3)}>
+                    <Button variant="outline" onClick={prev}>
                       Anterior
                     </Button>
                   </div>
@@ -1075,7 +1054,7 @@ export default function TratamientosPage() {
                     <Button variant="outline" size="lg" asChild>
                       <Link href="/precios">Ver Precios Medicamentos</Link>
                     </Button>
-                    <Button variant="outline" onClick={() => setCurrentStep(4)}>
+                    <Button variant="outline" onClick={prev}>
                       Anterior
                     </Button>
                   </div>
