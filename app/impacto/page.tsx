@@ -1,51 +1,101 @@
+"use client"
+
+import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Progress } from "@/components/ui/progress"
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AlertTriangle, TrendingDown, DollarSign, Heart, Car, GraduationCap, Users, Clock } from "lucide-react"
+import { AlertTriangle, TrendingDown, DollarSign, Heart, Car, GraduationCap, Users, Clock, ArrowRight, ArrowLeft, CheckCircle } from "lucide-react"
 import { Header } from "@/components/header"
 import { CitationLink } from "@/components/citation-link"
 import { References, type Reference } from "@/components/references"
 
 export default function ImpactoPage() {
+  const [currentStep, setCurrentStep] = useState(1)
+  const totalSteps = 4
+  const progressPercentage = (currentStep / totalSteps) * 100
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
+      
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold text-purple-600 mb-4">
-            Impacto del TDAH No Tratado
+        <div className="container mx-auto px-4 py-8 relative z-10">
+          <h1 className="text-3xl font-bold text-purple-600 mb-4">
+            Impacto del TDAH: Tu Camino a la Conciencia
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Las consecuencias reales de no abordar el TDAH en la vida adulta
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
+            Descubre las consecuencias reales del TDAH no tratado paso a paso
           </p>
+          
+          {/* Progress */}
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                Progreso del aprendizaje
+              </span>
+              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                {currentStep}/{totalSteps} completado
+              </span>
+            </div>
+            <Progress value={progressPercentage} className="h-2" />
+          </div>
+
+          {/* Step Navigation */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            {[
+              { step: 1, title: "¿Cuál es el panorama?", subtitle: "Visión general", icon: TrendingDown },
+              { step: 2, title: "¿Afecta mi salud?", subtitle: "Salud física", icon: Heart },
+              { step: 3, title: "¿Y mis relaciones?", subtitle: "Impacto social", icon: Users },
+              { step: 4, title: "¿Cuánto me cuesta?", subtitle: "Costo económico", icon: DollarSign }
+            ].map((step) => (
+              <button
+                key={step.step}
+                onClick={() => setCurrentStep(step.step)}
+                className={`p-3 rounded-lg text-left transition-all ${
+                  currentStep === step.step
+                    ? 'bg-purple-600 text-white shadow-lg'
+                    : currentStep > step.step
+                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  {currentStep > step.step ? (
+                    <CheckCircle className="h-4 w-4" />
+                  ) : (
+                    <step.icon className="h-4 w-4" />
+                  )}
+                  <span className="font-medium text-sm">{step.title}</span>
+                </div>
+                <p className="text-xs opacity-80">{step.subtitle}</p>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6">
 
-      <Alert className="mb-8">
-        <AlertTriangle className="h-4 w-4" />
-        <AlertDescription>
-          <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones<CitationLink number={1} /> confirma que el TDAH no tratado 
-          tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong> que la población general. 
-          También puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.
-        </AlertDescription>
-      </Alert>
+        {/* Step Content */}
+        <div className="min-h-[500px]">
 
-      <Tabs defaultValue="general" className="space-y-8">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-1">
-          <TabsTrigger value="general" className="text-xs md:text-sm">Visión General</TabsTrigger>
-          <TabsTrigger value="salud" className="text-xs md:text-sm">Salud Física</TabsTrigger>
-          <TabsTrigger value="social" className="text-xs md:text-sm">Impacto Social</TabsTrigger>
-          <TabsTrigger value="economico" className="text-xs md:text-sm">Costo Económico</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="general" className="space-y-6">
+          {/* Step 1: General Overview */}
+          {currentStep === 1 && (
+            <div className="space-y-6">
+              
+              <Alert className="mb-6">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones<CitationLink number={1} /> confirma que el TDAH no tratado 
+                  tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong> que la población general. 
+                  También puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.
+                </AlertDescription>
+              </Alert>
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -299,11 +349,20 @@ export default function ImpactoPage() {
                   </Card>
                 </div>
               </div>
+              
+              <div className="mt-8 text-center">
+                <Button onClick={() => setCurrentStep(2)} size="lg">
+                  Siguiente: ¿Afecta mi salud? <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </div>
             </CardContent>
           </Card>
-        </TabsContent>
+            </div>
+          )}
 
-        <TabsContent value="salud" className="space-y-6">
+          {/* Step 2: Physical Health */}
+          {currentStep === 2 && (
+            <div className="space-y-6">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -527,11 +586,24 @@ export default function ImpactoPage() {
                   </Card>
                 </div>
               </div>
+              
+              <div className="mt-8 text-center space-x-4">
+                <Button onClick={() => setCurrentStep(3)} size="lg">
+                  Siguiente: ¿Y mis relaciones? <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+                <Button variant="outline" onClick={() => setCurrentStep(1)}>
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Anterior
+                </Button>
+              </div>
             </CardContent>
           </Card>
-        </TabsContent>
+            </div>
+          )}
 
-        <TabsContent value="social" className="space-y-6">
+          {/* Step 3: Social Impact */}
+          {currentStep === 3 && (
+            <div className="space-y-6">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -756,11 +828,24 @@ export default function ImpactoPage() {
                   </div>
                 </div>
               </div>
+              
+              <div className="mt-8 text-center space-x-4">
+                <Button onClick={() => setCurrentStep(4)} size="lg">
+                  Siguiente: ¿Cuánto me cuesta? <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+                <Button variant="outline" onClick={() => setCurrentStep(2)}>
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Anterior
+                </Button>
+              </div>
             </CardContent>
           </Card>
-        </TabsContent>
+            </div>
+          )}
 
-        <TabsContent value="economico" className="space-y-6">
+          {/* Step 4: Economic Cost */}
+          {currentStep === 4 && (
+            <div className="space-y-6">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -1069,13 +1154,26 @@ export default function ImpactoPage() {
                   </Card>
                 </div>
               </div>
+              
+              <div className="mt-8 text-center space-x-4">
+                <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                  <CheckCircle className="h-4 w-4 mr-2" />
+                  ¡Impacto Comprendido!
+                </Button>
+                <Button variant="outline" onClick={() => setCurrentStep(3)}>
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Anterior
+                </Button>
+              </div>
             </CardContent>
           </Card>
-        </TabsContent>
-      </Tabs>
+            </div>
+          )}
 
-      <References references={impactoReferences} />
-    </div>
+        </div>
+
+        <References references={impactoReferences} />
+      </div>
     </div>
   )
 }
