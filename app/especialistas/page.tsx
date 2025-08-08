@@ -31,6 +31,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 import especialistas from '@/lib/especialistas-data';
 
@@ -529,6 +530,7 @@ export default function EspecialistasPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

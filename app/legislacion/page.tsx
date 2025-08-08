@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { FileText, Calendar, ExternalLink, Brain, Clock, ChevronDown, ChevronUp, Gavel } from "lucide-react"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { useState } from "react"
 import { fuentesDocumentacion, leyes, problemasReales, propuestasNecesarias } from "@/lib/legislacion-data"
 
@@ -453,6 +454,7 @@ export default function LegislacionPage() {
           </div>
         </div>
       </footer>
+      <Footer />
     </div>
   )
 }

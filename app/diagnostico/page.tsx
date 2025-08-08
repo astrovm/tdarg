@@ -9,12 +9,54 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Clock, Users, Stethoscope, FileText, AlertTriangle, Brain } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 export default function DiagnosticoOption2() {
   const [currentStep, setCurrentStep] = useState(1)
   const totalSteps = 4
 
   const progressPercentage = (currentStep / totalSteps) * 100
+
+  type ProfColor = "blue" | "purple" | "green"
+  const professionals: Array<{
+    title: string
+    icon: string
+    speciality: string
+    experience: string
+    availability: string
+    color: ProfColor
+  }> = [
+    {
+      title: "Médico Psiquiatra",
+      icon: "🏥",
+      speciality: "Especialista en salud mental",
+      experience: "Entrenamiento específico en TDAH",
+      availability: "Alta disponibilidad",
+      color: "blue",
+    },
+    {
+      title: "Neurólogo",
+      icon: "🧠",
+      speciality: "Especialista del sistema nervioso",
+      experience: "Experiencia en neurodesarrollo",
+      availability: "Disponibilidad media",
+      color: "purple",
+    },
+    {
+      title: "Psicólogo Clínico",
+      icon: "👨‍⚕️",
+      speciality: "Especialista en evaluación psicológica",
+      experience: "Formación en evaluación de TDAH",
+      availability: "Disponibilidad variable",
+      color: "green",
+    },
+  ]
+
+  const colorClasses: Record<ProfColor, { border: string; badge: string }> = {
+    blue: { border: "border-blue-200 dark:border-blue-800", badge: "text-blue-600" },
+    purple: { border: "border-purple-200 dark:border-purple-800", badge: "text-purple-600" },
+    green: { border: "border-green-200 dark:border-green-800", badge: "text-green-600" },
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -170,39 +212,13 @@ export default function DiagnosticoOption2() {
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-3 gap-6">
-                    
                     {/* Professional Cards with Visual Hierarchy */}
-                    {[
-                      {
-                        title: "Médico Psiquiatra",
-                        icon: "🏥",
-                        speciality: "Especialista en salud mental",
-                        experience: "Entrenamiento específico en TDAH",
-                        availability: "Alta disponibilidad",
-                        color: "blue"
-                      },
-                      {
-                        title: "Neurólogo", 
-                        icon: "🧠",
-                        speciality: "Especialista del sistema nervioso",
-                        experience: "Experiencia en neurodesarrollo",
-                        availability: "Disponibilidad media",
-                        color: "purple"
-                      },
-                      {
-                        title: "Psicólogo Clínico",
-                        icon: "👨‍⚕️", 
-                        speciality: "Especialista en evaluación psicológica",
-                        experience: "Formación en evaluación de TDAH",
-                        availability: "Disponibilidad variable",
-                        color: "green"
-                      }
-                    ].map((prof, index) => (
-                      <Card key={index} className={`border-${prof.color}-200 dark:border-${prof.color}-800 hover:shadow-lg transition-shadow`}>
+                    {professionals.map((prof, index) => (
+                      <Card key={index} className={`${colorClasses[prof.color].border} hover:shadow-lg transition-shadow`}>
                         <CardHeader className="text-center">
                           <div className="text-6xl mb-2">{prof.icon}</div>
                           <CardTitle className="text-lg">{prof.title}</CardTitle>
-                          <Badge variant="outline" className={`text-${prof.color}-600`}>Autorizado</Badge>
+                          <Badge variant="outline" className={`${colorClasses[prof.color].badge}`}>Autorizado</Badge>
                         </CardHeader>
                         <CardContent>
                           <div className="space-y-2 text-sm">
