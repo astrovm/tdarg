@@ -1,14 +1,31 @@
-'use client'
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
-import { AlertTriangle, Brain, Users, Eye, MessageCircle, Zap, Target, ArrowRight, ArrowLeft, CheckCircle } from "lucide-react"
-import { Header } from "@/components/header"
-import { References, type Reference } from "@/components/references"
-import { CitationLink } from "@/components/citation-link"
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import {
+  AlertTriangle,
+  Brain,
+  Users,
+  Eye,
+  MessageCircle,
+  Zap,
+  Target,
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle,
+} from "lucide-react";
+import { Header } from "@/components/header";
+import { References, type Reference } from "@/components/references";
+import { CitationLink } from "@/components/citation-link";
 
 const steps = [
   {
@@ -16,75 +33,80 @@ const steps = [
     title: "¿Pueden coexistir?",
     subtitle: "Comorbilidad posible",
     icon: <Brain className="h-5 w-5" />,
-    description: "Cómo TDAH y autismo pueden aparecer juntos"
+    description: "Cómo TDAH y autismo pueden aparecer juntos",
   },
   {
     id: 2,
     title: "¿Cómo diferenciarlos?",
     subtitle: "Diagnóstico diferencial",
     icon: <Eye className="h-5 w-5" />,
-    description: "Diferencias clave entre ambas condiciones"
+    description: "Diferencias clave entre ambas condiciones",
   },
   {
     id: 3,
     title: "Señales importantes",
     subtitle: "Características distintivas",
     icon: <Target className="h-5 w-5" />,
-    description: "Signos que pueden indicar presencia de ambos"
+    description: "Signos que pueden indicar presencia de ambos",
   },
   {
     id: 4,
     title: "Tratamiento dual",
     subtitle: "Abordaje conjunto",
     icon: <Users className="h-5 w-5" />,
-    description: "Estrategias cuando coexisten ambas condiciones"
-  }
-]
+    description: "Estrategias cuando coexisten ambas condiciones",
+  },
+];
 
 const references: Reference[] = [
   {
     id: 1,
-    title: "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida",
+    title:
+      "Primer Consenso Argentino sobre Trastorno por Déficit de Atención e Hiperactividad (TDAH) a lo largo de la vida",
     authors: "Moina, C., et al.",
     url: "/primer-consenso-argentino-tdah-1.pdf",
-    description: "Este consenso aborda la comorbilidad del TDAH con otros trastornos, incluyendo el Trastorno del Espectro Autista (TEA), y la importancia del diagnóstico diferencial.",
+    description:
+      "Este consenso aborda la comorbilidad del TDAH con otros trastornos, incluyendo el Trastorno del Espectro Autista (TEA), y la importancia del diagnóstico diferencial.",
     year: "2020",
   },
 ];
 
 export default function AutismoPage() {
-  const [currentStep, setCurrentStep] = useState(1)
-  const [completedSteps, setCompletedSteps] = useState<number[]>([])
+  const [currentStep, setCurrentStep] = useState(1);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   const handleNext = () => {
     if (!completedSteps.includes(currentStep)) {
-      setCompletedSteps([...completedSteps, currentStep])
+      setCompletedSteps([...completedSteps, currentStep]);
     }
     if (currentStep < steps.length) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(currentStep + 1);
     }
-  }
+  };
 
   const handlePrevious = () => {
     if (currentStep > 1) {
-      setCurrentStep(currentStep - 1)
+      setCurrentStep(currentStep - 1);
     }
-  }
+  };
 
   const handleStepClick = (stepId: number) => {
-    setCurrentStep(stepId)
+    setCurrentStep(stepId);
     // Marcar el paso como completado cuando se hace clic
-    setCompletedSteps((prev) => (prev.includes(stepId) ? prev : [...prev, stepId]))
-  }
+    setCompletedSteps((prev) =>
+      prev.includes(stepId) ? prev : [...prev, stepId]
+    );
+  };
 
   // Contar también el paso actual para reflejar avance visible
-  const effectiveCompletedCount = new Set([...completedSteps, currentStep]).size
-  const progress = (effectiveCompletedCount / steps.length) * 100
+  const effectiveCompletedCount = new Set([...completedSteps, currentStep])
+    .size;
+  const progress = (effectiveCompletedCount / steps.length) * 100;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
-      
+
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
@@ -93,9 +115,10 @@ export default function AutismoPage() {
             TDAH y Autismo (TEA)
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-            Comprende la relación, diferencias y tratamiento cuando coexisten ambas condiciones
+            Comprende la relación, diferencias y tratamiento cuando coexisten
+            ambas condiciones
           </p>
-          
+
           {/* Progress */}
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
@@ -117,10 +140,10 @@ export default function AutismoPage() {
                 onClick={() => handleStepClick(step.id)}
                 className={`p-3 rounded-lg text-left transition-all ${
                   currentStep === step.id
-                    ? 'bg-purple-600 text-white shadow-lg'
+                    ? "bg-purple-600 text-white shadow-lg"
                     : currentStep > step.id || completedSteps.includes(step.id)
-                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700'
-                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
+                    : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
                 }`}
               >
                 <div className="flex items-center gap-2 mb-1">
@@ -139,7 +162,6 @@ export default function AutismoPage() {
       </div>
 
       <div className="container mx-auto px-4 py-6">
-
         {/* Step Content */}
         <Card className="min-h-[600px]">
           <CardHeader>
@@ -148,8 +170,12 @@ export default function AutismoPage() {
                 {steps[currentStep - 1].icon}
               </div>
               <div>
-                <CardTitle className="text-xl">{steps[currentStep - 1].title}</CardTitle>
-                <CardDescription>{steps[currentStep - 1].description}</CardDescription>
+                <CardTitle className="text-xl">
+                  {steps[currentStep - 1].title}
+                </CardTitle>
+                <CardDescription>
+                  {steps[currentStep - 1].description}
+                </CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -160,32 +186,45 @@ export default function AutismoPage() {
                 <Alert>
                   <AlertTriangle className="h-4 w-4" />
                   <AlertDescription>
-                    <strong>DSM-5 Actualización:</strong> El TEA ya no es un criterio de exclusión para el TDAH. 
-                    Ambas condiciones pueden coexistir<CitationLink number={1} />.
+                    <strong>DSM-5 Actualización:</strong> El TEA ya no es un
+                    criterio de exclusión para el TDAH. Ambas condiciones pueden
+                    coexistir
+                    <CitationLink number={1} />.
                   </AlertDescription>
                 </Alert>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-base">Antes del DSM-5 (2013)</CardTitle>
+                      <CardTitle className="text-base">
+                        Antes del DSM-5 (2013)
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-2">
-                        <li>• El autismo <strong>excluía</strong> el diagnóstico de TDAH</li>
+                        <li>
+                          • El autismo <strong>excluía</strong> el diagnóstico
+                          de TDAH
+                        </li>
                         <li>• Solo se podía diagnosticar una condición</li>
-                        <li>• Muchos casos de TDAH quedaban sin diagnosticar</li>
+                        <li>
+                          • Muchos casos de TDAH quedaban sin diagnosticar
+                        </li>
                       </ul>
                     </CardContent>
                   </Card>
 
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-base">Actualmente (DSM-5)</CardTitle>
+                      <CardTitle className="text-base">
+                        Actualmente (DSM-5)
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-2">
-                        <li>• <strong>Diagnóstico dual</strong> es posible</li>
+                        <li>
+                          • <strong>Diagnóstico dual</strong> es posible
+                        </li>
                         <li>• Evaluación independiente de cada condición</li>
                         <li>• Tratamiento específico para ambas</li>
                       </ul>
@@ -195,20 +234,34 @@ export default function AutismoPage() {
 
                 <Card className="bg-blue-50 dark:bg-blue-950">
                   <CardHeader>
-                    <CardTitle className="text-base">Estadísticas de comorbilidad</CardTitle>
+                    <CardTitle className="text-base">
+                      Estadísticas de comorbilidad
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="grid md:grid-cols-3 gap-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">29.4%</div>
-                      <div className="text-xs">Adolescentes masculinos con TDAH tienen TEA</div>
+                      <div className="text-2xl font-bold text-blue-600">
+                        29.4%
+                      </div>
+                      <div className="text-xs">
+                        Adolescentes masculinos con TDAH tienen TEA
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-600">50-70%</div>
-                      <div className="text-xs">Personas con TEA tienen síntomas de TDAH</div>
+                      <div className="text-2xl font-bold text-purple-600">
+                        50-70%
+                      </div>
+                      <div className="text-xs">
+                        Personas con TEA tienen síntomas de TDAH
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">Común</div>
-                      <div className="text-xs">La comorbilidad es frecuente</div>
+                      <div className="text-2xl font-bold text-green-600">
+                        Común
+                      </div>
+                      <div className="text-xs">
+                        La comorbilidad es frecuente
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -227,11 +280,24 @@ export default function AutismoPage() {
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-2">
-                        <li><strong>Atención:</strong> Dificultades para mantener el foco</li>
-                        <li><strong>Hiperactividad:</strong> Inquietud e impulsividad</li>
-                        <li><strong>Flexibilidad:</strong> Puede cambiar de actividad</li>
-                        <li><strong>Social:</strong> Dificultades por impulsividad</li>
-                        <li><strong>Comunicación:</strong> Interrumpe, habla mucho</li>
+                        <li>
+                          <strong>Atención:</strong> Dificultades para mantener
+                          el foco
+                        </li>
+                        <li>
+                          <strong>Hiperactividad:</strong> Inquietud e
+                          impulsividad
+                        </li>
+                        <li>
+                          <strong>Flexibilidad:</strong> Puede cambiar de
+                          actividad
+                        </li>
+                        <li>
+                          <strong>Social:</strong> Dificultades por impulsividad
+                        </li>
+                        <li>
+                          <strong>Comunicación:</strong> Interrumpe, habla mucho
+                        </li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -245,11 +311,23 @@ export default function AutismoPage() {
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-2">
-                        <li><strong>Atención:</strong> Hiperfoco en intereses específicos</li>
-                        <li><strong>Comportamiento:</strong> Rutinas y rituales rígidos</li>
-                        <li><strong>Flexibilidad:</strong> Dificultad para cambiar</li>
-                        <li><strong>Social:</strong> Dificultades en comunicación</li>
-                        <li><strong>Comunicación:</strong> Patrones atípicos</li>
+                        <li>
+                          <strong>Atención:</strong> Hiperfoco en intereses
+                          específicos
+                        </li>
+                        <li>
+                          <strong>Comportamiento:</strong> Rutinas y rituales
+                          rígidos
+                        </li>
+                        <li>
+                          <strong>Flexibilidad:</strong> Dificultad para cambiar
+                        </li>
+                        <li>
+                          <strong>Social:</strong> Dificultades en comunicación
+                        </li>
+                        <li>
+                          <strong>Comunicación:</strong> Patrones atípicos
+                        </li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -257,12 +335,16 @@ export default function AutismoPage() {
 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-base">Áreas de superposición (difíciles de diferenciar)</CardTitle>
+                    <CardTitle className="text-base">
+                      Áreas de superposición (difíciles de diferenciar)
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                       <div>
-                        <h5 className="font-semibold mb-2">Síntomas similares:</h5>
+                        <h5 className="font-semibold mb-2">
+                          Síntomas similares:
+                        </h5>
                         <ul className="space-y-1">
                           <li>• Dificultades de atención</li>
                           <li>• Problemas de organización</li>
@@ -271,12 +353,24 @@ export default function AutismoPage() {
                         </ul>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-2">Diferencias clave:</h5>
+                        <h5 className="font-semibold mb-2">
+                          Diferencias clave:
+                        </h5>
                         <ul className="space-y-1">
-                          <li>• <strong>TDAH:</strong> Síntomas variables según contexto</li>
-                          <li>• <strong>TEA:</strong> Patrones consistentes y rígidos</li>
-                          <li>• <strong>TDAH:</strong> Busca estimulación</li>
-                          <li>• <strong>TEA:</strong> Prefiere predictibilidad</li>
+                          <li>
+                            • <strong>TDAH:</strong> Síntomas variables según
+                            contexto
+                          </li>
+                          <li>
+                            • <strong>TEA:</strong> Patrones consistentes y
+                            rígidos
+                          </li>
+                          <li>
+                            • <strong>TDAH:</strong> Busca estimulación
+                          </li>
+                          <li>
+                            • <strong>TEA:</strong> Prefiere predictibilidad
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -289,11 +383,14 @@ export default function AutismoPage() {
               <div className="space-y-6">
                 <Card className="border-amber-200 dark:border-amber-800 bg-amber-50/30 dark:bg-amber-950/30">
                   <CardHeader>
-                    <CardTitle className="text-base">Señales de posible comorbilidad</CardTitle>
+                    <CardTitle className="text-base">
+                      Señales de posible comorbilidad
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm mb-4">
-                      Estas señales pueden indicar la presencia de ambas condiciones:
+                      Estas señales pueden indicar la presencia de ambas
+                      condiciones:
                     </p>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                       <div>
@@ -375,20 +472,25 @@ export default function AutismoPage() {
                 <Alert className="border-green-200 dark:border-green-800 bg-green-50/30 dark:bg-green-950/30">
                   <Users className="h-4 w-4" />
                   <AlertDescription>
-                    <strong>Tratamiento integral:</strong> Cuando coexisten TDAH y TEA, se requiere un abordaje 
-                    especializado que considere ambas condiciones simultáneamente.
+                    <strong>Tratamiento integral:</strong> Cuando coexisten TDAH
+                    y TEA, se requiere un abordaje especializado que considere
+                    ambas condiciones simultáneamente.
                   </AlertDescription>
                 </Alert>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-base">Tratamiento del TDAH</CardTitle>
+                      <CardTitle className="text-base">
+                        Tratamiento del TDAH
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
                         <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
-                          <h5 className="font-semibold text-sm mb-1">Medicación</h5>
+                          <h5 className="font-semibold text-sm mb-1">
+                            Medicación
+                          </h5>
                           <ul className="text-xs space-y-1">
                             <li>• Estimulantes pueden ser efectivos</li>
                             <li>• Requiere monitoreo cuidadoso</li>
@@ -396,7 +498,9 @@ export default function AutismoPage() {
                           </ul>
                         </div>
                         <div className="p-3 bg-green-50 dark:bg-green-950 rounded">
-                          <h5 className="font-semibold text-sm mb-1">Intervenciones</h5>
+                          <h5 className="font-semibold text-sm mb-1">
+                            Intervenciones
+                          </h5>
                           <ul className="text-xs space-y-1">
                             <li>• Entrenamiento en funciones ejecutivas</li>
                             <li>• Técnicas de organización</li>
@@ -409,12 +513,16 @@ export default function AutismoPage() {
 
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-base">Tratamiento del TEA</CardTitle>
+                      <CardTitle className="text-base">
+                        Tratamiento del TEA
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
                         <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded">
-                          <h5 className="font-semibold text-sm mb-1">Intervenciones especializadas</h5>
+                          <h5 className="font-semibold text-sm mb-1">
+                            Intervenciones especializadas
+                          </h5>
                           <ul className="text-xs space-y-1">
                             <li>• Terapia de comunicación social</li>
                             <li>• Manejo de rutinas y transiciones</li>
@@ -422,7 +530,9 @@ export default function AutismoPage() {
                           </ul>
                         </div>
                         <div className="p-3 bg-orange-50 dark:bg-orange-950 rounded">
-                          <h5 className="font-semibold text-sm mb-1">Apoyo estructurado</h5>
+                          <h5 className="font-semibold text-sm mb-1">
+                            Apoyo estructurado
+                          </h5>
                           <ul className="text-xs space-y-1">
                             <li>• Ambientes predecibles</li>
                             <li>• Comunicación clara y directa</li>
@@ -436,7 +546,9 @@ export default function AutismoPage() {
 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-base">Consideraciones especiales para comorbilidad</CardTitle>
+                    <CardTitle className="text-base">
+                      Consideraciones especiales para comorbilidad
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
@@ -450,7 +562,9 @@ export default function AutismoPage() {
                         </ul>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-2">Estrategias integradas:</h5>
+                        <h5 className="font-semibold mb-2">
+                          Estrategias integradas:
+                        </h5>
                         <ul className="space-y-1">
                           <li>• Equipo multidisciplinario coordinado</li>
                           <li>• Adaptaciones ambientales específicas</li>
@@ -481,11 +595,8 @@ export default function AutismoPage() {
               {currentStep} de {steps.length}
             </span>
 
-            <Button
-              onClick={handleNext}
-              className="flex items-center gap-2"
-            >
-              {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
+            <Button onClick={handleNext} className="flex items-center gap-2">
+              {currentStep === steps.length ? "Finalizar" : "Siguiente"}
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
@@ -494,5 +605,5 @@ export default function AutismoPage() {
         <References references={references} />
       </div>
     </div>
-  )
+  );
 }
