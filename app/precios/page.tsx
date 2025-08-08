@@ -167,10 +167,16 @@ export default function PreciosPage() {
 
           {/* Info rápida */}
           {estadisticas && (
-            <div className="mb-6">
-              <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
-                <span className="font-medium text-purple-600 dark:text-purple-400">{estadisticas.con_precio}</span> de <span className="font-medium">{estadisticas.total}</span> medicamentos con precios disponibles
-              </p>
+            <div className="mb-6 flex justify-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur-sm dark:border-purple-800 dark:bg-slate-900/60">
+                <Package className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+                <span className="text-sm text-slate-700 dark:text-slate-300">
+                  <span className="font-semibold text-purple-700 dark:text-purple-300">{estadisticas.con_precio}</span>
+                  {" "}de{" "}
+                  <span className="font-medium">{estadisticas.total}</span>
+                  {" "}medicamentos con precios disponibles
+                </span>
+              </div>
             </div>
           )}
 
@@ -182,7 +188,7 @@ export default function PreciosPage() {
                 placeholder="Buscá por nombre, marca o laboratorio..."
                 value={filtro}
                 onChange={(e) => setFiltro(e.target.value)}
-                className="pl-12 h-10 bg-white/90 dark:bg-slate-800/90 border-0 shadow-md rounded-xl backdrop-blur-sm"
+                className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
               />
             </div>
             <Button
