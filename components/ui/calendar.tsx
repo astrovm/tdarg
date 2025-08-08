@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+// Navigation icons use DayPicker defaults; no explicit imports needed
 import { DayPicker } from "react-day-picker"
 
 import { cn } from "@/lib/utils"

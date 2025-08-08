@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { CheckCircle, ArrowRight, ArrowLeft, Clock, Calendar, Smartphone, BookOpen, Users, Target, Lightbulb, Timer, Grid3X3, Focus, Brain, MessageSquare, Headphones, StickyNote, Gamepad2, Star, ExternalLink } from "lucide-react"
+import { CheckCircle, ArrowRight, ArrowLeft, Clock, Calendar, Smartphone, BookOpen, Users, Target, Lightbulb, Timer, Grid3X3, Focus, Brain, MessageSquare, Headphones, Gamepad2 } from "lucide-react"
 import { Header } from "@/components/header"
 import { References, type Reference } from "@/components/references"
-import { CitationLink } from "@/components/citation-link"
+//
 
 const references: Reference[] = [
   {
@@ -152,7 +152,7 @@ export default function HerramientasPage() {
                                 Sistema para capturar y organizar todas las tareas de manera sistemática
                               </p>
                               <ul className="space-y-1 text-sm">
-                                <li>• Capturar todo en una "bandeja de entrada"</li>
+                                <li>• Capturar todo en una &quot;bandeja de entrada&quot;</li>
                                 <li>• Procesar: ¿Es accionable?</li>
                                 <li>• Organizar en listas contextuales</li>
                                 <li>• Revisar semanalmente</li>
@@ -198,7 +198,7 @@ export default function HerramientasPage() {
                             <AccordionTrigger>
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4" />
-                                Regla de los "Siguientes 3"
+                                Regla de los &quot;Siguientes 3&quot;
                               </div>
                             </AccordionTrigger>
                             <AccordionContent>
@@ -384,8 +384,8 @@ export default function HerramientasPage() {
                                 <div>
                                   <h5 className="font-semibold text-sm mb-2">Pensamientos Intrusivos</h5>
                                   <ul className="text-sm space-y-1">
-                                    <li>• Libreta de "parking" para ideas no relacionadas</li>
-                                    <li>• Técnica del "después lo pienso"</li>
+                                    <li>• Libreta de &quot;parking&quot; para ideas no relacionadas</li>
+                                    <li>• Técnica del &quot;después lo pienso&quot;</li>
                                     <li>• Mindfulness básico (5 minutos)</li>
                                     <li>• Recordatorios programados para preocupaciones</li>
                                   </ul>
@@ -619,14 +619,14 @@ export default function HerramientasPage() {
                                   <h5 className="font-semibold text-sm mb-2">Prevención</h5>
                                   <ul className="text-sm space-y-1">
                                     <li>• Tomar notas durante conversaciones</li>
-                                    <li>• Usar objeto para "turno de habla"</li>
+                                    <li>• Usar objeto para &quot;turno de habla&quot;</li>
                                     <li>• Sentarse en las manos</li>
                                     <li>• Escribir la idea en lugar de decirla</li>
                                   </ul>
                                 </div>
                                 <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
                                   <h5 className="font-semibold text-sm mb-1">Si ya interrumpiste:</h5>
-                                  <p className="text-sm">"Perdón, te interrumpí. Por favor continúa, volveré a mi punto después."</p>
+                                  <p className="text-sm">&quot;Perdón, te interrumpí. Por favor continúa, volveré a mi punto después.&quot;</p>
                                 </div>
                               </div>
                             </AccordionContent>
@@ -653,10 +653,10 @@ export default function HerramientasPage() {
                                 <div>
                                   <h5 className="font-semibold text-sm mb-2">Técnicas Verbales</h5>
                                   <ul className="text-sm space-y-1">
-                                    <li>• "Si entiendo bien, decís que..."</li>
+                                    <li>• &quot;Si entiendo bien, decís que...&quot;</li>
                                     <li>• Hacer preguntas clarificadoras</li>
                                     <li>• Resumir periódicamente</li>
-                                    <li>• "¿Podés repetir eso?"</li>
+                                    <li>• &quot;¿Podés repetir eso?&quot;</li>
                                   </ul>
                                 </div>
                               </div>

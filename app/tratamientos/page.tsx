@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Pill, Brain, Heart, Shield, Target, Users, Zap } from "lucide-react"
+import { ArrowRight, ArrowLeft, CheckCircle, Pill, Brain, Heart, Shield, Target, Users, Zap } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 
@@ -157,7 +157,7 @@ export default function TratamientosPage() {
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="h-3 w-3 text-green-500" />
-                          <span>Ejercicio = "medicación natural"</span>
+                          <span>Ejercicio = &quot;medicación natural&quot;</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="h-3 w-3 text-green-500" />
@@ -175,7 +175,7 @@ export default function TratamientosPage() {
                     <Target className="h-4 w-4" />
                     <AlertDescription>
                       <strong>Clave del éxito:</strong> La combinación de los 3 enfoques da mejores resultados 
-                      que cualquiera por separado. No es "o medicación o terapia", es "medicación Y terapia Y cambios de estilo de vida".
+                      que cualquiera por separado. No es &quot;o medicación o terapia&quot;, es &quot;medicación Y terapia Y cambios de estilo de vida&quot;.
                     </AlertDescription>
                   </Alert>
                   

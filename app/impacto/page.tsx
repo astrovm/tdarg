@@ -551,7 +551,7 @@ export default function ImpactoPage() {
                               <li>• <strong>Insomnio:</strong> Dificultad para conciliar o mantener el sueño</li>
                               <li>• <strong>Síndrome de piernas inquietas:</strong> 5x más frecuente</li>
                               <li>• <strong>Apnea del sueño:</strong> Mayor prevalencia</li>
-                              <li>• <strong>Síndrome de fase retrasada:</strong> "Búhos nocturnos"</li>
+                              <li>• <strong>Síndrome de fase retrasada:</strong> &quot;Búhos nocturnos&quot;</li>
                             </ul>
                           </div>
                         </div>

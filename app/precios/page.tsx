@@ -415,7 +415,7 @@ export default function PreciosPage() {
                         variant="secondary"
                         className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"
                       >
-                        Uso "Off-Label" (Fuera de Etiqueta)
+                        Uso &quot;Off-Label&quot; (Fuera de Etiqueta)
                       </Badge>
                     </div>
 

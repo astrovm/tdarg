@@ -57,7 +57,7 @@ export default function LegislacionPage() {
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
             Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente
-            beneficia a los pacientes vs. el "teatro político".
+            beneficia a los pacientes vs. el &quot;teatro político&quot;.
           </p>
         </div>
       </div>

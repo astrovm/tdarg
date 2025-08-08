@@ -68,9 +68,7 @@ const ChartContainer = React.forwardRef<
 ChartContainer.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
-  const colorConfig = Object.entries(config).filter(
-    ([_, config]) => config.theme || config.color
-  )
+  const colorConfig = Object.entries(config).filter(([, cfg]) => cfg.theme || cfg.color)
 
   if (!colorConfig.length) {
     return null
@@ -107,7 +105,7 @@ type RechartsTooltipPayloadItem = {
   value?: number
   color?: string
   dataKey?: string
-  payload: Record<string, any> & { fill?: string }
+  payload: Record<string, unknown> & { fill?: string }
 }
 
 type TooltipPropsAny = {
@@ -177,7 +175,7 @@ const ChartTooltipContent = React.forwardRef<
       if (labelFormatter) {
         return (
           <div className={cn("font-medium", labelClassName)}>
-            {labelFormatter(value, payload as any)}
+            {labelFormatter(value, payload as unknown as RechartsTooltipPayloadItem[])}
           </div>
         )
       }
@@ -228,7 +226,7 @@ const ChartTooltipContent = React.forwardRef<
                 )}
               >
                 {formatter && item?.value !== undefined && item.name ? (
-                  formatter(item.value, item.name, item as any, index, item.payload)
+                  formatter(item.value, item.name, item as RechartsTooltipPayloadItem, index, item.payload)
                 ) : (
                   <>
                     {itemConfig?.icon ? (

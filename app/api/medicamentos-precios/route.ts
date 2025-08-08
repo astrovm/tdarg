@@ -40,7 +40,17 @@ async function fetchWithTimeout(url: string, options: RequestInit) {
 }
 
 // Obtener medicamentos de Farmacity
-async function obtenerMedicamentos(termino: string): Promise<any[]> {
+interface FarmacityMed {
+  formula?: { description?: string }
+  description?: string
+  medicalLaboratory?: { abbreviation?: string }
+  publicPrice?: string | number
+  package?: { packageDescription?: { description?: string }; potency?: string | number }
+  barCode?: string
+  id?: string | number
+}
+
+async function obtenerMedicamentos(termino: string): Promise<FarmacityMed[]> {
   try {
     const url = `${FARMACITY_API}?filter=${encodeURIComponent(termino)}`
 
@@ -61,10 +71,11 @@ async function obtenerMedicamentos(termino: string): Promise<any[]> {
     }
 
     const data = await response.json()
-    const results = Array.isArray(data) ? data : data.data || []
+    const results: unknown = Array.isArray(data) ? data : (data as { data?: unknown }).data || []
+    const list: FarmacityMed[] = Array.isArray(results) ? (results as FarmacityMed[]) : []
 
-    console.log(`✅ ${results.length} medicamentos para ${termino}`)
-    return results
+    console.log(`✅ ${list.length} medicamentos para ${termino}`)
+    return list
   } catch (error) {
     console.error(`❌ Error para ${termino}:`, error)
     return []
@@ -72,11 +83,11 @@ async function obtenerMedicamentos(termino: string): Promise<any[]> {
 }
 
 // Convertir medicamento
-function convertirMedicamento(med: any): Medicamento {
+function convertirMedicamento(med: FarmacityMed): Medicamento {
   const nombre = med.formula?.description || med.description || "Medicamento"
   const marca = med.description || "Sin marca"
   const laboratorio = med.medicalLaboratory?.abbreviation || "No especificado"
-  const precio = Number.parseFloat(med.publicPrice) || 0
+  const precio = typeof med.publicPrice === "string" ? Number.parseFloat(med.publicPrice) : Number(med.publicPrice || 0)
   const presentacion = med.package?.packageDescription?.description || "No especificado"
   const concentracion = med.package?.potency ? `${med.package.potency} mg` : "No especificado"
 
@@ -128,7 +139,7 @@ async function obtenerMedicamentosTDAH(): Promise<Medicamento[]> {
   const resultadosAPIs = await Promise.all(promesas)
 
   // Procesar resultados
-  resultadosAPIs.forEach((medicamentos, index) => {
+  resultadosAPIs.forEach((medicamentos) => {
     medicamentos.forEach((med) => {
       try {
         const convertido = convertirMedicamento(med)

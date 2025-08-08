@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { User, Users, Heart, Briefcase, Clock, Zap, AlertTriangle, ArrowRight, ArrowLeft, CheckCircle } from "lucide-react"
+import { User, Heart, Clock, Zap, AlertTriangle, ArrowRight, ArrowLeft, CheckCircle } from "lucide-react"
 import { Header } from "@/components/header"
 import { CitationLink } from "@/components/citation-link"
 import { References, type Reference } from "@/components/references"
@@ -198,7 +198,7 @@ export default function AdultosPage() {
                     </CardHeader>
                     <CardContent>
                       <ul className="text-sm space-y-2">
-                        <li>• <strong>Inatención predominante:</strong> "Soñar despierta"</li>
+                        <li>• <strong>Inatención predominante:</strong> &quot;Soñar despierta&quot;</li>
                         <li>• <strong>Hiperactividad interna:</strong> Mente acelerada</li>
                         <li>• <strong>Sensibilidad emocional:</strong> Reacciones intensas</li>
                         <li>• <strong>Perfeccionismo paralizante</strong></li>
@@ -214,7 +214,7 @@ export default function AdultosPage() {
                       <ul className="text-sm space-y-2">
                         <li>• <strong>Mayor depresión/ansiedad</strong></li>
                         <li>• <strong>Baja autoestima crónica</strong></li>
-                        <li>• <strong>Autoculpa:</strong> "Soy perezosa"</li>
+                        <li>• <strong>Autoculpa:</strong> &quot;Soy perezosa&quot;</li>
                         <li>• <strong>Diagnóstico tardío</strong></li>
                       </ul>
                     </CardContent>
@@ -228,7 +228,7 @@ export default function AdultosPage() {
                       <ul className="text-sm space-y-2">
                         <li>• Lucha constante con organización</li>
                         <li>• Hipersensibilidad al rechazo</li>
-                        <li>• Sensación de "no dar la talla"</li>
+                        <li>• Sensación de &quot;no dar la talla&quot;</li>
                         <li>• Emociones más intensas que otros</li>
                       </ul>
                     </CardContent>
@@ -349,11 +349,11 @@ export default function AdultosPage() {
                       </p>
                       <div className="space-y-2">
                         <div className="p-3 bg-green-50 dark:bg-green-950 rounded text-center">
-                          <div className="text-xs font-semibold">🔥 "Encendido"</div>
+                          <div className="text-xs font-semibold">🔥 &quot;Encendido&quot;</div>
                           <div className="text-xs">Energía alta, múltiples proyectos</div>
                         </div>
                         <div className="p-3 bg-gray-50 dark:bg-gray-950 rounded text-center">
-                          <div className="text-xs font-semibold">😴 "Apagado"</div>
+                          <div className="text-xs font-semibold">😴 &quot;Apagado&quot;</div>
                           <div className="text-xs">Agotamiento, procrastinación</div>
                         </div>
                       </div>

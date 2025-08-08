@@ -130,7 +130,7 @@ export default function MitosPage() {
                   <Alert className="mb-6">
                     <AlertTriangle className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>Mito más peligroso:</strong> "El TDAH no existe, es una invención" ha causado décadas de sufrimiento y subdiagnóstico.
+                      <strong>Mito más peligroso:</strong> &quot;El TDAH no existe, es una invención&quot; ha causado décadas de sufrimiento y subdiagnóstico.
                     </AlertDescription>
                   </Alert>
 
@@ -141,11 +141,11 @@ export default function MitosPage() {
                         MITOS POPULARES
                       </h4>
                       <ul className="text-sm space-y-2">
-                        <li>• "Es una excusa para la pereza"</li>
-                        <li>• "Inventado por las farmacéuticas"</li>
-                        <li>• "Medicalización de la infancia normal"</li>
-                        <li>• "No es una condición médica real"</li>
-                        <li>• "Es solo falta de disciplina"</li>
+                        <li>• &quot;Es una excusa para la pereza&quot;</li>
+                        <li>• &quot;Inventado por las farmacéuticas&quot;</li>
+                        <li>• &quot;Medicalización de la infancia normal&quot;</li>
+                        <li>• &quot;No es una condición médica real&quot;</li>
+                        <li>• &quot;Es solo falta de disciplina&quot;</li>
                       </ul>
                     </div>
                     
@@ -220,11 +220,11 @@ export default function MitosPage() {
                         MITOS POPULARES
                       </h4>
                       <ul className="text-sm space-y-2">
-                        <li>• "Los adultos no tienen TDAH"</li>
-                        <li>• "Se supera en la adolescencia"</li>
-                        <li>• "Es cuestión de madurar"</li>
-                        <li>• "Los síntomas desaparecen naturalmente"</li>
-                        <li>• "Si no te diagnosticaron de niño, no lo tenés"</li>
+                        <li>• &quot;Los adultos no tienen TDAH&quot;</li>
+                        <li>• &quot;Se supera en la adolescencia&quot;</li>
+                        <li>• &quot;Es cuestión de madurar&quot;</li>
+                        <li>• &quot;Los síntomas desaparecen naturalmente&quot;</li>
+                        <li>• &quot;Si no te diagnosticaron de niño, no lo tenés&quot;</li>
                       </ul>
                     </div>
                     
@@ -299,11 +299,11 @@ export default function MitosPage() {
                         MITOS POPULARES
                       </h4>
                       <ul className="text-sm space-y-2">
-                        <li>• "Solo necesitan esforzarse más"</li>
-                        <li>• "Es pereza o falta de carácter"</li>
-                        <li>• "Con más disciplina se soluciona"</li>
-                        <li>• "Buscan excusas para no trabajar"</li>
-                        <li>• "Si realmente quisieran, podrían"</li>
+                        <li>• &quot;Solo necesitan esforzarse más&quot;</li>
+                        <li>• &quot;Es pereza o falta de carácter&quot;</li>
+                        <li>• &quot;Con más disciplina se soluciona&quot;</li>
+                        <li>• &quot;Buscan excusas para no trabajar&quot;</li>
+                        <li>• &quot;Si realmente quisieran, podrían&quot;</li>
                       </ul>
                     </div>
                     
@@ -315,8 +315,8 @@ export default function MitosPage() {
                       <ul className="text-sm space-y-2">
                         <li>• <strong>Déficit neurológico real:</strong> En dopamina/noradrenalina</li>
                         <li>• <strong>Funciones ejecutivas alteradas:</strong> No es falta de voluntad</li>
-                        <li>• <strong>Red neuronal por defecto hiperactiva:</strong> Dificultad para "engancharse"</li>
-                        <li>• <strong>Mejora con tratamiento:</strong> No solo con "más esfuerzo"</li>
+                        <li>• <strong>Red neuronal por defecto hiperactiva:</strong> Dificultad para &quot;engancharse&quot;</li>
+                        <li>• <strong>Mejora con tratamiento:</strong> No solo con &quot;más esfuerzo&quot;</li>
                         <li>• <strong>Hiperfoco demuestra capacidad:</strong> El problema es la regulación</li>
                       </ul>
                     </div>
@@ -325,9 +325,9 @@ export default function MitosPage() {
                   <div className="p-6 bg-amber-50 dark:bg-amber-950 rounded-lg mb-6">
                     <h4 className="font-semibold mb-3">🩺 Analogía Médica</h4>
                     <p className="text-sm">
-                      Decir que el TDAH es "falta de voluntad" es como decir que la diabetes es "falta de voluntad 
-                      para regular el azúcar". Ambas son condiciones médicas reales que requieren tratamiento específico, 
-                      no solo "más esfuerzo personal".
+                      Decir que el TDAH es &quot;falta de voluntad&quot; es como decir que la diabetes es &quot;falta de voluntad 
+                      para regular el azúcar&quot;. Ambas son condiciones médicas reales que requieren tratamiento específico, 
+                      no solo &quot;más esfuerzo personal&quot;.
                     </p>
                   </div>
                   
@@ -365,11 +365,11 @@ export default function MitosPage() {
                         MITOS POPULARES
                       </h4>
                       <ul className="text-sm space-y-2">
-                        <li>• "Los estimulantes son drogas peligrosas"</li>
-                        <li>• "Crean adicción automáticamente"</li>
-                        <li>• "Cambian la personalidad permanentemente"</li>
-                        <li>• "Solo sirven para drogar niños"</li>
-                        <li>• "Tienen efectos secundarios terribles"</li>
+                        <li>• &quot;Los estimulantes son drogas peligrosas&quot;</li>
+                        <li>• &quot;Crean adicción automáticamente&quot;</li>
+                        <li>• &quot;Cambian la personalidad permanentemente&quot;</li>
+                        <li>• &quot;Solo sirven para drogar niños&quot;</li>
+                        <li>• &quot;Tienen efectos secundarios terribles&quot;</li>
                       </ul>
                     </div>
                     
@@ -457,11 +457,11 @@ export default function MitosPage() {
                         MITOS POPULARES
                       </h4>
                       <ul className="text-sm space-y-2">
-                        <li>• "Las niñas no tienen TDAH"</li>
-                        <li>• "Es 9:1 varones vs mujeres"</li>
-                        <li>• "Las mujeres lo superan más fácil"</li>
-                        <li>• "Solo se ve hiperactividad física"</li>
-                        <li>• "Las niñas son naturalmente más tranquilas"</li>
+                        <li>• &quot;Las niñas no tienen TDAH&quot;</li>
+                        <li>• &quot;Es 9:1 varones vs mujeres&quot;</li>
+                        <li>• &quot;Las mujeres lo superan más fácil&quot;</li>
+                        <li>• &quot;Solo se ve hiperactividad física&quot;</li>
+                        <li>• &quot;Las niñas son naturalmente más tranquilas&quot;</li>
                       </ul>
                     </div>
                     
@@ -486,7 +486,7 @@ export default function MitosPage() {
                       TDAH en Mujeres: El Diagnóstico Oculto
                     </h4>
                     <p className="text-sm mb-3">
-                      Las mujeres presentan síntomas más sutiles: "soñar despiertas", hiperactividad mental, 
+                      Las mujeres presentan síntomas más sutiles: &quot;soñar despiertas&quot;, hiperactividad mental, 
                       perfeccionismo, sensibilidad emocional. Esto lleva a diagnósticos erróneos como 
                       ansiedad o depresión únicamente.
                     </p>
@@ -527,11 +527,11 @@ export default function MitosPage() {
                         MITOS POPULARES
                       </h4>
                       <ul className="text-sm space-y-2">
-                        <li>• "No pueden ser exitosos académicamente"</li>
-                        <li>• "Tienen menor capacidad intelectual"</li>
-                        <li>• "No sirven para trabajos complejos"</li>
-                        <li>• "Son estudiantes problemáticos únicamente"</li>
-                        <li>• "No pueden concentrarse en nada"</li>
+                        <li>• &quot;No pueden ser exitosos académicamente&quot;</li>
+                        <li>• &quot;Tienen menor capacidad intelectual&quot;</li>
+                        <li>• &quot;No sirven para trabajos complejos&quot;</li>
+                        <li>• &quot;Son estudiantes problemáticos únicamente&quot;</li>
+                        <li>• &quot;No pueden concentrarse en nada&quot;</li>
                       </ul>
                     </div>
                     
@@ -560,7 +560,7 @@ export default function MitosPage() {
                       </CardHeader>
                       <CardContent>
                         <ul className="text-sm space-y-1">
-                          <li>• <strong>Creatividad:</strong> "Fuera de la caja"</li>
+                          <li>• <strong>Creatividad:</strong> &quot;Fuera de la caja&quot;</li>
                           <li>• <strong>Innovación:</strong> Conectar ideas diversas</li>
                           <li>• <strong>Energía mental:</strong> Cuando hay interés</li>
                         </ul>
