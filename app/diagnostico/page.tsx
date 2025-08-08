@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, ArrowDown, CheckCircle, Clock, Users, Stethoscope, FileText, AlertTriangle, Brain } from "lucide-react"
+import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Clock, Users, Stethoscope, FileText, AlertTriangle, Brain } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 
@@ -228,7 +228,8 @@ export default function DiagnosticoOption2() {
                     <Button onClick={() => setCurrentStep(3)} size="lg" className="mr-4">
                       Siguiente: El proceso <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
-                    <Button variant="outline" onClick={() => setCurrentStep(1)}>
+                    <Button variant="outline" onClick={() => setCurrentStep(1)} className="flex items-center gap-2">
+                      <ArrowLeft className="h-4 w-4" />
                       Anterior
                     </Button>
                   </div>
@@ -334,7 +335,8 @@ export default function DiagnosticoOption2() {
                     <Button onClick={() => setCurrentStep(4)} size="lg" className="mr-4">
                       Siguiente: Preparación <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
-                    <Button variant="outline" onClick={() => setCurrentStep(2)}>
+                    <Button variant="outline" onClick={() => setCurrentStep(2)} className="flex items-center gap-2">
+                      <ArrowLeft className="h-4 w-4" />
                       Anterior
                     </Button>
                   </div>
@@ -402,8 +404,9 @@ export default function DiagnosticoOption2() {
                             <span className="text-2xl">{info.icon}</span>
                             <div className="flex-1">
                               <p className="font-medium text-sm">{info.item}</p>
-                              <p className="text-xs text-muted-foreground">{info.tip}</p>
+                              <Badge variant="secondary" className="text-xs">{info.tip}</Badge>
                             </div>
+                            <CheckCircle className="h-5 w-5 text-green-500" />
                           </div>
                         ))}
                       </div>
@@ -422,7 +425,8 @@ export default function DiagnosticoOption2() {
                       <Button size="lg">
                         Encontrar Especialistas
                       </Button>
-                      <Button variant="outline" onClick={() => setCurrentStep(3)}>
+                      <Button variant="outline" onClick={() => setCurrentStep(3)} className="flex items-center gap-2">
+                        <ArrowLeft className="h-4 w-4" />
                         Anterior
                       </Button>
                     </div>

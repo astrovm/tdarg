@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { ArrowRight, ArrowDown, CheckCircle, Pill, Brain, Heart, Shield, Target, Users, Zap } from "lucide-react"
+import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Pill, Brain, Heart, Shield, Target, Users, Zap } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 
@@ -19,65 +19,67 @@ export default function TratamientosOption2() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
       
-      {/* Visual Header with Progress */}
-      <div className="bg-gradient-to-r from-purple-500 to-pink-600 text-white py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold mb-2">Tu Camino del Tratamiento TDAH</h1>
-          <p className="text-purple-100 mb-6">Sigue estos pasos para entender las opciones disponibles</p>
+      {/* Header Section */}
+      <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
+        <div className="container mx-auto px-4 py-8 relative z-10">
+          <h1 className="text-3xl font-bold text-purple-600 mb-4">
+            Tu Camino del Tratamiento TDAH
+          </h1>
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
+            Sigue estos pasos para entender las opciones disponibles
+          </p>
           
-          {/* Progress Bar */}
-          <div className="max-w-md">
-            <div className="flex justify-between text-sm mb-2">
-              <span>Paso {currentStep} de {totalSteps}</span>
-              <span>{Math.round(progressPercentage)}% completado</span>
+          {/* Progress */}
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                Progreso del aprendizaje
+              </span>
+              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                {currentStep}/{totalSteps} completado
+              </span>
             </div>
-            <Progress value={progressPercentage} className="h-2 bg-purple-400" />
+            <Progress value={progressPercentage} className="h-2" />
+          </div>
+
+          {/* Step Navigation */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+            {[
+              { step: 1, title: "¿Cómo funciona?", subtitle: "Base del tratamiento", icon: Brain },
+              { step: 2, title: "Medicamentos", subtitle: "Opciones farmacológicas", icon: Pill },
+              { step: 3, title: "Terapias", subtitle: "Apoyo psicológico", icon: Users },
+              { step: 4, title: "Ejercicio", subtitle: "Actividad física", icon: Heart },
+              { step: 5, title: "Mi plan", subtitle: "Plan personalizado", icon: Target }
+            ].map((step) => (
+              <button
+                key={step.step}
+                onClick={() => setCurrentStep(step.step)}
+                className={`p-3 rounded-lg text-left transition-all ${
+                  currentStep === step.step
+                    ? 'bg-purple-600 text-white shadow-lg'
+                    : currentStep > step.step
+                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-1">{
+                  currentStep > step.step ? (
+                    <CheckCircle className="h-4 w-4" />
+                  ) : (
+                    <step.icon className="h-4 w-4" />
+                  )
+                }
+                  <span className="font-medium text-sm">{step.title}</span>
+                </div>
+                <p className="text-xs opacity-80">{step.subtitle}</p>
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        
-        {/* Visual Journey Navigation */}
-        <div className="mb-8">
-          <div className="flex justify-center items-center space-x-4 overflow-x-auto pb-4">
-            {[
-              { step: 1, title: "¿Cómo funciona?", icon: Brain, color: "blue" },
-              { step: 2, title: "Medicamentos", icon: Pill, color: "green" },
-              { step: 3, title: "Terapias", icon: Users, color: "purple" },
-              { step: 4, title: "Ejercicio", icon: Heart, color: "red" },
-              { step: 5, title: "Mi plan", icon: Target, color: "orange" }
-            ].map(({ step, title, icon: Icon, color }, index) => (
-              <div key={step} className="flex items-center">
-                <button
-                  onClick={() => setCurrentStep(step)}
-                  className={`flex flex-col items-center p-4 rounded-lg transition-all ${
-                    currentStep === step 
-                      ? `bg-${color}-100 dark:bg-${color}-900 border-2 border-${color}-500` 
-                      : 'bg-white dark:bg-slate-800 border border-gray-200 hover:bg-gray-50 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${
-                    currentStep >= step 
-                      ? `bg-${color}-500 text-white` 
-                      : 'bg-gray-200 dark:bg-gray-600 text-gray-500'
-                  }`}>
-                    {currentStep > step ? <CheckCircle className="h-6 w-6" /> : <Icon className="h-6 w-6" />}
-                  </div>
-                  <span className={`text-xs font-medium text-center ${
-                    currentStep === step ? `text-${color}-700 dark:text-${color}-300` : 'text-gray-600 dark:text-gray-400'
-                  }`}>
-                    {title}
-                  </span>
-                </button>
-                
-                {index < 4 && (
-                  <ArrowRight className="h-6 w-6 text-gray-400 mx-2 flex-shrink-0" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="container mx-auto px-4 py-6">
 
         {/* Step Content */}
         <div className="min-h-[500px]">
@@ -303,7 +305,8 @@ export default function TratamientosOption2() {
                     <Button onClick={() => setCurrentStep(3)} size="lg" className="mr-4">
                       Siguiente: Terapias <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
-                    <Button variant="outline" onClick={() => setCurrentStep(1)}>
+                    <Button variant="outline" onClick={() => setCurrentStep(1)} className="flex items-center gap-2">
+                      <ArrowLeft className="h-4 w-4" />
                       Anterior
                     </Button>
                   </div>
