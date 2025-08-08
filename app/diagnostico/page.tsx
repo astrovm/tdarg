@@ -10,6 +10,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Checkbox } from "@/components/ui/checkbox"
 import type { CheckedState } from "@radix-ui/react-checkbox"
 import { Header } from "@/components/header"
+import Link from "next/link"
 
 export default function DiagnosticoPage() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -505,8 +506,8 @@ export default function DiagnosticoPage() {
                     </Alert>
                     
                     <div className="space-x-4">
-                      <Button size="lg">
-                        Encontrar Especialistas
+                      <Button size="lg" asChild>
+                        <Link href="/especialistas">Encontrar Especialistas</Link>
                       </Button>
                       <Button variant="outline" onClick={() => setCurrentStep(3)} className="flex items-center gap-2">
                         <ArrowLeft className="h-4 w-4" />
