@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/header";
 
-import especialistas from '@/lib/especialistas-data';
+import especialistas from "@/lib/especialistas-data";
 
 const provincias = [
   "Buenos Aires",
@@ -114,7 +114,7 @@ export default function EspecialistasPage() {
       <Header />
 
       {/* Header Section */}
-  <div className="relative hero-gradient overflow-hidden">
+      <div className="relative hero-gradient overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 py-12 relative z-10">
           <h1 className="text-4xl font-bold text-purple-600 mb-4">
@@ -174,10 +174,14 @@ export default function EspecialistasPage() {
                     </SelectItem>
                     <SelectItem value="Neurólogo">Neurólogo</SelectItem>
                     <SelectItem value="Psicólogo">Psicólogo</SelectItem>
-                    <SelectItem value="Psicopedagogía">Psicopedagogía</SelectItem>
+                    <SelectItem value="Psicopedagogía">
+                      Psicopedagogía
+                    </SelectItem>
                     <SelectItem value="Equinoterapia">Equinoterapia</SelectItem>
                     <SelectItem value="Pediatra">Pediatra</SelectItem>
-                    <SelectItem value="Centro Especializado">Centro Especializado</SelectItem>
+                    <SelectItem value="Centro Especializado">
+                      Centro Especializado
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -483,13 +487,15 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    INECO ofrece un diagnóstico acelerado (útil si viajás desde el interior)
+                    INECO ofrece un diagnóstico acelerado (útil si viajás desde
+                    el interior)
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Muchas obras sociales tienen cobertura para medicamentos crónicos
+                    Muchas obras sociales tienen cobertura para medicamentos
+                    crónicos
                   </p>
                 </div>
               </CardContent>

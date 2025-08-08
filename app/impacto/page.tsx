@@ -20,7 +20,7 @@ export default function ImpactoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
-      
+
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
@@ -31,7 +31,7 @@ export default function ImpactoPage() {
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
             Descubre las consecuencias reales del TDAH no tratado paso a paso
           </p>
-          
+
           {/* Progress */}
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
@@ -87,12 +87,12 @@ export default function ImpactoPage() {
           {/* Step 1: General Overview */}
           {currentStep === 1 && (
             <div className="space-y-6">
-              
+
               <Alert className="mb-6">
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones<CitationLink number={1} /> confirma que el TDAH no tratado 
-                  tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong> que la población general. 
+                  <strong>Realidad crítica:</strong> El consenso internacional de 208 conclusiones<CitationLink number={1} /> confirma que el TDAH no tratado
+                  tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong> que la población general.
                   También puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.
                 </AlertDescription>
               </Alert>
@@ -120,7 +120,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="border-amber-200 dark:border-amber-800">
                       <CardContent className="pt-6">
                         <div className="text-center">
@@ -129,7 +129,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="border-blue-200 dark:border-blue-800">
                       <CardContent className="pt-6">
                         <div className="text-center">
@@ -138,7 +138,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="border-purple-200 dark:border-purple-800">
                       <CardContent className="pt-6">
                         <div className="text-center">
@@ -161,11 +161,11 @@ export default function ImpactoPage() {
                         <Alert>
                           <AlertTriangle className="h-4 w-4" />
                           <AlertDescription>
-                            <strong>Dato crítico:</strong> Las personas con TDAH no tratado tienen una expectativa de vida 
+                            <strong>Dato crítico:</strong> Las personas con TDAH no tratado tienen una expectativa de vida
                             reducida de 12-13 años comparado con la población general.
                           </AlertDescription>
                         </Alert>
-                        
+
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
                             <h4 className="font-semibold mb-3">Causas Principales de Mortalidad Aumentada</h4>
@@ -188,7 +188,7 @@ export default function ImpactoPage() {
                               </li>
                             </ul>
                           </div>
-                          
+
                           <div>
                             <h4 className="font-semibold mb-3">Condiciones Médicas Asociadas</h4>
                             <div className="space-y-3">
@@ -253,7 +253,7 @@ export default function ImpactoPage() {
                               <div className="text-xs text-muted-foreground">No graduarse a tiempo</div>
                             </div>
                           </div>
-                          
+
                           <ul className="text-sm space-y-1">
                             <li>• Mayor abandono universitario</li>
                             <li>• Rendimiento inconsistente</li>
@@ -264,7 +264,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card>
                       <CardHeader>
                         <CardTitle className="text-base flex items-center gap-2">
@@ -284,7 +284,7 @@ export default function ImpactoPage() {
                               <div className="text-xs text-muted-foreground">Reducción en ingresos</div>
                             </div>
                           </div>
-                          
+
                           <ul className="text-sm space-y-1">
                             <li>• Mayor rotación laboral</li>
                             <li>• Conflictos con supervisores</li>
@@ -319,7 +319,7 @@ export default function ImpactoPage() {
                             <li>• Inestabilidad emocional</li>
                           </ul>
                         </div>
-                        
+
                         <div>
                           <h4 className="font-semibold mb-3 flex items-center gap-2">
                             <Users className="h-4 w-4" />
@@ -333,7 +333,7 @@ export default function ImpactoPage() {
                             <li>• Culpa y frustración parental</li>
                           </ul>
                         </div>
-                        
+
                         <div>
                           <h4 className="font-semibold mb-3">Relaciones Sociales</h4>
                           <ul className="text-sm space-y-1">
@@ -349,7 +349,7 @@ export default function ImpactoPage() {
                   </Card>
                 </div>
               </div>
-              
+
               <div className="mt-8 text-center">
                 <Button onClick={() => setCurrentStep(2)} size="lg">
                   Siguiente: ¿Afecta mi salud? <ArrowRight className="h-4 w-4 ml-2" />
@@ -392,7 +392,7 @@ export default function ImpactoPage() {
                             <div className="text-2xl font-bold text-red-500">37%<CitationLink number={1} /></div>
                             <div className="text-sm text-muted-foreground">Mayor probabilidad de accidentes</div>
                           </div>
-                          
+
                           <h5 className="font-semibold text-sm">Factores de Riesgo</h5>
                           <ul className="text-sm space-y-1">
                             <li>• Distracción al volante</li>
@@ -404,7 +404,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="border-amber-200 dark:border-amber-800">
                       <CardHeader>
                         <CardTitle className="text-base">Otros Tipos de Lesiones</CardTitle>
@@ -429,7 +429,7 @@ export default function ImpactoPage() {
                               <Badge variant="destructive">Riesgo aumentado</Badge>
                             </div>
                           </div>
-                          
+
                           <h5 className="font-semibold text-sm">Causas Principales</h5>
                           <ul className="text-sm space-y-1">
                             <li>• Falta de atención a riesgos</li>
@@ -469,7 +469,7 @@ export default function ImpactoPage() {
                               </ul>
                             </div>
                           </div>
-                          
+
                           <div>
                             <h5 className="font-semibold mb-3">Diabetes Tipo 2</h5>
                             <div className="space-y-2">
@@ -487,7 +487,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card>
                       <CardHeader>
                         <CardTitle className="text-base">Problemas Cardiovasculares</CardTitle>
@@ -497,11 +497,11 @@ export default function ImpactoPage() {
                           <Alert>
                             <Heart className="h-4 w-4" />
                             <AlertDescription>
-                              Las personas con TDAH tienen mayor riesgo de enfermedades cardiovasculares, 
+                              Las personas con TDAH tienen mayor riesgo de enfermedades cardiovasculares,
                               incluso después de controlar por otros factores de riesgo.
                             </AlertDescription>
                           </Alert>
-                          
+
                           <div className="grid md:grid-cols-2 gap-4">
                             <div>
                               <h5 className="font-semibold mb-2">Factores de Riesgo</h5>
@@ -546,7 +546,7 @@ export default function ImpactoPage() {
                                 <div className="text-sm text-muted-foreground">Tienen algún trastorno del sueño</div>
                               </div>
                             </div>
-                            
+
                             <ul className="text-sm space-y-1">
                               <li>• <strong>Insomnio:</strong> Dificultad para conciliar o mantener el sueño</li>
                               <li>• <strong>Síndrome de piernas inquietas:</strong> 5x más frecuente</li>
@@ -555,7 +555,7 @@ export default function ImpactoPage() {
                             </ul>
                           </div>
                         </div>
-                        
+
                         <div>
                           <h4 className="font-semibold mb-3">Consecuencias</h4>
                           <ul className="text-sm space-y-2">
@@ -586,7 +586,7 @@ export default function ImpactoPage() {
                   </Card>
                 </div>
               </div>
-              
+
               <div className="mt-8 text-center space-x-4">
                 <Button onClick={() => setCurrentStep(3)} size="lg">
                   Siguiente: ¿Y mis relaciones? <ArrowRight className="h-4 w-4 ml-2" />
@@ -630,7 +630,7 @@ export default function ImpactoPage() {
                             <div className="text-3xl font-bold text-red-500 mb-1">2x</div>
                             <div className="text-sm text-muted-foreground">Mayor probabilidad de divorcio</div>
                           </div>
-                          
+
                           <div className="space-y-2">
                             <div className="flex justify-between items-center">
                               <span className="text-sm">Separaciones</span>
@@ -648,7 +648,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="border-amber-200 dark:border-amber-800">
                       <CardHeader>
                         <CardTitle className="text-base">Problemas Comunes</CardTitle>
@@ -692,11 +692,11 @@ export default function ImpactoPage() {
                         <Alert>
                           <AlertTriangle className="h-4 w-4" />
                           <AlertDescription>
-                            Los padres con TDAH no tratado enfrentan desafíos únicos en la crianza, 
+                            Los padres con TDAH no tratado enfrentan desafíos únicos en la crianza,
                             pero con tratamiento adecuado pueden ser padres muy efectivos.
                           </AlertDescription>
                         </Alert>
-                        
+
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
                             <h4 className="font-semibold mb-3">Desafíos en la Crianza</h4>
@@ -723,7 +723,7 @@ export default function ImpactoPage() {
                               </li>
                             </ul>
                           </div>
-                          
+
                           <div>
                             <h4 className="font-semibold mb-3">Impacto en los Hijos</h4>
                             <ul className="text-sm space-y-2">
@@ -750,7 +750,7 @@ export default function ImpactoPage() {
                             </ul>
                           </div>
                         </div>
-                        
+
                         <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                           <h4 className="font-semibold mb-2">Aspectos Positivos Potenciales</h4>
                           <ul className="text-sm space-y-1">
@@ -800,7 +800,7 @@ export default function ImpactoPage() {
                         </ul>
                       </CardContent>
                     </Card>
-                    
+
                     <Card>
                       <CardHeader>
                         <CardTitle className="text-base">Consecuencias del Aislamiento</CardTitle>
@@ -814,11 +814,11 @@ export default function ImpactoPage() {
                             <li>• Reducción en oportunidades laborales y sociales</li>
                             <li>• Menor autoestima y confianza social</li>
                           </ul>
-                          
+
                           <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded-lg">
                             <h5 className="font-semibold text-sm mb-1">Ciclo Vicioso</h5>
                             <p className="text-xs">
-                              El aislamiento social aumenta los síntomas de TDAH, que a su vez empeoran 
+                              El aislamiento social aumenta los síntomas de TDAH, que a su vez empeoran
                               las habilidades sociales, creando un ciclo difícil de romper sin intervención.
                             </p>
                           </div>
@@ -828,7 +828,7 @@ export default function ImpactoPage() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-8 text-center space-x-4">
                 <Button onClick={() => setCurrentStep(4)} size="lg">
                   Siguiente: ¿Cuánto me cuesta? <ArrowRight className="h-4 w-4 ml-2" />
@@ -875,19 +875,19 @@ export default function ImpactoPage() {
                       <div className="text-sm text-muted-foreground">Pérdida laboral anual promedio</div>
                     </div>
                   </div>
-                  
+
                   <div className="bg-red-50 dark:bg-red-950 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Consenso Internacional - 208 Conclusiones</h4>
                     <p className="text-sm">
-                      El TDAH cuesta a la sociedad <strong>cientos de miles de millones de dólares anuales</strong> a nivel mundial. 
-                      Los costos incluyen no solo atención médica, sino también pérdida de productividad, desempleo, 
+                      El TDAH cuesta a la sociedad <strong>cientos de miles de millones de dólares anuales</strong> a nivel mundial.
+                      Los costos incluyen no solo atención médica, sino también pérdida de productividad, desempleo,
                       accidentes y el impacto en las familias.
                     </p>
                   </div>
                 </div>
-                
+
                 <Separator />
-                
+
                 {/* Costos personales */}
                 <div>
                   <h3 className="text-lg font-semibold mb-4">Costos Económicos Personales</h3>
@@ -908,7 +908,7 @@ export default function ImpactoPage() {
                               <div className="text-xs text-muted-foreground">Reducción en empleo</div>
                             </div>
                           </div>
-                          
+
                           <ul className="text-sm space-y-1">
                             <li>• Subempleo crónico (trabajos por debajo de la capacidad)</li>
                             <li>• Mayor rotación laboral con períodos de desempleo</li>
@@ -919,7 +919,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="border-amber-200 dark:border-amber-800">
                       <CardHeader>
                         <CardTitle className="text-base">Gastos Adicionales</CardTitle>
@@ -972,7 +972,7 @@ export default function ImpactoPage() {
                             <li>• Menor retorno de la inversión educativa</li>
                           </ul>
                         </div>
-                        
+
                         <div>
                           <h4 className="font-semibold mb-3 flex items-center gap-2">
                             <Clock className="h-4 w-4" />
@@ -985,7 +985,7 @@ export default function ImpactoPage() {
                             <li>• Menor tiempo de contribución laboral activa</li>
                           </ul>
                         </div>
-                        
+
                         <div>
                           <h4 className="font-semibold mb-3">Potencial No Realizado</h4>
                           <ul className="text-sm space-y-1">
@@ -1022,7 +1022,7 @@ export default function ImpactoPage() {
                               <li>• Gastos médicos por estrés familiar</li>
                             </ul>
                           </div>
-                          
+
                           <div>
                             <h5 className="font-semibold mb-2">Costos Indirectos</h5>
                             <ul className="text-sm space-y-1">
@@ -1036,7 +1036,7 @@ export default function ImpactoPage() {
                         </div>
                       </CardContent>
                     </Card>
-                    
+
                     <Card>
                       <CardHeader>
                         <CardTitle className="text-base">Costos para el Sistema de Salud</CardTitle>
@@ -1046,11 +1046,11 @@ export default function ImpactoPage() {
                           <Alert>
                             <DollarSign className="h-4 w-4" />
                             <AlertDescription>
-                              Las personas con TDAH no tratado utilizan significativamente más servicios de salud 
+                              Las personas con TDAH no tratado utilizan significativamente más servicios de salud
                               y tienen costos médicos más altos que la población general.
                             </AlertDescription>
                           </Alert>
-                          
+
                           <div className="grid md:grid-cols-2 gap-4">
                             <div>
                               <h5 className="font-semibold mb-2">Mayor Utilización</h5>
@@ -1088,12 +1088,12 @@ export default function ImpactoPage() {
                         <Alert>
                           <DollarSign className="h-4 w-4" />
                           <AlertDescription>
-                            <strong>Conclusión económica:</strong> El costo de tratar el TDAH adecuadamente es 
-                            significativamente menor que el costo de no tratarlo. La inversión se recupera 
+                            <strong>Conclusión económica:</strong> El costo de tratar el TDAH adecuadamente es
+                            significativamente menor que el costo de no tratarlo. La inversión se recupera
                             rápidamente a través de mayor productividad y menor utilización de servicios.
                           </AlertDescription>
                         </Alert>
-                        
+
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
                             <h4 className="font-semibold mb-3">Beneficios Económicos del Tratamiento</h4>
@@ -1120,7 +1120,7 @@ export default function ImpactoPage() {
                               </li>
                             </ul>
                           </div>
-                          
+
                           <div>
                             <h4 className="font-semibold mb-3">Retorno de la Inversión</h4>
                             <div className="space-y-3">
@@ -1139,13 +1139,13 @@ export default function ImpactoPage() {
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                           <h4 className="font-semibold mb-2">Mensaje Clave para Argentina</h4>
                           <p className="text-sm">
-                            Invertir en el diagnóstico y tratamiento temprano del TDAH no solo mejora la calidad de vida 
-                            de las personas afectadas, sino que también genera beneficios económicos significativos 
-                            para el sistema de salud y la sociedad en general. Cada peso invertido en tratamiento 
+                            Invertir en el diagnóstico y tratamiento temprano del TDAH no solo mejora la calidad de vida
+                            de las personas afectadas, sino que también genera beneficios económicos significativos
+                            para el sistema de salud y la sociedad en general. Cada peso invertido en tratamiento
                             se multiplica en términos de productividad, reducción de costos médicos y bienestar social.
                           </p>
                         </div>
@@ -1154,7 +1154,7 @@ export default function ImpactoPage() {
                   </Card>
                 </div>
               </div>
-              
+
               <div className="mt-8 text-center space-x-4">
                 <Button size="lg" className="bg-green-600 hover:bg-green-700">
                   <CheckCircle className="h-4 w-4 mr-2" />
@@ -1191,7 +1191,7 @@ const impactoReferences: Reference[] = [
     id: 2,
     title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
     authors: "Edward M. Hallowell, John J. Ratey",
-    url: "/adhd-2.0.pdf", 
+    url: "/adhd-2.0.pdf",
     description: "Compendio actualizado sobre el TDAH que incluye estadísticas de riesgo y comorbilidades asociadas.",
     year: "2021"
   }

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 };
 
 export default function RootLayout({

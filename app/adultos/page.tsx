@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useStepProgress } from "@/hooks/use-step-progress";
 import {
   Card,
   CardContent,
@@ -57,36 +57,15 @@ const steps = [
 ];
 
 export default function AdultosPage() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
-
-  const handleNext = () => {
-    if (!completedSteps.includes(currentStep)) {
-      setCompletedSteps([...completedSteps, currentStep]);
-    }
-    if (currentStep < steps.length) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
-
-  const handleStepClick = (stepId: number) => {
-    setCurrentStep(stepId);
-    // Marcar el paso como completado cuando se hace clic
-    setCompletedSteps((prev) =>
-      prev.includes(stepId) ? prev : [...prev, stepId]
-    );
-  };
-
-  // Contar también el paso actual para reflejar avance visible
-  const effectiveCompletedCount = new Set([...completedSteps, currentStep])
-    .size;
-  const progress = (effectiveCompletedCount / steps.length) * 100;
+  const {
+    currentStep,
+    completedSteps,
+    next,
+    prev,
+    goTo,
+    effectiveCompletedCount,
+    progress,
+  } = useStepProgress({ totalSteps: steps.length });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -121,7 +100,7 @@ export default function AdultosPage() {
             {steps.map((step) => (
               <button
                 key={step.id}
-                onClick={() => handleStepClick(step.id)}
+                onClick={() => goTo(step.id)}
                 className={`p-3 rounded-lg text-left transition-all ${
                   currentStep === step.id
                     ? "bg-purple-600 text-white shadow-lg"
@@ -496,7 +475,7 @@ export default function AdultosPage() {
           <div className="flex justify-between items-center p-6 border-t">
             <Button
               variant="outline"
-              onClick={handlePrevious}
+              onClick={prev}
               disabled={currentStep === 1}
               className="flex items-center gap-2"
             >
@@ -508,7 +487,7 @@ export default function AdultosPage() {
               {currentStep} de {steps.length}
             </span>
 
-            <Button onClick={handleNext} className="flex items-center gap-2">
+            <Button onClick={next} className="flex items-center gap-2">
               {currentStep === steps.length ? "Finalizar" : "Siguiente"}
               <ArrowRight className="h-4 w-4" />
             </Button>

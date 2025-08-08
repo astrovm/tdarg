@@ -1,9 +1,23 @@
-import Link from "next/link"
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
-import { Header } from "@/components/header"
-
+import Link from "next/link";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Brain,
+  Stethoscope,
+  Scale,
+  TrendingUp,
+  AlertCircle,
+  BookOpen,
+  Users,
+  Heart,
+  Lightbulb,
+} from "lucide-react";
+import { Header } from "@/components/header";
 
 export default function HomePage() {
   return (
@@ -12,15 +26,16 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section - Gradiente moderno */}
-  <section className="relative py-16 hero-gradient overflow-hidden">
+      <section className="relative py-16 hero-gradient overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl font-bold text-purple-600 mb-4">
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Información integral sobre el Trastorno por Déficit de Atención e Hiperactividad. Precios de
-            medicamentos, directorio de especialistas, análisis legislativo y guías educativas completas.
+            Información integral sobre el Trastorno por Déficit de Atención e
+            Hiperactividad. Precios de medicamentos, directorio de
+            especialistas, análisis legislativo y guías educativas completas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="primaryGradient" asChild>
@@ -29,13 +44,23 @@ export default function HomePage() {
                 Ver Precios
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-accent dark:border-primary/50 dark:text-primary" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary/30 text-primary hover:bg-accent dark:border-primary/50 dark:text-primary"
+              asChild
+            >
               <Link href="/especialistas">
                 <Stethoscope className="mr-2 h-5 w-5" />
                 Buscar Especialistas
               </Link>
             </Button>
-            <Button size="lg" variant="secondary" className="shadow-md hover:shadow-lg transition-all duration-300" asChild>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="shadow-md hover:shadow-lg transition-all duration-300"
+              asChild
+            >
               <Link href="/legislacion">
                 <Scale className="mr-2 h-5 w-5" />
                 Ver Legislación
@@ -50,20 +75,34 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-              <div className="text-4xl font-bold text-purple-600 mb-3">5-7%</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en niños</div>
+              <div className="text-4xl font-bold text-purple-600 mb-3">
+                5-7%
+              </div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">
+                Prevalencia en niños
+              </div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">2.5%</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">Prevalencia en adultos</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">
+                2.5%
+              </div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">
+                Prevalencia en adultos
+              </div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
               <div className="text-3xl font-bold text-blue-600 mb-2">2.4:1</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">Ratio varones:mujeres</div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">
+                Ratio varones:mujeres
+              </div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">~67%</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">Persistencia en la adultez</div>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">
+                ~67%
+              </div>
+              <div className="text-slate-600 dark:text-slate-300 font-medium">
+                Persistencia en la adultez
+              </div>
             </div>
           </div>
         </div>
@@ -72,15 +111,22 @@ export default function HomePage() {
       {/* Features Grid - Herramientas principales */}
       <section className="py-14 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">Herramientas Principales</h3>
+          <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">
+            Herramientas Principales
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl hover:-translate-y-2">
               <CardHeader className="p-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">Precios de Medicamentos</CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">Precios actualizados de metilfenidato y atomoxetina desde Farmacity</CardDescription>
+                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
+                  Precios de Medicamentos
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Precios actualizados de metilfenidato y atomoxetina desde
+                  Farmacity
+                </CardDescription>
               </CardHeader>
             </Card>
 
@@ -89,8 +135,12 @@ export default function HomePage() {
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Stethoscope className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">Directorio de Especialistas</CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">Encontrá especialistas en TDAH en tu provincia</CardDescription>
+                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
+                  Directorio de Especialistas
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Encontrá especialistas en TDAH en tu provincia
+                </CardDescription>
               </CardHeader>
             </Card>
 
@@ -99,8 +149,12 @@ export default function HomePage() {
                 <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Scale className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">Legislación</CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">Seguimiento de leyes y decretos relacionados con TDAH</CardDescription>
+                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
+                  Legislación
+                </CardTitle>
+                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Seguimiento de leyes y decretos relacionados con TDAH
+                </CardDescription>
               </CardHeader>
             </Card>
           </div>
@@ -111,9 +165,12 @@ export default function HomePage() {
       <section className="py-14 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">Guías Educativas</h3>
+            <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
+              Guías Educativas
+            </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              Información completa basada en consensos médicos internacionales y evidencia científica
+              Información completa basada en consensos médicos internacionales y
+              evidencia científica
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -123,7 +180,10 @@ export default function HomePage() {
                   <Brain className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/diagnostico" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Link
+                    href="/diagnostico"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
                     Diagnóstico
                   </Link>
                 </CardTitle>
@@ -139,7 +199,10 @@ export default function HomePage() {
                   <Heart className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/tratamientos" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                  <Link
+                    href="/tratamientos"
+                    className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                  >
                     Tratamientos
                   </Link>
                 </CardTitle>
@@ -155,7 +218,10 @@ export default function HomePage() {
                   <Users className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/adultos" className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+                  <Link
+                    href="/adultos"
+                    className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+                  >
                     TDAH Adulto
                   </Link>
                 </CardTitle>
@@ -171,7 +237,10 @@ export default function HomePage() {
                   <BookOpen className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/comorbilidades" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                  <Link
+                    href="/comorbilidades"
+                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                  >
                     Comorbilidades
                   </Link>
                 </CardTitle>
@@ -187,7 +256,10 @@ export default function HomePage() {
                   <Brain className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/autismo" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  <Link
+                    href="/autismo"
+                    className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                  >
                     TDAH y Autismo
                   </Link>
                 </CardTitle>
@@ -203,7 +275,10 @@ export default function HomePage() {
                   <Lightbulb className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/mitos" className="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+                  <Link
+                    href="/mitos"
+                    className="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+                  >
                     Mitos y Realidad
                   </Link>
                 </CardTitle>
@@ -219,7 +294,10 @@ export default function HomePage() {
                   <TrendingUp className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/impacto" className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                  <Link
+                    href="/impacto"
+                    className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
+                  >
                     Impacto
                   </Link>
                 </CardTitle>
@@ -235,7 +313,10 @@ export default function HomePage() {
                   <BookOpen className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/herramientas" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  <Link
+                    href="/herramientas"
+                    className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  >
                     Herramientas
                   </Link>
                 </CardTitle>
@@ -261,10 +342,13 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-3">Importante</h4>
+                  <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-3">
+                    Importante
+                  </h4>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Esta información es de carácter educativo y no reemplaza la consulta médica profesional. Siempre
-                    consultá con un especialista para el diagnóstico y tratamiento del TDAH.
+                    Esta información es de carácter educativo y no reemplaza la
+                    consulta médica profesional. Siempre consultá con un
+                    especialista para el diagnóstico y tratamiento del TDAH.
                   </p>
                 </div>
               </div>
@@ -272,9 +356,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
-
     </div>
-  )
+  );
 }
