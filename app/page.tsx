@@ -3,7 +3,6 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button"
 import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, GitBranch, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 
 
 export default function HomePage() {
@@ -275,7 +274,6 @@ export default function HomePage() {
       </section>
 
 
-  <Footer />
 
     </div>
   )

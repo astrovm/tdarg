@@ -9,7 +9,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Clock, Users, Stethoscope, FileText, AlertTriangle, Brain } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 
 export default function DiagnosticoOption2() {
   const [currentStep, setCurrentStep] = useState(1)

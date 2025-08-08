@@ -11,7 +11,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Search, Building2, Package, AlertCircle, RefreshCw, Clock, Shield } from "lucide-react"
 import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales"
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 
 interface Medicamento {
   codigo: string
@@ -127,7 +126,6 @@ export default function PreciosPage() {
             ))}
           </div>
   </div>
-  <Footer />
       </div>
     )
   }
@@ -148,7 +146,6 @@ export default function PreciosPage() {
             </AlertDescription>
           </Alert>
   </div>
-  <Footer />
       </div>
     )
   }
@@ -559,7 +556,6 @@ export default function PreciosPage() {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
