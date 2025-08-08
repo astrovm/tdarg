@@ -8,6 +8,8 @@ import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, ArrowLeft, ArrowDown, CheckCircle, Clock, Users, Stethoscope, FileText, AlertTriangle, Brain } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Checkbox } from "@/components/ui/checkbox"
+import type { CheckedState } from "@radix-ui/react-checkbox"
 import { Header } from "@/components/header"
 
 export default function DiagnosticoOption2() {
@@ -15,6 +17,47 @@ export default function DiagnosticoOption2() {
   const totalSteps = 4
 
   const progressPercentage = (currentStep / totalSteps) * 100
+
+  // Interactive checklist state
+  const inattentiveSymptoms = [
+    { id: "ina-detalles", icon: "🔍", text: "Me cuesta mantener atención en detalles" },
+    { id: "ina-escucha", icon: "👂", text: "No parece que escucho cuando me hablan" },
+    { id: "ina-tareas", icon: "📝", text: "No termino las tareas que empiezo" },
+    { id: "ina-organizacion", icon: "📅", text: "Me cuesta organizarme" },
+    { id: "ina-objetos", icon: "🔑", text: "Pierdo objetos importantes" },
+  ] as const
+
+  const hyperactiveSymptoms = [
+    { id: "hiper-movimiento", icon: "🙌", text: "Muevo manos/pies constantemente" },
+    { id: "hiper-sentado", icon: "💺", text: "Me levanto cuando debo estar sentado" },
+    { id: "hiper-inquietud", icon: "😣", text: "Siento inquietud interna" },
+    { id: "hiper-motor", icon: "🏃", text: "Como si tuviera un motor interno" },
+    { id: "hiper-interrumpo", icon: "💬", text: "Interrumpo a otros sin darme cuenta" },
+  ] as const
+
+  const [selectedSymptoms, setSelectedSymptoms] = useState<Set<string>>(new Set())
+
+  const toggleSymptom = (id: string, checked: CheckedState) => {
+    setSelectedSymptoms((prev) => {
+      const next = new Set(prev)
+      if (checked === true) next.add(id)
+      else next.delete(id)
+      return next
+    })
+  }
+
+  const clearGroup = (group: "ina" | "hiper") => {
+    setSelectedSymptoms((prev) => {
+      const next = new Set(prev)
+      const ids = group === "ina" ? inattentiveSymptoms.map((s) => s.id) : hyperactiveSymptoms.map((s) => s.id)
+      ids.forEach((id) => next.delete(id))
+      return next
+    })
+  }
+
+  const inattentiveCount = inattentiveSymptoms.filter((s) => selectedSymptoms.has(s.id)).length
+  const hyperactiveCount = hyperactiveSymptoms.filter((s) => selectedSymptoms.has(s.id)).length
+  const totalSelected = inattentiveCount + hyperactiveCount
 
   type ProfColor = "blue" | "purple" | "green"
   const professionals: Array<{
@@ -143,19 +186,29 @@ export default function DiagnosticoOption2() {
                       <h3 className="text-lg font-semibold text-center text-blue-700 dark:text-blue-300">
                         🧠 Síntomas de Inatención
                       </h3>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Seleccionados: {inattentiveCount}/{inattentiveSymptoms.length}</span>
+                        {inattentiveCount > 0 && (
+                          <button onClick={() => clearGroup("ina")} className="underline underline-offset-2 hover:text-foreground">
+                            Limpiar
+                          </button>
+                        )}
+                      </div>
                       
                       <div className="grid gap-3">
-                        {[
-                          { icon: "🔍", text: "Me cuesta mantener atención en detalles" },
-                          { icon: "👂", text: "No parece que escucho cuando me hablan" },
-                          { icon: "📝", text: "No termino las tareas que empiezo" },
-                          { icon: "📅", text: "Me cuesta organizarme" },
-                          { icon: "🔑", text: "Pierdo objetos importantes" }
-                        ].map((item, index) => (
-                          <div key={index} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border">
-                            <span className="text-2xl">{item.icon}</span>
+                        {inattentiveSymptoms.map((item) => (
+                          <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
+                            <Checkbox
+                              checked={selectedSymptoms.has(item.id)}
+                              onCheckedChange={(checked) => toggleSymptom(item.id, checked)}
+                              className="mt-0.5"
+                              aria-label={item.text}
+                            />
+                            <span className="text-2xl" aria-hidden>
+                              {item.icon}
+                            </span>
                             <span className="text-sm">{item.text}</span>
-                          </div>
+                          </label>
                         ))}
                       </div>
                     </div>
@@ -164,19 +217,29 @@ export default function DiagnosticoOption2() {
                       <h3 className="text-lg font-semibold text-center text-red-700 dark:text-red-300">
                         ⚡ Síntomas de Hiperactividad
                       </h3>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Seleccionados: {hyperactiveCount}/{hyperactiveSymptoms.length}</span>
+                        {hyperactiveCount > 0 && (
+                          <button onClick={() => clearGroup("hiper")} className="underline underline-offset-2 hover:text-foreground">
+                            Limpiar
+                          </button>
+                        )}
+                      </div>
                       
                       <div className="grid gap-3">
-                        {[
-                          { icon: "🙌", text: "Muevo manos/pies constantemente" },
-                          { icon: "💺", text: "Me levanto cuando debo estar sentado" },
-                          { icon: "😣", text: "Siento inquietud interna" },
-                          { icon: "🏃", text: "Como si tuviera un motor interno" },
-                          { icon: "💬", text: "Interrumpo a otros sin darme cuenta" }
-                        ].map((item, index) => (
-                          <div key={index} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border">
-                            <span className="text-2xl">{item.icon}</span>
+                        {hyperactiveSymptoms.map((item) => (
+                          <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
+                            <Checkbox
+                              checked={selectedSymptoms.has(item.id)}
+                              onCheckedChange={(checked) => toggleSymptom(item.id, checked)}
+                              className="mt-0.5"
+                              aria-label={item.text}
+                            />
+                            <span className="text-2xl" aria-hidden>
+                              {item.icon}
+                            </span>
                             <span className="text-sm">{item.text}</span>
-                          </div>
+                          </label>
                         ))}
                       </div>
                     </div>
@@ -186,7 +249,13 @@ export default function DiagnosticoOption2() {
                     <Alert className="max-w-md mx-auto mb-4">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertDescription>
-                        <strong>¿Te identificas con 5+ síntomas?</strong> Considera buscar evaluación profesional
+                        {totalSelected >= 5 ? (
+                          <strong>Marcaste {totalSelected} síntomas. Considerá buscar evaluación profesional.</strong>
+                        ) : (
+                          <span>
+                            <strong>¿Te identificás con 5+ síntomas?</strong> Marcá los que apliquen para una guía rápida.
+                          </span>
+                        )}
                       </AlertDescription>
                     </Alert>
                     <Button onClick={() => setCurrentStep(2)} size="lg">
