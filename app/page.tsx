@@ -235,12 +235,12 @@ export default function HomePage() {
                   <BookOpen className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link href="/recursos" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                    Recursos
+                  <Link href="/herramientas" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                    Herramientas
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Herramientas, apps y recursos adicionales útiles
+                  Apps, libros y herramientas prácticas para TDAH
                 </CardDescription>
               </CardHeader>
             </Card>

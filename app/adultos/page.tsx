@@ -1,339 +1,420 @@
+'use client'
+
+import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Separator } from "@/components/ui/separator"
-import { User, Users, Heart, Briefcase, GraduationCap, Clock, Zap, AlertTriangle } from "lucide-react"
+import { User, Users, Heart, Briefcase, Clock, Zap, AlertTriangle, ArrowRight, ArrowLeft, CheckCircle } from "lucide-react"
 import { Header } from "@/components/header"
 import { CitationLink } from "@/components/citation-link"
 import { References, type Reference } from "@/components/references"
 
+const steps = [
+  {
+    id: 1,
+    title: "¿Cómo cambia?",
+    subtitle: "Evolución de síntomas",
+    icon: <Clock className="h-5 w-5" />,
+    description: "Cómo evolucionan los síntomas desde la infancia"
+  },
+  {
+    id: 2, 
+    title: "¿Sos mujer?",
+    subtitle: "Diagnóstico femenino",
+    icon: <User className="h-5 w-5" />,
+    description: "El TDAH en mujeres: subdiagnóstico sistemático"
+  },
+  {
+    id: 3,
+    title: "Mis síntomas",
+    subtitle: "4 dimensiones",
+    icon: <Heart className="h-5 w-5" />,
+    description: "Las 4 dimensiones del TDAH adulto"
+  },
+  {
+    id: 4,
+    title: "Fenómenos especiales",
+    subtitle: "Manifestaciones únicas",
+    icon: <Zap className="h-5 w-5" />,
+    description: "Hiperfoco y ciclos del TDAH"
+  }
+]
+
 export default function AdultosPage() {
+  const [currentStep, setCurrentStep] = useState(1)
+  const [completedSteps, setCompletedSteps] = useState<number[]>([])
+
+  const handleNext = () => {
+    if (!completedSteps.includes(currentStep)) {
+      setCompletedSteps([...completedSteps, currentStep])
+    }
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1)
+    }
+  }
+
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1)
+    }
+  }
+
+  const handleStepClick = (stepId: number) => {
+    setCurrentStep(stepId)
+  }
+
+  const progress = (completedSteps.length / steps.length) * 100
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
+      
       {/* Header Section */}
       <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold text-purple-600 mb-4">
+        <div className="container mx-auto px-4 py-8 relative z-10">
+          <h1 className="text-3xl font-bold text-purple-600 mb-4">
             TDAH en la Vida Adulta
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
+          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
             Comprendiendo cómo se manifiesta el TDAH después de la infancia
           </p>
+          
+          {/* Progress */}
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                Progreso del aprendizaje
+              </span>
+              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                {completedSteps.length}/{steps.length} completado
+              </span>
+            </div>
+            <Progress value={progress} className="h-2" />
+          </div>
+
+          {/* Step Navigation */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            {steps.map((step) => (
+              <button
+                key={step.id}
+                onClick={() => handleStepClick(step.id)}
+                className={`p-3 rounded-lg text-left transition-all ${
+                  currentStep === step.id
+                    ? 'bg-purple-600 text-white shadow-lg'
+                    : completedSteps.includes(step.id)
+                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  {completedSteps.includes(step.id) ? (
+                    <CheckCircle className="h-4 w-4" />
+                  ) : (
+                    step.icon
+                  )}
+                  <span className="font-medium text-sm">{step.title}</span>
+                </div>
+                <p className="text-xs opacity-80">{step.subtitle}</p>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
-
-      <Alert className="mb-8">
-        <AlertTriangle className="h-4 w-4" />
-        <AlertDescription>
-          <strong>Realidad:</strong> Según el consenso internacional<CitationLink number={1} />, la <strong>prevalencia mundial en adultos es del 2.5-2.8%<CitationLink number={1} /></strong>. 
-          Solo 1 de cada 6 jóvenes mantiene todos los criterios a los 25 años<CitationLink number={2} />, pero <strong>aproximadamente la mitad<CitationLink number={2} /></strong> 
-          sigue con deterioro residual significativo.
-        </AlertDescription>
-      </Alert>
-
-      <div className="space-y-8">
-
-        {/* Sección destacada: TDAH en Mujeres */}
-        <Card className="border-pink-200 dark:border-pink-800 bg-pink-50/30 dark:bg-pink-950/30">
+      <div className="container mx-auto px-4 py-6">
+        {/* Step Content */}
+        <Card className="min-h-[600px]">
           <CardHeader>
-            <CardTitle className="text-xl text-pink-700 dark:text-pink-300">
-              ⚠️ TDAH en Mujeres: El Diagnóstico Oculto
-            </CardTitle>
-            <CardDescription className="text-base">
-              Las mujeres son subdiagnosticadas sistemáticamente. <strong>En niñas 4:1 H:M</strong> vs <strong>en adultos 1.9:1</strong>
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <h4 className="font-semibold mb-2 text-sm">Manifestaciones Típicas</h4>
-                <ul className="text-sm space-y-1">
-                  <li>• <strong>Inatención predominante:</strong> "Soñar despierta"</li>
-                  <li>• <strong>Hiperactividad interna:</strong> Mente acelerada</li>
-                  <li>• <strong>Sensibilidad emocional:</strong> Reacciones intensas</li>
-                  <li>• <strong>Perfeccionismo paralizante</strong></li>
-                </ul>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full">
+                {steps[currentStep - 1].icon}
               </div>
               <div>
-                <h4 className="font-semibold mb-2 text-sm">Consecuencias</h4>
-                <ul className="text-sm space-y-1">
-                  <li>• <strong>Mayor depresión/ansiedad</strong></li>
-                  <li>• <strong>Baja autoestima crónica</strong></li>
-                  <li>• <strong>Autoculpa:</strong> "Soy perezosa"</li>
-                  <li>• <strong>Diagnóstico tardío</strong> (30-40 años)</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-sm">Señales Clave</h4>
-                <ul className="text-sm space-y-1">
-                  <li>• Lucha constante con organización</li>
-                  <li>• Hipersensibilidad al rechazo</li>
-                  <li>• Sensación de "no dar la talla"</li>
-                  <li>• Emociones más intensas que otros</li>
-                </ul>
+                <CardTitle className="text-xl">{steps[currentStep - 1].title}</CardTitle>
+                <CardDescription>{steps[currentStep - 1].description}</CardDescription>
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Las 4 Dimensiones del TDAH Adulto */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <User className="h-5 w-5" />
-              Las 4 Dimensiones del TDAH Adulto
-            </CardTitle>
-            <CardDescription>
-              Cómo los síntomas evolucionan e impactan la vida adulta
-            </CardDescription>
           </CardHeader>
-          <CardContent>
+
+          <CardContent className="space-y-6">
+            {currentStep === 1 && (
+              <>
+                <Alert>
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>Realidad:</strong> Solo 1 de cada 6 jóvenes mantiene todos los criterios a los 25 años<CitationLink number={2} />, 
+                    pero <strong>aproximadamente la mitad</strong> sigue con deterioro residual significativo.
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">En la infancia</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong>Hiperactividad:</strong> Correr, saltar, no quedarse quieto</li>
+                        <li>• <strong>Impulsividad:</strong> Actuar sin pensar</li>
+                        <li>• <strong>Inatención:</strong> No seguir instrucciones</li>
+                        <li>• <strong>Emocional:</strong> Rabietas frecuentes</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">En la adultez</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong>Inquietud interna:</strong> Sensación de motor interno</li>
+                        <li>• <strong>Decisiones impulsivas:</strong> Cambios de trabajo, compras</li>
+                        <li>• <strong>Dificultades ejecutivas:</strong> Organización, planificación</li>
+                        <li>• <strong>Desregulación emocional:</strong> Reacciones intensas</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </>
+            )}
+
+            {currentStep === 2 && (
+              <>
+                <Alert className="border-pink-200 dark:border-pink-800 bg-pink-50/30 dark:bg-pink-950/30">
+                  <User className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>Subdiagnóstico:</strong> En niñas la proporción es 4:1 (H:M), pero en adultos es solo 1.9:1. 
+                    Muchas mujeres reciben diagnóstico tardío (30-40 años).
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">Manifestaciones típicas</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• <strong>Inatención predominante:</strong> "Soñar despierta"</li>
+                        <li>• <strong>Hiperactividad interna:</strong> Mente acelerada</li>
+                        <li>• <strong>Sensibilidad emocional:</strong> Reacciones intensas</li>
+                        <li>• <strong>Perfeccionismo paralizante</strong></li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">Consecuencias</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• <strong>Mayor depresión/ansiedad</strong></li>
+                        <li>• <strong>Baja autoestima crónica</strong></li>
+                        <li>• <strong>Autoculpa:</strong> "Soy perezosa"</li>
+                        <li>• <strong>Diagnóstico tardío</strong></li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">Señales clave</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Lucha constante con organización</li>
+                        <li>• Hipersensibilidad al rechazo</li>
+                        <li>• Sensación de "no dar la talla"</li>
+                        <li>• Emociones más intensas que otros</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </>
+            )}
+
+            {currentStep === 3 && (
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-red-500" />
+                      1. Hiperactividad → Inquietud
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-sm space-y-2">
+                      <li>• Inquietud interna constante</li>
+                      <li>• Impaciencia en reuniones</li>
+                      <li>• Necesidad de movimiento sutil</li>
+                      <li>• Dificultad para relajarse</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-blue-500" />
+                      2. Inatención → Desorganización
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-sm space-y-2">
+                      <li>• Procrastinación crónica</li>
+                      <li>• Proyectos sin terminar</li>
+                      <li>• Olvido de compromisos</li>
+                      <li>• Espacios caóticos</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <AlertTriangle className="h-4 w-4 text-amber-500" />
+                      3. Impulsividad → Decisiones precipitadas
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-sm space-y-2">
+                      <li>• Interrumpir conversaciones</li>
+                      <li>• Cambios súbitos de trabajo</li>
+                      <li>• Compras no planificadas</li>
+                      <li>• Comentarios inapropiados</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Heart className="h-4 w-4 text-purple-500" />
+                      4. Desregulación emocional
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-sm space-y-2">
+                      <li>• Cambios de humor rápidos</li>
+                      <li>• Frustración desproporcionada</li>
+                      <li>• Hipersensibilidad al rechazo</li>
+                      <li>• Emociones abrumadoras</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {currentStep === 4 && (
               <div className="space-y-6">
-                {/* 1. Hiperactividad */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-red-500" />
-                    1. Hiperactividad: De Externa a Interna
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                      <h4 className="font-semibold mb-2">Manifestaciones Adultas</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Inquietud interna</strong> constante</li>
-                        <li>• <strong>Impaciencia</strong> sedentaria</li>
-                        <li>• <strong>Necesidad movimiento</strong></li>
-                        <li>• <strong>Tamboreo/balanceo</strong> sutil</li>
-                      </ul>
-                    </div>
-                    <div className="p-4 bg-red-50 dark:bg-red-950 rounded-lg">
-                      <h4 className="font-semibold mb-2">Impacto en la Vida</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Trabajo:</strong> Reuniones largas insoportables</li>
-                        <li>• <strong>Relaciones:</strong> Parecer impaciente/distraído</li>
-                        <li>• <strong>Descanso:</strong> Dificultad para relajarse</li>
-                        <li>• <strong>Social:</strong> Evitar eventos prolongados</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <Separator />
-
-                {/* 2. Desatención */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-blue-500" />
-                    2. Desatención: Más Compleja en la Adultez
-                  </h3>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="p-4 bg-amber-50 dark:bg-amber-950 rounded-lg">
-                      <h4 className="font-semibold mb-2 text-sm flex items-center gap-2">
-                        <Briefcase className="h-4 w-4" />
-                        En el Trabajo
-                      </h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Procrastinación</strong> crónica</li>
-                        <li>• <strong>Tareas monótonas</strong> imposibles</li>
-                        <li>• <strong>Hiperfoco</strong> ocasional</li>
-                        <li>• <strong>Proyectos</strong> sin terminar</li>
-                      </ul>
-                    </div>
-                    <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
-                      <h4 className="font-semibold mb-2 text-sm flex items-center gap-2">
-                        <Users className="h-4 w-4" />
-                        En Relaciones
-                      </h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>No escuchar</strong> completamente</li>
-                        <li>• <strong>Olvidar</strong> compromisos</li>
-                        <li>• <strong>Conversaciones</strong> difíciles</li>
-                        <li>• Parecer <strong>desinteresado</strong></li>
-                      </ul>
-                    </div>
-                    <div className="p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                      <h4 className="font-semibold mb-2 text-sm flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
-                        En Organización
-                      </h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Tiempo:</strong> Subestimar</li>
-                        <li>• <strong>Plazos:</strong> Siempre apurado</li>
-                        <li>• <strong>Objetos:</strong> Perdidos</li>
-                        <li>• <strong>Espacios:</strong> Caóticos</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <Separator />
-
-                {/* 3. Impulsividad */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <AlertTriangle className="h-5 w-5 text-amber-500" />
-                    3. Impulsividad: Decisiones y Consecuencias
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-amber-50 dark:bg-amber-950 rounded-lg">
-                      <h4 className="font-semibold mb-2">Manifestaciones</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Verbal:</strong> Interrumpir, comentarios inapropiados</li>
-                        <li>• <strong>Decisiones:</strong> Cambios trabajo/casa súbitos</li>
-                        <li>• <strong>Compras:</strong> Gastos importantes sin planear</li>
-                        <li>• <strong>Relaciones:</strong> Decisiones precipitadas</li>
-                      </ul>
-                    </div>
-                    <div className="p-4 bg-red-50 dark:bg-red-950 rounded-lg">
-                      <h4 className="font-semibold mb-2">Impacto</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Laboral:</strong> Conflictos con colegas/jefes</li>
-                        <li>• <strong>Financiero:</strong> Problemas económicos</li>
-                        <li>• <strong>Social:</strong> Ofender sin intención</li>
-                        <li>• <strong>Personal:</strong> Arrepentimiento/culpa</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <Separator />
-
-                {/* 4. Desregulación Emocional */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Heart className="h-5 w-5 text-purple-500" />
-                    4. Desregulación Emocional: El Síntoma Invisible
-                  </h3>
-                  <Alert className="mb-4">
-                    <Heart className="h-4 w-4" />
-                    <AlertDescription>
-                      <strong>Síntoma clave:</strong> Uno de los más impactantes y menos reconocidos del TDAH adulto
-                    </AlertDescription>
-                  </Alert>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="border-green-200 dark:border-green-800">
+                    <CardHeader>
+                      <CardTitle className="text-base flex items-center gap-2">
+                        <Zap className="h-4 w-4 text-green-500" />
+                        Hiperfoco
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Concentración intensa en actividades fascinantes
+                      </p>
+                      <div className="space-y-3">
+                        <div className="p-3 bg-green-50 dark:bg-green-950 rounded">
+                          <div className="text-xs font-semibold text-green-700 dark:text-green-300">✅ Ventajas</div>
+                          <div className="text-xs">Productividad excepcional, aprendizaje acelerado</div>
+                        </div>
+                        <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded">
+                          <div className="text-xs font-semibold text-amber-700 dark:text-amber-300">⚠️ Desventajas</div>
+                          <div className="text-xs">Descuido de responsabilidades, agotamiento</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                   
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                      <h4 className="font-semibold mb-2">Manifestaciones</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Labilidad:</strong> Cambios humor rápidos</li>
-                        <li>• <strong>Frustración:</strong> Desproporcionada</li>
-                        <li>• <strong>Rechazo:</strong> Hipersensibilidad</li>
-                        <li>• <strong>Intensidad:</strong> Emociones abrumadoras</li>
-                      </ul>
-                    </div>
-                    <div className="p-4 bg-red-50 dark:bg-red-950 rounded-lg">
-                      <h4 className="font-semibold mb-2">Impacto en la Vida</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• <strong>Trabajo:</strong> Conflictos frecuentes</li>
-                        <li>• <strong>Pareja:</strong> Relaciones tensas</li>
-                        <li>• <strong>Crianza:</strong> Inconsistencia</li>
-                        <li>• <strong>Autoestima:</strong> Crónica baja</li>
-                      </ul>
-                    </div>
-                  </div>
+                  <Card className="border-purple-200 dark:border-purple-800">
+                    <CardHeader>
+                      <CardTitle className="text-base flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-purple-500" />
+                        Ciclos de energía
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Alternancia entre alta y baja energía
+                      </p>
+                      <div className="space-y-2">
+                        <div className="p-3 bg-green-50 dark:bg-green-950 rounded text-center">
+                          <div className="text-xs font-semibold">🔥 "Encendido"</div>
+                          <div className="text-xs">Energía alta, múltiples proyectos</div>
+                        </div>
+                        <div className="p-3 bg-gray-50 dark:bg-gray-950 rounded text-center">
+                          <div className="text-xs font-semibold">😴 "Apagado"</div>
+                          <div className="text-xs">Agotamiento, procrastinación</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
 
-                <Separator />
-
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-base">Impacto estadístico</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="text-center p-4 border rounded-lg bg-red-50 dark:bg-red-950">
+                        <div className="text-xl font-bold text-red-500 mb-1">12%<CitationLink number={2} /></div>
+                        <div className="text-xs text-muted-foreground">↓ Reducción empleo</div>
+                      </div>
+                      <div className="text-center p-4 border rounded-lg bg-amber-50 dark:bg-amber-950">
+                        <div className="text-xl font-bold text-amber-500 mb-1">34%<CitationLink number={2} /></div>
+                        <div className="text-xs text-muted-foreground">↓ Reducción ingresos</div>
+                      </div>
+                      <div className="text-center p-4 border rounded-lg bg-blue-50 dark:bg-blue-950">
+                        <div className="text-xl font-bold text-blue-500 mb-1">2x</div>
+                        <div className="text-xs text-muted-foreground">↑ Rotación laboral</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </CardContent>
-          </Card>
-
-        {/* Fenómenos Especiales */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Fenómenos Especiales del TDAH Adulto</CardTitle>
-            <CardDescription>
-              Manifestaciones únicas que pueden ser ventajas o desafíos
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="border-green-200 dark:border-green-800">
-                <CardHeader>
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <Zap className="h-4 w-4 text-green-500" />
-                    Hiperfoco
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Concentración intensa en actividades fascinantes
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-xs font-semibold">✅ Ventaja:</span>
-                      <span className="text-xs">Productividad excepcional</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs font-semibold">⚠️ Desventaja:</span>
-                      <span className="text-xs">Descuido responsabilidades</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs font-semibold">🎯 Clave:</span>
-                      <span className="text-xs">Difícil de controlar</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-purple-200 dark:border-purple-800">
-                <CardHeader>
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-purple-500" />
-                    Ciclos "Encendido-Apagado"
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Alternancia entre alta y baja energía
-                  </p>
-                  <div className="space-y-2">
-                    <div className="p-2 bg-green-50 dark:bg-green-950 rounded text-center">
-                      <div className="text-xs font-semibold">🔥 "Encendido"</div>
-                      <div className="text-xs">Energía alta, múltiples proyectos</div>
-                    </div>
-                    <div className="p-2 bg-gray-50 dark:bg-gray-950 rounded text-center">
-                      <div className="text-xs font-semibold">😴 "Apagado"</div>
-                      <div className="text-xs">Agotamiento, procrastinación</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            )}
           </CardContent>
+
+          {/* Navigation */}
+          <div className="flex justify-between items-center p-6 border-t">
+            <Button
+              variant="outline"
+              onClick={handlePrevious}
+              disabled={currentStep === 1}
+              className="flex items-center gap-2"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Anterior
+            </Button>
+
+            <span className="text-sm text-muted-foreground">
+              {currentStep} de {steps.length}
+            </span>
+
+            <Button
+              onClick={handleNext}
+              disabled={currentStep === steps.length}
+              className="flex items-center gap-2"
+            >
+              {currentStep === steps.length ? 'Finalizar' : 'Siguiente'}
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </Card>
 
-        {/* Estadísticas de Impacto */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Impacto Estadístico del TDAH Adulto</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="text-center p-4 border rounded-lg bg-red-50 dark:bg-red-950">
-                <div className="text-2xl font-bold text-red-500 mb-1">12%<CitationLink number={2} /></div>
-                <div className="text-sm text-muted-foreground">↓ Reducción empleo</div>
-              </div>
-              <div className="text-center p-4 border rounded-lg bg-amber-50 dark:bg-amber-950">
-                <div className="text-2xl font-bold text-amber-500 mb-1">34%<CitationLink number={2} /></div>
-                <div className="text-sm text-muted-foreground">↓ Reducción ingresos</div>
-              </div>
-              <div className="text-center p-4 border rounded-lg bg-blue-50 dark:bg-blue-950">
-                <div className="text-2xl font-bold text-blue-500 mb-1">2x</div>
-                <div className="text-sm text-muted-foreground">↑ Rotación laboral</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
+        <References references={adultosReferences} />
       </div>
-
-      <References references={adultosReferences} />
-    </div>
     </div>
   )
 }

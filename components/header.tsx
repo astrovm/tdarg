@@ -27,13 +27,10 @@ const guidesItems = [
   { href: "/autismo", label: "TDAH y Autismo" },
   { href: "/impacto", label: "Impacto" },
   { href: "/mitos", label: "Mitos" },
+  { href: "/herramientas", label: "Herramientas" },
 ];
 
-const resourcesItems = [
-  { href: "/recursos", label: "Recursos" },
-];
-
-const allNavigationItems = [...mainNavigationItems, ...guidesItems, ...resourcesItems];
+const allNavigationItems = [...mainNavigationItems, ...guidesItems];
 
 export function Header() {
   const pathname = usePathname();
@@ -89,21 +86,6 @@ export function Header() {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              
-              {/* Resources */}
-              {resourcesItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={
-                    pathname === item.href
-                      ? "text-blue-600 dark:text-blue-400 font-medium"
-                      : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                  }
-                >
-                  {item.label}
-                </Link>
-              ))}
             </nav>
             <ThemeToggle />
           </div>

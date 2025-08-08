@@ -28,7 +28,7 @@ const references: Reference[] = [
   },
 ];
 
-export default function RecursosPage() {
+export default function HerramientasPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
@@ -37,7 +37,7 @@ export default function RecursosPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 py-12 relative z-10">
           <h1 className="text-4xl font-bold text-purple-600 mb-4">
-            Recursos y Herramientas Prácticas
+            Herramientas TDAH
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
             Estrategias concretas para manejar el TDAH en la vida diaria<CitationLink number={1} /><CitationLink number={2} />
