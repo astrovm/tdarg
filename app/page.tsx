@@ -3,6 +3,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { Button } from "@/components/ui/button"
 import { Brain, Stethoscope, Scale, TrendingUp, AlertCircle, GitBranch, BookOpen, Users, Heart, Lightbulb } from "lucide-react"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 
 export default function HomePage() {
@@ -12,7 +13,7 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section - Gradiente moderno */}
-      <section className="relative py-16 bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
+  <section className="relative py-16 hero-gradient overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl font-bold text-purple-600 mb-4">
@@ -23,19 +24,19 @@ export default function HomePage() {
             medicamentos, directorio de especialistas, análisis legislativo y guías educativas completas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
+            <Button size="lg" variant="primaryGradient" asChild>
               <Link href="/precios">
                 <TrendingUp className="mr-2 h-5 w-5" />
                 Ver Precios
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-700 dark:text-purple-300 dark:hover:bg-purple-900/20" asChild>
+            <Button size="lg" variant="outline" className="border-primary/30 text-primary hover:bg-accent dark:border-primary/50 dark:text-primary" asChild>
               <Link href="/especialistas">
                 <Stethoscope className="mr-2 h-5 w-5" />
                 Buscar Especialistas
               </Link>
             </Button>
-            <Button size="lg" variant="secondary" className="bg-white/80 text-slate-700 hover:bg-white dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-800 shadow-md hover:shadow-lg transition-all duration-300" asChild>
+            <Button size="lg" variant="secondary" className="shadow-md hover:shadow-lg transition-all duration-300" asChild>
               <Link href="/legislacion">
                 <Scale className="mr-2 h-5 w-5" />
                 Ver Legislación
@@ -274,47 +275,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* Footer - Fondo oscuro para contraste final */}
-      <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Brain className="h-6 w-6" />
-                <span className="text-lg font-semibold">Tdarg</span>
-              </div>
-              <p className="text-gray-400">Portal integral de información sobre TDAH en Argentina con herramientas prácticas y guías educativas basadas en evidencia científica.</p>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Contacto</h5>
-              <p className="text-gray-400 mb-4">
-                <a href="mailto:tdarg@4st.li" className="hover:text-white transition-colors">
-                  tdarg@4st.li
-                </a>
-              </p>
-              <p className="text-gray-400 text-sm">
-                Para consultas, sugerencias o reportar información desactualizada.
-              </p>
-            </div>
-            <div>
-              <h5 className="font-semibold mb-4">Código Abierto</h5>
-              <p className="text-gray-400 mb-4">Este proyecto es de código abierto. Podés contribuir mejorando el contenido o reportando issues.</p>
-              <a
-                href="https://github.com/astrovm/tdarg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
-              >
-                <GitBranch className="h-4 w-4" />
-                <span>Ver en GitHub</span>
-              </a>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Tdarg. Información con fines educativos.</p>
-          </div>
-        </div>
-      </footer>
+  <Footer />
 
     </div>
   )

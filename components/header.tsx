@@ -42,7 +42,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Brain className="h-8 w-8 text-blue-600" />
+            <Brain className="h-8 w-8 text-primary" />
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               Tdarg
             </h1>
@@ -52,14 +52,14 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-6">
             <nav className="flex space-x-6">
               {/* Main navigation items */}
-              {mainNavigationItems.map((item) => (
+        {mainNavigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={
                     pathname === item.href
-                      ? "text-blue-600 dark:text-blue-400 font-medium"
-                      : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          ? "text-primary font-medium"
+          : "text-muted-foreground hover:text-primary transition-colors"
                   }
                 >
                   {item.label}
@@ -70,8 +70,8 @@ export function Header() {
               <DropdownMenu>
                 <DropdownMenuTrigger className={`flex items-center space-x-1 ${
                   guidesItems.some(item => pathname === item.href)
-                    ? "text-blue-600 dark:text-blue-400 font-medium"
-                    : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    ? "text-primary font-medium"
+                    : "text-muted-foreground hover:text-primary transition-colors"
                 }`}>
                   <span>Guías</span>
                   <ChevronDown className="h-4 w-4" />
@@ -120,8 +120,8 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={
                     pathname === item.href
-                      ? "text-blue-600 dark:text-blue-400 font-medium px-2 py-1"
-                      : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-1"
+                      ? "text-primary font-medium px-2 py-1"
+                      : "text-muted-foreground hover:text-primary transition-colors px-2 py-1"
                   }
                 >
                   {item.label}
