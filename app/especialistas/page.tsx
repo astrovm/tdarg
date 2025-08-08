@@ -139,16 +139,16 @@ export default function EspecialistasPage() {
             <CardContent className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                   <Input
                     placeholder="Buscá por nombre, ciudad u hospital..."
                     value={filtroNombre}
                     onChange={(e) => setFiltroNombre(e.target.value)}
-                    className="pl-10 h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl"
+                    className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
                   />
                 </div>
                 <Select value={provincia} onValueChange={setProvincia}>
-                  <SelectTrigger className="h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl">
+                  <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
                     <SelectValue placeholder="Seleccioná una provincia" />
                   </SelectTrigger>
                   <SelectContent>
@@ -161,7 +161,7 @@ export default function EspecialistasPage() {
                   </SelectContent>
                 </Select>
                 <Select value={especialidad} onValueChange={setEspecialidad}>
-                  <SelectTrigger className="h-10 bg-white dark:bg-slate-700 border-0 shadow-md rounded-xl">
+                  <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
                     <SelectValue placeholder="Especialidad" />
                   </SelectTrigger>
                   <SelectContent>
