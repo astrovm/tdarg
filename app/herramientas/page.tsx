@@ -1258,7 +1258,7 @@ export default function HerramientasPage() {
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
                                       <a
-                                        href="https://www.kimi.com/"
+                                        href="https://www.kimi.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:underline"
@@ -1281,7 +1281,7 @@ export default function HerramientasPage() {
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
                                       <a
-                                        href="https://grok.com/"
+                                        href="https://grok.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:underline"
