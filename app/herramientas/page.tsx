@@ -936,7 +936,14 @@ export default function HerramientasPage() {
                                 <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Todoist
+                                      <a
+                                        href="https://todoist.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Todoist
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-2">
                                       Sistema GTD completo
@@ -958,7 +965,14 @@ export default function HerramientasPage() {
                                   </div>
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Any.do
+                                      <a
+                                        href="https://www.any.do"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Any.do
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-2">
                                       Interfaz simple y visual
@@ -982,7 +996,14 @@ export default function HerramientasPage() {
                                 <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Forest
+                                      <a
+                                        href="https://www.forestapp.cc"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Forest
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-2">
                                       Gamificación para mantener foco
@@ -1004,7 +1025,14 @@ export default function HerramientasPage() {
                                   </div>
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      RescueTime
+                                      <a
+                                        href="https://www.rescuetime.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        RescueTime
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-2">
                                       Tracking automático de tiempo
@@ -1041,7 +1069,14 @@ export default function HerramientasPage() {
                                 <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Cold Turkey
+                                      <a
+                                        href="https://getcoldturkey.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Cold Turkey
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-1">
                                       Bloqueo robusto, difícil de desactivar
@@ -1054,7 +1089,14 @@ export default function HerramientasPage() {
                                   </div>
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Freedom
+                                      <a
+                                        href="https://freedom.to"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Freedom
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-1">
                                       Multiplataforma
@@ -1069,7 +1111,14 @@ export default function HerramientasPage() {
                                 <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Google Keep
+                                      <a
+                                        href="https://keep.google.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Google Keep
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-1">
                                       Notas visuales con colores
@@ -1082,7 +1131,14 @@ export default function HerramientasPage() {
                                   </div>
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
-                                      Notion
+                                      <a
+                                        href="https://www.notion.so"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Notion
+                                      </a>
                                     </h5>
                                     <p className="text-xs text-muted-foreground mb-1">
                                       All-in-one workspace
@@ -1092,6 +1148,183 @@ export default function HerramientasPage() {
                                       <li>• Bases de datos relacionales</li>
                                       <li>• Muy personalizable</li>
                                     </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                          <AccordionItem value="ai-tools">
+                            <AccordionTrigger>
+                              <div className="flex items-center gap-2">
+                                <MessageSquare className="h-4 w-4" />
+                                Asistentes de IA
+                              </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="grid md:grid-cols-2 gap-4">
+                                <div className="space-y-3">
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://chatgpt.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        ChatGPT
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      Asistente conversacional versátil
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Freemium
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Español
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://claude.ai"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Claude
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      IA enfocada en seguridad y análisis
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Gratis
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Inglés
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://gemini.google.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Gemini
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      Integración con servicios de Google
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Freemium
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Multiplataforma
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://www.deepseek.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Deepseek
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      Modelo optimizado para búsquedas
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Gratis
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Búsquedas
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="space-y-3">
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://kimi.moonshot.cn"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Kimi
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      IA enfocada en el contexto largo
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Gratis
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Chino/Inglés
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://x.ai"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Grok
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      Estilo conversacional informal
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Pago
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Humor
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://www.perplexity.ai"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Perplexity
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-2">
+                                      Respuestas con fuentes citadas
+                                    </p>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Freemium
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Buscador
+                                      </Badge>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
