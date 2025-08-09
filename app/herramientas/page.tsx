@@ -1052,6 +1052,46 @@ export default function HerramientasPage() {
                                       </Badge>
                                     </div>
                                   </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://keep.google.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Google Keep
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-1">
+                                      Notas visuales con colores
+                                    </p>
+                                    <ul className="text-xs space-y-1">
+                                      <li>• Notas por voz</li>
+                                      <li>• Recordatorios por ubicación</li>
+                                      <li>• Colaborativo</li>
+                                    </ul>
+                                  </div>
+                                  <div className="p-3 border rounded">
+                                    <h5 className="font-semibold text-sm mb-1">
+                                      <a
+                                        href="https://www.notion.so"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                      >
+                                        Notion
+                                      </a>
+                                    </h5>
+                                    <p className="text-xs text-muted-foreground mb-1">
+                                      All-in-one workspace
+                                    </p>
+                                    <ul className="text-xs space-y-1">
+                                      <li>• Plantillas TDAH</li>
+                                      <li>• Bases de datos relacionales</li>
+                                      <li>• Muy personalizable</li>
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
                             </AccordionContent>
@@ -1065,7 +1105,7 @@ export default function HerramientasPage() {
                               </div>
                             </AccordionTrigger>
                             <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-4">
+                              <div className="grid md:grid-cols-1 gap-4">
                                 <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
@@ -1105,48 +1145,6 @@ export default function HerramientasPage() {
                                       <li>• Sincroniza dispositivos</li>
                                       <li>• Listas predefinidas</li>
                                       <li>• Estadísticas de uso</li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://keep.google.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Google Keep
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-1">
-                                      Notas visuales con colores
-                                    </p>
-                                    <ul className="text-xs space-y-1">
-                                      <li>• Notas por voz</li>
-                                      <li>• Recordatorios por ubicación</li>
-                                      <li>• Colaborativo</li>
-                                    </ul>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.notion.so"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Notion
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-1">
-                                      All-in-one workspace
-                                    </p>
-                                    <ul className="text-xs space-y-1">
-                                      <li>• Plantillas TDAH</li>
-                                      <li>• Bases de datos relacionales</li>
-                                      <li>• Muy personalizable</li>
                                     </ul>
                                   </div>
                                 </div>
@@ -1260,7 +1258,7 @@ export default function HerramientasPage() {
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
                                       <a
-                                        href="https://kimi.moonshot.cn"
+                                        href="https://www.kimi.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:underline"
@@ -1283,7 +1281,7 @@ export default function HerramientasPage() {
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
                                       <a
-                                        href="https://x.ai"
+                                        href="https://grok.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:underline"
