@@ -74,7 +74,6 @@ const references: Reference[] = [
 export default function AutismoPage() {
   const {
     currentStep,
-    completedSteps,
     next,
     prev,
     goTo,

@@ -59,7 +59,6 @@ const steps = [
 export default function AdultosPage() {
   const {
     currentStep,
-    completedSteps,
     next,
     prev,
     goTo,

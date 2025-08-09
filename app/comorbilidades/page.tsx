@@ -69,7 +69,6 @@ const steps = [
 export default function ComorbilidadesPage() {
   const {
     currentStep,
-    completedSteps,
     next,
     prev,
     goTo,
