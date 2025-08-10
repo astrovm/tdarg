@@ -899,8 +899,8 @@ export default function HerramientasPage() {
           {currentStep === 4 && (
             <div className="space-y-6">
               <Card className="border-orange-200 dark:border-orange-800 bg-orange-50/30 dark:bg-orange-950/30">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl flex items-center justify-center gap-2">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center gap-2">
                     <Smartphone className="h-8 w-8 text-orange-500" />
                     Tecnología: Apps y Herramientas Digitales
                   </CardTitle>
@@ -1063,14 +1063,17 @@ export default function HerramientasPage() {
                                         Google Keep
                                       </a>
                                     </h5>
-                                    <p className="text-xs text-muted-foreground mb-1">
+                                    <p className="text-xs text-muted-foreground mb-2">
                                       Notas visuales con colores
                                     </p>
-                                    <ul className="text-xs space-y-1">
-                                      <li>• Notas por voz</li>
-                                      <li>• Recordatorios por ubicación</li>
-                                      <li>• Colaborativo</li>
-                                    </ul>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Gratis
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Colaborativo
+                                      </Badge>
+                                    </div>
                                   </div>
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
@@ -1083,14 +1086,17 @@ export default function HerramientasPage() {
                                         Notion
                                       </a>
                                     </h5>
-                                    <p className="text-xs text-muted-foreground mb-1">
+                                    <p className="text-xs text-muted-foreground mb-2">
                                       All-in-one workspace
                                     </p>
-                                    <ul className="text-xs space-y-1">
-                                      <li>• Plantillas TDAH</li>
-                                      <li>• Bases de datos relacionales</li>
-                                      <li>• Muy personalizable</li>
-                                    </ul>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Freemium
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Flexible
+                                      </Badge>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
