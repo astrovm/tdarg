@@ -145,8 +145,8 @@ export default function DiagnosticoPage() {
     {
       title: "Neuropsicólogo / Psicólogo",
       icon: "🧠",
-      speciality: "Evaluación neuropsicológica completa",
-      experience: "Tests especializados en TDAH",
+      speciality: "Especialista en TDAH con evaluación neuropsicológica",
+      experience: "Formación específica en tests de TDAH (CPT, TOVA, etc.)",
       availability: "Primer paso recomendado",
       color: "blue",
       step: "1° - Evaluación",
@@ -154,8 +154,8 @@ export default function DiagnosticoPage() {
     {
       title: "Médico Psiquiatra",
       icon: "🏥",
-      speciality: "Diagnóstico y tratamiento médico",
-      experience: "Prescripción de medicamentos",
+      speciality: "Especialista en TDAH para diagnóstico DSM-5",
+      experience: "Experiencia en medicación específica para TDAH",
       availability: "Segundo paso (con informe neuropsicológico)",
       color: "purple",
       step: "2° - Diagnóstico",
@@ -163,8 +163,8 @@ export default function DiagnosticoPage() {
     {
       title: "Psicólogo especialista",
       icon: "👨‍⚕️",
-      speciality: "Terapia y seguimiento",
-      experience: "Terapia cognitivo-conductual",
+      speciality: "Especialista en TDAH para terapia TCC",
+      experience: "Formación en TCC específica para TDAH adulto/infantil",
       availability: "Tercer paso (tratamiento continuo)",
       color: "green",
       step: "3° - Tratamiento",
@@ -396,6 +396,15 @@ export default function DiagnosticoPage() {
                       y diseñar el mejor plan de tratamiento.
                     </AlertDescription>
                   </Alert>
+                  <Alert className="mb-6 bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>¡MUY IMPORTANTE!</strong> Todos los profesionales deben ser especialistas en TDAH. 
+                      Un psicólogo general, psiquiatra general o neurólogo sin especialización en TDAH puede 
+                      pasar por alto síntomas clave o dar un diagnóstico erróneo. Preguntá siempre por su 
+                      experiencia específica con TDAH.
+                    </AlertDescription>
+                  </Alert>
                   <div className="grid md:grid-cols-3 gap-6">
                     {/* Professional Cards with Visual Hierarchy */}
                     {professionals.map((prof, index) => (
@@ -609,6 +618,16 @@ export default function DiagnosticoPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <Alert className="mb-6 bg-amber-50 dark:bg-amber-950 border-amber-200 dark:border-amber-800">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>Preguntas clave para verificar especialización:</strong>
+                      <br />• "¿Cuántos años de experiencia tiene específicamente con TDAH?"
+                      <br />• "¿Qué tests neuropsicológicos usa para TDAH?" (CPT, TOVA, BRIEF)
+                      <br />• "¿Está familiarizado con el DSM-5 para TDAH adulto?"
+                      <br />• "¿Ha hecho cursos de especialización en TDAH?"
+                    </AlertDescription>
+                  </Alert>
                   {/* Visual Checklist */}
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
@@ -668,6 +687,11 @@ export default function DiagnosticoPage() {
                       </h3>
                       <div className="space-y-3">
                         {[
+                          {
+                            item: "Preguntas sobre especialización del profesional",
+                            icon: "❓",
+                            tip: "Verificar experiencia en TDAH",
+                          },
                           {
                             item: "Ejemplos específicos de dificultades",
                             icon: "🎯",
