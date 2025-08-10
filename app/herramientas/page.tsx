@@ -457,7 +457,7 @@ export default function HerramientasPage() {
                               </h5>
                               <ul className="space-y-1 text-xs">
                                 <li>• Libreta de parking de ideas</li>
-                                <li>• Técnica "después lo pienso"</li>
+                                <li>• Técnica «después lo pienso»</li>
                                 <li>• Mindfulness 5 minutos</li>
                                 <li>• Recordatorios programados</li>
                               </ul>
@@ -682,7 +682,7 @@ export default function HerramientasPage() {
                             <h5 className="font-semibold mb-1">Prevención</h5>
                             <ul className="space-y-1">
                               <li>• Tomá notas mientras escuchás</li>
-                              <li>• Usá un "objeto de turno"</li>
+                              <li>• Usá un «objeto de turno»</li>
                               <li>• Sentate sobre las manos</li>
                               <li>• Escribí la idea en lugar de decirla</li>
                             </ul>
