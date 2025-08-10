@@ -42,10 +42,10 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "latest",
-    "date-fns": "4.1.0",
+    "date-fns": "^4.1.0",
     "embla-carousel-react": "latest",
     "input-otp": "latest",
-    "lucide-react": "^0.454.0",
+    "lucide-react": "^0.539.0",
     "next": "15.4.6",
     "next-themes": "latest",
     "react": "^19.1.1",
@@ -55,10 +55,10 @@
     "react-resizable-panels": "latest",
     "recharts": "latest",
     "sonner": "latest",
-    "tailwind-merge": "^2.6.0",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "latest",
-    "zod": "^3.25.76"
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@types/node": "^22.17.1",
