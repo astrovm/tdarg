@@ -394,202 +394,157 @@ export default function HerramientasPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6">
-                    {/* Distraction Control */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Target className="h-5 w-5" />
-                          Control de Distracciones
-                        </CardTitle>
-                        <CardDescription>
-                          Estrategias para minimizar interrupciones y mantener
-                          el foco
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="external-distractions">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Headphones className="h-4 w-4" />
-                                Distracciones Externas
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="space-y-3">
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Auditivas
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>
-                                      • Auriculares con cancelación de ruido
-                                    </li>
-                                    <li>
-                                      • Ruido blanco o música instrumental
-                                    </li>
-                                    <li>
-                                      • Espacios silenciosos o bibliotecas
-                                    </li>
-                                    <li>
-                                      • Evitar espacios con conversaciones
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Visuales
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>
-                                      • Escritorio despejado (solo lo esencial)
-                                    </li>
-                                    <li>• Bloquear sitios web distractores</li>
-                                    <li>• Usar filtros de pantalla azul</li>
-                                    <li>
-                                      • Ubicarse de espaldas al movimiento
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
+                  <div className="space-y-8">
+                    {/* Resumen visual */}
+                    <div className="grid md:grid-cols-3 gap-3">
+                      <div className="p-3 bg-green-100 dark:bg-green-900 rounded text-center">
+                        <div className="text-sm font-semibold">5-15 min</div>
+                        <div className="text-xs text-muted-foreground">
+                          Descansos obligatorios
+                        </div>
+                      </div>
+                      <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded text-center">
+                        <div className="text-sm font-semibold">Doble tarea</div>
+                        <div className="text-xs text-muted-foreground">
+                          Solo estímulos mínimos
+                        </div>
+                      </div>
+                      <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded text-center">
+                        <div className="text-sm font-semibold">15-45 min</div>
+                        <div className="text-xs text-muted-foreground">
+                          Fragmentos manejables
+                        </div>
+                      </div>
+                    </div>
 
-                          <AccordionItem value="internal-distractions">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Brain className="h-4 w-4" />
-                                Distracciones Internas
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="space-y-3">
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Pensamientos Intrusivos
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>
-                                      • Libreta de &quot;parking&quot; para
-                                      ideas no relacionadas
-                                    </li>
-                                    <li>
-                                      • Técnica del &quot;después lo
-                                      pienso&quot;
-                                    </li>
-                                    <li>• Mindfulness básico (5 minutos)</li>
-                                    <li>
-                                      • Recordatorios programados para
-                                      preocupaciones
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Impulsos Físicos
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>• Objetos fidget discretos</li>
-                                    <li>
-                                      • Descansos de movimiento programados
-                                    </li>
-                                    <li>• Escritorio de pie alternativo</li>
-                                    <li>• Pelota de ejercicio como silla</li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </CardContent>
-                    </Card>
+                    {/* Distracciones */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Headphones className="h-4 w-4" /> Distracciones
+                            externas
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3 text-sm">
+                            <div>
+                              <h5 className="font-semibold mb-1">Auditivas</h5>
+                              <ul className="space-y-1 text-xs">
+                                <li>• Cancelación de ruido</li>
+                                <li>• Ruido blanco / música instrumental</li>
+                                <li>• Espacios silenciosos</li>
+                                <li>• Evitar conversaciones cercanas</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h5 className="font-semibold mb-1">Visuales</h5>
+                              <ul className="space-y-1 text-xs">
+                                <li>• Escritorio despejado</li>
+                                <li>• Bloquear sitios distractores</li>
+                                <li>• Filtro de luz azul</li>
+                                <li>• Ubicarse de espaldas al movimiento</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
 
-                    {/* Focus Techniques */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Focus className="h-5 w-5" />
-                          Técnicas de Concentración
-                        </CardTitle>
-                        <CardDescription>
-                          Métodos para mejorar el enfoque y la productividad
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="dual-task">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Gamepad2 className="h-4 w-4" />
-                                Método de la Doble Tarea
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <p className="mb-3 text-sm text-muted-foreground">
-                                Para tareas aburridas, agregar una actividad
-                                secundaria mínima puede ayudar a mantener la
-                                atención
-                              </p>
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2 text-green-600">
-                                    ✓ Apropiadas
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>• Música instrumental suave</li>
-                                    <li>• Mascar chicle</li>
-                                    <li>• Fidget toys silenciosos</li>
-                                    <li>• Caminar mientras lee</li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2 text-red-600">
-                                    ✗ Evitar
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>• Redes sociales o mensajes</li>
-                                    <li>• Videos complejos</li>
-                                    <li>• Conversaciones</li>
-                                    <li>
-                                      • Actividades que requieran decisiones
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Brain className="h-4 w-4" /> Distracciones internas
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3 text-sm">
+                            <div>
+                              <h5 className="font-semibold mb-1">
+                                Pensamientos intrusivos
+                              </h5>
+                              <ul className="space-y-1 text-xs">
+                                <li>• Libreta de parking de ideas</li>
+                                <li>• Técnica “después lo pienso”</li>
+                                <li>• Mindfulness 5 minutos</li>
+                                <li>• Recordatorios programados</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h5 className="font-semibold mb-1">
+                                Impulsos físicos
+                              </h5>
+                              <ul className="space-y-1 text-xs">
+                                <li>• Fidget discreto</li>
+                                <li>• Pausas de movimiento</li>
+                                <li>• Escritorio de pie alternado</li>
+                                <li>• Pelota de ejercicio</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
 
-                          <AccordionItem value="chunking">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Grid3X3 className="h-4 w-4" />
-                                Técnica de Fragmentación
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <p className="mb-3 text-sm text-muted-foreground">
-                                Dividir tareas grandes en fragmentos pequeños y
-                                manejables
-                              </p>
-                              <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg mb-3">
-                                <h5 className="font-semibold text-sm mb-2">
-                                  Reglas del Chunking
-                                </h5>
-                                <ul className="text-sm space-y-1">
-                                  <li>
-                                    • Cada fragmento: 15-45 minutos máximo
-                                  </li>
-                                  <li>• Un objetivo claro por fragmento</li>
-                                  <li>• Recompensa pequeña entre fragmentos</li>
-                                  <li>• Progreso visible (checklist, barra)</li>
-                                </ul>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </CardContent>
-                    </Card>
+                    {/* Técnicas de concentración */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Gamepad2 className="h-4 w-4" /> Doble tarea (bien
+                            usada)
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="grid sm:grid-cols-2 gap-4 text-xs">
+                          <div>
+                            <h5 className="font-semibold mb-2 text-green-600">
+                              ✓ Apropiadas
+                            </h5>
+                            <ul className="space-y-1">
+                              <li>• Música instrumental suave</li>
+                              <li>• Mascar chicle</li>
+                              <li>• Fidget silencioso</li>
+                              <li>• Caminar mientras lee</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h5 className="font-semibold mb-2 text-red-600">
+                              ✗ Evitar
+                            </h5>
+                            <ul className="space-y-1">
+                              <li>• Redes sociales</li>
+                              <li>• Videos complejos</li>
+                              <li>• Conversaciones</li>
+                              <li>• Tareas con decisiones</li>
+                            </ul>
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Grid3X3 className="h-4 w-4" /> Fragmentación
+                            (chunking)
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
+                            <h5 className="font-semibold text-sm mb-2">
+                              Reglas
+                            </h5>
+                            <ul className="text-xs space-y-1">
+                              <li>• 15-45 min por fragmento</li>
+                              <li>• Un objetivo claro por fragmento</li>
+                              <li>• Recompensa pequeña entre fragmentos</li>
+                              <li>• Progreso visible (checklist/barra)</li>
+                            </ul>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Micro-checklists accionables */}
+                    <ChecklistAtencion />
                   </div>
 
                   <div className="mt-8 text-center space-x-4">
@@ -621,216 +576,167 @@ export default function HerramientasPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6">
-                    {/* Emotional Regulation */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Brain className="h-5 w-5" />
-                          Regulación Emocional
-                        </CardTitle>
-                        <CardDescription>
-                          Técnicas para manejar emociones intensas e impulsos
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="stop-technique">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4" />
-                                Técnica STOP
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <p className="mb-3 text-sm text-muted-foreground">
-                                Para momentos de alta emocionalidad o impulsos
-                                intensos
-                              </p>
-                              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                <div className="p-2 bg-red-50 dark:bg-red-950 rounded text-center">
-                                  <div className="text-xl font-bold text-red-500 mb-1">
-                                    S
-                                  </div>
-                                  <div className="text-xs font-semibold">
-                                    STOP
-                                  </div>
-                                  <div className="text-xs">Detente</div>
-                                </div>
-                                <div className="p-2 bg-amber-50 dark:bg-amber-950 rounded text-center">
-                                  <div className="text-xl font-bold text-amber-500 mb-1">
-                                    T
-                                  </div>
-                                  <div className="text-xs font-semibold">
-                                    RESPIRA
-                                  </div>
-                                  <div className="text-xs">
-                                    3 veces profundo
-                                  </div>
-                                </div>
-                                <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded text-center">
-                                  <div className="text-xl font-bold text-blue-500 mb-1">
-                                    O
-                                  </div>
-                                  <div className="text-xs font-semibold">
-                                    OBSERVA
-                                  </div>
-                                  <div className="text-xs">¿Qué siento?</div>
-                                </div>
-                                <div className="p-2 bg-green-50 dark:bg-green-950 rounded text-center">
-                                  <div className="text-xl font-bold text-green-500 mb-1">
-                                    P
-                                  </div>
-                                  <div className="text-xs font-semibold">
-                                    PROCEDE
-                                  </div>
-                                  <div className="text-xs">
-                                    Actúa consciente
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
+                  <div className="space-y-8">
+                    {/* Resumen visual */}
+                    <div className="grid md:grid-cols-3 gap-3">
+                      <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded text-center">
+                        <div className="text-sm font-semibold">STOP</div>
+                        <div className="text-xs text-muted-foreground">
+                          Pausa, respirá, observá, procede
+                        </div>
+                      </div>
+                      <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded text-center">
+                        <div className="text-sm font-semibold">4-7-8</div>
+                        <div className="text-xs text-muted-foreground">
+                          Para bajar ansiedad
+                        </div>
+                      </div>
+                      <div className="p-3 bg-green-100 dark:bg-green-900 rounded text-center">
+                        <div className="text-sm font-semibold">
+                          Escucha activa
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Visual + verbal
+                        </div>
+                      </div>
+                    </div>
 
-                          <AccordionItem value="breathing">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Target className="h-4 w-4" />
-                                Técnicas de Respiración
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
-                                  <h5 className="font-semibold mb-2">
-                                    Respiración 4-7-8
-                                  </h5>
-                                  <div className="space-y-1 text-sm mb-2">
-                                    <div>• Inhala 4 segundos</div>
-                                    <div>• Retén 7 segundos</div>
-                                    <div>• Exhala 8 segundos</div>
-                                  </div>
-                                  <p className="text-xs text-muted-foreground">
-                                    Para ansiedad
-                                  </p>
-                                </div>
-                                <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded">
-                                  <h5 className="font-semibold mb-2">
-                                    Respiración Cuadrada
-                                  </h5>
-                                  <div className="space-y-1 text-sm mb-2">
-                                    <div>• Inhala 4 segundos</div>
-                                    <div>• Retén 4 segundos</div>
-                                    <div>• Exhala 4 segundos</div>
-                                    <div>• Pausa 4 segundos</div>
-                                  </div>
-                                  <p className="text-xs text-muted-foreground">
-                                    Para concentración
-                                  </p>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </CardContent>
-                    </Card>
+                    {/* Regulación emocional */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Clock className="h-4 w-4" /> Técnica STOP
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center text-xs">
+                          <div className="p-2 bg-red-50 dark:bg-red-950 rounded">
+                            <div className="text-lg font-bold text-red-500">
+                              S
+                            </div>
+                            <div className="font-semibold">STOP</div>
+                            <div>Detente</div>
+                          </div>
+                          <div className="p-2 bg-amber-50 dark:bg-amber-950 rounded">
+                            <div className="text-lg font-bold text-amber-500">
+                              T
+                            </div>
+                            <div className="font-semibold">Respirá</div>
+                            <div>3 veces</div>
+                          </div>
+                          <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded">
+                            <div className="text-lg font-bold text-blue-500">
+                              O
+                            </div>
+                            <div className="font-semibold">Observá</div>
+                            <div>¿Qué siento?</div>
+                          </div>
+                          <div className="p-2 bg-green-50 dark:bg-green-950 rounded">
+                            <div className="text-lg font-bold text-green-500">
+                              P
+                            </div>
+                            <div className="font-semibold">Procedé</div>
+                            <div>Actuá consciente</div>
+                          </div>
+                        </CardContent>
+                      </Card>
 
-                    {/* Communication Skills */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <MessageSquare className="h-5 w-5" />
-                          Habilidades de Comunicación
-                        </CardTitle>
-                        <CardDescription>
-                          Estrategias para mejorar las relaciones
-                          interpersonales
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="interruptions">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Users className="h-4 w-4" />
-                                Manejo de Interrupciones
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="space-y-3">
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Prevención
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>
-                                      • Tomar notas durante conversaciones
-                                    </li>
-                                    <li>
-                                      • Usar objeto para &quot;turno de
-                                      habla&quot;
-                                    </li>
-                                    <li>• Sentarse en las manos</li>
-                                    <li>
-                                      • Escribir la idea en lugar de decirla
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
-                                  <h5 className="font-semibold text-sm mb-1">
-                                    Si ya interrumpiste:
-                                  </h5>
-                                  <p className="text-sm">
-                                    &quot;Perdón, te interrumpí. Por favor
-                                    continúa, volveré a mi punto después.&quot;
-                                  </p>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Target className="h-4 w-4" /> Técnicas de
+                            respiración
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="grid sm:grid-cols-2 gap-3 text-xs">
+                          <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
+                            <h5 className="font-semibold mb-2">4-7-8</h5>
+                            <div className="space-y-1 mb-2">
+                              <div>Inhala 4</div>
+                              <div>Retén 7</div>
+                              <div>Exhala 8</div>
+                            </div>
+                            <div className="text-muted-foreground">
+                              Para ansiedad
+                            </div>
+                          </div>
+                          <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded">
+                            <h5 className="font-semibold mb-2">Cuadrada</h5>
+                            <div className="space-y-1 mb-2">
+                              <div>Inhala 4</div>
+                              <div>Retén 4</div>
+                              <div>Exhala 4</div>
+                              <div>Pausa 4</div>
+                            </div>
+                            <div className="text-muted-foreground">
+                              Para concentración
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
 
-                          <AccordionItem value="active-listening">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Focus className="h-4 w-4" />
-                                Escucha Activa
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Técnicas Visuales
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>• Mantener contacto visual natural</li>
-                                    <li>• Asentir para mostrar seguimiento</li>
-                                    <li>• Tomar notas de puntos clave</li>
-                                    <li>
-                                      • Dibujar mientras escuchas (si ayuda)
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h5 className="font-semibold text-sm mb-2">
-                                    Técnicas Verbales
-                                  </h5>
-                                  <ul className="text-sm space-y-1">
-                                    <li>
-                                      • &quot;Si entiendo bien, decís
-                                      que...&quot;
-                                    </li>
-                                    <li>• Hacer preguntas clarificadoras</li>
-                                    <li>• Resumir periódicamente</li>
-                                    <li>• &quot;¿Podés repetir eso?&quot;</li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </CardContent>
-                    </Card>
+                    {/* Comunicación */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Users className="h-4 w-4" /> Interrupciones
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3 text-xs">
+                          <div>
+                            <h5 className="font-semibold mb-1">Prevención</h5>
+                            <ul className="space-y-1">
+                              <li>• Tomá notas mientras escuchás</li>
+                              <li>• Usá un “objeto de turno”</li>
+                              <li>• Sentate sobre las manos</li>
+                              <li>• Escribí la idea en lugar de decirla</li>
+                            </ul>
+                          </div>
+                          <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
+                            <div className="font-semibold mb-1">
+                              Si ya interrumpiste
+                            </div>
+                            <div>
+                              “Perdón, te interrumpí. Por favor continuá, vuelvo
+                              a mi punto después.”
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <MessageSquare className="h-4 w-4" /> Escucha activa
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="grid sm:grid-cols-2 gap-3 text-xs">
+                          <div>
+                            <h5 className="font-semibold mb-2">Visual</h5>
+                            <ul className="space-y-1">
+                              <li>• Contacto visual natural</li>
+                              <li>• Asentir para seguimiento</li>
+                              <li>• Notas de puntos clave</li>
+                              <li>• Dibujar si ayuda</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h5 className="font-semibold mb-2">Verbal</h5>
+                            <ul className="space-y-1">
+                              <li>• “Si entiendo bien, decís que...”</li>
+                              <li>• Preguntas clarificadoras</li>
+                              <li>• Resúmenes periódicos</li>
+                              <li>• “¿Podés repetir eso?”</li>
+                            </ul>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Micro-checklists accionables */}
+                    <ChecklistEmociones />
                   </div>
 
                   <div className="mt-8 text-center space-x-4">
@@ -1618,6 +1524,196 @@ function ChecklistOrganizacion() {
               <Checkbox
                 checked={week.has(item.id)}
                 onCheckedChange={(v) => toggle("week", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function ChecklistAtencion() {
+  const [quick, setQuick] = useState<Set<string>>(new Set());
+  const [setup, setSetup] = useState<Set<string>>(new Set());
+
+  const toggle = (
+    scope: "quick" | "setup",
+    id: string,
+    checked: CheckedState
+  ) => {
+    if (scope === "quick") {
+      setQuick((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    } else {
+      setSetup((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    }
+  };
+
+  const quickItems = [
+    { id: "timer", icon: "⏱️", text: "Poner un timer 25' (sin distracciones)" },
+    { id: "ruido", icon: "🎧", text: "Ruido blanco / música instrumental" },
+    { id: "pausa", icon: "🚶", text: "Pausa de movimiento 5'" },
+  ] as const;
+
+  const setupItems = [
+    { id: "web", icon: "⛔", text: "Bloquear 3 sitios distractores" },
+    { id: "fidget", icon: "🧩", text: "Dejar un fidget discreto a mano" },
+    { id: "parking", icon: "🗒️", text: "Crear libreta de parking de ideas" },
+  ] as const;
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Ahora mismo</CardTitle>
+          <CardDescription className="text-xs">
+            3 acciones express
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {quickItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={quick.has(item.id)}
+                onCheckedChange={(v) => toggle("quick", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Configurar</CardTitle>
+          <CardDescription className="text-xs">
+            Pequeños cambios de entorno
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {setupItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={setup.has(item.id)}
+                onCheckedChange={(v) => toggle("setup", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function ChecklistEmociones() {
+  const [reg, setReg] = useState<Set<string>>(new Set());
+  const [com, setCom] = useState<Set<string>>(new Set());
+
+  const toggle = (scope: "reg" | "com", id: string, checked: CheckedState) => {
+    if (scope === "reg") {
+      setReg((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    } else {
+      setCom((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    }
+  };
+
+  const regItems = [
+    { id: "stop", icon: "🛑", text: "Practicar STOP 1 vez hoy" },
+    { id: "respirar", icon: "🌬️", text: "3 rondas de 4-7-8" },
+  ] as const;
+
+  const comItems = [
+    { id: "notas", icon: "📝", text: "Tomar notas en 1 conversación" },
+    { id: "parafraseo", icon: "🗣️", text: "Decir: “Si entiendo bien...”" },
+  ] as const;
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Regulación</CardTitle>
+          <CardDescription className="text-xs">
+            Prácticas de hoy
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {regItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={reg.has(item.id)}
+                onCheckedChange={(v) => toggle("reg", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Comunicación</CardTitle>
+          <CardDescription className="text-xs">Probar hoy</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {comItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={com.has(item.id)}
+                onCheckedChange={(v) => toggle("com", item.id, v)}
                 className="mt-0.5"
                 aria-label={item.text}
               />
