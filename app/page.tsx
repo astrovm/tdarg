@@ -47,7 +47,7 @@ export default function HomePage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary/30 text-primary hover:bg-accent dark:border-primary/50 dark:text-primary"
+              className="bg-slate-800 border-slate-800 text-white hover:bg-slate-700 dark:bg-slate-800 dark:border-slate-800 dark:text-white dark:hover:bg-slate-700"
               asChild
             >
               <Link href="/especialistas">
@@ -58,7 +58,7 @@ export default function HomePage() {
             <Button
               size="lg"
               variant="secondary"
-              className="shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-slate-800 text-white hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
               asChild
             >
               <Link href="/legislacion">

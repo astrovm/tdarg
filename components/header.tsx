@@ -42,7 +42,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Brain className="h-8 w-8 text-primary" />
+            <Brain className="h-8 w-8 text-purple-600" />
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               Tdarg
             </h1>
