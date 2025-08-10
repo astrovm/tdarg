@@ -855,7 +855,7 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Actúa como "memoria externa". Integración fluida reduce esfuerzo cognitivo
+                              Actúa como &ldquo;memoria externa&rdquo;. Integración fluida reduce esfuerzo cognitivo
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge>Gratis</Badge>
@@ -1279,7 +1279,7 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Analiza en tiempo real cómo usás dispositivos, detecta "fugas de tiempo"
+                              Analiza en tiempo real cómo usás dispositivos, detecta &ldquo;fugas de tiempo&rdquo;
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge>Freemium</Badge>

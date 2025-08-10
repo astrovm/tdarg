@@ -622,10 +622,10 @@ export default function DiagnosticoPage() {
                     <AlertTriangle className="h-4 w-4" />
                     <AlertDescription>
                       <strong>Preguntas clave para verificar especialización:</strong>
-                      <br />• "¿Cuántos años de experiencia tiene específicamente con TDAH?"
-                      <br />• "¿Qué tests neuropsicológicos usa para TDAH?" (CPT, TOVA, BRIEF)
-                      <br />• "¿Está familiarizado con el DSM-5 para TDAH adulto?"
-                      <br />• "¿Ha hecho cursos de especialización en TDAH?"
+                      <br />• &ldquo;¿Cuántos años de experiencia tiene específicamente con TDAH?&rdquo;
+                      <br />• &ldquo;¿Qué tests neuropsicológicos usa para TDAH?&rdquo; (CPT, TOVA, BRIEF)
+                      <br />• &ldquo;¿Está familiarizado con el DSM-5 para TDAH adulto?&rdquo;
+                      <br />• &ldquo;¿Ha hecho cursos de especialización en TDAH?&rdquo;
                     </AlertDescription>
                   </Alert>
                   {/* Visual Checklist */}
