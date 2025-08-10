@@ -238,15 +238,15 @@ export default function HerramientasPage() {
                         <CardContent>
                           <div className="grid grid-cols-3 gap-2 mb-2 text-center text-xs">
                             <div className="p-2 bg-green-50 dark:bg-green-950 rounded">
-                              <div className="font-semibold">15'</div>
+                              <div className="font-semibold">15 min</div>
                               <div>Difíciles</div>
                             </div>
                             <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded">
-                              <div className="font-semibold">25'</div>
+                              <div className="font-semibold">25 min</div>
                               <div>Normales</div>
                             </div>
                             <div className="p-2 bg-purple-50 dark:bg-purple-950 rounded">
-                              <div className="font-semibold">45'</div>
+                              <div className="font-semibold">45 min</div>
                               <div>Interesantes</div>
                             </div>
                           </div>
@@ -692,8 +692,8 @@ export default function HerramientasPage() {
                               Si ya interrumpiste
                             </div>
                             <div>
-                              "Perdón, te interrumpí. Por favor continuá, vuelvo
-                              a mi punto después."
+                              Perdón, te interrumpí. Por favor continuá, vuelvo
+                              a mi punto después.
                             </div>
                           </div>
                         </CardContent>
@@ -718,10 +718,10 @@ export default function HerramientasPage() {
                           <div>
                             <h5 className="font-semibold mb-2">Verbal</h5>
                             <ul className="space-y-1">
-                              <li>• "Si entiendo bien, decís que..."</li>
+                              <li>• «Si entiendo bien, decís que…»</li>
                               <li>• Preguntas clarificadoras</li>
                               <li>• Resúmenes periódicos</li>
-                              <li>• "¿Podés repetir eso?"</li>
+                              <li>• «¿Podés repetir eso?»</li>
                             </ul>
                           </div>
                         </CardContent>
@@ -1472,9 +1472,13 @@ function ChecklistAtencion() {
   };
 
   const quickItems = [
-    { id: "timer", icon: "⏱️", text: "Poner un timer 25' (sin distracciones)" },
+    {
+      id: "timer",
+      icon: "⏱️",
+      text: "Poner un timer 25 min (sin distracciones)",
+    },
     { id: "ruido", icon: "🎧", text: "Ruido blanco / música instrumental" },
-    { id: "pausa", icon: "🚶", text: "Pausa de movimiento 5'" },
+    { id: "pausa", icon: "🚶", text: "Pausa de movimiento 5 min" },
   ] as const;
 
   const setupItems = [
@@ -1573,7 +1577,7 @@ function ChecklistEmociones() {
 
   const comItems = [
     { id: "notas", icon: "📝", text: "Tomar notas en 1 conversación" },
-    { id: "parafraseo", icon: "🗣️", text: 'Decir: "Si entiendo bien..."' },
+    { id: "parafraseo", icon: "🗣️", text: "Decir: «Si entiendo bien…»" },
   ] as const;
 
   return (
