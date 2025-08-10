@@ -1,16 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Desactivar React Strict Mode en desarrollo para evitar doble renderizado
-  reactStrictMode: false,
-  
+  reactStrictMode: true,
+
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
-  
+
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  
+
   images: {
     remotePatterns: [
       {
@@ -18,7 +17,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-    unoptimized: true,
+    unoptimized: false,
   },
 }
 
