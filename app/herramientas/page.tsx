@@ -870,7 +870,7 @@ export default function HerramientasPage() {
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Pago
+                                Pago único
                               </Badge>
                               <Badge variant="outline" className="text-xs">
                                 Motivador
@@ -893,7 +893,7 @@ export default function HerramientasPage() {
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Freemium
+                                Pago
                               </Badge>
                               <Badge variant="outline" className="text-xs">
                                 Automático
@@ -935,7 +935,7 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              All-in-one workspace
+                              Espacio de trabajo todo en uno
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
