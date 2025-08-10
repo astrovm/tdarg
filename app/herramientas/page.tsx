@@ -13,12 +13,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import type { CheckedState } from "@radix-ui/react-checkbox";
 import {
@@ -100,8 +94,7 @@ export default function HerramientasPage() {
   } = useStepProgress({ totalSteps: steps.length });
 
   // Step 1 checklist state
-  const [todayChecks, setTodayChecks] = useState<Set<string>>(new Set());
-  const [weekChecks, setWeekChecks] = useState<Set<string>>(new Set());
+  // (Eliminado: estados no usados de ejemplo)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
