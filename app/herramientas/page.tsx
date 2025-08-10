@@ -162,6 +162,9 @@ export default function HerramientasPage() {
               <strong>Personalización:</strong> No todas las estrategias
               funcionan para todas las personas. Experimentá y adaptá estas
               herramientas a tu estilo de vida y necesidades específicas.
+              <br /><br />
+              <strong>Importante:</strong> Las apps y herramientas son apoyo, no reemplazan medicación ni terapia. 
+              La combinación de medicación y terapia conductual produce la mayor mejoría en adultos con TDAH.
             </AlertDescription>
           </Alert>
 
@@ -254,6 +257,7 @@ export default function HerramientasPage() {
                             <li>• Descansos 5-15 min obligatorios</li>
                             <li>• Timer visual o auditivo</li>
                             <li>• Sin distracciones durante el bloque</li>
+                            <li>• Estudiantes reportan menos ansiedad y mayor resistencia</li>
                           </ul>
                         </CardContent>
                       </Card>
@@ -321,6 +325,13 @@ export default function HerramientasPage() {
                               <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                               <span>
                                 <strong>Colores por categoría</strong>
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Recordatorios visuales:</strong> objetos visibles 
+                                son más efectivos que notas adhesivas
                               </span>
                             </li>
                           </ul>
@@ -530,6 +541,8 @@ export default function HerramientasPage() {
                               <li>• Un objetivo claro por fragmento</li>
                               <li>• Recompensa pequeña entre fragmentos</li>
                               <li>• Progreso visible (checklist/barra)</li>
+                              <li>• Alterná tareas demandantes con simples</li>
+                              <li>• Micro-objetivos mejoran adherencia 47%</li>
                             </ul>
                           </div>
                         </CardContent>
@@ -665,6 +678,13 @@ export default function HerramientasPage() {
                               Para concentración
                             </div>
                           </div>
+                          <div className="p-3 bg-green-50 dark:bg-green-950 rounded col-span-2">
+                            <h5 className="font-semibold mb-2">Evidencia científica</h5>
+                            <div className="text-xs text-muted-foreground">
+                              Meta-análisis (682 participantes): mindfulness reduce significativamente 
+                              inatención (-0.82) e hiperactividad/impulsividad (-0.68)
+                            </div>
+                          </div>
                         </CardContent>
                       </Card>
                     </div>
@@ -763,44 +783,50 @@ export default function HerramientasPage() {
                 <CardContent>
                   <div className="space-y-8">
                     {/* Resumen visual */}
-                    <div className="grid md:grid-cols-3 gap-3">
+                    <div className="grid md:grid-cols-4 gap-3">
                       <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded text-center">
                         <div className="text-sm font-semibold">
-                          Productividad
+                          Tareas
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          Tareas, notas, tiempo
+                          Organización básica
+                        </div>
+                      </div>
+                      <div className="p-3 bg-green-100 dark:bg-green-900 rounded text-center">
+                        <div className="text-sm font-semibold">Terapéuticas</div>
+                        <div className="text-xs text-muted-foreground">
+                          Apps con evidencia
                         </div>
                       </div>
                       <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded text-center">
-                        <div className="text-sm font-semibold">Bloqueo</div>
+                        <div className="text-sm font-semibold">Foco</div>
                         <div className="text-xs text-muted-foreground">
-                          Reducí distracciones
+                          Tiempo y atención
                         </div>
                       </div>
                       <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded text-center">
                         <div className="text-sm font-semibold">
-                          Asistentes IA
+                          Hábitos
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          Planificación y resúmenes
+                          Rutinas sostenibles
                         </div>
                       </div>
                     </div>
 
-                    {/* Aplicaciones de Productividad */}
+                    {/* Gestión de Tareas y Productividad */}
                     <Card className="border">
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                          <Smartphone className="h-5 w-5" /> Aplicaciones de
-                          Productividad
+                          <Smartphone className="h-5 w-5" /> Gestión de Tareas y Productividad
                         </CardTitle>
                         <CardDescription>
-                          Apps para tareas, notas y foco
+                          Apps para organizar tareas, proyectos y mejorar el foco
                         </CardDescription>
                       </CardHeader>
                       <CardContent>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {/* Todoist */}
                           <div className="p-3 border rounded">
                             <h5 className="font-semibold text-sm mb-1">
                               <a
@@ -813,109 +839,31 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Sistema GTD completo
+                              Sistema GTD con etiquetas y filtros. Reduce impulsividad y facilita enfocarse en lo importante
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Multiplataforma
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>GTD</Badge>
+                              <Badge>Multiplataforma</Badge>
                             </div>
                           </div>
+                          {/* Microsoft To Do */}
                           <div className="p-3 border rounded">
                             <h5 className="font-semibold text-sm mb-1">
-                              <a
-                                href="https://www.any.do"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:underline"
-                              >
-                                Any.do
+                              <a href="https://to-do.microsoft.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Microsoft To Do
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Interfaz simple y visual
+                              Actúa como "memoria externa". Integración fluida reduce esfuerzo cognitivo
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Fácil
-                              </Badge>
+                              <Badge>Gratis</Badge>
+                              <Badge>Integrado</Badge>
+                              <Badge>Simple</Badge>
                             </div>
                           </div>
-                          <div className="p-3 border rounded">
-                            <h5 className="font-semibold text-sm mb-1">
-                              <a
-                                href="https://www.forestapp.cc"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:underline"
-                              >
-                                Forest
-                              </a>
-                            </h5>
-                            <p className="text-xs text-muted-foreground mb-2">
-                              Gamificación para mantener foco
-                            </p>
-                            <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Pago único
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Motivador
-                              </Badge>
-                            </div>
-                          </div>
-                          <div className="p-3 border rounded">
-                            <h5 className="font-semibold text-sm mb-1">
-                              <a
-                                href="https://www.rescuetime.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:underline"
-                              >
-                                RescueTime
-                              </a>
-                            </h5>
-                            <p className="text-xs text-muted-foreground mb-2">
-                              Tracking automático de tiempo
-                            </p>
-                            <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Pago
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Automático
-                              </Badge>
-                            </div>
-                          </div>
-                          <div className="p-3 border rounded">
-                            <h5 className="font-semibold text-sm mb-1">
-                              <a
-                                href="https://keep.google.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:underline"
-                              >
-                                Google Keep
-                              </a>
-                            </h5>
-                            <p className="text-xs text-muted-foreground mb-2">
-                              Notas visuales con colores
-                            </p>
-                            <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Gratis
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Colaborativo
-                              </Badge>
-                            </div>
-                          </div>
+                          {/* Google Tasks */}
                           <div className="p-3 border rounded">
                             <h5 className="font-semibold text-sm mb-1">
                               <a
@@ -931,14 +879,28 @@ export default function HerramientasPage() {
                               Tareas simples integradas a Gmail y Calendar
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Gratis
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Integrado
-                              </Badge>
+                              <Badge>Gratis</Badge>
+                              <Badge>Integrado</Badge>
+                              <Badge>Google</Badge>
                             </div>
                           </div>
+                          {/* Trello */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://trello.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Trello
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Tableros kanban arrastrables. Facilita reordenar prioridades y ajustar planes
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Gratis</Badge>
+                              <Badge>Visual</Badge>
+                              <Badge>Kanban</Badge>
+                            </div>
+                          </div>
+                          {/* Notion */}
                           <div className="p-3 border rounded">
                             <h5 className="font-semibold text-sm mb-1">
                               <a
@@ -951,15 +913,49 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Espacio de trabajo todo en uno
+                              Espacio de trabajo todo en uno para notas, tareas y proyectos
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Flexible
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Completo</Badge>
+                              <Badge>Flexible</Badge>
+                            </div>
+                          </div>
+                          {/* Any.do */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.any.do"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Any.do
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Interfaz simple y visual para tareas básicas
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>Simple</Badge>
+                              <Badge>Visual</Badge>
+                            </div>
+                          </div>
+                          {/* Remember The Milk */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://www.rememberthemilk.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Remember The Milk
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Interfaz minimalista con integración Gmail/Evernote. Simplifica gestión sin abrumar
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>Minimalista</Badge>
+                              <Badge>Integraciones</Badge>
                             </div>
                           </div>
                         </div>
@@ -991,12 +987,9 @@ export default function HerramientasPage() {
                               Bloqueo robusto, difícil de desactivar
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Modo extremo
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Robusto</Badge>
+                              <Badge>Extremo</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1014,12 +1007,9 @@ export default function HerramientasPage() {
                               Multiplataforma
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Pago
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Sincroniza dispositivos
-                              </Badge>
+                              <Badge>Pago</Badge>
+                              <Badge>Multiplataforma</Badge>
+                              <Badge>Sincronización</Badge>
                             </div>
                           </div>
                         </div>
@@ -1050,12 +1040,9 @@ export default function HerramientasPage() {
                               Versátil y buen español
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Español
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Español</Badge>
+                              <Badge>Versátil</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1073,12 +1060,9 @@ export default function HerramientasPage() {
                               Textos largos y documentos
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Contexto amplio
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Contexto largo</Badge>
+                              <Badge>Documentos</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1096,12 +1080,9 @@ export default function HerramientasPage() {
                               Integra Google
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Multiplataforma
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Google</Badge>
+                              <Badge>Integrado</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1119,12 +1100,9 @@ export default function HerramientasPage() {
                               Razonamiento a bajo costo
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Razonamiento
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Razonamiento</Badge>
+                              <Badge>Económico</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1142,12 +1120,9 @@ export default function HerramientasPage() {
                               Contexto muy largo
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Chino/Inglés
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Contexto extenso</Badge>
+                              <Badge>Chino/Inglés</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1165,12 +1140,9 @@ export default function HerramientasPage() {
                               Integrado con X (Twitter)
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Humor
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>X/Twitter</Badge>
+                              <Badge>Tiempo real</Badge>
                             </div>
                           </div>
                           <div className="p-3 border rounded">
@@ -1188,12 +1160,216 @@ export default function HerramientasPage() {
                               Respuestas con fuentes
                             </p>
                             <div className="flex gap-1 flex-wrap">
-                              <Badge variant="outline" className="text-xs">
-                                Freemium
-                              </Badge>
-                              <Badge variant="outline" className="text-xs">
-                                Fuentes citadas
-                              </Badge>
+                              <Badge>Freemium</Badge>
+                              <Badge>Fuentes</Badge>
+                              <Badge>Búsqueda</Badge>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Tratamientos digitales y apps de hábitos */}
+                    <Card className="border">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <Gamepad2 className="h-5 w-5" /> Tratamientos Digitales
+                        </CardTitle>
+                        <CardDescription>
+                          Apps con enfoque terapéutico para el TDAH
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {/* Inflow */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://www.getinflow.io" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Inflow
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              App de TCC con módulos educativos. Estudios reportan reducción de hiperactividad e impulsividad
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Pago</Badge>
+                              <Badge>TCC</Badge>
+                              <Badge>Adultos</Badge>
+                            </div>
+                          </div>
+                          {/* EndeavorOTC */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://www.endeavorotc.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                EndeavorOTC
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Videojuego aprobado por FDA. Mejoras de atención tras 6 semanas, requiere práctica constante
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Pago</Badge>
+                              <Badge>Videojuego</Badge>
+                              <Badge>Terapéutico</Badge>
+                            </div>
+                          </div>
+                          {/* Joon */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://www.joonapp.io" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Joon
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Misiones gamificadas para niños para fomentar hábitos positivos
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>Niños</Badge>
+                              <Badge>Gamificación</Badge>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Foco y Control de Tiempo */}
+                    <Card className="border">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <Timer className="h-5 w-5" /> Foco y Control de Tiempo
+                        </CardTitle>
+                        <CardDescription>
+                          Apps para mantener concentración y gestionar el tiempo
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {/* Forest */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.forestapp.cc"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Forest
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Gamificación para mantener foco con árboles virtuales
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Pago</Badge>
+                              <Badge>Gamificado</Badge>
+                              <Badge>Motivador</Badge>
+                            </div>
+                          </div>
+                          {/* RescueTime */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.rescuetime.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                RescueTime
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Analiza en tiempo real cómo usás dispositivos, detecta "fugas de tiempo"
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>Automático</Badge>
+                              <Badge>Análisis</Badge>
+                            </div>
+                          </div>
+                          {/* Google Keep */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://keep.google.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Google Keep
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Notas rápidas visuales con colores y recordatorios
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Gratis</Badge>
+                              <Badge>Visual</Badge>
+                              <Badge>Google</Badge>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Construcción de Hábitos */}
+                    <Card className="border">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <Target className="h-5 w-5" /> Construcción de Hábitos
+                        </CardTitle>
+                        <CardDescription>
+                          Apps especializadas en crear y mantener hábitos y rutinas
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {/* Habitica */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://habitica.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Habitica
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Sistema RPG para tareas. Provee dopamina con recompensas, útil para iniciar tareas sin procrastinar
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>RPG</Badge>
+                              <Badge>Gamificado</Badge>
+                            </div>
+                          </div>
+                          {/* Routinery */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://routine.co" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Routinery
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Descompone rutinas en pasos cronometrados. Ayuda a mantener atención y crear hábitos sostenibles
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>Rutinas</Badge>
+                              <Badge>Temporizadores</Badge>
+                            </div>
+                          </div>
+                          {/* Productive */}
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a href="https://productive.app" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Productive
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Seguimiento visual de hábitos con estadísticas y integración Siri/Assistant
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge>Freemium</Badge>
+                              <Badge>Visual</Badge>
+                              <Badge>Estadísticas</Badge>
                             </div>
                           </div>
                         </div>
