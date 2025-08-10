@@ -925,8 +925,8 @@ export default function HerramientasPage() {
                       <CardContent>
                         <Accordion type="single" collapsible className="w-full">
                           <AccordionItem value="task-apps">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
+                            <AccordionTrigger className="text-left">
+                              <div className="flex items-center gap-2 w-full">
                                 <CheckCircle className="h-4 w-4" />
                                 Apps de Tareas y Productividad
                               </div>
@@ -1104,14 +1104,14 @@ export default function HerramientasPage() {
                           </AccordionItem>
 
                           <AccordionItem value="blocker-apps">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
+                            <AccordionTrigger className="text-left">
+                              <div className="flex items-center gap-2 w-full">
                                 <Focus className="h-4 w-4" />
                                 Bloqueadores de Distracciones
                               </div>
                             </AccordionTrigger>
                             <AccordionContent>
-                              <div className="grid md:grid-cols-1 gap-4">
+                              <div className="grid md:grid-cols-2 gap-4">
                                 <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
@@ -1124,15 +1124,20 @@ export default function HerramientasPage() {
                                         Cold Turkey
                                       </a>
                                     </h5>
-                                    <p className="text-xs text-muted-foreground mb-1">
+                                    <p className="text-xs text-muted-foreground mb-2">
                                       Bloqueo robusto, difícil de desactivar
                                     </p>
-                                    <ul className="text-xs space-y-1">
-                                      <li>• Horarios programados</li>
-                                      <li>• Bloqueo de aplicaciones</li>
-                                      <li>• Modo extremo disponible</li>
-                                    </ul>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Freemium
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Modo extremo
+                                      </Badge>
+                                    </div>
                                   </div>
+                                </div>
+                                <div className="space-y-3">
                                   <div className="p-3 border rounded">
                                     <h5 className="font-semibold text-sm mb-1">
                                       <a
@@ -1144,14 +1149,17 @@ export default function HerramientasPage() {
                                         Freedom
                                       </a>
                                     </h5>
-                                    <p className="text-xs text-muted-foreground mb-1">
+                                    <p className="text-xs text-muted-foreground mb-2">
                                       Multiplataforma
                                     </p>
-                                    <ul className="text-xs space-y-1">
-                                      <li>• Sincroniza dispositivos</li>
-                                      <li>• Listas predefinidas</li>
-                                      <li>• Estadísticas de uso</li>
-                                    </ul>
+                                    <div className="flex gap-1">
+                                      <Badge variant="outline" className="text-xs">
+                                        Pago
+                                      </Badge>
+                                      <Badge variant="outline" className="text-xs">
+                                        Sincroniza dispositivos
+                                      </Badge>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
