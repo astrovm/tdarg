@@ -926,6 +926,29 @@ export default function HerramientasPage() {
                           <div className="p-3 border rounded">
                             <h5 className="font-semibold text-sm mb-1">
                               <a
+                                href="https://tasks.google.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Google Tasks
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Tareas simples integradas a Gmail y Calendar
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Gratis
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Integrado
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
                                 href="https://www.notion.so"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -1649,7 +1672,7 @@ function ChecklistTecnologia() {
     {
       id: "todoist",
       icon: "🧾",
-      text: "Crear lista 'Siguientes 3' en Todoist/Keep",
+      text: "Crear lista 'Siguientes 3' en Todoist/Keep/Tasks",
     },
     {
       id: "timer",
