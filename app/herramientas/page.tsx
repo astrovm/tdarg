@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useStepProgress } from "@/hooks/use-step-progress";
 import {
   Card,
@@ -18,6 +19,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Checkbox } from "@/components/ui/checkbox";
+import type { CheckedState } from "@radix-ui/react-checkbox";
 import {
   CheckCircle,
   ArrowRight,
@@ -95,6 +98,10 @@ export default function HerramientasPage() {
     prev,
     isDone,
   } = useStepProgress({ totalSteps: steps.length });
+
+  // Step 1 checklist state
+  const [todayChecks, setTodayChecks] = useState<Set<string>>(new Set());
+  const [weekChecks, setWeekChecks] = useState<Set<string>>(new Set());
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -179,241 +186,187 @@ export default function HerramientasPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6">
-                    {/* Time Management Systems */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Calendar className="h-5 w-5" />
-                          Sistemas de Planificación y Gestión del Tiempo
-                        </CardTitle>
-                        <CardDescription>
-                          Métodos probados para organizar tareas y mejorar la
-                          productividad
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="gtd">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Grid3X3 className="h-4 w-4" />
-                                Getting Things Done (GTD)
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <p className="mb-3 text-sm text-muted-foreground">
-                                Sistema para capturar y organizar todas las
-                                tareas de manera sistemática
-                              </p>
-                              <ul className="space-y-1 text-sm">
-                                <li>
-                                  • Capturar todo en una &quot;bandeja de
-                                  entrada&quot;
-                                </li>
-                                <li>• Procesar: ¿Es accionable?</li>
-                                <li>• Organizar en listas contextuales</li>
-                                <li>• Revisar semanalmente</li>
-                                <li>• Ejecutar con confianza</li>
-                              </ul>
-                            </AccordionContent>
-                          </AccordionItem>
+                  <div className="space-y-8">
+                    {/* Resumen visual */}
+                    <div className="grid md:grid-cols-3 gap-3">
+                      <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded text-center">
+                        <div className="text-sm font-semibold">15-45 min</div>
+                        <div className="text-xs text-muted-foreground">
+                          Bloques de trabajo
+                        </div>
+                      </div>
+                      <div className="p-3 bg-green-100 dark:bg-green-900 rounded text-center">
+                        <div className="text-sm font-semibold">3 claves</div>
+                        <div className="text-xs text-muted-foreground">
+                          Siguientes 3 tareas
+                        </div>
+                      </div>
+                      <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded text-center">
+                        <div className="text-sm font-semibold">
+                          Espacios visuales
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Etiquetas y colores
+                        </div>
+                      </div>
+                    </div>
 
-                          <AccordionItem value="pomodoro">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Timer className="h-4 w-4" />
-                                Técnica Pomodoro Adaptada
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <p className="mb-3 text-sm text-muted-foreground">
-                                Intervalos de trabajo adaptados para personas
-                                con TDAH
-                              </p>
-                              <div className="grid md:grid-cols-3 gap-3 mb-3">
-                                <div className="p-2 bg-green-50 dark:bg-green-950 rounded text-center">
-                                  <div className="font-semibold text-sm">
-                                    15 min
-                                  </div>
-                                  <div className="text-xs">
-                                    Tareas difíciles
-                                  </div>
-                                </div>
-                                <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded text-center">
-                                  <div className="font-semibold text-sm">
-                                    25 min
-                                  </div>
-                                  <div className="text-xs">Tareas normales</div>
-                                </div>
-                                <div className="p-2 bg-purple-50 dark:bg-purple-950 rounded text-center">
-                                  <div className="font-semibold text-sm">
-                                    45 min
-                                  </div>
-                                  <div className="text-xs">
-                                    Tareas interesantes
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="text-sm space-y-1">
-                                <li>
-                                  • Descansos obligatorios de 5-15 minutos
-                                </li>
-                                <li>• Usar timer visual o auditivo</li>
-                                <li>
-                                  • Eliminar distracciones durante el intervalo
-                                </li>
-                              </ul>
-                            </AccordionContent>
-                          </AccordionItem>
+                    {/* Tarjetas de técnicas */}
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Grid3X3 className="h-4 w-4" /> GTD (Getting Things
+                            Done)
+                          </CardTitle>
+                          <CardDescription className="text-xs">
+                            Sistema para vaciar la mente y organizar acciones
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="text-xs space-y-1">
+                            <li>• Capturá todo en una bandeja de entrada</li>
+                            <li>• Procesá: ¿es accionable?</li>
+                            <li>• Poné contexto y próxima acción</li>
+                            <li>• Revisá semanalmente</li>
+                          </ul>
+                        </CardContent>
+                      </Card>
 
-                          <AccordionItem value="rule-of-3">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4" />
-                                Regla de los &quot;Siguientes 3&quot;
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <p className="mb-3 text-sm text-muted-foreground">
-                                Enfócate solo en las 3 tareas más importantes
-                                del día
-                              </p>
-                              <div className="grid md:grid-cols-3 gap-3">
-                                <div className="p-2 border rounded text-center">
-                                  <div className="text-lg mb-1">🔥</div>
-                                  <div className="text-sm font-semibold">
-                                    Tarea 1
-                                  </div>
-                                  <div className="text-xs">
-                                    La MÁS importante
-                                  </div>
-                                </div>
-                                <div className="p-2 border rounded text-center">
-                                  <div className="text-lg mb-1">⚡</div>
-                                  <div className="text-sm font-semibold">
-                                    Tarea 2
-                                  </div>
-                                  <div className="text-xs">
-                                    Segunda prioridad
-                                  </div>
-                                </div>
-                                <div className="p-2 border rounded text-center">
-                                  <div className="text-lg mb-1">📋</div>
-                                  <div className="text-sm font-semibold">
-                                    Tarea 3
-                                  </div>
-                                  <div className="text-xs">
-                                    Tercera prioridad
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </CardContent>
-                    </Card>
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Timer className="h-4 w-4" /> Pomodoro adaptado
+                          </CardTitle>
+                          <CardDescription className="text-xs">
+                            Intervalos distintos según dificultad
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid grid-cols-3 gap-2 mb-2 text-center text-xs">
+                            <div className="p-2 bg-green-50 dark:bg-green-950 rounded">
+                              <div className="font-semibold">15'</div>
+                              <div>Difíciles</div>
+                            </div>
+                            <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded">
+                              <div className="font-semibold">25'</div>
+                              <div>Normales</div>
+                            </div>
+                            <div className="p-2 bg-purple-50 dark:bg-purple-950 rounded">
+                              <div className="font-semibold">45'</div>
+                              <div>Interesantes</div>
+                            </div>
+                          </div>
+                          <ul className="text-xs space-y-1">
+                            <li>• Descansos 5-15 min obligatorios</li>
+                            <li>• Timer visual o auditivo</li>
+                            <li>• Sin distracciones durante el bloque</li>
+                          </ul>
+                        </CardContent>
+                      </Card>
 
-                    {/* Space Organization */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <BookOpen className="h-5 w-5" />
-                          Organización del Espacio
-                        </CardTitle>
-                        <CardDescription>
-                          Principios para crear espacios que apoyen la
-                          concentración
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="visual-org">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Grid3X3 className="h-4 w-4" />
-                                Organización Visual
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <ul className="space-y-2 text-sm">
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Un lugar para cada cosa:</strong>{" "}
-                                    Lugares fijos y visibles
-                                  </span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Contenedores transparentes:</strong>{" "}
-                                    Para ver el contenido
-                                  </span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Etiquetas claras:</strong> Con
-                                    palabras e imágenes
-                                  </span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Colores codificados:</strong> Por
-                                    categorías
-                                  </span>
-                                </li>
-                              </ul>
-                            </AccordionContent>
-                          </AccordionItem>
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4" /> Siguientes 3
+                          </CardTitle>
+                          <CardDescription className="text-xs">
+                            Priorizá solo 3 tareas del día
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                            <div className="p-2 border rounded">
+                              <div className="text-lg">🔥</div>
+                              <div>Más importante</div>
+                            </div>
+                            <div className="p-2 border rounded">
+                              <div className="text-lg">⚡</div>
+                              <div>Segunda</div>
+                            </div>
+                            <div className="p-2 border rounded">
+                              <div className="text-lg">📋</div>
+                              <div>Tercera</div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
 
-                          <AccordionItem value="functional-zones">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Calendar className="h-4 w-4" />
-                                Zonas Funcionales
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-3">
-                                <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded">
-                                  <h5 className="font-semibold text-sm">
-                                    Zona de Entrada
-                                  </h5>
-                                  <p className="text-xs">
-                                    Llaves, billetera, documentos
-                                  </p>
-                                </div>
-                                <div className="p-2 bg-green-50 dark:bg-green-950 rounded">
-                                  <h5 className="font-semibold text-sm">
-                                    Zona de Trabajo
-                                  </h5>
-                                  <p className="text-xs">
-                                    Escritorio organizado
-                                  </p>
-                                </div>
-                                <div className="p-2 bg-amber-50 dark:bg-amber-950 rounded">
-                                  <h5 className="font-semibold text-sm">
-                                    Zona de Preparación
-                                  </h5>
-                                  <p className="text-xs">
-                                    Ropa del día siguiente
-                                  </p>
-                                </div>
-                                <div className="p-2 bg-purple-50 dark:bg-purple-950 rounded">
-                                  <h5 className="font-semibold text-sm">
-                                    Zona de Descanso
-                                  </h5>
-                                  <p className="text-xs">Libre de trabajo</p>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </CardContent>
-                    </Card>
+                    {/* Organización del espacio */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <BookOpen className="h-4 w-4" /> Organización visual
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="text-xs space-y-2">
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Un lugar para cada cosa:</strong> fijo y
+                                visible
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Transparencias:</strong> contenedores
+                                que muestren contenido
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Etiquetas claras:</strong> palabras +
+                                íconos
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Colores por categoría</strong>
+                              </span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Calendar className="h-4 w-4" /> Zonas funcionales
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="grid sm:grid-cols-2 gap-3 text-xs">
+                          <div className="p-2 bg-blue-50 dark:bg-blue-950 rounded">
+                            <div className="font-semibold">Zona de entrada</div>
+                            <div>Llaves, billetera, documentos</div>
+                          </div>
+                          <div className="p-2 bg-green-50 dark:bg-green-950 rounded">
+                            <div className="font-semibold">Zona de trabajo</div>
+                            <div>Escritorio despejado</div>
+                          </div>
+                          <div className="p-2 bg-amber-50 dark:bg-amber-950 rounded">
+                            <div className="font-semibold">
+                              Zona de preparación
+                            </div>
+                            <div>Ropa día siguiente</div>
+                          </div>
+                          <div className="p-2 bg-purple-50 dark:bg-purple-950 rounded">
+                            <div className="font-semibold">
+                              Zona de descanso
+                            </div>
+                            <div>Libre de trabajo</div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Micro-checklists accionables */}
+                    <ChecklistOrganizacion />
                   </div>
 
                   <div className="mt-8 text-center">
@@ -1067,10 +1020,16 @@ export default function HerramientasPage() {
                                       Notas visuales con colores
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Gratis
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Colaborativo
                                       </Badge>
                                     </div>
@@ -1090,10 +1049,16 @@ export default function HerramientasPage() {
                                       All-in-one workspace
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Freemium
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Flexible
                                       </Badge>
                                     </div>
@@ -1128,10 +1093,16 @@ export default function HerramientasPage() {
                                       Bloqueo robusto, difícil de desactivar
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Freemium
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Modo extremo
                                       </Badge>
                                     </div>
@@ -1153,10 +1124,16 @@ export default function HerramientasPage() {
                                       Multiplataforma
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Pago
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Sincroniza dispositivos
                                       </Badge>
                                     </div>
@@ -1190,10 +1167,16 @@ export default function HerramientasPage() {
                                       Asistente conversacional versátil
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Freemium
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Español
                                       </Badge>
                                     </div>
@@ -1213,10 +1196,16 @@ export default function HerramientasPage() {
                                       IA enfocada en seguridad y análisis
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Gratis
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Inglés
                                       </Badge>
                                     </div>
@@ -1236,10 +1225,16 @@ export default function HerramientasPage() {
                                       Integración con servicios de Google
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Freemium
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Multiplataforma
                                       </Badge>
                                     </div>
@@ -1259,10 +1254,16 @@ export default function HerramientasPage() {
                                       Modelo optimizado para búsquedas
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Gratis
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Búsquedas
                                       </Badge>
                                     </div>
@@ -1284,10 +1285,16 @@ export default function HerramientasPage() {
                                       IA enfocada en el contexto largo
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Gratis
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Chino/Inglés
                                       </Badge>
                                     </div>
@@ -1307,10 +1314,16 @@ export default function HerramientasPage() {
                                       Estilo conversacional informal
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Pago
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Humor
                                       </Badge>
                                     </div>
@@ -1330,10 +1343,16 @@ export default function HerramientasPage() {
                                       Respuestas con fuentes citadas
                                     </p>
                                     <div className="flex gap-1">
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Freemium
                                       </Badge>
-                                      <Badge variant="outline" className="text-xs">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-xs"
+                                      >
                                         Buscador
                                       </Badge>
                                     </div>
@@ -1511,6 +1530,105 @@ export default function HerramientasPage() {
 
         <References references={references} />
       </div>
+    </div>
+  );
+}
+
+function ChecklistOrganizacion() {
+  const [today, setToday] = useState<Set<string>>(new Set());
+  const [week, setWeek] = useState<Set<string>>(new Set());
+
+  const toggle = (
+    scope: "today" | "week",
+    id: string,
+    checked: CheckedState
+  ) => {
+    if (scope === "today") {
+      setToday((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    } else {
+      setWeek((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    }
+  };
+
+  const todayItems = [
+    { id: "bandeja", icon: "📥", text: "Vaciar bandeja (5 min)" },
+    { id: "3-tareas", icon: "🔥", text: "Definir siguientes 3 del día" },
+    { id: "bloque", icon: "⏱️", text: "1 bloque Pomodoro con timer" },
+  ] as const;
+
+  const weekItems = [
+    { id: "revision", icon: "🔁", text: "Revisión semanal (30 min)" },
+    { id: "zonas", icon: "🗂️", text: "Crear/ajustar 1 zona funcional" },
+    { id: "etiquetas", icon: "🏷️", text: "Etiquetar 5 cosas clave" },
+  ] as const;
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Hoy</CardTitle>
+          <CardDescription className="text-xs">
+            3 acciones rápidas para empezar
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {todayItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={today.has(item.id)}
+                onCheckedChange={(v) => toggle("today", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Esta semana</CardTitle>
+          <CardDescription className="text-xs">
+            Consolidá hábitos de organización
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {weekItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={week.has(item.id)}
+                onCheckedChange={(v) => toggle("week", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
     </div>
   );
 }
