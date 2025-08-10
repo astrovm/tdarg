@@ -464,7 +464,7 @@ export default function HerramientasPage() {
                               </h5>
                               <ul className="space-y-1 text-xs">
                                 <li>• Libreta de parking de ideas</li>
-                                <li>• Técnica “después lo pienso”</li>
+                                <li>• Técnica "después lo pienso"</li>
                                 <li>• Mindfulness 5 minutos</li>
                                 <li>• Recordatorios programados</li>
                               </ul>
@@ -689,7 +689,7 @@ export default function HerramientasPage() {
                             <h5 className="font-semibold mb-1">Prevención</h5>
                             <ul className="space-y-1">
                               <li>• Tomá notas mientras escuchás</li>
-                              <li>• Usá un “objeto de turno”</li>
+                              <li>• Usá un "objeto de turno"</li>
                               <li>• Sentate sobre las manos</li>
                               <li>• Escribí la idea en lugar de decirla</li>
                             </ul>
@@ -699,8 +699,8 @@ export default function HerramientasPage() {
                               Si ya interrumpiste
                             </div>
                             <div>
-                              “Perdón, te interrumpí. Por favor continuá, vuelvo
-                              a mi punto después.”
+                              "Perdón, te interrumpí. Por favor continuá, vuelvo
+                              a mi punto después."
                             </div>
                           </div>
                         </CardContent>
@@ -725,10 +725,10 @@ export default function HerramientasPage() {
                           <div>
                             <h5 className="font-semibold mb-2">Verbal</h5>
                             <ul className="space-y-1">
-                              <li>• “Si entiendo bien, decís que...”</li>
+                              <li>• "Si entiendo bien, decís que..."</li>
                               <li>• Preguntas clarificadoras</li>
                               <li>• Resúmenes periódicos</li>
-                              <li>• “¿Podés repetir eso?”</li>
+                              <li>• "¿Podés repetir eso?"</li>
                             </ul>
                           </div>
                         </CardContent>
@@ -768,606 +768,496 @@ export default function HerramientasPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6">
-                    {/* Recommended Apps */}
-                    <Card>
+                  <div className="space-y-8">
+                    {/* Resumen visual */}
+                    <div className="grid md:grid-cols-3 gap-3">
+                      <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded text-center">
+                        <div className="text-sm font-semibold">
+                          Productividad
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Tareas, notas, tiempo
+                        </div>
+                      </div>
+                      <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded text-center">
+                        <div className="text-sm font-semibold">Bloqueo</div>
+                        <div className="text-xs text-muted-foreground">
+                          Reducí distracciones
+                        </div>
+                      </div>
+                      <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded text-center">
+                        <div className="text-sm font-semibold">
+                          Asistentes IA
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          Planificación y resúmenes
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Aplicaciones de Productividad */}
+                    <Card className="border">
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                          <Smartphone className="h-5 w-5" />
-                          Aplicaciones Recomendadas
+                          <Smartphone className="h-5 w-5" /> Aplicaciones de
+                          Productividad
                         </CardTitle>
                         <CardDescription>
-                          Apps probadas para mejorar la productividad y el
-                          enfoque
+                          Apps para tareas, notas y foco
                         </CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="task-apps">
-                            <AccordionTrigger className="text-left">
-                              <div className="flex items-center gap-2 w-full">
-                                <CheckCircle className="h-4 w-4" />
-                                Apps de Tareas y Productividad
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://todoist.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Todoist
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Sistema GTD completo
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Multiplataforma
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.any.do"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Any.do
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Interfaz simple y visual
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Gratis
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Fácil
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.forestapp.cc"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Forest
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Gamificación para mantener foco
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Pago
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Motivador
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.rescuetime.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        RescueTime
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Tracking automático de tiempo
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Automático
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://keep.google.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Google Keep
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Notas visuales con colores
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Gratis
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Colaborativo
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.notion.so"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Notion
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      All-in-one workspace
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Flexible
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-
-                          <AccordionItem value="blocker-apps">
-                            <AccordionTrigger className="text-left">
-                              <div className="flex items-center gap-2 w-full">
-                                <Focus className="h-4 w-4" />
-                                Bloqueadores de Distracciones
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://getcoldturkey.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Cold Turkey
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Bloqueo robusto, difícil de desactivar
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Modo extremo
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://freedom.to"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Freedom
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Multiplataforma
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Pago
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Sincroniza dispositivos
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                          <AccordionItem value="ai-tools">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <MessageSquare className="h-4 w-4" />
-                                Asistentes de IA
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-2 gap-4">
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://chatgpt.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        ChatGPT
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Asistente conversacional versátil
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Español
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://claude.ai"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Claude
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      IA enfocada en seguridad y análisis
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Gratis
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Inglés
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://gemini.google.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Gemini
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Integración con servicios de Google
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Multiplataforma
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.deepseek.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Deepseek
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Modelo optimizado para búsquedas
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Gratis
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Búsquedas
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="space-y-3">
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.kimi.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Kimi
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      IA enfocada en el contexto largo
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Gratis
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Chino/Inglés
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://grok.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Grok
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Estilo conversacional informal
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Pago
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Humor
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                  <div className="p-3 border rounded">
-                                    <h5 className="font-semibold text-sm mb-1">
-                                      <a
-                                        href="https://www.perplexity.ai"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:underline"
-                                      >
-                                        Perplexity
-                                      </a>
-                                    </h5>
-                                    <p className="text-xs text-muted-foreground mb-2">
-                                      Respuestas con fuentes citadas
-                                    </p>
-                                    <div className="flex gap-1">
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Freemium
-                                      </Badge>
-                                      <Badge
-                                        variant="outline"
-                                        className="text-xs"
-                                      >
-                                        Buscador
-                                      </Badge>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://todoist.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Todoist
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Sistema GTD completo
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Multiplataforma
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.any.do"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Any.do
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Interfaz simple y visual
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Gratis
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Fácil
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.forestapp.cc"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Forest
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Gamificación para mantener foco
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Pago
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Motivador
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.rescuetime.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                RescueTime
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Tracking automático de tiempo
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Automático
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://keep.google.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Google Keep
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Notas visuales con colores
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Gratis
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Colaborativo
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.notion.so"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Notion
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              All-in-one workspace
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Flexible
+                              </Badge>
+                            </div>
+                          </div>
+                        </div>
                       </CardContent>
                     </Card>
 
-                    {/* Physical Tools */}
-                    <Card>
+                    {/* Bloqueadores */}
+                    <Card className="border">
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                          <Gamepad2 className="h-5 w-5" />
-                          Herramientas Físicas y Configuraciones
+                          <Focus className="h-5 w-5" /> Bloqueadores de
+                          Distracciones
                         </CardTitle>
-                        <CardDescription>
-                          Dispositivos y configuraciones que apoyan la
-                          concentración
-                        </CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value="fidget-tools">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Gamepad2 className="h-4 w-4" />
-                                Fidget Tools
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid md:grid-cols-3 gap-3">
-                                <div className="text-center p-2">
-                                  <div className="text-2xl mb-1">🎲</div>
-                                  <div className="text-sm font-semibold">
-                                    Fidget Cube
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">
-                                    Múltiples texturas
-                                  </div>
-                                </div>
-                                <div className="text-center p-2">
-                                  <div className="text-2xl mb-1">💍</div>
-                                  <div className="text-sm font-semibold">
-                                    Spinner Rings
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">
-                                    Discretos
-                                  </div>
-                                </div>
-                                <div className="text-center p-2">
-                                  <div className="text-2xl mb-1">🏀</div>
-                                  <div className="text-sm font-semibold">
-                                    Stress Balls
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">
-                                    Alivio de tensión
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-
-                          <AccordionItem value="phone-setup">
-                            <AccordionTrigger>
-                              <div className="flex items-center gap-2">
-                                <Smartphone className="h-4 w-4" />
-                                Configuración del Teléfono
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <ul className="space-y-2 text-sm">
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Notificaciones:</strong> Solo
-                                    esenciales (llamadas, mensajes familia)
-                                  </span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Pantalla inicial:</strong> Solo apps
-                                    productivas en primera pantalla
-                                  </span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Modo No Molestar:</strong>{" "}
-                                    Programado durante trabajo y sueño
-                                  </span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                  <span>
-                                    <strong>Límites de tiempo:</strong> Apps
-                                    redes sociales con límites estrictos
-                                  </span>
-                                </li>
-                              </ul>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://getcoldturkey.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Cold Turkey
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Bloqueo robusto, difícil de desactivar
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Modo extremo
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://freedom.to"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Freedom
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Multiplataforma
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Pago
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Sincroniza dispositivos
+                              </Badge>
+                            </div>
+                          </div>
+                        </div>
                       </CardContent>
                     </Card>
+
+                    {/* Asistentes de IA */}
+                    <Card className="border">
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <MessageSquare className="h-5 w-5" /> Asistentes de IA
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://chatgpt.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                ChatGPT
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Conversacional versátil
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Español
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://claude.ai"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Claude
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Enfoque en análisis
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Gratis
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Inglés
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://gemini.google.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Gemini
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Integra Google
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Multiplataforma
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.deepseek.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Deepseek
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Optimizado para búsquedas
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Gratis
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Búsquedas
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.kimi.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Kimi
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Contexto largo
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Gratis
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Chino/Inglés
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://grok.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Grok
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Estilo informal
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Pago
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Humor
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="p-3 border rounded">
+                            <h5 className="font-semibold text-sm mb-1">
+                              <a
+                                href="https://www.perplexity.ai"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:underline"
+                              >
+                                Perplexity
+                              </a>
+                            </h5>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              Respuestas con fuentes
+                            </p>
+                            <div className="flex gap-1 flex-wrap">
+                              <Badge variant="outline" className="text-xs">
+                                Freemium
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                Buscador
+                              </Badge>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Herramientas físicas y teléfono */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Gamepad2 className="h-4 w-4" /> Herramientas
+                            físicas
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="grid grid-cols-3 gap-3 text-center text-xs">
+                          <div className="p-2">
+                            <div className="text-2xl mb-1">🎲</div>
+                            <div className="font-semibold">Fidget Cube</div>
+                            <div className="text-muted-foreground">
+                              Texturas
+                            </div>
+                          </div>
+                          <div className="p-2">
+                            <div className="text-2xl mb-1">💍</div>
+                            <div className="font-semibold">Spinner Rings</div>
+                            <div className="text-muted-foreground">
+                              Discretos
+                            </div>
+                          </div>
+                          <div className="p-2">
+                            <div className="text-2xl mb-1">🏀</div>
+                            <div className="font-semibold">Stress Balls</div>
+                            <div className="text-muted-foreground">Tensión</div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      <Card className="border">
+                        <CardHeader>
+                          <CardTitle className="text-base flex items-center gap-2">
+                            <Smartphone className="h-4 w-4" /> Configuración del
+                            teléfono
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2 text-sm">
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Notificaciones:</strong> Solo esenciales
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Pantalla inicial:</strong> Apps
+                                productivas primero
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>No molestar:</strong> Programado
+                                trabajo/sueño
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                              <span>
+                                <strong>Límites:</strong> Redes con límites
+                                estrictos
+                              </span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Micro-checklists accionables */}
+                    <ChecklistTecnologia />
                   </div>
 
                   <div className="mt-8 text-center space-x-4">
@@ -1667,7 +1557,7 @@ function ChecklistEmociones() {
 
   const comItems = [
     { id: "notas", icon: "📝", text: "Tomar notas en 1 conversación" },
-    { id: "parafraseo", icon: "🗣️", text: "Decir: “Si entiendo bien...”" },
+    { id: "parafraseo", icon: "🗣️", text: 'Decir: "Si entiendo bien..."' },
   ] as const;
 
   return (
@@ -1714,6 +1604,113 @@ function ChecklistEmociones() {
               <Checkbox
                 checked={com.has(item.id)}
                 onCheckedChange={(v) => toggle("com", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function ChecklistTecnologia() {
+  const [apps, setApps] = useState<Set<string>>(new Set());
+  const [bloqueo, setBloqueo] = useState<Set<string>>(new Set());
+
+  const toggle = (
+    scope: "apps" | "bloqueo",
+    id: string,
+    checked: CheckedState
+  ) => {
+    if (scope === "apps") {
+      setApps((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    } else {
+      setBloqueo((prev) => {
+        const next = new Set(prev);
+        if (checked === true) next.add(id);
+        else next.delete(id);
+        return next;
+      });
+    }
+  };
+
+  const appsItems = [
+    {
+      id: "todoist",
+      icon: "🧾",
+      text: "Crear lista 'Siguientes 3' en Todoist/Keep",
+    },
+    {
+      id: "timer",
+      icon: "⏲️",
+      text: "Instalar timer Pomodoro (o usar sistema nativo)",
+    },
+  ] as const;
+
+  const bloqueoItems = [
+    {
+      id: "freedom",
+      icon: "🔒",
+      text: "Configurar bloqueador (1 lista sitios)",
+    },
+    { id: "dnd", icon: "🚫", text: "Programar No Molestar trabajo/sueño" },
+  ] as const;
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Apps</CardTitle>
+          <CardDescription className="text-xs">Primeros pasos</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {appsItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={apps.has(item.id)}
+                onCheckedChange={(v) => toggle("apps", item.id, v)}
+                className="mt-0.5"
+                aria-label={item.text}
+              />
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <span className="text-sm">{item.text}</span>
+            </label>
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card className="border">
+        <CardHeader>
+          <CardTitle className="text-base">Bloqueo</CardTitle>
+          <CardDescription className="text-xs">
+            Reducir fricción
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {bloqueoItems.map((item) => (
+            <label
+              key={item.id}
+              className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer"
+            >
+              <Checkbox
+                checked={bloqueo.has(item.id)}
+                onCheckedChange={(v) => toggle("bloqueo", item.id, v)}
                 className="mt-0.5"
                 aria-label={item.text}
               />
