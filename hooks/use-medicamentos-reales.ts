@@ -103,15 +103,19 @@ export function useMedicamentosReales() {
 
   // Cargar datos iniciales
   useEffect(() => {
-    cargarMedicamentos()
+    // Pequeño delay para asegurar que el componente esté completamente montado
+    const timer = setTimeout(() => {
+      cargarMedicamentos()
+    }, 100)
 
     // Cleanup al desmontar
     return () => {
+      clearTimeout(timer)
       if (abortControllerRef.current) {
         abortControllerRef.current.abort()
       }
     }
-  }, [cargarMedicamentos])
+  }, [])
 
   // Auto-refresh cada 20 minutos
   useEffect(() => {
@@ -124,7 +128,7 @@ export function useMedicamentosReales() {
     )
 
     return () => clearInterval(interval)
-  }, [cargarMedicamentos])
+  }, [])
 
   return {
     medicamentos,
