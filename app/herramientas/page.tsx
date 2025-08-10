@@ -847,7 +847,7 @@ export default function HerramientasPage() {
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Gratis
+                                Freemium
                               </Badge>
                               <Badge variant="outline" className="text-xs">
                                 Fácil
@@ -1031,7 +1031,7 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Conversacional versátil
+                              Versátil y buen español
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
@@ -1054,14 +1054,14 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Enfoque en análisis
+                              Textos largos y documentos
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Gratis
+                                Freemium
                               </Badge>
                               <Badge variant="outline" className="text-xs">
-                                Inglés
+                                Contexto amplio
                               </Badge>
                             </div>
                           </div>
@@ -1100,14 +1100,14 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Optimizado para búsquedas
+                              Razonamiento a bajo costo
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Gratis
+                                Freemium
                               </Badge>
                               <Badge variant="outline" className="text-xs">
-                                Búsquedas
+                                Razonamiento
                               </Badge>
                             </div>
                           </div>
@@ -1123,11 +1123,11 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Contexto largo
+                              Contexto muy largo
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Gratis
+                                Freemium
                               </Badge>
                               <Badge variant="outline" className="text-xs">
                                 Chino/Inglés
@@ -1146,11 +1146,11 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Estilo informal
+                              Integrado con X (Twitter)
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge variant="outline" className="text-xs">
-                                Pago
+                                Freemium
                               </Badge>
                               <Badge variant="outline" className="text-xs">
                                 Humor
@@ -1176,7 +1176,7 @@ export default function HerramientasPage() {
                                 Freemium
                               </Badge>
                               <Badge variant="outline" className="text-xs">
-                                Buscador
+                                Fuentes citadas
                               </Badge>
                             </div>
                           </div>
