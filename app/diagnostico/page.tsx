@@ -39,11 +39,11 @@ export default function DiagnosticoPage() {
     },
     {
       id: 2,
-      title: "¿Quién me ayuda?",
-      subtitle: "Especialistas",
+      title: "Evaluación neuropsicológica",
+      subtitle: "Primer paso",
       icon: Stethoscope,
     },
-    { id: 3, title: "¿Qué va a pasar?", subtitle: "El proceso", icon: Clock },
+    { id: 3, title: "Derivación a especialistas", subtitle: "Paso siguiente", icon: Clock },
     {
       id: 4,
       title: "¿Qué debo llevar?",
@@ -140,30 +140,34 @@ export default function DiagnosticoPage() {
     experience: string;
     availability: string;
     color: ProfColor;
+    step: string;
   }> = [
+    {
+      title: "Neuropsicólogo / Psicólogo",
+      icon: "🧠",
+      speciality: "Evaluación neuropsicológica completa",
+      experience: "Tests especializados en TDAH",
+      availability: "Primer paso recomendado",
+      color: "blue",
+      step: "1° - Evaluación",
+    },
     {
       title: "Médico Psiquiatra",
       icon: "🏥",
-      speciality: "Especialista en salud mental",
-      experience: "Entrenamiento específico en TDAH",
-      availability: "Alta disponibilidad",
-      color: "blue",
-    },
-    {
-      title: "Neurólogo",
-      icon: "🧠",
-      speciality: "Especialista del sistema nervioso",
-      experience: "Experiencia en neurodesarrollo",
-      availability: "Disponibilidad media",
+      speciality: "Diagnóstico y tratamiento médico",
+      experience: "Prescripción de medicamentos",
+      availability: "Segundo paso (con informe neuropsicológico)",
       color: "purple",
+      step: "2° - Diagnóstico",
     },
     {
-      title: "Psicólogo Clínico",
+      title: "Psicólogo especialista",
       icon: "👨‍⚕️",
-      speciality: "Especialista en evaluación psicológica",
-      experience: "Formación en evaluación de TDAH",
-      availability: "Disponibilidad variable",
+      speciality: "Terapia y seguimiento",
+      experience: "Terapia cognitivo-conductual",
+      availability: "Tercer paso (tratamiento continuo)",
       color: "green",
+      step: "3° - Tratamiento",
     },
   ];
 
@@ -361,7 +365,7 @@ export default function DiagnosticoPage() {
                       </AlertDescription>
                     </Alert>
                     <Button onClick={next} size="lg">
-                      Siguiente: ¿Quién puede ayudarme?{" "}
+                      Siguiente: Evaluación neuropsicológica{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                   </div>
@@ -377,13 +381,21 @@ export default function DiagnosticoPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Stethoscope className="h-8 w-8 text-green-500" />
-                    ¿Quién puede diagnosticar TDAH?
+                    La Ruta del Diagnóstico TDAH
                   </CardTitle>
                   <CardDescription>
-                    Solo estos profesionales especializados
+                    Proceso paso a paso recomendado en Argentina
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <Alert className="mb-6 bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
+                    <Brain className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>Ruta recomendada:</strong> Comenzá con una evaluación neuropsicológica completa. 
+                      Este informe será fundamental para que el psiquiatra pueda hacer un diagnóstico más preciso 
+                      y diseñar el mejor plan de tratamiento.
+                    </AlertDescription>
+                  </Alert>
                   <div className="grid md:grid-cols-3 gap-6">
                     {/* Professional Cards with Visual Hierarchy */}
                     {professionals.map((prof, index) => (
@@ -400,9 +412,9 @@ export default function DiagnosticoPage() {
                           </CardTitle>
                           <Badge
                             variant="outline"
-                            className={`${colorClasses[prof.color].badge}`}
+                            className={`${colorClasses[prof.color].badge} mb-2`}
                           >
-                            Autorizado
+                            {prof.step}
                           </Badge>
                         </CardHeader>
                         <CardContent>
@@ -427,7 +439,7 @@ export default function DiagnosticoPage() {
 
                   <div className="mt-8 text-center">
                     <Button onClick={next} size="lg" className="mr-4">
-                      Siguiente: El proceso{" "}
+                      Siguiente: Derivación a especialistas{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                     <Button
@@ -451,65 +463,73 @@ export default function DiagnosticoPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Clock className="h-8 w-8 text-purple-500" />
-                    ¿Qué va a pasar en la evaluación?
+                    El Proceso Completo de Diagnóstico
                   </CardTitle>
                   <CardDescription>
-                    5 pasos del proceso diagnóstico
+                    De la evaluación neuropsicológica al tratamiento
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <Alert className="mb-6 bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-800">
+                    <Clock className="h-4 w-4" />
+                    <AlertDescription>
+                      <strong>Proceso típico:</strong> La evaluación neuropsicológica puede tomar 2-4 horas 
+                      e incluye tests específicos para medir atención, memoria de trabajo y funciones ejecutivas. 
+                      Con el informe en mano, el psiquiatra puede hacer un diagnóstico más certero.
+                    </AlertDescription>
+                  </Alert>
                   {/* Visual Process Flow */}
                   <div className="max-w-2xl mx-auto">
                     {[
                       {
                         step: 1,
-                        title: "Entrevista inicial",
-                        description: "Conversación sobre tus síntomas actuales",
-                        duration: "45-60 min",
-                        icon: "💬",
+                        title: "Evaluación neuropsicológica",
+                        description: "Batería completa de tests cognitivos",
+                        duration: "2-4 horas",
+                        icon: "🧠",
                         details: [
-                          "Síntomas actuales",
-                          "Impacto en la vida",
-                          "Motivación para consultar",
+                          "Tests de atención",
+                          "Memoria de trabajo",
+                          "Función ejecutiva",
+                          "Historia clínica"
                         ],
                       },
                       {
                         step: 2,
-                        title: "Historia clínica",
-                        description:
-                          "Revisión de tu desarrollo desde la infancia",
-                        duration: "30-45 min",
-                        icon: "📚",
+                        title: "Informe neuropsicológico",
+                        description: "Análisis de resultados y recomendaciones",
+                        duration: "1-2 semanas",
+                        icon: "📋",
                         details: [
-                          "Infancia y desarrollo",
-                          "Rendimiento escolar",
-                          "Antecedentes familiares",
+                          "Resultados detallados",
+                          "Perfil cognitivo",
+                          "Recomendaciones",
+                          "Derivaciones"
                         ],
                       },
                       {
                         step: 3,
-                        title: "Tests y escalas",
-                        description: "Cuestionarios especializados para TDAH",
-                        duration: "30 min",
-                        icon: "📝",
-                        details: ["ASRS-18", "WURS-25", "Escalas adicionales"],
+                        title: "Consulta psiquiátrica",
+                        description: "Evaluación médica con informe neuropsicológico",
+                        duration: "60-90 min",
+                        icon: "🏥",
+                        details: ["Diagnóstico DSM-5", "Evaluación médica", "Plan de tratamiento"],
                       },
                       {
                         step: 4,
-                        title: "Evaluación integral",
-                        description:
-                          "Búsqueda de otras condiciones coexistentes",
-                        duration: "30 min",
-                        icon: "🔍",
-                        details: ["Ansiedad", "Depresión", "Otros trastornos"],
+                        title: "Tratamiento integral",
+                        description: "Medicación y terapia psicológica",
+                        duration: "Continuo",
+                        icon: "🎯",
+                        details: ["Medicación", "Terapia TCC", "Seguimiento"],
                       },
                       {
                         step: 5,
-                        title: "Diagnóstico",
-                        description: "Conclusiones y plan de tratamiento",
-                        duration: "30 min",
+                        title: "Seguimiento y ajustes",
+                        description: "Monitoreo y optimización del tratamiento",
+                        duration: "Mensual",
                         icon: "✅",
-                        details: ["Resultados", "Tratamiento", "Seguimiento"],
+                        details: ["Controles médicos", "Ajustes", "Evaluación progreso"],
                       },
                     ].map((item, index) => (
                       <div key={item.step}>
