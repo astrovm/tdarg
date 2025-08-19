@@ -63,7 +63,6 @@ export default function AdultosPage() {
     next,
     prev,
     goTo,
-    effectiveCompletedCount,
     progress,
     isDone,
   } = useStepProgress({ totalSteps: steps.length });

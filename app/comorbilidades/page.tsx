@@ -73,7 +73,6 @@ export default function ComorbilidadesPage() {
     next,
     prev,
     goTo,
-    effectiveCompletedCount,
     progress,
     isDone,
   } = useStepProgress({ totalSteps: steps.length });

@@ -87,7 +87,6 @@ export default function HerramientasPage() {
     currentStep,
     completedCount,
     progress,
-    effectiveCompletedCount,
     goTo,
     next,
     prev,

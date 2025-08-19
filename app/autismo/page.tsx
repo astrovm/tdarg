@@ -78,7 +78,6 @@ export default function AutismoPage() {
     next,
     prev,
     goTo,
-    effectiveCompletedCount,
     progress,
     isDone,
   } = useStepProgress({ totalSteps: steps.length });

@@ -105,7 +105,6 @@ export default function MitosPage() {
     currentStep,
     completedCount,
     progress,
-    effectiveCompletedCount,
     goTo,
     next,
     prev,

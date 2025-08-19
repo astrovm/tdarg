@@ -80,11 +80,6 @@ export function useStepProgress(options: Options) {
     return new Set(completedSteps).size;
   }, [completedSteps]);
 
-  // Display count: number of completed/visited steps
-  const effectiveCompletedCount = useMemo(() => {
-    return completedCount;
-  }, [completedCount]);
-
   const progress = useMemo(() => {
     return (completedCount / totalSteps) * 100;
   }, [completedCount, totalSteps]);
@@ -103,7 +98,6 @@ export function useStepProgress(options: Options) {
     completedSteps,
     progress,
     completedCount,
-    effectiveCompletedCount,
     next,
     prev,
     goTo,

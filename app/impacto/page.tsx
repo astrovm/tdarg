@@ -61,7 +61,6 @@ export default function ImpactoPage() {
     currentStep,
     completedCount,
     progress,
-    effectiveCompletedCount,
     goTo,
     next,
     prev,

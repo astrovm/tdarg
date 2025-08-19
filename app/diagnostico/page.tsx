@@ -56,7 +56,6 @@ export default function DiagnosticoPage() {
     currentStep,
     progress,
     completedCount,
-    effectiveCompletedCount,
     goTo,
     next,
     prev,

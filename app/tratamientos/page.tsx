@@ -49,7 +49,6 @@ export default function TratamientosPage() {
     currentStep,
     progress,
     completedCount,
-    effectiveCompletedCount,
     goTo,
     next,
     prev,
