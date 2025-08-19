@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export type StepItem = {
   id: number;
@@ -20,45 +20,89 @@ export function useStepProgress(options: Options) {
     setCompletedSteps((prev) => (prev.includes(step) ? prev : [...prev, step]));
   }, []);
 
+  // Mark the first step as completed from the start
+  useEffect(() => {
+    markCompleted(1);
+  }, [markCompleted]);
+
   const next = useCallback(() => {
-    markCompleted(currentStep);
-    setCurrentStep((prev) => (prev < totalSteps ? prev + 1 : prev));
-  }, [currentStep, totalSteps, markCompleted]);
+    setCurrentStep((prev) => {
+      const newStep = prev < totalSteps ? prev + 1 : prev;
+      // Mark both the step we leave and the one we arrive to as visited/completed
+      setCompletedSteps((prevCompleted) => {
+        const set = new Set(prevCompleted);
+        set.add(prev);
+        set.add(newStep);
+        return Array.from(set);
+      });
+      return newStep;
+    });
+  }, [totalSteps]);
 
   const prev = useCallback(() => {
-    setCurrentStep((prev) => (prev > 1 ? prev - 1 : prev));
+    setCurrentStep((prevStep) => {
+      const newStep = prevStep > 1 ? prevStep - 1 : prevStep;
+      if (newStep !== prevStep) {
+        setCompletedSteps((prevCompleted) => {
+          const set = new Set(prevCompleted);
+          set.add(prevStep); // leaving
+          set.add(newStep); // arriving
+          return Array.from(set);
+        });
+      }
+      return newStep;
+    });
   }, []);
 
-  const goTo = useCallback(
-    (step: number) => {
-      setCurrentStep(step);
-      markCompleted(step);
-    },
-    [markCompleted]
-  );
+  const goTo = useCallback((step: number) => {
+    setCurrentStep((prev) => {
+      if (step !== prev) {
+        setCompletedSteps((prevCompleted) => {
+          const set = new Set(prevCompleted);
+          set.add(prev); // leaving
+          set.add(step); // arriving
+          return Array.from(set);
+        });
+      }
+      return step;
+    });
+  }, []);
 
-  // Count of steps to display in UI: at least the current step,
-  // or the number of uniquely completed steps if higher.
+  // Ensure the last step is considered completed when reached
+  useEffect(() => {
+    if (currentStep === totalSteps) {
+      markCompleted(currentStep);
+    }
+  }, [currentStep, totalSteps, markCompleted]);
+
+  // Real completed steps count (excludes current unless marked)
+  const completedCount = useMemo(() => {
+    return new Set(completedSteps).size;
+  }, [completedSteps]);
+
+  // Display count: number of completed/visited steps
   const effectiveCompletedCount = useMemo(() => {
-    const uniqueVisited = new Set([...completedSteps, currentStep]).size;
-    return Math.max(currentStep, uniqueVisited);
-  }, [completedSteps, currentStep]);
+    return completedCount;
+  }, [completedCount]);
 
   const progress = useMemo(() => {
-    return (effectiveCompletedCount / totalSteps) * 100;
-  }, [effectiveCompletedCount, totalSteps]);
+    return (completedCount / totalSteps) * 100;
+  }, [completedCount, totalSteps]);
 
+  // A step is considered done only if it was explicitly completed/visited.
+  // We no longer auto-mark previous steps as done just because currentStep is higher.
   const isDone = useCallback(
     (step: number) => {
-      return currentStep > step || completedSteps.includes(step);
+      return completedSteps.includes(step);
     },
-    [currentStep, completedSteps]
+    [completedSteps]
   );
 
   return {
     currentStep,
     completedSteps,
     progress,
+    completedCount,
     effectiveCompletedCount,
     next,
     prev,

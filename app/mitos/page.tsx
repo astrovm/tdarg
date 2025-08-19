@@ -103,6 +103,7 @@ export default function MitosPage() {
   ] as const;
   const {
     currentStep,
+    completedCount,
     progress,
     effectiveCompletedCount,
     goTo,
@@ -133,7 +134,7 @@ export default function MitosPage() {
                 Progreso del aprendizaje
               </span>
               <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {effectiveCompletedCount}/{steps.length} completado
+                {completedCount}/{steps.length} completado
               </span>
             </div>
             <Progress value={progress} className="h-2" />

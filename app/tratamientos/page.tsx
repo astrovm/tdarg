@@ -48,6 +48,7 @@ export default function TratamientosPage() {
   const {
     currentStep,
     progress,
+    completedCount,
     effectiveCompletedCount,
     goTo,
     next,
@@ -77,7 +78,7 @@ export default function TratamientosPage() {
                 Progreso del aprendizaje
               </span>
               <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {effectiveCompletedCount}/{steps.length} completado
+                {completedCount}/{steps.length} completado
               </span>
             </div>
             <Progress value={progress} className="h-2" />
