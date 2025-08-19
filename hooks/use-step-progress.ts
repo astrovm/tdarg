@@ -37,8 +37,11 @@ export function useStepProgress(options: Options) {
     [markCompleted]
   );
 
+  // Count of steps to display in UI: at least the current step,
+  // or the number of uniquely completed steps if higher.
   const effectiveCompletedCount = useMemo(() => {
-    return new Set([...completedSteps, currentStep]).size;
+    const uniqueVisited = new Set([...completedSteps, currentStep]).size;
+    return Math.max(currentStep, uniqueVisited);
   }, [completedSteps, currentStep]);
 
   const progress = useMemo(() => {
