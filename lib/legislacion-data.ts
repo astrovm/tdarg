@@ -356,11 +356,11 @@ export const propuestasNecesarias = [
     resumenEjecutivo:
       "Facilitar el registro de nuevos medicamentos para TDAH ya aprobados internacionalmente. Argentina dispone de opciones limitadas comparado con estándares mundiales.",
     descripcion:
-      "El Consenso y la literatura internacional evidencian la necesidad de más opciones terapéuticas.\n\nSe propone acción coordinada entre ANMAT y el Congreso para:\n• Contactar laboratorios farmacéuticos internacionales\n• Identificar barreras regulatorias y de mercado\n• Agilizar registro de medicamentos aprobados por FDA y EMA",
+      "El Consenso y la literatura internacional evidencian la necesidad de más opciones terapéuticas.\n\nSe propone acción coordinada entre ANMAT y el Congreso para:\n• Contactar laboratorios farmacéuticos internacionales\n• Identificar barreras regulatorias y de mercado\n• Agilizar registro de medicamentos aprobados por FDA y EMA\n• Completar trámites pendientes de Autorización Efectiva de Comercialización (AEC) e ingreso al VNM para productos ya registrados",
     problemaQueResuelve:
       "Falta de alternativas para aproximadamente 30% de pacientes con respuesta inadecuada a medicación disponible.",
     beneficiosClave: [
-      "✓ Incorporación de lisdexanfetamina y otras opciones terapéuticas",
+      "✓ Finalizar AEC e incorporación al VNM de lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) registrada en 2025",
       "✓ Mayor arsenal farmacológico para personalización de tratamientos",
       "✓ Fomento de competitividad en el mercado farmacéutico",
     ],
@@ -371,7 +371,8 @@ export const propuestasNecesarias = [
     ],
     impacto: "Beneficio potencial para hasta 150,000 pacientes",
     responsable: "ANMAT y Comisión de Salud del Congreso",
-    accionNecesaria: "Solicitar informes a ANMAT sobre barreras regulatorias",
+    accionNecesaria:
+      "Solicitar informes a ANMAT sobre barreras regulatorias y estado de AEC/VNM de lisdexanfetamina\nEnviar correo a Monte Verde S.A. (Adium, ex Raffo) consultando estado de comercialización",
   },
 ];
 
@@ -389,7 +390,7 @@ export const problemasReales = [
   {
     problema: "Opciones farmacológicas limitadas",
     descripcion:
-      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 2 medicamentos (metilfenidato y atomoxetina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Falta de lisdexanfetamina (estándar internacional)\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
+      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 2 medicamentos comercializados (metilfenidato y atomoxetina) + 1 registrado (lisdexanfetamina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) registrada en REM 2025 sin AEC ni inclusión en VNM; acceso solo vía Régimen de Acceso de Excepción (RAEM)\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
     resumen:
       "Brecha significativa entre opciones disponibles en Argentina y estándares internacionales. Limita efectividad del tratamiento.",
     urgencia: "Alta",
