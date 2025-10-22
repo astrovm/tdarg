@@ -67,29 +67,57 @@ export default function EspecialistasPage() {
   const [provincia, setProvincia] = useState("todas");
   const [especialidad, setEspecialidad] = useState("todas");
 
-  const parseRedes = (redesString: string) => {
-    if (!redesString) return [];
+  const parseRedes = (redesString?: string, linkedinUrl?: string) => {
+    const redes = [] as {
+      type: "instagram" | "facebook" | "linkedin";
+      handle: string;
+      url: string;
+      icon: typeof Instagram | typeof Facebook | typeof Linkedin;
+      label: string;
+    }[];
 
-    const redes = [];
-    // Buscar Instagram handles
-    const instagramMatch = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
-    if (instagramMatch) {
-      redes.push({
-        type: "instagram",
-        handle: instagramMatch[1],
-        url: `https://instagram.com/${instagramMatch[1]}`,
-        icon: Instagram,
-      });
+    if (redesString) {
+      // Buscar Instagram handles
+      const instagramMatch = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
+      if (instagramMatch) {
+        redes.push({
+          type: "instagram",
+          handle: instagramMatch[1],
+          url: `https://instagram.com/${instagramMatch[1]}`,
+          icon: Instagram,
+          label: "Instagram",
+        });
+      }
+
+      // Buscar Facebook handles
+      const facebookMatch = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
+      if (facebookMatch) {
+        redes.push({
+          type: "facebook",
+          handle: facebookMatch[1],
+          url: `https://facebook.com/${facebookMatch[1]}`,
+          icon: Facebook,
+          label: "Facebook",
+        });
+      }
     }
 
-    // Buscar Facebook handles
-    const facebookMatch = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
-    if (facebookMatch) {
+    if (linkedinUrl) {
+      const linkedinHandle = (() => {
+        try {
+          const url = new URL(linkedinUrl);
+          return url.pathname.replace(/\/$/, "").split("/").pop() ?? "LinkedIn";
+        } catch {
+          return linkedinUrl.replace(/^https?:\/\//i, "");
+        }
+      })();
+
       redes.push({
-        type: "facebook",
-        handle: facebookMatch[1],
-        url: `https://facebook.com/${facebookMatch[1]}`,
-        icon: Facebook,
+        type: "linkedin",
+        handle: linkedinHandle,
+        url: linkedinUrl,
+        icon: Linkedin,
+        label: "LinkedIn",
       });
     }
 
@@ -187,11 +215,17 @@ export default function EspecialistasPage() {
           {/* Doctors Grid - Only show if there are results */}
           {especialistasFiltrados.length > 0 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {especialistasFiltrados.map((especialista, index) => (
-                <Card
-                  key={index}
-                  className="flex h-full flex-col hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
-                >
+              {especialistasFiltrados.map((especialista, index) => {
+                const redesSociales = parseRedes(
+                  especialista.redes,
+                  especialista.linkedin
+                );
+
+                return (
+                  <Card
+                    key={index}
+                    className="flex h-full flex-col hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                  >
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
@@ -290,64 +324,55 @@ export default function EspecialistasPage() {
                             ))}
                           </div>
                         </div>
-                        {especialista.redes && (
+                        {redesSociales.length > 0 && (
                           <div>
                             <div className="text-sm font-medium mb-2">
                               Redes Sociales:
                             </div>
                             <div className="flex gap-2">
-                              {parseRedes(especialista.redes).map(
-                                (red, idx) => {
-                                  const IconComponent = red.icon;
-                                  return (
-                                    <Button
-                                      key={idx}
-                                      size="sm"
-                                      variant="outline"
-                                      className="h-8 px-3"
-                                      onClick={() =>
-                                        window.open(red.url, "_blank")
-                                      }
-                                    >
-                                      <IconComponent className="h-4 w-4 mr-1" />
-                                      {red.type === "instagram"
-                                        ? "Instagram"
-                                        : "Facebook"}
-                                    </Button>
-                                  );
-                                }
-                              )}
+                              {redesSociales.map((red, idx) => {
+                                const IconComponent = red.icon;
+                                return (
+                                  <Button
+                                    key={idx}
+                                    size="sm"
+                                    variant="outline"
+                                    className="h-8 px-3"
+                                    onClick={() => window.open(red.url, "_blank")}
+                                  >
+                                    <IconComponent className="h-4 w-4 mr-1" />
+                                    {red.label}
+                                  </Button>
+                                );
+                              })}
                             </div>
                           </div>
                         )}
                       </div>
                     </div>
                     <div className="mt-auto flex space-x-2 pt-2">
-                      <Button
-                        className="flex-1"
-                        onClick={() => {
-                          const whatsappNumber =
-                            especialista.whatsapp || especialista.telefono;
-                          if (whatsappNumber !== "Consultar") {
-                            window.open(
-                              `https://wa.me/${whatsappNumber.replace(
-                                /[^0-9]/g,
-                                ""
-                              )}`
-                            );
-                          }
-                        }}
-                        disabled={
-                          !especialista.whatsapp &&
-                          especialista.telefono === "Consultar"
-                        }
-                      >
-                        <MessageCircle className="h-4 w-4 mr-1" />
-                        {especialista.whatsapp ||
-                        especialista.telefono !== "Consultar"
-                          ? "WhatsApp"
-                          : "Consultar Teléfono"}
-                      </Button>
+                      {(especialista.whatsapp ||
+                        (especialista.telefono &&
+                          especialista.telefono !== "Consultar")) && (
+                        <Button
+                          className="flex-1"
+                          onClick={() => {
+                            const whatsappNumber =
+                              especialista.whatsapp || especialista.telefono;
+                            if (whatsappNumber && whatsappNumber !== "Consultar") {
+                              window.open(
+                                `https://wa.me/${whatsappNumber.replace(
+                                  /[^0-9]/g,
+                                  ""
+                                )}`
+                              );
+                            }
+                          }}
+                        >
+                          <MessageCircle className="h-4 w-4 mr-1" />
+                          {especialista.whatsapp ? "WhatsApp" : "Contactar"}
+                        </Button>
+                      )}
                       {especialista.url && (
                         <Button
                           variant="outline"
@@ -370,20 +395,11 @@ export default function EspecialistasPage() {
                             <Mail className="h-4 w-4" />
                           </Button>
                         )}
-                      {especialista.linkedin && (
-                        <Button
-                          variant="outline"
-                          onClick={() =>
-                            window.open(especialista.linkedin, "_blank")
-                          }
-                        >
-                          <Linkedin className="h-4 w-4" />
-                        </Button>
-                      )}
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           )}
 
