@@ -20,6 +20,7 @@ import {
   Gavel,
 } from "lucide-react";
 import { Header } from "@/components/header";
+import { PageHero } from "@/components/page-hero";
 import { useState } from "react";
 import {
   fuentesDocumentacion,
@@ -70,20 +71,10 @@ export default function LegislacionPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
 
-      {/* Header Section */}
-      <div className="relative hero-gradient overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold text-purple-600 mb-4">
-            Análisis Inteligente de Legislación TDAH
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
-            Seguimiento automático con IA de leyes y proyectos relacionados al
-            TDAH. Identificamos qué realmente beneficia a los pacientes vs. el
-            &quot;teatro político&quot;.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Análisis Inteligente de Legislación TDAH"
+        description="Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente beneficia a los pacientes vs. el &quot;teatro político&quot;."
+      />
 
       {/* Problems Section */}
       <div className="bg-gradient-to-br from-red-50/50 to-orange-50/50 dark:from-red-900/10 dark:to-orange-900/10 border-y border-red-100 dark:border-red-800/30">

@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import {
   AlertTriangle,
@@ -26,37 +26,39 @@ import {
   ArrowLeft,
   CheckCircle,
 } from "lucide-react";
-import { Header } from "@/components/header";
+import { StepGuideLayout } from "@/components/step-guide-layout";
+import type { StepDefinition } from "@/lib/steps";
 import { CitationLink } from "@/components/citation-link";
 import { References, type Reference } from "@/components/references";
 
+const steps = [
+  {
+    id: 1,
+    title: "¿Cuál es el panorama?",
+    subtitle: "Visión general",
+    icon: TrendingDown,
+  },
+  {
+    id: 2,
+    title: "¿Afecta mi salud?",
+    subtitle: "Salud física",
+    icon: Heart,
+  },
+  {
+    id: 3,
+    title: "¿Y mis relaciones?",
+    subtitle: "Impacto social",
+    icon: Users,
+  },
+  {
+    id: 4,
+    title: "¿Cuánto me cuesta?",
+    subtitle: "Costo económico",
+    icon: DollarSign,
+  },
+] satisfies StepDefinition[];
+
 export default function ImpactoPage() {
-  const steps = [
-    {
-      id: 1,
-      title: "¿Cuál es el panorama?",
-      subtitle: "Visión general",
-      icon: TrendingDown,
-    },
-    {
-      id: 2,
-      title: "¿Afecta mi salud?",
-      subtitle: "Salud física",
-      icon: Heart,
-    },
-    {
-      id: 3,
-      title: "¿Y mis relaciones?",
-      subtitle: "Impacto social",
-      icon: Users,
-    },
-    {
-      id: 4,
-      title: "¿Cuánto me cuesta?",
-      subtitle: "Costo económico",
-      icon: DollarSign,
-    },
-  ] as const;
   const {
     currentStep,
     completedCount,
@@ -68,64 +70,17 @@ export default function ImpactoPage() {
   } = useStepProgress({ totalSteps: steps.length });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Header />
-
-      {/* Header Section */}
-      <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className="text-3xl font-bold text-purple-600 mb-4">
-            Impacto del TDAH: Tu Camino a la Conciencia
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-            Descubre las consecuencias reales del TDAH no tratado paso a paso
-          </p>
-
-          {/* Progress */}
-          <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                Progreso del aprendizaje
-              </span>
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {completedCount}/{steps.length} completado
-              </span>
-            </div>
-            <Progress value={progress} className="h-2" />
-          </div>
-
-          {/* Step Navigation */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            {steps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => goTo(step.id)}
-                className={`p-3 rounded-lg text-left transition-all ${
-                  currentStep === step.id
-                    ? "bg-purple-600 text-white shadow-lg"
-                    : isDone(step.id)
-                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
-                    : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {isDone(step.id) ? (
-                    <CheckCircle className="h-4 w-4" />
-                  ) : (
-                    <step.icon className="h-4 w-4" />
-                  )}
-                  <span className="font-medium text-sm">{step.title}</span>
-                </div>
-                <p className="text-xs opacity-80">{step.subtitle}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-6">
-        {/* Step Content */}
+    <StepGuideLayout
+      title="Impacto del TDAH: Tu Camino a la Conciencia"
+      description="Descubre las consecuencias reales del TDAH no tratado paso a paso"
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      completedCount={completedCount}
+      onSelectStep={goTo}
+      isStepDone={isDone}
+    >
+      {/* Step Content */}
         <div className="min-h-[500px]">
           {/* Step 1: General Overview */}
           {currentStep === 1 && (
@@ -1690,11 +1645,10 @@ export default function ImpactoPage() {
           )}
         </div>
 
-        <References references={impactoReferences} />
-      </div>
-    </div>
-  );
-}
+          <References references={impactoReferences} />
+      </StepGuideLayout>
+    );
+  }
 
 const impactoReferences: Reference[] = [
   {

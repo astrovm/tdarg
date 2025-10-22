@@ -2,16 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react"
 
-interface Medicamento {
-  codigo: string
-  nombre: string
-  marca: string
-  laboratorio: string
-  precio: number
-  presentacion: string
-  concentracion: string
-  fechaActualizacion: string
-}
+import type { Medicamento } from "@/lib/medicamentos/types"
 
 interface ApiResponse {
   data: Medicamento[]

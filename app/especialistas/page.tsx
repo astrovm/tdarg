@@ -31,6 +31,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Header } from "@/components/header";
+import { PageHero } from "@/components/page-hero";
 
 import especialistas from "@/lib/especialistas-data";
 
@@ -113,82 +114,63 @@ export default function EspecialistasPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
 
-      {/* Header Section */}
-      <div className="relative hero-gradient overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold text-purple-600 mb-4">
-            Directorio de Especialistas en TDAH
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mb-8 leading-relaxed">
-            Encuentra profesionales especializados en el diagnóstico y
-            tratamiento del TDAH en tu provincia. Todos los especialistas
-            listados tienen experiencia específica en trastornos de atención.
-          </p>
-
-          {/* Filters */}
-          <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl backdrop-blur-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl text-slate-800 dark:text-white flex items-center">
-                <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
-                  <Search className="h-4 w-4 text-white" />
-                </div>
-                Buscar especialistas
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
-                  <Input
-                    placeholder="Buscá por nombre, ciudad u hospital..."
-                    value={filtroNombre}
-                    onChange={(e) => setFiltroNombre(e.target.value)}
-                    className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
-                  />
-                </div>
-                <Select value={provincia} onValueChange={setProvincia}>
-                  <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <SelectValue placeholder="Seleccioná una provincia" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="todas">Todas las provincias</SelectItem>
-                    {provincias.map((prov) => (
-                      <SelectItem key={prov} value={prov}>
-                        {prov}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Select value={especialidad} onValueChange={setEspecialidad}>
-                  <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <SelectValue placeholder="Especialidad" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="todas">
-                      Todas las especialidades
-                    </SelectItem>
-                    <SelectItem value="Psiquiatra">Psiquiatra</SelectItem>
-                    <SelectItem value="Neuropsicóloga">
-                      Neuropsicóloga
-                    </SelectItem>
-                    <SelectItem value="Neurólogo">Neurólogo</SelectItem>
-                    <SelectItem value="Psicólogo">Psicólogo</SelectItem>
-                    <SelectItem value="Psicopedagogía">
-                      Psicopedagogía
-                    </SelectItem>
-                    <SelectItem value="Equinoterapia">Equinoterapia</SelectItem>
-                    <SelectItem value="Pediatra">Pediatra</SelectItem>
-                    <SelectItem value="Centro Especializado">
-                      Centro Especializado
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+      <PageHero
+        title="Directorio de Especialistas en TDAH"
+        description="Encuentra profesionales especializados en el diagnóstico y tratamiento del TDAH en tu provincia. Todos los especialistas listados tienen experiencia específica en trastornos de atención."
+      >
+        <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl backdrop-blur-sm">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl text-slate-800 dark:text-white flex items-center">
+              <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                <Search className="h-4 w-4 text-white" />
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+              Buscar especialistas
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                <Input
+                  placeholder="Buscá por nombre, ciudad u hospital..."
+                  value={filtroNombre}
+                  onChange={(e) => setFiltroNombre(e.target.value)}
+                  className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
+                />
+              </div>
+              <Select value={provincia} onValueChange={setProvincia}>
+                <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
+                  <SelectValue placeholder="Seleccioná una provincia" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="todas">Todas las provincias</SelectItem>
+                  {provincias.map((prov) => (
+                    <SelectItem key={prov} value={prov}>
+                      {prov}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={especialidad} onValueChange={setEspecialidad}>
+                <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
+                  <SelectValue placeholder="Especialidad" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="todas">Todas las especialidades</SelectItem>
+                  <SelectItem value="Psiquiatra">Psiquiatra</SelectItem>
+                  <SelectItem value="Neuropsicóloga">Neuropsicóloga</SelectItem>
+                  <SelectItem value="Neurólogo">Neurólogo</SelectItem>
+                  <SelectItem value="Psicólogo">Psicólogo</SelectItem>
+                  <SelectItem value="Psicopedagogía">Psicopedagogía</SelectItem>
+                  <SelectItem value="Equinoterapia">Equinoterapia</SelectItem>
+                  <SelectItem value="Pediatra">Pediatra</SelectItem>
+                  <SelectItem value="Centro Especializado">Centro Especializado</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </CardContent>
+        </Card>
+      </PageHero>
 
       {/* Results Section */}
       <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">

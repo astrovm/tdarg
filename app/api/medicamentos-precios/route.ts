@@ -1,22 +1,12 @@
 import { NextResponse } from "next/server";
 
+import type { Medicamento } from "@/lib/medicamentos/types";
+
 // Configuración simple
 const FARMACITY_API =
   "https://appfarmacitymicroservice-prod.azurewebsites.net/api/Medicine/search";
 const TIMEOUT = 25000;
 const CACHE_TTL = 15 * 60 * 1000; // 15 minutos
-
-// Interface
-interface Medicamento {
-  codigo: string;
-  nombre: string;
-  marca: string;
-  laboratorio: string;
-  precio: number;
-  presentacion: string;
-  concentracion: string;
-  fechaActualizacion: string;
-}
 
 // Cache
 let cache: { data: Medicamento[]; timestamp: number } | null = null;
