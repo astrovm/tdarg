@@ -224,7 +224,7 @@ export default function EspecialistasPage() {
                     </div>
                   </CardHeader>
                   <CardContent className="flex flex-1 flex-col space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-2">
                       <div className="space-y-3">
                         <div className="flex items-start space-x-2">
                           <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
