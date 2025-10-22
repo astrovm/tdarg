@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   User,
@@ -19,9 +18,9 @@ import {
   AlertTriangle,
   ArrowRight,
   ArrowLeft,
-  CheckCircle,
 } from "lucide-react";
-import { Header } from "@/components/header";
+import { StepGuideLayout } from "@/components/step-guide-layout";
+import type { StepDefinition } from "@/lib/steps";
 import { CitationLink } from "@/components/citation-link";
 import { References, type Reference } from "@/components/references";
 
@@ -30,31 +29,31 @@ const steps = [
     id: 1,
     title: "¿Cómo cambia?",
     subtitle: "Evolución de síntomas",
-    icon: <Clock className="h-5 w-5" />,
+    icon: Clock,
     description: "Cómo evolucionan los síntomas desde la infancia",
   },
   {
     id: 2,
     title: "¿Sos mujer?",
     subtitle: "Diagnóstico femenino",
-    icon: <User className="h-5 w-5" />,
+    icon: User,
     description: "El TDAH en mujeres: subdiagnóstico sistemático",
   },
   {
     id: 3,
     title: "Mis síntomas",
     subtitle: "4 dimensiones",
-    icon: <Heart className="h-5 w-5" />,
+    icon: Heart,
     description: "Las 4 dimensiones del TDAH adulto",
   },
   {
     id: 4,
     title: "Fenómenos especiales",
     subtitle: "Manifestaciones únicas",
-    icon: <Zap className="h-5 w-5" />,
+    icon: Zap,
     description: "Hiperfoco y ciclos del TDAH",
   },
-];
+] satisfies StepDefinition[];
 
 export default function AdultosPage() {
   const {
@@ -67,81 +66,32 @@ export default function AdultosPage() {
     isDone,
   } = useStepProgress({ totalSteps: steps.length });
 
+  const activeStep = steps[currentStep - 1];
+  const ActiveIcon = activeStep.icon;
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Header />
-
-      {/* Header Section */}
-      <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className="text-3xl font-bold text-purple-600 mb-4">
-            TDAH en la Vida Adulta
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-            Comprendiendo cómo se manifiesta el TDAH después de la infancia
-          </p>
-
-          {/* Progress */}
-          <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                Progreso del aprendizaje
-              </span>
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {completedCount}/{steps.length} completado
-              </span>
+    <StepGuideLayout
+      title="TDAH en la Vida Adulta"
+      description="Comprendiendo cómo se manifiesta el TDAH después de la infancia"
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      completedCount={completedCount}
+      onSelectStep={goTo}
+      isStepDone={isDone}
+    >
+      <Card className="min-h-[600px]">
+        <CardHeader>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full">
+              <ActiveIcon className="h-5 w-5" />
             </div>
-            <Progress value={progress} className="h-2" />
-          </div>
-
-          {/* Step Navigation */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            {steps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => goTo(step.id)}
-                className={`p-3 rounded-lg text-left transition-all ${
-                  currentStep === step.id
-                    ? "bg-purple-600 text-white shadow-lg"
-                    : isDone(step.id)
-                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
-                    : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {isDone(step.id) ? (
-                    <CheckCircle className="h-4 w-4" />
-                  ) : (
-                    step.icon
-                  )}
-                  <span className="font-medium text-sm">{step.title}</span>
-                </div>
-                <p className="text-xs opacity-80">{step.subtitle}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-6">
-        {/* Step Content */}
-        <Card className="min-h-[600px]">
-          <CardHeader>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full">
-                {steps[currentStep - 1].icon}
-              </div>
-              <div>
-                <CardTitle className="text-xl">
-                  {steps[currentStep - 1].title}
-                </CardTitle>
-                <CardDescription>
-                  {steps[currentStep - 1].description}
-                </CardDescription>
-              </div>
+            <div>
+              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
+              <CardDescription>{activeStep.description}</CardDescription>
             </div>
-          </CardHeader>
+          </div>
+        </CardHeader>
 
           <CardContent className="space-y-6">
             {currentStep === 1 && (
@@ -495,8 +445,7 @@ export default function AdultosPage() {
         </Card>
 
         <References references={adultosReferences} />
-      </div>
-    </div>
+      </StepGuideLayout>
   );
 }
 

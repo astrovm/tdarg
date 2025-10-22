@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import {
   AlertTriangle,
   Brain,
@@ -21,9 +20,9 @@ import {
   Target,
   ArrowRight,
   ArrowLeft,
-  CheckCircle,
 } from "lucide-react";
-import { Header } from "@/components/header";
+import { StepGuideLayout } from "@/components/step-guide-layout";
+import type { StepDefinition } from "@/lib/steps";
 import { References, type Reference } from "@/components/references";
 import { CitationLink } from "@/components/citation-link";
 
@@ -32,31 +31,31 @@ const steps = [
     id: 1,
     title: "¿Pueden coexistir?",
     subtitle: "Comorbilidad posible",
-    icon: <Brain className="h-5 w-5" />,
+    icon: Brain,
     description: "Cómo TDAH y autismo pueden aparecer juntos",
   },
   {
     id: 2,
     title: "¿Cómo diferenciarlos?",
     subtitle: "Diagnóstico diferencial",
-    icon: <Eye className="h-5 w-5" />,
+    icon: Eye,
     description: "Diferencias clave entre ambas condiciones",
   },
   {
     id: 3,
     title: "Señales importantes",
     subtitle: "Características distintivas",
-    icon: <Target className="h-5 w-5" />,
+    icon: Target,
     description: "Signos que pueden indicar presencia de ambos",
   },
   {
     id: 4,
     title: "Tratamiento dual",
     subtitle: "Abordaje conjunto",
-    icon: <Users className="h-5 w-5" />,
+    icon: Users,
     description: "Estrategias cuando coexisten ambas condiciones",
   },
-];
+] satisfies StepDefinition[];
 
 const references: Reference[] = [
   {
@@ -82,82 +81,32 @@ export default function AutismoPage() {
     isDone,
   } = useStepProgress({ totalSteps: steps.length });
 
+  const activeStep = steps[currentStep - 1];
+  const ActiveIcon = activeStep.icon;
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Header />
-
-      {/* Header Section */}
-      <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className="text-3xl font-bold text-purple-600 mb-4">
-            TDAH y Autismo (TEA)
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-            Comprende la relación, diferencias y tratamiento cuando coexisten
-            ambas condiciones
-          </p>
-
-          {/* Progress */}
-          <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                Progreso del aprendizaje
-              </span>
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {completedCount}/{steps.length} completado
-              </span>
+    <StepGuideLayout
+      title="TDAH y Autismo (TEA)"
+      description="Comprende la relación, diferencias y tratamiento cuando coexisten ambas condiciones"
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      completedCount={completedCount}
+      onSelectStep={goTo}
+      isStepDone={isDone}
+    >
+      <Card className="min-h-[600px]">
+        <CardHeader>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full">
+              <ActiveIcon className="h-5 w-5" />
             </div>
-            <Progress value={progress} className="h-2" />
-          </div>
-
-          {/* Step Navigation */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            {steps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => goTo(step.id)}
-                className={`p-3 rounded-lg text-left transition-all ${
-                  currentStep === step.id
-                    ? "bg-purple-600 text-white shadow-lg"
-                    : isDone(step.id)
-                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
-                    : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {isDone(step.id) ? (
-                    <CheckCircle className="h-4 w-4" />
-                  ) : (
-                    step.icon
-                  )}
-                  <span className="font-medium text-sm">{step.title}</span>
-                </div>
-                <p className="text-xs opacity-80">{step.subtitle}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-6">
-        {/* Step Content */}
-        <Card className="min-h-[600px]">
-          <CardHeader>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full">
-                {steps[currentStep - 1].icon}
-              </div>
-              <div>
-                <CardTitle className="text-xl">
-                  {steps[currentStep - 1].title}
-                </CardTitle>
-                <CardDescription>
-                  {steps[currentStep - 1].description}
-                </CardDescription>
-              </div>
+            <div>
+              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
+              <CardDescription>{activeStep.description}</CardDescription>
             </div>
-          </CardHeader>
+          </div>
+        </CardHeader>
 
           <CardContent className="space-y-6">
             {currentStep === 1 && (
@@ -582,7 +531,6 @@ export default function AutismoPage() {
         </Card>
 
         <References references={references} />
-      </div>
-    </div>
+    </StepGuideLayout>
   );
 }

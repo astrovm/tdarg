@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import {
   ArrowRight,
   ArrowLeft,
@@ -24,27 +23,29 @@ import {
   Zap,
 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Header } from "@/components/header";
+import { StepGuideLayout } from "@/components/step-guide-layout";
+import type { StepDefinition } from "@/lib/steps";
 import Link from "next/link";
 
+const steps = [
+  {
+    id: 1,
+    title: "¿Cómo funciona?",
+    subtitle: "Base del tratamiento",
+    icon: Brain,
+  },
+  {
+    id: 2,
+    title: "Medicamentos",
+    subtitle: "Opciones farmacológicas",
+    icon: Pill,
+  },
+  { id: 3, title: "Terapias", subtitle: "Apoyo psicológico", icon: Users },
+  { id: 4, title: "Ejercicio", subtitle: "Actividad física", icon: Heart },
+  { id: 5, title: "Mi plan", subtitle: "Plan personalizado", icon: Target },
+] satisfies StepDefinition[];
+
 export default function TratamientosPage() {
-  const steps = [
-    {
-      id: 1,
-      title: "¿Cómo funciona?",
-      subtitle: "Base del tratamiento",
-      icon: Brain,
-    },
-    {
-      id: 2,
-      title: "Medicamentos",
-      subtitle: "Opciones farmacológicas",
-      icon: Pill,
-    },
-    { id: 3, title: "Terapias", subtitle: "Apoyo psicológico", icon: Users },
-    { id: 4, title: "Ejercicio", subtitle: "Actividad física", icon: Heart },
-    { id: 5, title: "Mi plan", subtitle: "Plan personalizado", icon: Target },
-  ] as const;
   const {
     currentStep,
     progress,
@@ -56,65 +57,17 @@ export default function TratamientosPage() {
   } = useStepProgress({ totalSteps: steps.length });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Header />
-
-      {/* Header Section */}
-      <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className="text-3xl font-bold text-purple-600 mb-4">
-            Tu Camino del Tratamiento TDAH
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-            Sigue estos pasos para entender las opciones disponibles
-          </p>
-
-          {/* Progress */}
-          <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                Progreso del aprendizaje
-              </span>
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {completedCount}/{steps.length} completado
-              </span>
-            </div>
-            <Progress value={progress} className="h-2" />
-          </div>
-
-          {/* Step Navigation */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-            {steps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => goTo(step.id)}
-                className={`p-3 rounded-lg text-left transition-all ${
-                  currentStep === step.id
-                    ? "bg-purple-600 text-white shadow-lg"
-                    : isDone(step.id)
-                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
-                    : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {isDone(step.id) ? (
-                    <CheckCircle className="h-4 w-4" />
-                  ) : (
-                    <step.icon className="h-4 w-4" />
-                  )}
-                  <span className="font-medium text-sm">{step.title}</span>
-                </div>
-                <p className="text-xs opacity-80">{step.subtitle}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-6">
-        {/* Step Content */}
-        <div className="min-h-[500px]">
+    <StepGuideLayout
+      title="Tu Camino del Tratamiento TDAH"
+      description="Sigue estos pasos para entender las opciones disponibles"
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      completedCount={completedCount}
+      onSelectStep={goTo}
+      isStepDone={isDone}
+    >
+      <div className="min-h-[500px]">
           {/* Step 1: How Treatment Works */}
           {currentStep === 1 && (
             <div className="space-y-6">
@@ -1063,7 +1016,6 @@ export default function TratamientosPage() {
             </div>
           )}
         </div>
-      </div>
-    </div>
+    </StepGuideLayout>
   );
 }

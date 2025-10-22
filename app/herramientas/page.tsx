@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Checkbox } from "@/components/ui/checkbox";
 import type { CheckedState } from "@radix-ui/react-checkbox";
@@ -34,7 +33,8 @@ import {
   Headphones,
   Gamepad2,
 } from "lucide-react";
-import { Header } from "@/components/header";
+import { StepGuideLayout } from "@/components/step-guide-layout";
+import type { StepDefinition } from "@/lib/steps";
 import { References, type Reference } from "@/components/references";
 //
 
@@ -61,28 +61,29 @@ const references: Reference[] = [
   },
 ];
 
+const steps = [
+  {
+    id: 1,
+    title: "Organización",
+    subtitle: "Tiempo y espacio",
+    icon: Calendar,
+  },
+  { id: 2, title: "Atención", subtitle: "Concentración y foco", icon: Focus },
+  {
+    id: 3,
+    title: "Manejo Emocional",
+    subtitle: "Regulación y comunicación",
+    icon: Brain,
+  },
+  {
+    id: 4,
+    title: "Tecnología",
+    subtitle: "Apps y herramientas",
+    icon: Smartphone,
+  },
+] satisfies StepDefinition[];
+
 export default function HerramientasPage() {
-  const steps = [
-    {
-      id: 1,
-      title: "Organización",
-      subtitle: "Tiempo y espacio",
-      icon: Calendar,
-    },
-    { id: 2, title: "Atención", subtitle: "Concentración y foco", icon: Focus },
-    {
-      id: 3,
-      title: "Manejo Emocional",
-      subtitle: "Regulación y comunicación",
-      icon: Brain,
-    },
-    {
-      id: 4,
-      title: "Tecnología",
-      subtitle: "Apps y herramientas",
-      icon: Smartphone,
-    },
-  ] as const;
   const {
     currentStep,
     completedCount,
@@ -97,64 +98,17 @@ export default function HerramientasPage() {
   // (Eliminado: estados no usados de ejemplo)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Header />
-
-      {/* Header Section */}
-      <div className="relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className="text-3xl font-bold text-purple-600 mb-4">
-            Herramientas TDAH: Tu Kit de Estrategias
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-            Descubrí herramientas prácticas para el manejo diario del TDAH
-          </p>
-
-          {/* Progress */}
-          <div className="mb-6">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                Progreso del aprendizaje
-              </span>
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                {completedCount}/{steps.length} completado
-              </span>
-            </div>
-            <Progress value={progress} className="h-2" />
-          </div>
-
-          {/* Step Navigation */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            {steps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => goTo(step.id)}
-                className={`p-3 rounded-lg text-left transition-all ${
-                  currentStep === step.id
-                    ? "bg-purple-600 text-white shadow-lg"
-                    : isDone(step.id)
-                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
-                    : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {isDone(step.id) ? (
-                    <CheckCircle className="h-4 w-4" />
-                  ) : (
-                    <step.icon className="h-4 w-4" />
-                  )}
-                  <span className="font-medium text-sm">{step.title}</span>
-                </div>
-                <p className="text-xs opacity-80">{step.subtitle}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-6">
-        {/* Step Content */}
+    <StepGuideLayout
+      title="Herramientas TDAH: Tu Kit de Estrategias"
+      description="Descubrí herramientas prácticas para el manejo diario del TDAH"
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      completedCount={completedCount}
+      onSelectStep={goTo}
+      isStepDone={isDone}
+    >
+      {/* Step Content */}
         <div className="min-h-[500px]">
           <Alert className="mb-6">
             <Lightbulb className="h-4 w-4" />
@@ -1517,8 +1471,7 @@ export default function HerramientasPage() {
         </Card>
 
         <References references={references} />
-      </div>
-    </div>
+    </StepGuideLayout>
   );
 }
 

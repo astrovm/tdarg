@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   Card,
   CardContent,
@@ -25,17 +25,13 @@ import {
 } from "lucide-react";
 import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales";
 import { Header } from "@/components/header";
-
-interface Medicamento {
-  codigo: string;
-  nombre: string;
-  marca: string;
-  laboratorio: string;
-  precio: number;
-  presentacion: string;
-  concentracion: string;
-  fechaActualizacion: string;
-}
+import { PageHero } from "@/components/page-hero";
+import type { Medicamento } from "@/lib/medicamentos/types";
+import {
+  formatPrice,
+  priceWithCoverage,
+  groupByApproval,
+} from "@/lib/medicamentos/utils";
 
 export default function PreciosPage() {
   const [filtro, setFiltro] = useState("");
@@ -68,66 +64,10 @@ export default function PreciosPage() {
     setMedicamentosFiltrados(filtrados);
   }, [medicamentos, filtro]);
 
-  const formatearPrecio = (precio: number) => {
-    return new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      minimumFractionDigits: 2,
-    }).format(precio);
-  };
-
-  const calcularPrecioConDescuento = (precio: number) => {
-    return precio * 0.6; // 40% descuento = pagar 60%
-  };
-
-  const agruparPorAprobacion = (medicamentos: Medicamento[]) => {
-    return medicamentos.reduce(
-      (grupos, med) => {
-        const nombre = med.nombre.toLowerCase();
-
-        // Estimulantes aprobados para TDAH
-        if (nombre.includes("metilfenidato")) {
-          if (!grupos.estimulantes.metilfenidato)
-            grupos.estimulantes.metilfenidato = [];
-          grupos.estimulantes.metilfenidato.push(med);
-        }
-        // No estimulantes aprobados para TDAH
-        else if (nombre.includes("atomoxetina")) {
-          if (!grupos.noestimulantes.atomoxetina)
-            grupos.noestimulantes.atomoxetina = [];
-          grupos.noestimulantes.atomoxetina.push(med);
-        }
-        // Medicamentos off-label para TDAH
-        else if (
-          nombre.includes("modafinilo") ||
-          nombre.includes("armodafinilo") ||
-          nombre.includes("bupropion")
-        ) {
-          if (
-            nombre.includes("modafinilo") &&
-            !nombre.includes("armodafinilo")
-          ) {
-            if (!grupos.offlabel.modafinilo) grupos.offlabel.modafinilo = [];
-            grupos.offlabel.modafinilo.push(med);
-          } else if (nombre.includes("armodafinilo")) {
-            if (!grupos.offlabel.armodafinilo)
-              grupos.offlabel.armodafinilo = [];
-            grupos.offlabel.armodafinilo.push(med);
-          } else if (nombre.includes("bupropion")) {
-            if (!grupos.offlabel.bupropion) grupos.offlabel.bupropion = [];
-            grupos.offlabel.bupropion.push(med);
-          }
-        }
-
-        return grupos;
-      },
-      {
-        estimulantes: {} as Record<string, Medicamento[]>,
-        noestimulantes: {} as Record<string, Medicamento[]>,
-        offlabel: {} as Record<string, Medicamento[]>,
-      }
-    );
-  };
+  const medicamentosAgrupados = useMemo(
+    () => groupByApproval(medicamentosFiltrados),
+    [medicamentosFiltrados]
+  );
 
   if (loading) {
     return (
@@ -184,60 +124,51 @@ export default function PreciosPage() {
     );
   }
 
-  const medicamentosAgrupados = agruparPorAprobacion(medicamentosFiltrados);
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
 
       {/* Header Section */}
-      <div className="relative hero-gradient overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 py-12 relative z-10">
-          <h1 className="text-4xl font-bold text-purple-600 mb-4">
-            Precios de Medicamentos TDAH
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 max-w-3xl">
-            Precios actualizados de medicamentos para TDAH desde Farmacity
-          </p>
-
-          {/* Info rápida */}
-          {estadisticas && (
-            <div className="mb-6 flex justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur-sm dark:border-purple-800 dark:bg-slate-900/60">
-                <Package className="h-4 w-4 text-purple-600 dark:text-purple-400" />
-                <span className="text-sm text-slate-700 dark:text-slate-300">
-                  <span className="font-semibold text-purple-700 dark:text-purple-300">
-                    {estadisticas.con_precio}
-                  </span>{" "}
-                  de <span className="font-medium">{estadisticas.total}</span>{" "}
-                  medicamentos con precios disponibles
-                </span>
-              </div>
+      <PageHero
+        title="Precios de Medicamentos TDAH"
+        description="Precios actualizados de medicamentos para TDAH desde Farmacity"
+      >
+        {/* Info rápida */}
+        {estadisticas && (
+          <div className="mb-6 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur-sm dark:border-purple-800 dark:bg-slate-900/60">
+              <Package className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+              <span className="text-sm text-slate-700 dark:text-slate-300">
+                <span className="font-semibold text-purple-700 dark:text-purple-300">
+                  {estadisticas.con_precio}
+                </span>{" "}
+                de <span className="font-medium">{estadisticas.total}</span>{" "}
+                medicamentos con precios disponibles
+              </span>
             </div>
-          )}
-
-          {/* Búsqueda */}
-          <div className="flex gap-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
-              <Input
-                placeholder="Buscá por nombre, marca o laboratorio..."
-                value={filtro}
-                onChange={(e) => setFiltro(e.target.value)}
-                className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
-              />
-            </div>
-            <Button
-              onClick={() => refetch(true)}
-              className="h-10 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-xl"
-            >
-              <RefreshCw className="h-5 w-5 mr-2" />
-              Actualizar
-            </Button>
           </div>
+        )}
+
+        {/* Búsqueda */}
+        <div className="flex gap-4">
+          <div className="relative flex-1">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
+            <Input
+              placeholder="Buscá por nombre, marca o laboratorio..."
+              value={filtro}
+              onChange={(e) => setFiltro(e.target.value)}
+              className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
+            />
+          </div>
+          <Button
+            onClick={() => refetch(true)}
+            className="h-10 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-xl"
+          >
+            <RefreshCw className="h-5 w-5 mr-2" />
+            Actualizar
+          </Button>
         </div>
-      </div>
+      </PageHero>
 
       {/* Content Section */}
       <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
@@ -348,7 +279,7 @@ export default function PreciosPage() {
                                         Precio sin cobertura
                                       </div>
                                       <span className="text-2xl font-bold text-green-600">
-                                        {formatearPrecio(medicamento.precio)}
+                                        {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
@@ -358,8 +289,8 @@ export default function PreciosPage() {
                                           Con prepaga/obra social (40% desc.)
                                         </div>
                                         <span className="text-lg font-bold text-blue-600">
-                                          {formatearPrecio(
-                                            calcularPrecioConDescuento(
+                                          {formatPrice(
+                                            priceWithCoverage(
                                               medicamento.precio
                                             )
                                           )}
@@ -457,7 +388,7 @@ export default function PreciosPage() {
                                         Precio sin cobertura
                                       </div>
                                       <span className="text-2xl font-bold text-green-600">
-                                        {formatearPrecio(medicamento.precio)}
+                                        {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
@@ -467,8 +398,8 @@ export default function PreciosPage() {
                                           Con prepaga/obra social (40% desc.)
                                         </div>
                                         <span className="text-lg font-bold text-blue-600">
-                                          {formatearPrecio(
-                                            calcularPrecioConDescuento(
+                                          {formatPrice(
+                                            priceWithCoverage(
                                               medicamento.precio
                                             )
                                           )}
@@ -575,7 +506,7 @@ export default function PreciosPage() {
                                         Precio sin cobertura
                                       </div>
                                       <span className="text-2xl font-bold text-green-600">
-                                        {formatearPrecio(medicamento.precio)}
+                                        {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
@@ -585,8 +516,8 @@ export default function PreciosPage() {
                                           Con prepaga/obra social (40% desc.)
                                         </div>
                                         <span className="text-lg font-bold text-blue-600">
-                                          {formatearPrecio(
-                                            calcularPrecioConDescuento(
+                                          {formatPrice(
+                                            priceWithCoverage(
                                               medicamento.precio
                                             )
                                           )}
@@ -656,7 +587,7 @@ export default function PreciosPage() {
                                 Precio sin cobertura
                               </div>
                               <span className="text-2xl font-bold text-green-600">
-                                {formatearPrecio(medicamento.precio)}
+                                {formatPrice(medicamento.precio)}
                               </span>
                             </div>
                             <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
@@ -666,8 +597,8 @@ export default function PreciosPage() {
                                   Con prepaga/obra social (40% desc.)
                                 </div>
                                 <span className="text-lg font-bold text-blue-600">
-                                  {formatearPrecio(
-                                    calcularPrecioConDescuento(
+                                  {formatPrice(
+                                    priceWithCoverage(
                                       medicamento.precio
                                     )
                                   )}
