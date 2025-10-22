@@ -190,7 +190,7 @@ export default function EspecialistasPage() {
               {especialistasFiltrados.map((especialista, index) => (
                 <Card
                   key={index}
-                  className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                  className="flex h-full flex-col hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -223,8 +223,8 @@ export default function EspecialistasPage() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <CardContent className="flex flex-1 flex-col space-y-4">
+                    <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-2">
                       <div className="space-y-3">
                         <div className="flex items-start space-x-2">
                           <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
@@ -322,7 +322,7 @@ export default function EspecialistasPage() {
                         )}
                       </div>
                     </div>
-                    <div className="flex space-x-2 pt-2">
+                    <div className="mt-auto flex space-x-2 pt-2">
                       <Button
                         className="flex-1"
                         onClick={() => {
