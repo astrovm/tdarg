@@ -33,6 +33,20 @@ import {
   groupByApproval,
 } from "@/lib/medicamentos/utils";
 
+function sortMedicamentosAlphabetically(items: Medicamento[]): Medicamento[] {
+  return [...items].sort((a, b) => {
+    const compareMarca = a.marca.localeCompare(b.marca, "es", {
+      sensitivity: "base",
+    });
+
+    if (compareMarca !== 0) {
+      return compareMarca;
+    }
+
+    return a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" });
+  });
+}
+
 export default function PreciosPage() {
   const [filtro, setFiltro] = useState("");
   const [medicamentosFiltrados, setMedicamentosFiltrados] = useState<
@@ -49,7 +63,7 @@ export default function PreciosPage() {
     }
 
     if (!filtro.trim()) {
-      setMedicamentosFiltrados(medicamentos);
+      setMedicamentosFiltrados(sortMedicamentosAlphabetically(medicamentos));
       return;
     }
 
@@ -61,7 +75,7 @@ export default function PreciosPage() {
         med.laboratorio.toLowerCase().includes(filtroLower)
     );
 
-    setMedicamentosFiltrados(filtrados);
+    setMedicamentosFiltrados(sortMedicamentosAlphabetically(filtrados));
   }, [medicamentos, filtro]);
 
   const medicamentosAgrupados = useMemo(

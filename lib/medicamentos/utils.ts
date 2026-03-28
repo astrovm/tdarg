@@ -23,11 +23,18 @@ export function groupByApproval(medicamentos: Medicamento[]): MedicamentosAgrupa
     (grupos, med) => {
       const nombre = med.nombre.toLowerCase();
 
-      if (nombre.includes("metilfenidato")) {
-        if (!grupos.estimulantes.metilfenidato) {
-          grupos.estimulantes.metilfenidato = [];
+      if (nombre.includes("metilfenidato") || nombre.includes("lisdexanfetamina")) {
+        if (nombre.includes("metilfenidato")) {
+          if (!grupos.estimulantes.metilfenidato) {
+            grupos.estimulantes.metilfenidato = [];
+          }
+          grupos.estimulantes.metilfenidato.push(med);
+        } else if (nombre.includes("lisdexanfetamina")) {
+          if (!grupos.estimulantes.lisdexanfetamina) {
+            grupos.estimulantes.lisdexanfetamina = [];
+          }
+          grupos.estimulantes.lisdexanfetamina.push(med);
         }
-        grupos.estimulantes.metilfenidato.push(med);
       } else if (nombre.includes("atomoxetina")) {
         if (!grupos.noestimulantes.atomoxetina) {
           grupos.noestimulantes.atomoxetina = [];
