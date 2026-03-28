@@ -145,7 +145,7 @@ export default function PreciosPage() {
       {/* Header Section */}
       <PageHero
         title="Precios de medicamentos"
-        description="Precios reales de Farmacity para medicamentos de TDAH"
+        description="Precios actualizados de Farmacity para medicamentos de TDAH"
       >
         {/* Info rápida */}
         {estadisticas && (
