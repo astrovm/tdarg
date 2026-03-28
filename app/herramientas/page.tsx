@@ -99,8 +99,8 @@ export default function HerramientasPage() {
 
   return (
     <StepGuideLayout
-      title="Herramientas TDAH: Tu Kit de Estrategias"
-      description="Descubrí herramientas prácticas para el manejo diario del TDAH"
+      title="Herramientas para el día a día con TDAH"
+      description="Apps, recursos y estrategias prácticas para organizarte mejor"
       steps={steps}
       currentStep={currentStep}
       progress={progress}

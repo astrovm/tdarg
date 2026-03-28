@@ -803,10 +803,10 @@ export default function TratamientosPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Target className="h-8 w-8 text-orange-500" />
-                    Diseñando Mi Plan de Tratamiento
+                    Armá tu plan de tratamiento
                   </CardTitle>
                   <CardDescription>
-                    Cada plan es único - aquí tienes las piezas del rompecabezas
+                    Cada plan es distinto: acá tenés las piezas para armar el tuyo
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -936,7 +936,7 @@ export default function TratamientosPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-semibold mb-3 text-orange-700 dark:text-orange-300">
-                          Si ya tienes diagnóstico:
+                          Si ya tenés diagnóstico:
                         </h4>
                         <ol className="text-sm space-y-2">
                           <li>
@@ -961,7 +961,7 @@ export default function TratamientosPage() {
                       </div>
                       <div>
                         <h4 className="font-semibold mb-3 text-orange-700 dark:text-orange-300">
-                          Si no tienes diagnóstico:
+                          Si todavía no tenés diagnóstico:
                         </h4>
                         <ol className="text-sm space-y-2">
                           <li>
@@ -992,9 +992,9 @@ export default function TratamientosPage() {
                   <Alert className="mt-6">
                     <CheckCircle className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>¡Has completado el recorrido!</strong> Ahora
-                      tienes la información necesaria para tomar decisiones
-                      informadas sobre tu tratamiento. Recuerda: el mejor
+                      <strong>¡Terminaste el recorrido!</strong> Ahora
+                      tenés la información necesaria para tomar decisiones
+                      informadas sobre tu tratamiento. Acordate: el mejor
                       tratamiento es el que combina medicación, terapia y
                       cambios de estilo de vida.
                     </AlertDescription>
@@ -1002,7 +1002,7 @@ export default function TratamientosPage() {
 
                   <div className="mt-8 text-center space-x-4">
                     <Button size="lg" asChild>
-                      <Link href="/especialistas">Encontrar Profesionales</Link>
+                      <Link href="/especialistas">Ver especialistas</Link>
                     </Button>
                     <Button variant="outline" size="lg" asChild>
                       <Link href="/precios">Ver Precios Medicamentos</Link>

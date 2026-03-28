@@ -691,7 +691,7 @@ export default function DiagnosticoPage() {
                       <CheckCircle className="h-4 w-4" />
                       <AlertDescription>
                         <strong>¡Listo para el diagnóstico!</strong> Ahora
-                        tienes toda la información necesaria
+                        tenés toda la información necesaria
                       </AlertDescription>
                     </Alert>
 

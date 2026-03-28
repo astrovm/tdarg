@@ -525,7 +525,7 @@ export default function LegislacionPage() {
 
                                   <div>
                                     <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">
-                                      ❌ Problemas Identificados
+                                      ❌ Problemas concretos
                                     </h5>
                                     <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
                                       {articulo.problemasIdentificados.map(
