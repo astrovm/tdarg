@@ -51,6 +51,71 @@ interface AlfabetaProducto {
   fecha?: string;
 }
 
+function normalizarNumeroFarmacity(valor: string | number | undefined): number {
+  if (typeof valor === "number") {
+    return Number.isFinite(valor) ? valor : 0;
+  }
+
+  if (!valor) {
+    return 0;
+  }
+
+  const limpio = valor.toString().replace(/[^\d.,-]/g, "").trim();
+  if (!limpio) {
+    return 0;
+  }
+
+  const ultimoPunto = limpio.lastIndexOf(".");
+  const ultimaComa = limpio.lastIndexOf(",");
+
+  let normalizado = limpio;
+
+  if (ultimoPunto !== -1 && ultimaComa !== -1) {
+    const separadorDecimal = ultimoPunto > ultimaComa ? "." : ",";
+    const separadorMiles = separadorDecimal === "." ? "," : ".";
+
+    normalizado = normalizado
+      .replaceAll(separadorMiles, "")
+      .replace(separadorDecimal, ".");
+  } else if (ultimaComa !== -1) {
+    const decimales = limpio.length - ultimaComa - 1;
+    normalizado =
+      decimales <= 2
+        ? limpio.replace(/\./g, "").replace(",", ".")
+        : limpio.replace(/,/g, "");
+  } else if (ultimoPunto !== -1) {
+    const decimales = limpio.length - ultimoPunto - 1;
+    normalizado = decimales <= 2 ? limpio.replace(/,/g, "") : limpio.replace(/\./g, "");
+  }
+
+  const numero = Number.parseFloat(normalizado);
+  return Number.isFinite(numero) ? numero : 0;
+}
+
+function extraerConcentracionTexto(...textos: Array<string | undefined>): string | null {
+  for (const texto of textos) {
+    if (!texto) {
+      continue;
+    }
+
+    const match = texto.match(/(\d+(?:[.,]\d+)?)\s*mg\b/i);
+    if (!match) {
+      continue;
+    }
+
+    const valor = normalizarNumeroFarmacity(match[1]);
+    if (valor > 0) {
+      const valorFormateado = Number.isInteger(valor)
+        ? valor.toString()
+        : valor.toFixed(2).replace(/\.?0+$/, "");
+
+      return `${valorFormateado} mg`;
+    }
+  }
+
+  return null;
+}
+
 async function obtenerMedicamentos(termino: string): Promise<FarmacityMed[]> {
   try {
     const url = `${FARMACITY_API}?filter=${encodeURIComponent(termino)}`;
@@ -183,15 +248,17 @@ function convertirMedicamento(med: FarmacityMed): Medicamento {
   const nombre = med.formula?.description || med.description || "Medicamento";
   const marca = med.description || "Sin marca";
   const laboratorio = med.medicalLaboratory?.abbreviation || "No especificado";
-  const precio =
-    typeof med.publicPrice === "string"
-      ? Number.parseFloat(med.publicPrice)
-      : Number(med.publicPrice || 0);
+  const precio = normalizarNumeroFarmacity(med.publicPrice);
   const presentacion =
     med.package?.packageDescription?.description || "No especificado";
-  const concentracion = med.package?.potency
-    ? `${med.package.potency} mg`
-    : "No especificado";
+  const potencia = normalizarNumeroFarmacity(med.package?.potency);
+  const concentracion = potencia > 0
+    ? `${Number.isInteger(potencia) ? potencia : potencia.toFixed(2).replace(/\.?0+$/, "")} mg`
+    : extraerConcentracionTexto(
+        presentacion,
+        marca,
+        nombre
+      ) || "No especificado";
 
   return {
     codigo:
