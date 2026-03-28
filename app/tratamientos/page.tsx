@@ -59,7 +59,7 @@ export default function TratamientosPage() {
   return (
     <StepGuideLayout
       title="Tratamientos para TDAH"
-      description="Sigue estos pasos para entender las opciones disponibles"
+      description="Mirá estas opciones para entender cómo se trata el TDAH"
       steps={steps}
       currentStep={currentStep}
       progress={progress}

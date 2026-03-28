@@ -190,7 +190,7 @@ export default function DiagnosticoPage() {
   return (
     <StepGuideLayout
       title="Cómo te diagnostican TDAH"
-      description="Sigue estos pasos visuales para entender el proceso diagnóstico"
+      description="Mirá estos pasos para entender cómo es el proceso diagnóstico"
       steps={steps}
       currentStep={currentStep}
       progress={progress}

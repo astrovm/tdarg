@@ -473,7 +473,7 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    El diagnóstico sale plata, pero no tenerlo sale más caro
+                    El diagnóstico tiene un costo, pero no tenerlo puede salir más caro
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">

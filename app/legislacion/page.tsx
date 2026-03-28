@@ -73,7 +73,7 @@ export default function LegislacionPage() {
 
       <PageHero
         title="Leyes sobre TDAH en Argentina"
-        description="Qué dice la ley hoy, qué funciona mal y qué se podría hacer para arreglarlo. Sin vueltas."
+        description="Qué dice la ley hoy, qué funciona mal y qué se podría hacer para resolverlo de forma concreta."
       />
 
       {/* Problems Section */}
@@ -124,7 +124,7 @@ export default function LegislacionPage() {
                     Medio:
                   </span>
                   <p className="text-yellow-600 dark:text-yellow-200 text-sm mt-1">
-                    Es un quilombo pero se puede arreglar
+                    Trae complicaciones, pero se puede resolver
                   </p>
                 </div>
               </div>

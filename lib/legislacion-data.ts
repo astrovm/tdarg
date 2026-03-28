@@ -332,9 +332,9 @@ export const propuestasNecesarias = [
     resumenEjecutivo:
       "Controlar que la Resolución 2214/2025 se cumpla: recetas electrónicas para TDAH en 120 días.",
     descripcion:
-      "La Resolución 2214/2025 es un avance importante que puede solucionar el problema de acceso a medicamentos. Hay que hacer 3 cosas:\n\n1) **Seguir de cerca los 120 días** para que las recetas electrónicas de psicotrópicos Lista II funcionen.\n\n2) **Ver que cada provincia lo implemente** bien.\n\n3) **Ver qué sale mal** y proponer arreglos.",
+      "La Resolución 2214/2025 es un avance importante que puede mejorar el acceso a los medicamentos. Hay tres tareas clave:\n\n1) **Seguir de cerca el plazo de 120 días** para que las recetas electrónicas de psicotrópicos Lista II entren en funcionamiento.\n\n2) **Verificar que cada provincia lo implemente** correctamente.\n\n3) **Detectar trabas de implementación** y proponer ajustes.",
     problemaQueResuelve:
-      "Que la ley se cumpla de verdad y no quede en la nada.",
+      "Que la norma se implemente de manera efectiva y no quede solo en el papel.",
     beneficiosClave: [
       "✓ Establece recetas exclusivamente electrónicas obligatorias",
       "✓ Plazo específico de 120 días para medicamentos TDAH",
