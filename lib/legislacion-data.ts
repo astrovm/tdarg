@@ -27,7 +27,7 @@ export const leyes = [
       ],
       puntuacion: 8.5,
       recomendacion:
-        "Normativa con potencial para resolver problemas de acceso a medicación TDAH. Requiere monitoreo de implementación efectiva.",
+        "Esta norma puede solucionar los problemas de acceso a medicamentos, pero hay que seguir de cerca que se cumpla en la práctica.",
     },
     puntosClave: [
       "Recetas obligatoriamente electrónicas para todos los medicamentos",
@@ -43,9 +43,9 @@ export const leyes = [
           titulo: "Prescripciones Exclusivamente Electrónicas",
           textoActual: `Las prescripciones deberán emitirse exclusivamente en formato electrónico o digital a través de plataformas registradas en el Registro Nacional de Plataformas Digitales de Salud (ReNaPDiS).`,
           problemasIdentificados: [
-            "No deroga explícitamente las recetas manuscritas de la Ley 19.303",
-            "Posible conflicto de interpretación con normativas anteriores",
-            "Implementación depende de jurisdicciones locales",
+            "No elimina explícitamente las recetas manuscritas de la Ley 19.303",
+            "Puede haber confusiones con leyes viejas",
+            "Cada provincia tiene que implementarlo",
           ],
           impactoTDAH:
             "Positivo si se implementa correctamente, eliminaría recetas manuscritas para medicamentos TDAH",
@@ -104,7 +104,7 @@ export const leyes = [
       ],
       puntuacion: 6.0,
       recomendacion:
-        "Marco legal adecuado que requirió normativas complementarias para efectividad práctica.",
+        "La ley está bien pensada pero le faltan reglas claras para que funcione en la práctica.",
     },
     puntosClave: [
       "Recetas electrónicas obligatorias según normativa",
@@ -196,7 +196,7 @@ export const leyes = [
       ],
       puntuacion: 7.0,
       recomendacion:
-        "Marco legal importante que requiere interpretación equilibrada para trastornos como TDAH.",
+        "Es una ley importante pero hay que interpretarla bien para que no complique el tratamiento del TDAH.",
     },
     puntosClave: [
       "Garantiza derechos humanos en salud mental",
@@ -253,7 +253,7 @@ export const leyes = [
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
-      "Regula fabricación, comercialización y uso de sustancias psicotrópicas desde 1971. Establece controles estrictos para metilfenidato que resultan inadecuados para tratamientos crónicos.",
+      "Ley vieja de 1971 que controla psicotrópicos. Las reglas para el metilfenidato son tan estrictas que no sirven para tratamientos que duran años.",
     fecha: "1971-10-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -277,7 +277,7 @@ export const leyes = [
       ],
       puntuacion: 4.0,
       recomendacion:
-        "Normativa desactualizada que requiere modernización para tratamientos crónicos como TDAH.",
+        "Es una ley vieja que no sirve más para los tratamientos de TDAH. Hay que actualizarla.",
     },
     puntosClave: [
       "Metilfenidato clasificado en Lista II (control estricto)",
@@ -328,13 +328,13 @@ export const leyes = [
 
 export const propuestasNecesarias = [
   {
-    titulo: "Seguimiento de la Resolución 2214/2025",
+    titulo: "Que se cumpla la Resolución 2214/2025",
     resumenEjecutivo:
-      "Monitorear el cumplimiento efectivo de la Resolución 2214/2025 que establece recetas exclusivamente electrónicas para medicamentos TDAH con plazo de 120 días.",
+      "Controlar que la Resolución 2214/2025 se cumpla: recetas electrónicas para TDAH en 120 días.",
     descripcion:
-      "La Resolución 2214/2025 representa un avance significativo que podría resolver el problema de acceso a medicación TDAH. Se requiere:\n\n1) **Monitoreo del cumplimiento del plazo de 120 días** para implementación de recetas electrónicas de psicotrópicos Lista II.\n\n2) **Seguimiento jurisdiccional** para asegurar implementación efectiva en todas las provincias.\n\n3) **Evaluación de resultados** para identificar obstáculos y proponer ajustes necesarios.",
+      "La Resolución 2214/2025 es un avance importante que puede solucionar el problema de acceso a medicamentos. Hay que hacer 3 cosas:\n\n1) **Seguir de cerca los 120 días** para que las recetas electrónicas de psicotrópicos Lista II funcionen.\n\n2) **Ver que cada provincia lo implemente** bien.\n\n3) **Ver qué sale mal** y proponer arreglos.",
     problemaQueResuelve:
-      "Asegurar implementación efectiva y evitar dilaciones que limiten el impacto de esta normativa para pacientes TDAH.",
+      "Que la ley se cumpla de verdad y no quede en la nada.",
     beneficiosClave: [
       "✓ Establece recetas exclusivamente electrónicas obligatorias",
       "✓ Plazo específico de 120 días para medicamentos TDAH",
@@ -356,7 +356,7 @@ export const propuestasNecesarias = [
     resumenEjecutivo:
       "Facilitar el registro de nuevos medicamentos para TDAH ya aprobados internacionalmente. Argentina dispone de opciones limitadas comparado con estándares mundiales.",
     descripcion:
-      "El Consenso y la literatura internacional evidencian la necesidad de más opciones terapéuticas.\n\nSe propone acción coordinada entre ANMAT y el Congreso para:\n• Contactar laboratorios farmacéuticos internacionales\n• Identificar barreras regulatorias y de mercado\n• Agilizar registro de medicamentos aprobados por FDA y EMA\n• Completar trámites pendientes de Autorización Efectiva de Comercialización (AEC) e ingreso al VNM para productos ya registrados",
+      "El Consenso Argentino y los estudios de otros países muestran que hace falta más opciones de medicamentos.\n\nSe puede trabajar con ANMAT y el Congreso para:\n• Hablar con laboratorios de otros países\n• Ver qué trámites traban el proceso\n• Agilizar el registro de medicamentos que ya aprobaron la FDA y la EMA\n• Terminar los trámites de Autorización Efectiva de Comercialización (AEC) y el ingreso al VNM para productos ya registrados",
     problemaQueResuelve:
       "Falta de alternativas para aproximadamente 30% de pacientes con respuesta inadecuada a medicación disponible.",
     beneficiosClave: [
@@ -441,5 +441,5 @@ export const fuentesDocumentacion = {
       referencia: "(InfoLeg y Boletín Oficial)"
     }
   ],
-  notaLegal: "Proyecto independiente de análisis. No representa comunicación oficial de entidades gubernamentales. Información verificable en fuentes públicas."
+  notaLegal: "Este es un análisis independiente. No hablamos en nombre del gobierno. Toda la info se puede chequear en fuentes públicas."
 };

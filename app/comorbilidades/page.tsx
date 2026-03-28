@@ -537,7 +537,7 @@ const comorbilidadesReferences: Reference[] = [
     authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
     url: "/international-consensus-208-conclusions.pdf",
     description:
-      "Documento que establece las prevalencias de comorbilidades asociadas al TDAH basado en evidencia científica internacional.",
+      "Datos sobre cuántas personas con TDAH tienen también otras condiciones.",
     year: "2021",
   },
   {

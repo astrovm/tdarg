@@ -72,18 +72,18 @@ export default function LegislacionPage() {
       <Header />
 
       <PageHero
-        title="Análisis Inteligente de Legislación TDAH"
-        description="Seguimiento automático con IA de leyes y proyectos relacionados al TDAH. Identificamos qué realmente beneficia a los pacientes vs. el &quot;teatro político&quot;."
+        title="Leyes sobre TDAH en Argentina"
+        description="Qué dice la ley hoy, qué funciona mal y qué se podría hacer para arreglarlo. Sin vueltas."
       />
 
       {/* Problems Section */}
       <div className="bg-gradient-to-br from-red-50/50 to-orange-50/50 dark:from-red-900/10 dark:to-orange-900/10 border-y border-red-100 dark:border-red-800/30">
         <div className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold text-red-600 mb-4 text-center">
-            Problemas Identificados
+            Los problemas de verdad
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
-            Análisis de los obstáculos principales para acceso a medicación TDAH
+            Estas son las trabas que hacen que conseguir medicación sea un dolor de cabeza
           </p>
 
           {/* Explicación de niveles de urgencia */}
@@ -92,7 +92,7 @@ export default function LegislacionPage() {
               <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
                 <span className="text-white text-xs">📊</span>
               </div>
-              Niveles de Urgencia
+              Qué tan grave es cada problema
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="flex items-start space-x-2 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800/50">
@@ -102,7 +102,7 @@ export default function LegislacionPage() {
                     Crítico:
                   </span>
                   <p className="text-red-600 dark:text-red-200 text-sm mt-1">
-                    Bloquea completamente el acceso a medicación
+                    Te deja sin medicación directamente
                   </p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function LegislacionPage() {
                     Alto:
                   </span>
                   <p className="text-orange-600 dark:text-orange-200 text-sm mt-1">
-                    Dificulta significativamente el tratamiento
+                    Te complica mucho conseguir el tratamiento
                   </p>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function LegislacionPage() {
                     Medio:
                   </span>
                   <p className="text-yellow-600 dark:text-yellow-200 text-sm mt-1">
-                    Causa inconvenientes pero es manejable
+                    Es un quilombo pero se puede arreglar
                   </p>
                 </div>
               </div>
@@ -177,10 +177,10 @@ export default function LegislacionPage() {
       <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 dark:from-green-900/10 dark:to-emerald-900/10 border-y border-green-100 dark:border-green-800/30">
         <div className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold text-green-600 mb-4 text-center">
-            Soluciones Propuestas
+            Qué se podría hacer
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
-            Propuestas listas para presentación oficial
+            Ideas concretas para arreglar esto
           </p>
           <div className="space-y-6">
             {propuestasNecesarias.map((propuesta, index) => (
@@ -207,7 +207,7 @@ export default function LegislacionPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                       <h5 className="font-medium text-green-700 dark:text-green-400 mb-2 text-sm">
-                        Beneficios Clave
+                        Qué cambiaría
                       </h5>
                       <ul className="space-y-1 text-sm">
                         {propuesta.beneficiosClave.map((beneficio, idx) => (
@@ -219,7 +219,7 @@ export default function LegislacionPage() {
                     </div>
                     <div>
                       <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-2 text-sm">
-                        Ventajas
+                        Por qué funciona
                       </h5>
                       <ul className="space-y-1 text-sm">
                         {propuesta.ventajas.map((ventaja, idx) => (
@@ -268,7 +268,7 @@ export default function LegislacionPage() {
       <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10 border-y border-blue-100 dark:border-blue-800/30">
         <div className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center">
-            Leyes Vigentes - Análisis
+            Las leyes que existen hoy
           </h2>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
@@ -314,7 +314,7 @@ export default function LegislacionPage() {
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="font-semibold flex items-center space-x-2">
                         <Brain className="h-4 w-4" />
-                        <span>Análisis de Efectividad</span>
+                        <span>Qué tan útil es esta ley</span>
                       </h4>
                       <Badge
                         variant={
@@ -395,7 +395,7 @@ export default function LegislacionPage() {
                       onClick={() => window.open(ley.url, "_blank")}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver Ley
+                      Ver la ley completa
                     </Button>
                     {ley.analisisDetallado && (
                       <Button
@@ -407,12 +407,12 @@ export default function LegislacionPage() {
                         {expandedLaw === ley.numero ? (
                           <>
                             <ChevronUp className="h-4 w-4 ml-1" />
-                            Ocultar Análisis
+                            Cerrar detalle
                           </>
                         ) : (
                           <>
                             <ChevronDown className="h-4 w-4 ml-1" />
-                            Análisis Detallado
+                            Ver en detalle
                           </>
                         )}
                       </Button>
@@ -562,7 +562,7 @@ export default function LegislacionPage() {
       <section className="bg-gray-800 dark:bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-center">
-            {fuentesDocumentacion.titulo}
+            De dónde sacamos la info
           </h2>
           <div className="max-w-4xl mx-auto text-sm text-gray-300">
             <p className="mb-4">{fuentesDocumentacion.descripcion}</p>

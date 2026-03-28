@@ -33,9 +33,9 @@ export default function HomePage() {
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Información integral sobre el Trastorno por Déficit de Atención e
-            Hiperactividad. Precios de medicamentos, directorio de
-            especialistas, análisis legislativo y guías educativas completas.
+            Todo sobre TDAH en un solo lugar: precios de medicamentos actualizados,
+            especialistas por provincia, las leyes que te importan y guías prácticas
+            para entender el trastorno.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="primaryGradient" asChild>
@@ -93,7 +93,7 @@ export default function HomePage() {
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
               <div className="text-3xl font-bold text-blue-600 mb-2">2.4:1</div>
               <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Ratio varones:mujeres
+                Proporción hombres:mujeres
               </div>
             </div>
             <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
@@ -112,7 +112,7 @@ export default function HomePage() {
       <section className="py-14 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">
-            Herramientas Principales
+            Lo más buscado
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl hover:-translate-y-2">
@@ -121,11 +121,10 @@ export default function HomePage() {
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
-                  Precios de Medicamentos
+                  Precios de medicamentos
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Precios actualizados de metilfenidato y atomoxetina desde
-                  Farmacity
+                  Metilfenidato, atomoxetina y más. Precios reales de Farmacity.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -136,10 +135,10 @@ export default function HomePage() {
                   <Stethoscope className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
-                  Directorio de Especialistas
+                  Especialistas
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Encontrá especialistas en TDAH en tu provincia
+                  Profesionales de TDAH en cada provincia. Encontrá el tuyo.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -153,7 +152,7 @@ export default function HomePage() {
                   Legislación
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Seguimiento de leyes y decretos relacionados con TDAH
+                  Las leyes y decretos que afectan a quienes tienen TDAH.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -166,11 +165,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
-              Guías Educativas
+              Guías
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              Información completa basada en consensos médicos internacionales y
-              evidencia científica
+              Info clara y actualizada sobre diagnóstico, tratamientos y todo lo que
+              necesitás saber.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -188,7 +187,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Proceso diagnóstico, criterios DSM-5 y evaluación profesional
+                  Cómo se diagnostica, a qué especialista ir y qué esperar.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -207,7 +206,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Opciones farmacológicas y no farmacológicas disponibles
+                  Medicamentos, terapias y estrategias que funcionan.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -226,7 +225,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Manifestaciones y impacto del TDAH en la vida adulta
+                  Cómo se ve el TDAH en adultos: síntomas, diagnóstico y vida diaria.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -245,7 +244,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Condiciones que frecuentemente acompañan al TDAH
+                  Ansiedad, depresión, TEA y otras condiciones que suelen ir de la mano.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -264,7 +263,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Comorbilidad entre TDAH y Trastorno del Espectro Autista
+                  Cuándo se dan juntos, cómo se diferencian y cómo abordarlos.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -283,7 +282,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Desmitificando conceptos erróneos sobre el TDAH
+                  Las mentiras más comunes sobre TDAH y por qué están mal.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -302,7 +301,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Consecuencias del TDAH no tratado en la vida diaria
+                  Qué pasa si no se trata: trabajo, relaciones y calidad de vida.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -321,7 +320,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Apps, libros y herramientas prácticas para TDAH
+                  Apps, libros y recursos útiles para el día a día con TDAH.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -346,9 +345,8 @@ export default function HomePage() {
                     Importante
                   </h4>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Esta información es de carácter educativo y no reemplaza la
-                    consulta médica profesional. Siempre consultá con un
-                    especialista para el diagnóstico y tratamiento del TDAH.
+                    Esto es información general, no reemplaza ir al médico.
+                    Siempre consultá con un profesional para diagnóstico y tratamiento.
                   </p>
                 </div>
               </div>

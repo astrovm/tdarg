@@ -38,11 +38,11 @@ const steps = [
   },
   {
     id: 2,
-    title: "Evaluación neuropsicológica",
+    title: "Evaluación con neuropsicólogo",
     subtitle: "Primer paso",
     icon: Stethoscope,
   },
-  { id: 3, title: "Derivación a especialistas", subtitle: "Paso siguiente", icon: Clock },
+  { id: 3, title: "Ir al especialista", subtitle: "Paso siguiente", icon: Clock },
   {
     id: 4,
     title: "¿Qué debo llevar?",
@@ -189,7 +189,7 @@ export default function DiagnosticoPage() {
 
   return (
     <StepGuideLayout
-      title="Tu Camino al Diagnóstico TDAH"
+      title="Cómo te diagnostican TDAH"
       description="Sigue estos pasos visuales para entender el proceso diagnóstico"
       steps={steps}
       currentStep={currentStep}
@@ -346,18 +346,18 @@ export default function DiagnosticoPage() {
                   <Alert className="mb-6 bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
                     <Brain className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>Ruta recomendada:</strong> Comenzá con una evaluación neuropsicológica completa. 
-                      Este informe será fundamental para que el psiquiatra pueda hacer un diagnóstico más preciso 
-                      y diseñar el mejor plan de tratamiento.
+                      <strong>La mejor forma:</strong> Empezá con una evaluación neuropsicológica completa.
+                      Con ese informe el psiquiatra te puede diagnosticar mejor
+                      y armar un tratamiento que funcione para vos.
                     </AlertDescription>
                   </Alert>
                   <Alert className="mb-6 bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800">
                     <AlertTriangle className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>¡MUY IMPORTANTE!</strong> Todos los profesionales deben ser especialistas en TDAH. 
-                      Un psicólogo general, psiquiatra general o neurólogo sin especialización en TDAH puede 
-                      pasar por alto síntomas clave o dar un diagnóstico erróneo. Preguntá siempre por su 
-                      experiencia específica con TDAH.
+                      <strong>¡IMPORTANTE!</strong> Que sean especialistas en TDAH.
+                      Un psicólogo, psiquiatra o neurólogo que no se dedica a TDAH puede
+                      no ver síntomas importantes o diagnosticarte mal. Preguntá siempre si
+                      atienden TDAH seguido.
                     </AlertDescription>
                   </Alert>
                   <div className="grid md:grid-cols-3 gap-6">

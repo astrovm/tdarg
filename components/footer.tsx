@@ -1,7 +1,7 @@
-import { Brain, GitBranch } from "lucide-react"
+import { Brain, GitBranch } from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
@@ -13,25 +13,30 @@ export function Footer() {
               <span className="text-lg font-semibold">Tdarg</span>
             </div>
             <p className="text-gray-400">
-              Portal integral de información sobre TDAH en Argentina con herramientas prácticas
-              y guías educativas basadas en evidencia científica.
+              Info sobre TDAH en Argentina: precios de medicamentos,
+              especialistas, legislación y guías prácticas.
             </p>
           </div>
           <div>
             <h5 className="font-semibold mb-4">Contacto</h5>
             <p className="text-gray-400 mb-4">
-              <a href="mailto:tdarg@4st.li" className="hover:text-white transition-colors">
+              <a
+                href="mailto:tdarg@4st.li"
+                className="hover:text-white transition-colors"
+              >
                 tdarg@4st.li
               </a>
             </p>
             <p className="text-gray-400 text-sm">
-              Para consultas, sugerencias o reportar información desactualizada.
+              ¿Viste algo desactualizado? ¿Tenés una sugerencia? Mandanos un
+              mail.
             </p>
           </div>
           <div>
             <h5 className="font-semibold mb-4">Código Abierto</h5>
             <p className="text-gray-400 mb-4">
-              Este proyecto es de código abierto. Podés contribuir mejorando el contenido o reportando issues.
+              Este proyecto es de código abierto. Podés contribuir mejorando el
+              contenido o reportando issues.
             </p>
             <a
               href="https://github.com/astrovm/tdarg"
@@ -49,5 +54,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

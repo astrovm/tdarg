@@ -90,7 +90,7 @@ export default function MitosPage() {
     },
     {
       id: 5,
-      title: "¿Solo en varones?",
+      title: "¿Solo en hombres?",
       subtitle: "TDAH en mujeres",
       icon: Users,
     },
@@ -113,8 +113,8 @@ export default function MitosPage() {
 
   return (
     <StepGuideLayout
-      title="Desmitificando el TDAH: Tu Camino a la Verdad"
-      description="Separá los mitos de las realidades con evidencia científica"
+      title="Mitos sobre TDAH"
+        description="Las verdades y mentiras más comunes sobre TDAH"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
@@ -556,7 +556,7 @@ export default function MitosPage() {
 
                   <div className="mt-6 text-center space-x-4">
                     <Button onClick={next} size="lg">
-                      Siguiente: ¿Solo en varones?{" "}
+                      Siguiente: ¿Solo en hombres?{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                     <Button variant="outline" onClick={prev}>
@@ -576,7 +576,7 @@ export default function MitosPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Users className="h-8 w-8 text-pink-500" />
-                    ¿Es más común en niños varones?
+                    ¿Es más común en chicos?
                   </CardTitle>
                   <CardDescription>
                     El TDAH oculto en mujeres: un problema de diagnóstico
@@ -591,7 +591,7 @@ export default function MitosPage() {
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>• &quot;Las niñas no tienen TDAH&quot;</li>
-                        <li>• &quot;Es 9:1 varones vs mujeres&quot;</li>
+                        <li>• &quot;Es 9:1 chicos vs chicas&quot;</li>
                         <li>• &quot;Las mujeres lo superan más fácil&quot;</li>
                         <li>• &quot;Solo se ve hiperactividad física&quot;</li>
                         <li>

@@ -30,8 +30,8 @@ import Link from "next/link";
 const steps = [
   {
     id: 1,
-    title: "¿Cómo funciona?",
-    subtitle: "Base del tratamiento",
+    title: "Cómo funciona",
+    subtitle: "El tratamiento paso a paso",
     icon: Brain,
   },
   {
@@ -58,7 +58,7 @@ export default function TratamientosPage() {
 
   return (
     <StepGuideLayout
-      title="Tu Camino del Tratamiento TDAH"
+      title="Tratamientos para TDAH"
       description="Sigue estos pasos para entender las opciones disponibles"
       steps={steps}
       currentStep={currentStep}
@@ -965,7 +965,7 @@ export default function TratamientosPage() {
                         </h4>
                         <ol className="text-sm space-y-2">
                           <li>
-                            1. <strong>Completar autoevaluación</strong> de
+                            1. <strong>Hacer el cuestionario</strong> de
                             síntomas
                           </li>
                           <li>

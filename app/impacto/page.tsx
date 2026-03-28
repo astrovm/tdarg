@@ -71,8 +71,8 @@ export default function ImpactoPage() {
 
   return (
     <StepGuideLayout
-      title="Impacto del TDAH: Tu Camino a la Conciencia"
-      description="Descubre las consecuencias reales del TDAH no tratado paso a paso"
+      title="Cómo afecta el TDAH en la vida"
+        description="Qué pasa cuando el TDAH no se trata y cómo impacta en el día a día"
       steps={steps}
       currentStep={currentStep}
       progress={progress}

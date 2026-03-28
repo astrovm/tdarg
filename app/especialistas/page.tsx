@@ -143,8 +143,8 @@ export default function EspecialistasPage() {
       <Header />
 
       <PageHero
-        title="Directorio de Especialistas en TDAH"
-        description="Encuentra profesionales especializados en el diagnóstico y tratamiento del TDAH en tu provincia. Todos los especialistas listados tienen experiencia específica en trastornos de atención."
+        title="Especialistas en TDAH"
+        description="Profesionales que diagnostican y tratan TDAH en cada provincia. Filtrá por ubicación y especialidad."
       >
         <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl backdrop-blur-sm">
           <CardHeader className="pb-4">
@@ -152,7 +152,7 @@ export default function EspecialistasPage() {
               <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
                 <Search className="h-4 w-4 text-white" />
               </div>
-              Buscar especialistas
+              Buscá especialistas
             </CardTitle>
           </CardHeader>
           <CardContent className="p-6">
@@ -168,7 +168,7 @@ export default function EspecialistasPage() {
               </div>
               <Select value={provincia} onValueChange={setProvincia}>
                 <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
-                  <SelectValue placeholder="Seleccioná una provincia" />
+                  <SelectValue placeholder="Elegí una provincia" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="todas">Todas las provincias</SelectItem>
@@ -206,7 +206,7 @@ export default function EspecialistasPage() {
           {/* Results */}
           <div className="mb-6">
             <p className="text-gray-700 dark:text-gray-300 text-lg">
-              Mostrando {especialistasFiltrados.length} especialista
+              {especialistasFiltrados.length} especialista
               {especialistasFiltrados.length !== 1 ? "s" : ""}
               {provincia !== "todas" && ` en ${provincia}`}
             </p>
@@ -405,14 +405,14 @@ export default function EspecialistasPage() {
 
           {/* No Results - Only show if there are no results */}
           {especialistasFiltrados.length === 0 && (
-            <Card className="text-center py-12 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+              <Card className="text-center py-12 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
               <CardContent>
                 <div className="text-gray-500 mb-4">
                   <Search className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="text-lg font-medium">
-                    No se encontraron especialistas
+                    No encontramos especialistas
                   </h3>
-                  <p>Probá ajustando los filtros de búsqueda</p>
+                  <p>Probá con otros filtros</p>
                 </div>
                 <Button
                   onClick={() => {
@@ -435,31 +435,31 @@ export default function EspecialistasPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="bg-white dark:bg-gray-800 border-2 border-blue-200 dark:border-blue-700">
               <CardHeader>
-                <CardTitle>Proceso de Diagnóstico</CardTitle>
+                <CardTitle>Cómo se diagnostica</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Entrevista de admisión inicial
+                    Primera entrevista con el profesional
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Test neurocognitivo y entrevistas adicionales
+                    Tests y más charlas para conocer tu historia
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Descarte de patologías similares
+                    Descartar otras condiciones parecidas
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Evaluación de comorbidades (TEA, TOC, etc.)
+                    Ver si tenés algo más (TEA, TOC, etc.)
                   </p>
                 </div>
               </CardContent>
@@ -467,33 +467,31 @@ export default function EspecialistasPage() {
 
             <Card className="bg-white dark:bg-gray-800 border-2 border-orange-200 dark:border-orange-700">
               <CardHeader>
-                <CardTitle>Cobertura y Costos</CardTitle>
+                <CardTitle>Costos y cobertura</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    El diagnóstico tiene un costo, pero es más caro no tenerlo
+                    El diagnóstico sale plata, pero no tenerlo sale más caro
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    El Hospital Italiano ofrece cobertura para sus afiliados
+                    Hospital Italiano tiene cobertura para sus afiliados
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    INECO ofrece un diagnóstico acelerado (útil si viajás desde
-                    el interior)
+                    INECO tiene diagnóstico acelerado (ideal si venís del interior)
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Muchas obras sociales tienen cobertura para medicamentos
-                    crónicos
+                    Muchas obras sociales cubren medicamentos para crónicos
                   </p>
                 </div>
               </CardContent>
@@ -501,19 +499,19 @@ export default function EspecialistasPage() {
 
             <Card className="bg-white dark:bg-gray-800 border-2 border-green-200 dark:border-green-700">
               <CardHeader>
-                <CardTitle>Información Importante</CardTitle>
+                <CardTitle>Datos útiles</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Preguntá si evaluaron comorbilidades
+                    Preguntá si chequearon otras condiciones (ansiedad, TEA, etc.)
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Entendé por qué te recetaron ese medicamento
+                    Entendé por qué te recetaron tal medicamento
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
@@ -525,7 +523,7 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Necesitás receta triplicada para el metilfenidato
+                    Necesitás receta triplicada para metilfenidato
                   </p>
                 </div>
               </CardContent>

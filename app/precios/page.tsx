@@ -144,8 +144,8 @@ export default function PreciosPage() {
 
       {/* Header Section */}
       <PageHero
-        title="Precios de Medicamentos TDAH"
-        description="Precios actualizados de medicamentos para TDAH desde Farmacity"
+        title="Precios de medicamentos"
+        description="Precios reales de Farmacity para medicamentos de TDAH"
       >
         {/* Info rápida */}
         {estadisticas && (
@@ -168,7 +168,7 @@ export default function PreciosPage() {
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
             <Input
-              placeholder="Buscá por nombre, marca o laboratorio..."
+              placeholder="Buscá medicamento, marca o laboratorio..."
               value={filtro}
               onChange={(e) => setFiltro(e.target.value)}
               className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
