@@ -1,6 +1,8 @@
 import { Brain, GitBranch } from "lucide-react"
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
       <div className="container mx-auto px-4">
@@ -43,7 +45,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Tdarg. Información con fines educativos.</p>
+          <p>&copy; {currentYear} Tdarg. Información con fines educativos.</p>
         </div>
       </div>
     </footer>
