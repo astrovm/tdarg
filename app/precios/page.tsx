@@ -299,17 +299,22 @@ export default function PreciosPage() {
                                     </div>
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                                       <Shield className="h-4 w-4 text-blue-600" />
-                                      <div>
+                                      <div className="w-full">
                                         <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
                                           Con prepaga/obra social (40% desc.)
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
-                                        </span>
+                                        <div className="mt-1 rounded-md bg-white/80 px-2 py-1 dark:bg-blue-900/60">
+                                          <span className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-200">
+                                            Precio final
+                                          </span>
+                                          <div className="text-2xl font-extrabold leading-tight text-blue-700 dark:text-blue-100">
+                                            {formatPrice(
+                                              priceWithCoverage(
+                                                medicamento.precio
+                                              )
+                                            )}
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -408,17 +413,22 @@ export default function PreciosPage() {
                                     </div>
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                                       <Shield className="h-4 w-4 text-blue-600" />
-                                      <div>
+                                      <div className="w-full">
                                         <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
                                           Con prepaga/obra social (40% desc.)
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
-                                        </span>
+                                        <div className="mt-1 rounded-md bg-white/80 px-2 py-1 dark:bg-blue-900/60">
+                                          <span className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-200">
+                                            Precio final
+                                          </span>
+                                          <div className="text-2xl font-extrabold leading-tight text-blue-700 dark:text-blue-100">
+                                            {formatPrice(
+                                              priceWithCoverage(
+                                                medicamento.precio
+                                              )
+                                            )}
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -526,17 +536,22 @@ export default function PreciosPage() {
                                     </div>
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                                       <Shield className="h-4 w-4 text-blue-600" />
-                                      <div>
+                                      <div className="w-full">
                                         <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
                                           Con prepaga/obra social (40% desc.)
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
-                                        </span>
+                                        <div className="mt-1 rounded-md bg-white/80 px-2 py-1 dark:bg-blue-900/60">
+                                          <span className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-200">
+                                            Precio final
+                                          </span>
+                                          <div className="text-2xl font-extrabold leading-tight text-blue-700 dark:text-blue-100">
+                                            {formatPrice(
+                                              priceWithCoverage(
+                                                medicamento.precio
+                                              )
+                                            )}
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -607,17 +622,22 @@ export default function PreciosPage() {
                             </div>
                             <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                               <Shield className="h-4 w-4 text-blue-600" />
-                              <div>
+                              <div className="w-full">
                                 <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
                                   Con prepaga/obra social (40% desc.)
                                 </div>
-                                <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                  {formatPrice(
-                                    priceWithCoverage(
-                                      medicamento.precio
-                                    )
-                                  )}
-                                </span>
+                                <div className="mt-1 rounded-md bg-white/80 px-2 py-1 dark:bg-blue-900/60">
+                                  <span className="text-xs uppercase tracking-wide text-blue-700 dark:text-blue-200">
+                                    Precio final
+                                  </span>
+                                  <div className="text-2xl font-extrabold leading-tight text-blue-700 dark:text-blue-100">
+                                    {formatPrice(
+                                      priceWithCoverage(
+                                        medicamento.precio
+                                      )
+                                    )}
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
