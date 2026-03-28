@@ -427,7 +427,7 @@ export default function DiagnosticoPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Clock className="h-8 w-8 text-purple-500" />
-                    El Proceso Completo de Diagnóstico
+                    El proceso completo de diagnóstico
                   </CardTitle>
                   <CardDescription>
                     De la evaluación neuropsicológica al tratamiento

@@ -572,7 +572,7 @@ export default function TratamientosPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Heart className="h-8 w-8 text-red-500" />
-                    Ejercicio: Medicina Natural para TDAH
+                    Ejercicio: medicina natural para TDAH
                   </CardTitle>
                   <CardDescription>
                     Una de las intervenciones más poderosas e inmediatas

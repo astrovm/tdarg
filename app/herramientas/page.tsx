@@ -129,7 +129,7 @@ export default function HerramientasPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Calendar className="h-8 w-8 text-blue-500" />
-                    Organización: Tiempo y Espacio
+                    Organización: tiempo y espacio
                   </CardTitle>
                   <CardDescription>
                     Sistemas y métodos para organizar tu vida de manera efectiva
@@ -345,7 +345,7 @@ export default function HerramientasPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Focus className="h-8 w-8 text-green-500" />
-                    Atención: Control y Concentración
+                    Atención: control y concentración
                   </CardTitle>
                   <CardDescription>
                     Estrategias para minimizar distracciones y mantener el foco
@@ -509,7 +509,7 @@ export default function HerramientasPage() {
 
                   <div className="mt-8 text-center space-x-4">
                     <Button onClick={next} size="lg">
-                      Siguiente: Manejo Emocional{" "}
+                      Siguiente: manejo emocional{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                     <Button variant="outline" onClick={prev}>
@@ -728,7 +728,7 @@ export default function HerramientasPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center gap-2">
                     <Smartphone className="h-8 w-8 text-orange-500" />
-                    Tecnología: Apps y Herramientas Digitales
+                    Tecnología: apps y herramientas digitales
                   </CardTitle>
                   <CardDescription>
                     Herramientas digitales que potencian tu manejo del TDAH
@@ -1430,7 +1430,7 @@ export default function HerramientasPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Lightbulb className="h-5 w-5 text-blue-500" />
-              Recordá: La Clave está en la Experimentación
+              Recordá: la clave está en la experimentación
             </CardTitle>
           </CardHeader>
           <CardContent>

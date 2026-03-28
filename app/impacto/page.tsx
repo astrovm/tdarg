@@ -232,7 +232,7 @@ export default function ImpactoPage() {
 
                               <div>
                                 <h4 className="font-semibold mb-3">
-                                  Condiciones Médicas Asociadas
+                                  Condiciones médicas asociadas
                                 </h4>
                                 <div className="space-y-3">
                                   <div>
@@ -560,7 +560,7 @@ export default function ImpactoPage() {
                     {/* Condiciones médicas asociadas */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Condiciones Médicas Comórbidas
+                        Condiciones médicas comórbidas
                       </h3>
                       <div className="space-y-4">
                         <Card>
@@ -1013,7 +1013,7 @@ export default function ImpactoPage() {
 
                             <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                               <h4 className="font-semibold mb-2">
-                                Aspectos Positivos Potenciales
+                                Aspectos positivos potenciales
                               </h4>
                               <ul className="text-sm space-y-1">
                                 <li>
@@ -1170,7 +1170,7 @@ export default function ImpactoPage() {
                     {/* Impacto económico global */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Impacto Económico Global
+                        Impacto económico global
                       </h3>
                       <div className="grid md:grid-cols-3 gap-4 mb-6">
                         <div className="text-center p-4 border rounded-lg">
@@ -1220,7 +1220,7 @@ export default function ImpactoPage() {
                     {/* Costos personales */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Costos Económicos Personales
+                        Costos económicos personales
                       </h3>
                       <div className="grid md:grid-cols-2 gap-6">
                         <Card className="border-red-200 dark:border-red-800">
@@ -1373,7 +1373,7 @@ export default function ImpactoPage() {
 
                             <div>
                               <h4 className="font-semibold mb-3">
-                                Potencial No Realizado
+                                Potencial no realizado
                               </h4>
                               <ul className="text-sm space-y-1">
                                 <li>

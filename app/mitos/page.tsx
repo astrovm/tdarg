@@ -634,7 +634,7 @@ export default function MitosPage() {
                   <div className="p-6 bg-pink-50 dark:bg-pink-950 rounded-lg mb-6">
                     <h4 className="font-semibold mb-3 flex items-center gap-2">
                       <Users className="h-5 w-5" />
-                      TDAH en Mujeres: El Diagnóstico Oculto
+                      TDAH en mujeres: el diagnóstico oculto
                     </h4>
                     <p className="text-sm mb-3">
                       Las mujeres presentan síntomas más sutiles: &quot;soñar

@@ -330,7 +330,7 @@ export default function PreciosPage() {
                     <div className="flex items-center gap-2 mb-6">
                       <div className="h-1 w-8 bg-blue-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                        No Estimulantes Aprobados para TDAH
+                        No estimulantes aprobados para TDAH
                       </h2>
                       <Badge
                         variant="secondary"
