@@ -133,6 +133,7 @@ async function obtenerMedicamentosTDAH(): Promise<Medicamento[]> {
   const terminos = [
     "atomoxetina",
     "metilfenidato",
+    "lisdexanfetamina",
     "modafinilo",
     "armodafinilo",
     "bupropion",
