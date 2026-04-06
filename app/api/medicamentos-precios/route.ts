@@ -224,18 +224,19 @@ async function obtenerLisdexanfetaminaAlfabeta(): Promise<Medicamento[]> {
       return [];
     }
 
-    return productos.map((producto) => ({
+      return productos.map((producto) => ({
       codigo: `alfabeta_ludoxa_${producto.descripcion
         .toLowerCase()
         .replace(/\s+/g, "_")
         .replace(/[^a-z0-9_]/g, "")}`,
-      nombre: "lisdexanfetamina",
-      marca: "Ludoxa",
-      laboratorio: "Adium",
-      precio: producto.precio,
-      presentacion: producto.descripcion,
-      concentracion: producto.descripcion.split(" x ")[0]?.trim() || "No especificado",
-      fechaActualizacion: parseFechaAlfabeta(producto.fecha),
+        nombre: "lisdexanfetamina",
+        marca: "Ludoxa",
+        laboratorio: "Adium",
+        source: "alfabeta",
+        precio: producto.precio,
+        presentacion: producto.descripcion,
+        concentracion: producto.descripcion.split(" x ")[0]?.trim() || "No especificado",
+        fechaActualizacion: parseFechaAlfabeta(producto.fecha),
     }));
   } catch (error) {
     console.error("❌ Error consultando Alfa Beta:", error);
@@ -266,6 +267,7 @@ function convertirMedicamento(med: FarmacityMed): Medicamento {
     nombre: nombre.trim(),
     marca: marca.trim(),
     laboratorio: laboratorio.trim(),
+    source: "farmacity",
     precio,
     presentacion: presentacion.trim(),
     concentracion: concentracion.trim(),
@@ -278,7 +280,7 @@ function eliminarDuplicados(medicamentos: Medicamento[]): Medicamento[] {
   const mapa = new Map<string, Medicamento>();
 
   medicamentos.forEach((med) => {
-    const clave = `${med.nombre}_${med.concentracion}_${med.laboratorio}`
+    const clave = `${med.nombre}_${med.concentracion}_${med.laboratorio}_${med.source}`
       .toLowerCase()
       .replace(/\s+/g, "_")
       .replace(/[^a-z0-9_]/g, "");
@@ -399,7 +401,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       data: medicamentos,
-      source: "farmacity",
+      source: "mixed",
       timestamp: new Date().toISOString(),
       total: medicamentos.length,
       estadisticas: {

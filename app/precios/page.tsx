@@ -27,6 +27,7 @@ import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 import type { Medicamento } from "@/lib/medicamentos/types";
+import { getMedicamentoSourceLabel } from "@/lib/medicamentos/source-label";
 import {
   formatPrice,
   priceWithCoverage,
@@ -145,7 +146,7 @@ export default function PreciosPage() {
       {/* Header Section */}
       <PageHero
         title="Precios de medicamentos"
-        description="Precios actualizados de Farmacity para medicamentos de TDAH"
+        description="Precios actualizados de Farmacity y Alfa Beta para medicamentos de TDAH"
       >
         {/* Info rápida */}
         {estadisticas && (
@@ -250,7 +251,9 @@ export default function PreciosPage() {
                                     </CardTitle>
                                     <div className="flex flex-col gap-1">
                                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                        Farmacity
+                                        {getMedicamentoSourceLabel(
+                                          medicamento.source
+                                        )}
                                       </Badge>
                                       <Badge
                                         variant="secondary"
@@ -359,7 +362,9 @@ export default function PreciosPage() {
                                     </CardTitle>
                                     <div className="flex flex-col gap-1">
                                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                        Farmacity
+                                        {getMedicamentoSourceLabel(
+                                          medicamento.source
+                                        )}
                                       </Badge>
                                       <Badge
                                         variant="secondary"
@@ -477,7 +482,9 @@ export default function PreciosPage() {
                                     </CardTitle>
                                     <div className="flex flex-col gap-1">
                                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                        Farmacity
+                                        {getMedicamentoSourceLabel(
+                                          medicamento.source
+                                        )}
                                       </Badge>
                                       <Badge
                                         variant="secondary"
@@ -565,7 +572,7 @@ export default function PreciosPage() {
                               {medicamento.marca}
                             </CardTitle>
                             <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                              Farmacity
+                              {getMedicamentoSourceLabel(medicamento.source)}
                             </Badge>
                           </div>
                           <CardDescription>
