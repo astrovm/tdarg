@@ -223,11 +223,10 @@ export default function PreciosPage() {
                     <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden border-2">
                       <AlertCircle className="h-4 w-4 text-blue-600" />
                       <AlertDescription className="text-blue-800 dark:text-blue-200 break-words">
-                        <strong>Importante:</strong> Otros estimulantes como
-                        Adderall (anfetamina mixta) y Vyvanse (lisdexanfetamina)
-                        están aprobados por la FDA para TDAH. En Argentina,
-                        actualmente se comercializan metilfenidato y
-                        lisdexanfetamina.
+                        <strong>Importante:</strong> En Argentina actualmente
+                        se comercializan metilfenidato y lisdexanfetamina
+                        (incluyendo Vyvanse). Adderall (anfetamina mixta) sigue
+                        sin comercialización local.
                       </AlertDescription>
                     </Alert>
 
