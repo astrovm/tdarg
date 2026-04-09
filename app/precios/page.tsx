@@ -144,10 +144,10 @@ export default function PreciosPage() {
       <Header />
 
       {/* Header Section */}
-      <PageHero
-        title="Precios de medicamentos"
-        description="Precios actualizados de Farmacity y Alfa Beta para medicamentos de TDAH"
-      >
+        <PageHero
+          title="Precios de medicamentos"
+          description="Precios actualizados de Farmacity para medicamentos de TDAH"
+        >
         {/* Info rápida */}
         {estadisticas && (
           <div className="mb-6 flex justify-center">
@@ -226,9 +226,8 @@ export default function PreciosPage() {
                         <strong>Importante:</strong> Otros estimulantes como
                         Adderall (anfetamina mixta) y Vyvanse (lisdexanfetamina)
                         están aprobados por la FDA para TDAH. En Argentina,
-                        actualmente solo se comercializa metilfenidato, pero se
-                        espera que la lisdexanfetamina comience su
-                        comercialización en abril de 2026.
+                        actualmente se comercializan metilfenidato y
+                        lisdexanfetamina.
                       </AlertDescription>
                     </Alert>
 

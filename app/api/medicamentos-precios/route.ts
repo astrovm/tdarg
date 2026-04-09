@@ -5,7 +5,6 @@ import type { Medicamento } from "@/lib/medicamentos/types";
 // Configuración simple
 const FARMACITY_API =
   "https://appfarmacitymicroservice-prod.azurewebsites.net/api/Medicine/search";
-const ALFABETA_LUDOXA_URL = "https://www.alfabeta.net/precio/ludoxa.html";
 const TIMEOUT = 25000;
 const CACHE_TTL = 15 * 60 * 1000; // 15 minutos
 
@@ -43,12 +42,6 @@ interface FarmacityMed {
   };
   barCode?: string;
   id?: string | number;
-}
-
-interface AlfabetaProducto {
-  descripcion: string;
-  precio: number;
-  fecha?: string;
 }
 
 function normalizarNumeroFarmacity(valor: string | number | undefined): number {
@@ -152,98 +145,6 @@ async function obtenerMedicamentos(termino: string): Promise<FarmacityMed[]> {
   }
 }
 
-function normalizarPrecioAlfabeta(valor: string): number {
-  const normalizado = valor.replace(/\./g, "").replace(",", ".").trim();
-  const numero = Number.parseFloat(normalizado);
-  return Number.isFinite(numero) ? numero : 0;
-}
-
-function parseFechaAlfabeta(fecha?: string): string {
-  if (!fecha) {
-    return new Date().toISOString();
-  }
-
-  const match = fecha.match(/(\d{2})\/(\d{2})\/(\d{2})/);
-  if (!match) {
-    return new Date().toISOString();
-  }
-
-  const [, dd, mm, yy] = match;
-  const iso = new Date(
-    Number(`20${yy}`),
-    Number(mm) - 1,
-    Number(dd)
-  ).toISOString();
-
-  return iso;
-}
-
-function parseProductosAlfabeta(html: string): AlfabetaProducto[] {
-  const productos: AlfabetaProducto[] = [];
-  const regexFila =
-    /<td class="tddesc">([^<]+)<span[^>]*><\/span><\/td><td class="tdprecio">\$(.*?)<\/td><td class="tdfecha">\((.*?)\)<\/td>/g;
-
-  let match = regexFila.exec(html);
-
-  while (match) {
-    const descripcion = match[1]?.trim();
-    const precio = normalizarPrecioAlfabeta(match[2] || "");
-    const fecha = match[3]?.trim();
-
-    if (descripcion && precio > 0) {
-      productos.push({ descripcion, precio, fecha });
-    }
-
-    match = regexFila.exec(html);
-  }
-
-  return productos;
-}
-
-async function obtenerLisdexanfetaminaAlfabeta(): Promise<Medicamento[]> {
-  try {
-    console.log("🌐 Consultando Alfa Beta (Ludoxa)...");
-    const response = await fetchWithTimeout(ALFABETA_LUDOXA_URL, {
-      method: "GET",
-      headers: {
-        Accept: "text/html,application/xhtml+xml",
-        "User-Agent": "Mozilla/5.0 (compatible; TDAH-Argentina/1.0)",
-      },
-    });
-
-    if (!response.ok) {
-      console.warn(`⚠️ Alfa Beta respondió ${response.status}`);
-      return [];
-    }
-
-    const html = await response.text();
-    const productos = parseProductosAlfabeta(html);
-
-    if (productos.length === 0) {
-      console.warn("⚠️ No se pudieron parsear presentaciones desde Alfa Beta");
-      return [];
-    }
-
-      return productos.map((producto) => ({
-      codigo: `alfabeta_ludoxa_${producto.descripcion
-        .toLowerCase()
-        .replace(/\s+/g, "_")
-        .replace(/[^a-z0-9_]/g, "")}`,
-        nombre: "lisdexanfetamina",
-        marca: "Ludoxa",
-        laboratorio: "Adium",
-        source: "alfabeta",
-        precio: producto.precio,
-        presentacion: producto.descripcion,
-        concentracion: producto.descripcion.split(" x ")[0]?.trim() || "No especificado",
-        fechaActualizacion: parseFechaAlfabeta(producto.fecha),
-    }));
-  } catch (error) {
-    console.error("❌ Error consultando Alfa Beta:", error);
-    return [];
-  }
-}
-
 // Convertir medicamento
 function convertirMedicamento(med: FarmacityMed): Medicamento {
   const nombre = med.formula?.description || med.description || "Medicamento";
@@ -330,9 +231,6 @@ async function obtenerMedicamentosTDAH(): Promise<Medicamento[]> {
       }
     });
   });
-
-  const lisdexDesdeAlfabeta = await obtenerLisdexanfetaminaAlfabeta();
-  resultados.push(...lisdexDesdeAlfabeta);
 
   const medicamentosUnicos = eliminarDuplicados(resultados);
 
