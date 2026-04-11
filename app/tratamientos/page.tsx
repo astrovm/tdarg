@@ -257,13 +257,14 @@ export default function TratamientosPage() {
                             </div>
                             <div>
                               <h6 className="font-semibold text-sm mb-2 text-amber-700 dark:text-amber-300">
-                                ⚠️ Efectos adversos
+                                ⚠️ Posibles efectos adversos
                               </h6>
+                              <p className="text-xs text-muted-foreground mb-2">Pueden ocurrir en algunos casos, no en todos. Generalmente leves y transitorios.</p>
                               <ul className="text-sm space-y-1">
-                                <li>• Pérdida apetito (transitoria)</li>
-                                <li>• Dificultades sueño</li>
-                                <li>• Dolor cabeza leve</li>
-                                <li>• Irritabilidad inicial</li>
+                                <li>• Menos apetito al mediodía</li>
+                                <li>• Algo de dificultad para dormirse</li>
+                                <li>• Dolor de cabeza leve</li>
+                                <li>• Irritabilidad al inicio</li>
                               </ul>
                             </div>
                             <div>
@@ -296,12 +297,13 @@ export default function TratamientosPage() {
                             </div>
                             <div>
                               <h6 className="font-semibold text-sm mb-2 text-amber-700 dark:text-amber-300">
-                                ⚠️ Efectos adversos
+                                ⚠️ Posibles efectos adversos
                               </h6>
+                              <p className="text-xs text-muted-foreground mb-2">Pueden ocurrir en algunos casos, no en todos. Generalmente leves y transitorios.</p>
                               <ul className="text-sm space-y-1">
-                                <li>• Pérdida apetito</li>
-                                <li>• Dificultades sueño</li>
-                                <li>• Dolor cabeza</li>
+                                <li>• Menos apetito al mediodía</li>
+                                <li>• Algo de dificultad para dormirse</li>
+                                <li>• Dolor de cabeza</li>
                                 <li>• Boca seca</li>
                               </ul>
                             </div>
