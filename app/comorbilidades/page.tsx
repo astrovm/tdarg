@@ -81,7 +81,7 @@ export default function ComorbilidadesPage() {
   return (
     <StepGuideLayout
       title="TDAH y Comorbilidades"
-      description="El TDAH raramente viene solo: comprende las condiciones asociadas"
+      description="El TDAH raramente viene solo"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
@@ -113,10 +113,10 @@ export default function ComorbilidadesPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm mb-4">
-                      Las <strong>comorbilidades</strong> son condiciones
-                      médicas o psiquiátricas que ocurren junto con el TDAH. No
-                      son causadas por el TDAH, sino que coexisten
-                      independientemente, aunque pueden influirse mutuamente.
+                      El término <strong>comorbilidad</strong> describe
+                      condiciones que coexisten con el TDAH: no son causadas
+                      por él, pero se influyen mutuamente y complican tanto el
+                      diagnóstico como el tratamiento.
                     </p>
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                       <div>

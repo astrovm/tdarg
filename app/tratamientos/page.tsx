@@ -77,9 +77,7 @@ export default function TratamientosPage() {
                     <Brain className="h-8 w-8 text-blue-500" />
                     ¿Cómo funciona el tratamiento?
                   </CardTitle>
-                  <CardDescription>
-                    El enfoque multimodal es la clave del éxito
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -163,7 +161,7 @@ export default function TratamientosPage() {
                   <Alert className="mb-6">
                     <Target className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>Clave del éxito:</strong> La combinación de los 3
+                      La combinación de los 3
                       enfoques da mejores resultados que cualquiera por
                       separado. No es &quot;o medicación o terapia&quot;, es
                       &quot;medicación Y terapia Y cambios de estilo de
@@ -404,9 +402,7 @@ export default function TratamientosPage() {
                     <Users className="h-8 w-8 text-purple-500" />
                     Terapias No Farmacológicas
                   </CardTitle>
-                  <CardDescription>
-                    Componente esencial del tratamiento
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   {/* Therapy Flow */}
@@ -617,9 +613,7 @@ export default function TratamientosPage() {
                     <Heart className="h-8 w-8 text-red-500" />
                     Ejercicio: medicina natural para TDAH
                   </CardTitle>
-                  <CardDescription>
-                    Una de las intervenciones más poderosas e inmediatas
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   {/* Impact Stats */}

@@ -133,9 +133,7 @@ export default function MitosPage() {
                     <Brain className="h-8 w-8 text-blue-500" />
                     ¿El TDAH realmente existe?
                   </CardTitle>
-                  <CardDescription>
-                    Separando la realidad científica de las creencias populares
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <Alert className="mb-6">
@@ -151,7 +149,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-950">
                       <h4 className="font-semibold mb-2 text-red-700 dark:text-red-300 flex items-center gap-2">
                         <XCircle className="h-4 w-4" />
-                        MITOS POPULARES
+                        Lo que se cree
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>• &quot;Es una excusa para la pereza&quot;</li>
@@ -167,7 +165,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                       <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300 flex items-center gap-2">
                         <CheckCircle className="h-4 w-4" />
-                        REALIDAD CIENTÍFICA
+                        Lo que dice la ciencia
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -201,7 +199,7 @@ export default function MitosPage() {
                   <div className="p-6 bg-blue-50 dark:bg-blue-950 rounded-lg">
                     <h4 className="font-semibold mb-3 flex items-center gap-2">
                       <Brain className="h-5 w-5" />
-                      Evidencia Neurobiológica Irrefutable
+                      Evidencia neurobiológica
                     </h4>
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="text-center p-3 bg-white dark:bg-slate-800 rounded">
@@ -267,7 +265,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-950">
                       <h4 className="font-semibold mb-2 text-red-700 dark:text-red-300 flex items-center gap-2">
                         <XCircle className="h-4 w-4" />
-                        MITOS POPULARES
+                        Lo que se cree
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>• &quot;Los adultos no tienen TDAH&quot;</li>
@@ -286,7 +284,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                       <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300 flex items-center gap-2">
                         <CheckCircle className="h-4 w-4" />
-                        REALIDAD CIENTÍFICA
+                        Lo que dice la ciencia
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -375,16 +373,14 @@ export default function MitosPage() {
                     <XCircle className="h-8 w-8 text-purple-500" />
                     ¿Es falta de voluntad o disciplina?
                   </CardTitle>
-                  <CardDescription>
-                    La diferencia entre déficit neurológico y falta de esfuerzo
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-950">
                       <h4 className="font-semibold mb-2 text-red-700 dark:text-red-300 flex items-center gap-2">
                         <XCircle className="h-4 w-4" />
-                        MITOS POPULARES
+                        Lo que se cree
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>• &quot;Solo necesitan esforzarse más&quot;</li>
@@ -398,7 +394,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                       <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300 flex items-center gap-2">
                         <CheckCircle className="h-4 w-4" />
-                        REALIDAD CIENTÍFICA
+                        Lo que dice la ciencia
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -461,16 +457,14 @@ export default function MitosPage() {
                     <Pill className="h-8 w-8 text-orange-500" />
                     ¿Los medicamentos son peligrosos?
                   </CardTitle>
-                  <CardDescription>
-                    La verdad sobre la seguridad del tratamiento farmacológico
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-950">
                       <h4 className="font-semibold mb-2 text-red-700 dark:text-red-300 flex items-center gap-2">
                         <XCircle className="h-4 w-4" />
-                        MITOS POPULARES
+                        Lo que se cree
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -490,7 +484,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                       <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300 flex items-center gap-2">
                         <CheckCircle className="h-4 w-4" />
-                        REALIDAD CIENTÍFICA
+                        Lo que dice la ciencia
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -587,7 +581,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-950">
                       <h4 className="font-semibold mb-2 text-red-700 dark:text-red-300 flex items-center gap-2">
                         <XCircle className="h-4 w-4" />
-                        MITOS POPULARES
+                        Lo que se cree
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>• &quot;Las niñas no tienen TDAH&quot;</li>
@@ -604,7 +598,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                       <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300 flex items-center gap-2">
                         <CheckCircle className="h-4 w-4" />
-                        REALIDAD CIENTÍFICA
+                        Lo que dice la ciencia
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -680,7 +674,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-red-500 bg-red-50 dark:bg-red-950">
                       <h4 className="font-semibold mb-2 text-red-700 dark:text-red-300 flex items-center gap-2">
                         <XCircle className="h-4 w-4" />
-                        MITOS POPULARES
+                        Lo que se cree
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>
@@ -700,7 +694,7 @@ export default function MitosPage() {
                     <div className="p-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950">
                       <h4 className="font-semibold mb-2 text-green-700 dark:text-green-300 flex items-center gap-2">
                         <CheckCircle className="h-4 w-4" />
-                        REALIDAD CIENTÍFICA
+                        Lo que dice la ciencia
                       </h4>
                       <ul className="text-sm space-y-2">
                         <li>

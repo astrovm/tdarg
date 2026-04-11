@@ -72,7 +72,7 @@ export default function AdultosPage() {
   return (
     <StepGuideLayout
       title="TDAH en la Vida Adulta"
-      description="Comprendiendo cómo se manifiesta el TDAH después de la infancia"
+      description="Cómo se manifiesta el TDAH después de la infancia"
       steps={steps}
       currentStep={currentStep}
       progress={progress}

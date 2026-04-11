@@ -100,21 +100,18 @@ export default function ImpactoPage() {
               </Alert>
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                   <CardTitle className="flex items-center gap-2">
                     <TrendingDown className="h-5 w-5" />
-                    Panorama General del Impacto
+                    Impacto en distintas áreas
                   </CardTitle>
-                  <CardDescription>
-                    Consecuencias del TDAH no diagnosticado o mal tratado en
-                    diferentes áreas de la vida
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-8">
                     {/* Estadísticas alarmantes */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Estadísticas de Impacto
+                        En números
                       </h3>
                       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <Card className="border-red-200 dark:border-red-800">
@@ -176,7 +173,7 @@ export default function ImpactoPage() {
                     {/* Mortalidad y morbilidad */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Mortalidad y Morbilidad
+                        Expectativa de vida
                       </h3>
                       <Card className="border-red-200 dark:border-red-800">
                         <CardContent className="pt-6">
@@ -193,8 +190,8 @@ export default function ImpactoPage() {
 
                             <div className="grid md:grid-cols-2 gap-6">
                               <div>
-                                <h4 className="font-semibold mb-3">
-                                  Causas Principales de Mortalidad Aumentada
+                                 <h4 className="font-semibold mb-3">
+                                  Principales causas
                                 </h4>
                                 <ul className="space-y-2 text-sm">
                                   <li className="flex items-start gap-2">
@@ -382,7 +379,7 @@ export default function ImpactoPage() {
                     {/* Impacto familiar y social */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Deterioro en Relaciones
+                        Relaciones personales
                       </h3>
                       <Card>
                         <CardContent className="pt-6">
@@ -455,17 +452,14 @@ export default function ImpactoPage() {
                     <Heart className="h-5 w-5" />
                     Impacto en la Salud Física
                   </CardTitle>
-                  <CardDescription>
-                    Consecuencias médicas del TDAH no tratado a lo largo de la
-                    vida
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-8">
                     {/* Riesgo de lesiones y accidentes */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Riesgo de Lesiones y Accidentes
+                        Lesiones y accidentes
                       </h3>
                       <div className="grid md:grid-cols-2 gap-6">
                         <Card className="border-red-200 dark:border-red-800">
@@ -1156,14 +1150,11 @@ export default function ImpactoPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                   <CardTitle className="flex items-center gap-2">
                     <DollarSign className="h-5 w-5" />
-                    Costo Económico del TDAH No Tratado
+                    Costo económico del TDAH no tratado
                   </CardTitle>
-                  <CardDescription>
-                    Impacto financiero tanto personal como social del TDAH sin
-                    tratamiento adecuado
-                  </CardDescription>
+
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-8">
@@ -1220,13 +1211,13 @@ export default function ImpactoPage() {
                     {/* Costos personales */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Costos económicos personales
+                        Ingresos y empleo
                       </h3>
                       <div className="grid md:grid-cols-2 gap-6">
                         <Card className="border-red-200 dark:border-red-800">
                           <CardHeader>
                             <CardTitle className="text-base">
-                              Pérdidas de Ingresos
+                              Pérdidas de ingresos
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
@@ -1330,7 +1321,7 @@ export default function ImpactoPage() {
                     {/* Costos educativos */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Impacto en la Inversión Educativa
+                        Educación y tiempo perdido
                       </h3>
                       <Card>
                         <CardContent className="pt-6">
@@ -1398,7 +1389,7 @@ export default function ImpactoPage() {
                     {/* Costos familiares */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Costos Familiares y Sociales
+                        Costos para la familia
                       </h3>
                       <div className="space-y-4">
                         <Card>
@@ -1505,7 +1496,7 @@ export default function ImpactoPage() {
                     {/* Análisis costo-beneficio del tratamiento */}
                     <div>
                       <h3 className="text-lg font-semibold mb-4">
-                        Análisis Costo-Beneficio del Tratamiento
+                        ¿Vale la pena tratarse?
                       </h3>
                       <Card className="border-green-200 dark:border-green-800">
                         <CardContent className="pt-6">
@@ -1524,8 +1515,8 @@ export default function ImpactoPage() {
 
                             <div className="grid md:grid-cols-2 gap-6">
                               <div>
-                                <h4 className="font-semibold mb-3">
-                                  Beneficios Económicos del Tratamiento
+                                 <h4 className="font-semibold mb-3">
+                                  Qué mejora con el tratamiento
                                 </h4>
                                 <ul className="text-sm space-y-2">
                                   <li className="flex items-start gap-2">
@@ -1570,8 +1561,8 @@ export default function ImpactoPage() {
                               </div>
 
                               <div>
-                                <h4 className="font-semibold mb-3">
-                                  Retorno de la Inversión
+                                 <h4 className="font-semibold mb-3">
+                                  Cuándo se notan los cambios
                                 </h4>
                                 <div className="space-y-3">
                                   <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg">
