@@ -289,7 +289,7 @@ export default function TratamientosPage() {
                               </h6>
                               <ul className="text-sm space-y-1">
                                 <li>• Prodroga (menor potencial de abuso)</li>
-                                <li>• Acción sostenida (~14 h)</li>
+                                <li>• Acción sostenida (10-14 h)</li>
                                 <li>• Una sola toma diaria</li>
                                 <li>• Alternativa ante intolerancia a metilfenidato</li>
                               </ul>
