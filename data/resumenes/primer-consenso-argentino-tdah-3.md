@@ -29,6 +29,8 @@
 ### **Párrafo 5: Disponibilidad Limitada en Argentina**
 "El metilfenidato es el único psicoestimulante de primera línea disponible comercialmente en Argentina" (p. 4). Esto contrasta con guías internacionales que incluyen "lisdexanfetamina y dexanfetamina como primera línea, pero que no están disponibles en Argentina".
 
+> *[Actualización 2026: Lisdexanfetamina (Ludoxa 30/50/70 mg, Adium) comenzó a comercializarse en Argentina en 2026. La situación descripta en este párrafo correspondía al momento de publicación del Consenso.]*
+
 ### **Párrafo 6: Formulaciones y Administración**
 "Se recomienda una titulación gradual, iniciando con dosis bajas y aumentando semanal o quincenalmente" (p. 5). Existen "formulaciones de liberación inmediata (2-4 horas) y modificada (8-12 horas)", con la posibilidad de "combinar una dosis de liberación modificada por la mañana con una de liberación inmediata por la tarde para extender la cobertura" (p. 6).
 

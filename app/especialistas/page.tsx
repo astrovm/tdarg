@@ -517,7 +517,7 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Metilfenidato: 70% eficacia vs Atomoxetina: 40-60%
+                    Estimulantes (metilfenidato/Ludoxa): 70-80% eficacia vs Atomoxetina: 40-60%
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">

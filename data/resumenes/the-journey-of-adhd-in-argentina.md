@@ -49,6 +49,8 @@
 ### **Párrafo 10: Limitaciones en Medicación Disponible**
 "Argentina tiene acceso limitado a medicamentos para TDAH comparado con países desarrollados, con solo metilfenidato y atomoxetina disponibles comercialmente" (disponibilidad farmacológica). Esta limitación reduce opciones de tratamiento personalizado.
 
+> *[Actualización 2026: Lisdexanfetamina (Ludoxa 30/50/70 mg, Adium) comenzó a comercializarse en Argentina en 2026, ampliando las opciones de tratamiento estimulante disponibles.]*
+
 ### **Párrafo 11: Barreras Regulatorias Complejas**
 "Las regulaciones de la Ley 19.303 para prescripción de metilfenidato, aunque necesarias para control, crean barreras significativas de acceso que pueden desalentar tanto a médicos como pacientes" (marco regulatorio). El equilibrio entre control y acceso requiere refinamiento.
 

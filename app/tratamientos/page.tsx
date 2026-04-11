@@ -238,42 +238,83 @@ export default function TratamientosPage() {
 
                       <div className="bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4">
                         <h4 className="font-semibold mb-3">
-                          Metilfenidato (único disponible en Argentina)
+                          Estimulantes disponibles en Argentina
                         </h4>
 
-                        <div className="grid md:grid-cols-3 gap-4">
-                          <div>
-                            <h5 className="font-semibold text-sm mb-2 text-green-700 dark:text-green-300">
-                              ✅ Ventajas
-                            </h5>
-                            <ul className="text-sm space-y-1">
-                              <li>• Muy efectivo (70-80%)</li>
-                              <li>• Acción rápida (30-60 min)</li>
-                              <li>• 70+ años de uso seguro</li>
-                              <li>• Múltiples formulaciones</li>
-                            </ul>
+                        <div className="mb-6">
+                          <h5 className="font-semibold text-sm mb-2 text-green-800 dark:text-green-200">Metilfenidato (Ritalin, Concerta)</h5>
+                          <div className="grid md:grid-cols-3 gap-4">
+                            <div>
+                              <h6 className="font-semibold text-sm mb-2 text-green-700 dark:text-green-300">
+                                ✅ Ventajas
+                              </h6>
+                              <ul className="text-sm space-y-1">
+                                <li>• Muy efectivo (70-80%)</li>
+                                <li>• Acción rápida (30-60 min)</li>
+                                <li>• 70+ años de uso seguro</li>
+                                <li>• Múltiples formulaciones</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h6 className="font-semibold text-sm mb-2 text-amber-700 dark:text-amber-300">
+                                ⚠️ Efectos adversos
+                              </h6>
+                              <ul className="text-sm space-y-1">
+                                <li>• Pérdida apetito (transitoria)</li>
+                                <li>• Dificultades sueño</li>
+                                <li>• Dolor cabeza leve</li>
+                                <li>• Irritabilidad inicial</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h6 className="font-semibold text-sm mb-2 text-red-700 dark:text-red-300">
+                                📋 Regulación
+                              </h6>
+                              <ul className="text-sm space-y-1">
+                                <li>• Receta triplicado oficial</li>
+                                <li>• Máximo 20 días/receta</li>
+                                <li>• Renovación mensual</li>
+                                <li>• Registro en farmacia</li>
+                              </ul>
+                            </div>
                           </div>
-                          <div>
-                            <h5 className="font-semibold text-sm mb-2 text-amber-700 dark:text-amber-300">
-                              ⚠️ Efectos adversos
-                            </h5>
-                            <ul className="text-sm space-y-1">
-                              <li>• Pérdida apetito (transitoria)</li>
-                              <li>• Dificultades sueño</li>
-                              <li>• Dolor cabeza leve</li>
-                              <li>• Irritabilidad inicial</li>
-                            </ul>
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-sm mb-2 text-red-700 dark:text-red-300">
-                              📋 Regulación
-                            </h5>
-                            <ul className="text-sm space-y-1">
-                              <li>• Receta triplicado oficial</li>
-                              <li>• Máximo 20 días/receta</li>
-                              <li>• Renovación mensual</li>
-                              <li>• Registro en farmacia</li>
-                            </ul>
+                        </div>
+
+                        <div>
+                          <h5 className="font-semibold text-sm mb-2 text-green-800 dark:text-green-200">Lisdexanfetamina (Ludoxa 30/50/70 mg)</h5>
+                          <div className="grid md:grid-cols-3 gap-4">
+                            <div>
+                              <h6 className="font-semibold text-sm mb-2 text-green-700 dark:text-green-300">
+                                ✅ Ventajas
+                              </h6>
+                              <ul className="text-sm space-y-1">
+                                <li>• Prodroga (menor potencial de abuso)</li>
+                                <li>• Acción sostenida (~14 h)</li>
+                                <li>• Una sola toma diaria</li>
+                                <li>• Alternativa ante intolerancia a metilfenidato</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h6 className="font-semibold text-sm mb-2 text-amber-700 dark:text-amber-300">
+                                ⚠️ Efectos adversos
+                              </h6>
+                              <ul className="text-sm space-y-1">
+                                <li>• Pérdida apetito</li>
+                                <li>• Dificultades sueño</li>
+                                <li>• Dolor cabeza</li>
+                                <li>• Boca seca</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h6 className="font-semibold text-sm mb-2 text-red-700 dark:text-red-300">
+                                📋 Regulación
+                              </h6>
+                              <ul className="text-sm space-y-1">
+                                <li>• Receta triplicado oficial</li>
+                                <li>• Mismo régimen que metilfenidato</li>
+                                <li>• Disponible desde 2026</li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -874,8 +915,8 @@ export default function TratamientosPage() {
                         <CardContent>
                           <ul className="space-y-2 text-sm">
                             <li>
-                              <strong>Primera opción:</strong> Metilfenidato
-                              (estimulante)
+                              <strong>Primera opción:</strong> Estimulante
+                              (metilfenidato o lisdexanfetamina)
                             </li>
                             <li>
                               <strong>Si hay:</strong> Tics → Atomoxetina

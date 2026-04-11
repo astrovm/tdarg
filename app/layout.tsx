@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Precios de medicamentos, especialistas, legislación y más sobre TDAH en Argentina.",
   keywords:
-    "TDAH, Argentina, metilfenidato, atomoxetina, diagnóstico, tratamiento, especialistas, legislación",
+    "TDAH, Argentina, metilfenidato, atomoxetina, lisdexanfetamina, Ludoxa, diagnóstico, tratamiento, especialistas, legislación",
   authors: [{ name: "Tdarg" }],
   creator: "Tdarg",
   publisher: "Tdarg",

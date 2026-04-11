@@ -360,7 +360,7 @@ export const propuestasNecesarias = [
     problemaQueResuelve:
       "Falta de alternativas para aproximadamente 30% de pacientes con respuesta inadecuada a medicación disponible.",
     beneficiosClave: [
-      "✓ Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) registrada en 2025, con comercialización esperada para abril de 2026",
+      "✓ Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) registrada en 2025, en comercialización desde 2026",
       "✓ Mayor arsenal farmacológico para personalización de tratamientos",
       "✓ Fomento de competitividad en el mercado farmacéutico",
     ],
@@ -372,7 +372,7 @@ export const propuestasNecesarias = [
     impacto: "Beneficio potencial para hasta 150,000 pacientes",
     responsable: "ANMAT y Comisión de Salud del Congreso",
     accionNecesaria:
-      "Monitorear cronograma de comercialización de lisdexanfetamina previsto para abril de 2026\nSolicitar informes a ANMAT sobre estado regulatorio final e inclusión en VNM",
+      "Verificar acceso efectivo a lisdexanfetamina en farmacias y cobertura por obras sociales y prepagas\nSolicitar informes a ANMAT sobre estado regulatorio final e inclusión en VNM",
   },
 ];
 
@@ -390,7 +390,7 @@ export const problemasReales = [
   {
     problema: "Opciones farmacológicas limitadas",
     descripcion:
-      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 2 medicamentos comercializados (metilfenidato y atomoxetina) + 1 registrado (lisdexanfetamina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) registrada en REM 2025, con inicio de comercialización esperado en abril de 2026\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
+      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 3 medicamentos comercializados (metilfenidato, lisdexanfetamina y atomoxetina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) en comercialización desde 2026\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
     resumen:
       "Brecha significativa entre opciones disponibles en Argentina y estándares internacionales. Limita efectividad del tratamiento.",
     urgencia: "Alta",
