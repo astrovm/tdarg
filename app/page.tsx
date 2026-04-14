@@ -124,7 +124,7 @@ export default function HomePage() {
                   Precios de medicamentos
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Metilfenidato, atomoxetina y más. Precios que se pagan en Farmacity.
+                  Metilfenidato, lisdexanfetamina, atomoxetina y más. Precios que se pagan en Farmacity.
                 </CardDescription>
               </CardHeader>
             </Card>
