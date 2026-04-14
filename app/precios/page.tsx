@@ -91,7 +91,7 @@ export default function PreciosPage() {
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-4">
-              Precios de Medicamentos TDAH
+              Precios de medicamentos TDAH
             </h1>
             <Skeleton className="h-10 w-full mb-6" />
           </div>
@@ -234,8 +234,8 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.estimulantes).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                            {principio} ({meds.length} medicamentos)
+                          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                            <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
@@ -345,8 +345,8 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.noestimulantes).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                            {principio} ({meds.length} medicamentos)
+                          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                            <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
@@ -465,8 +465,8 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.offlabel).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 capitalize text-gray-800 dark:text-gray-200">
-                            {principio} ({meds.length} medicamentos)
+                          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                            <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
