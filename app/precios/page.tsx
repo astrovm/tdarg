@@ -84,6 +84,30 @@ export default function PreciosPage() {
     [medicamentosFiltrados]
   );
 
+  const estimulantesOrdenados = useMemo(() => {
+    const orden = ["lisdexanfetamina", "metilfenidato"];
+    const entries = Object.entries(medicamentosAgrupados.estimulantes);
+
+    return entries.sort(([a], [b]) => {
+      const indexA = orden.indexOf(a);
+      const indexB = orden.indexOf(b);
+
+      if (indexA === -1 && indexB === -1) {
+        return a.localeCompare(b, "es", { sensitivity: "base" });
+      }
+
+      if (indexA === -1) {
+        return 1;
+      }
+
+      if (indexB === -1) {
+        return -1;
+      }
+
+      return indexA - indexB;
+    });
+  }, [medicamentosAgrupados.estimulantes]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
@@ -299,7 +323,7 @@ export default function PreciosPage() {
                       </AlertDescription>
                     </Alert>
 
-                    {Object.entries(medicamentosAgrupados.estimulantes).map(
+                    {estimulantesOrdenados.map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
                           <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
