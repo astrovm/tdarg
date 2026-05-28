@@ -8,6 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -44,6 +52,126 @@ const steps = [
   { id: 4, title: "Ejercicio", subtitle: "Actividad física", icon: Heart },
   { id: 5, title: "Mi plan", subtitle: "Plan personalizado", icon: Target },
 ] satisfies StepDefinition[];
+
+const caddraMedicationMap = [
+  {
+    name: "Adderall XR",
+    group: "Estimulante anfetaminico",
+    forms: "Capsulas 5, 10, 15, 20, 25, 30 mg",
+    duration: "~12 h",
+    caddraLine: "Primera linea",
+    argentina: "No disponible",
+    localNote: "No hay equivalente anfetaminico comercial local.",
+  },
+  {
+    name: "Dyanavel XR",
+    group: "Estimulante anfetaminico",
+    forms: "Masticables 5, 10, 15, 20 mg; LiquiXR",
+    duration: "~13 h",
+    caddraLine: "Primera linea en 6-12; primera linea adultos",
+    argentina: "No disponible",
+    localNote: "No comercializado en Argentina.",
+  },
+  {
+    name: "Vyvanse",
+    group: "Lisdexanfetamina",
+    forms: "Capsulas 10, 20, 30, 40, 50, 60, 70 mg; masticables 10-60 mg",
+    duration: "~13-14 h",
+    caddraLine: "Primera linea",
+    argentina: "Disponible como Ludoxa",
+    localNote: "Ludoxa 30, 50 y 70 mg. Nueva; cobertura todavia limitada.",
+  },
+  {
+    name: "Dexedrine",
+    group: "Estimulante anfetaminico",
+    forms: "Comprimidos 5 mg; spansules 10, 15 mg",
+    duration: "~4 h / ~6-8 h",
+    caddraLine: "Segunda linea",
+    argentina: "No disponible",
+    localNote: "No hay dexanfetamina comercial local.",
+  },
+  {
+    name: "Biphentin",
+    group: "Metilfenidato",
+    forms: "Capsulas 10, 15, 20, 30, 40, 50, 60, 80 mg",
+    duration: "~10-12 h",
+    caddraLine: "Primera linea",
+    argentina: "No disponible",
+    localNote: "No comercializado en Argentina.",
+  },
+  {
+    name: "Concerta",
+    group: "Metilfenidato OROS",
+    forms: "Comprimidos de liberacion prolongada 18, 27, 36, 54 mg",
+    duration: "~12 h",
+    caddraLine: "Primera linea",
+    argentina: "Disponible",
+    localNote: "Hay metilfenidato OROS: Concerta y Consiv.",
+  },
+  {
+    name: "Foquest",
+    group: "Metilfenidato",
+    forms: "Capsulas 25, 35, 45, 55, 70, 85, 100 mg",
+    duration: "~13-16 h",
+    caddraLine: "Primera linea",
+    argentina: "No disponible",
+    localNote: "No comercializado en Argentina.",
+  },
+  {
+    name: "Jornay PM",
+    group: "Metilfenidato nocturno",
+    forms: "Capsulas 20, 40, 60, 80, 100 mg",
+    duration: "Inicio 8-10 h; efecto ~12 h",
+    caddraLine: "Primera linea en 6-12; segunda linea adultos",
+    argentina: "No disponible",
+    localNote: "No hay formulacion nocturna equivalente local.",
+  },
+  {
+    name: "Quillivant ER",
+    group: "Metilfenidato",
+    forms: "Masticables 20, 30, 40 mg; suspension oral",
+    duration: "~8-12 h / ~12 h",
+    caddraLine: "Primera linea en 6-12; segunda linea adultos",
+    argentina: "No disponible",
+    localNote: "No hay metilfenidato masticable o suspension ER local.",
+  },
+  {
+    name: "Metilfenidato accion corta",
+    group: "Metilfenidato IR",
+    forms: "Comprimidos 5 mg generico; 10, 20 mg",
+    duration: "~3-4 h",
+    caddraLine: "Segunda linea",
+    argentina: "Disponible",
+    localNote: "Disponible como Ritalina/Rubifen y similares segun stock.",
+  },
+  {
+    name: "Ritalin SR",
+    group: "Metilfenidato SR",
+    forms: "Comprimidos 20 mg",
+    duration: "~8 h",
+    caddraLine: "Segunda linea",
+    argentina: "Disponible",
+    localNote: "Disponible como Ritalina LA/SR o Rubifen LA/SR segun producto.",
+  },
+  {
+    name: "Atomoxetina",
+    group: "No estimulante",
+    forms: "Capsulas 10, 18, 25, 40, 60, 80, 100 mg",
+    duration: "Hasta 24 h",
+    caddraLine: "Segunda linea",
+    argentina: "Disponible",
+    localNote: "No requiere receta triplicada; menor eficacia promedio.",
+  },
+  {
+    name: "Intuniv XR",
+    group: "Guanfacina XR",
+    forms: "Comprimidos XR 1, 2, 3, 4 mg",
+    duration: "Hasta 24 h",
+    caddraLine: "Segunda linea en menores; otra opcion en adultos",
+    argentina: "No disponible",
+    localNote: "No comercializada localmente.",
+  },
+];
 
 export default function TratamientosPage() {
   const {
@@ -316,6 +444,197 @@ export default function TratamientosPage() {
                               </ul>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border-2 border-slate-300 dark:border-slate-700 rounded-lg p-6">
+                      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold">
+                            Mapa CADDRA: todos los medicamentos del chart
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Guia canadiense traducida y adaptada para comparar
+                            disponibilidad local. No reemplaza indicacion medica
+                            ni prospectos argentinos.
+                          </p>
+                        </div>
+                        <Button variant="outline" size="sm" asChild>
+                          <a
+                            href="https://www.caddra.ca/wp-content/uploads/CADDRA_ADHD-Medication-Chart_May2026-EN-FR.pdf"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Ver fuente CADDRA
+                          </a>
+                        </Button>
+                      </div>
+
+                      <div className="hidden rounded-md border md:block">
+                        <Table className="table-fixed text-xs">
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead className="w-[13%] whitespace-normal">
+                                Medicamento
+                              </TableHead>
+                              <TableHead className="w-[12%] whitespace-normal">
+                                Tipo
+                              </TableHead>
+                              <TableHead className="w-[20%] whitespace-normal">
+                                Presentaciones CADDRA
+                              </TableHead>
+                              <TableHead className="w-[10%] whitespace-normal">
+                                Duracion
+                              </TableHead>
+                              <TableHead className="w-[13%] whitespace-normal">
+                                Linea CADDRA
+                              </TableHead>
+                              <TableHead className="w-[13%] whitespace-normal">
+                                Argentina
+                              </TableHead>
+                              <TableHead className="w-[19%] whitespace-normal">
+                                Nota local
+                              </TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {caddraMedicationMap.map((medication) => {
+                              const isAvailable =
+                                medication.argentina === "Disponible" ||
+                                medication.argentina.startsWith("Disponible ");
+
+                              return (
+                                <TableRow key={medication.name}>
+                                  <TableCell className="font-semibold align-top">
+                                    {medication.name}
+                                  </TableCell>
+                                  <TableCell className="align-top">
+                                    {medication.group}
+                                  </TableCell>
+                                  <TableCell className="align-top text-muted-foreground">
+                                    {medication.forms}
+                                  </TableCell>
+                                  <TableCell className="align-top">
+                                    {medication.duration}
+                                  </TableCell>
+                                  <TableCell className="align-top">
+                                    {medication.caddraLine}
+                                  </TableCell>
+                                  <TableCell className="align-top">
+                                    <Badge
+                                      variant={
+                                        isAvailable ? "default" : "secondary"
+                                      }
+                                    >
+                                      {medication.argentina}
+                                    </Badge>
+                                  </TableCell>
+                                  <TableCell className="align-top">
+                                    {medication.localNote}
+                                  </TableCell>
+                                </TableRow>
+                              );
+                            })}
+                          </TableBody>
+                        </Table>
+                      </div>
+
+                      <div className="space-y-3 md:hidden">
+                        {caddraMedicationMap.map((medication) => {
+                          const isAvailable =
+                            medication.argentina === "Disponible" ||
+                            medication.argentina.startsWith("Disponible ");
+
+                          return (
+                            <div
+                              key={medication.name}
+                              className="rounded-md border p-3"
+                            >
+                              <div className="flex items-start justify-between gap-3">
+                                <div>
+                                  <p className="font-semibold">
+                                    {medication.name}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    {medication.group}
+                                  </p>
+                                </div>
+                                <Badge
+                                  variant={isAvailable ? "default" : "secondary"}
+                                  className="shrink-0"
+                                >
+                                  {medication.argentina}
+                                </Badge>
+                              </div>
+
+                              <dl className="mt-3 grid gap-2 text-xs">
+                                <div>
+                                  <dt className="font-semibold">
+                                    Presentaciones CADDRA
+                                  </dt>
+                                  <dd className="text-muted-foreground">
+                                    {medication.forms}
+                                  </dd>
+                                </div>
+                                <div className="grid grid-cols-2 gap-3">
+                                  <div>
+                                    <dt className="font-semibold">Duracion</dt>
+                                    <dd className="text-muted-foreground">
+                                      {medication.duration}
+                                    </dd>
+                                  </div>
+                                  <div>
+                                    <dt className="font-semibold">
+                                      Linea CADDRA
+                                    </dt>
+                                    <dd className="text-muted-foreground">
+                                      {medication.caddraLine}
+                                    </dd>
+                                  </div>
+                                </div>
+                                <div>
+                                  <dt className="font-semibold">Nota local</dt>
+                                  <dd className="text-muted-foreground">
+                                    {medication.localNote}
+                                  </dd>
+                                </div>
+                              </dl>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      <div className="mt-4 grid gap-3 md:grid-cols-3">
+                        <div className="rounded-md border p-3">
+                          <p className="text-sm font-semibold">
+                            Lo fuerte de CADDRA
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            Prioriza estimulantes de larga duracion como primera
+                            linea cuando estan aprobados para la edad del
+                            paciente.
+                          </p>
+                        </div>
+                        <div className="rounded-md border p-3">
+                          <p className="text-sm font-semibold">
+                            Brecha Argentina
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            Argentina tiene metilfenidato, lisdexanfetamina y
+                            atomoxetina, pero no varias formulaciones de larga
+                            duracion ni guanfacina XR.
+                          </p>
+                        </div>
+                        <div className="rounded-md border p-3">
+                          <p className="text-sm font-semibold">
+                            Seguridad y abuso
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            CADDRA marca que formulaciones estimulantes largas
+                            tienden a menor potencial de abuso que las cortas;
+                            no estimulantes no tienen potencial de abuso.
+                          </p>
                         </div>
                       </div>
                     </div>
