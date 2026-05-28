@@ -4,7 +4,7 @@ export const leyes = [
     numero: "Resolución 2214/2025",
     titulo: "Recetas electrónicas: norma nacional, implementación incompleta",
     descripcion:
-      "Define estándares nacionales para receta electrónica, incluyendo psicotrópicos de Lista II como metilfenidato. En la práctica no resolvió todavía el acceso: CABA y Provincia de Buenos Aires siguen admitiendo o exigiendo circuitos en papel para estos casos.",
+      "Define estándares nacionales para receta electrónica, incluyendo psicotrópicos usados en TDAH como metilfenidato y lisdexanfetamina. En la práctica no resolvió todavía el acceso: CABA y Provincia de Buenos Aires siguen admitiendo o exigiendo circuitos en papel para estos casos.",
     fecha: "2025-07-18",
     estado: "Vigente, implementación parcial",
     tipo: "Nacional",
@@ -24,11 +24,11 @@ export const leyes = [
         "No desplazó en la práctica los circuitos de papel para psicotrópicos en CABA y PBA",
         "La Provincia de Buenos Aires mantiene coexistencia de recetas en papel y electrónicas",
         "CABA tiene régimen propio que admite papel, electrónica o digital",
-        "No hay evidencia pública de implementación efectiva para metilfenidato Lista II en esas jurisdicciones",
+        "No hay evidencia pública de implementación efectiva para metilfenidato y lisdexanfetamina en esas jurisdicciones",
       ],
       puntuacion: 5.5,
       recomendacion:
-        "La norma sirve como marco, pero no como solución operativa. Para metilfenidato sigue importando qué acepta la jurisdicción y la farmacia.",
+        "La norma sirve como marco, pero no como solución operativa. Para metilfenidato y lisdexanfetamina sigue importando qué acepta la jurisdicción y la farmacia.",
     },
     puntosClave: [
       "Marco nacional para receta electrónica",
@@ -49,14 +49,14 @@ export const leyes = [
             "La Ley 19.303 y los circuitos jurisdiccionales siguen pesando en psicotrópicos",
           ],
           impactoTDAH:
-            "Parcial - positivo como marco, insuficiente como solución práctica para metilfenidato en CABA/PBA",
+            "Parcial - positivo como marco, insuficiente como solución práctica para metilfenidato y lisdexanfetamina en CABA/PBA",
         },
         {
           articulo: "Anexo I - Expendio Legalmente Restringido",
           titulo: "Digitalización de Psicotrópicos Lista II",
           textoActual: `Se establece un plazo de CIENTO VEINTE (120) días corridos desde la entrada en vigencia de la medida que aprueba el presente Anexo para que las jurisdicciones, softwares prescriptores y repositorios realicen las adecuaciones necesarias que permitan el registro, archivo y acceso a las recetas electrónicas o digitales sujetas a fiscalización.`,
           problemasIdentificados: [
-            "El plazo venció sin que se observe implementación efectiva para metilfenidato en CABA/PBA",
+            "El plazo venció sin que se observe implementación efectiva para metilfenidato y lisdexanfetamina en CABA/PBA",
             "No hay sanción práctica visible por jurisdicciones o actores que no adecuaron el circuito",
             "Requiere coordinación entre Nación, jurisdicciones, prescriptores, repositorios, farmacias y financiadores",
           ],
@@ -69,7 +69,7 @@ export const leyes = [
           "Brecha entre norma nacional y dispensa real",
           "CABA y PBA siguen con circuitos que admiten o requieren papel",
           "Psicotrópicos Lista II siguen siendo el punto más trabado",
-          "Falta evidencia pública de interoperabilidad completa para metilfenidato",
+          "Falta evidencia pública de interoperabilidad completa para metilfenidato y lisdexanfetamina",
         ],
         solucionSimple:
           "Adecuación jurisdiccional explícita y comunicación operativa a farmacias sobre psicotrópicos Lista II",
@@ -191,7 +191,7 @@ export const leyes = [
       ],
       problemas: [
         "Mantiene el papel como formato válido",
-        "No aclara por sí sola el circuito operativo para metilfenidato Lista II",
+        "No aclara por sí sola el circuito operativo para metilfenidato y lisdexanfetamina",
         "Puede sostener criterios distintos entre farmacias y coberturas",
       ],
       puntuacion: 5.0,
@@ -208,7 +208,7 @@ export const leyes = [
     numero: "PBA - Receta Electrónica Bonaerense",
     titulo: "Régimen propio y coexistencia de papel y digital",
     descripcion:
-      "Provincia de Buenos Aires tiene sistema propio de receta electrónica, pero sus fuentes oficiales indican que las recetas en papel, electrónicas y digitales siguen vigentes. Para psicotrópicos, la Resolución 140/2025 sólo avanzó sobre Listas III y IV, no sobre Lista II como metilfenidato.",
+      "Provincia de Buenos Aires tiene sistema propio de receta electrónica, pero sus fuentes oficiales indican que las recetas en papel, electrónicas y digitales siguen vigentes. Para psicotrópicos, la Resolución 140/2025 sólo avanzó sobre Listas III y IV, no sobre el circuito que afecta a metilfenidato y lisdexanfetamina.",
     fecha: "2023-02-28",
     estado: "Vigente, coexistencia de formatos",
     tipo: "Jurisdiccional",
@@ -229,12 +229,12 @@ export const leyes = [
       ],
       puntuacion: 5.0,
       recomendacion:
-        "Hay receta electrónica provincial, pero para metilfenidato no hay que asumir que reemplaza el papel.",
+        "Hay receta electrónica provincial, pero para metilfenidato y lisdexanfetamina no hay que asumir que reemplaza el papel.",
     },
     puntosClave: [
       "PBA mantiene coexistencia de recetas en papel, electrónicas y digitales",
       "La propia página oficial dice que las recetas en papel siguen vigentes",
-      "Metilfenidato Lista II sigue sin solución operativa clara",
+      "Metilfenidato y lisdexanfetamina siguen sin solución operativa clara",
     ],
   },
   {
@@ -321,7 +321,7 @@ export const leyes = [
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
-      "Ley vieja de 1971 que controla psicotrópicos. Las reglas para el metilfenidato son tan estrictas que no sirven para tratamientos que duran años.",
+      "Ley vieja de 1971 que controla psicotrópicos. Las reglas para estimulantes controlados como metilfenidato y lisdexanfetamina son tan estrictas que no sirven para tratamientos que duran años.",
     fecha: "1971-10-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -348,7 +348,7 @@ export const leyes = [
         "Es una ley vieja que no sirve más para los tratamientos de TDAH. Hay que actualizarla.",
     },
     puntosClave: [
-      "Metilfenidato clasificado en Lista II (control estricto)",
+      "Metilfenidato y lisdexanfetamina bajo control estricto",
       "Recetas manuscritas triplicadas obligatorias",
       "Máximo 20 días de tratamiento por prescripción",
       "Archivo físico obligatorio por 2 años",
@@ -366,7 +366,7 @@ export const leyes = [
             "Una sola dispensación imposibilita medicación crónica eficiente",
           ],
           impactoTDAH:
-            "Crítico - Impide acceso eficiente a medicación crónica como metilfenidato",
+            "Crítico - Impide acceso eficiente a medicación crónica como metilfenidato y lisdexanfetamina",
         },
         {
           articulo: "Artículo 16",
@@ -402,7 +402,7 @@ export const propuestasNecesarias = [
     descripcion:
       "La Resolución 2214/2025 es un marco importante, pero el plazo ya no alcanza como respuesta: la implementación efectiva sigue trabada.\n\nTareas clave:\n• Confirmar por jurisdicción si psicotrópicos Lista II se aceptan con receta electrónica o siguen requiriendo papel\n• Publicar instrucciones claras para farmacias y prescriptores\n• Resolver interoperabilidad entre plataformas, repositorios y validadores\n• Aclarar qué pasa en CABA y Provincia de Buenos Aires, donde el régimen real sigue siendo mixto o en papel para estos medicamentos",
     problemaQueResuelve:
-      "Que la receta electrónica no quede como declaración general sin efecto real en metilfenidato.",
+      "Que la receta electrónica no quede como declaración general sin efecto real en metilfenidato y lisdexanfetamina.",
     beneficiosClave: [
       "✓ Reduce rechazos en farmacia por criterios distintos",
       "✓ Evita que el paciente dependa de receta manuscrita cuando ya existe sistema digital válido",
@@ -450,7 +450,7 @@ export const problemasReales = [
   {
     problema: "Resolución 2214/2025: norma nacional sin implementación efectiva",
     descripcion:
-      "La Resolución 2214/2025 ordena el ecosistema nacional de receta electrónica, pero no resolvió por sí sola el problema para metilfenidato.\n\n→ Lo que dice Nación:\n• Receta electrónica como modalidad obligatoria desde 2025\n• Plataformas aprobadas por ReNaPDiS\n• CUIR e interoperabilidad para trazabilidad\n• Adecuación de psicotrópicos y estupefacientes\n\n→ Lo que pasa en la práctica:\n• La propia normativa nacional habla de adhesión jurisdiccional\n• Provincia de Buenos Aires mantiene convivencia de receta papel y electrónica\n• Para psicotrópicos y estupefacientes en PBA siguen rigiendo requisitos específicos; la receta papel sigue siendo necesaria en muchos casos\n• CABA tiene ley propia y admite recetas en papel, electrónicas o digitales\n• El resultado para muchos pacientes sigue siendo: pedir receta de papel para metilfenidato",
+      "La Resolución 2214/2025 ordena el ecosistema nacional de receta electrónica, pero no resolvió por sí sola el problema para metilfenidato y lisdexanfetamina.\n\n→ Lo que dice Nación:\n• Receta electrónica como modalidad obligatoria desde 2025\n• Plataformas aprobadas por ReNaPDiS\n• CUIR e interoperabilidad para trazabilidad\n• Adecuación de psicotrópicos y estupefacientes\n\n→ Lo que pasa en la práctica:\n• La propia normativa nacional habla de adhesión jurisdiccional\n• Provincia de Buenos Aires mantiene convivencia de receta papel y electrónica\n• Para psicotrópicos y estupefacientes en PBA siguen rigiendo requisitos específicos; la receta papel sigue siendo necesaria en muchos casos\n• CABA tiene ley propia y admite recetas en papel, electrónicas o digitales\n• El resultado para muchos pacientes sigue siendo: pedir receta de papel para metilfenidato o lisdexanfetamina",
     resumen:
       "La norma nacional existe, pero la implementación real para psicotrópicos Lista II sigue incompleta.",
     urgencia: "Crítico",
