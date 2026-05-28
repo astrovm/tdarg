@@ -33,6 +33,22 @@ test("does not calculate price per mg without a real unit count", () => {
   ).toBeNull();
 });
 
+test("does not calculate price per mg for combination strengths", () => {
+  expect(
+    pricePerMg({
+      codigo: "1",
+      nombre: "naltrexona+bupropion",
+      marca: "NALTREVA comp.x 120",
+      laboratorio: "RAFFO",
+      source: "farmacity",
+      precio: 206034.53,
+      presentacion: "comp.x 120",
+      concentracion: "8 mg / 90 mg",
+      fechaActualizacion: "2026-05-28T00:00:00.000Z",
+    })
+  ).toBeNull();
+});
+
 test("calculates price per mg using total package milligrams", () => {
   expect(
     pricePerMg({

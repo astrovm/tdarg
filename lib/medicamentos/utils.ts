@@ -19,6 +19,10 @@ export function priceWithCoverage(precio: number, discountRate = 0.4) {
 }
 
 export function extractMg(concentracion: string): number | null {
+  if (concentracion.includes("/")) {
+    return null;
+  }
+
   const match = concentracion.match(/(\d+(?:[.,]\d+)?)\s*mg\b/i);
 
   if (!match) {

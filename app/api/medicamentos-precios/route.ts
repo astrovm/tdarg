@@ -109,6 +109,31 @@ function extraerConcentracionTexto(...textos: Array<string | undefined>): string
   return null;
 }
 
+function formatearPotencia(valor: string | number | undefined): string | null {
+  if (typeof valor === "string" && valor.includes("/")) {
+    const partes = valor
+      .split("/")
+      .map((parte) => normalizarNumeroFarmacity(parte))
+      .filter((parte) => parte > 0);
+
+    if (partes.length > 1) {
+      return partes
+        .map((parte) =>
+          `${Number.isInteger(parte) ? parte : parte.toFixed(2).replace(/\.?0+$/, "")} mg`
+        )
+        .join(" / ");
+    }
+  }
+
+  const potencia = normalizarNumeroFarmacity(valor);
+
+  if (potencia <= 0) {
+    return null;
+  }
+
+  return `${Number.isInteger(potencia) ? potencia : potencia.toFixed(2).replace(/\.?0+$/, "")} mg`;
+}
+
 async function obtenerMedicamentos(termino: string): Promise<FarmacityMed[]> {
   try {
     const url = `${FARMACITY_API}?filter=${encodeURIComponent(termino)}`;
@@ -153,14 +178,14 @@ function convertirMedicamento(med: FarmacityMed): Medicamento {
   const precio = normalizarNumeroFarmacity(med.publicPrice);
   const presentacion =
     med.package?.packageDescription?.description || "No especificado";
-  const potencia = normalizarNumeroFarmacity(med.package?.potency);
-  const concentracion = potencia > 0
-    ? `${Number.isInteger(potencia) ? potencia : potencia.toFixed(2).replace(/\.?0+$/, "")} mg`
-    : extraerConcentracionTexto(
+  const concentracion =
+    formatearPotencia(med.package?.potency) ||
+    extraerConcentracionTexto(
         presentacion,
         marca,
         nombre
-      ) || "No especificado";
+      ) ||
+    "No especificado";
 
   return {
     codigo:
