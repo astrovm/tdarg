@@ -416,23 +416,21 @@ export default function PreciosPage() {
                                         </AlertDescription>
                                       </Alert>
                                     )}
-                                    {!isLisdexanfetamina(medicamento) && (
-                                      <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                                        <Shield className="h-4 w-4 text-blue-600" />
-                                        <div>
-                                          <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                            Con prepaga/obra social (40% desc.)
-                                          </div>
-                                          <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                            {formatPrice(
-                                              priceWithCoverage(
-                                                medicamento.precio
-                                              )
-                                            )}
-                                          </span>
+                                    <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                                      <Shield className="h-4 w-4 text-blue-600" />
+                                      <div>
+                                        <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                          Con prepaga/obra social (40% desc.)
                                         </div>
+                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                          {formatPrice(
+                                            priceWithCoverage(
+                                              medicamento.precio
+                                            )
+                                          )}
+                                        </span>
                                       </div>
-                                    )}
+                                    </div>
                                   </div>
                                 </CardContent>
                               </Card>
@@ -770,23 +768,21 @@ export default function PreciosPage() {
                                 </AlertDescription>
                               </Alert>
                             )}
-                            {!isLisdexanfetamina(medicamento) && (
-                              <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                                <Shield className="h-4 w-4 text-blue-600" />
-                                <div>
-                                  <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                    Con prepaga/obra social (40% desc.)
-                                  </div>
-                                  <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                    {formatPrice(
-                                      priceWithCoverage(
-                                        medicamento.precio
-                                      )
-                                    )}
-                                  </span>
+                            <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                              <Shield className="h-4 w-4 text-blue-600" />
+                              <div>
+                                <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                  Con prepaga/obra social (40% desc.)
                                 </div>
+                                <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                  {formatPrice(
+                                    priceWithCoverage(
+                                      medicamento.precio
+                                    )
+                                  )}
+                                </span>
                               </div>
-                            )}
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
