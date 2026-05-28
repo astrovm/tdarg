@@ -201,6 +201,16 @@ function convertirMedicamento(med: FarmacityMed): Medicamento {
   };
 }
 
+function esMedicamentoTDAH(med: Medicamento): boolean {
+  const nombre = med.nombre.toLowerCase();
+
+  if (nombre.includes("naltrexona")) {
+    return false;
+  }
+
+  return true;
+}
+
 // Eliminar duplicados
 function eliminarDuplicados(medicamentos: Medicamento[]): Medicamento[] {
   const mapa = new Map<string, Medicamento>();
@@ -257,7 +267,7 @@ async function obtenerMedicamentosTDAH(): Promise<Medicamento[]> {
     });
   });
 
-  const medicamentosUnicos = eliminarDuplicados(resultados);
+  const medicamentosUnicos = eliminarDuplicados(resultados).filter(esMedicamentoTDAH);
 
   console.log(
     `✅ ${medicamentosUnicos.length} medicamentos únicos encontrados`
