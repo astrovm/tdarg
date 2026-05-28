@@ -75,6 +75,9 @@ test("formats raw Farmacity medication names consistently", () => {
   expect(formatMedicationName("MODIALEX 150 MG COMP.X 30")).toBe(
     "Modialex 150 mg Comprimidos x 30"
   );
+  expect(formatMedicationName("CONSIv 18MG COMP.REC.LIB.PR.X30")).toBe(
+    "Consiv 18 mg Comprimidos Recubiertos Liberacion Prolongada x 30"
+  );
 });
 
 test("formats presentation from real package text only", () => {
