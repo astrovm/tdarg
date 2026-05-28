@@ -29,6 +29,8 @@ import { PageHero } from "@/components/page-hero";
 import type { Medicamento } from "@/lib/medicamentos/types";
 import { getMedicamentoSourceLabel } from "@/lib/medicamentos/source-label";
 import {
+  formatMedicationName,
+  formatMedicationPresentation,
   formatPrice,
   pricePerMg,
   priceWithCoverage,
@@ -354,7 +356,7 @@ export default function PreciosPage() {
                                 <CardHeader className="pb-3">
                                   <div className="flex justify-between items-start">
                                     <CardTitle className="text-lg leading-tight">
-                                      {medicamento.marca}
+                                      {formatMedicationName(medicamento.marca)}
                                     </CardTitle>
                                     <div className="flex flex-col gap-1">
                                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
@@ -385,7 +387,7 @@ export default function PreciosPage() {
                                   <div className="flex items-center gap-2">
                                     <Package className="h-4 w-4 text-gray-400" />
                                     <span className="text-sm">
-                                      {medicamento.presentacion}
+                                      {formatMedicationPresentation(medicamento)}
                                     </span>
                                   </div>
 
@@ -477,7 +479,7 @@ export default function PreciosPage() {
                                 <CardHeader className="pb-3">
                                   <div className="flex justify-between items-start">
                                     <CardTitle className="text-lg leading-tight">
-                                      {medicamento.marca}
+                                      {formatMedicationName(medicamento.marca)}
                                     </CardTitle>
                                     <div className="flex flex-col gap-1">
                                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
@@ -508,7 +510,7 @@ export default function PreciosPage() {
                                   <div className="flex items-center gap-2">
                                     <Package className="h-4 w-4 text-gray-400" />
                                     <span className="text-sm">
-                                      {medicamento.presentacion}
+                                      {formatMedicationPresentation(medicamento)}
                                     </span>
                                   </div>
 
@@ -607,7 +609,7 @@ export default function PreciosPage() {
                                 <CardHeader className="pb-3">
                                   <div className="flex justify-between items-start">
                                     <CardTitle className="text-lg leading-tight">
-                                      {medicamento.marca}
+                                      {formatMedicationName(medicamento.marca)}
                                     </CardTitle>
                                     <div className="flex flex-col gap-1">
                                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
@@ -638,7 +640,7 @@ export default function PreciosPage() {
                                   <div className="flex items-center gap-2">
                                     <Package className="h-4 w-4 text-gray-400" />
                                     <span className="text-sm">
-                                      {medicamento.presentacion}
+                                      {formatMedicationPresentation(medicamento)}
                                     </span>
                                   </div>
 
@@ -708,7 +710,7 @@ export default function PreciosPage() {
                         <CardHeader className="pb-3">
                           <div className="flex justify-between items-start">
                             <CardTitle className="text-lg leading-tight">
-                              {medicamento.marca}
+                              {formatMedicationName(medicamento.marca)}
                             </CardTitle>
                             <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
                               {getMedicamentoSourceLabel(medicamento.source)}
@@ -729,7 +731,7 @@ export default function PreciosPage() {
                           <div className="flex items-center gap-2">
                             <Package className="h-4 w-4 text-gray-400" />
                             <span className="text-sm">
-                              {medicamento.presentacion}
+                              {formatMedicationPresentation(medicamento)}
                             </span>
                           </div>
 
