@@ -321,7 +321,7 @@ export const leyes = [
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
-      "Ley vieja de 1971 que controla psicotrópicos. Las reglas para estimulantes controlados como metilfenidato y lisdexanfetamina son tan estrictas que no sirven para tratamientos que duran años.",
+      "Ley de 1971 que controla psicotrópicos. Sus reglas siguen impactando el acceso a tratamientos crónicos con estimulantes controlados como metilfenidato y lisdexanfetamina.",
     fecha: "1971-10-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -345,7 +345,7 @@ export const leyes = [
       ],
       puntuacion: 4.0,
       recomendacion:
-        "Es una ley vieja que no sirve más para los tratamientos de TDAH. Hay que actualizarla.",
+        "La norma quedó desactualizada para tratamientos crónicos de TDAH y necesita una actualización operativa.",
     },
     puntosClave: [
       "Metilfenidato y lisdexanfetamina bajo control estricto",

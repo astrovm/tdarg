@@ -517,13 +517,13 @@ export default function EspecialistasPage() {
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Estimulantes (metilfenidato/Ludoxa): 70-80% eficacia vs Atomoxetina: 40-60%
+                    Preguntá qué opciones considera: metilfenidato, lisdexanfetamina o atomoxetina
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Necesitás receta triplicada para metilfenidato
+                    Metilfenidato y lisdexanfetamina pueden requerir receta oficial en papel según jurisdicción y farmacia
                   </p>
                 </div>
               </CardContent>

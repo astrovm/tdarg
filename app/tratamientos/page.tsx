@@ -56,118 +56,118 @@ const steps = [
 const caddraMedicationMap = [
   {
     name: "Adderall XR",
-    group: "Estimulante anfetaminico",
-    forms: "Capsulas 5, 10, 15, 20, 25, 30 mg",
+    group: "Estimulante anfetamínico",
+    forms: "Cápsulas 5, 10, 15, 20, 25, 30 mg",
     duration: "~12 h",
-    caddraLine: "Primera linea",
+    caddraLine: "Primera línea",
     argentina: "No disponible",
-    localNote: "No hay equivalente anfetaminico comercial local.",
+    localNote: "No hay equivalente anfetamínico comercial local.",
   },
   {
     name: "Dyanavel XR",
-    group: "Estimulante anfetaminico",
+    group: "Estimulante anfetamínico",
     forms: "Masticables 5, 10, 15, 20 mg; LiquiXR",
     duration: "~13 h",
-    caddraLine: "Primera linea en 6-12; primera linea adultos",
+    caddraLine: "Primera línea en 6-12; primera línea adultos",
     argentina: "No disponible",
     localNote: "No comercializado en Argentina.",
   },
   {
     name: "Vyvanse",
     group: "Lisdexanfetamina",
-    forms: "Capsulas 10, 20, 30, 40, 50, 60, 70 mg; masticables 10-60 mg",
+    forms: "Cápsulas 10, 20, 30, 40, 50, 60, 70 mg; masticables 10-60 mg",
     duration: "~13-14 h",
-    caddraLine: "Primera linea",
+    caddraLine: "Primera línea",
     argentina: "Disponible como Ludoxa",
-    localNote: "Ludoxa 30, 50 y 70 mg. Nueva; cobertura todavia limitada.",
+    localNote: "Ludoxa 30, 50 y 70 mg. Nueva; cobertura todavía limitada.",
   },
   {
     name: "Dexedrine",
-    group: "Estimulante anfetaminico",
+    group: "Estimulante anfetamínico",
     forms: "Comprimidos 5 mg; spansules 10, 15 mg",
     duration: "~4 h / ~6-8 h",
-    caddraLine: "Segunda linea",
+    caddraLine: "Segunda línea",
     argentina: "No disponible",
     localNote: "No hay dexanfetamina comercial local.",
   },
   {
     name: "Biphentin",
     group: "Metilfenidato",
-    forms: "Capsulas 10, 15, 20, 30, 40, 50, 60, 80 mg",
+    forms: "Cápsulas 10, 15, 20, 30, 40, 50, 60, 80 mg",
     duration: "~10-12 h",
-    caddraLine: "Primera linea",
+    caddraLine: "Primera línea",
     argentina: "No disponible",
     localNote: "No comercializado en Argentina.",
   },
   {
     name: "Concerta",
     group: "Metilfenidato OROS",
-    forms: "Comprimidos de liberacion prolongada 18, 27, 36, 54 mg",
+    forms: "Comprimidos de liberación prolongada 18, 27, 36, 54 mg",
     duration: "~12 h",
-    caddraLine: "Primera linea",
+    caddraLine: "Primera línea",
     argentina: "Disponible",
     localNote: "Hay metilfenidato OROS: Concerta y Consiv.",
   },
   {
     name: "Foquest",
     group: "Metilfenidato",
-    forms: "Capsulas 25, 35, 45, 55, 70, 85, 100 mg",
+    forms: "Cápsulas 25, 35, 45, 55, 70, 85, 100 mg",
     duration: "~13-16 h",
-    caddraLine: "Primera linea",
+    caddraLine: "Primera línea",
     argentina: "No disponible",
     localNote: "No comercializado en Argentina.",
   },
   {
     name: "Jornay PM",
     group: "Metilfenidato nocturno",
-    forms: "Capsulas 20, 40, 60, 80, 100 mg",
+    forms: "Cápsulas 20, 40, 60, 80, 100 mg",
     duration: "Inicio 8-10 h; efecto ~12 h",
-    caddraLine: "Primera linea en 6-12; segunda linea adultos",
+    caddraLine: "Primera línea en 6-12; segunda línea adultos",
     argentina: "No disponible",
-    localNote: "No hay formulacion nocturna equivalente local.",
+    localNote: "No hay formulación nocturna equivalente local.",
   },
   {
     name: "Quillivant ER",
     group: "Metilfenidato",
-    forms: "Masticables 20, 30, 40 mg; suspension oral",
+    forms: "Masticables 20, 30, 40 mg; suspensión oral",
     duration: "~8-12 h / ~12 h",
-    caddraLine: "Primera linea en 6-12; segunda linea adultos",
+    caddraLine: "Primera línea en 6-12; segunda línea adultos",
     argentina: "No disponible",
-    localNote: "No hay metilfenidato masticable o suspension ER local.",
+    localNote: "No hay metilfenidato masticable o suspensión ER local.",
   },
   {
-    name: "Metilfenidato accion corta",
+    name: "Metilfenidato acción corta",
     group: "Metilfenidato IR",
-    forms: "Comprimidos 5 mg generico; 10, 20 mg",
+    forms: "Comprimidos 5 mg genérico; 10, 20 mg",
     duration: "~3-4 h",
-    caddraLine: "Segunda linea",
+    caddraLine: "Segunda línea",
     argentina: "Disponible",
-    localNote: "Disponible como Ritalina/Rubifen y similares segun stock.",
+    localNote: "Disponible como Ritalina/Rubifen y similares según stock.",
   },
   {
     name: "Ritalin SR",
     group: "Metilfenidato SR",
     forms: "Comprimidos 20 mg",
     duration: "~8 h",
-    caddraLine: "Segunda linea",
+    caddraLine: "Segunda línea",
     argentina: "Disponible",
-    localNote: "Disponible como Ritalina LA/SR o Rubifen LA/SR segun producto.",
+    localNote: "Disponible como Ritalina LA/SR o Rubifen LA/SR según producto.",
   },
   {
     name: "Atomoxetina",
     group: "No estimulante",
-    forms: "Capsulas 10, 18, 25, 40, 60, 80, 100 mg",
+    forms: "Cápsulas 10, 18, 25, 40, 60, 80, 100 mg",
     duration: "Hasta 24 h",
-    caddraLine: "Segunda linea",
+    caddraLine: "Segunda línea",
     argentina: "Disponible",
-    localNote: "No requiere receta triplicada; menor eficacia promedio.",
+    localNote: "No es estimulante; inicio de efecto más lento.",
   },
   {
     name: "Intuniv XR",
     group: "Guanfacina XR",
     forms: "Comprimidos XR 1, 2, 3, 4 mg",
     duration: "Hasta 24 h",
-    caddraLine: "Segunda linea en menores; otra opcion en adultos",
+    caddraLine: "Segunda línea en menores; otra opción en adultos",
     argentina: "No disponible",
     localNote: "No comercializada localmente.",
   },
@@ -215,17 +215,17 @@ export default function TratamientosPage() {
                         Medicación
                       </h3>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Corrige el déficit de neurotransmisores
-                        (dopamina/noradrenalina)
+                        Puede reducir síntomas nucleares como inatención,
+                        impulsividad e hiperactividad
                       </p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="h-3 w-3 text-green-500" />
-                          <span>70-80% mejora en síntomas</span>
+                          <span>Mayor respuesta promedio con estimulantes</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="h-3 w-3 text-green-500" />
-                          <span>Efectos en 30-60 minutos</span>
+                          <span>Inicio rápido en formulaciones inmediatas</span>
                         </div>
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="h-3 w-3 text-green-500" />
@@ -271,7 +271,7 @@ export default function TratamientosPage() {
                         <div className="flex items-center gap-2 text-xs">
                           <CheckCircle className="h-3 w-3 text-green-500" />
                           <span>
-                            Ejercicio = &quot;medicación natural&quot;
+                            Puede mejorar atención y regulación
                           </span>
                         </div>
                         <div className="flex items-center gap-2 text-xs">
@@ -289,11 +289,9 @@ export default function TratamientosPage() {
                   <Alert className="mb-6">
                     <Target className="h-4 w-4" />
                     <AlertDescription>
-                      La combinación de los 3
-                      enfoques da mejores resultados que cualquiera por
-                      separado. No es &quot;o medicación o terapia&quot;, es
-                      &quot;medicación Y terapia Y cambios de estilo de
-                      vida&quot;.
+                      El abordaje suele combinar medicación, herramientas
+                      psicológicas y cambios de rutina. La proporción depende
+                      del perfil clínico, comorbilidades, tolerancia y acceso.
                     </AlertDescription>
                   </Alert>
 
@@ -318,7 +316,7 @@ export default function TratamientosPage() {
                     Medicamentos para TDAH
                   </CardTitle>
                   <CardDescription>
-                    Opciones disponibles en Argentina
+                    Opciones locales y comparación con CADDRA
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -326,26 +324,26 @@ export default function TratamientosPage() {
                   <div className="grid md:grid-cols-3 gap-4 mb-8">
                     <div className="text-center p-4 bg-green-100 dark:bg-green-900 rounded-lg">
                       <div className="text-3xl font-bold text-green-600 mb-1">
-                        70-80%
+                        1ra
                       </div>
                       <div className="text-sm text-green-700 dark:text-green-300">
-                        Mejoran con estimulantes
+                        línea internacional
                       </div>
                     </div>
                     <div className="text-center p-4 bg-blue-100 dark:bg-blue-900 rounded-lg">
                       <div className="text-3xl font-bold text-blue-600 mb-1">
-                        50-60%
+                        3
                       </div>
                       <div className="text-sm text-blue-700 dark:text-blue-300">
-                        Mejoran con no estimulantes
+                        principios activos locales
                       </div>
                     </div>
                     <div className="text-center p-4 bg-purple-100 dark:bg-purple-900 rounded-lg">
                       <div className="text-3xl font-bold text-purple-600 mb-1">
-                        30-60min
+                        13
                       </div>
                       <div className="text-sm text-purple-700 dark:text-purple-300">
-                        Tiempo hasta hacer efecto
+                        opciones en guía CADDRA
                       </div>
                     </div>
                   </div>
@@ -375,10 +373,10 @@ export default function TratamientosPage() {
                                 ✅ Ventajas
                               </h6>
                               <ul className="text-sm space-y-1">
-                                <li>• Muy efectivo (70-80%)</li>
-                                <li>• Acción rápida (30-60 min)</li>
-                                <li>• 70+ años de uso seguro</li>
-                                <li>• Múltiples formulaciones</li>
+                                <li>• Primera línea en guías internacionales</li>
+                                <li>• Inicio rápido en formulaciones IR</li>
+                                <li>• Múltiples formulaciones locales</li>
+                                <li>• Mucha experiencia clínica acumulada</li>
                               </ul>
                             </div>
                             <div>
@@ -398,10 +396,10 @@ export default function TratamientosPage() {
                                 📋 Regulación
                               </h6>
                               <ul className="text-sm space-y-1">
-                                <li>• Receta triplicado oficial</li>
-                                <li>• Máximo 20 días/receta</li>
-                                <li>• Renovación mensual</li>
-                                <li>• Registro en farmacia</li>
+                                <li>• Psicotrópico con circuito controlado</li>
+                                <li>• En la práctica puede requerir papel</li>
+                                <li>• Cobertura y stock varían por farmacia</li>
+                                <li>• Ver precios locales actualizados</li>
                               </ul>
                             </div>
                           </div>
@@ -416,7 +414,7 @@ export default function TratamientosPage() {
                               </h6>
                               <ul className="text-sm space-y-1">
                                 <li>• Prodroga (menor potencial de abuso)</li>
-                                <li>• Acción sostenida (10-14 h)</li>
+                                <li>• Acción sostenida según guía CADDRA</li>
                                 <li>• Una sola toma diaria</li>
                                 <li>• Alternativa ante intolerancia a metilfenidato</li>
                               </ul>
@@ -438,9 +436,10 @@ export default function TratamientosPage() {
                                 📋 Regulación
                               </h6>
                               <ul className="text-sm space-y-1">
-                                <li>• Receta triplicado oficial</li>
-                                <li>• Mismo régimen que metilfenidato</li>
+                                <li>• Psicotrópico con circuito controlado</li>
+                                <li>• En la práctica puede requerir papel</li>
                                 <li>• Disponible desde 2026</li>
+                                <li>• Cobertura todavía limitada</li>
                               </ul>
                             </div>
                           </div>
@@ -452,11 +451,11 @@ export default function TratamientosPage() {
                       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between mb-4">
                         <div>
                           <h3 className="text-xl font-semibold">
-                            Mapa CADDRA: todos los medicamentos del chart
+                            Mapa CADDRA: todos los medicamentos de la guía
                           </h3>
                           <p className="text-sm text-muted-foreground mt-1">
-                            Guia canadiense traducida y adaptada para comparar
-                            disponibilidad local. No reemplaza indicacion medica
+                            Guía canadiense traducida y adaptada para comparar
+                            disponibilidad local. No reemplaza indicación médica
                             ni prospectos argentinos.
                           </p>
                         </div>
@@ -485,10 +484,10 @@ export default function TratamientosPage() {
                                 Presentaciones CADDRA
                               </TableHead>
                               <TableHead className="w-[10%] whitespace-normal">
-                                Duracion
+                                Duración
                               </TableHead>
                               <TableHead className="w-[13%] whitespace-normal">
-                                Linea CADDRA
+                                Línea CADDRA
                               </TableHead>
                               <TableHead className="w-[13%] whitespace-normal">
                                 Argentina
@@ -579,14 +578,14 @@ export default function TratamientosPage() {
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
                                   <div>
-                                    <dt className="font-semibold">Duracion</dt>
+                                    <dt className="font-semibold">Duración</dt>
                                     <dd className="text-muted-foreground">
                                       {medication.duration}
                                     </dd>
                                   </div>
                                   <div>
                                     <dt className="font-semibold">
-                                      Linea CADDRA
+                                      Línea CADDRA
                                     </dt>
                                     <dd className="text-muted-foreground">
                                       {medication.caddraLine}
@@ -611,8 +610,8 @@ export default function TratamientosPage() {
                             Lo fuerte de CADDRA
                           </p>
                           <p className="text-xs text-muted-foreground mt-1">
-                            Prioriza estimulantes de larga duracion como primera
-                            linea cuando estan aprobados para la edad del
+                            Prioriza estimulantes de larga duración como primera
+                            línea cuando están aprobados para la edad del
                             paciente.
                           </p>
                         </div>
@@ -623,7 +622,7 @@ export default function TratamientosPage() {
                           <p className="text-xs text-muted-foreground mt-1">
                             Argentina tiene metilfenidato, lisdexanfetamina y
                             atomoxetina, pero no varias formulaciones de larga
-                            duracion ni guanfacina XR.
+                            duración ni guanfacina XR.
                           </p>
                         </div>
                         <div className="rounded-md border p-3">
@@ -644,7 +643,7 @@ export default function TratamientosPage() {
                       <div className="flex items-center gap-2 mb-4">
                         <Shield className="h-6 w-6 text-blue-500" />
                         <h3 className="text-xl font-semibold">
-                          No Estimulantes (Segunda línea)
+                          No estimulantes disponibles
                         </h3>
                         <Badge variant="secondary">Alternativa</Badge>
                       </div>
@@ -660,7 +659,7 @@ export default function TratamientosPage() {
                             <ul className="text-sm space-y-1">
                               <li>• Intolerancia a estimulantes</li>
                               <li>• Comorbilidad con tics</li>
-                              <li>• Historia de abuso sustancias</li>
+                              <li>• Antecedentes de uso problemático</li>
                               <li>• Ansiedad severa coexistente</li>
                               <li>• Preferencia del paciente</li>
                             </ul>
@@ -671,7 +670,7 @@ export default function TratamientosPage() {
                             </h5>
                             <ul className="text-sm space-y-1">
                               <li>
-                                • <strong>Ventaja:</strong> Sin potencial abuso
+                                • <strong>Ventaja:</strong> Sin potencial de abuso
                               </li>
                               <li>
                                 • <strong>Ventaja:</strong> Efecto 24 horas
@@ -684,7 +683,7 @@ export default function TratamientosPage() {
                                 • <strong>Desventaja:</strong> Menor eficacia
                               </li>
                               <li>
-                                • <strong>Nota:</strong> Puede ayudar ansiedad
+                                • <strong>Nota:</strong> Puede ser útil si hay ansiedad
                               </li>
                             </ul>
                           </div>
@@ -930,7 +929,7 @@ export default function TratamientosPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl flex items-center justify-center gap-2">
                     <Heart className="h-8 w-8 text-red-500" />
-                    Ejercicio: medicina natural para TDAH
+                    Ejercicio y rutina
                   </CardTitle>
 
                 </CardHeader>
@@ -939,46 +938,46 @@ export default function TratamientosPage() {
                   <div className="grid md:grid-cols-4 gap-4 mb-8">
                     <div className="text-center p-4 bg-green-100 dark:bg-green-900 rounded-lg">
                       <div className="text-2xl font-bold text-green-600 mb-1">
-                        65%
+                        20-30
                       </div>
                       <div className="text-xs text-green-700 dark:text-green-300">
-                        Mejoran planificación
+                        minutos
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        tras 20-30 min
+                        punto de partida
                       </div>
                     </div>
                     <div className="text-center p-4 bg-blue-100 dark:bg-blue-900 rounded-lg">
                       <div className="text-2xl font-bold text-blue-600 mb-1">
-                        2-4h
+                        Diario
                       </div>
                       <div className="text-xs text-blue-700 dark:text-blue-300">
-                        Duración efectos
+                        mejor que intenso
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        en atención
+                        y esporádico
                       </div>
                     </div>
                     <div className="text-center p-4 bg-purple-100 dark:bg-purple-900 rounded-lg">
                       <div className="text-2xl font-bold text-purple-600 mb-1">
-                        20min
+                        Aeróbico
                       </div>
                       <div className="text-xs text-purple-700 dark:text-purple-300">
-                        Duración mínima
+                        suele ser útil
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        diaria recomendada
+                        para foco/ánimo
                       </div>
                     </div>
                     <div className="text-center p-4 bg-orange-100 dark:bg-orange-900 rounded-lg">
                       <div className="text-2xl font-bold text-orange-600 mb-1">
-                        70%
+                        Ajustar
                       </div>
                       <div className="text-xs text-orange-700 dark:text-orange-300">
-                        FC máxima
+                        a cada persona
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        objetivo
+                        sueño, lesiones, medicación
                       </div>
                     </div>
                   </div>
@@ -994,16 +993,16 @@ export default function TratamientosPage() {
                         <CardHeader>
                           <CardTitle className="text-base flex items-center gap-2">
                             <div className="text-2xl">🏃</div>
-                            Ejercicio Aeróbico
+                          Ejercicio aeróbico
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="space-y-3">
                             <div className="p-3 bg-green-50 dark:bg-green-950 rounded">
                               <p className="text-sm font-semibold">
-                                Recomendación:
+                                Punto de partida:
                               </p>
-                              <p className="text-sm">20 min/día al 70% FCM</p>
+                              <p className="text-sm">20-30 min, intensidad tolerable</p>
                             </div>
                             <div>
                               <p className="text-sm font-semibold mb-2">
@@ -1029,16 +1028,16 @@ export default function TratamientosPage() {
                         <CardHeader>
                           <CardTitle className="text-base flex items-center gap-2">
                             <div className="text-2xl">⚖️</div>
-                            Entrenamiento Equilibrio
+                            Equilibrio y coordinación
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="space-y-3">
                             <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded">
                               <p className="text-sm font-semibold">
-                                Efectividad:
+                                Útil para:
                               </p>
-                              <p className="text-sm">80% éxito reportado</p>
+                              <p className="text-sm">control corporal y constancia</p>
                             </div>
                             <div>
                               <p className="text-sm font-semibold mb-2">
@@ -1064,7 +1063,7 @@ export default function TratamientosPage() {
                         <CardHeader>
                           <CardTitle className="text-base flex items-center gap-2">
                             <div className="text-2xl">🥊</div>
-                            Deportes Reacción
+                            Deportes con reacción
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -1103,37 +1102,37 @@ export default function TratamientosPage() {
                   {/* Benefits */}
                   <div className="mt-8 p-6 bg-green-50 dark:bg-green-950 rounded-lg">
                     <h4 className="font-semibold mb-4 text-center text-green-800 dark:text-green-200">
-                      Beneficios inmediatos del ejercicio (20-30 min)
+                      Qué puede aportar el ejercicio
                     </h4>
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="text-center">
                         <div className="text-lg font-semibold text-green-600 mb-1">
-                          🎯 Función Ejecutiva
+                          Función ejecutiva
                         </div>
                         <ul className="text-sm space-y-1">
-                          <li>• 65% mejora planificación</li>
-                          <li>• ↑ Toma decisiones</li>
-                          <li>• ↑ Control impulsos</li>
+                          <li>• Apoyo a planificación</li>
+                          <li>• Mejor transición entre tareas</li>
+                          <li>• Menos impulsividad en algunos casos</li>
                         </ul>
                       </div>
                       <div className="text-center">
                         <div className="text-lg font-semibold text-green-600 mb-1">
-                          🧠 Atención
+                          Atención
                         </div>
                         <ul className="text-sm space-y-1">
-                          <li>• Efectos duran 2-4h</li>
-                          <li>• ↑ Concentración</li>
-                          <li>• ↑ Memoria trabajo</li>
+                          <li>• Puede facilitar foco posterior</li>
+                          <li>• Ayuda a descargar inquietud</li>
+                          <li>• Complementa, no reemplaza tratamiento</li>
                         </ul>
                       </div>
                       <div className="text-center">
                         <div className="text-lg font-semibold text-green-600 mb-1">
-                          💚 Estado Ánimo
+                          Estado de ánimo
                         </div>
                         <ul className="text-sm space-y-1">
-                          <li>• ↓ Ansiedad</li>
-                          <li>• ↑ Motivación</li>
-                          <li>• ↑ Autoestima</li>
+                          <li>• Puede bajar ansiedad</li>
+                          <li>• Mejora sueño si no se hace tarde</li>
+                          <li>• Refuerza sensación de control</li>
                         </ul>
                       </div>
                     </div>

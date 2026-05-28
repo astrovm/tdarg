@@ -324,9 +324,9 @@ export default function PreciosPage() {
                       <AlertDescription className="text-blue-800 dark:text-blue-200 break-words">
                         <strong>Importante:</strong> Otros estimulantes como
                         Adderall (anfetamina mixta) están aprobados por la FDA
-                        para TDAH. En Argentina, actualmente solo se
-                        comercializa metilfenidato (Concerta, Ritalin) y
-                        lisdexanfetamina (Vyvanse).
+                        para TDAH. En Argentina, actualmente se comercializa
+                        metilfenidato (Concerta, Ritalina/Rubifen y otros) y
+                        lisdexanfetamina como Ludoxa.
                       </AlertDescription>
                     </Alert>
 
