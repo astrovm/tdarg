@@ -18,6 +18,39 @@ export function priceWithCoverage(precio: number, discountRate = 0.4) {
   return precio * (1 - discountRate);
 }
 
+export function extractMg(concentracion: string): number | null {
+  const match = concentracion.match(/(\d+(?:[.,]\d+)?)\s*mg\b/i);
+
+  if (!match) {
+    return null;
+  }
+
+  const mg = Number.parseFloat(match[1].replace(",", "."));
+  return Number.isFinite(mg) && mg > 0 ? mg : null;
+}
+
+export function extractUnits(presentacion: string): number | null {
+  const match = presentacion.match(/\b(\d+)\s*(?:comp|comprimidos|caps|capsulas|cápsulas|tab|tabletas)\b/i);
+
+  if (!match) {
+    return null;
+  }
+
+  const units = Number.parseInt(match[1], 10);
+  return Number.isFinite(units) && units > 0 ? units : null;
+}
+
+export function pricePerMg(medicamento: Medicamento): number | null {
+  const mg = extractMg(medicamento.concentracion);
+  const units = extractUnits(medicamento.presentacion) ?? 1;
+
+  if (!mg || medicamento.precio <= 0) {
+    return null;
+  }
+
+  return medicamento.precio / (mg * units);
+}
+
 export function groupByApproval(medicamentos: Medicamento[]): MedicamentosAgrupados {
   return medicamentos.reduce<MedicamentosAgrupados>(
     (grupos, med) => {

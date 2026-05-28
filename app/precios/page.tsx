@@ -30,6 +30,7 @@ import type { Medicamento } from "@/lib/medicamentos/types";
 import { getMedicamentoSourceLabel } from "@/lib/medicamentos/source-label";
 import {
   formatPrice,
+  pricePerMg,
   priceWithCoverage,
   groupByApproval,
 } from "@/lib/medicamentos/utils";
@@ -46,6 +47,10 @@ function sortMedicamentosAlphabetically(items: Medicamento[]): Medicamento[] {
 
     return a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" });
   });
+}
+
+function isLisdexanfetamina(medicamento: Medicamento): boolean {
+  return medicamento.nombre.toLowerCase().includes("lisdexanfetamina");
 }
 
 export default function PreciosPage() {
@@ -391,21 +396,43 @@ export default function PreciosPage() {
                                         {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
-                                    <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                                      <Shield className="h-4 w-4 text-blue-600" />
+                                    {pricePerMg(medicamento) && (
                                       <div>
-                                        <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                          Con prepaga/obra social (40% desc.)
+                                        <div className="text-sm text-gray-500 mb-1">
+                                          Precio por mg
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
+                                        <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                          {formatPrice(pricePerMg(medicamento)!)}
                                         </span>
                                       </div>
-                                    </div>
+                                    )}
+                                    {isLisdexanfetamina(medicamento) && (
+                                      <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                                        <AlertCircle className="h-4 w-4 text-amber-600" />
+                                        <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
+                                          La lisdexanfetamina es nueva en Argentina.
+                                          Las obras sociales y prepagas todavía no
+                                          suelen cubrirla y no está incluida en el PMO.
+                                        </AlertDescription>
+                                      </Alert>
+                                    )}
+                                    {!isLisdexanfetamina(medicamento) && (
+                                      <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                                        <Shield className="h-4 w-4 text-blue-600" />
+                                        <div>
+                                          <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                            Con prepaga/obra social (40% desc.)
+                                          </div>
+                                          <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                            {formatPrice(
+                                              priceWithCoverage(
+                                                medicamento.precio
+                                              )
+                                            )}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    )}
                                   </div>
                                 </CardContent>
                               </Card>
@@ -502,6 +529,16 @@ export default function PreciosPage() {
                                         {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
+                                    {pricePerMg(medicamento) && (
+                                      <div>
+                                        <div className="text-sm text-gray-500 mb-1">
+                                          Precio por mg
+                                        </div>
+                                        <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                          {formatPrice(pricePerMg(medicamento)!)}
+                                        </span>
+                                      </div>
+                                    )}
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                                       <Shield className="h-4 w-4 text-blue-600" />
                                       <div>
@@ -622,6 +659,16 @@ export default function PreciosPage() {
                                         {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
+                                    {pricePerMg(medicamento) && (
+                                      <div>
+                                        <div className="text-sm text-gray-500 mb-1">
+                                          Precio por mg
+                                        </div>
+                                        <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                          {formatPrice(pricePerMg(medicamento)!)}
+                                        </span>
+                                      </div>
+                                    )}
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                                       <Shield className="h-4 w-4 text-blue-600" />
                                       <div>
@@ -703,21 +750,43 @@ export default function PreciosPage() {
                                 {formatPrice(medicamento.precio)}
                               </span>
                             </div>
-                            <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                              <Shield className="h-4 w-4 text-blue-600" />
+                            {pricePerMg(medicamento) && (
                               <div>
-                                <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                  Con prepaga/obra social (40% desc.)
+                                <div className="text-sm text-gray-500 mb-1">
+                                  Precio por mg
                                 </div>
-                                <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                  {formatPrice(
-                                    priceWithCoverage(
-                                      medicamento.precio
-                                    )
-                                  )}
+                                <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                  {formatPrice(pricePerMg(medicamento)!)}
                                 </span>
                               </div>
-                            </div>
+                            )}
+                            {isLisdexanfetamina(medicamento) && (
+                              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                                <AlertCircle className="h-4 w-4 text-amber-600" />
+                                <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
+                                  La lisdexanfetamina es nueva en Argentina. Las
+                                  obras sociales y prepagas todavía no suelen
+                                  cubrirla y no está incluida en el PMO.
+                                </AlertDescription>
+                              </Alert>
+                            )}
+                            {!isLisdexanfetamina(medicamento) && (
+                              <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                                <Shield className="h-4 w-4 text-blue-600" />
+                                <div>
+                                  <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                    Con prepaga/obra social (40% desc.)
+                                  </div>
+                                  <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                    {formatPrice(
+                                      priceWithCoverage(
+                                        medicamento.precio
+                                      )
+                                    )}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </CardContent>
                       </Card>
