@@ -7,7 +7,8 @@
     "dev": "next dev",
     "download-laws": "node scripts/download-laws.js",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "test": "bun test"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

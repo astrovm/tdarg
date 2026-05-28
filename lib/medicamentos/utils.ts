@@ -29,22 +29,32 @@ export function extractMg(concentracion: string): number | null {
   return Number.isFinite(mg) && mg > 0 ? mg : null;
 }
 
-export function extractUnits(presentacion: string): number | null {
-  const match = presentacion.match(/\b(\d+)\s*(?:comp|comprimidos|caps|capsulas|cápsulas|tab|tabletas)\b/i);
+export function extractUnits(...texts: string[]): number | null {
+  const match = texts
+    .map((text) =>
+      text.match(
+        /\b(?:x|por)\s*(\d+)\b|\b(\d+)\s*(?:comp|comprimidos|caps|capsulas|cápsulas|tab|tabletas)\b/i
+      )
+    )
+    .find(Boolean);
 
   if (!match) {
     return null;
   }
 
-  const units = Number.parseInt(match[1], 10);
+  const units = Number.parseInt(match[1] || match[2], 10);
   return Number.isFinite(units) && units > 0 ? units : null;
 }
 
 export function pricePerMg(medicamento: Medicamento): number | null {
   const mg = extractMg(medicamento.concentracion);
-  const units = extractUnits(medicamento.presentacion) ?? 1;
+  const units = extractUnits(
+    medicamento.presentacion,
+    medicamento.marca,
+    medicamento.nombre
+  );
 
-  if (!mg || medicamento.precio <= 0) {
+  if (!mg || !units || medicamento.precio <= 0) {
     return null;
   }
 
