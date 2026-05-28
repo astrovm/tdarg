@@ -4,24 +4,24 @@
 ## Resolución 2214/2025
 
 **Contexto Histórico y Relevancia para TDAH:**
-La Resolución 2214/2025 del Ministerio de Salud, publicada el 18 de julio de 2025, representa un hito histórico para pacientes con TDAH en Argentina. Por primera vez desde 1971, una normativa aborda directamente el conflicto entre la Ley de Psicotrópicos (19.303) que exige recetas manuscritas triplicadas y la digitalización del sistema de salud.
+La Resolución 2214/2025 del Ministerio de Salud, publicada el 18 de julio de 2025, representa un marco nacional importante para ordenar la receta electrónica. Sin embargo, no resolvió por sí sola el acceso a metilfenidato: la implementación efectiva depende de jurisdicciones, farmacias, repositorios y financiadores.
 
-**Obligatoriedad Total de Recetas Electrónicas:**
-La norma establece en su Artículo 3º que las prescripciones "deberán emitirse exclusivamente en formato electrónico o digital", eliminando definitivamente las excepciones. Para pacientes con TDAH, esto significa el fin del sistema de recetas manuscritas triplicadas que ha sido la principal barrera de acceso a medicación (metilfenidato y atomoxetina) durante más de 50 años.
+**Norma nacional vs. práctica real:**
+La norma establece en su Artículo 3º que las prescripciones "deberán emitirse exclusivamente en formato electrónico o digital". Aun así, el marco nacional vigente indica que la receta electrónica opera en todo el país en la medida en que las jurisdicciones locales adhieran o adecuen sus circuitos. En CABA y Provincia de Buenos Aires, el circuito real para psicotrópicos Lista II todavía puede requerir receta papel.
 
-**Sistema de Trazabilidad Revolucionario:**
-La resolución crea el Registro Nacional de Plataformas Digitales Sanitarias (ReNaPDiS) y la Clave Única de Identificación de Receta (CUIR). Para TDAH, esto garantiza que cada prescripción de metilfenidato o atomoxetina sea trazable, segura y accesible desde cualquier farmacia del país, eliminando la fragmentación territorial que afectaba especialmente a pacientes en provincias con menor infraestructura sanitaria.
+**Sistema de trazabilidad:**
+La resolución crea el Registro Nacional de Plataformas Digitales Sanitarias (ReNaPDiS) y la Clave Única de Identificación de Receta (CUIR). Para TDAH, esto puede mejorar trazabilidad y seguridad, pero no garantiza por sí solo que una farmacia acepte receta electrónica para metilfenidato si la jurisdicción o convenio mantiene requisitos en papel.
 
 ## Anexo I: Tipos de Prescripción y Subtipos de Receta
 
 **Clasificación Específica para Medicamentos TDAH:**
 Los medicamentos para TDAH (metilfenidato y atomoxetina) se clasifican como "expendio legalmente restringido" según la Ley 19.303 (Lista II de psicotrópicos). Este anexo es revolucionario porque por primera vez reconoce oficialmente que estos medicamentos deben digitalizarse completamente, abandonando el sistema manuscrito de 1971.
 
-**Plazo Crítico de 120 Días para TDAH:**
-El anexo establece un plazo específico de 120 días corridos (hasta noviembre 2025) para que las jurisdicciones, softwares prescriptores y repositorios implementen completamente las recetas electrónicas de psicotrópicos Lista II. Esto significa que antes de fin de año, los pacientes con TDAH deberían poder acceder a medicación mediante recetas exclusivamente electrónicas.
+**Plazo de 120 días vencido:**
+El anexo estableció un plazo de 120 días corridos para que jurisdicciones, softwares prescriptores y repositorios adecuaran el sistema. Ese plazo venció, pero no hay evidencia de implementación efectiva uniforme para metilfenidato en CABA y PBA.
 
-**Eliminación del Sistema Triplicado:**
-El documento afirma categóricamente que "ya no resulta necesario producir copias impresas o duplicados" porque "la autenticidad e integridad del documento quedan garantizadas por los mecanismos de firma electrónica". Para TDAH, esto elimina la barrera más significativa: el sistema de recetas triplicadas manuscritas que obligaba a consultas presenciales cada 20 días.
+**Sistema triplicado:**
+El documento técnico apunta a reemplazar copias impresas o duplicados cuando el circuito digital está implementado. En la práctica, para psicotrópicos Lista II, el papel sigue siendo una barrera en jurisdicciones o farmacias que todavía no adecuaron el circuito.
 
 ## Anexo II: Estructura de Datos Mínimos y Formato de Visualización de Prescripción Electrónica
 
@@ -36,8 +36,8 @@ El anexo prioriza la denominación por Ingrediente Farmacéutico Activo (IFA) so
 
 ## Anexo III: Estándares
 
-**Interoperabilidad Nacional para TDAH:**
-Este anexo garantiza que las recetas de medicamentos TDAH funcionen de manera uniforme en todo el territorio argentino, eliminando las diferencias jurisdiccionales que generaban rechazos y confusión. Un paciente con TDAH podrá obtener su metilfenidato en cualquier provincia usando el mismo sistema estandarizado.
+**Interoperabilidad pendiente para TDAH:**
+Este anexo define estándares para interoperabilidad, pero no prueba que el sistema funcione de manera uniforme en todo el territorio. Para metilfenidato, las diferencias jurisdiccionales y de farmacia siguen siendo relevantes.
 
 **SNOMED CT para Medicamentos TDAH:**
 El establecimiento de SNOMED CT - Edición Argentina como estándar incluye específicamente el Diccionario Nacional de Medicamentos (DNM). Para TDAH, esto significa que metilfenidato y atomoxetina tendrán códigos únicos e inequívocos que eliminarán confusiones entre marcas, presentaciones y dosificaciones, problema frecuente que causaba demoras en farmacias.
@@ -47,8 +47,8 @@ Los diagnósticos de TDAH (F90.0, F90.1, F90.2 según CIE-10) se codificarán un
 
 ## Anexo IV: Composición y Estructura del CUIR
 
-**Trazabilidad Total para Medicamentos TDAH:**
-El CUIR (Clave Única de Identificación de Receta) revoluciona el control de medicamentos TDAH al asignar un código único e irrepetible a cada prescripción de metilfenidato o atomoxetina. Este sistema permite rastrear cada receta desde su emisión hasta su dispensación, eliminando duplicaciones, falsificaciones y garantizando que ningún paciente se quede sin medicación por errores administrativos.
+**Trazabilidad para Medicamentos TDAH:**
+El CUIR (Clave Única de Identificación de Receta) asigna un código único e irrepetible a cada prescripción. Puede reducir duplicaciones y errores administrativos, pero no garantiza acceso si el circuito de dispensa no acepta receta electrónica para psicotrópicos Lista II.
 
 **Identificación Específica para Psicotrópicos:**
 Los medicamentos TDAH reciben el código "0104" en el módulo 4 del CUIR (01 = medicamento, 04 = expendio legalmente restringido), permitiendo identificación inmediata y aplicación de controles específicos. Esto facilita el monitoreo epidemiológico y la detección de patrones de prescripción, útil para políticas de salud pública.
@@ -56,5 +56,5 @@ Los medicamentos TDAH reciben el código "0104" en el módulo 4 del CUIR (01 = m
 **Integración con CUIL para Continuidad del Tratamiento:**
 La combinación CUIR + CUIL crea un sistema robusto que permite a los pacientes con TDAH acceder a sus historiales de prescripción desde cualquier punto del país. Esto es crucial para tratamientos crónicos como el TDAH, donde la continuidad es esencial y los pacientes frecuentemente cambian de médico o provincia por razones laborales o educativas.
 
-**Repositorio Centralizado para Acceso Nacional:**
-Los repositorios deben enviar información de prescripciones TDAH a un sistema centralizado, garantizando que un paciente pueda obtener su medicación en cualquier farmacia de Argentina con solo presentar su documento. Esto elimina definitivamente la fragmentación territorial que obligaba a pacientes a viajar o cambiar médicos por cambios de residencia.
+**Repositorios e interoperabilidad:**
+Los repositorios deben interoperar y permitir consulta segura de las prescripciones. La promesa es reducir fragmentación territorial, pero el acceso nacional uniforme todavía no está probado para metilfenidato.

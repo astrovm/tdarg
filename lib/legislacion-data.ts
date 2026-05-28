@@ -2,39 +2,40 @@
 export const leyes = [
   {
     numero: "Resolución 2214/2025",
-    titulo: "Implementación de Recetas Electrónicas",
+    titulo: "Recetas electrónicas: norma nacional, implementación incompleta",
     descripcion:
-      "Establece la obligatoriedad de recetas electrónicas para todos los medicamentos, incluyendo psicotrópicos de Lista II como metilfenidato. Fija plazo de 120 días para implementación completa.",
+      "Define estándares nacionales para receta electrónica, incluyendo psicotrópicos de Lista II como metilfenidato. En la práctica no resolvió todavía el acceso: CABA y Provincia de Buenos Aires siguen admitiendo o exigiendo circuitos en papel para estos casos.",
     fecha: "2025-07-18",
-    estado: "Vigente",
+    estado: "Vigente, implementación parcial",
     tipo: "Nacional",
     organismo: "Ministerio de Salud",
     impactoReal: "alto",
     url: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-2214-2025-415349",
-    ultimaActualizacion: "2025-07-21",
+    ultimaActualizacion: "2026-05-28",
     analisisIA: {
       beneficios: [
-        "Establece recetas exclusivamente electrónicas para todos los medicamentos",
-        "Define plazo específico de 120 días para implementación",
-        "Incluye medicamentos TDAH en sistema digital obligatorio",
+        "Define estándares nacionales para recetas electrónicas",
+        "Incluye un esquema técnico para medicamentos controlados",
         "Implementa sistema CUIR para trazabilidad",
-        "Elimina requisito de recetas manuscritas triplicadas",
+        "Reconoce la necesidad de interoperabilidad entre prescriptores, repositorios y farmacias",
       ],
       problemas: [
-        "No deroga explícitamente artículos conflictivos de Ley 19.303",
-        "Implementación depende de coordinación jurisdiccional",
-        "Falta mecanismo de seguimiento del cumplimiento",
+        "La obligatoriedad nacional depende de adhesión o adecuación jurisdiccional",
+        "No desplazó en la práctica los circuitos de papel para psicotrópicos en CABA y PBA",
+        "La Provincia de Buenos Aires mantiene coexistencia de recetas en papel y electrónicas",
+        "CABA tiene régimen propio que admite papel, electrónica o digital",
+        "No hay evidencia pública de implementación efectiva para metilfenidato Lista II en esas jurisdicciones",
       ],
-      puntuacion: 8.5,
+      puntuacion: 5.5,
       recomendacion:
-        "Esta norma puede solucionar los problemas de acceso a medicamentos, pero hay que seguir de cerca que se cumpla en la práctica.",
+        "La norma sirve como marco, pero no como solución operativa. Para metilfenidato sigue importando qué acepta la jurisdicción y la farmacia.",
     },
     puntosClave: [
-      "Recetas obligatoriamente electrónicas para todos los medicamentos",
-      "Plazo de implementación: 120 días (noviembre 2025)",
-      "Incluye medicamentos controlados Lista II",
+      "Marco nacional para receta electrónica",
+      "La aplicación territorial depende de adhesión o adecuación local",
+      "Incluye medicamentos controlados Lista II en el diseño técnico",
       "Sistema CUIR para identificación única",
-      "Repositorios digitales con acceso controlado",
+      "PBA mantiene recetas en papel vigentes; CABA tiene régimen propio mixto",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -43,37 +44,38 @@ export const leyes = [
           titulo: "Prescripciones Exclusivamente Electrónicas",
           textoActual: `Las prescripciones deberán emitirse exclusivamente en formato electrónico o digital a través de plataformas registradas en el Registro Nacional de Plataformas Digitales de Salud (ReNaPDiS).`,
           problemasIdentificados: [
-            "No elimina explícitamente las recetas manuscritas de la Ley 19.303",
-            "Puede haber confusiones con leyes viejas",
-            "Cada provincia tiene que implementarlo",
+            "El propio marco nacional depende de adhesión o adecuación local",
+            "No alcanza para que una farmacia acepte receta electrónica de Lista II si la jurisdicción o convenio sigue pidiendo papel",
+            "La Ley 19.303 y los circuitos jurisdiccionales siguen pesando en psicotrópicos",
           ],
           impactoTDAH:
-            "Positivo si se implementa correctamente, eliminaría recetas manuscritas para medicamentos TDAH",
+            "Parcial - positivo como marco, insuficiente como solución práctica para metilfenidato en CABA/PBA",
         },
         {
           articulo: "Anexo I - Expendio Legalmente Restringido",
           titulo: "Digitalización de Psicotrópicos Lista II",
           textoActual: `Se establece un plazo de CIENTO VEINTE (120) días corridos desde la entrada en vigencia de la medida que aprueba el presente Anexo para que las jurisdicciones, softwares prescriptores y repositorios realicen las adecuaciones necesarias que permitan el registro, archivo y acceso a las recetas electrónicas o digitales sujetas a fiscalización.`,
           problemasIdentificados: [
-            "Plazo de 120 días puede ser insuficiente para implementación completa",
-            "No especifica sanciones por incumplimiento",
-            "Requiere coordinación entre múltiples actores",
+            "El plazo venció sin que se observe implementación efectiva para metilfenidato en CABA/PBA",
+            "No hay sanción práctica visible por jurisdicciones o actores que no adecuaron el circuito",
+            "Requiere coordinación entre Nación, jurisdicciones, prescriptores, repositorios, farmacias y financiadores",
           ],
           impactoTDAH:
-            "Crítico - Primer plazo oficial específico para digitalizar medicamentos TDAH",
+            "Crítico - el plazo no cambió todavía la experiencia real de muchos pacientes",
         },
       ],
       resumenImpacto: {
         problemasPrincipales: [
-          "No deroga explícitamente conflictos con Ley 19.303",
-          "Implementación depende de coordinación jurisdiccional",
-          "Posibles extensiones de plazo sin sanciones claras",
+          "Brecha entre norma nacional y dispensa real",
+          "CABA y PBA siguen con circuitos que admiten o requieren papel",
+          "Psicotrópicos Lista II siguen siendo el punto más trabado",
+          "Falta evidencia pública de interoperabilidad completa para metilfenidato",
         ],
         solucionSimple:
-          "Monitoreo estricto del cumplimiento del plazo y seguimiento de implementación efectiva",
-        urgencia: "Media - Resolución adecuada pero requiere seguimiento",
+          "Adecuación jurisdiccional explícita y comunicación operativa a farmacias sobre psicotrópicos Lista II",
+        urgencia: "Alta - la norma existe pero el paciente sigue chocando con el circuito real",
         estimacionImpacto:
-          "Potencial solución para más de 500,000 pacientes TDAH si se implementa correctamente",
+          "Podría mejorar el acceso si se implementa realmente, pero hoy no elimina la barrera del papel",
       },
     },
   },
@@ -81,7 +83,7 @@ export const leyes = [
     numero: "Ley 27.553",
     titulo: "Ley de Recetas Electrónicas o Digitales",
     descripcion:
-      "Establece prescripciones exclusivamente electrónicas y habilita telemedicina. Su implementación efectiva se vio limitada por conflictos normativos no resueltos con legislación previa.",
+      "Establece el marco nacional de receta electrónica y habilita telemedicina. Su implementación efectiva sigue limitada por adhesión jurisdiccional, interoperabilidad y circuitos especiales para psicotrópicos.",
     fecha: "2020-08-11",
     estado: "Vigente",
     tipo: "Nacional",
@@ -97,21 +99,21 @@ export const leyes = [
         "Creó infraestructura básica para sistemas digitales de salud",
       ],
       problemas: [
-        "Plazo de implementación vencido sin cumplimiento efectivo",
-        "No resolvió contradicciones con normativas anteriores",
-        "Falta de sanciones por incumplimiento",
-        "Implementación limitada para medicamentos controlados",
+        "La implementación real depende de jurisdicciones y sistemas habilitados",
+        "No resolvió de forma operativa el circuito de psicotrópicos Lista II",
+        "Falta interoperabilidad completa entre plataformas y farmacias",
+        "CABA y PBA tienen regímenes propios que mantienen formatos mixtos",
       ],
       puntuacion: 6.0,
       recomendacion:
         "La ley está bien pensada pero le faltan reglas claras para que funcione en la práctica.",
     },
     puntosClave: [
-      "Recetas electrónicas obligatorias según normativa",
-      "Dispensación nacional en cualquier farmacia habilitada", 
+      "Recetas electrónicas como objetivo nacional",
+      "Dispensación nacional sujeta a sistemas y jurisdicciones habilitadas",
       "Telemedicina autorizada para consultas médicas",
       "Modifica Ley 19.303 agregando Artículo 18 bis",
-      "Plazo de implementación vencido en julio 2024",
+      "Persisten excepciones y circuitos especiales para medicamentos controlados",
     ],
     analisisDetallado: {
       articulosProblematicos: [
@@ -156,18 +158,84 @@ export const leyes = [
       ],
       resumenImpacto: {
         problemasPrincipales: [
-          "Ley conceptualmente correcta pero mal redactada para resolver conflictos",
-          "Plazo de implementación vencido sin consecuencias",
-          "Modificación insuficiente de Ley 19.303 mantiene ambigüedad legal",
-          "Falta autoridad de aplicación con poder efectivo",
+          "Ley conceptualmente correcta pero insuficiente para resolver la práctica diaria",
+          "Implementación desigual entre jurisdicciones",
+          "Modificación insuficiente de Ley 19.303 mantiene ambigüedad operativa",
+          "Falta interoperabilidad completa para psicotrópicos",
         ],
         solucionSimple:
-          "Reglamentación que clarifique implementación inmediata de recetas electrónicas",
-        urgencia: "Alta - Ley vigente pero inaplicable por conflictos legales",
+          "Reglamentación y adhesión jurisdiccional con instrucciones específicas para psicotrópicos Lista II",
+        urgencia: "Alta - Ley vigente pero aplicación desigual",
         estimacionImpacto:
-          "Resolvería completamente problema de acceso para más de 500,000 pacientes TDAH",
+          "Puede mejorar el acceso, pero no lo garantiza mientras cada jurisdicción mantenga circuitos distintos",
       },
     },
+  },
+  {
+    numero: "CABA - Ley 6439",
+    titulo: "Régimen propio de recetas en CABA",
+    descripcion:
+      "La Ciudad tiene una norma propia integrada a la Ley 27.553. Admite recetas en formato papel, electrónico o digital, por lo que no reemplaza automáticamente el circuito papel para psicotrópicos.",
+    fecha: "2021-07-15",
+    estado: "Vigente",
+    tipo: "Jurisdiccional",
+    organismo: "Legislatura de la Ciudad Autónoma de Buenos Aires",
+    impactoReal: "alto",
+    url: "https://boletinoficial.buenosaires.gob.ar/normativaba/norma/564664",
+    ultimaActualizacion: "2026-05-28",
+    analisisIA: {
+      beneficios: [
+        "Reconoce recetas electrónicas y digitales en CABA",
+        "Da marco local propio para prescripción y dispensa",
+        "Permite convivencia de formatos durante la transición",
+      ],
+      problemas: [
+        "Mantiene el papel como formato válido",
+        "No aclara por sí sola el circuito operativo para metilfenidato Lista II",
+        "Puede sostener criterios distintos entre farmacias y coberturas",
+      ],
+      puntuacion: 5.0,
+      recomendacion:
+        "Sirve como marco local, pero para TDAH no alcanza si farmacias siguen pidiendo receta oficial en papel.",
+    },
+    puntosClave: [
+      "CABA admite receta papel, electrónica o digital",
+      "Régimen propio, no simple adhesión automática nacional",
+      "La práctica para psicotrópicos puede seguir requiriendo papel",
+    ],
+  },
+  {
+    numero: "PBA - Receta Electrónica Bonaerense",
+    titulo: "Régimen propio y coexistencia de papel y digital",
+    descripcion:
+      "Provincia de Buenos Aires tiene sistema propio de receta electrónica, pero sus fuentes oficiales indican que las recetas en papel, electrónicas y digitales siguen vigentes. Para psicotrópicos, la Resolución 140/2025 sólo avanzó sobre Listas III y IV, no sobre Lista II como metilfenidato.",
+    fecha: "2023-02-28",
+    estado: "Vigente, coexistencia de formatos",
+    tipo: "Jurisdiccional",
+    organismo: "Ministerio de Salud de la Provincia de Buenos Aires",
+    impactoReal: "alto",
+    url: "https://www.ms.gba.gov.ar/sitios/saluddigitalbonaerense/ejes/receta-electronica-bonaerense/",
+    ultimaActualizacion: "2026-05-28",
+    analisisIA: {
+      beneficios: [
+        "Tiene plataforma provincial de receta electrónica",
+        "Permite emisión para pacientes con cobertura pública, prepagas y obras sociales",
+        "Reconoce que todos los medicamentos pueden incluirse en el sistema cuando el circuito lo permite",
+      ],
+      problemas: [
+        "Las recetas en papel siguen vigentes",
+        "La Resolución 140/2025 alcanza psicotrópicos Listas III y IV, no Lista II",
+        "Comunicaciones farmacéuticas reportan que psicotrópicos y estupefacientes siguen con requisitos previos",
+      ],
+      puntuacion: 5.0,
+      recomendacion:
+        "Hay receta electrónica provincial, pero para metilfenidato no hay que asumir que reemplaza el papel.",
+    },
+    puntosClave: [
+      "PBA mantiene coexistencia de recetas en papel, electrónicas y digitales",
+      "La propia página oficial dice que las recetas en papel siguen vigentes",
+      "Metilfenidato Lista II sigue sin solución operativa clara",
+    ],
   },
   {
     numero: "Ley 26.657",
@@ -330,26 +398,26 @@ export const propuestasNecesarias = [
   {
     titulo: "Que se cumpla la Resolución 2214/2025",
     resumenEjecutivo:
-      "Controlar que la Resolución 2214/2025 se cumpla: recetas electrónicas para TDAH en 120 días.",
+      "Pasar de la norma nacional a implementación real: que CABA, PBA y el resto de las jurisdicciones indiquen claramente cuándo aceptan receta electrónica para psicotrópicos Lista II.",
     descripcion:
-      "La Resolución 2214/2025 es un avance importante que puede mejorar el acceso a los medicamentos. Hay tres tareas clave:\n\n1) **Seguir de cerca el plazo de 120 días** para que las recetas electrónicas de psicotrópicos Lista II entren en funcionamiento.\n\n2) **Verificar que cada provincia lo implemente** correctamente.\n\n3) **Detectar trabas de implementación** y proponer ajustes.",
+      "La Resolución 2214/2025 es un marco importante, pero el plazo ya no alcanza como respuesta: la implementación efectiva sigue trabada.\n\nTareas clave:\n• Confirmar por jurisdicción si psicotrópicos Lista II se aceptan con receta electrónica o siguen requiriendo papel\n• Publicar instrucciones claras para farmacias y prescriptores\n• Resolver interoperabilidad entre plataformas, repositorios y validadores\n• Aclarar qué pasa en CABA y Provincia de Buenos Aires, donde el régimen real sigue siendo mixto o en papel para estos medicamentos",
     problemaQueResuelve:
-      "Que la norma se implemente de manera efectiva y no quede solo en el papel.",
+      "Que la receta electrónica no quede como declaración general sin efecto real en metilfenidato.",
     beneficiosClave: [
-      "✓ Establece recetas exclusivamente electrónicas obligatorias",
-      "✓ Plazo específico de 120 días para medicamentos TDAH",
-      "✓ Sistema CUIR garantiza trazabilidad completa",
-      "✓ Repositorios digitales con acceso controlado",
+      "✓ Reduce rechazos en farmacia por criterios distintos",
+      "✓ Evita que el paciente dependa de receta manuscrita cuando ya existe sistema digital válido",
+      "✓ Da trazabilidad sin mantener burocracia innecesaria",
+      "✓ Permite saber qué jurisdicciones siguen pendientes",
     ],
     ventajas: [
-      "→ Marco normativo ya aprobado y vigente",
-      "→ Seguridad jurídica con obligatoriedad clara",
-      "→ Adopción de estándares internacionales modernos",
-      "→ Potencial para resolver completamente el problema de acceso",
+      "→ No requiere rediseñar toda la ley nacional",
+      "→ Ataca el problema operativo que ve el paciente",
+      "→ Permite fiscalizar cumplimiento real",
+      "→ Se puede actualizar por jurisdicción",
     ],
     impacto: "Solución potencial para más de 500,000 pacientes TDAH en Argentina",
     responsable: "Ministerio de Salud Nacional y jurisdicciones provinciales",
-    accionNecesaria: "Monitoreo estricto del cumplimiento del plazo de noviembre 2025",
+    accionNecesaria: "Publicar estado de implementación por jurisdicción y regla específica para psicotrópicos Lista II",
   },
   {
     titulo: "Ampliación de Opciones Terapéuticas",
@@ -361,6 +429,7 @@ export const propuestasNecesarias = [
       "Falta de alternativas para aproximadamente 30% de pacientes con respuesta inadecuada a medicación disponible.",
     beneficiosClave: [
       "✓ Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) registrada en 2025, en comercialización desde 2026",
+      "✓ Nuevo estimulante disponible, aunque todavía con acceso económico limitado",
       "✓ Mayor arsenal farmacológico para personalización de tratamientos",
       "✓ Fomento de competitividad en el mercado farmacéutico",
     ],
@@ -372,25 +441,25 @@ export const propuestasNecesarias = [
     impacto: "Beneficio potencial para hasta 150,000 pacientes",
     responsable: "ANMAT y Comisión de Salud del Congreso",
     accionNecesaria:
-      "Verificar acceso efectivo a lisdexanfetamina en farmacias y cobertura por obras sociales y prepagas\nSolicitar informes a ANMAT sobre estado regulatorio final e inclusión en VNM",
+      "Verificar cobertura efectiva de lisdexanfetamina: al ser nueva, obras sociales y prepagas todavía no suelen cubrirla y no está incluida en el PMO\nSolicitar informes a ANMAT y Superintendencia de Servicios de Salud sobre estado regulatorio, VNM y cobertura obligatoria",
   },
 ];
 
 // Problemas principales del TDAH en Argentina
 export const problemasReales = [
   {
-    problema: "Implementación de la Resolución 2214/2025",
+    problema: "Resolución 2214/2025: norma nacional sin implementación efectiva",
     descripcion:
-      "La Resolución 2214/2025 establece por primera vez recetas exclusivamente electrónicas para medicamentos TDAH.\n\n→ Aspectos positivos:\n• Elimina recetas manuscritas obligatorias\n• Plazo específico de 120 días (noviembre 2025)\n• Sistema CUIR para trazabilidad\n• Cobertura en todo el territorio nacional\n\n→ Aspectos a monitorear:\n• Cumplimiento efectivo por parte de las jurisdicciones\n• Implementación real en farmacias\n• Resolución de conflictos normativos pendientes",
+      "La Resolución 2214/2025 ordena el ecosistema nacional de receta electrónica, pero no resolvió por sí sola el problema para metilfenidato.\n\n→ Lo que dice Nación:\n• Receta electrónica como modalidad obligatoria desde 2025\n• Plataformas aprobadas por ReNaPDiS\n• CUIR e interoperabilidad para trazabilidad\n• Adecuación de psicotrópicos y estupefacientes\n\n→ Lo que pasa en la práctica:\n• La propia normativa nacional habla de adhesión jurisdiccional\n• Provincia de Buenos Aires mantiene convivencia de receta papel y electrónica\n• Para psicotrópicos y estupefacientes en PBA siguen rigiendo requisitos específicos; la receta papel sigue siendo necesaria en muchos casos\n• CABA tiene ley propia y admite recetas en papel, electrónicas o digitales\n• El resultado para muchos pacientes sigue siendo: pedir receta de papel para metilfenidato",
     resumen:
-      "Primera normativa que puede resolver el problema de acceso a medicación TDAH. Requiere seguimiento estricto de implementación.",
-    urgencia: "Alta",
-    impacto: "Potencial solución para 500,000+ pacientes TDAH",
+      "La norma nacional existe, pero la implementación real para psicotrópicos Lista II sigue incompleta.",
+    urgencia: "Crítico",
+    impacto: "Pacientes siguen dependiendo de receta papel según jurisdicción y farmacia",
   },
   {
     problema: "Opciones farmacológicas limitadas",
     descripcion:
-      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 3 medicamentos comercializados (metilfenidato, lisdexanfetamina y atomoxetina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) en comercialización desde 2026\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
+      "Argentina dispone de opciones terapéuticas limitadas comparado con estándares internacionales.\n\n→ Comparación internacional:\n• Estados Unidos: Más de 10 medicamentos disponibles\n• Europa: 8+ opciones terapéuticas\n• Chile: 6 medicamentos registrados\n• Argentina: 3 medicamentos comercializados (metilfenidato, lisdexanfetamina y atomoxetina)\n\n→ Consecuencias:\n• Aproximadamente 30% de pacientes no responden a opciones actuales\n• Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) en comercialización desde 2026\n• Al ser nueva, obras sociales y prepagas todavía no suelen cubrirla y no está incluida en el PMO\n• Limitaciones para casos complejos o resistentes\n• Retraso en actualización de arsenal terapéutico",
     resumen:
       "Brecha significativa entre opciones disponibles en Argentina y estándares internacionales. Limita efectividad del tratamiento.",
     urgencia: "Alta",
@@ -436,9 +505,14 @@ export const fuentesDocumentacion = {
       referencia: "(Faraone & Bianchi, 2018)"
     },
     {
-      titulo: "Marco Normativo Nacional",
-      descripcion: "Leyes y resoluciones analizadas: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas) y Resolución 2214/2025 (Implementación de Recetas Electrónicas).",
-      referencia: "(InfoLeg y Boletín Oficial)"
+      titulo: "Marco Normativo Nacional y Jurisdiccional",
+      descripcion: "Leyes y resoluciones analizadas: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas), Resolución 2214/2025, Decreto 345/2024, normativa de CABA y normativa de Provincia de Buenos Aires.",
+      referencia: "(InfoLeg, Boletín Oficial, Ministerio de Salud, PBA y CABA)"
+    },
+    {
+      titulo: "Estado operativo de receta electrónica",
+      descripcion: "Se revisaron fuentes públicas sobre implementación real: página nacional de receta electrónica, Receta Electrónica Bonaerense, Resolución PBA 140/2025 y comunicaciones farmacéuticas sobre coexistencia de receta papel/electrónica y psicotrópicos.",
+      referencia: "(Ministerio de Salud, Salud Digital Bonaerense, Normas PBA, COLFARMA/FEMECON)"
     }
   ],
   notaLegal: "Este es un análisis independiente. No hablamos en nombre del gobierno. Toda la info se puede chequear en fuentes públicas."
