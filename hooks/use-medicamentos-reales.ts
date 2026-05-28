@@ -27,8 +27,10 @@ export function useMedicamentosReales() {
   const abortControllerRef = useRef<AbortController | null>(null)
 
   const cargarMedicamentos = useCallback(async (forzarRefresh = false) => {
-    // Evitar llamadas duplicadas
-    if (isLoadingRef.current && !forzarRefresh) {
+    const requestAborted = abortControllerRef.current?.signal.aborted;
+
+    // Evitar llamadas duplicadas activas
+    if (isLoadingRef.current && !forzarRefresh && !requestAborted) {
       console.log("⏳ Llamada ya en progreso, saltando...")
       return
     }
