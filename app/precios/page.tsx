@@ -334,6 +334,17 @@ export default function PreciosPage() {
                           <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
+                          {principio === "lisdexanfetamina" && (
+                            <Alert className="mb-4 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                              <AlertCircle className="h-4 w-4 text-amber-600" />
+                              <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
+                                La lisdexanfetamina es nueva en Argentina. Las
+                                obras sociales y prepagas todavía no suelen
+                                cubrirla y no está incluida en el PMO. El precio
+                                con descuento es solo una referencia teórica.
+                              </AlertDescription>
+                            </Alert>
+                          )}
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
                               <Card
@@ -406,21 +417,13 @@ export default function PreciosPage() {
                                         </span>
                                       </div>
                                     )}
-                                    {isLisdexanfetamina(medicamento) && (
-                                      <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
-                                        <AlertCircle className="h-4 w-4 text-amber-600" />
-                                        <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
-                                          La lisdexanfetamina es nueva en Argentina.
-                                          Las obras sociales y prepagas todavía no
-                                          suelen cubrirla y no está incluida en el PMO.
-                                        </AlertDescription>
-                                      </Alert>
-                                    )}
                                     <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                                       <Shield className="h-4 w-4 text-blue-600" />
                                       <div>
                                         <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                          Con prepaga/obra social (40% desc.)
+                                          {isLisdexanfetamina(medicamento)
+                                            ? "Precio teórico con 40% desc."
+                                            : "Con prepaga/obra social (40% desc.)"}
                                         </div>
                                         <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
                                           {formatPrice(
@@ -758,21 +761,13 @@ export default function PreciosPage() {
                                 </span>
                               </div>
                             )}
-                            {isLisdexanfetamina(medicamento) && (
-                              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
-                                <AlertCircle className="h-4 w-4 text-amber-600" />
-                                <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
-                                  La lisdexanfetamina es nueva en Argentina. Las
-                                  obras sociales y prepagas todavía no suelen
-                                  cubrirla y no está incluida en el PMO.
-                                </AlertDescription>
-                              </Alert>
-                            )}
                             <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
                               <Shield className="h-4 w-4 text-blue-600" />
                               <div>
                                 <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                  Con prepaga/obra social (40% desc.)
+                                  {isLisdexanfetamina(medicamento)
+                                    ? "Precio teórico con 40% desc."
+                                    : "Con prepaga/obra social (40% desc.)"}
                                 </div>
                                 <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
                                   {formatPrice(
