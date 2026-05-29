@@ -208,7 +208,7 @@ export const leyes = [
     numero: "PBA - Receta Electrónica Bonaerense",
     titulo: "Régimen propio y coexistencia de papel y digital",
     descripcion:
-      "Provincia de Buenos Aires tiene sistema propio de receta electrónica, pero sus fuentes oficiales indican que las recetas en papel, electrónicas y digitales siguen vigentes. Para psicotrópicos, la Resolución 140/2025 sólo avanzó sobre Listas III y IV, no sobre el circuito que afecta a metilfenidato y lisdexanfetamina.",
+      "Provincia de Buenos Aires tiene sistema propio de receta electrónica, pero sus fuentes oficiales indican que las recetas en papel, electrónicas y digitales siguen vigentes. Para psicotrópicos, la Resolución 140/2025 sólo avanzó sobre Listas III y IV. COLFARMA comunicó operativamente que psicotrópicos Lista II deben seguir prescribiéndose de puño y letra en formularios oficiales por triplicado.",
     fecha: "2023-02-28",
     estado: "Vigente, coexistencia de formatos",
     tipo: "Jurisdiccional",
@@ -225,7 +225,7 @@ export const leyes = [
       problemas: [
         "Las recetas en papel siguen vigentes",
         "La Resolución 140/2025 alcanza psicotrópicos Listas III y IV, no Lista II",
-        "Comunicaciones farmacéuticas reportan que psicotrópicos y estupefacientes siguen con requisitos previos",
+        "COLFARMA indica que psicotrópicos Lista II siguen con formularios oficiales por triplicado y de puño y letra",
       ],
       puntuacion: 5.0,
       recomendacion:
@@ -234,6 +234,7 @@ export const leyes = [
     puntosClave: [
       "PBA mantiene coexistencia de recetas en papel, electrónicas y digitales",
       "La propia página oficial dice que las recetas en papel siguen vigentes",
+      "COLFARMA informa que Lista II sigue con puño y letra en formulario oficial triplicado",
       "Metilfenidato y lisdexanfetamina siguen sin solución operativa clara",
     ],
   },
@@ -493,7 +494,7 @@ export const problemasReales = [
   {
     problema: "Validación técnica de prescriptores y datos incompletos",
     descripcion:
-      "La Resolución 2214/2025 prevé que REFEPS incorpore un campo de verificación para confirmar que el profesional tiene la autorización jurisdiccional correspondiente al prescribir medicamentos de expendio legalmente restringido.\n\n→ Riesgo operativo:\n• Si la habilitación no está cargada o sincronizada, la plataforma puede no poder validar la receta restringida\n• Si jurisdicción, repositorio, plataforma y farmacia no usan la misma información, el paciente queda atrapado entre sistemas\n• El problema no es solo legal: también es de datos, interoperabilidad y soporte a farmacias\n\n→ Para TDAH:\n• Metilfenidato y lisdexanfetamina dependen de circuitos de psicotrópicos Lista II\n• Aunque exista receta electrónica nacional, la dispensa puede seguir trabada por validaciones o criterios locales",
+      "La Resolución 2214/2025 prevé que REFEPS incorpore un campo de verificación para confirmar que el profesional tiene la autorización jurisdiccional correspondiente al prescribir medicamentos de expendio legalmente restringido.\n\n→ Riesgo operativo:\n• Si la habilitación jurisdiccional no está cargada o sincronizada, la plataforma puede no poder validar la receta restringida\n• La fuente primaria habla de jurisdicciones; pueden intervenir ministerios o colegios según el régimen local\n• Si jurisdicción, repositorio, plataforma y farmacia no usan la misma información, el paciente queda atrapado entre sistemas\n• El problema no es solo legal: también es de datos, interoperabilidad y soporte a farmacias\n\n→ Para TDAH:\n• Metilfenidato y lisdexanfetamina dependen de circuitos de psicotrópicos Lista II\n• Aunque exista receta electrónica nacional, la dispensa puede seguir trabada por validaciones o criterios locales",
     resumen:
       "La receta digital para estimulantes necesita datos jurisdiccionales completos, no solo una norma nacional.",
     urgencia: "Alta",
@@ -502,11 +503,20 @@ export const problemasReales = [
   {
     problema: "CUD y apoyos escolares: derechos útiles, pero no automáticos",
     descripcion:
-      "El Certificado Único de Discapacidad puede habilitar cobertura y prestaciones cuando una junta evaluadora certifica una discapacidad. No corresponde presentarlo como trámite automático para toda persona con TDAH.\n\n→ CUD:\n• Se otorga por evaluación interdisciplinaria\n• La cobertura del 100% aplica a prestaciones vinculadas con lo certificado como discapacidad\n• Puede ser relevante en casos con limitación funcional significativa\n\n→ Escuela:\n• La Ley 27.306 protege a estudiantes con Dificultades Específicas del Aprendizaje\n• Puede servir para pedir adecuaciones cuando hay dificultades de aprendizaje asociadas\n• No reemplaza un plan educativo individual ni el criterio clínico/psicopedagógico del caso",
+      "El Certificado Único de Discapacidad puede habilitar cobertura y prestaciones cuando una junta evaluadora certifica una discapacidad. No corresponde presentarlo como trámite automático para toda persona con TDAH.\n\n→ CUD:\n• Se otorga por evaluación interdisciplinaria\n• La cobertura del 100% aplica a prestaciones vinculadas con lo certificado como discapacidad\n• Puede ser relevante en casos con limitación funcional significativa\n• ANDIS publica normativa para certificación de personas con deficiencia intelectual y mental, pero no hay un formulario oficial que convierta el diagnóstico TDAH en CUD automático\n\n→ Escuela:\n• La Ley 27.306 protege a estudiantes con Dificultades Específicas del Aprendizaje\n• Puede servir para pedir adecuaciones cuando hay dificultades de aprendizaje asociadas\n• No reemplaza un plan educativo individual ni el criterio clínico/psicopedagógico del caso",
     resumen:
       "CUD y Ley 27.306 pueden ayudar en casos concretos, pero no deben venderse como solución universal para TDAH.",
     urgencia: "Media",
     impacto: "Evita expectativas falsas y ayuda a orientar mejor pedidos de cobertura o escuela",
+  },
+  {
+    problema: "PAMI: receta digital que igual requiere papel para psicofármacos",
+    descripcion:
+      "PAMI informa que, para retirar psicofármacos, no alcanza con DNI y credencial: también se necesita receta impresa y firmada por el médico.\n\n→ Requisitos publicados por PAMI:\n• Para medicamentos especiales, incluidos psicofármacos, la receta debe estar impresa\n• Debe incluir firma ológrafa y sello médico del profesional\n• La receta duplicada es obligatoria para psicofármacos\n• En CABA, el médico debe emitir e imprimir una receta común blanca\n• En Provincia de Buenos Aires, el duplicado debe ser receta rosa física emitida por el médico y además debe incluir la receta electrónica blanca de PAMI\n\n→ Para TDAH:\n• Si la cobertura es PAMI, la experiencia real no es completamente digital\n• Esto agrega otra capa de papel sobre el problema general de psicotrópicos Lista II",
+    resumen:
+      "Para psicofármacos, PAMI mantiene impresión, firma física y duplicado según jurisdicción.",
+    urgencia: "Alta",
+    impacto: "Pacientes pueden llegar a la farmacia con receta digital pero sin la documentación física requerida",
   },
   {
     problema: "Opciones farmacológicas limitadas",
@@ -568,8 +578,8 @@ export const fuentesDocumentacion = {
     },
     {
       titulo: "Estado operativo de receta electrónica",
-      descripcion: "Se revisaron fuentes públicas sobre implementación real: página nacional de receta electrónica, Receta Electrónica Bonaerense, Resolución PBA 140/2025 y comunicaciones farmacéuticas sobre coexistencia de receta papel/electrónica y psicotrópicos.",
-      referencia: "(Ministerio de Salud, Salud Digital Bonaerense, Normas PBA, COLFARMA/FEMECON)"
+      descripcion: "Se revisaron fuentes públicas sobre implementación real: página nacional de receta electrónica, Receta Electrónica Bonaerense, Resolución PBA 140/2025, comunicación COLFARMA sobre formulario triplicado para Lista II y página oficial de receta electrónica PAMI.",
+      referencia: "(Ministerio de Salud, Salud Digital Bonaerense, Normas PBA, COLFARMA, PAMI)"
     }
   ],
   notaLegal: "Este es un análisis independiente. No hablamos en nombre del gobierno. Toda la info se puede chequear en fuentes públicas."
