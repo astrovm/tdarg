@@ -731,9 +731,9 @@ export default function TratamientosPage() {
                     <div className="flex items-center justify-center">
                       <div className="text-center max-w-2xl">
                         <p className="text-sm mb-4">
-                          La medicación corrige el problema neuroquímico, pero{" "}
-                          <strong>no enseña habilidades</strong>. La terapia
-                          rompe el ciclo negativo:
+                          La medicación puede reducir síntomas, pero{" "}
+                          <strong>no reemplaza habilidades prácticas</strong>.
+                          La terapia ayuda a intervenir en este ciclo:
                         </p>
                         <div className="flex items-center justify-center space-x-2 text-sm font-medium">
                           <span className="px-3 py-1 bg-red-100 dark:bg-red-900 rounded">

@@ -94,9 +94,6 @@ export default function HerramientasPage() {
     isDone,
   } = useStepProgress({ totalSteps: steps.length });
 
-  // Step 1 checklist state
-  // (Eliminado: estados no usados de ejemplo)
-
   return (
     <StepGuideLayout
       title="Herramientas para el día a día con TDAH"
@@ -116,9 +113,9 @@ export default function HerramientasPage() {
               <strong>Personalización:</strong> No todas las estrategias
               funcionan para todas las personas. Experimentá y adaptá estas
               herramientas a tu estilo de vida y necesidades específicas.
-              <br /><br />
-              <strong>Importante:</strong> Las apps y herramientas son apoyo, no reemplazan medicación ni terapia. 
-              La combinación de medicación y terapia conductual produce la mayor mejoría en adultos con TDAH.
+              <br />
+              <strong>Importante:</strong> Son apoyo práctico, no reemplazan
+              tratamiento médico o psicológico.
             </AlertDescription>
           </Alert>
 
@@ -1159,7 +1156,7 @@ export default function HerramientasPage() {
                               </a>
                             </h5>
                             <p className="text-xs text-muted-foreground mb-2">
-                              Videojuego aprobado por FDA. Mejoras de atención tras 6 semanas, requiere práctica constante
+                              Videojuego terapéutico disponible en EE.UU.; requiere práctica constante
                             </p>
                             <div className="flex gap-1 flex-wrap">
                               <Badge>Pago</Badge>
@@ -1424,51 +1421,6 @@ export default function HerramientasPage() {
             </div>
           )}
         </div>
-
-        {/* Final Message */}
-        <Card className="border-blue-200 dark:border-blue-800 mt-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Lightbulb className="h-5 w-5 text-blue-500" />
-              Recordá: la clave está en la experimentación
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <p className="text-sm">
-                No existe una solución única para todos. Estas herramientas y
-                estrategias son un punto de partida. La clave está en
-                experimentar, adaptar y encontrar tu combinación personal de
-                recursos que funcione para tu estilo de vida específico.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg">
-                  <h4 className="font-semibold text-sm mb-1">Empezá Pequeño</h4>
-                  <p className="text-xs">
-                    Implementá 1-2 estrategias a la vez, no todas de una vez
-                  </p>
-                </div>
-
-                <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                  <h4 className="font-semibold text-sm mb-1">Sé Paciente</h4>
-                  <p className="text-xs">
-                    Las nuevas estrategias necesitan 2-4 semanas para
-                    convertirse en hábitos
-                  </p>
-                </div>
-
-                <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                  <h4 className="font-semibold text-sm mb-1">Adaptá Siempre</h4>
-                  <p className="text-xs">
-                    Lo que funciona hoy puede necesitar ajustes mañana, y eso
-                    está bien
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         <References references={references} />
     </StepGuideLayout>

@@ -118,10 +118,10 @@ export default function ImpactoPage() {
                           <CardContent className="pt-6">
                             <div className="text-center">
                               <div className="text-3xl font-bold text-red-500 mb-2">
-                                50-300%
+                                Alto
                               </div>
                               <div className="text-sm text-muted-foreground">
-                                Aumento de riesgo de patologías graves
+                                Riesgo de comorbilidades y accidentes
                               </div>
                             </div>
                           </CardContent>
@@ -131,10 +131,10 @@ export default function ImpactoPage() {
                           <CardContent className="pt-6">
                             <div className="text-center">
                               <div className="text-3xl font-bold text-amber-500 mb-2">
-                                12-13
+                                Riesgo
                               </div>
                               <div className="text-sm text-muted-foreground">
-                                Años de reducción en expectativa de vida
+                                Mayor mortalidad asociada en estudios
                               </div>
                             </div>
                           </CardContent>
@@ -181,10 +181,11 @@ export default function ImpactoPage() {
                             <Alert>
                               <AlertTriangle className="h-4 w-4" />
                               <AlertDescription>
-                                <strong>Dato crítico:</strong> Las personas con
-                                TDAH no tratado tienen una expectativa de vida
-                                reducida de 12-13 años comparado con la
-                                población general.
+                                <strong>Riesgo relevante:</strong> algunos
+                                estudios asocian el TDAH no tratado con mayor
+                                mortalidad y menor expectativa de vida,
+                                especialmente cuando hay comorbilidades o
+                                accidentes.
                               </AlertDescription>
                             </Alert>
 

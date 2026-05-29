@@ -140,7 +140,7 @@ export default function PreciosPage() {
           <div className="container mx-auto px-4 py-8">
             <Tabs defaultValue="agrupado" className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
-                <TabsTrigger value="agrupado">Por Aprobación</TabsTrigger>
+                <TabsTrigger value="agrupado">Por tipo</TabsTrigger>
                 <TabsTrigger value="lista">Lista Completa</TabsTrigger>
               </TabsList>
 
@@ -298,33 +298,33 @@ export default function PreciosPage() {
           ) : (
             <Tabs defaultValue="agrupado" className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
-                <TabsTrigger value="agrupado">Por Aprobación</TabsTrigger>
+                <TabsTrigger value="agrupado">Por tipo</TabsTrigger>
                 <TabsTrigger value="lista">Lista Completa</TabsTrigger>
               </TabsList>
 
               <TabsContent value="agrupado" className="space-y-8 mt-6">
-                {/* Estimulantes Aprobados para TDAH */}
+                {/* Estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="h-1 w-8 bg-green-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                        Estimulantes Aprobados para TDAH
+                        Estimulantes usados para TDAH
                       </h2>
                       <Badge
                         variant="secondary"
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
                       >
-                        Aprobados por FDA - Estimulantes
+                        Uso TDAH - Estimulantes
                       </Badge>
                     </div>
 
                     <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden border-2">
                       <AlertCircle className="h-4 w-4 text-blue-600" />
                       <AlertDescription className="text-blue-800 dark:text-blue-200 break-words">
-                        <strong>Importante:</strong> Otros estimulantes como
-                        Adderall (anfetamina mixta) están aprobados por la FDA
-                        para TDAH. En Argentina, actualmente se comercializa
+                        <strong>Importante:</strong> Las guías internacionales
+                        incluyen más opciones estimulantes que las disponibles
+                        localmente. En Argentina, actualmente se comercializa
                         metilfenidato (Concerta, Ritalina/Rubifen y otros) y
                         lisdexanfetamina como Ludoxa.
                       </AlertDescription>
@@ -447,20 +447,20 @@ export default function PreciosPage() {
                   </div>
                 )}
 
-                {/* No Estimulantes Aprobados para TDAH */}
+                {/* No estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.noestimulantes).length >
                   0 && (
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-blue-300 dark:border-blue-700">
                     <div className="flex items-center gap-2 mb-6">
                       <div className="h-1 w-8 bg-blue-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                        No estimulantes aprobados para TDAH
+                        No estimulantes usados para TDAH
                       </h2>
                       <Badge
                         variant="secondary"
                         className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
                       >
-                        Aprobados por FDA - No Estimulantes
+                        Uso TDAH - No estimulantes
                       </Badge>
                     </div>
 
@@ -568,29 +568,28 @@ export default function PreciosPage() {
                   </div>
                 )}
 
-                {/* Medicamentos Off-Label para TDAH */}
+                {/* Medicamentos con uso off-label para TDAH */}
                 {Object.keys(medicamentosAgrupados.offlabel).length > 0 && (
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-orange-300 dark:border-orange-700">
                     <div className="flex items-center gap-2 mb-6">
                       <div className="h-1 w-8 bg-orange-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                        Medicamentos Off-Label para TDAH
+                        Medicamentos con uso off-label para TDAH
                       </h2>
                       <Badge
                         variant="secondary"
                         className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"
                       >
-                        Uso &quot;Off-Label&quot; (Fuera de Etiqueta)
+                        Uso fuera de indicación principal
                       </Badge>
                     </div>
 
                     <Alert className="mb-6 border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-950 border-2">
                       <AlertCircle className="h-4 w-4 text-orange-600" />
                       <AlertDescription className="text-orange-800 dark:text-orange-200">
-                        Estos medicamentos se usan para TDAH pero no están
-                        aprobados por la FDA específicamente para esta
-                        indicación. Consultá siempre con tu médico antes de usar
-                        cualquier medicamento.
+                        Estos medicamentos pueden usarse en algunos casos de
+                        TDAH, pero no son la indicación principal. Consultá con
+                        tu médico antes de usar cualquier medicamento.
                       </AlertDescription>
                     </Alert>
 
@@ -621,7 +620,7 @@ export default function PreciosPage() {
                                         variant="secondary"
                                         className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300 text-xs"
                                       >
-                                        Off-Label
+                                        Uso off-label
                                       </Badge>
                                     </div>
                                   </div>

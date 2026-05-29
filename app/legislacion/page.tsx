@@ -83,7 +83,7 @@ export default function LegislacionPage() {
             Los problemas de verdad
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
-            Estas son las trabas que hacen que conseguir medicación sea un dolor de cabeza
+            Estas son las trabas que todavía complican el acceso al tratamiento
           </p>
 
           {/* Explicación de niveles de urgencia */}

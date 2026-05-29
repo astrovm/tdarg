@@ -29,7 +29,7 @@ export default function PreciosLoading() {
         <div className="container mx-auto px-4 py-8">
           <Tabs defaultValue="agrupado" className="w-full">
             <TabsList className="grid w-full grid-cols-2 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
-              <TabsTrigger value="agrupado">Por Aprobación</TabsTrigger>
+              <TabsTrigger value="agrupado">Por tipo</TabsTrigger>
               <TabsTrigger value="lista">Lista Completa</TabsTrigger>
             </TabsList>
 
