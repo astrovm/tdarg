@@ -13,15 +13,11 @@ import {
   FileText,
   Calendar,
   ExternalLink,
-  Brain,
   Clock,
-  ChevronDown,
-  ChevronUp,
-  Gavel,
+  LinkIcon,
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
-import { useState } from "react";
 import {
   fuentesDocumentacion,
   leyes,
@@ -30,8 +26,6 @@ import {
 } from "@/lib/legislacion-data";
 
 export default function LegislacionPage() {
-  const [expandedLaw, setExpandedLaw] = useState<string | null>(null);
-
   const formatText = (text: string) => {
     return text.split("\n\n").map((paragraph, pIndex) => {
       if (paragraph.includes("•")) {
@@ -61,10 +55,6 @@ export default function LegislacionPage() {
         </p>
       );
     });
-  };
-
-  const toggleLawDetails = (lawNumber: string) => {
-    setExpandedLaw(expandedLaw === lawNumber ? null : lawNumber);
   };
 
   return (
@@ -309,65 +299,18 @@ export default function LegislacionPage() {
                 <CardContent>
                   <p className="text-gray-700 mb-4">{ley.descripcion}</p>
 
-                  {/* AI Analysis for Laws */}
                   <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 dark:border-gray-600">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-semibold flex items-center space-x-2">
-                        <Brain className="h-4 w-4" />
-                        <span>Qué tan útil es esta ley</span>
-                      </h4>
-                      <Badge
-                        variant={
-                          ley.analisisIA.puntuacion >= 8
-                            ? "default"
-                            : "secondary"
-                        }
-                      >
-                        {ley.analisisIA.puntuacion}/10
-                      </Badge>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-                      <div>
-                        <h5 className="font-medium text-green-700 dark:text-green-400 mb-2">
-                          ✅ Logros
-                        </h5>
-                        <ul className="space-y-1 text-sm">
-                          {ley.analisisIA.beneficios.map((beneficio, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start space-x-2"
-                            >
-                              <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{beneficio}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">
-                          ❌ Fallas
-                        </h5>
-                        <ul className="space-y-1 text-sm">
-                          {ley.analisisIA.problemas.map((problema, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start space-x-2"
-                            >
-                              <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{problema}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-md">
-                      <p className="font-medium text-sm">
-                        <strong>Análisis:</strong>{" "}
-                        {ley.analisisIA.recomendacion}
-                      </p>
-                    </div>
+                    <h4 className="font-semibold mb-3">
+                      Derechos y barreras practicas
+                    </h4>
+                    <ul className="space-y-2 text-sm">
+                      {ley.puntosClave.map((punto, idx) => (
+                        <li key={idx} className="flex items-start space-x-2">
+                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                          <span>{punto}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -389,169 +332,46 @@ export default function LegislacionPage() {
                     </div>
                   </div>
 
+                  {ley.referencias && (
+                    <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-2 dark:border-blue-800">
+                      <h4 className="font-semibold mb-3 flex items-center space-x-2">
+                        <LinkIcon className="h-4 w-4" />
+                        <span>Referencias oficiales</span>
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {ley.referencias.map((referencia, idx) =>
+                          referencia.url ? (
+                            <Button
+                              key={idx}
+                              size="sm"
+                              variant="outline"
+                              onClick={() =>
+                                window.open(referencia.url, "_blank")
+                              }
+                            >
+                              <ExternalLink className="h-4 w-4 mr-2" />
+                              {referencia.titulo}
+                            </Button>
+                          ) : (
+                            <Badge key={idx} variant="secondary">
+                              {referencia.titulo}
+                            </Badge>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="flex space-x-2">
                     <Button
                       size="sm"
                       onClick={() => window.open(ley.url, "_blank")}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver la ley completa
+                      Ver fuente principal
                     </Button>
-                    {ley.analisisDetallado && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => toggleLawDetails(ley.numero)}
-                      >
-                        <Gavel className="h-4 w-4 mr-2" />
-                        {expandedLaw === ley.numero ? (
-                          <>
-                            <ChevronUp className="h-4 w-4 ml-1" />
-                            Cerrar detalle
-                          </>
-                        ) : (
-                          <>
-                            <ChevronDown className="h-4 w-4 ml-1" />
-                            Ver en detalle
-                          </>
-                        )}
-                      </Button>
-                    )}
                   </div>
                 </CardContent>
-
-                {/* Detailed Analysis Section */}
-                {expandedLaw === ley.numero && ley.analisisDetallado && (
-                  <CardContent className="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
-                    <div className="space-y-6">
-                      {/* Summary */}
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                          📊 Resumen del Impacto
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 dark:border-red-800">
-                            <h4 className="font-medium text-red-800 dark:text-red-200 mb-2">
-                              ❌ Problemas Principales
-                            </h4>
-                            <ul className="text-sm text-red-700 dark:text-red-300 space-y-1">
-                              {ley.analisisDetallado.resumenImpacto.problemasPrincipales.map(
-                                (problema, idx) => (
-                                  <li
-                                    key={idx}
-                                    className="flex items-start space-x-2"
-                                  >
-                                    <span className="text-red-600 mt-1">•</span>
-                                    <span>{problema}</span>
-                                  </li>
-                                )
-                              )}
-                            </ul>
-                          </div>
-                          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border-2 dark:border-green-800">
-                            <h4 className="font-medium text-green-800 dark:text-green-200 mb-2">
-                              ✅ Solución Simple
-                            </h4>
-                            <p className="text-sm text-green-700 dark:text-green-300">
-                              {ley.analisisDetallado.resumenImpacto
-                                .solucionSimple || "Reforma integral necesaria"}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-2 dark:border-yellow-800">
-                          <p className="text-sm">
-                            <strong className="text-yellow-800 dark:text-yellow-200">
-                              Urgencia:
-                            </strong>{" "}
-                            <span className="text-yellow-700 dark:text-yellow-300">
-                              {ley.analisisDetallado.resumenImpacto.urgencia}
-                            </span>
-                          </p>
-                          <p className="text-sm mt-1">
-                            <strong className="text-yellow-800 dark:text-yellow-200">
-                              Impacto Estimado:
-                            </strong>{" "}
-                            <span className="text-yellow-700 dark:text-yellow-300">
-                              {
-                                ley.analisisDetallado.resumenImpacto
-                                  .estimacionImpacto
-                              }
-                            </span>
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Problematic Articles */}
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                          ⚖️ Artículos Problemáticos
-                        </h3>
-                        <div className="space-y-4">
-                          {ley.analisisDetallado.articulosProblematicos.map(
-                            (articulo, idx) => (
-                              <div
-                                key={idx}
-                                className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
-                              >
-                                <div className="flex items-start justify-between mb-3">
-                                  <div>
-                                    <h4 className="font-medium text-gray-900 dark:text-white">
-                                      {articulo.articulo}: {articulo.titulo}
-                                    </h4>
-                                    <Badge
-                                      variant={
-                                        articulo.impactoTDAH.startsWith(
-                                          "Crítico"
-                                        )
-                                          ? "destructive"
-                                          : "secondary"
-                                      }
-                                      className="mt-1"
-                                    >
-                                      {articulo.impactoTDAH}
-                                    </Badge>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-3">
-                                  <div>
-                                    <h5 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
-                                      📜 Texto Actual
-                                    </h5>
-                                    <div className="bg-gray-100 dark:bg-gray-600 p-3 rounded text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap border-2 dark:border-gray-500">
-                                      {articulo.textoActual}
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <h5 className="font-medium text-red-700 dark:text-red-400 mb-2">
-                                      ❌ Problemas concretos
-                                    </h5>
-                                    <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                                      {articulo.problemasIdentificados.map(
-                                        (problema, problemIdx) => (
-                                          <li
-                                            key={problemIdx}
-                                            className="flex items-start space-x-2"
-                                          >
-                                            <span className="text-red-600 mt-1">
-                                              •
-                                            </span>
-                                            <span>{problema}</span>
-                                          </li>
-                                        )
-                                      )}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            )
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                )}
               </Card>
             ))}
           </div>
