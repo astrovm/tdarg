@@ -38,11 +38,11 @@ const steps = [
   },
   {
     id: 2,
-    title: "Evaluación con neuropsicólogo",
-    subtitle: "Primer paso",
+    title: "Evaluación clínica",
+    subtitle: "Diagnóstico real",
     icon: Stethoscope,
   },
-  { id: 3, title: "Ir al especialista", subtitle: "Paso siguiente", icon: Clock },
+  { id: 3, title: "Evaluación complementaria", subtitle: "Si hace falta", icon: Clock },
   {
     id: 4,
     title: "¿Qué debo llevar?",
@@ -144,31 +144,31 @@ export default function DiagnosticoPage() {
     step: string;
   }> = [
     {
-      title: "Neuropsicólogo / Psicólogo",
+      title: "Psiquiatra / Neurólogo",
       icon: "🧠",
-      speciality: "Especialista en TDAH con evaluación neuropsicológica",
-      experience: "Formación específica en tests de TDAH (CPT, TOVA, etc.)",
-      availability: "Primer paso recomendado",
+      speciality: "Evaluación clínica con criterios DSM-5",
+      experience: "Experiencia en TDAH y comorbilidades",
+      availability: "Primer paso recomendado para diagnóstico",
       color: "blue",
+      step: "1° - Diagnóstico",
+    },
+    {
+      title: "Psicólogo clínico",
+      icon: "🏥",
+      speciality: "Entrevista clínica y evaluación funcional",
+      experience: "Formación específica en TDAH adulto/infantil",
+      availability: "Diagnóstico clínico o derivación médica si corresponde",
+      color: "purple",
       step: "1° - Evaluación",
     },
     {
-      title: "Médico Psiquiatra",
-      icon: "🏥",
-      speciality: "Especialista en TDAH para diagnóstico DSM-5",
-      experience: "Experiencia en medicación específica para TDAH",
-      availability: "Segundo paso (con informe neuropsicológico)",
-      color: "purple",
-      step: "2° - Diagnóstico",
-    },
-    {
-      title: "Psicólogo especialista",
+      title: "Neuropsicólogo",
       icon: "👨‍⚕️",
-      speciality: "Especialista en TDAH para terapia TCC",
-      experience: "Formación en TCC específica para TDAH adulto/infantil",
-      availability: "Tercer paso (tratamiento continuo)",
+      speciality: "Tests de atención y funciones ejecutivas",
+      experience: "CPT, TOVA, Stroop, BRIEF u otras baterías",
+      availability: "Complementario, no obligatorio para diagnosticar",
       color: "green",
-      step: "3° - Tratamiento",
+      step: "2° - Complemento",
     },
   ];
 
@@ -211,7 +211,7 @@ export default function DiagnosticoPage() {
                     ¿Podría tener TDAH?
                   </CardTitle>
                   <CardDescription>
-                    Evalúa estos síntomas principales
+                    Orientativo. No reemplaza evaluación profesional.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -303,24 +303,26 @@ export default function DiagnosticoPage() {
                   </div>
 
                   <div className="mt-8 text-center">
-                    <Alert className="max-w-md mx-auto mb-4">
+                    <Alert className="max-w-2xl mx-auto mb-4">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertDescription>
                         {totalSelected >= 5 ? (
                           <strong>
-                            Marcaste {totalSelected} síntomas. Considerá buscar
-                            evaluación profesional.
+                            Marcaste {totalSelected} síntomas. Si son persistentes,
+                            llevan más de 6 meses y afectan tu trabajo, estudio,
+                            relaciones o vida diaria, considerá evaluación profesional.
                           </strong>
                         ) : (
                           <span>
-                            <strong>¿Te identificás con 5+ síntomas?</strong>{" "}
-                            Marcá los que apliquen para una guía rápida.
+                            <strong>En adultos suele evaluarse 5+ síntomas</strong>{" "}
+                            de inatención o hiperactividad/impulsividad, presentes
+                            por más de 6 meses y con deterioro funcional.
                           </span>
                         )}
                       </AlertDescription>
                     </Alert>
                     <Button onClick={next} size="lg">
-                      Siguiente: Evaluación neuropsicológica{" "}
+                      Siguiente: Evaluación clínica{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                   </div>
@@ -339,16 +341,18 @@ export default function DiagnosticoPage() {
                     La Ruta del Diagnóstico TDAH
                   </CardTitle>
                   <CardDescription>
-                    Proceso paso a paso recomendado en Argentina
+                    El diagnóstico de TDAH es clínico
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Alert className="mb-6 bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
                     <Brain className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>La mejor forma:</strong> Empezá con una evaluación neuropsicológica completa.
-                      Con ese informe el psiquiatra te puede diagnosticar mejor
-                      y armar un tratamiento que funcione para vos.
+                      <strong>Punto clave:</strong> El TDAH se diagnostica con
+                      entrevista clínica, historia de vida, síntomas DSM-5,
+                      inicio temprano, persistencia e impacto funcional. Los tests
+                      neuropsicológicos pueden ayudar, pero no son obligatorios ni
+                      diagnostican TDAH por sí solos.
                     </AlertDescription>
                   </Alert>
                   <Alert className="mb-6 bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800">
@@ -430,16 +434,17 @@ export default function DiagnosticoPage() {
                     El proceso completo de diagnóstico
                   </CardTitle>
                   <CardDescription>
-                    De la evaluación neuropsicológica al tratamiento
+                    Del diagnóstico clínico al tratamiento
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Alert className="mb-6 bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-800">
                     <Clock className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>Proceso típico:</strong> La evaluación neuropsicológica puede tomar 2-4 horas 
-                      e incluye tests específicos para medir atención, memoria de trabajo y funciones ejecutivas. 
-                      Con el informe en mano, el psiquiatra puede hacer un diagnóstico más certero.
+                      <strong>Proceso típico:</strong> Primero se hace evaluación
+                      clínica. Si el caso lo necesita, pueden pedirse tests
+                      neuropsicológicos para objetivar atención, memoria de trabajo,
+                      funciones ejecutivas o descartar dificultades de aprendizaje.
                     </AlertDescription>
                   </Alert>
                   {/* Visual Process Flow */}
@@ -447,45 +452,45 @@ export default function DiagnosticoPage() {
                     {[
                       {
                         step: 1,
-                        title: "Evaluación neuropsicológica",
-                        description: "Batería completa de tests cognitivos",
-                        duration: "2-4 horas",
+                        title: "Entrevista clínica",
+                        description: "Síntomas, historia, inicio temprano e impacto funcional",
+                        duration: "60-90 min",
                         icon: "🧠",
                         details: [
-                          "Tests de atención",
-                          "Memoria de trabajo",
-                          "Función ejecutiva",
-                          "Historia clínica"
+                          "Criterios DSM-5",
+                          "Más de 6 meses",
+                          "Impacto funcional",
+                          "Comorbilidades"
                         ],
                       },
                       {
                         step: 2,
-                        title: "Informe neuropsicológico",
-                        description: "Análisis de resultados y recomendaciones",
-                        duration: "1-2 semanas",
+                        title: "Escalas y antecedentes",
+                        description: "Herramientas de apoyo, no diagnóstico automático",
+                        duration: "Variable",
                         icon: "📋",
                         details: [
-                          "Resultados detallados",
-                          "Perfil cognitivo",
-                          "Recomendaciones",
-                          "Derivaciones"
+                          "ASRS-v1.1",
+                          "Boletines",
+                          "Informes previos",
+                          "Relato familiar"
                         ],
                       },
                       {
                         step: 3,
-                        title: "Consulta psiquiátrica",
-                        description: "Evaluación médica con informe neuropsicológico",
-                        duration: "60-90 min",
+                        title: "Evaluación neuropsicológica",
+                        description: "Complementaria si el especialista la solicita",
+                        duration: "2-4 horas",
                         icon: "🏥",
-                        details: ["Diagnóstico DSM-5", "Evaluación médica", "Plan de tratamiento"],
+                        details: ["CPT/TOVA", "Stroop", "BRIEF", "Perfil ejecutivo"],
                       },
                       {
                         step: 4,
                         title: "Tratamiento integral",
-                        description: "Medicación y terapia psicológica",
+                        description: "Plan clínico según edad, objetivos y comorbilidades",
                         duration: "Continuo",
                         icon: "🎯",
-                        details: ["Medicación", "Terapia TCC", "Seguimiento"],
+                        details: ["Medicación si aplica", "TCC", "Psicoeducación"],
                       },
                       {
                         step: 5,
@@ -578,8 +583,9 @@ export default function DiagnosticoPage() {
                     <AlertDescription>
                       <strong>Preguntas clave para verificar especialización:</strong>
                       <br />• &ldquo;¿Cuántos años de experiencia tiene específicamente con TDAH?&rdquo;
-                      <br />• &ldquo;¿Qué tests neuropsicológicos usa para TDAH?&rdquo; (CPT, TOVA, BRIEF)
-                      <br />• &ldquo;¿Está familiarizado con el DSM-5 para TDAH adulto?&rdquo;
+                      <br />• &ldquo;¿Cómo evalúa deterioro funcional y comorbilidades?&rdquo;
+                      <br />• &ldquo;¿Usa criterios DSM-5 y escalas como ASRS-v1.1?&rdquo;
+                      <br />• &ldquo;¿Cuándo pide evaluación neuropsicológica complementaria?&rdquo;
                       <br />• &ldquo;¿Ha hecho cursos de especialización en TDAH?&rdquo;
                     </AlertDescription>
                   </Alert>
