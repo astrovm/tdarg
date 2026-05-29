@@ -103,6 +103,8 @@ export default function DiagnosticoPage() {
   const [selectedSymptoms, setSelectedSymptoms] = useState<Set<string>>(
     new Set()
   );
+  const [ageGroup, setAgeGroup] = useState<"adult" | "minor">("adult");
+  const [impairmentConfirmed, setImpairmentConfirmed] = useState(false);
 
   const toggleSymptom = (id: string, checked: CheckedState) => {
     setSelectedSymptoms((prev) => {
@@ -131,7 +133,10 @@ export default function DiagnosticoPage() {
   const hyperactiveCount = hyperactiveSymptoms.filter((s) =>
     selectedSymptoms.has(s.id)
   ).length;
-  const totalSelected = inattentiveCount + hyperactiveCount;
+  const symptomThreshold = ageGroup === "adult" ? 5 : 6;
+  const meetsSymptomThreshold =
+    inattentiveCount >= symptomThreshold || hyperactiveCount >= symptomThreshold;
+  const canShowReferralPrompt = meetsSymptomThreshold && impairmentConfirmed;
 
   type ProfColor = "blue" | "purple" | "green";
   const professionals: Array<{
@@ -215,6 +220,33 @@ export default function DiagnosticoPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <div className="mb-6 rounded-lg border bg-white p-4 dark:bg-slate-800">
+                    <p className="mb-3 text-sm font-medium">
+                      Edad para interpretar el umbral orientativo
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        type="button"
+                        variant={ageGroup === "adult" ? "default" : "outline"}
+                        onClick={() => setAgeGroup("adult")}
+                      >
+                        17 años o más
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={ageGroup === "minor" ? "default" : "outline"}
+                        onClick={() => setAgeGroup("minor")}
+                      >
+                        Menos de 17
+                      </Button>
+                    </div>
+                    <p className="mt-3 text-xs text-muted-foreground">
+                      En adultos se evalúan 5 o más síntomas en un grupo. En
+                      menores, el criterio formal usa 6 o más; este tracker no
+                      reemplaza una entrevista clínica completa.
+                    </p>
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-8">
                     {/* Visual Symptom Cards */}
                     <div className="space-y-4">
@@ -303,24 +335,49 @@ export default function DiagnosticoPage() {
                   </div>
 
                   <div className="mt-8 text-center">
+                    <label className="mx-auto mb-4 flex max-w-2xl cursor-pointer items-start gap-3 rounded-lg border bg-white p-4 text-left dark:bg-slate-800">
+                      <Checkbox
+                        checked={impairmentConfirmed}
+                        onCheckedChange={(checked) =>
+                          setImpairmentConfirmed(checked === true)
+                        }
+                        className="mt-1"
+                        aria-label="Confirmar deterioro funcional"
+                      />
+                      <span className="text-sm">
+                        Existe evidencia clara de que estos síntomas interfieren
+                        o reducen mi funcionamiento social, académico o laboral
+                        en al menos dos ámbitos, por ejemplo casa y trabajo.
+                      </span>
+                    </label>
                     <Alert className="max-w-2xl mx-auto mb-4">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertDescription>
-                        {totalSelected >= 5 ? (
+                        {canShowReferralPrompt ? (
                           <strong>
-                            Marcaste {totalSelected} síntomas. Si son persistentes,
-                            llevan más de 6 meses y afectan tu trabajo, estudio,
-                            relaciones o vida diaria, considerá evaluación profesional.
+                            Marcaste un patrón compatible para este chequeo
+                            orientativo. Si los síntomas llevan más de 6 meses,
+                            empezaron antes de los 12 años y no se explican mejor
+                            por ansiedad, depresión u otra condición, considerá
+                            evaluación profesional.
                           </strong>
                         ) : (
                           <span>
-                            <strong>En adultos suele evaluarse 5+ síntomas</strong>{" "}
-                            de inatención o hiperactividad/impulsividad, presentes
-                            por más de 6 meses y con deterioro funcional.
+                            <strong>
+                              Umbral orientativo: {symptomThreshold}+ síntomas
+                            </strong>{" "}
+                            en inatención o hiperactividad/impulsividad,
+                            presentes por más de 6 meses, con inicio antes de los
+                            12 años y deterioro funcional en al menos dos ámbitos.
                           </span>
                         )}
                       </AlertDescription>
                     </Alert>
+                    <p className="mx-auto mb-4 max-w-2xl text-xs text-muted-foreground">
+                      Esta lista es una guía breve inspirada en criterios DSM-5 y
+                      escalas de tamizaje como ASRS-v1.1. No alcanza para
+                      diagnosticar TDAH ni para descartar diagnóstico diferencial.
+                    </p>
                     <Button onClick={next} size="lg">
                       Siguiente: Evaluación clínica{" "}
                       <ArrowRight className="h-4 w-4 ml-2" />
@@ -353,6 +410,16 @@ export default function DiagnosticoPage() {
                       inicio temprano, persistencia e impacto funcional. Los tests
                       neuropsicológicos pueden ayudar, pero no son obligatorios ni
                       diagnostican TDAH por sí solos.
+                    </AlertDescription>
+                  </Alert>
+                  <Alert className="mb-6 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+                    <FileText className="h-4 w-4" />
+                    <AlertDescription>
+                      No puede diagnosticarse solamente con escalas, tests
+                      neuropsicológicos, laboratorio o imágenes cerebrales. Esas
+                      herramientas pueden apoyar la entrevista, no reemplazarla.
+                      Algunos profesionales usan entrevistas estructuradas como
+                      DIVA-5.
                     </AlertDescription>
                   </Alert>
                   <Alert className="mb-6 bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800">
@@ -444,7 +511,9 @@ export default function DiagnosticoPage() {
                       <strong>Proceso típico:</strong> Primero se hace evaluación
                       clínica. Si el caso lo necesita, pueden pedirse tests
                       neuropsicológicos para objetivar atención, memoria de trabajo,
-                      funciones ejecutivas o descartar dificultades de aprendizaje.
+                      funciones ejecutivas, mapear fortalezas/debilidades o
+                      descartar dificultades de aprendizaje. No son imprescindibles
+                      para diagnosticar TDAH.
                     </AlertDescription>
                   </Alert>
                   {/* Visual Process Flow */}
@@ -693,6 +762,33 @@ export default function DiagnosticoPage() {
                   </div>
 
                   <div className="mt-8 text-center">
+                    <Alert className="mx-auto mb-4 max-w-3xl text-left">
+                      <AlertTriangle className="h-4 w-4" />
+                      <AlertDescription>
+                        <strong>Marco argentino:</strong>
+                        <br />• Metilfenidato y lisdexanfetamina son
+                        psicotrópicos Lista II. En CABA y PBA la farmacia puede
+                        seguir pidiendo receta oficial física además de receta
+                        electrónica.
+                        <br />• El CUD no sale automático por diagnóstico de
+                        TDAH. Requiere junta interdisciplinaria y limitación
+                        funcional significativa.
+                        <br />• La Ley 27.306 de DEA puede ayudar a pedir
+                        adecuaciones educativas cuando hay dificultades de
+                        aprendizaje asociadas.
+                      </AlertDescription>
+                    </Alert>
+
+                    <Alert className="mx-auto mb-4 max-w-3xl text-left">
+                      <FileText className="h-4 w-4" />
+                      <AlertDescription>
+                        <strong>Fuentes clínicas y legales:</strong>
+                        <br />DSM-5; Primer Consenso Argentino sobre TDAH en la
+                        adultez; ASRS-v1.1 OMS; Ley 19.303; Ley 27.553;
+                        Resolución 2214/2025; Ley 27.306.
+                      </AlertDescription>
+                    </Alert>
+
                     <Alert className="max-w-md mx-auto mb-4">
                       <CheckCircle className="h-4 w-4" />
                       <AlertDescription>
