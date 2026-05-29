@@ -311,12 +311,6 @@ export default function PreciosPage() {
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         Estimulantes usados para TDAH
                       </h2>
-                      <Badge
-                        variant="secondary"
-                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                      >
-                        Uso TDAH - Estimulantes
-                      </Badge>
                     </div>
 
                     <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden border-2">
@@ -456,12 +450,6 @@ export default function PreciosPage() {
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         No estimulantes usados para TDAH
                       </h2>
-                      <Badge
-                        variant="secondary"
-                        className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-                      >
-                        Uso TDAH - No estimulantes
-                      </Badge>
                     </div>
 
                     {Object.entries(medicamentosAgrupados.noestimulantes).map(
@@ -576,12 +564,6 @@ export default function PreciosPage() {
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         Medicamentos con uso off-label para TDAH
                       </h2>
-                      <Badge
-                        variant="secondary"
-                        className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300"
-                      >
-                        Uso fuera de indicación principal
-                      </Badge>
                     </div>
 
                     <Alert className="mb-6 border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-950 border-2">
