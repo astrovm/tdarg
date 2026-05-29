@@ -318,6 +318,40 @@ export const leyes = [
     },
   },
   {
+    numero: "Ley 27.306",
+    titulo: "Dificultades Específicas del Aprendizaje",
+    descripcion:
+      "Declara de interés nacional el abordaje integral de las Dificultades Específicas del Aprendizaje (DEA). No es una ley específica de TDAH, pero puede ser relevante cuando hay dificultades de aprendizaje asociadas o comórbidas y se necesitan adecuaciones escolares.",
+    fecha: "2016-11-04",
+    estado: "Vigente",
+    tipo: "Nacional",
+    organismo: "Congreso Nacional",
+    impactoReal: "medio",
+    url: "https://www.argentina.gob.ar/normativa/nacional/ley27306-267234/texto",
+    ultimaActualizacion: "2016-11-04",
+    analisisIA: {
+      beneficios: [
+        "Reconoce el abordaje integral e interdisciplinario de las DEA",
+        "Impulsa adecuaciones educativas y detección temprana",
+        "Puede ayudar a encuadrar apoyos escolares cuando el TDAH convive con dificultades de aprendizaje",
+      ],
+      problemas: [
+        "No menciona TDAH como diagnóstico principal",
+        "Su aplicación depende de evaluación educativa y clínica del caso",
+        "No reemplaza la necesidad de diagnóstico y tratamiento específico para TDAH",
+      ],
+      puntuacion: 7.0,
+      recomendacion:
+        "Usarla como herramienta educativa cuando corresponda, sin presentarla como una ley específica de TDAH.",
+    },
+    puntosClave: [
+      "Aplica a Dificultades Específicas del Aprendizaje",
+      "Puede respaldar adecuaciones escolares",
+      "Requiere evaluación del caso",
+      "No convierte automáticamente al TDAH en DEA",
+    ],
+  },
+  {
     numero: "Ley 19.303",
     titulo: "Ley de Psicotrópicos",
     descripcion:
@@ -400,7 +434,7 @@ export const propuestasNecesarias = [
     resumenEjecutivo:
       "Pasar de la norma nacional a implementación real: que CABA, PBA y el resto de las jurisdicciones indiquen claramente cuándo aceptan receta electrónica para psicotrópicos Lista II.",
     descripcion:
-      "La Resolución 2214/2025 es un marco importante, pero el plazo ya no alcanza como respuesta: la implementación efectiva sigue trabada.\n\nTareas clave:\n• Confirmar por jurisdicción si psicotrópicos Lista II se aceptan con receta electrónica o siguen requiriendo papel\n• Publicar instrucciones claras para farmacias y prescriptores\n• Resolver interoperabilidad entre plataformas, repositorios y validadores\n• Aclarar qué pasa en CABA y Provincia de Buenos Aires, donde el régimen real sigue siendo mixto o en papel para estos medicamentos",
+      "La Resolución 2214/2025 es un marco importante, pero el plazo ya no alcanza como respuesta: la implementación efectiva sigue trabada.\n\nTareas clave:\n• Confirmar por jurisdicción si psicotrópicos Lista II se aceptan con receta electrónica o siguen requiriendo papel\n• Homologar un equivalente digital del formulario oficial o triplicado jurisdiccional para Lista II\n• Publicar instrucciones claras para farmacias y prescriptores\n• Resolver interoperabilidad entre plataformas, repositorios y validadores\n• Mantener cargadas y sincronizadas las habilitaciones profesionales que exige REFEPS para recetas restringidas\n• Aclarar qué pasa en CABA y Provincia de Buenos Aires, donde el régimen real sigue siendo mixto o en papel para estos medicamentos",
     problemaQueResuelve:
       "Que la receta electrónica no quede como declaración general sin efecto real en metilfenidato y lisdexanfetamina.",
     beneficiosClave: [
@@ -417,7 +451,7 @@ export const propuestasNecesarias = [
     ],
     impacto: "Solución potencial para más de 500,000 pacientes TDAH en Argentina",
     responsable: "Ministerio de Salud Nacional y jurisdicciones provinciales",
-    accionNecesaria: "Publicar estado de implementación por jurisdicción y regla específica para psicotrópicos Lista II",
+    accionNecesaria: "Publicar estado de implementación por jurisdicción, regla específica para psicotrópicos Lista II y equivalente digital del formulario oficial",
   },
   {
     titulo: "Ampliación de Opciones Terapéuticas",
@@ -455,6 +489,24 @@ export const problemasReales = [
       "La norma nacional existe, pero la implementación real para psicotrópicos Lista II sigue incompleta.",
     urgencia: "Crítico",
     impacto: "Pacientes siguen dependiendo de receta papel según jurisdicción y farmacia",
+  },
+  {
+    problema: "Validación técnica de prescriptores y datos incompletos",
+    descripcion:
+      "La Resolución 2214/2025 prevé que REFEPS incorpore un campo de verificación para confirmar que el profesional tiene la autorización jurisdiccional correspondiente al prescribir medicamentos de expendio legalmente restringido.\n\n→ Riesgo operativo:\n• Si la habilitación no está cargada o sincronizada, la plataforma puede no poder validar la receta restringida\n• Si jurisdicción, repositorio, plataforma y farmacia no usan la misma información, el paciente queda atrapado entre sistemas\n• El problema no es solo legal: también es de datos, interoperabilidad y soporte a farmacias\n\n→ Para TDAH:\n• Metilfenidato y lisdexanfetamina dependen de circuitos de psicotrópicos Lista II\n• Aunque exista receta electrónica nacional, la dispensa puede seguir trabada por validaciones o criterios locales",
+    resumen:
+      "La receta digital para estimulantes necesita datos jurisdiccionales completos, no solo una norma nacional.",
+    urgencia: "Alta",
+    impacto: "Puede bloquear o desalentar recetas electrónicas de estimulantes aunque el marco legal exista",
+  },
+  {
+    problema: "CUD y apoyos escolares: derechos útiles, pero no automáticos",
+    descripcion:
+      "El Certificado Único de Discapacidad puede habilitar cobertura y prestaciones cuando una junta evaluadora certifica una discapacidad. No corresponde presentarlo como trámite automático para toda persona con TDAH.\n\n→ CUD:\n• Se otorga por evaluación interdisciplinaria\n• La cobertura del 100% aplica a prestaciones vinculadas con lo certificado como discapacidad\n• Puede ser relevante en casos con limitación funcional significativa\n\n→ Escuela:\n• La Ley 27.306 protege a estudiantes con Dificultades Específicas del Aprendizaje\n• Puede servir para pedir adecuaciones cuando hay dificultades de aprendizaje asociadas\n• No reemplaza un plan educativo individual ni el criterio clínico/psicopedagógico del caso",
+    resumen:
+      "CUD y Ley 27.306 pueden ayudar en casos concretos, pero no deben venderse como solución universal para TDAH.",
+    urgencia: "Media",
+    impacto: "Evita expectativas falsas y ayuda a orientar mejor pedidos de cobertura o escuela",
   },
   {
     problema: "Opciones farmacológicas limitadas",
@@ -506,8 +558,13 @@ export const fuentesDocumentacion = {
     },
     {
       titulo: "Marco Normativo Nacional y Jurisdiccional",
-      descripcion: "Leyes y resoluciones analizadas: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.553 (Recetas Electrónicas), Resolución 2214/2025, Decreto 345/2024, normativa de CABA y normativa de Provincia de Buenos Aires.",
+      descripcion: "Leyes y resoluciones analizadas: Ley 19.303 (Psicotrópicos), Ley 26.657 (Salud Mental), Ley 27.306 (DEA), Ley 27.553 (Recetas Electrónicas), Resolución 2214/2025, Decreto 345/2024, normativa de CABA y normativa de Provincia de Buenos Aires.",
       referencia: "(InfoLeg, Boletín Oficial, Ministerio de Salud, PBA y CABA)"
+    },
+    {
+      titulo: "CUD y prestaciones por discapacidad",
+      descripcion: "Se revisaron fuentes oficiales sobre CUD, evaluación por junta interdisciplinaria y cobertura de prestaciones vinculadas con lo certificado como discapacidad.",
+      referencia: "(ANDIS, Argentina.gob.ar, Ley 24.901)"
     },
     {
       titulo: "Estado operativo de receta electrónica",
