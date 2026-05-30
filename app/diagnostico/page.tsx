@@ -414,35 +414,55 @@ export default function DiagnosticoPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Alert className="mb-6 bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
-                    <Brain className="h-4 w-4" />
-                    <AlertDescription>
-                      <strong>Punto clave:</strong> El TDAH se diagnostica con
-                      entrevista clínica, historia de vida, síntomas DSM-5,
-                      inicio temprano, persistencia e impacto funcional. Los tests
-                      neuropsicológicos pueden ayudar, pero no son obligatorios ni
-                      diagnostican TDAH por sí solos.
-                    </AlertDescription>
-                  </Alert>
-                  <Alert className="mb-6 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700">
-                    <FileText className="h-4 w-4" />
-                    <AlertDescription>
-                      No puede diagnosticarse solamente con escalas, tests
-                      neuropsicológicos, laboratorio o imágenes cerebrales. Esas
-                      herramientas pueden apoyar la entrevista, no reemplazarla.
-                      Algunos profesionales usan entrevistas estructuradas como
-                      DIVA-5.
-                    </AlertDescription>
-                  </Alert>
-                  <Alert className="mb-6 bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800">
-                    <AlertTriangle className="h-4 w-4" />
-                    <AlertDescription>
-                      <strong>¡IMPORTANTE!</strong> Que sean especialistas en TDAH.
-                      Un psicólogo, psiquiatra o neurólogo que no se dedica a TDAH puede
-                      no ver síntomas importantes o diagnosticarte mal. Preguntá siempre si
-                      atienden TDAH seguido.
-                    </AlertDescription>
-                  </Alert>
+                  <div className="mb-6 grid gap-4 md:grid-cols-3">
+                    <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/30">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-base flex items-center gap-2">
+                          <Brain className="h-4 w-4 text-blue-600" />
+                          Lo obligatorio
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="text-sm space-y-2">
+                          <li>• Entrevista clínica profunda</li>
+                          <li>• Síntomas desde antes de los 12 años</li>
+                          <li>• Impacto real en dos áreas de la vida</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-base flex items-center gap-2">
+                          <FileText className="h-4 w-4 text-slate-600 dark:text-slate-300" />
+                          Apoyos útiles
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="text-sm space-y-2">
+                          <li>• DIVA-5 para ordenar la entrevista</li>
+                          <li>• ASRS-v1.1 y WURS-25 como escalas</li>
+                          <li>• Tests neuropsicológicos si hacen falta</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="border-green-200 dark:border-green-800 bg-green-50/40 dark:bg-green-950/30">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-base flex items-center gap-2">
+                          <Stethoscope className="h-4 w-4 text-green-600" />
+                          Antes de sacar turno
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="text-sm space-y-2">
+                          <li>• ¿Atiende TDAH adulto seguido?</li>
+                          <li>• ¿Usa entrevistas estructuradas?</li>
+                          <li>• ¿Evalúa ansiedad, depresión y bipolaridad?</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
                   <div className="grid md:grid-cols-3 gap-6">
                     {/* Professional Cards with Visual Hierarchy */}
                     {professionals.map((prof, index) => (
