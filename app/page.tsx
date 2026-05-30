@@ -74,47 +74,53 @@ export default function HomePage() {
             Lo más buscado
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl hover:-translate-y-2">
-              <CardHeader className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <TrendingUp className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
-                  Precios de medicamentos
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Metilfenidato, lisdexanfetamina, atomoxetina y más. Precios que se pagan en Farmacity.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/precios" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-6">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <TrendingUp className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                    Precios de medicamentos
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Metilfenidato, lisdexanfetamina, atomoxetina y más. Precios que se pagan en Farmacity.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-indigo-50 dark:from-slate-800 dark:to-indigo-900/20 border-0 shadow-xl hover:-translate-y-2">
-              <CardHeader className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Stethoscope className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
-                  Especialistas
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Profesionales de TDAH en cada provincia. Encontrá el tuyo.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/especialistas" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-6">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Stethoscope className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                    Especialistas
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Profesionales de TDAH en cada provincia. Encontrá el tuyo.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-red-50 dark:from-slate-800 dark:to-red-900/20 border-0 shadow-xl hover:-translate-y-2">
-              <CardHeader className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Scale className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white">
-                  Legislación
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Las leyes y decretos que afectan a quienes tienen TDAH.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <Link href="/legislacion" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-6">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Scale className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                    Legislación
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Las leyes y decretos que afectan a quienes tienen TDAH.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
@@ -127,8 +133,7 @@ export default function HomePage() {
               Guías
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              Info clara y actualizada sobre diagnóstico, tratamientos y todo lo que
-              necesitás saber.
+              Diagnóstico, tratamientos, comorbilidades y herramientas para el día a día.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
