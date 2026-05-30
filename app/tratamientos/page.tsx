@@ -53,7 +53,18 @@ const steps = [
   { id: 5, title: "Mi plan", subtitle: "Plan personalizado", icon: Target },
 ] satisfies StepDefinition[];
 
-const caddraMedicationMap = [
+type CaddraMedication = {
+  name: string;
+  group: string;
+  forms: string;
+  duration: string;
+  caddraLine: string;
+  argentina: string;
+  localNote: string;
+  recetaNote?: string;
+};
+
+const caddraMedicationMap: CaddraMedication[] = [
   {
     name: "Adderall XR",
     group: "Estimulante anfetamínico",
@@ -80,6 +91,8 @@ const caddraMedicationMap = [
     caddraLine: "Primera línea",
     argentina: "Disponible como Ludoxa",
     localNote: "Ludoxa 30, 50 y 70 mg. Nueva; cobertura todavía limitada.",
+    recetaNote:
+      "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
   {
     name: "Dexedrine",
@@ -107,6 +120,8 @@ const caddraMedicationMap = [
     caddraLine: "Primera línea",
     argentina: "Disponible",
     localNote: "Hay metilfenidato OROS: Concerta y Consiv.",
+    recetaNote:
+      "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
   {
     name: "Foquest",
@@ -143,6 +158,8 @@ const caddraMedicationMap = [
     caddraLine: "Segunda línea",
     argentina: "Disponible",
     localNote: "Disponible como Ritalina/Rubifen y similares según stock.",
+    recetaNote:
+      "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
   {
     name: "Ritalin SR",
@@ -152,6 +169,8 @@ const caddraMedicationMap = [
     caddraLine: "Segunda línea",
     argentina: "Disponible",
     localNote: "Disponible como Ritalina LA/SR o Rubifen LA/SR según producto.",
+    recetaNote:
+      "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
   {
     name: "Atomoxetina",
@@ -161,6 +180,8 @@ const caddraMedicationMap = [
     caddraLine: "Segunda línea",
     argentina: "Disponible",
     localNote: "No es estimulante; inicio de efecto más lento.",
+    recetaNote:
+      "No es Lista II: suele ser más simple de prescribir y conseguir. Tarda semanas en hacer efecto.",
   },
   {
     name: "Intuniv XR",
@@ -530,7 +551,12 @@ export default function TratamientosPage() {
                                     </Badge>
                                   </TableCell>
                                   <TableCell className="align-top">
-                                    {medication.localNote}
+                                    <div>{medication.localNote}</div>
+                                    {medication.recetaNote && (
+                                      <div className="mt-2 rounded-md border border-amber-200 bg-amber-50 p-2 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+                                        {medication.recetaNote}
+                                      </div>
+                                    )}
                                   </TableCell>
                                 </TableRow>
                               );
@@ -598,6 +624,14 @@ export default function TratamientosPage() {
                                     {medication.localNote}
                                   </dd>
                                 </div>
+                                {medication.recetaNote && (
+                                  <div className="rounded-md border border-amber-200 bg-amber-50 p-2 text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+                                    <dt className="font-semibold">
+                                      Receta / farmacia
+                                    </dt>
+                                    <dd>{medication.recetaNote}</dd>
+                                  </div>
+                                )}
                               </dl>
                             </div>
                           );

@@ -153,7 +153,8 @@ export default function DiagnosticoPage() {
       icon: "🧠",
       speciality: "Evaluación clínica con criterios DSM-5",
       experience: "Experiencia en TDAH y comorbilidades",
-      availability: "Primer paso recomendado para diagnóstico",
+      availability:
+        "Único profesional habilitado legalmente para prescribir medicación estimulante y emitir recetarios oficiales por triplicado",
       color: "blue",
       step: "1° - Diagnóstico",
     },

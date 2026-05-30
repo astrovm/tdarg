@@ -474,13 +474,19 @@ export default function ImpactoPage() {
                             <div className="space-y-3">
                               <div className="text-center p-3 bg-red-50 dark:bg-red-950 rounded-lg">
                                 <div className="text-2xl font-bold text-red-500">
-                                  37%
+                                  62%
                                   <CitationLink number={1} />
                                 </div>
                                 <div className="text-sm text-muted-foreground">
-                                  Mayor probabilidad de accidentes
+                                  Más probabilidad de choques graves
                                 </div>
                               </div>
+
+                              <p className="text-sm">
+                                Sin tratamiento, la impulsividad y la
+                                distracción al volante aumentan el riesgo de
+                                choques automovilísticos e infracciones graves.
+                              </p>
 
                               <h5 className="font-semibold text-sm">
                                 Factores de Riesgo

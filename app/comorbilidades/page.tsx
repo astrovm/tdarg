@@ -63,6 +63,22 @@ const steps = [
     icon: Users,
     description: "Principios para tratamiento integral",
   },
+  {
+    id: 6,
+    title: "TDAH + Adicciones",
+    subtitle: "Uso de sustancias y pantallas",
+    icon: AlertTriangle,
+    description:
+      "Mayor vulnerabilidad al alcohol, drogas y adicciones conductuales",
+  },
+  {
+    id: 7,
+    title: "TDAH + TLP",
+    subtitle: "Trastorno Límite de la Personalidad",
+    icon: Zap,
+    description:
+      "Impulsividad y desregulación emocional que requieren abordaje dual",
+  },
 ] satisfies StepDefinition[];
 
 export default function ComorbilidadesPage() {
@@ -497,6 +513,102 @@ export default function ComorbilidadesPage() {
                     </div>
                   </CardContent>
                 </Card>
+              </div>
+            )}
+
+            {currentStep === 6 && (
+              <div className="space-y-6">
+                <Alert className="border-orange-200 dark:border-orange-800 bg-orange-50/50 dark:bg-orange-950/30">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertDescription>
+                    En adultos, el TDAH aumenta la vulnerabilidad al alcohol,
+                    drogas y adicciones conductuales como videojuegos, compras o
+                    apuestas. No es falta de voluntad: suele mezclarse búsqueda
+                    de dopamina, impulsividad y automedicación.
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Por qué pasa
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Búsqueda rápida de recompensa o alivio</li>
+                        <li>• Baja tolerancia al aburrimiento y la espera</li>
+                        <li>• Sueño irregular y peor control de impulsos</li>
+                        <li>• Uso de sustancias para rendir, dormir o calmarse</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Qué conviene evaluar
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Consumo actual y antecedentes familiares</li>
+                        <li>• Pantallas, compras, apuestas o comida compulsiva</li>
+                        <li>• Ansiedad, depresión, sueño y trauma</li>
+                        <li>• Plan que trate TDAH y consumo al mismo tiempo</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
+
+            {currentStep === 7 && (
+              <div className="space-y-6">
+                <Alert className="border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-950/30">
+                  <Zap className="h-4 w-4" />
+                  <AlertDescription>
+                    El TDAH y el TLP pueden compartir impulsividad, crisis
+                    emocionales y relaciones inestables. Cuando conviven, el
+                    tratamiento tiene que mirar ambos problemas, no elegir uno y
+                    descartar el otro.
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Lo que se puede confundir
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Impulsividad y decisiones de alto riesgo</li>
+                        <li>• Cambios emocionales intensos y rápidos</li>
+                        <li>• Rechazo, culpa y conflictos vinculares</li>
+                        <li>• Dificultad para sostener rutinas y tratamientos</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Manejo recomendado
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Diferenciar TLP, bipolaridad, trauma y TDAH</li>
+                        <li>• Psicoterapia enfocada en regulación emocional</li>
+                        <li>• Evaluación médica si el TDAH es claro</li>
+                        <li>• Tratamiento dual y seguimiento cercano</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             )}
           </CardContent>
