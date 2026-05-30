@@ -95,6 +95,14 @@ const steps = [
     description:
       "Mayor riesgo de atracones o bulimia por impulsividad y falla ejecutiva",
   },
+  {
+    id: 10,
+    title: "TDAH y salud física",
+    subtitle: "Comorbilidades médicas",
+    icon: Activity,
+    description:
+      "Celiaquía, migrañas, asma y piernas inquietas también pueden coexistir",
+  },
 ] satisfies StepDefinition[];
 
 export default function ComorbilidadesPage() {
@@ -717,6 +725,65 @@ export default function ComorbilidadesPage() {
                         <li>• Plan alimentario realista, no punitivo</li>
                         <li>• Estrategias externas para compras y horarios</li>
                         <li>• Tratamiento coordinado con salud mental y nutrición</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
+
+            {currentStep === 10 && (
+              <div className="space-y-6">
+                <Alert className="border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/30">
+                  <Activity className="h-4 w-4" />
+                  <AlertDescription>
+                    El TDAH no convive solo con problemas psiquiátricos. Algunas
+                    condiciones físicas pueden empeorar atención, sueño y
+                    energía, por eso conviene buscarlas si los síntomas no
+                    cierran o el tratamiento responde poco.
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Digestivo y respiratorio
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>
+                          • <strong>Celiaquía:</strong> puede coexistir con TDAH;
+                          si está presente, la dieta sin gluten puede mejorar
+                          síntomas atencionales.
+                        </li>
+                        <li>
+                          • <strong>Asma:</strong> aparece con mayor frecuencia
+                          en adultos con TDAH y puede afectar sueño, energía y
+                          rendimiento.
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Neurológico y sueño
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>
+                          • <strong>Migrañas:</strong> coexistencia frecuente,
+                          especialmente cuando hay síntomas visuales.
+                        </li>
+                        <li>
+                          • <strong>Síndrome de piernas inquietas:</strong> puede
+                          parecer hiperactividad nocturna, fragmentar el sueño y
+                          empeorar la atención diurna.
+                        </li>
                       </ul>
                     </CardContent>
                   </Card>

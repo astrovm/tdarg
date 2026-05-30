@@ -361,6 +361,17 @@ export default function TratamientosPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <Alert className="mb-6 border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
+                    <AlertDescription>
+                      <strong>El mito de las vacaciones terapéuticas:</strong>{" "}
+                      en Argentina es común suspender medicación fines de semana
+                      o verano. El TDAH afecta todos los días, no solo para
+                      estudiar o trabajar. Suspender sin indicación médica puede
+                      aumentar riesgo de accidentes, peleas y consumo de alcohol
+                      o drogas.
+                    </AlertDescription>
+                  </Alert>
+
                   {/* Effectiveness Stats */}
                   <div className="grid md:grid-cols-3 gap-4 mb-8">
                     <div className="text-center p-4 bg-green-100 dark:bg-green-900 rounded-lg">
@@ -780,11 +791,13 @@ export default function TratamientosPage() {
                   <Alert className="mb-6 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
                     <AlertDescription>
                       <strong>Atención con el tipo de terapia:</strong> la
-                      evidencia y el Consenso Argentino recomiendan TCC para
-                      herramientas ejecutivas, organización y regulación
-                      emocional. El psicoanálisis tradicional tiene baja eficacia
-                      para los síntomas centrales del TDAH y puede retrasar el
-                      tratamiento si niega el diagnóstico biológico.
+                      recomendada como primera línea, con mayor evidencia
+                      empírica, es la Terapia Cognitivo Conductual (TCC). Ayuda
+                      a entrenar funciones ejecutivas, organizar el tiempo y
+                      regular emociones. En Argentina es común el psicoanálisis
+                      tradicional, pero tiene eficacia pobre para síntomas
+                      nucleares del TDAH; buscá profesionales especializados en
+                      TCC.
                     </AlertDescription>
                   </Alert>
 

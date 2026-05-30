@@ -248,6 +248,17 @@ export default function DiagnosticoPage() {
                     </p>
                   </div>
 
+                  <Alert className="mb-6 bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
+                    <Brain className="h-4 w-4" />
+                    <AlertDescription>
+                      Si vas a consultar en Argentina, buscá una evaluación con
+                      entrevista estructurada, como DIVA-5, y escalas de
+                      autoinforme validadas localmente: ASRS-v1.1 para síntomas
+                      actuales y WURS-25 para reconstruir síntomas de la
+                      infancia. El TDAH adulto no se diagnostica solo charlando.
+                    </AlertDescription>
+                  </Alert>
+
                   <div className="grid md:grid-cols-2 gap-8">
                     {/* Visual Symptom Cards */}
                     <div className="space-y-4">

@@ -219,6 +219,15 @@ export default function ImpactoPage() {
                                   <li className="flex items-start gap-2">
                                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
                                     <span>
+                                      <strong>Adicciones conductuales:</strong>{" "}
+                                      compras compulsivas, pornografía, internet,
+                                      redes sociales y videojuegos por búsqueda
+                                      de gratificación inmediata.
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                                    <span>
                                       <strong>
                                         Enfermedades cardiovasculares:
                                       </strong>{" "}
@@ -227,6 +236,17 @@ export default function ImpactoPage() {
                                   </li>
                                 </ul>
                               </div>
+
+                              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                                <AlertTriangle className="h-4 w-4" />
+                                <AlertDescription>
+                                  <strong>Preadicción:</strong> detectar uso
+                                  episódico temprano antes de que se vuelva
+                                  crónico. En TDAH, el aburrimiento y la
+                                  desregulación dopaminérgica hacen que la
+                                  gratificación rápida escale con facilidad.
+                                </AlertDescription>
+                              </Alert>
 
                               <div>
                                 <h4 className="font-semibold mb-3">
