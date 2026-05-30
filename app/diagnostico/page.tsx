@@ -57,6 +57,12 @@ export default function DiagnosticoPage() {
     { id: "hiper-interrumpo", icon: "💬", text: "Interrumpo a otros sin darme cuenta" },
   ] as const;
 
+  const executiveEmotionalSymptoms = [
+    { id: "exec-procrastinacion", icon: "⏳", text: "Procrastinación crónica (dejar todo para último momento)" },
+    { id: "exec-hiperfoco", icon: "🎯", text: "Hiperfoco (concentración excesiva en tareas de interés ignorando responsabilidades)" },
+    { id: "exec-desregulacion", icon: "💥", text: "Desregulación emocional (estallidos de enojo bruscos o baja tolerancia a la frustración)" },
+  ] as const;
+
   const [selectedSymptoms, setSelectedSymptoms] = useState<Set<string>>(new Set());
   const [ageGroup, setAgeGroup] = useState<"adult" | "minor">("adult");
   const [impairmentConfirmed, setImpairmentConfirmed] = useState(false);
@@ -70,12 +76,15 @@ export default function DiagnosticoPage() {
     });
   };
 
-  const clearGroup = (group: "ina" | "hiper") => {
+  const clearGroup = (group: "ina" | "hiper" | "exec") => {
     setSelectedSymptoms((prev) => {
       const next = new Set(prev);
-      const ids = group === "ina"
-        ? inattentiveSymptoms.map((s) => s.id)
-        : hyperactiveSymptoms.map((s) => s.id);
+      const ids =
+        group === "ina"
+          ? inattentiveSymptoms.map((s) => s.id)
+          : group === "hiper"
+          ? hyperactiveSymptoms.map((s) => s.id)
+          : executiveEmotionalSymptoms.map((s) => s.id);
       ids.forEach((id) => next.delete(id));
       return next;
     });
@@ -83,8 +92,12 @@ export default function DiagnosticoPage() {
 
   const inattentiveCount = inattentiveSymptoms.filter((s) => selectedSymptoms.has(s.id)).length;
   const hyperactiveCount = hyperactiveSymptoms.filter((s) => selectedSymptoms.has(s.id)).length;
+  const executiveCount = executiveEmotionalSymptoms.filter((s) => selectedSymptoms.has(s.id)).length;
   const symptomThreshold = ageGroup === "adult" ? 5 : 6;
-  const meetsSymptomThreshold = inattentiveCount >= symptomThreshold || hyperactiveCount >= symptomThreshold;
+  const meetsSymptomThreshold =
+    inattentiveCount >= symptomThreshold ||
+    hyperactiveCount >= symptomThreshold ||
+    executiveCount >= symptomThreshold;
   const canShowReferralPrompt = meetsSymptomThreshold && impairmentConfirmed;
 
   const professionals = [
@@ -140,7 +153,12 @@ export default function DiagnosticoPage() {
 
               <Alert className="bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
                 <Brain className="h-4 w-4" />
-                <AlertDescription><strong>Qué exigir:</strong> Pedí entrevista DIVA-5, escala ASRS-v1.1 y WURS-25.</AlertDescription>
+                <AlertDescription>
+                  <strong>Qué exigirle al profesional:</strong> Un diagnóstico clínico en adultos no se hace solo charlando. Exigí que utilicen las herramientas validadas por el Primer Consenso Argentino de TDAH:
+                  <br />• <strong>DIVA-5:</strong> Entrevista clínica estructurada.
+                  <br />• <strong>ASRS-v1.1:</strong> Escala para medir tus síntomas actuales.
+                  <br />• <strong>WURS-25:</strong> Escala retrospectiva para rastrear tus síntomas en la infancia.
+                </AlertDescription>
               </Alert>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -169,6 +187,23 @@ export default function DiagnosticoPage() {
                   </div>
                   <div className="space-y-2">
                     {hyperactiveSymptoms.map((item) => (
+                      <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
+                        <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="text-sm">{item.text}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-center text-amber-700 dark:text-amber-300 mb-3">🧩 Síntomas Ejecutivos / Emocionales</h3>
+                  <div className="flex justify-between text-xs text-muted-foreground mb-2">
+                    <span>Seleccionados: {executiveCount}/{executiveEmotionalSymptoms.length}</span>
+                    {executiveCount > 0 && <button onClick={() => clearGroup("exec")} className="underline">Limpiar</button>}
+                  </div>
+                  <div className="space-y-2">
+                    {executiveEmotionalSymptoms.map((item) => (
                       <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
                         <span className="text-2xl">{item.icon}</span>
@@ -419,16 +454,26 @@ export default function DiagnosticoPage() {
                   </CardContent>
                 </Card>
 
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Impacto del no tratamiento</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-2">
-                    <div>• <strong>Accidentes:</strong> 3x mayor riesgo de accidentes graves y multas.</div>
-                    <div>• <strong>Relaciones:</strong> 2x mayor probabilidad de divorcio.</div>
-                    <div>• <strong>Empleo:</strong> Mayor rotación laboral y subempleo.</div>
-                    <div>• <strong>Salud:</strong> Mayor riesgo de obesidad, asma, diabetes tipo 2 y problemas de sueño.</div>
-                  </CardContent>
-                </Card>
-              </div>
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Impacto del no tratamiento</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-2">
+                     <div>• <strong>Accidentes:</strong> 3x mayor riesgo de accidentes graves y multas.</div>
+                     <div>• <strong>Relaciones:</strong> 2x mayor probabilidad de divorcio.</div>
+                     <div>• <strong>Empleo:</strong> Mayor rotación laboral y subempleo.</div>
+                     <div>• <strong>Salud:</strong> Mayor riesgo de obesidad, asma, diabetes tipo 2 y problemas de sueño.</div>
+                   </CardContent>
+                 </Card>
+
+                 <Card className="border-red-200 dark:border-red-800">
+                   <CardHeader><CardTitle className="text-base">Riesgo Vial</CardTitle></CardHeader>
+                   <CardContent className="text-sm">Conducir sin medicación multiplica los choques automovilísticos, las multas y el riesgo de manejar alcoholizado por pura impulsividad.</CardContent>
+                 </Card>
+
+                 <Card className="border-red-200 dark:border-red-800">
+                   <CardHeader><CardTitle className="text-base">Impacto Financiero y Laboral</CardTitle></CardHeader>
+                   <CardContent className="text-sm">El TDAH no tratado genera renuncias impulsivas, despidos frecuentes y deudas por compras compulsivas (búsqueda de dopamina rápida).</CardContent>
+                 </Card>
+               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild>

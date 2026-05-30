@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   Brain,
   Heart,
@@ -27,7 +28,10 @@ const steps = [
   { id: 2, title: "TDAH + Ansiedad", subtitle: "La comorbilidad más común", icon: Zap },
   { id: 3, title: "TDAH + Depresión", subtitle: "Relación compleja", icon: Brain },
   { id: 4, title: "TDAH + Autismo", subtitle: "Comorbilidad neurológica", icon: Heart },
-  { id: 5, title: "Evaluación integral", subtitle: "Manejo y tratamiento", icon: Users },
+  { id: 5, title: "TDAH + Bipolaridad", subtitle: "Riesgo de episodio maníaco", icon: Zap },
+  { id: 6, title: "TDAH + Trastornos Alimentarios", subtitle: "Atracones e impulsividad", icon: Heart },
+  { id: 7, title: "TDAH + Problemas Físicos", subtitle: "Comorbilidades somáticas", icon: Activity },
+  { id: 8, title: "Evaluación integral", subtitle: "Manejo y tratamiento", icon: Users },
 ] satisfies StepDefinition[];
 
 export default function ComorbilidadesPage() {
@@ -211,9 +215,93 @@ export default function ComorbilidadesPage() {
                 </Card>
               </div>
             </>
-          )}
+           )}
 
-          {currentStep === 5 && (
+           {currentStep === 5 && (
+             <>
+               <Alert className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
+                 <AlertDescription>
+                   <strong>Altísima superposición (10-20%):</strong> Comparten la impulsividad y la aceleración del pensamiento. Tomar estimulantes sin un estabilizador del ánimo previo puede inducir un episodio maníaco.
+                 </AlertDescription>
+               </Alert>
+               <div className="grid md:grid-cols-2 gap-4">
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Diferencias clave</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-1">
+                     <div>• Bipolar: episodios maníacos/depresivos</div>
+                     <div>• TDAH: síntomas persistentes desde la infancia</div>
+                     <div>• Tratamiento: estabilizador primero, luego estimulante</div>
+                   </CardContent>
+                 </Card>
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Recomendación</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-1">
+                     <div>• Evaluar siempre screening de bipolaridad antes de iniciar estimulantes</div>
+                     <div>• Evitar monoterapia con estimulantes si hay historia familiar de TB</div>
+                   </CardContent>
+                 </Card>
+               </div>
+             </>
+           )}
+
+           {currentStep === 6 && (
+             <>
+               <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                 <AlertDescription>
+                   <strong>La impulsividad y la disfunción ejecutiva provocan atracones y bulimia</strong> (especialmente en mujeres) al no poder planificar comidas ni frenar el impulso.
+                 </AlertDescription>
+               </Alert>
+               <div className="grid md:grid-cols-2 gap-4">
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Mecanismo</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-1">
+                     <div>• Impulsividad → atracones</div>
+                     <div>• Desorganización → saltear comidas → hambre extrema</div>
+                     <div>• Búsqueda de dopamina rápida a través de la comida</div>
+                   </CardContent>
+                 </Card>
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Recomendación</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-1">
+                     <div>• TCC específica para TCA + TDAH</div>
+                     <div>• Estructura de comidas (no dejar decidir en el momento)</div>
+                     <div>• Medicación puede ayudar a reducir impulsividad alimentaria</div>
+                   </CardContent>
+                 </Card>
+               </div>
+             </>
+           )}
+
+           {currentStep === 7 && (
+             <>
+               <Alert className="border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30">
+                 <AlertDescription>
+                   <strong>El estado de estrés crónico del adulto con TDAH genera comorbilidades físicas documentadas</strong>: migrañas severas (con síntomas visuales), asma, síndrome de fatiga crónica y síndrome de piernas inquietas.
+                 </AlertDescription>
+               </Alert>
+               <div className="grid md:grid-cols-2 gap-4">
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Comorbilidades somáticas frecuentes</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-1">
+                     <div>• Migraña severa (2-3x más frecuente)</div>
+                     <div>• Asma y alergias</div>
+                     <div>• Síndrome de fatiga crónica</div>
+                     <div>• Síndrome de piernas inquietas</div>
+                   </CardContent>
+                 </Card>
+                 <Card>
+                   <CardHeader><CardTitle className="text-base">Mecanismo</CardTitle></CardHeader>
+                   <CardContent className="text-sm space-y-1">
+                     <div>• Estrés crónico por desorganización y fracaso repetido</div>
+                     <div>• Desregulación del sistema nervioso autónomo</div>
+                     <div>• Sueño deficiente sostenido</div>
+                   </CardContent>
+                 </Card>
+               </div>
+             </>
+           )}
+
+           {currentStep === 8 && (
             <div className="space-y-4">
               <Card>
                 <CardHeader><CardTitle className="text-base">Principios generales</CardTitle></CardHeader>

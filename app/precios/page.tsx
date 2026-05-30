@@ -311,9 +311,17 @@ export default function PreciosPage() {
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         Estimulantes usados para TDAH
                       </h2>
-                    </div>
+                     </div>
 
-                    {estimulantesOrdenados.map(
+                     <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950">
+                       <AlertCircle className="h-4 w-4 text-blue-600" />
+                       <AlertDescription className="text-blue-800 dark:text-blue-200">
+                         <strong>Jerarquía oficial (Consenso Argentino):</strong> Primera línea: Estimulantes de acción prolongada (Lisdexanfetamina, Metilfenidato OROS). Segunda línea: Atomoxetina. Tercera línea (off-label): Bupropión o Clonidina.
+                         <br /><strong>Monitoreo obligatorio:</strong> Los estimulantes aumentan frecuencia cardíaca y presión arterial. Exigí control cardiovascular basal antes de empezar y chequeos de presión cada 6 meses.
+                       </AlertDescription>
+                     </Alert>
+
+                     {estimulantesOrdenados.map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
                           <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">

@@ -81,6 +81,12 @@ export default function TratamientosPage() {
               <Alert>
                 <AlertDescription>El abordaje suele combinar medicación, herramientas psicológicas y cambios de rutina. La proporción depende del perfil clínico, comorbilidades y acceso.</AlertDescription>
               </Alert>
+
+              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                <AlertDescription>
+                  <strong>La trampa de la terapia:</strong> No gastes tiempo ni dinero en psicoanálisis tradicional para tratar los síntomas nucleares del TDAH (su eficacia es pobre, apenas 36%). La evidencia científica y el Consenso Argentino exigen <strong>Terapia Cognitivo-Conductual (TCC)</strong> para entrenar funciones ejecutivas, organizar el tiempo y controlar impulsos.
+                </AlertDescription>
+              </Alert>
             </CardContent>
           </Card>
         )}
@@ -94,7 +100,7 @@ export default function TratamientosPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <Alert className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
-                <AlertDescription><strong>El mito de los descansos de fin de semana:</strong> suspender la medicación sin indicación médica puede subir la impulsividad y el riesgo de choques, peleas y consumo de alcohol o drogas.</AlertDescription>
+                <AlertDescription><strong>El mito del fin de semana:</strong> Suspender la medicación los fines de semana o en vacaciones no es necesario ni obligatorio. Para muchas personas, mantenerla de forma continua ofrece mejor control de síntomas. La decisión debe tomarse con tu médico según tu respuesta individual.</AlertDescription>
               </Alert>
 
               <div className="overflow-x-auto">
