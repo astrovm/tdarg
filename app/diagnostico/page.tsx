@@ -42,25 +42,25 @@ export default function DiagnosticoPage() {
     useStepProgress({ totalSteps: steps.length });
 
   const inattentiveSymptoms = [
-    { id: "ina-detalles", icon: "🔍", text: "Me cuesta mantener atención en detalles" },
-    { id: "ina-escucha", icon: "👂", text: "No parece que escucho cuando me hablan" },
-    { id: "ina-tareas", icon: "📝", text: "No termino las tareas que empiezo" },
-    { id: "ina-organizacion", icon: "📅", text: "Me cuesta organizarme" },
-    { id: "ina-objetos", icon: "🔑", text: "Pierdo objetos importantes" },
+    { id: "ina-detalles", text: "Me cuesta mantener atención en detalles" },
+    { id: "ina-escucha", text: "No parece que escucho cuando me hablan" },
+    { id: "ina-tareas", text: "No termino las tareas que empiezo" },
+    { id: "ina-organizacion", text: "Me cuesta organizarme" },
+    { id: "ina-objetos", text: "Pierdo objetos importantes" },
   ] as const;
 
   const hyperactiveSymptoms = [
-    { id: "hiper-movimiento", icon: "🙌", text: "Muevo manos/pies constantemente" },
-    { id: "hiper-sentado", icon: "💺", text: "Me levanto cuando debo estar sentado" },
-    { id: "hiper-inquietud", icon: "😣", text: "Siento inquietud interna" },
-    { id: "hiper-motor", icon: "🏃", text: "Como si tuviera un motor interno" },
-    { id: "hiper-interrumpo", icon: "💬", text: "Interrumpo a otros sin darme cuenta" },
+    { id: "hiper-movimiento", text: "Muevo manos/pies constantemente" },
+    { id: "hiper-sentado", text: "Me levanto cuando debo estar sentado" },
+    { id: "hiper-inquietud", text: "Siento inquietud interna" },
+    { id: "hiper-motor", text: "Como si tuviera un motor interno" },
+    { id: "hiper-interrumpo", text: "Interrumpo a otros sin darme cuenta" },
   ] as const;
 
   const executiveEmotionalSymptoms = [
-    { id: "exec-procrastinacion", icon: "⏳", text: "Procrastinación crónica (dejar todo para último momento)" },
-    { id: "exec-hiperfoco", icon: "🎯", text: "Hiperfoco (concentración excesiva en tareas de interés ignorando responsabilidades)" },
-    { id: "exec-desregulacion", icon: "💥", text: "Desregulación emocional (estallidos de enojo bruscos o baja tolerancia a la frustración)" },
+    { id: "exec-procrastinacion", text: "Procrastinación crónica (dejar todo para último momento)" },
+    { id: "exec-hiperfoco", text: "Hiperfoco (concentración excesiva en tareas de interés ignorando responsabilidades)" },
+    { id: "exec-desregulacion", text: "Desregulación emocional (estallidos de enojo bruscos o baja tolerancia a la frustración)" },
   ] as const;
 
   const [selectedSymptoms, setSelectedSymptoms] = useState<Set<string>>(new Set());
@@ -103,19 +103,19 @@ export default function DiagnosticoPage() {
   const professionals = [
     {
       title: "Psiquiatra / Neurólogo",
-      icon: "🧠",
+      icon: Brain,
       speciality: "Evaluación clínica con criterios DSM-5",
       availability: "Único profesional habilitado para prescribir estimulantes y emitir receta oficial por triplicado",
     },
     {
       title: "Psicólogo clínico",
-      icon: "🏥",
+      icon: Stethoscope,
       speciality: "Entrevista clínica y evaluación funcional",
       availability: "Diagnóstico clínico o derivación médica",
     },
     {
       title: "Neuropsicólogo",
-      icon: "👨‍⚕️",
+      icon: User,
       speciality: "Tests de atención y funciones ejecutivas (CPT, TOVA, Stroop)",
       availability: "Complementario, no obligatorio",
     },
@@ -124,7 +124,7 @@ export default function DiagnosticoPage() {
   return (
     <StepGuideLayout
       title="Cómo te diagnostican TDAH"
-      description="Mirá estos pasos para entender cómo es el proceso diagnóstico"
+      description="Pasos para entender el proceso diagnóstico"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
@@ -154,7 +154,7 @@ export default function DiagnosticoPage() {
               <Alert className="bg-muted/40 border">
                 <Brain className="h-4 w-4" />
                 <AlertDescription>
-                  <strong>Qué exigirle al profesional:</strong> Un diagnóstico clínico en adultos no se hace solo charlando. Exigí que utilicen las herramientas validadas por el Primer Consenso Argentino de TDAH:
+                  <strong>Qué consultar con el profesional:</strong> Un diagnóstico clínico en adultos no se hace solo charlando. Preguntá si utilizan herramientas validadas por el Primer Consenso Argentino de TDAH:
                   <br />• <strong>DIVA-5:</strong> Entrevista clínica estructurada.
                   <br />• <strong>ASRS-v1.1:</strong> Escala para medir tus síntomas actuales.
                   <br />• <strong>WURS-25:</strong> Escala retrospectiva para rastrear tus síntomas en la infancia.
@@ -163,7 +163,7 @@ export default function DiagnosticoPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">🧠 Síntomas de Inatención</h3>
+                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">Síntomas de inatención</h3>
                   <div className="flex justify-between text-xs text-muted-foreground mb-2">
                     <span>Seleccionados: {inattentiveCount}/{inattentiveSymptoms.length}</span>
                     {inattentiveCount > 0 && <button onClick={() => clearGroup("ina")} className="underline">Limpiar</button>}
@@ -172,7 +172,6 @@ export default function DiagnosticoPage() {
                     {inattentiveSymptoms.map((item) => (
                       <label key={item.id} className="flex items-center gap-3 p-3 bg-muted/40 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
-                        <span className="text-2xl">{item.icon}</span>
                         <span className="text-sm">{item.text}</span>
                       </label>
                     ))}
@@ -180,7 +179,7 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">⚡ Síntomas de Hiperactividad</h3>
+                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">Síntomas de hiperactividad</h3>
                   <div className="flex justify-between text-xs text-muted-foreground mb-2">
                     <span>Seleccionados: {hyperactiveCount}/{hyperactiveSymptoms.length}</span>
                     {hyperactiveCount > 0 && <button onClick={() => clearGroup("hiper")} className="underline">Limpiar</button>}
@@ -189,7 +188,6 @@ export default function DiagnosticoPage() {
                     {hyperactiveSymptoms.map((item) => (
                       <label key={item.id} className="flex items-center gap-3 p-3 bg-muted/40 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
-                        <span className="text-2xl">{item.icon}</span>
                         <span className="text-sm">{item.text}</span>
                       </label>
                     ))}
@@ -197,7 +195,7 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">🧩 Síntomas Ejecutivos / Emocionales</h3>
+                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">Síntomas ejecutivos y emocionales</h3>
                   <div className="flex justify-between text-xs text-muted-foreground mb-2">
                     <span>Seleccionados: {executiveCount}/{executiveEmotionalSymptoms.length}</span>
                     {executiveCount > 0 && <button onClick={() => clearGroup("exec")} className="underline">Limpiar</button>}
@@ -206,7 +204,6 @@ export default function DiagnosticoPage() {
                     {executiveEmotionalSymptoms.map((item) => (
                       <label key={item.id} className="flex items-center gap-3 p-3 bg-muted/40 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
-                        <span className="text-2xl">{item.icon}</span>
                         <span className="text-sm">{item.text}</span>
                       </label>
                     ))}
@@ -216,7 +213,7 @@ export default function DiagnosticoPage() {
 
               <label className="mx-auto flex max-w-2xl cursor-pointer items-start gap-3 rounded-lg border bg-muted/40 p-4 text-left">
                 <Checkbox checked={impairmentConfirmed} onCheckedChange={(c) => setImpairmentConfirmed(c === true)} className="mt-1" />
-                <span className="text-sm">Existe evidencia clara de que estos síntomas interfieren en mi funcionamiento social, académico o laboral en al menos dos ámbitos.</span>
+                <span className="text-sm">Existe impacto claro de estos síntomas en mi funcionamiento social, académico o laboral en al menos dos ámbitos.</span>
               </label>
 
               <Alert>
@@ -272,18 +269,22 @@ export default function DiagnosticoPage() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-4">
-                {professionals.map((prof, i) => (
-                  <Card key={i} className="text-center">
-                    <CardHeader>
-                      <div className="text-6xl mb-2">{prof.icon}</div>
-                      <CardTitle className="text-lg">{prof.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2 text-sm">
-                      <div>{prof.speciality}</div>
-                      <div className="text-muted-foreground">{prof.availability}</div>
-                    </CardContent>
-                  </Card>
-                ))}
+                {professionals.map((prof, i) => {
+                  const Icon = prof.icon;
+
+                  return (
+                    <Card key={i} className="text-center">
+                      <CardHeader>
+                        <Icon className="mx-auto mb-2 h-8 w-8 text-primary" />
+                        <CardTitle className="text-lg">{prof.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-2 text-sm">
+                        <div>{prof.speciality}</div>
+                        <div className="text-muted-foreground">{prof.availability}</div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
 
             </CardContent>
@@ -343,7 +344,7 @@ export default function DiagnosticoPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-semibold mb-3 text-foreground">📋 Documentos a llevar</h3>
+                  <h3 className="font-semibold mb-3 text-foreground">Documentos a llevar</h3>
                   <div className="space-y-2 text-sm">
                     {["Boletines escolares antiguos", "Informes médicos previos", "Lista de medicamentos", "Antecedentes familiares"].map((d, i) => (
                       <div key={i} className="flex items-center gap-2 p-2 bg-muted/40 rounded border"><CheckCircle className="h-4 w-4 text-primary" />{d}</div>
@@ -351,7 +352,7 @@ export default function DiagnosticoPage() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-3 text-foreground">💭 Información a preparar</h3>
+                  <h3 className="font-semibold mb-3 text-foreground">Información a preparar</h3>
                   <div className="space-y-2 text-sm">
                     {["Ejemplos específicos de dificultades", "Impacto en trabajo/estudios", "Problemas en relaciones", "Estrategias que has probado"].map((d, i) => (
                       <div key={i} className="flex items-center gap-2 p-2 bg-muted/40 rounded border"><CheckCircle className="h-4 w-4 text-primary" />{d}</div>
@@ -440,7 +441,7 @@ export default function DiagnosticoPage() {
             <CardContent className="space-y-6">
               <Alert className="bg-muted/40 border">
                 <AlertTriangle className="h-4 w-4" />
-                <AlertDescription><strong>Realidad crítica:</strong> El TDAH no tratado tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong>. Puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.</AlertDescription>
+                <AlertDescription><strong>Riesgos asociados:</strong> El TDAH no tratado tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong>. Puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.</AlertDescription>
               </Alert>
 
               <div className="grid md:grid-cols-2 gap-4">

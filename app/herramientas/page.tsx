@@ -44,7 +44,7 @@ export default function HerramientasPage() {
   return (
     <StepGuideLayout
       title="Herramientas para el día a día con TDAH"
-      description="Apps, recursos y estrategias prácticas para organizarte mejor"
+      description="Estrategias prácticas para organizarte mejor"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
@@ -63,7 +63,7 @@ export default function HerramientasPage() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
-                  <CardHeader><CardTitle className="text-base">📅 Tiempo</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-base">Tiempo</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-2">
                     <div>• Usa una sola agenda (física o digital)</div>
                     <div>• Bloques de 25-45 min con descansos cortos (Pomodoro)</div>
@@ -72,7 +72,7 @@ export default function HerramientasPage() {
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardHeader><CardTitle className="text-base">🏠 Espacio</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-base">Espacio</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-2">
                     <div>• Un lugar para cada cosa, cada cosa en su lugar</div>
                     <div>• Reduce objetos visuales en el escritorio</div>
@@ -96,7 +96,7 @@ export default function HerramientasPage() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-3 gap-3">
                 <Card>
-                  <CardHeader><CardTitle className="text-sm">🛡️ Minimizar distracciones</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-sm">Minimizar distracciones</CardTitle></CardHeader>
                   <CardContent className="text-xs space-y-1">
                     <div>• Teléfono en modo avión o en otra habitación</div>
                     <div>• Bloqueadores de sitios web (Freedom, Cold Turkey)</div>
@@ -104,7 +104,7 @@ export default function HerramientasPage() {
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardHeader><CardTitle className="text-sm">⏱️ Períodos concentrados</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-sm">Períodos concentrados</CardTitle></CardHeader>
                   <CardContent className="text-xs space-y-1">
                     <div>• 25-45 minutos de foco profundo</div>
                     <div>• Descanso de 5-10 minutos entre bloques</div>
@@ -112,7 +112,7 @@ export default function HerramientasPage() {
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardHeader><CardTitle className="text-sm">🔄 Refocalización</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-sm">Refocalización</CardTitle></CardHeader>
                   <CardContent className="text-xs space-y-1">
                     <div>• Técnica del «5-4-3-2-1» para volver al presente</div>
                     <div>• Regla de los 2 minutos: si es rápido, hacelo ahora</div>
@@ -135,7 +135,7 @@ export default function HerramientasPage() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
-                  <CardHeader><CardTitle className="text-base">💜 Técnicas rápidas</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-base">Técnicas rápidas</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• Respiración 4-7-8 (inhalar 4, retener 7, exhalar 8)</div>
                     <div>• Cambio de temperatura: agua fría en cara o manos</div>
@@ -144,7 +144,7 @@ export default function HerramientasPage() {
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardHeader><CardTitle className="text-base">🗣️ Comunicación efectiva</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-base">Comunicación efectiva</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• «Necesito 5 minutos para procesar esto»</div>
                     <div>• «Mi cerebro funciona diferente, no es desinterés»</div>

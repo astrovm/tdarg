@@ -34,7 +34,7 @@ export default function TratamientosPage() {
   return (
     <StepGuideLayout
       title="Tratamientos para TDAH"
-      description="Mirá estas opciones para entender cómo se trata el TDAH"
+      description="Opciones para entender cómo se trata el TDAH"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
@@ -53,7 +53,7 @@ export default function TratamientosPage() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-3 gap-4">
                 <Card className="text-center border">
-                  <CardHeader className="pb-2"><div className="text-5xl mb-2">💊</div><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
+                  <CardHeader className="pb-2"><Pill className="mx-auto mb-2 h-8 w-8 text-primary" /><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-slate-500 rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano es una estrategia válida para aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio según tus planes: al pausarla, la impulsividad vuelve de inmediato, lo que eleva el riesgo de choques o gastos excesivos al salir de noche.</span></div>
@@ -61,15 +61,15 @@ export default function TratamientosPage() {
                 </Card>
 
                 <Card className="text-center border">
-                  <CardHeader className="pb-2"><div className="text-5xl mb-2">🧠</div><CardTitle className="text-lg">Terapia</CardTitle></CardHeader>
+                  <CardHeader className="pb-2"><Brain className="mx-auto mb-2 h-8 w-8 text-primary" /><CardTitle className="text-lg">Terapia</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Exigí TCC:</strong> La Terapia Cognitivo-Conductual es la que tiene mayor respaldo científico en adultos para entrenar funciones ejecutivas, organización y regular emociones.</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Terapias ineficaces:</strong> El psicoanálisis tradicional demostró una eficacia pobre (apenas 36%) para tratar los síntomas centrales neurológicos del TDAH.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>TCC:</strong> La Terapia Cognitivo-Conductual es la que tiene mayor respaldo científico en adultos para entrenar funciones ejecutivas, organización y regular emociones.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Evidencia limitada:</strong> El psicoanálisis tradicional tiene evidencia limitada para tratar los síntomas centrales neurológicos del TDAH.</span></div>
                   </CardContent>
                 </Card>
 
                 <Card className="text-center border">
-                  <CardHeader className="pb-2"><div className="text-5xl mb-2">💪</div><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
+                  <CardHeader className="pb-2"><Heart className="mx-auto mb-2 h-8 w-8 text-primary" /><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Sueño:</strong> El 80% de los adultos con TDAH padece insomnio o síndrome de piernas inquietas, lo que arruina la cognición al día siguiente.</span></div>
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> Sin tratamiento, la impulsividad y la distracción aumentan hasta un 62% las probabilidades de sufrir accidentes de tránsito graves.</span></div>
@@ -193,9 +193,9 @@ export default function TratamientosPage() {
               <div>
                 <h3 className="font-semibold mb-3">Entrenamiento en Habilidades</h3>
                 <div className="grid md:grid-cols-3 gap-3 text-sm">
-                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">📋 Organización</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Agendas y listas • División de tareas • Organización de espacios</CardContent></Card>
-                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">🎯 Gestión de Atención</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Minimizar distracciones • Períodos concentrados • Refocalización</CardContent></Card>
-                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">💜 Regulación Emocional</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Identificar emociones • Técnicas de relajación • Manejo de frustración</CardContent></Card>
+                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Organización</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Agendas y listas • División de tareas • Organización de espacios</CardContent></Card>
+                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Gestión de atención</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Minimizar distracciones • Períodos concentrados • Refocalización</CardContent></Card>
+                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Regulación emocional</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Identificar emociones • Técnicas de relajación • Manejo de frustración</CardContent></Card>
                 </div>
               </div>
 
@@ -220,7 +220,7 @@ export default function TratamientosPage() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
-                  <CardHeader><CardTitle className="text-base">🏃 Ejercicio aeróbico</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-base">Ejercicio aeróbico</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• Correr / trotar / caminar rápido</div>
                     <div>• Bicicleta / natación</div>
@@ -228,7 +228,7 @@ export default function TratamientosPage() {
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardHeader><CardTitle className="text-base">⚖️ Equilibrio y coordinación</CardTitle></CardHeader>
+                  <CardHeader><CardTitle className="text-base">Equilibrio y coordinación</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• Yoga / pilates / artes marciales</div>
                     <div>• Deportes de equipo</div>

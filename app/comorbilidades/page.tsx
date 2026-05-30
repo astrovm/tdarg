@@ -46,7 +46,7 @@ export default function ComorbilidadesPage() {
   return (
     <StepGuideLayout
       title="TDAH y Comorbilidades"
-      description="El TDAH raramente viene solo"
+      description="Condiciones frecuentes junto al TDAH"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
