@@ -1,38 +1,38 @@
 // Legislación relevante para TDAH en Argentina
 export const leyes = [
   {
-    numero: "1. La odisea de la receta: Leyes 19.303, 27.553 y la transición digital",
+    numero: "1. Receta para psicotrópicos: Leyes 19.303, 27.553 y transición digital",
     titulo: "El problema de la receta digital",
-    urgencia: "Crítico",
-    impacto: "Te deja sin medicación en el mostrador",
+    urgencia: "Importante",
+    impacto: "Puede complicar la compra en farmacia",
     descripcion:
       "Los estimulantes para el TDAH son Psicotrópicos Lista II de alta seguridad. Aunque la Resolución 2214/2025 estableció los protocolos para digitalizarlos, dio un plazo de 120 días para adaptar los sistemas provinciales.",
     puntosClave: [
-      "El cuello de botella: El software médico debe validar tu receta con el registro federal (REFEPS) en tiempo real. Como el sistema está en plena transición tecnológica, las apps de prepagas aún no sirven para estos fármacos.",
+      "Punto operativo: El software médico debe validar la receta con el registro federal (REFEPS) en tiempo real. Durante la transición tecnológica, muchas apps de prepagas todavía no sirven para estos fármacos.",
       "La regla práctica: Provincias como Buenos Aires (Res. 140/2025) dictaminaron que es obligatorio seguir llevando el formulario oficial físico por triplicado, manuscrito de puño y letra por tu médico.",
       "Validez: Tu receta física tiene exactamente 30 días de validez desde la fecha de emisión para ir a comprarla.",
     ],
   },
   {
-    numero: "2. La trampa de la cronicidad: PMO y Resolución 310/2004",
+    numero: "2. Cobertura: PMO, Resolución 310/2004 y CUD",
     titulo: "Costos y el Certificado de Discapacidad",
-    urgencia: "Alto",
-    impacto: "Aumenta drásticamente tu gasto de bolsillo",
+    urgencia: "Relevante",
+    impacto: "Define cuánto queda a cargo del paciente",
     descripcion:
-      "La normativa divide los descuentos en 40% (medicamentos comunes) y 70% (patologías crónicas). El Estado argentino se niega a reconocer burocráticamente al TDAH como crónico.",
+      "La normativa divide los descuentos entre medicamentos ambulatorios y tratamientos para patologías crónicas. En la práctica, el TDAH suele quedar cubierto como medicamento ambulatorio.",
     puntosClave: [
-      "El impacto en tu bolsillo: Al tratarlo como un medicamento ambulatorio común, el sistema te estanca de por vida en el 40%, obligándote a absorber el 60% restante ante cada aumento de la inflación.",
-      "Nuevas drogas denegadas: Si te recetan fármacos modernos (Lisdexanfetamina o Atomoxetina), las prepagas suelen rechazarlas de entrada por no figurar explícitamente en el PMO base.",
-      "El CUD como parche: Como el sistema de salud estándar falla, los pacientes con casos severos se ven forzados a tramitar el Certificado Único de Discapacidad (CUD) como único 'escudo legal' para obligar a la obra social a cubrir el 100%.",
+      "Cobertura habitual: Si el medicamento se trata como ambulatorio, la cobertura suele quedar en 40% y el resto queda a cargo del paciente.",
+      "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden tener rechazos iniciales por no figurar explícitamente en el PMO base.",
+      "CUD: En casos con discapacidad certificada, el Certificado Único de Discapacidad puede habilitar otra vía de cobertura según evaluación interdisciplinaria.",
     ],
   },
   {
     numero: "3. Discapacidad y educación: Ley 27.306",
     titulo: "Acompañamiento escolar y universitario",
-    urgencia: "Medio",
+    urgencia: "Administrativo",
     impacto: "Garantiza condiciones justas de evaluación",
     descripcion:
-      "La Ley de Dificultades Específicas del Aprendizaje (DEA) obliga legalmente a todo el sistema educativo a realizar adaptaciones curriculares. No es una ventaja, es tu derecho.",
+      "La Ley de Dificultades Específicas del Aprendizaje (DEA) prevé adaptaciones curriculares para estudiantes con diagnóstico formal. No es una ventaja: es una adecuación de acceso.",
     puntosClave: [
       "Las instituciones educativas suelen desconocer la norma o resistirse a aplicarla.",
       "Con la presentación formal del diagnóstico, tenés derecho a exigir: más tiempo para rendir evaluaciones, priorización de exámenes orales sobre los escritos, y permiso para usar calculadoras o computadoras evitando copiados extensos.",

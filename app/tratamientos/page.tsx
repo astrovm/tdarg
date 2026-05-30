@@ -56,7 +56,7 @@ export default function TratamientosPage() {
                   <CardHeader className="pb-2"><Pill className="mx-auto mb-2 h-8 w-8 text-emerald-400" /><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano es una estrategia válida para aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio según tus planes: al pausarla, la impulsividad vuelve de inmediato, lo que eleva el riesgo de choques o gastos excesivos al salir de noche.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano puede aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio con tu médico según síntomas, planes y tolerancia.</span></div>
                   </CardContent>
                 </Card>
 
@@ -71,8 +71,8 @@ export default function TratamientosPage() {
                 <Card className="text-center border">
                   <CardHeader className="pb-2"><Heart className="mx-auto mb-2 h-8 w-8 text-rose-400" /><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Sueño:</strong> El 80% de los adultos con TDAH padece insomnio o síndrome de piernas inquietas, lo que arruina la cognición al día siguiente.</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> Sin tratamiento, la impulsividad y la distracción aumentan hasta un 62% las probabilidades de sufrir accidentes de tránsito graves.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Sueño:</strong> Los problemas de sueño son frecuentes en adultos con TDAH y pueden empeorar atención, memoria y regulación emocional.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> La impulsividad y la distracción se asocian con mayor riesgo de incidentes de tránsito, especialmente cuando los síntomas están mal controlados.</span></div>
                   </CardContent>
                 </Card>
               </div>

@@ -17,33 +17,33 @@ import {
 
 export default function LegislacionPage() {
   const getSeverityClasses = (urgencia: string) => {
-    if (urgencia === "Crítico") {
+    if (urgencia === "Importante") {
       return {
-        border: "border-l-red-500",
-        badge: "bg-red-600 text-white",
-        dot: "bg-red-500",
-        surface: "bg-red-50 dark:bg-red-900/20",
-        text: "text-red-700 dark:text-red-300",
+        border: "border-l-amber-500",
+        badge: "bg-amber-100 text-amber-900 dark:bg-amber-900/40 dark:text-amber-200",
+        dot: "bg-amber-500",
+        surface: "bg-amber-50 dark:bg-amber-900/20",
+        text: "text-amber-800 dark:text-amber-200",
       };
     }
 
-    if (urgencia === "Alto") {
+    if (urgencia === "Relevante") {
       return {
-        border: "border-l-orange-500",
-        badge: "bg-orange-600 text-white",
-        dot: "bg-orange-500",
-        surface: "bg-orange-50 dark:bg-orange-900/20",
-        text: "text-orange-700 dark:text-orange-300",
+        border: "border-l-sky-500",
+        badge: "bg-sky-100 text-sky-900 dark:bg-sky-900/40 dark:text-sky-200",
+        dot: "bg-sky-500",
+        surface: "bg-sky-50 dark:bg-sky-900/20",
+        text: "text-sky-800 dark:text-sky-200",
       };
     }
 
-    if (urgencia === "Medio") {
+    if (urgencia === "Administrativo") {
       return {
-        border: "border-l-yellow-500",
-        badge: "bg-yellow-600 text-white",
-        dot: "bg-yellow-500",
-        surface: "bg-yellow-50 dark:bg-yellow-900/20",
-        text: "text-yellow-700 dark:text-yellow-300",
+        border: "border-l-emerald-500",
+        badge: "bg-emerald-100 text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-200",
+        dot: "bg-emerald-500",
+        surface: "bg-emerald-50 dark:bg-emerald-900/20",
+        text: "text-emerald-800 dark:text-emerald-200",
       };
     }
 
@@ -75,18 +75,18 @@ export default function LegislacionPage() {
 
       <PageHero
         title="Leyes sobre TDAH en Argentina"
-        description="Qué dice la ley hoy, qué funciona mal y qué se podría hacer para resolverlo de forma concreta."
+        description="Qué dice la normativa, cómo se aplica en la práctica y qué puntos conviene revisar antes de pedir cobertura."
       />
 
       {/* Laws Section */}
       <div className="bg-muted/30 border-y">
         <div className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold text-foreground mb-4 text-center">
-            El problema legal y tus derechos hoy
+            Normativa y cobertura
           </h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8">
-            Un solo mapa: qué dice la ley, qué falla en la práctica y qué
-            solución concreta debería existir.
+            Un mapa simple: receta, cobertura de medicamentos y adaptaciones
+            educativas.
           </p>
 
           <div className="max-w-5xl mx-auto space-y-4">

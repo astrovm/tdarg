@@ -441,7 +441,7 @@ export default function DiagnosticoPage() {
             <CardContent className="space-y-6">
               <Alert className="bg-muted/40 border">
                 <AlertTriangle className="h-4 w-4" />
-                <AlertDescription><strong>Riesgos asociados:</strong> El TDAH no tratado tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong>. Puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.</AlertDescription>
+                <AlertDescription><strong>Riesgos asociados:</strong> El TDAH sin diagnóstico o sin tratamiento adecuado se asocia con más accidentes, dificultades laborales, problemas vinculares y mayor riesgo de salud mental. La evaluación profesional ayuda a ordenar el cuadro y definir un abordaje.</AlertDescription>
               </Alert>
 
               <div className="grid md:grid-cols-2 gap-4">
@@ -451,7 +451,7 @@ export default function DiagnosticoPage() {
                     <div><strong>«No existe realmente»</strong> — Consenso internacional de 208 expertos confirma que es un trastorno neurobiológico válido.</div>
                     <div><strong>«Solo en niños»</strong> — Persiste en la adultez en ~50% de los casos con deterioro residual.</div>
                     <div><strong>«Falta de voluntad»</strong> — Es un trastorno del desarrollo con base neurológica, no un problema de carácter.</div>
-                    <div><strong>«Los medicamentos son peligrosos»</strong> — Estimulantes tienen excelente perfil de seguridad cuando se usan correctamente; el riesgo mayor es no tratar.</div>
+                    <div><strong>«Los medicamentos son peligrosos»</strong> — Los estimulantes pueden ser útiles y seguros cuando están bien indicados, controlados y ajustados por un profesional.</div>
                   </CardContent>
                 </Card>
 

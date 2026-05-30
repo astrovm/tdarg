@@ -313,15 +313,15 @@ export default function ComorbilidadesPage() {
                   <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
                     <Zap className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block mb-1">El peligro de confundirlos:</strong>
-                      Ambos comparten la impulsividad grave, la desregulación emocional severa y los problemas interpersonales. Sin embargo, en el TLP la impulsividad empeora bruscamente bajo estrés o miedo al abandono, mientras que en el TDAH es un déficit más constante.
+                      <strong className="block mb-1">Diagnóstico diferencial:</strong>
+                      Ambos pueden compartir impulsividad, desregulación emocional y problemas interpersonales. En el TLP estos síntomas suelen variar más con estrés o miedo al abandono; en el TDAH tienden a ser más constantes.
                     </div>
                   </li>
                   <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
                     <AlertTriangle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">Impacto cruzado:</strong>
-                      Esta combinación eleva drásticamente los comportamientos de riesgo y autolesivos. Exige un diagnóstico diferencial experto, ya que los síntomas ruidosos del TLP suelen enmascarar por completo los déficits silenciosos del TDAH.
+                      Esta combinación puede aumentar conductas de riesgo y autolesivas. Conviene una evaluación clínica cuidadosa para no atribuir todo a un solo diagnóstico.
                     </div>
                   </li>
                 </ul>
@@ -331,21 +331,21 @@ export default function ComorbilidadesPage() {
             {currentStep === 9 && (
               <CardContent className="space-y-4">
                 <p className="text-slate-700 dark:text-slate-300">
-                  Hasta un 43% de los adultos con TDAH desarrollan Trastorno por Uso de Sustancias (TUS) a lo largo de su vida. La falla en el sistema de recompensa (búsqueda de dopamina) los hace doblemente vulnerables a las adicciones.
+                  El TDAH puede coexistir con trastornos por uso de sustancias. La impulsividad, la búsqueda de estimulación y las dificultades de regulación pueden aumentar la vulnerabilidad.
                 </p>
                 <ul className="space-y-4 text-sm mt-4">
                   <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
                     <Brain className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">Adicciones conductuales («sin sustancia»):</strong>
-                      No solo hay riesgo con drogas o alcohol. El adulto con TDAH busca estimulación constante, siendo altamente propenso a las compras compulsivas, consumo de pornografía, ludopatía (apuestas) y adicción a internet/redes sociales.
+                      No solo puede haber problemas con drogas o alcohol. También pueden aparecer compras compulsivas, apuestas o uso problemático de internet y redes sociales.
                     </div>
                   </li>
                   <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
                     <Activity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">El mito de la pastilla estimulante:</strong>
-                      El Consenso Internacional es unánime: tratar el TDAH con medicación estimulante <strong>NO</strong> incrementa el riesgo de caer en adicciones. Por el contrario, un tratamiento temprano y adecuado previene activamente el consumo problemático.
+                      La medicación estimulante bien indicada y controlada no implica por sí sola un consumo problemático. La decisión debe considerar historia clínica, riesgo individual y seguimiento.
                     </div>
                   </li>
                 </ul>
