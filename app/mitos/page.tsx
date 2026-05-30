@@ -493,7 +493,7 @@ export default function MitosPage() {
                         </li>
                         <li>
                           • <strong>Reduce riesgo de adicción:</strong> TDAH no
-                          tratado 2x más TUS
+                          tratado duplica el riesgo de consumo problemático
                         </li>
                         <li>
                           • <strong>Dosis terapéuticas vs. abuso:</strong>{" "}

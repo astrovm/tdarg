@@ -517,8 +517,8 @@ export default function ComorbilidadesPage() {
                           🔴 Primera prioridad
                         </h5>
                         <p className="text-xs">
-                          Trastorno bipolar, psicosis, ideas suicidas o TUS
-                          severo
+                          Trastorno bipolar, psicosis, ideas suicidas o
+                          adicciones severas
                         </p>
                       </div>
                       <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded-lg">

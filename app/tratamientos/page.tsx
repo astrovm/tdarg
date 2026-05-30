@@ -1245,7 +1245,7 @@ export default function TratamientosPage() {
                             </li>
                             <li>
                               <strong>Plan B útil:</strong> antecedentes de
-                              adicciones o TUS
+                              adicciones o consumo problemático de alcohol/drogas
                             </li>
                             <li>
                               <strong>Si hay intolerancia:</strong> cambiar
