@@ -61,18 +61,17 @@ export function StepGuideLayout({
   const gridClassName = getGridClassName(steps.length);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-white dark:bg-slate-950">
       <Header />
 
       <div
         className={cn(
-          "relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden",
+          "relative border-b bg-white dark:border-slate-800 dark:bg-slate-950",
           heroClassName,
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5" />
         <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className={cn("text-3xl font-bold text-purple-600 mb-4", titleClassName)}>{title}</h1>
+          <h1 className={cn("text-3xl font-bold text-slate-900 dark:text-white mb-4", titleClassName)}>{title}</h1>
           {description ? (
             <p className={cn("text-lg text-slate-600 dark:text-slate-300 mb-6", descriptionClassName)}>
               {description}
@@ -84,7 +83,7 @@ export function StepGuideLayout({
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
-                Progreso del aprendizaje
+                Progreso
               </span>
               <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
                 {completedCount}/{steps.length} completado
@@ -107,9 +106,9 @@ export function StepGuideLayout({
                   className={cn(
                     "p-3 rounded-lg text-left transition-all",
                     isActive
-                      ? "bg-purple-600 text-white shadow-lg"
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
                       : done
-                      ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 border border-green-300 dark:border-green-700"
+                      ? "bg-white text-slate-700 border border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-700"
                       : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700",
                   )}
                 >
