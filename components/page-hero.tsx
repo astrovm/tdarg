@@ -28,18 +28,15 @@ export function PageHero({
   return (
     <div
       className={cn(
-        "relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden",
+        "relative border-b bg-white dark:border-slate-800 dark:bg-slate-950",
         className,
       )}
     >
-      <div
-        className={cn(
-          "absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5",
-          overlayClassName,
-        )}
-      />
-      <div className={cn("container mx-auto px-4 py-12 relative z-10", containerClassName)}>
-        <h1 className={cn("text-4xl font-bold text-purple-600 mb-4", titleClassName)}>{title}</h1>
+      {overlayClassName ? (
+        <div className={cn("absolute inset-0", overlayClassName)} />
+      ) : null}
+      <div className={cn("container mx-auto px-4 py-10 relative z-10", containerClassName)}>
+        <h1 className={cn("text-4xl font-bold text-slate-900 dark:text-white mb-4", titleClassName)}>{title}</h1>
         {description ? (
           <p
             className={cn(
