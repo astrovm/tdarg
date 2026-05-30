@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import {
   Search,
   Building2,
@@ -138,13 +138,7 @@ export default function PreciosPage() {
 
         <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
           <div className="container mx-auto px-4 py-8">
-            <Tabs defaultValue="agrupado" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
-                <TabsTrigger value="agrupado">Por tipo</TabsTrigger>
-                <TabsTrigger value="lista">Lista Completa</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="agrupado" className="space-y-8 mt-6">
+            <div className="space-y-8 mt-6">
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
                   <div className="flex items-center gap-2 mb-4">
                     <Skeleton className="h-1 w-8 rounded" />
@@ -204,13 +198,12 @@ export default function PreciosPage() {
                       ))}
                     </div>
                   </div>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </div>
-        </div>
-      </div>
-    );
+                 </div>
+               </div>
+           </div>
+         </div>
+       </div>
+     );
   }
 
   if (error) {
@@ -296,13 +289,7 @@ export default function PreciosPage() {
               </AlertDescription>
             </Alert>
           ) : (
-            <Tabs defaultValue="agrupado" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
-                <TabsTrigger value="agrupado">Por tipo</TabsTrigger>
-                <TabsTrigger value="lista">Lista Completa</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="agrupado" className="space-y-8 mt-6">
+            <div className="space-y-8 mt-6">
                 {/* Estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
@@ -313,13 +300,6 @@ export default function PreciosPage() {
                       </h2>
                      </div>
 
-                     <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950">
-                       <AlertCircle className="h-4 w-4 text-blue-600" />
-                       <AlertDescription className="text-blue-800 dark:text-blue-200">
-                         <strong>Jerarquía oficial (Consenso Argentino):</strong> Primera línea: Estimulantes de acción prolongada (Lisdexanfetamina, Metilfenidato OROS). Segunda línea: Atomoxetina. Tercera línea (off-label): Bupropión o Clonidina.
-                         <br /><strong>Monitoreo obligatorio:</strong> Los estimulantes aumentan frecuencia cardíaca y presión arterial. Exigí control cardiovascular basal antes de empezar y chequeos de presión cada 6 meses.
-                       </AlertDescription>
-                     </Alert>
 
                      {estimulantesOrdenados.map(
                       ([principio, meds]) => (
@@ -673,102 +653,12 @@ export default function PreciosPage() {
                         </div>
                       )
                     )}
-                  </div>
-                )}
-              </TabsContent>
-
-              <TabsContent value="lista" className="mt-6">
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-gray-300 dark:border-gray-600">
-                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {medicamentosFiltrados.map((medicamento) => (
-                      <Card
-                        key={medicamento.codigo}
-                        className="hover:shadow-md transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
-                      >
-                        <CardHeader className="pb-3">
-                          <div className="flex justify-between items-start">
-                            <CardTitle className="text-lg leading-tight">
-                              {formatMedicationName(medicamento.marca)}
-                            </CardTitle>
-                            <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                              {getMedicamentoSourceLabel(medicamento.source)}
-                            </Badge>
-                          </div>
-                          <CardDescription>
-                            {medicamento.concentracion}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-3">
-                          <div className="flex items-center gap-2">
-                            <Building2 className="h-4 w-4 text-gray-400" />
-                            <span className="text-sm">
-                              {medicamento.laboratorio}
-                            </span>
-                          </div>
-
-                          <div className="flex items-center gap-2">
-                            <Package className="h-4 w-4 text-gray-400" />
-                            <span className="text-sm">
-                              {formatMedicationPresentation(medicamento)}
-                            </span>
-                          </div>
-
-                          <div className="flex items-center gap-2">
-                            <Clock className="h-4 w-4 text-gray-400" />
-                            <span className="text-sm">
-                              {new Date(
-                                medicamento.fechaActualizacion
-                              ).toLocaleDateString("es-AR")}
-                            </span>
-                          </div>
-
-                          <div className="pt-2 border-t space-y-2">
-                            <div>
-                              <div className="text-sm text-gray-500 mb-1">
-                                Precio sin cobertura
-                              </div>
-                              <span className="text-2xl font-bold text-green-600">
-                                {formatPrice(medicamento.precio)}
-                              </span>
-                            </div>
-                            {pricePerMg(medicamento) && (
-                              <div>
-                                <div className="text-sm text-gray-500 mb-1">
-                                  Precio por mg
-                                </div>
-                                <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                                  {formatPrice(pricePerMg(medicamento)!)}
-                                </span>
-                              </div>
-                            )}
-                            <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                              <Shield className="h-4 w-4 text-blue-600" />
-                              <div>
-                                <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                                  {isLisdexanfetamina(medicamento)
-                                    ? "Precio teórico con 40% desc."
-                                    : "Con prepaga/obra social (40% desc.)"}
-                                </div>
-                                <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
-                                  {formatPrice(
-                                    priceWithCoverage(
-                                      medicamento.precio
-                                    )
-                                  )}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              </TabsContent>
-            </Tabs>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
+                   </div>
+                 )}
+               </div>
+           )}
+         </div>
+       </div>
+     </div>
+   );
+ }
