@@ -184,6 +184,26 @@ const caddraMedicationMap: CaddraMedication[] = [
       "No es Lista II: suele ser más simple de prescribir y conseguir. Tarda semanas en hacer efecto.",
   },
   {
+    name: "Bupropión",
+    group: "Antidepresivo dopaminérgico",
+    forms: "Comprimidos de liberación prolongada según marca local",
+    duration: "24 h",
+    caddraLine: "Tercera línea / off-label",
+    argentina: "Disponible",
+    localNote:
+      "Opción fuera de etiqueta cuando hay depresión comórbida, tabaquismo, alto costo o mala tolerancia a estimulantes.",
+  },
+  {
+    name: "Clonidina",
+    group: "Agonista alfa-2",
+    forms: "Receta magistral según indicación médica",
+    duration: "Variable",
+    caddraLine: "Tercera línea / off-label",
+    argentina: "Magistral",
+    localNote:
+      "Puede considerarse si hay tics, Tourette, agresividad severa o problemas de sueño. Requiere seguimiento médico.",
+  },
+  {
     name: "Intuniv XR",
     group: "Guanfacina XR",
     forms: "Comprimidos XR 1, 2, 3, 4 mg",
@@ -757,6 +777,17 @@ export default function TratamientosPage() {
 
                 </CardHeader>
                 <CardContent>
+                  <Alert className="mb-6 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                    <AlertDescription>
+                      <strong>Atención con el tipo de terapia:</strong> la
+                      evidencia y el Consenso Argentino recomiendan TCC para
+                      herramientas ejecutivas, organización y regulación
+                      emocional. El psicoanálisis tradicional tiene baja eficacia
+                      para los síntomas centrales del TDAH y puede retrasar el
+                      tratamiento si niega el diagnóstico biológico.
+                    </AlertDescription>
+                  </Alert>
+
                   {/* Therapy Flow */}
                   <div className="mb-8 p-6 bg-purple-100 dark:bg-purple-900 rounded-lg">
                     <h3 className="text-center text-lg font-semibold mb-4">

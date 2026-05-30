@@ -79,6 +79,22 @@ const steps = [
     description:
       "Impulsividad y desregulación emocional que requieren abordaje dual",
   },
+  {
+    id: 8,
+    title: "TDAH + Bipolaridad",
+    subtitle: "Confusión frecuente",
+    icon: Activity,
+    description:
+      "Comorbilidad relevante que exige diagnóstico diferencial antes de indicar estimulantes",
+  },
+  {
+    id: 9,
+    title: "TDAH + TCA",
+    subtitle: "Trastornos alimentarios",
+    icon: Heart,
+    description:
+      "Mayor riesgo de atracones o bulimia por impulsividad y falla ejecutiva",
+  },
 ] satisfies StepDefinition[];
 
 export default function ComorbilidadesPage() {
@@ -605,6 +621,102 @@ export default function ComorbilidadesPage() {
                         <li>• Psicoterapia enfocada en regulación emocional</li>
                         <li>• Evaluación médica si el TDAH es claro</li>
                         <li>• Tratamiento dual y seguimiento cercano</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
+
+            {currentStep === 8 && (
+              <div className="space-y-6">
+                <Alert className="border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/30">
+                  <Activity className="h-4 w-4" />
+                  <AlertDescription>
+                    El trastorno bipolar y el TDAH pueden compartir
+                    impulsividad, locuacidad, inquietud y pensamiento acelerado.
+                    Diferenciarlos es clave: indicar estimulantes sin estabilizar
+                    el ánimo puede empeorar o precipitar un episodio maníaco.
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Señales que confunden
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Impulsividad y conductas de riesgo</li>
+                        <li>• Hablar mucho o sentirse acelerado</li>
+                        <li>• Irritabilidad y cambios de energía</li>
+                        <li>• Menor sueño sin registrar cansancio</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Qué evaluar antes
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Episodios claros de manía o hipomanía</li>
+                        <li>• Historia familiar de bipolaridad</li>
+                        <li>• Cambios episódicos vs síntomas de toda la vida</li>
+                        <li>• Estabilización del ánimo antes de estimulantes</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
+
+            {currentStep === 9 && (
+              <div className="space-y-6">
+                <Alert className="border-pink-200 dark:border-pink-800 bg-pink-50/50 dark:bg-pink-950/30">
+                  <Heart className="h-4 w-4" />
+                  <AlertDescription>
+                    Los trastornos alimentarios, especialmente atracones y
+                    bulimia, pueden aparecer junto al TDAH. En mujeres, el riesgo
+                    es mayor por la combinación de impulsividad, regulación
+                    emocional difícil y falla ejecutiva.
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Cómo puede verse
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Atracones como regulación emocional rápida</li>
+                        <li>• Dietas rígidas que no se sostienen</li>
+                        <li>• Culpa, vergüenza y ciclos de restricción</li>
+                        <li>• Dificultad para planificar comidas y compras</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        Abordaje útil
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="text-sm space-y-2">
+                        <li>• Evaluar TDAH, ánimo, ansiedad e imagen corporal</li>
+                        <li>• Plan alimentario realista, no punitivo</li>
+                        <li>• Estrategias externas para compras y horarios</li>
+                        <li>• Tratamiento coordinado con salud mental y nutrición</li>
                       </ul>
                     </CardContent>
                   </Card>

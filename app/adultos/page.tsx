@@ -237,6 +237,22 @@ export default function AdultosPage() {
                     </CardContent>
                   </Card>
                 </div>
+
+                <Card className="border-pink-200 dark:border-pink-800 bg-pink-50/30 dark:bg-pink-950/30">
+                  <CardHeader>
+                    <CardTitle className="text-base">
+                      Ciclo menstrual y hormonas
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm">
+                      Los síntomas no siempre son estables. La caída de
+                      estrógenos en la fase premenstrual puede intensificar la
+                      desregulación emocional, la impulsividad, la niebla mental
+                      y la dificultad para sostener rutinas.
+                    </p>
+                  </CardContent>
+                </Card>
               </>
             )}
 
