@@ -70,7 +70,7 @@ export default function LegislacionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       <PageHero
@@ -79,12 +79,12 @@ export default function LegislacionPage() {
       />
 
       {/* Laws Section */}
-      <div className="bg-slate-50 dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
+      <div className="bg-muted/30 border-y">
         <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 text-center">
+          <h2 className="text-3xl font-bold text-foreground mb-4 text-center">
             El problema legal y tus derechos hoy
           </h2>
-          <p className="text-center text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8">
             Un solo mapa: qué dice la ley, qué falla en la práctica y qué
             solución concreta debería existir.
           </p>
@@ -96,7 +96,7 @@ export default function LegislacionPage() {
               return (
               <Card
                 key={ley.numero}
-                className={`overflow-hidden bg-card border shadow-sm border-l-4 ${severity.border}`}
+                className={`overflow-hidden bg-card border shadow-sm border-l ${severity.border}`}
               >
                 <CardHeader className="pb-3">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -111,22 +111,22 @@ export default function LegislacionPage() {
                           {ley.impacto}
                         </span>
                       </div>
-                      <CardTitle className="text-xl text-slate-900 dark:text-white leading-snug">
+                      <CardTitle className="text-xl text-foreground leading-snug">
                         {ley.numero}
                       </CardTitle>
-                      <CardDescription className="text-sm font-medium text-slate-600 dark:text-slate-300 mt-1">
+                      <CardDescription className="text-sm font-medium text-muted-foreground mt-1">
                         {ley.titulo}
                       </CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 mb-4">
+                  <p className="text-sm leading-relaxed text-muted-foreground mb-4">
                     {ley.descripcion}
                   </p>
 
                   {ley.puntosClave.length > 0 && (
-                    <div className="rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-4">
+                    <div className="rounded-md border bg-muted/40 p-4">
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                         {ley.puntosClave.map((punto) => {
                           const bullet = splitBullet(punto);
@@ -136,9 +136,9 @@ export default function LegislacionPage() {
                               <div
                                 className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${severity.dot}`}
                               ></div>
-                              <span className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                              <span className="text-muted-foreground leading-relaxed">
                                 {bullet.label && (
-                                  <strong className="text-slate-900 dark:text-white">
+                                  <strong className="text-foreground">
                                     {bullet.label}:{" "}
                                   </strong>
                                 )}
@@ -159,12 +159,12 @@ export default function LegislacionPage() {
       </div>
 
       {/* Fuentes Section */}
-      <section className="bg-slate-100 dark:bg-slate-950 border-t py-8">
+      <section className="bg-muted/30 border-t py-8">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-center">
             De dónde sacamos la info
           </h2>
-          <div className="max-w-4xl mx-auto text-sm text-slate-600 dark:text-slate-300">
+          <div className="max-w-4xl mx-auto text-sm text-muted-foreground">
             <p className="mb-4">{fuentesDocumentacion.descripcion}</p>
             <ul className="list-disc list-inside space-y-2 mb-6">
               {fuentesDocumentacion.fuentes.map((fuente, index) => (

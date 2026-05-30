@@ -5,7 +5,7 @@ import { PageHero } from "@/components/page-hero";
 
 export default function EspecialistasLoading() {
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       <PageHero
@@ -26,7 +26,7 @@ export default function EspecialistasLoading() {
         </Card>
       </PageHero>
 
-      <div className="bg-slate-100 dark:bg-slate-950">
+      <div className="bg-muted/30">
         <div className="container mx-auto px-4 py-8">
           <div className="mb-6">
             <Skeleton className="h-7 w-48" />
@@ -101,7 +101,7 @@ export default function EspecialistasLoading() {
         </div>
       </div>
 
-      <div className="bg-slate-100 dark:bg-slate-950">
+      <div className="bg-muted/30">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="bg-card border">

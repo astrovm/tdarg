@@ -56,7 +56,7 @@ export default function TratamientosPage() {
                   <CardHeader className="pb-2"><Pill className="mx-auto mb-2 h-8 w-8 text-emerald-400" /><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-slate-500 rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano es una estrategia válida para aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio según tus planes: al pausarla, la impulsividad vuelve de inmediato, lo que eleva el riesgo de choques o gastos excesivos al salir de noche.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano es una estrategia válida para aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio según tus planes: al pausarla, la impulsividad vuelve de inmediato, lo que eleva el riesgo de choques o gastos excesivos al salir de noche.</span></div>
                   </CardContent>
                 </Card>
 

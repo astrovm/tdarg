@@ -61,19 +61,19 @@ export function StepGuideLayout({
   const gridClassName = getGridClassName(steps.length);
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       <div
         className={cn(
-          "relative border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-900",
+          "relative border-b bg-background",
           heroClassName,
         )}
       >
         <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className={cn("text-3xl font-bold text-slate-900 dark:text-white mb-4", titleClassName)}>{title}</h1>
+          <h1 className={cn("text-3xl font-bold text-foreground mb-4", titleClassName)}>{title}</h1>
           {description ? (
-            <p className={cn("text-lg text-slate-600 dark:text-slate-300 mb-6", descriptionClassName)}>
+            <p className={cn("text-lg text-muted-foreground mb-6", descriptionClassName)}>
               {description}
             </p>
           ) : null}
@@ -82,10 +82,10 @@ export function StepGuideLayout({
 
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+              <span className="text-sm font-medium text-muted-foreground">
                 Progreso
               </span>
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+              <span className="text-sm font-medium text-muted-foreground">
                 {completedCount}/{steps.length} completado
               </span>
             </div>
@@ -106,10 +106,10 @@ export function StepGuideLayout({
                   className={cn(
                     "p-3 rounded-lg text-left transition-all",
                     isActive
-                      ? "bg-slate-800 text-white dark:bg-slate-700 dark:text-white"
+                      ? "bg-primary text-primary-foreground"
                       : done
-                      ? "bg-slate-50 text-slate-700 border border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-700"
-                      : "bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-700",
+                      ? "bg-secondary text-secondary-foreground border"
+                      : "bg-card border hover:bg-muted/40",
                   )}
                 >
                   <div className="flex items-center gap-2 mb-1">

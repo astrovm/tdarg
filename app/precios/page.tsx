@@ -117,7 +117,7 @@ export default function PreciosPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+      <div className="min-h-screen bg-muted/30">
         <Header />
 
         <PageHero
@@ -136,7 +136,7 @@ export default function PreciosPage() {
           </div>
         </PageHero>
 
-        <div className="bg-slate-100 dark:bg-slate-950">
+        <div className="bg-muted/30">
           <div className="container mx-auto px-4 py-8">
             <div className="space-y-8 mt-6">
                 <div className="bg-card p-6 rounded-lg border">
@@ -208,7 +208,7 @@ export default function PreciosPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+      <div className="min-h-screen bg-muted/30">
         <Header />
         <div className="container mx-auto px-4 py-8">
           <Alert variant="destructive" className="bg-card border">
@@ -232,7 +232,7 @@ export default function PreciosPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       {/* Header Section */}
@@ -278,7 +278,7 @@ export default function PreciosPage() {
       </PageHero>
 
       {/* Content Section */}
-      <div className="bg-slate-100 dark:bg-slate-950">
+      <div className="bg-muted/30">
         <div className="container mx-auto px-4 py-8">
           {medicamentosFiltrados.length === 0 ? (
             <Alert className="bg-card border">

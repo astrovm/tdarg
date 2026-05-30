@@ -139,7 +139,7 @@ export default function EspecialistasPage() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       <PageHero
@@ -201,7 +201,7 @@ export default function EspecialistasPage() {
       </PageHero>
 
       {/* Results Section */}
-      <div className="bg-slate-100 dark:bg-slate-950">
+      <div className="bg-muted/30">
         <div className="container mx-auto px-4 py-8">
           {/* Results */}
           <div className="mb-6">

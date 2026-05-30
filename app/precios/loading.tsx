@@ -6,7 +6,7 @@ import { PageHero } from "@/components/page-hero";
 
 export default function PreciosLoading() {
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       <PageHero
@@ -25,7 +25,7 @@ export default function PreciosLoading() {
         </div>
       </PageHero>
 
-      <div className="bg-slate-100 dark:bg-slate-950">
+      <div className="bg-muted/30">
         <div className="container mx-auto px-4 py-8">
           <Tabs defaultValue="agrupado" className="w-full">
             <TabsList className="grid w-full grid-cols-2 bg-card border">

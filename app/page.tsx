@@ -19,12 +19,12 @@ import { Header } from "@/components/header";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+    <div className="min-h-screen bg-muted/30">
       <Header />
 
       <section className="border-b bg-background py-12">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             TDAH en Argentina
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -48,9 +48,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14 bg-slate-50 dark:bg-slate-900">
+      <section className="py-14 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">
+          <h3 className="text-3xl font-bold text-center text-foreground mb-10">
             Recursos principales
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -108,7 +108,7 @@ export default function HomePage() {
       <section className="py-14 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
+            <h3 className="text-3xl font-bold text-foreground mb-4">
               Guías
             </h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

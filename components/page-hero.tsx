@@ -28,7 +28,7 @@ export function PageHero({
   return (
     <div
       className={cn(
-        "relative border-b bg-white dark:border-slate-800 dark:bg-slate-950",
+        "relative border-b bg-background",
         className,
       )}
     >
@@ -36,11 +36,11 @@ export function PageHero({
         <div className={cn("absolute inset-0", overlayClassName)} />
       ) : null}
       <div className={cn("container mx-auto px-4 py-10 relative z-10", containerClassName)}>
-        <h1 className={cn("text-4xl font-bold text-slate-900 dark:text-white mb-4", titleClassName)}>{title}</h1>
+        <h1 className={cn("text-4xl font-bold text-foreground mb-4", titleClassName)}>{title}</h1>
         {description ? (
           <p
             className={cn(
-              "text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed mb-6",
+              "text-lg text-muted-foreground max-w-3xl leading-relaxed mb-6",
               descriptionClassName,
             )}
           >
