@@ -224,7 +224,7 @@ export default function EspecialistasPage() {
                 return (
                   <Card
                     key={index}
-                    className="flex h-full flex-col hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                    className="flex h-full flex-col hover:shadow-xl transition-all bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md hover:-translate-y-0.5"
                   >
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -522,9 +522,15 @@ export default function EspecialistasPage() {
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Metilfenidato y lisdexanfetamina pueden requerir receta oficial en papel según jurisdicción y farmacia
-                  </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Metilfenidato y lisdexanfetamina pueden requerir receta oficial en papel según jurisdicción y farmacia
+                    </p>
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">
+                        Llevá boletines antiguos y antecedentes para demostrar inicio antes de los 12 años
+                      </p>
+                    </div>
                 </div>
               </CardContent>
             </Card>

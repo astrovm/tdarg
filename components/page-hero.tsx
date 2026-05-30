@@ -26,7 +26,12 @@ export function PageHero({
   descriptionClassName,
 }: PageHeroProps) {
   return (
-    <div className={cn("relative hero-gradient overflow-hidden", className)}>
+    <div
+      className={cn(
+        "relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden",
+        className,
+      )}
+    >
       <div
         className={cn(
           "absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5",

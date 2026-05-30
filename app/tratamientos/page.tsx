@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   ArrowRight,
   ArrowLeft,
@@ -251,12 +252,16 @@ export default function TratamientosPage() {
                 </Card>
               </div>
 
-              <Alert>
-                <AlertDescription><strong>Nota:</strong> el ejercicio regular mejora atención, regulación emocional y calidad de sueño. 20-30 minutos diarios son más efectivos que sesiones intensas esporádicas.</AlertDescription>
-              </Alert>
-
-              <div className="text-center">
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button asChild>
+                  <Link href="/diagnostico">Volver a Diagnóstico</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/especialistas">Encontrar especialistas</Link>
+                </Button>
+                <Button variant="outline" onClick={prev}>
+                  <ArrowLeft className="h-4 w-4 mr-2" />Anterior
+                </Button>
               </div>
             </CardContent>
           </Card>

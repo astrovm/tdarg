@@ -7,10 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
-  AlertTriangle,
   Brain,
   Heart,
   Activity,
@@ -21,7 +19,7 @@ import {
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { StepDefinition } from "@/lib/steps";
-import { CitationLink } from "@/components/citation-link";
+import Link from "next/link";
 import { References, type Reference } from "@/components/references";
 
 const steps = [
@@ -85,11 +83,6 @@ export default function ComorbilidadesPage() {
                 </CardContent>
               </Card>
 
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription><strong>Realidad:</strong> Entre el 70% y 80% de las personas con TDAH desarrollan al menos una condición comórbida. La comorbilidad es la norma, no la excepción.<CitationLink number={1} /></AlertDescription>
-              </Alert>
-
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
                   <CardHeader><CardTitle className="text-base">Comorbilidades psiquiátricas más frecuentes</CardTitle></CardHeader>
@@ -115,11 +108,6 @@ export default function ComorbilidadesPage() {
 
           {currentStep === 2 && (
             <>
-              <Alert className="border-amber-200 dark:border-amber-800 bg-amber-50/30 dark:bg-amber-950/30">
-                <Zap className="h-4 w-4" />
-                <AlertDescription><strong>La más común:</strong> 50-60% de adultos con TDAH desarrollan trastornos de ansiedad. Las dificultades crónicas del TDAH generan preocupación constante.<CitationLink number={1} /></AlertDescription>
-              </Alert>
-
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
                   <CardHeader><CardTitle className="text-base">¿Por qué ocurre?</CardTitle></CardHeader>
@@ -137,7 +125,7 @@ export default function ComorbilidadesPage() {
                       <div className="font-semibold mb-1">✅ Recomendado</div>
                       <div>• Estimulantes o atomoxetina según severidad</div>
                       <div>• TCC para ambas condiciones</div>
-                      <div>• Técnicas de relajación</div>
+                      <div>• Técnicas de relajación (respiración 4-7-8, grounding 5-4-3-2-1)</div>
                     </div>
                     <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded">
                       <div className="font-semibold mb-1">⚠️ Precaución</div>
@@ -161,18 +149,13 @@ export default function ComorbilidadesPage() {
               <div className="space-y-3">
                 <Card className="border-blue-200 dark:border-blue-800"><CardHeader><CardTitle className="text-base">Depresión Secundaria (más común)</CardTitle></CardHeader><CardContent className="text-sm">Surge como resultado de las dificultades crónicas del TDAH: fracasos repetidos, baja autoestima, problemas laborales.</CardContent></Card>
                 <Card className="border-green-200 dark:border-green-800"><CardHeader><CardTitle className="text-base">Comorbilidad Verdadera</CardTitle></CardHeader><CardContent className="text-sm">Ambas condiciones coexisten independientemente. Cada una requiere tratamiento específico.</CardContent></Card>
-                <Card className="border-purple-200 dark:border-purple-800"><CardHeader><CardTitle className="text-base">Sintomatología Superpuesta</CardTitle></CardHeader><CardContent className="text-sm">Dificultades de concentración y motivación pueden confundir el diagnóstico.</CardContent></Card>
+                <Card className="border-purple-200 dark:border-purple-800"><CardHeader><CardTitle className="text-base">Sintomatología Superpuesta</CardTitle></CardHeader><CardContent className="text-sm">Dificultades de concentración y motivación pueden confundir el diagnóstico. Si los síntomas de ánimo son episódicos y los de TDAH son de toda la vida, priorizá tratar el TDAH primero.</CardContent></Card>
               </div>
             </>
           )}
 
           {currentStep === 4 && (
             <>
-              <Alert>
-                <Brain className="h-4 w-4" />
-                <AlertDescription><strong>Diagnóstico dual:</strong> El DSM-5 permite el diagnóstico de TDAH + TEA desde 2013. 29.4% de adolescentes masculinos con TDAH tienen autismo.<CitationLink number={1} /></AlertDescription>
-              </Alert>
-
               <div className="grid md:grid-cols-2 gap-4">
                 {/* Card 1: Diferencias clave */}
                 <Card>
@@ -269,10 +252,26 @@ export default function ComorbilidadesPage() {
         </CardContent>
 
         <div className="flex justify-between items-center p-6 border-t">
-          <Button variant="outline" onClick={prev} disabled={currentStep === 1}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
+          <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
+            <ArrowLeft className="h-4 w-4 mr-2" />Anterior
+          </Button>
           <span className="text-sm text-muted-foreground">{currentStep} de {steps.length}</span>
           <Button onClick={next}>{currentStep === steps.length ? "Finalizar" : "Siguiente"} <ArrowRight className="h-4 w-4 ml-2" /></Button>
         </div>
+
+        {currentStep === steps.length && (
+          <div className="px-6 pb-6 flex flex-wrap gap-3 justify-center border-t pt-4">
+            <Button asChild size="lg">
+              <Link href="/especialistas">Buscar especialistas</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/tratamientos">Ver tratamientos</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/herramientas">Ver herramientas prácticas</Link>
+            </Button>
+          </div>
+        )}
       </Card>
 
       <References references={comorbilidadesReferences} />

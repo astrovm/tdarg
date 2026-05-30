@@ -96,7 +96,7 @@ export default function LegislacionPage() {
               return (
               <Card
                 key={ley.numero}
-                className={`overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 border-l-4 ${severity.border} shadow-sm`}
+                className={`overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md border-l-4 ${severity.border}`}
               >
                 <CardHeader className="pb-3">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">

@@ -359,11 +359,6 @@ export default function DiagnosticoPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>Solo 1 de cada 6 jóvenes mantiene todos los criterios a los 25 años, pero aproximadamente la mitad sigue con deterioro residual significativo.</AlertDescription>
-              </Alert>
-
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
                   <CardHeader><CardTitle className="text-base">En la infancia</CardTitle></CardHeader>

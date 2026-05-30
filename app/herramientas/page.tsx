@@ -8,15 +8,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
-  CheckCircle,
   ArrowRight,
   ArrowLeft,
   Calendar,
   Focus,
   Brain,
   User,
+  CheckCircle,
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { StepDefinition } from "@/lib/steps";
@@ -87,10 +86,6 @@ export default function HerramientasPage() {
                 </Card>
               </div>
 
-              <Alert>
-                <AlertDescription>La organización externa compensa la falla ejecutiva interna. No se trata de «ser más ordenado», se trata de crear sistemas que funcionen aunque falles.</AlertDescription>
-              </Alert>
-
               <div className="text-center">
                 <Button onClick={next} size="lg">Siguiente: Atención <ArrowRight className="h-4 w-4 ml-2" /></Button>
               </div>
@@ -112,7 +107,7 @@ export default function HerramientasPage() {
                   <CardContent className="text-xs space-y-1">
                     <div>• Teléfono en modo avión o en otra habitación</div>
                     <div>• Bloqueadores de sitios web (Freedom, Cold Turkey)</div>
-                    <div>• Auriculares con ruido blanco o música instrumental</div>
+                    <div>• Auriculares con ruido blanco o música instrumental (sin letra)</div>
                   </CardContent>
                 </Card>
                 <Card>
@@ -120,7 +115,7 @@ export default function HerramientasPage() {
                   <CardContent className="text-xs space-y-1">
                     <div>• 25-45 minutos de foco profundo</div>
                     <div>• Descanso de 5-10 minutos entre bloques</div>
-                    <div>• Máximo 3-4 bloques por sesión</div>
+                    <div>• Máximo 3-4 bloques por sesión (usa timer físico o app)</div>
                   </CardContent>
                 </Card>
                 <Card>
@@ -149,10 +144,6 @@ export default function HerramientasPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
-                <AlertDescription>El rechazo duele más en TDAH. La hipersensibilidad al rechazo (RSD) es real y tiene base neurológica. No es «ser demasiado sensible».</AlertDescription>
-              </Alert>
-
               <div className="grid md:grid-cols-2 gap-4">
                 <Card>
                   <CardHeader><CardTitle className="text-base">💜 Técnicas rápidas</CardTitle></CardHeader>
@@ -241,21 +232,17 @@ export default function HerramientasPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm">
-              <div className="space-y-2">
-                <div>✅ Organización externa supera a la fuerza de voluntad</div>
-                <div>✅ Bloques de 25-45 min + descansos cortos</div>
-                <div>✅ Medicación no reemplaza habilidades</div>
-                <div>✅ TCC + estrategias = resultados sostenibles</div>
-                <div>✅ Monitorear sueño, ejercicio y comorbilidades</div>
+              <div className="space-y-1.5">
+                <div>✅ Organización externa supera a la fuerza de voluntad (sistemas ganan)</div>
+                <div>✅ Bloques cortos (25-45 min) + descansos programados</div>
+                <div>✅ Medicación no reemplaza habilidades entrenadas</div>
+                <div>✅ TCC + estrategias externas = cambio sostenible</div>
+                <div>✅ Monitorear sueño, ejercicio y comorbilidades siempre</div>
+                <div>✅ Pedir ayuda profesional sin vergüenza (es tratamiento)</div>
               </div>
 
-              <Alert>
-                <CheckCircle className="h-4 w-4" />
-                <AlertDescription>El TDAH no se cura. Se maneja. El combo medicación + herramientas + seguimiento reduce drásticamente los riesgos.</AlertDescription>
-              </Alert>
-
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <Button asChild>
+                <Button asChild size="lg">
                   <Link href="/especialistas">Encontrar especialistas</Link>
                 </Button>
                 <Button variant="outline" asChild>

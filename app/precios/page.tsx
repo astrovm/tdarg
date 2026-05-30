@@ -157,7 +157,7 @@ export default function PreciosPage() {
                       <Skeleton className="h-7 w-56 mb-4" />
                       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                         {Array.from({ length: 3 }).map((_, j) => (
-                          <Card key={j} className="border-l-4 border-l-green-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+                          <Card key={j} className="border-l-4 border-l-green-500 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md">
                             <CardHeader className="pb-3">
                               <Skeleton className="h-6 w-3/4 mb-2" />
                               <div className="flex gap-2">
@@ -187,7 +187,7 @@ export default function PreciosPage() {
                     <Skeleton className="h-7 w-48 mb-4" />
                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                       {Array.from({ length: 2 }).map((_, j) => (
-                        <Card key={j} className="border-l-4 border-l-blue-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+                        <Card key={j} className="border-l-4 border-l-blue-500 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md">
                           <CardHeader className="pb-3">
                             <Skeleton className="h-6 w-3/4 mb-2" />
                             <div className="flex gap-2">
@@ -245,7 +245,7 @@ export default function PreciosPage() {
       {/* Header Section */}
         <PageHero
           title="Precios de medicamentos"
-          description="Precios actualizados de Farmacity para medicamentos de TDAH"
+          description="Precios de Farmacity actualizados automáticamente. Incluye precio por mg y estimación con cobertura."
         >
         {/* Info rápida */}
         {estadisticas && (
@@ -312,17 +312,6 @@ export default function PreciosPage() {
                         Estimulantes usados para TDAH
                       </h2>
                     </div>
-
-                    <Alert className="mb-6 border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 max-w-full overflow-hidden border-2">
-                      <AlertCircle className="h-4 w-4 text-blue-600" />
-                      <AlertDescription className="text-blue-800 dark:text-blue-200 break-words">
-                        <strong>Importante:</strong> Las guías internacionales
-                        incluyen más opciones estimulantes que las disponibles
-                        localmente. En Argentina, actualmente se comercializa
-                        metilfenidato (Concerta, Ritalina/Rubifen y otros) y
-                        lisdexanfetamina como Ludoxa.
-                      </AlertDescription>
-                    </Alert>
 
                     {estimulantesOrdenados.map(
                       ([principio, meds]) => (

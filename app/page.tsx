@@ -11,9 +11,9 @@ import {
   Stethoscope,
   Scale,
   TrendingUp,
-  AlertCircle,
-  BookOpen,
   Heart,
+  Users,
+  Wrench,
 } from "lucide-react";
 import { Header } from "@/components/header";
 
@@ -24,16 +24,16 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section - Gradiente moderno */}
-      <section className="relative py-16 hero-gradient overflow-hidden">
+      <section className="relative py-16 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl font-bold text-purple-600 mb-4">
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Todo sobre TDAH en un solo lugar: precios de medicamentos actualizados,
-            especialistas por provincia, las leyes que te importan y guías prácticas
-            para entender el trastorno.
+            Precios de Farmacity actualizados automáticamente.
+            Especialistas verificados por provincia. Análisis claro de las leyes que afectan tu tratamiento.
+            Guías paso a paso con evidencia y normativa argentina.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="primaryGradient" asChild>
@@ -185,7 +185,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Cómo se diagnostica, a qué especialista ir y qué esperar.
+                  Autoevaluación, ruta diagnóstica, qué llevar y cómo se ve el TDAH en adultos.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -204,7 +204,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Medicamentos, terapias y estrategias que funcionan.
+                  Medicación (con tabla CADDRA), terapia cognitivo-conductual y cambios de estilo de vida.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -212,7 +212,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-lg hover:-translate-y-1">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <BookOpen className="h-5 w-5 text-white" />
+                  <Users className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
                   <Link
@@ -223,7 +223,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Ansiedad, depresión, TEA y otras condiciones que suelen ir de la mano.
+                  Ansiedad, depresión, autismo y otras condiciones que suelen ir de la mano.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -231,7 +231,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-indigo-50 dark:from-slate-800 dark:to-indigo-900/20 border-0 shadow-lg hover:-translate-y-1">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <BookOpen className="h-5 w-5 text-white" />
+                  <Wrench className="h-5 w-5 text-white" />
                 </div>
                 <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
                   <Link
@@ -242,7 +242,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Apps, libros y recursos útiles para el día a día con TDAH.
+                  Organización, foco, regulación emocional y estrategias reales para la vida adulta con TDAH.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -250,32 +250,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Alert Section - Diseño moderno */}
-      <section className="py-12 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative overflow-hidden bg-gradient-to-r from-white to-amber-50 dark:from-slate-800 dark:to-amber-900/20 rounded-2xl shadow-lg border border-amber-200 dark:border-amber-800/50 p-6">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-400"></div>
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center">
-                    <AlertCircle className="h-5 w-5 text-white" />
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-3">
-                    Importante
-                  </h4>
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Esto es información general, no reemplaza ir al médico.
-                    Siempre consultá con un profesional para diagnóstico y tratamiento.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }
