@@ -148,7 +148,7 @@ export default function EspecialistasPage() {
       >
         <Card className="bg-card border shadow-sm">
           <CardHeader className="pb-4">
-            <CardTitle className="text-xl text-slate-800 dark:text-white flex items-center">
+            <CardTitle className="text-xl text-card-foreground flex items-center">
               <div className="w-6 h-6 bg-primary/10 text-primary rounded-lg flex items-center justify-center mr-3">
                 <Search className="h-4 w-4" />
               </div>
@@ -163,11 +163,11 @@ export default function EspecialistasPage() {
                   placeholder="Buscá por nombre, ciudad u hospital..."
                   value={filtroNombre}
                   onChange={(e) => setFiltroNombre(e.target.value)}
-                  className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
+                  className="pl-12 h-10 rounded-lg"
                 />
               </div>
               <Select value={provincia} onValueChange={setProvincia}>
-                <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
+                <SelectTrigger className="h-10 rounded-lg">
                   <SelectValue placeholder="Elegí una provincia" />
                 </SelectTrigger>
                 <SelectContent>
@@ -180,7 +180,7 @@ export default function EspecialistasPage() {
                 </SelectContent>
               </Select>
               <Select value={especialidad} onValueChange={setEspecialidad}>
-                <SelectTrigger className="h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm">
+                <SelectTrigger className="h-10 rounded-lg">
                   <SelectValue placeholder="Especialidad" />
                 </SelectTrigger>
                 <SelectContent>
@@ -261,41 +261,41 @@ export default function EspecialistasPage() {
                     <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-2">
                       <div className="space-y-3">
                         <div className="flex items-start space-x-2">
-                          <MapPin className="h-4 w-4 text-gray-400 mt-1 flex-shrink-0" />
+                          <MapPin className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
                           <div className="text-sm">
                             <div className="font-medium">
                               {especialista.ciudad}, {especialista.provincia}
                             </div>
-                            <div className="text-slate-600 dark:text-slate-300">
+                            <div className="text-muted-foreground">
                               {especialista.direccion}
                             </div>
-                            <div className="text-slate-600 dark:text-slate-300">
+                            <div className="text-muted-foreground">
                               {especialista.hospital}
                             </div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Phone className="h-4 w-4 text-gray-400" />
+                          <Phone className="h-4 w-4 text-muted-foreground" />
                           <span className="text-sm">
                             {especialista.telefono}
                           </span>
                         </div>
                         {especialista.whatsapp && (
                           <div className="flex items-center space-x-2">
-                            <MessageCircle className="h-4 w-4 text-gray-400" />
+                            <MessageCircle className="h-4 w-4 text-muted-foreground" />
                             <span className="text-sm">
                               {especialista.whatsapp}
                             </span>
                           </div>
                         )}
                         <div className="flex items-center space-x-2">
-                          <Mail className="h-4 w-4 text-gray-400" />
+                          <Mail className="h-4 w-4 text-muted-foreground" />
                           <span className="text-sm">{especialista.email}</span>
                         </div>
                       </div>
                       <div className="space-y-3">
                         <div className="flex items-center space-x-2">
-                          <Clock className="h-4 w-4 text-gray-400" />
+                          <Clock className="h-4 w-4 text-muted-foreground" />
                           <span className="text-sm">
                             {especialista.horarios}
                           </span>
@@ -304,7 +304,7 @@ export default function EspecialistasPage() {
                           <div className="text-sm font-medium mb-1">
                             Experiencia:
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-muted-foreground">
                             {especialista.experiencia}
                           </div>
                         </div>
@@ -407,7 +407,7 @@ export default function EspecialistasPage() {
           {especialistasFiltrados.length === 0 && (
               <Card className="text-center py-12 bg-card border">
               <CardContent>
-                <div className="text-gray-500 mb-4">
+                <div className="text-muted-foreground mb-4">
                   <Search className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="text-lg font-medium">
                     No encontramos especialistas

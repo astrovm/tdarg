@@ -33,13 +33,13 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800">
+    <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Brain className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-2xl font-bold text-foreground">
               Tdarg
             </h1>
           </Link>
@@ -107,7 +107,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-800">
+          <div className="lg:hidden mt-4 pb-4 border-t">
             <nav className="flex flex-col space-y-3 pt-4">
               {allNavigationItems.map((item) => (
                 <Link

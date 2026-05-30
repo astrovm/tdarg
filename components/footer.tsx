@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
+    <footer className="border-t bg-card py-12 text-card-foreground">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -12,29 +12,29 @@ export function Footer() {
               <Brain className="h-6 w-6" />
               <span className="text-lg font-semibold">Tdarg</span>
             </div>
-            <p className="text-gray-400">
+            <p className="text-muted-foreground">
               Info sobre TDAH en Argentina: precios de medicamentos,
               especialistas, legislación y guías prácticas.
             </p>
           </div>
           <div>
             <h5 className="font-semibold mb-4">Contacto</h5>
-            <p className="text-gray-400 mb-4">
+            <p className="text-muted-foreground mb-4">
               <a
                 href="mailto:tdarg@4st.li"
-                className="hover:text-white transition-colors"
+                className="hover:text-foreground transition-colors"
               >
                 tdarg@4st.li
               </a>
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               ¿Viste algo desactualizado? ¿Tenés una sugerencia? Mandanos un
               mail.
             </p>
           </div>
           <div>
             <h5 className="font-semibold mb-4">Código Abierto</h5>
-            <p className="text-gray-400 mb-4">
+            <p className="text-muted-foreground mb-4">
               Este proyecto es de código abierto. Podés contribuir mejorando el
               contenido o reportando issues.
             </p>
@@ -42,14 +42,14 @@ export function Footer() {
               href="https://github.com/astrovm/tdarg"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+              className="inline-flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <GitBranch className="h-4 w-4" />
               <span>Ver en GitHub</span>
             </a>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
           <p>&copy; {currentYear} Tdarg. Información con fines educativos.</p>
         </div>
       </div>

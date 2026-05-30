@@ -208,7 +208,7 @@ export default function PreciosPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
         <Header />
         <div className="container mx-auto px-4 py-8">
           <Alert variant="destructive" className="bg-card border">
@@ -264,7 +264,7 @@ export default function PreciosPage() {
               placeholder="Buscá medicamento, marca o laboratorio..."
               value={filtro}
               onChange={(e) => setFiltro(e.target.value)}
-              className="pl-12 h-10 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm"
+              className="pl-12 h-10 rounded-lg"
             />
           </div>
           <Button
@@ -294,7 +294,7 @@ export default function PreciosPage() {
                 {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
                   <div className="bg-card p-6 rounded-lg border">
                     <div className="flex items-center gap-2 mb-4">
-                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      <h2 className="text-2xl font-bold text-foreground">
                         Estimulantes usados para TDAH
                       </h2>
                      </div>
@@ -303,7 +303,7 @@ export default function PreciosPage() {
                      {estimulantesOrdenados.map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                          <h3 className="text-xl font-semibold mb-4 text-foreground">
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           {principio === "lisdexanfetamina" && (
@@ -348,21 +348,21 @@ export default function PreciosPage() {
                                 </CardHeader>
                                 <CardContent className="space-y-3">
                                   <div className="flex items-center gap-2">
-                                    <Building2 className="h-4 w-4 text-gray-400" />
+                                    <Building2 className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {medicamento.laboratorio}
                                     </span>
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <Package className="h-4 w-4 text-gray-400" />
+                                    <Package className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {formatMedicationPresentation(medicamento)}
                                     </span>
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4 text-gray-400" />
+                                    <Clock className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {new Date(
                                         medicamento.fechaActualizacion
@@ -372,7 +372,7 @@ export default function PreciosPage() {
 
                                   <div className="pt-2 border-t space-y-2">
                                     <div>
-                                      <div className="text-sm text-gray-500 mb-1">
+                                      <div className="text-sm text-muted-foreground mb-1">
                                         Precio sin cobertura
                                       </div>
                                       <span className="text-2xl font-bold text-foreground">
@@ -381,10 +381,10 @@ export default function PreciosPage() {
                                     </div>
                                     {pricePerMg(medicamento) && (
                                       <div>
-                                        <div className="text-sm text-gray-500 mb-1">
+                                        <div className="text-sm text-muted-foreground mb-1">
                                           Precio por mg
                                         </div>
-                                        <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                        <span className="text-lg font-semibold text-foreground">
                                           {formatPrice(pricePerMg(medicamento)!)}
                                         </span>
                                       </div>
@@ -422,7 +422,7 @@ export default function PreciosPage() {
                   0 && (
                   <div className="bg-card p-6 rounded-lg border">
                     <div className="flex items-center gap-2 mb-6">
-                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      <h2 className="text-2xl font-bold text-foreground">
                         No estimulantes usados para TDAH
                       </h2>
                     </div>
@@ -430,7 +430,7 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.noestimulantes).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                          <h3 className="text-xl font-semibold mb-4 text-foreground">
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -464,21 +464,21 @@ export default function PreciosPage() {
                                 </CardHeader>
                                 <CardContent className="space-y-3">
                                   <div className="flex items-center gap-2">
-                                    <Building2 className="h-4 w-4 text-gray-400" />
+                                    <Building2 className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {medicamento.laboratorio}
                                     </span>
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <Package className="h-4 w-4 text-gray-400" />
+                                    <Package className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {formatMedicationPresentation(medicamento)}
                                     </span>
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4 text-gray-400" />
+                                    <Clock className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {new Date(
                                         medicamento.fechaActualizacion
@@ -488,7 +488,7 @@ export default function PreciosPage() {
 
                                   <div className="pt-2 border-t space-y-2">
                                     <div>
-                                      <div className="text-sm text-gray-500 mb-1">
+                                      <div className="text-sm text-muted-foreground mb-1">
                                         Precio sin cobertura
                                       </div>
                                       <span className="text-2xl font-bold text-foreground">
@@ -497,10 +497,10 @@ export default function PreciosPage() {
                                     </div>
                                     {pricePerMg(medicamento) && (
                                       <div>
-                                        <div className="text-sm text-gray-500 mb-1">
+                                        <div className="text-sm text-muted-foreground mb-1">
                                           Precio por mg
                                         </div>
-                                        <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                        <span className="text-lg font-semibold text-foreground">
                                           {formatPrice(pricePerMg(medicamento)!)}
                                         </span>
                                       </div>
@@ -535,7 +535,7 @@ export default function PreciosPage() {
                 {Object.keys(medicamentosAgrupados.offlabel).length > 0 && (
                   <div className="bg-card p-6 rounded-lg border">
                     <div className="flex items-center gap-2 mb-6">
-                      <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                      <h2 className="text-2xl font-bold text-foreground">
                         Medicamentos con uso off-label para TDAH
                       </h2>
                     </div>
@@ -552,7 +552,7 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.offlabel).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                          <h3 className="text-xl font-semibold mb-4 text-foreground">
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -586,21 +586,21 @@ export default function PreciosPage() {
                                 </CardHeader>
                                 <CardContent className="space-y-3">
                                   <div className="flex items-center gap-2">
-                                    <Building2 className="h-4 w-4 text-gray-400" />
+                                    <Building2 className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {medicamento.laboratorio}
                                     </span>
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <Package className="h-4 w-4 text-gray-400" />
+                                    <Package className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {formatMedicationPresentation(medicamento)}
                                     </span>
                                   </div>
 
                                   <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4 text-gray-400" />
+                                    <Clock className="h-4 w-4 text-muted-foreground" />
                                     <span className="text-sm">
                                       {new Date(
                                         medicamento.fechaActualizacion
@@ -610,7 +610,7 @@ export default function PreciosPage() {
 
                                   <div className="pt-2 border-t space-y-2">
                                     <div>
-                                      <div className="text-sm text-gray-500 mb-1">
+                                      <div className="text-sm text-muted-foreground mb-1">
                                         Precio sin cobertura
                                       </div>
                                       <span className="text-2xl font-bold text-foreground">
@@ -619,10 +619,10 @@ export default function PreciosPage() {
                                     </div>
                                     {pricePerMg(medicamento) && (
                                       <div>
-                                        <div className="text-sm text-gray-500 mb-1">
+                                        <div className="text-sm text-muted-foreground mb-1">
                                           Precio por mg
                                         </div>
-                                        <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                        <span className="text-lg font-semibold text-foreground">
                                           {formatPrice(pricePerMg(medicamento)!)}
                                         </span>
                                       </div>

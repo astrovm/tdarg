@@ -306,7 +306,7 @@ export default function ComorbilidadesPage() {
 
             {currentStep === 8 && (
               <CardContent className="space-y-4">
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-slate-700 dark:text-slate-300">
                   La superposición entre el TDAH adulto y el Trastorno Límite de la Personalidad (TLP) es altísima, presentándose comorbilidad en el 30% a 60% de los casos.
                 </p>
                 <ul className="space-y-4 text-sm mt-4">
@@ -330,7 +330,7 @@ export default function ComorbilidadesPage() {
 
             {currentStep === 9 && (
               <CardContent className="space-y-4">
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-slate-700 dark:text-slate-300">
                   Hasta un 43% de los adultos con TDAH desarrollan Trastorno por Uso de Sustancias (TUS) a lo largo de su vida. La falla en el sistema de recompensa (búsqueda de dopamina) los hace doblemente vulnerables a las adicciones.
                 </p>
                 <ul className="space-y-4 text-sm mt-4">

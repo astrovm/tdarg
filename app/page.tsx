@@ -19,15 +19,15 @@ import { Header } from "@/components/header";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
-      <section className="border-b bg-white py-12 dark:bg-slate-950 dark:border-slate-800">
+      <section className="border-b bg-background py-12">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             TDAH en Argentina
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Precios de medicamentos, especialistas por provincia, legislación
             y guías prácticas sobre TDAH en Argentina.
           </p>
@@ -55,15 +55,15 @@ export default function HomePage() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/precios" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-6">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <TrendingUp className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-xl mb-2 text-card-foreground group-hover:text-primary">
                     Precios de medicamentos
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <CardDescription className="text-muted-foreground leading-relaxed">
                     Metilfenidato, lisdexanfetamina, atomoxetina y más.
                   </CardDescription>
                 </CardHeader>
@@ -71,15 +71,15 @@ export default function HomePage() {
             </Link>
 
             <Link href="/especialistas" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-6">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Stethoscope className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-xl mb-2 text-card-foreground group-hover:text-primary">
                     Especialistas
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <CardDescription className="text-muted-foreground leading-relaxed">
                     Directorio por provincia y especialidad.
                   </CardDescription>
                 </CardHeader>
@@ -87,15 +87,15 @@ export default function HomePage() {
             </Link>
 
             <Link href="/legislacion" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-6">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Scale className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-xl mb-2 text-card-foreground group-hover:text-primary">
                     Legislación
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <CardDescription className="text-muted-foreground leading-relaxed">
                     Leyes, decretos y normativa relacionada con TDAH.
                   </CardDescription>
                 </CardHeader>
@@ -105,27 +105,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14 bg-white dark:bg-slate-950">
+      <section className="py-14 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
               Guías
             </h3>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Diagnóstico, tratamientos, comorbilidades y herramientas para el día a día.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Link href="/diagnostico" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Brain className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
                     Diagnóstico
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                     Autoevaluación, ruta diagnóstica, qué llevar y cómo se ve el TDAH en adultos.
                   </CardDescription>
                 </CardHeader>
@@ -133,15 +133,15 @@ export default function HomePage() {
             </Link>
 
             <Link href="/tratamientos" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Heart className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
                     Tratamientos
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                     Medicación, terapia cognitivo-conductual y cambios de rutina.
                   </CardDescription>
                 </CardHeader>
@@ -149,15 +149,15 @@ export default function HomePage() {
             </Link>
 
             <Link href="/comorbilidades" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Users className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
                     Comorbilidades
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                     Ansiedad, depresión, autismo y otras condiciones frecuentes.
                   </CardDescription>
                 </CardHeader>
@@ -165,15 +165,15 @@ export default function HomePage() {
             </Link>
 
             <Link href="/herramientas" className="group">
-              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+              <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Wrench className="h-5 w-5" />
                   </div>
-                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
+                  <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
                     Herramientas
                   </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                  <CardDescription className="text-muted-foreground text-sm leading-relaxed">
                     Organización, foco y regulación emocional.
                   </CardDescription>
                 </CardHeader>
