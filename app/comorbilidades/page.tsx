@@ -57,7 +57,7 @@ export default function ComorbilidadesPage() {
       <Card className="min-h-[600px]">
         <CardHeader>
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full">
+            <div className="flex items-center justify-center w-10 h-10 bg-primary/10 text-primary rounded-lg">
               <ActiveIcon className="h-5 w-5" />
             </div>
             <div>
@@ -131,7 +131,7 @@ export default function ComorbilidadesPage() {
                     <div>• Estimulantes o atomoxetina (según severidad + comorbilidades)</div>
                     <div>• TCC para ambas condiciones</div>
                     <div>• Técnicas de relajación: respiración 4-7-8, grounding 5-4-3-2-1</div>
-                    <div className="text-amber-600 dark:text-amber-400">• Estimulantes pueden subir ansiedad inicial → monitoreo cercano</div>
+                    <div className="text-muted-foreground">• Estimulantes pueden subir ansiedad inicial → monitoreo cercano</div>
                   </CardContent>
                 </Card>
               </div>
@@ -141,9 +141,9 @@ export default function ComorbilidadesPage() {
           {currentStep === 3 && (
             <>
               <div className="grid md:grid-cols-3 gap-3 mb-4 text-center">
-                <div className="p-3 border rounded bg-blue-50 dark:bg-blue-950"><div className="text-2xl font-bold text-blue-500">40-50%</div><div className="text-xs">Prevalencia en adultos</div></div>
-                <div className="p-3 border rounded bg-green-50 dark:bg-green-950"><div className="text-2xl font-bold text-green-500">2x</div><div className="text-xs">Mayor riesgo</div></div>
-                <div className="p-3 border rounded bg-purple-50 dark:bg-purple-950"><div className="text-2xl font-bold text-purple-500">70%</div><div className="text-xs">Mejora al tratar TDAH</div></div>
+                <div className="p-3 border rounded bg-muted/40"><div className="text-2xl font-bold text-foreground">40-50%</div><div className="text-xs">Prevalencia en adultos</div></div>
+                <div className="p-3 border rounded bg-muted/40"><div className="text-2xl font-bold text-foreground">2x</div><div className="text-xs">Mayor riesgo</div></div>
+                <div className="p-3 border rounded bg-muted/40"><div className="text-2xl font-bold text-foreground">70%</div><div className="text-xs">Mejora al tratar TDAH</div></div>
               </div>
 
               <div className="space-y-3">
@@ -164,27 +164,27 @@ export default function ComorbilidadesPage() {
                   </CardHeader>
                   <CardContent className="text-sm space-y-3">
                     <div>
-                      <div className="font-medium text-blue-600 dark:text-blue-400">Atención</div>
+                      <div className="font-medium text-foreground">Atención</div>
                       <div className="text-muted-foreground">TDAH: dificultad general para sostener el foco</div>
                       <div>TEA: hiperfoco intenso en intereses restringidos</div>
                     </div>
                     <div>
-                      <div className="font-medium text-blue-600 dark:text-blue-400">Comportamiento</div>
+                      <div className="font-medium text-foreground">Comportamiento</div>
                       <div className="text-muted-foreground">TDAH: impulsividad e inquietud</div>
                       <div>TEA: rutinas rígidas y rituales</div>
                     </div>
                     <div>
-                      <div className="font-medium text-blue-600 dark:text-blue-400">Flexibilidad</div>
+                      <div className="font-medium text-foreground">Flexibilidad</div>
                       <div className="text-muted-foreground">TDAH: puede cambiar de actividad</div>
                       <div>TEA: dificultad extrema para tolerar cambios</div>
                     </div>
                     <div>
-                      <div className="font-medium text-blue-600 dark:text-blue-400">Social</div>
+                      <div className="font-medium text-foreground">Social</div>
                       <div className="text-muted-foreground">TDAH: problemas por impulsividad</div>
                       <div>TEA: dificultades en reciprocidad y conexión</div>
                     </div>
                     <div>
-                      <div className="font-medium text-blue-600 dark:text-blue-400">Comunicación</div>
+                      <div className="font-medium text-foreground">Comunicación</div>
                       <div className="text-muted-foreground">TDAH: interrumpe, habla en exceso</div>
                       <div>TEA: patrones atípicos (ecolalia, literalidad)</div>
                     </div>
@@ -222,7 +222,7 @@ export default function ComorbilidadesPage() {
 
            {currentStep === 5 && (
              <>
-               <Alert className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
+               <Alert className="bg-muted/40 border">
                  <AlertDescription>
                    <strong>Altísima superposición (10-20%):</strong> Comparten la impulsividad y la aceleración del pensamiento. Tomar estimulantes sin un estabilizador del ánimo previo puede inducir un episodio maníaco.
                  </AlertDescription>
@@ -249,7 +249,7 @@ export default function ComorbilidadesPage() {
 
            {currentStep === 6 && (
              <>
-               <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+               <Alert className="bg-muted/40 border">
                  <AlertDescription>
                    <strong>La impulsividad y la disfunción ejecutiva provocan atracones y bulimia</strong> (especialmente en mujeres) al no poder planificar comidas ni frenar el impulso.
                  </AlertDescription>
@@ -277,7 +277,7 @@ export default function ComorbilidadesPage() {
 
            {currentStep === 7 && (
              <>
-               <Alert className="border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30">
+               <Alert className="bg-muted/40 border">
                  <AlertDescription>
                    <strong>El estado de estrés crónico del adulto con TDAH genera comorbilidades físicas documentadas</strong>: migrañas severas (con síntomas visuales), asma, síndrome de fatiga crónica y síndrome de piernas inquietas.
                  </AlertDescription>
@@ -310,15 +310,15 @@ export default function ComorbilidadesPage() {
                   La superposición entre el TDAH adulto y el Trastorno Límite de la Personalidad (TLP) es altísima, presentándose comorbilidad en el 30% a 60% de los casos.
                 </p>
                 <ul className="space-y-4 text-sm mt-4">
-                  <li className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-100 dark:border-red-800">
-                    <Zap className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
+                    <Zap className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">El peligro de confundirlos:</strong>
                       Ambos comparten la impulsividad grave, la desregulación emocional severa y los problemas interpersonales. Sin embargo, en el TLP la impulsividad empeora bruscamente bajo estrés o miedo al abandono, mientras que en el TDAH es un déficit más constante.
                     </div>
                   </li>
-                  <li className="flex items-start gap-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-100 dark:border-orange-800">
-                    <AlertTriangle className="h-5 w-5 text-orange-500 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
+                    <AlertTriangle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">Impacto cruzado:</strong>
                       Esta combinación eleva drásticamente los comportamientos de riesgo y autolesivos. Exige un diagnóstico diferencial experto, ya que los síntomas ruidosos del TLP suelen enmascarar por completo los déficits silenciosos del TDAH.
@@ -334,15 +334,15 @@ export default function ComorbilidadesPage() {
                   Hasta un 43% de los adultos con TDAH desarrollan Trastorno por Uso de Sustancias (TUS) a lo largo de su vida. La falla en el sistema de recompensa (búsqueda de dopamina) los hace doblemente vulnerables a las adicciones.
                 </p>
                 <ul className="space-y-4 text-sm mt-4">
-                  <li className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-                    <Brain className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
+                    <Brain className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">Adicciones conductuales («sin sustancia»):</strong>
                       No solo hay riesgo con drogas o alcohol. El adulto con TDAH busca estimulación constante, siendo altamente propenso a las compras compulsivas, consumo de pornografía, ludopatía (apuestas) y adicción a internet/redes sociales.
                     </div>
                   </li>
-                  <li className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800">
-                    <Activity className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-3 p-3 bg-muted/40 rounded-lg border">
+                    <Activity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <div>
                       <strong className="block mb-1">El mito de la pastilla estimulante:</strong>
                       El Consenso Internacional es unánime: tratar el TDAH con medicación estimulante <strong>NO</strong> incrementa el riesgo de caer en adicciones. Por el contrario, un tratamiento temprano y adecuado previene activamente el consumo problemático.

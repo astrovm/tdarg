@@ -134,15 +134,15 @@ export default function DiagnosticoPage() {
     >
       <div className="min-h-[500px]">
         {currentStep === 1 && (
-          <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Brain className="h-8 w-8 text-blue-500" />¿Podría tener TDAH?
+                <Brain className="h-8 w-8 text-primary" />¿Podría tener TDAH?
               </CardTitle>
               <CardDescription>Orientativo. No reemplaza evaluación profesional.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="rounded-lg border bg-white p-4 dark:bg-slate-800">
+              <div className="rounded-lg border bg-muted/40 p-4">
                 <p className="mb-3 text-sm font-medium">Edad para interpretar el umbral</p>
                 <div className="flex flex-wrap gap-2">
                   <Button variant={ageGroup === "adult" ? "default" : "outline"} onClick={() => setAgeGroup("adult")}>17 años o más</Button>
@@ -151,7 +151,7 @@ export default function DiagnosticoPage() {
                 <p className="mt-3 text-xs text-muted-foreground">En adultos se evalúan 5 o más síntomas. En menores, 6 o más. Este tracker no reemplaza entrevista clínica.</p>
               </div>
 
-              <Alert className="bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
+              <Alert className="bg-muted/40 border">
                 <Brain className="h-4 w-4" />
                 <AlertDescription>
                   <strong>Qué exigirle al profesional:</strong> Un diagnóstico clínico en adultos no se hace solo charlando. Exigí que utilicen las herramientas validadas por el Primer Consenso Argentino de TDAH:
@@ -163,14 +163,14 @@ export default function DiagnosticoPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-center text-blue-700 dark:text-blue-300 mb-3">🧠 Síntomas de Inatención</h3>
+                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">🧠 Síntomas de Inatención</h3>
                   <div className="flex justify-between text-xs text-muted-foreground mb-2">
                     <span>Seleccionados: {inattentiveCount}/{inattentiveSymptoms.length}</span>
                     {inattentiveCount > 0 && <button onClick={() => clearGroup("ina")} className="underline">Limpiar</button>}
                   </div>
                   <div className="space-y-2">
                     {inattentiveSymptoms.map((item) => (
-                      <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
+                      <label key={item.id} className="flex items-center gap-3 p-3 bg-muted/40 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
                         <span className="text-2xl">{item.icon}</span>
                         <span className="text-sm">{item.text}</span>
@@ -180,14 +180,14 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-center text-red-700 dark:text-red-300 mb-3">⚡ Síntomas de Hiperactividad</h3>
+                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">⚡ Síntomas de Hiperactividad</h3>
                   <div className="flex justify-between text-xs text-muted-foreground mb-2">
                     <span>Seleccionados: {hyperactiveCount}/{hyperactiveSymptoms.length}</span>
                     {hyperactiveCount > 0 && <button onClick={() => clearGroup("hiper")} className="underline">Limpiar</button>}
                   </div>
                   <div className="space-y-2">
                     {hyperactiveSymptoms.map((item) => (
-                      <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
+                      <label key={item.id} className="flex items-center gap-3 p-3 bg-muted/40 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
                         <span className="text-2xl">{item.icon}</span>
                         <span className="text-sm">{item.text}</span>
@@ -197,14 +197,14 @@ export default function DiagnosticoPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-center text-amber-700 dark:text-amber-300 mb-3">🧩 Síntomas Ejecutivos / Emocionales</h3>
+                  <h3 className="text-lg font-semibold text-center text-foreground mb-3">🧩 Síntomas Ejecutivos / Emocionales</h3>
                   <div className="flex justify-between text-xs text-muted-foreground mb-2">
                     <span>Seleccionados: {executiveCount}/{executiveEmotionalSymptoms.length}</span>
                     {executiveCount > 0 && <button onClick={() => clearGroup("exec")} className="underline">Limpiar</button>}
                   </div>
                   <div className="space-y-2">
                     {executiveEmotionalSymptoms.map((item) => (
-                      <label key={item.id} className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg border cursor-pointer">
+                      <label key={item.id} className="flex items-center gap-3 p-3 bg-muted/40 rounded-lg border cursor-pointer">
                         <Checkbox checked={selectedSymptoms.has(item.id)} onCheckedChange={(c) => toggleSymptom(item.id, c)} />
                         <span className="text-2xl">{item.icon}</span>
                         <span className="text-sm">{item.text}</span>
@@ -214,7 +214,7 @@ export default function DiagnosticoPage() {
                 </div>
               </div>
 
-              <label className="mx-auto flex max-w-2xl cursor-pointer items-start gap-3 rounded-lg border bg-white p-4 text-left dark:bg-slate-800">
+              <label className="mx-auto flex max-w-2xl cursor-pointer items-start gap-3 rounded-lg border bg-muted/40 p-4 text-left">
                 <Checkbox checked={impairmentConfirmed} onCheckedChange={(c) => setImpairmentConfirmed(c === true)} className="mt-1" />
                 <span className="text-sm">Existe evidencia clara de que estos síntomas interfieren en mi funcionamiento social, académico o laboral en al menos dos ámbitos.</span>
               </label>
@@ -236,16 +236,16 @@ export default function DiagnosticoPage() {
         )}
 
         {currentStep === 2 && (
-          <Card className="border-green-200 dark:border-green-800 bg-green-50/30 dark:bg-green-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Stethoscope className="h-8 w-8 text-green-500" />La Ruta del Diagnóstico TDAH
+                <Stethoscope className="h-8 w-8 text-primary" />La Ruta del Diagnóstico TDAH
               </CardTitle>
               <CardDescription>El diagnóstico de TDAH es clínico</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-3 gap-4">
-                <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/40 dark:bg-blue-950/30">
+                <Card className="bg-card border">
                   <CardHeader className="pb-2"><CardTitle className="text-base">Lo obligatorio</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• Entrevista clínica profunda</div>
@@ -261,7 +261,7 @@ export default function DiagnosticoPage() {
                     <div>• Tests neuropsicológicos si hacen falta</div>
                   </CardContent>
                 </Card>
-                <Card className="border-green-200 dark:border-green-800 bg-green-50/40 dark:bg-green-950/30">
+                <Card className="bg-card border">
                   <CardHeader className="pb-2"><CardTitle className="text-base">Antes de sacar turno</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• ¿Atiende TDAH adulto seguido?</div>
@@ -291,14 +291,14 @@ export default function DiagnosticoPage() {
         )}
 
         {currentStep === 3 && (
-          <Card className="border-purple-200 dark:border-purple-800 bg-purple-50/30 dark:bg-purple-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Clock className="h-8 w-8 text-purple-500" />El proceso completo de diagnóstico
+                <Clock className="h-8 w-8 text-primary" />El proceso completo de diagnóstico
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert className="bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-800">
+              <Alert className="bg-muted/40 border">
                 <Clock className="h-4 w-4" />
                 <AlertDescription>Primero se hace evaluación clínica. Si el caso lo necesita, pueden pedirse tests neuropsicológicos para objetivar atención, memoria de trabajo y funciones ejecutivas. No son imprescindibles para diagnosticar TDAH.</AlertDescription>
               </Alert>
@@ -311,9 +311,9 @@ export default function DiagnosticoPage() {
                   { step: 4, title: "Tratamiento integral", desc: "Plan clínico según edad, objetivos y comorbilidades", duration: "Continuo" },
                   { step: 5, title: "Seguimiento", desc: "Controles médicos, ajustes y evaluación de progreso", duration: "Mensual" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 bg-white dark:bg-slate-800 rounded-lg border">
+                  <div key={idx} className="flex items-start gap-4 p-4 bg-muted/40 rounded-lg border">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center text-xl mb-1">{item.step}</div>
+                      <div className="w-10 h-10 bg-slate-800 text-white rounded-full dark:bg-slate-700 flex items-center justify-center text-xl mb-1">{item.step}</div>
                       <Badge variant="secondary" className="text-xs">{item.duration}</Badge>
                     </div>
                     <div>
@@ -329,32 +329,32 @@ export default function DiagnosticoPage() {
         )}
 
         {currentStep === 4 && (
-          <Card className="border-orange-200 dark:border-orange-800 bg-orange-50/30 dark:bg-orange-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <FileText className="h-8 w-8 text-orange-500" />¿Qué debo llevar a la consulta?
+                <FileText className="h-8 w-8 text-primary" />¿Qué debo llevar a la consulta?
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert className="bg-amber-50 dark:bg-amber-950 border-amber-200 dark:border-amber-800">
+              <Alert className="bg-muted/40 border">
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription><strong>Preguntas clave:</strong> ¿Cuántos años de experiencia con TDAH? ¿Cómo evalúa deterioro funcional y comorbilidades? ¿Usa criterios DSM-5 y escalas ASRS-v1.1?</AlertDescription>
               </Alert>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-semibold mb-3 text-orange-700 dark:text-orange-300">📋 Documentos a llevar</h3>
+                  <h3 className="font-semibold mb-3 text-foreground">📋 Documentos a llevar</h3>
                   <div className="space-y-2 text-sm">
                     {["Boletines escolares antiguos", "Informes médicos previos", "Lista de medicamentos", "Antecedentes familiares"].map((d, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 bg-white dark:bg-slate-800 rounded border"><CheckCircle className="h-4 w-4 text-green-500" />{d}</div>
+                      <div key={i} className="flex items-center gap-2 p-2 bg-muted/40 rounded border"><CheckCircle className="h-4 w-4 text-primary" />{d}</div>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-3 text-orange-700 dark:text-orange-300">💭 Información a preparar</h3>
+                  <h3 className="font-semibold mb-3 text-foreground">💭 Información a preparar</h3>
                   <div className="space-y-2 text-sm">
                     {["Ejemplos específicos de dificultades", "Impacto en trabajo/estudios", "Problemas en relaciones", "Estrategias que has probado"].map((d, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 bg-white dark:bg-slate-800 rounded border"><CheckCircle className="h-4 w-4 text-green-500" />{d}</div>
+                      <div key={i} className="flex items-center gap-2 p-2 bg-muted/40 rounded border"><CheckCircle className="h-4 w-4 text-primary" />{d}</div>
                     ))}
                   </div>
                 </div>
@@ -374,10 +374,10 @@ export default function DiagnosticoPage() {
         )}
 
         {currentStep === 5 && (
-          <Card className="border-purple-200 dark:border-purple-800 bg-purple-50/30 dark:bg-purple-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <User className="h-8 w-8 text-purple-500" />TDAH en la Vida Adulta
+                <User className="h-8 w-8 text-primary" />TDAH en la Vida Adulta
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -403,7 +403,7 @@ export default function DiagnosticoPage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <Card className="border-pink-200 dark:border-pink-800 bg-pink-50/30 dark:bg-pink-950/30">
+                <Card className="bg-card border">
                   <CardHeader><CardTitle className="text-base">TDAH en mujeres</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-1">
                     <div>• Inatención predominante: «soñar despierta»</div>
@@ -431,14 +431,14 @@ export default function DiagnosticoPage() {
          )}
 
         {currentStep === 6 && (
-          <Card className="border-red-200 dark:border-red-800 bg-red-50/30 dark:bg-red-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <AlertTriangle className="h-8 w-8 text-red-500" />Mitos e Impacto
+                <AlertTriangle className="h-8 w-8 text-primary" />Mitos e Impacto
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
+              <Alert className="bg-muted/40 border">
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription><strong>Realidad crítica:</strong> El TDAH no tratado tiene <strong>doble tasa de suicidio</strong> y <strong>4x más intentos</strong>. Puede reducir la esperanza de vida en promedio <strong>13 años</strong>. Con tratamiento adecuado, estos riesgos se reducen significativamente.</AlertDescription>
               </Alert>
@@ -464,12 +464,12 @@ export default function DiagnosticoPage() {
                    </CardContent>
                  </Card>
 
-                 <Card className="border-red-200 dark:border-red-800">
+                 <Card className="border">
                    <CardHeader><CardTitle className="text-base">Riesgo Vial</CardTitle></CardHeader>
                    <CardContent className="text-sm">Conducir sin medicación multiplica los choques automovilísticos, las multas y el riesgo de manejar alcoholizado por pura impulsividad.</CardContent>
                  </Card>
 
-                 <Card className="border-red-200 dark:border-red-800">
+                 <Card className="border">
                    <CardHeader><CardTitle className="text-base">Impacto Financiero y Laboral</CardTitle></CardHeader>
                    <CardContent className="text-sm">El TDAH no tratado genera renuncias impulsivas, despidos frecuentes y deudas por compras compulsivas (búsqueda de dopamina rápida).</CardContent>
                  </Card>

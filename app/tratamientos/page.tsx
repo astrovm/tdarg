@@ -44,35 +44,35 @@ export default function TratamientosPage() {
     >
       <div className="min-h-[500px]">
         {currentStep === 1 && (
-          <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Brain className="h-8 w-8 text-blue-500" />¿Cómo funciona el tratamiento?
+                <Brain className="h-8 w-8 text-primary" />¿Cómo funciona el tratamiento?
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-3 gap-4">
-                <Card className="text-center border-2 border-blue-100 dark:border-blue-900">
+                <Card className="text-center border">
                   <CardHeader className="pb-2"><div className="text-5xl mb-2">💊</div><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
                     <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-slate-500 rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano es una estrategia válida para aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio según tus planes: al pausarla, la impulsividad vuelve de inmediato, lo que eleva el riesgo de choques o gastos excesivos al salir de noche.</span></div>
                   </CardContent>
                 </Card>
 
-                <Card className="text-center border-2 border-blue-100 dark:border-blue-900">
+                <Card className="text-center border">
                   <CardHeader className="pb-2"><div className="text-5xl mb-2">🧠</div><CardTitle className="text-lg">Terapia</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></div><span><strong>Exigí TCC:</strong> La Terapia Cognitivo-Conductual es la que tiene mayor respaldo científico en adultos para entrenar funciones ejecutivas, organización y regular emociones.</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-red-500 rounded-full shrink-0"></div><span><strong>Terapias ineficaces:</strong> El psicoanálisis tradicional demostró una eficacia pobre (apenas 36%) para tratar los síntomas centrales neurológicos del TDAH.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Exigí TCC:</strong> La Terapia Cognitivo-Conductual es la que tiene mayor respaldo científico en adultos para entrenar funciones ejecutivas, organización y regular emociones.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Terapias ineficaces:</strong> El psicoanálisis tradicional demostró una eficacia pobre (apenas 36%) para tratar los síntomas centrales neurológicos del TDAH.</span></div>
                   </CardContent>
                 </Card>
 
-                <Card className="text-center border-2 border-blue-100 dark:border-blue-900">
+                <Card className="text-center border">
                   <CardHeader className="pb-2"><div className="text-5xl mb-2">💪</div><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
                   <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></div><span><strong>Sueño:</strong> El 80% de los adultos con TDAH padece insomnio o síndrome de piernas inquietas, lo que arruina la cognición al día siguiente.</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-red-500 rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> Sin tratamiento, la impulsividad y la distracción aumentan hasta un 62% las probabilidades de sufrir accidentes de tránsito graves.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Sueño:</strong> El 80% de los adultos con TDAH padece insomnio o síndrome de piernas inquietas, lo que arruina la cognición al día siguiente.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> Sin tratamiento, la impulsividad y la distracción aumentan hasta un 62% las probabilidades de sufrir accidentes de tránsito graves.</span></div>
                   </CardContent>
                 </Card>
               </div>
@@ -85,21 +85,21 @@ export default function TratamientosPage() {
         )}
 
         {currentStep === 2 && (
-          <Card className="border-green-200 dark:border-green-800 bg-green-50/30 dark:bg-green-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Pill className="h-8 w-8 text-green-500" />Medicamentos para TDAH
+                <Pill className="h-8 w-8 text-primary" />Medicamentos para TDAH
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
+              <Alert className="bg-muted/40 border">
                 <AlertDescription><strong>El mito del fin de semana:</strong> Suspender la medicación los fines de semana o en vacaciones no es necesario ni obligatorio. Para muchas personas, mantenerla de forma continua ofrece mejor control de síntomas. La decisión debe tomarse con tu médico según tu respuesta individual.</AlertDescription>
               </Alert>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border">
                   <thead>
-                    <tr className="bg-green-100 dark:bg-green-900">
+                    <tr className="bg-muted/60">
                       <th className="p-2 text-left">Medicamento</th>
                       <th className="p-2 text-left">Duración</th>
                       <th className="p-2 text-left">Línea</th>
@@ -151,7 +151,7 @@ export default function TratamientosPage() {
                 Fuente: CADDRA ADHD Medication Chart (May 2026). Ver guía completa para detalles de dosis y presentaciones.
               </div>
 
-              <Alert className="bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
+              <Alert className="bg-muted/40 border">
                 <AlertDescription>
                   <strong>Cuándo priorizar atomoxetina:</strong> antecedentes de adicciones (bajo potencial de abuso), ansiedad severa (estimulantes pueden empeorarla), tics o Tourette (estimulantes a veces los agravan).
                 </AlertDescription>
@@ -161,14 +161,14 @@ export default function TratamientosPage() {
         )}
 
         {currentStep === 3 && (
-          <Card className="border-purple-200 dark:border-purple-800 bg-purple-50/30 dark:bg-purple-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Users className="h-8 w-8 text-purple-500" />Terapias No Farmacológicas
+                <Users className="h-8 w-8 text-primary" />Terapias No Farmacológicas
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+              <Alert className="bg-muted/40 border">
                 <AlertDescription><strong>Atención:</strong> la terapia con evidencia para TDAH es la Terapia Cognitivo-Conductual (TCC). Entrena funciones ejecutivas, organización y control de impulsos.</AlertDescription>
               </Alert>
 
@@ -204,18 +204,18 @@ export default function TratamientosPage() {
         )}
 
         {currentStep === 4 && (
-          <Card className="border-red-200 dark:border-red-800 bg-red-50/30 dark:bg-red-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Heart className="h-8 w-8 text-red-500" />Ejercicio y rutina
+                <Heart className="h-8 w-8 text-primary" />Ejercicio y rutina
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-4 gap-3 text-center text-sm">
-                <div className="p-3 bg-green-100 dark:bg-green-900 rounded"><div className="font-bold text-green-600">20-30 min</div><div className="text-xs">punto de partida</div></div>
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded"><div className="font-bold text-blue-600">Diario</div><div className="text-xs">mejor que intenso</div></div>
-                <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded"><div className="font-bold text-purple-600">Aeróbico</div><div className="text-xs">útil para foco/ánimo</div></div>
-                <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded"><div className="font-bold text-orange-600">Ajustar</div><div className="text-xs">a cada persona</div></div>
+                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">20-30 min</div><div className="text-xs">punto de partida</div></div>
+                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">Diario</div><div className="text-xs">mejor que intenso</div></div>
+                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">Aeróbico</div><div className="text-xs">útil para foco/ánimo</div></div>
+                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">Ajustar</div><div className="text-xs">a cada persona</div></div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">

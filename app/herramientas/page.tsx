@@ -54,10 +54,10 @@ export default function HerramientasPage() {
     >
       <div className="min-h-[500px]">
         {currentStep === 1 && (
-          <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Calendar className="h-8 w-8 text-blue-500" />Organización: Tiempo y Espacio
+                <Calendar className="h-8 w-8 text-primary" />Organización: Tiempo y Espacio
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -87,10 +87,10 @@ export default function HerramientasPage() {
         )}
 
         {currentStep === 2 && (
-          <Card className="border-green-200 dark:border-green-800 bg-green-50/30 dark:bg-green-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Focus className="h-8 w-8 text-green-500" />Gestión de la Atención
+                <Focus className="h-8 w-8 text-primary" />Gestión de la Atención
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -126,10 +126,10 @@ export default function HerramientasPage() {
         )}
 
         {currentStep === 3 && (
-          <Card className="border-purple-200 dark:border-purple-800 bg-purple-50/30 dark:bg-purple-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Brain className="h-8 w-8 text-purple-500" />Regulación Emocional
+                <Brain className="h-8 w-8 text-primary" />Regulación Emocional
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -159,10 +159,10 @@ export default function HerramientasPage() {
         )}
 
         {currentStep === 4 && (
-          <Card className="border-purple-200 dark:border-purple-800 bg-purple-50/30 dark:bg-purple-950/30">
+          <Card className="bg-card border">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <User className="h-8 w-8 text-purple-500" />Adultos aplicado
+                <User className="h-8 w-8 text-primary" />Adultos aplicado
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
