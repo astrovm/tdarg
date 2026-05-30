@@ -1,30 +1,224 @@
 "use client";
 
-import { useStepProgress } from "@/hooks/use-step-progress";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Brain,
+  Calendar,
+  Focus,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import {
-  Calendar,
-  Focus,
-  Brain,
-  User,
-} from "lucide-react";
-import { StepGuideLayout } from "@/components/step-guide-layout";
-import type { StepDefinition } from "@/lib/steps";
 import { References, type Reference } from "@/components/references";
-import Link from "next/link";
+import { StepGuideLayout } from "@/components/step-guide-layout";
+import { useStepProgress } from "@/hooks/use-step-progress";
+import type { StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Organización", subtitle: "Tiempo y espacio", icon: Calendar },
-  { id: 2, title: "Atención", subtitle: "Concentración y foco", icon: Focus },
-  { id: 3, title: "Manejo Emocional", subtitle: "Regulación y comunicación", icon: Brain },
-  { id: 4, title: "Adultos aplicado", subtitle: "Herramientas para la vida diaria", icon: User },
+  { id: 1, title: "Organización", subtitle: "Tiempo, espacio y tareas", icon: Calendar },
+  { id: 2, title: "Foco", subtitle: "Atención y arranque", icon: Focus },
+  { id: 3, title: "Regulación", subtitle: "Emoción, energía y comunicación", icon: Brain },
 ] satisfies StepDefinition[];
+
+const accentByStep = [
+  "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
+  "bg-sky-500/12 text-sky-700 dark:text-sky-300",
+  "bg-violet-500/12 text-violet-700 dark:text-violet-300",
+];
+
+function InfoCard({
+  title,
+  items,
+}: {
+  title: string;
+  items: string[];
+}) {
+  return (
+    <Card className="bg-card border">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-base">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-2 text-sm text-muted-foreground">
+        {items.map((item) => (
+          <div key={item} className="flex gap-2">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
+            <span>{item}</span>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+export default function HerramientasPage() {
+  const { currentStep, completedCount, next, prev, progress, goTo, isDone } =
+    useStepProgress({ totalSteps: steps.length });
+  const activeStep = steps[currentStep - 1];
+  const ActiveIcon = activeStep.icon;
+  const activeAccent = accentByStep[currentStep - 1];
+
+  return (
+    <StepGuideLayout
+      title="Herramientas para el día a día"
+      description="Estrategias simples para organizarte, enfocarte y regularte mejor"
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      completedCount={completedCount}
+      onSelectStep={goTo}
+      isStepDone={isDone}
+    >
+      <Card className="min-h-[520px] bg-card border">
+        <CardHeader>
+          <div className="flex items-center gap-3">
+            <div
+              className={`flex h-10 w-10 items-center justify-center rounded-lg ${activeAccent}`}
+            >
+              <ActiveIcon className="h-5 w-5" />
+            </div>
+            <div>
+              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                {activeStep.subtitle}
+              </p>
+            </div>
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-6">
+          {currentStep === 1 && (
+            <div className="grid gap-4 md:grid-cols-3">
+              <InfoCard
+                title="Tiempo"
+                items={[
+                  "Usá una sola agenda para compromisos, turnos y vencimientos.",
+                  "Bloqueá tareas grandes en tramos de 25 a 45 minutos.",
+                  "Dejá margen entre actividades para no depender de cambios perfectos.",
+                ]}
+              />
+              <InfoCard
+                title="Espacio"
+                items={[
+                  "Definí lugares fijos para llaves, billetera, medicación y cargadores.",
+                  "Reducí objetos visibles en escritorio y mesa de trabajo.",
+                  "Usá cajas o bandejas por función: salida, trabajo, papeles, cables.",
+                ]}
+              />
+              <InfoCard
+                title="Tareas"
+                items={[
+                  "Separá captura de ejecución: primero anotá, después decidí.",
+                  "Convertí pendientes grandes en próxima acción visible.",
+                  "Prepará de noche lo que necesitás al salir al día siguiente.",
+                ]}
+              />
+            </div>
+          )}
+
+          {currentStep === 2 && (
+            <div className="grid gap-4 md:grid-cols-3">
+              <InfoCard
+                title="Arranque"
+                items={[
+                  "Empezá por una versión mínima de 2 minutos.",
+                  "Dejá abierto el archivo, la ropa o el material antes de la tarea.",
+                  "Usá una señal externa: timer, alarma, checklist o persona de referencia.",
+                ]}
+              />
+              <InfoCard
+                title="Distracciones"
+                items={[
+                  "Sacá el teléfono del campo visual cuando necesites foco.",
+                  "Usá bloqueadores o perfiles separados para trabajo y ocio.",
+                  "Reservá una lista de captura para ideas que aparecen durante la tarea.",
+                ]}
+              />
+              <InfoCard
+                title="Hiperfoco"
+                items={[
+                  "Poné timer antes de empezar, no cuando ya estás absorbido.",
+                  "Definí una hora de corte y una acción de cierre.",
+                  "Protegé comida, sueño y compromisos cuando entrás en modo intenso.",
+                ]}
+              />
+            </div>
+          )}
+
+          {currentStep === 3 && (
+            <div className="grid gap-4 md:grid-cols-3">
+              <InfoCard
+                title="Emoción"
+                items={[
+                  "Nombrá la emoción antes de responder o decidir.",
+                  "Usá grounding 5-4-3-2-1 cuando estás muy activado.",
+                  "Cambiá temperatura o movete unos minutos para bajar intensidad física.",
+                ]}
+              />
+              <InfoCard
+                title="Energía"
+                items={[
+                  "Ubicá tareas pesadas en tus horas de mejor energía.",
+                  "No llenes un día bueno con deuda acumulada completa.",
+                  "Armá una lista de baja energía para días de poco margen.",
+                ]}
+              />
+              <InfoCard
+                title="Comunicación"
+                items={[
+                  "Pedí feedback concreto, no evaluaciones ambiguas.",
+                  "Avisá cuando necesitás tiempo para procesar antes de responder.",
+                  "Separá intención de impacto: explicar no reemplaza reparar.",
+                ]}
+              />
+            </div>
+          )}
+        </CardContent>
+
+        <div className="flex items-center justify-between border-t p-6">
+          <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Anterior
+          </Button>
+          <span className="text-sm text-muted-foreground">
+            {currentStep} de {steps.length}
+          </span>
+          {currentStep === steps.length ? (
+            <Button asChild>
+              <Link href="/especialistas">
+                Buscar especialistas
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          ) : (
+            <Button onClick={next}>
+              Siguiente
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          )}
+        </div>
+
+        {currentStep === steps.length && (
+          <div className="flex flex-wrap justify-center gap-3 border-t px-6 pb-6 pt-4">
+            <Button variant="outline" asChild>
+              <Link href="/tratamientos">Ver tratamientos</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/diagnostico">Ver diagnóstico</Link>
+            </Button>
+          </div>
+        )}
+      </Card>
+
+      <References references={references} />
+    </StepGuideLayout>
+  );
+}
 
 const references: Reference[] = [
   {
@@ -36,186 +230,3 @@ const references: Reference[] = [
     year: "2021",
   },
 ];
-
-export default function HerramientasPage() {
-  const { currentStep, completedCount, progress, goTo, isDone } =
-    useStepProgress({ totalSteps: steps.length });
-
-  return (
-    <StepGuideLayout
-      title="Herramientas para el día a día con TDAH"
-      description="Estrategias prácticas para organizarte mejor"
-      steps={steps}
-      currentStep={currentStep}
-      progress={progress}
-      completedCount={completedCount}
-      onSelectStep={goTo}
-      isStepDone={isDone}
-    >
-      <div className="min-h-[500px]">
-        {currentStep === 1 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Calendar className="h-8 w-8 text-primary" />Organización: Tiempo y Espacio
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Tiempo</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-2">
-                    <div>• Usa una sola agenda (física o digital)</div>
-                    <div>• Bloques de 25-45 min con descansos cortos (Pomodoro)</div>
-                    <div>• Programa primero lo importante, no lo urgente</div>
-                    <div>• Deja margen entre actividades</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Espacio</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-2">
-                    <div>• Un lugar para cada cosa, cada cosa en su lugar</div>
-                    <div>• Reduce objetos visuales en el escritorio</div>
-                    <div>• Usa cajas transparentes y etiquetas</div>
-                    <div>• Crea «estaciones» (trabajo, carga, salida)</div>
-                  </CardContent>
-                </Card>
-              </div>
-
-            </CardContent>
-          </Card>
-        )}
-
-        {currentStep === 2 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Focus className="h-8 w-8 text-primary" />Gestión de la Atención
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-3 gap-3">
-                <Card>
-                  <CardHeader><CardTitle className="text-sm">Minimizar distracciones</CardTitle></CardHeader>
-                  <CardContent className="text-xs space-y-1">
-                    <div>• Teléfono en modo avión o en otra habitación</div>
-                    <div>• Bloqueadores de sitios web (Freedom, Cold Turkey)</div>
-                    <div>• Auriculares con ruido blanco o música instrumental (sin letra)</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-sm">Períodos concentrados</CardTitle></CardHeader>
-                  <CardContent className="text-xs space-y-1">
-                    <div>• 25-45 minutos de foco profundo</div>
-                    <div>• Descanso de 5-10 minutos entre bloques</div>
-                    <div>• Máximo 3-4 bloques por sesión (usa timer físico o app)</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-sm">Refocalización</CardTitle></CardHeader>
-                  <CardContent className="text-xs space-y-1">
-                    <div>• Técnica del «5-4-3-2-1» para volver al presente</div>
-                    <div>• Regla de los 2 minutos: si es rápido, hacelo ahora</div>
-                    <div>• Lista de «captura» para ideas que aparecen</div>
-                  </CardContent>
-                </Card>
-              </div>
-
-            </CardContent>
-          </Card>
-        )}
-
-        {currentStep === 3 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Brain className="h-8 w-8 text-primary" />Regulación Emocional
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Técnicas rápidas</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Respiración 4-7-8 (inhalar 4, retener 7, exhalar 8)</div>
-                    <div>• Cambio de temperatura: agua fría en cara o manos</div>
-                    <div>• Movimiento: 10 flexiones o saltos</div>
-                    <div>• Nombrear la emoción en voz alta</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Comunicación efectiva</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• «Necesito 5 minutos para procesar esto»</div>
-                    <div>• «Mi cerebro funciona diferente, no es desinterés»</div>
-                    <div>• Pedir feedback concreto, no «está todo bien»</div>
-                    <div>• Explicar el TDAH a las personas cercanas</div>
-                  </CardContent>
-                </Card>
-              </div>
-
-            </CardContent>
-          </Card>
-        )}
-
-        {currentStep === 4 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <User className="h-8 w-8 text-primary" />Adultos aplicado
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Hiperfoco</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Ventaja: productividad excepcional en temas de interés</div>
-                    <div>• Riesgo: descuidar responsabilidades y agotamiento</div>
-                    <div>• Estrategia: usar timers y recordatorios externos</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Ciclos de energía</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• «Encendido»: alta energía, múltiples proyectos</div>
-                    <div>• «Apagado»: agotamiento, procrastinación</div>
-                    <div>• Estrategia: planificar tareas pesadas en picos de energía</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Mujeres y RSD</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Hipersensibilidad al rechazo (RSD) es real y neurológica</div>
-                    <div>• Ciclo menstrual puede intensificar síntomas</div>
-                    <div>• Estrategia: validar la emoción + técnicas de grounding</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Regulación emocional</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Técnica 5-4-3-2-1 para volver al presente</div>
-                    <div>• Pedir «5 minutos para procesar»</div>
-                    <div>• Explicar el TDAH a personas cercanas</div>
-                  </CardContent>
-                </Card>
-               </div>
-
-             </CardContent>
-           </Card>
-         )}
-       </div>
-
-       <div className="flex flex-col sm:flex-row gap-3 justify-center pb-6">
-         <Button asChild size="lg">
-           <Link href="/especialistas">Encontrar especialistas</Link>
-         </Button>
-         <Button variant="outline" asChild>
-           <Link href="/tratamientos">Ver tratamientos</Link>
-         </Button>
-       </div>
-
-       <References references={references} />
-     </StepGuideLayout>
-   );
- }
