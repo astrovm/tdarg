@@ -22,7 +22,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-muted/30">
       <Header />
 
-      <section className="border-b bg-background py-12">
+      <section className="border-b bg-background py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-foreground mb-4">
             TDAH en Argentina
@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14 bg-muted/30">
+      <section className="py-14 bg-secondary/60">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-center text-foreground mb-10">
             Recursos principales
@@ -105,7 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-14 bg-background">
+      <section className="py-14 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-foreground mb-4">

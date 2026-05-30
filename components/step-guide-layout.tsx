@@ -70,7 +70,7 @@ export function StepGuideLayout({
           heroClassName,
         )}
       >
-        <div className="container mx-auto px-4 py-8 relative z-10">
+        <div className="container mx-auto px-4 py-10 relative z-10">
           <h1 className={cn("text-3xl font-bold text-foreground mb-4", titleClassName)}>{title}</h1>
           {description ? (
             <p className={cn("text-lg text-muted-foreground mb-6", descriptionClassName)}>
