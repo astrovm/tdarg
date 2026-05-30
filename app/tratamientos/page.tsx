@@ -1,35 +1,69 @@
 "use client";
 
-import { useStepProgress } from "@/hooks/use-step-progress";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Brain,
+  Heart,
+  Pill,
+  Users,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import {
-  ArrowLeft,
-  Pill,
-  Brain,
-  Heart,
-  Users,
-} from "lucide-react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { StepGuideLayout } from "@/components/step-guide-layout";
+import { useStepProgress } from "@/hooks/use-step-progress";
 import type { StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Cómo funciona", subtitle: "El tratamiento paso a paso", icon: Brain },
-  { id: 2, title: "Medicamentos", subtitle: "Opciones farmacológicas", icon: Pill },
-  { id: 3, title: "Terapias", subtitle: "Apoyo psicológico", icon: Users },
-  { id: 4, title: "Estilo de vida", subtitle: "Ejercicio y rutina", icon: Heart },
+  { id: 1, title: "Panorama", subtitle: "Qué combina el tratamiento", icon: Brain },
+  { id: 2, title: "Medicación", subtitle: "Opciones y seguimiento", icon: Pill },
+  { id: 3, title: "Terapia", subtitle: "Herramientas psicológicas", icon: Users },
+  { id: 4, title: "Rutina", subtitle: "Sueño, ejercicio y hábitos", icon: Heart },
 ] satisfies StepDefinition[];
 
+const accentByStep = [
+  "bg-violet-500/12 text-violet-700 dark:text-violet-300",
+  "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
+  "bg-sky-500/12 text-sky-700 dark:text-sky-300",
+  "bg-rose-500/12 text-rose-700 dark:text-rose-300",
+];
+
+function InfoCard({
+  title,
+  items,
+}: {
+  title: string;
+  items: string[];
+}) {
+  return (
+    <Card className="bg-card border">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-base">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-2 text-sm text-muted-foreground">
+        {items.map((item) => (
+          <div key={item} className="flex gap-2">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
+            <span>{item}</span>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function TratamientosPage() {
-  const { currentStep, progress, completedCount, goTo, prev, isDone } =
+  const { currentStep, progress, completedCount, next, prev, goTo, isDone } =
     useStepProgress({ totalSteps: steps.length });
+  const activeStep = steps[currentStep - 1];
+  const ActiveIcon = activeStep.icon;
+  const activeAccent = accentByStep[currentStep - 1];
 
   return (
     <StepGuideLayout
@@ -42,216 +76,182 @@ export default function TratamientosPage() {
       onSelectStep={goTo}
       isStepDone={isDone}
     >
-      <div className="min-h-[500px]">
-        {currentStep === 1 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Brain className="h-8 w-8 text-primary" />¿Cómo funciona el tratamiento?
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-3 gap-4">
-                <Card className="text-center border">
-                  <CardHeader className="pb-2"><Pill className="mx-auto mb-2 h-8 w-8 text-emerald-400" /><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano puede aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio con tu médico según síntomas, planes y tolerancia.</span></div>
-                  </CardContent>
-                </Card>
+      <Card className="min-h-[520px] bg-card border">
+        <CardHeader>
+          <div className="flex items-center gap-3">
+            <div
+              className={`flex h-10 w-10 items-center justify-center rounded-lg ${activeAccent}`}
+            >
+              <ActiveIcon className="h-5 w-5" />
+            </div>
+            <div>
+              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                {activeStep.subtitle}
+              </p>
+            </div>
+          </div>
+        </CardHeader>
 
-                <Card className="text-center border">
-                  <CardHeader className="pb-2"><Brain className="mx-auto mb-2 h-8 w-8 text-violet-400" /><CardTitle className="text-lg">Terapia</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>TCC:</strong> La Terapia Cognitivo-Conductual es la que tiene mayor respaldo científico en adultos para entrenar funciones ejecutivas, organización y regular emociones.</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Evidencia limitada:</strong> El psicoanálisis tradicional tiene evidencia limitada para tratar los síntomas centrales neurológicos del TDAH.</span></div>
-                  </CardContent>
-                </Card>
+        <CardContent className="space-y-6">
+          {currentStep === 1 && (
+            <div className="grid gap-4 md:grid-cols-3">
+              <InfoCard
+                title="Medicación"
+                items={[
+                  "Puede reducir síntomas centrales como inatención, impulsividad e inquietud.",
+                  "La elección depende de edad, comorbilidades, efectos adversos y acceso.",
+                  "Requiere seguimiento para ajustar dosis, horarios y tolerancia.",
+                ]}
+              />
+              <InfoCard
+                title="Terapia"
+                items={[
+                  "Ayuda a ordenar hábitos, funciones ejecutivas y regulación emocional.",
+                  "La TCC suele usarse para trabajar organización, planificación y pensamientos rígidos.",
+                  "Puede combinarse con medicación o usarse como apoyo principal según el caso.",
+                ]}
+              />
+              <InfoCard
+                title="Rutina"
+                items={[
+                  "Sueño, ejercicio y estructura diaria modifican el nivel de síntomas.",
+                  "Los cambios funcionan mejor cuando son simples y sostenibles.",
+                  "El objetivo no es disciplina perfecta, sino menos fricción diaria.",
+                ]}
+              />
+            </div>
+          )}
 
-                <Card className="text-center border">
-                  <CardHeader className="pb-2"><Heart className="mx-auto mb-2 h-8 w-8 text-rose-400" /><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-3 text-left">
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Sueño:</strong> Los problemas de sueño son frecuentes en adultos con TDAH y pueden empeorar atención, memoria y regulación emocional.</span></div>
-                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-muted-foreground rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> La impulsividad y la distracción se asocian con mayor riesgo de incidentes de tránsito, especialmente cuando los síntomas están mal controlados.</span></div>
-                  </CardContent>
-                </Card>
+          {currentStep === 2 && (
+            <>
+              <div className="grid gap-4 md:grid-cols-3">
+                <InfoCard
+                  title="Estimulantes"
+                  items={[
+                    "Metilfenidato y lisdexanfetamina son opciones frecuentes de primera línea.",
+                    "Suelen actuar el mismo día y permiten ajustar respuesta con controles.",
+                    "En Argentina son Psicotrópicos Lista II y pueden requerir receta física.",
+                  ]}
+                />
+                <InfoCard
+                  title="No estimulantes"
+                  items={[
+                    "Atomoxetina puede ser útil si hay ansiedad, tics o riesgo de abuso.",
+                    "Tiene inicio más lento y se evalúa por continuidad, no por efecto inmediato.",
+                    "La indicación depende del perfil clínico y de tratamientos previos.",
+                  ]}
+                />
+                <InfoCard
+                  title="Off-label"
+                  items={[
+                    "Bupropión u otras opciones pueden considerarse en casos específicos.",
+                    "Suelen evaluarse cuando hay depresión, tabaquismo u otras comorbilidades.",
+                    "No reemplazan una indicación individual hecha por profesional.",
+                  ]}
+                />
               </div>
 
-              <Alert>
-                <AlertDescription>El abordaje suele combinar medicación, herramientas psicológicas y cambios de rutina. La proporción depende del perfil clínico, comorbilidades y acceso.</AlertDescription>
-              </Alert>
-            </CardContent>
-          </Card>
+              <div className="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
+                La continuidad, pausa o cambio de medicación se decide con el
+                médico según respuesta, efectos adversos, rutina y objetivos.
+              </div>
+            </>
+          )}
+
+          {currentStep === 3 && (
+            <div className="grid gap-4 md:grid-cols-3">
+              <InfoCard
+                title="TCC"
+                items={[
+                  "Psicoeducación para entender síntomas y patrones personales.",
+                  "Reestructuración cognitiva para trabajar culpa, evitación y frustración.",
+                  "Técnicas conductuales para convertir objetivos en acciones concretas.",
+                ]}
+              />
+              <InfoCard
+                title="Habilidades ejecutivas"
+                items={[
+                  "Agenda, recordatorios y listas de captura.",
+                  "Dividir tareas grandes en próximos pasos pequeños.",
+                  "Reducir decisiones repetidas con rutinas y sistemas externos.",
+                ]}
+              />
+              <InfoCard
+                title="Regulación emocional"
+                items={[
+                  "Identificar señales tempranas de sobrecarga.",
+                  "Usar pausas, respiración, movimiento o grounding antes de responder.",
+                  "Separar emoción intensa de decisión urgente.",
+                ]}
+              />
+            </div>
+          )}
+
+          {currentStep === 4 && (
+            <div className="grid gap-4 md:grid-cols-3">
+              <InfoCard
+                title="Sueño"
+                items={[
+                  "Revisar horarios, pantallas, cafeína y calidad de descanso.",
+                  "Dormir mal puede aumentar inatención, irritabilidad y desorganización.",
+                  "Conviene detectar insomnio, piernas inquietas u otros problemas de sueño.",
+                ]}
+              />
+              <InfoCard
+                title="Ejercicio"
+                items={[
+                  "Caminar rápido, bicicleta, natación o deporte pueden ayudar a foco y ánimo.",
+                  "La constancia suele importar más que la intensidad.",
+                  "También sirven actividades de coordinación como yoga, pilates o artes marciales.",
+                ]}
+              />
+              <InfoCard
+                title="Hábitos"
+                items={[
+                  "Preparar entorno y materiales antes del momento de uso.",
+                  "Bajar fricción: menos pasos, menos objetos, menos decisiones.",
+                  "Medir si una estrategia se sostiene, no si suena perfecta.",
+                ]}
+              />
+            </div>
+          )}
+        </CardContent>
+
+        <div className="flex items-center justify-between border-t p-6">
+          <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Anterior
+          </Button>
+          <span className="text-sm text-muted-foreground">
+            {currentStep} de {steps.length}
+          </span>
+          {currentStep === steps.length ? (
+            <Button asChild>
+              <Link href="/especialistas">
+                Buscar especialistas
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          ) : (
+            <Button onClick={next}>
+              Siguiente
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          )}
+        </div>
+
+        {currentStep === steps.length && (
+          <div className="flex flex-wrap justify-center gap-3 border-t px-6 pb-6 pt-4">
+            <Button variant="outline" asChild>
+              <Link href="/precios">Ver precios</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/herramientas">Ver herramientas</Link>
+            </Button>
+          </div>
         )}
-
-        {currentStep === 2 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Pill className="h-8 w-8 text-primary" />Medicamentos para TDAH
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <Alert className="bg-muted/40 border">
-                <AlertDescription><strong>El mito del fin de semana:</strong> Suspender la medicación los fines de semana o en vacaciones no es necesario ni obligatorio. Para muchas personas, mantenerla de forma continua ofrece mejor control de síntomas. La decisión debe tomarse con tu médico según tu respuesta individual.</AlertDescription>
-              </Alert>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm border">
-                  <thead>
-                    <tr className="bg-muted/60">
-                      <th className="p-2 text-left">Medicamento</th>
-                      <th className="p-2 text-left">Duración</th>
-                      <th className="p-2 text-left">Línea</th>
-                      <th className="p-2 text-left">Argentina</th>
-                      <th className="p-2 text-left w-2/5">Nota clave</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-t">
-                      <td className="p-2 font-medium">Lisdexanfetamina (Ludoxa)</td>
-                      <td className="p-2">13-14 h</td>
-                      <td className="p-2">1ra</td>
-                      <td className="p-2">Disponible</td>
-                      <td className="p-2 text-xs whitespace-normal">Psicotrópico Lista II. Una toma diaria. Menor potencial de abuso.</td>
-                    </tr>
-                    <tr className="border-t">
-                      <td className="p-2 font-medium">Metilfenidato OROS (Concerta/Consiv)</td>
-                      <td className="p-2">12 h</td>
-                      <td className="p-2">1ra</td>
-                      <td className="p-2">Disponible</td>
-                      <td className="p-2 text-xs whitespace-normal">Psicotrópico Lista II. Requiere receta física por triplicado.</td>
-                    </tr>
-                    <tr className="border-t">
-                      <td className="p-2 font-medium">Metilfenidato IR/SR (Ritalina)</td>
-                      <td className="p-2">3-4 h</td>
-                      <td className="p-2">2da</td>
-                      <td className="p-2">Disponible</td>
-                      <td className="p-2 text-xs whitespace-normal">Psicotrópico Lista II. Múltiples formulaciones locales.</td>
-                    </tr>
-                    <tr className="border-t">
-                      <td className="p-2 font-medium">Atomoxetina</td>
-                      <td className="p-2">24 h</td>
-                      <td className="p-2">2da</td>
-                      <td className="p-2">Disponible</td>
-                      <td className="p-2 text-xs whitespace-normal">No es Lista II. Útil en ansiedad, tics o adicciones. Inicio lento (4-6 sem).</td>
-                    </tr>
-                    <tr className="border-t">
-                      <td className="p-2 font-medium">Bupropión</td>
-                      <td className="p-2">24 h</td>
-                      <td className="p-2">3ra</td>
-                      <td className="p-2">Disponible</td>
-                      <td className="p-2 text-xs whitespace-normal">Off-label. Útil si hay depresión comórbida o tabaquismo.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="text-xs text-muted-foreground">
-                Fuente: CADDRA ADHD Medication Chart (May 2026). Ver guía completa para detalles de dosis y presentaciones.
-              </div>
-
-              <Alert className="bg-muted/40 border">
-                <AlertDescription>
-                  <strong>Cuándo priorizar atomoxetina:</strong> antecedentes de adicciones (bajo potencial de abuso), ansiedad severa (estimulantes pueden empeorarla), tics o Tourette (estimulantes a veces los agravan).
-                </AlertDescription>
-              </Alert>
-            </CardContent>
-          </Card>
-        )}
-
-        {currentStep === 3 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Users className="h-8 w-8 text-primary" />Terapias No Farmacológicas
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <Alert className="bg-muted/40 border">
-                <AlertDescription><strong>Atención:</strong> la terapia con evidencia para TDAH es la Terapia Cognitivo-Conductual (TCC). Entrena funciones ejecutivas, organización y control de impulsos.</AlertDescription>
-              </Alert>
-
-              <div>
-                <h3 className="font-semibold mb-3">Terapia Cognitivo-Conductual (TCC)</h3>
-                <div className="grid md:grid-cols-2 gap-4 text-sm">
-                  <div className="space-y-2">
-                    <div><strong>Qué incluye:</strong></div>
-                    <div>• Psicoeducación: entender qué es el TDAH</div>
-                    <div>• Reestructuración cognitiva: cambiar pensamientos negativos</div>
-                    <div>• Técnicas conductuales: estrategias prácticas</div>
-                  </div>
-                  <div className="space-y-2">
-                    <div><strong>Beneficios esperados:</strong></div>
-                    <div>• Mejora de autoestima y reducción de ansiedad/depresión</div>
-                    <div>• Mejor funcionamiento laboral y en relaciones</div>
-                    <div>• Mayor adherencia a medicación</div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-semibold mb-3">Entrenamiento en Habilidades</h3>
-                <div className="grid md:grid-cols-3 gap-3 text-sm">
-                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Organización</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Agendas y listas • División de tareas • Organización de espacios</CardContent></Card>
-                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Gestión de atención</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Minimizar distracciones • Períodos concentrados • Refocalización</CardContent></Card>
-                  <Card><CardHeader className="pb-2"><CardTitle className="text-sm">Regulación emocional</CardTitle></CardHeader><CardContent className="text-xs space-y-1">• Identificar emociones • Técnicas de relajación • Manejo de frustración</CardContent></Card>
-                </div>
-              </div>
-
-            </CardContent>
-          </Card>
-        )}
-
-        {currentStep === 4 && (
-          <Card className="bg-card border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <Heart className="h-8 w-8 text-primary" />Ejercicio y rutina
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-4 gap-3 text-center text-sm">
-                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">20-30 min</div><div className="text-xs">punto de partida</div></div>
-                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">Diario</div><div className="text-xs">mejor que intenso</div></div>
-                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">Aeróbico</div><div className="text-xs">útil para foco/ánimo</div></div>
-                <div className="p-3 bg-muted/40 rounded border"><div className="font-bold text-foreground">Ajustar</div><div className="text-xs">a cada persona</div></div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Ejercicio aeróbico</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Correr / trotar / caminar rápido</div>
-                    <div>• Bicicleta / natación</div>
-                    <div className="text-xs text-muted-foreground mt-2">Potencia: enfoque y motivación</div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader><CardTitle className="text-base">Equilibrio y coordinación</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Yoga / pilates / artes marciales</div>
-                    <div>• Deportes de equipo</div>
-                    <div className="text-xs text-muted-foreground mt-2">Útil para: control corporal y constancia</div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild>
-                  <Link href="/diagnostico">Volver a Diagnóstico</Link>
-                </Button>
-                <Button asChild>
-                  <Link href="/especialistas">Encontrar especialistas</Link>
-                </Button>
-                <Button variant="outline" onClick={prev}>
-                  <ArrowLeft className="h-4 w-4 mr-2" />Anterior
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
+      </Card>
     </StepGuideLayout>
   );
 }
