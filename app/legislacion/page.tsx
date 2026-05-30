@@ -16,6 +16,59 @@ import {
 } from "@/lib/legislacion-data";
 
 export default function LegislacionPage() {
+  const getSeverityClasses = (urgencia: string) => {
+    if (urgencia === "Crítico") {
+      return {
+        border: "border-l-red-500",
+        badge: "bg-red-600 text-white",
+        dot: "bg-red-500",
+        surface: "bg-red-50 dark:bg-red-900/20",
+        text: "text-red-700 dark:text-red-300",
+      };
+    }
+
+    if (urgencia === "Alto") {
+      return {
+        border: "border-l-orange-500",
+        badge: "bg-orange-600 text-white",
+        dot: "bg-orange-500",
+        surface: "bg-orange-50 dark:bg-orange-900/20",
+        text: "text-orange-700 dark:text-orange-300",
+      };
+    }
+
+    if (urgencia === "Medio") {
+      return {
+        border: "border-l-yellow-500",
+        badge: "bg-yellow-600 text-white",
+        dot: "bg-yellow-500",
+        surface: "bg-yellow-50 dark:bg-yellow-900/20",
+        text: "text-yellow-700 dark:text-yellow-300",
+      };
+    }
+
+    return {
+      border: "border-l-blue-500",
+      badge: "bg-blue-600 text-white",
+      dot: "bg-blue-500",
+      surface: "bg-blue-50 dark:bg-blue-900/20",
+      text: "text-blue-700 dark:text-blue-300",
+    };
+  };
+
+  const splitBullet = (text: string) => {
+    const separatorIndex = text.indexOf(":");
+
+    if (separatorIndex === -1) {
+      return { label: null, body: text };
+    }
+
+    return {
+      label: text.slice(0, separatorIndex),
+      body: text.slice(separatorIndex + 1).trim(),
+    };
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
@@ -26,65 +79,81 @@ export default function LegislacionPage() {
       />
 
       {/* Laws Section */}
-      <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10 border-y border-blue-100 dark:border-blue-800/30">
+      <div className="bg-slate-50 dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 text-center">
             El problema legal y tus derechos hoy
           </h2>
-          <p className="text-center text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-center text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
             Un solo mapa: qué dice la ley, qué falla en la práctica y qué
             solución concreta debería existir.
           </p>
-          <div className="space-y-6">
-            {leyes.map((ley, index) => (
+
+          <div className="max-w-5xl mx-auto space-y-4">
+            {leyes.map((ley) => {
+              const severity = getSeverityClasses(ley.urgencia);
+
+              return (
               <Card
-                key={index}
-                className="hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                key={ley.numero}
+                className={`overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 border-l-4 ${severity.border} shadow-sm`}
               >
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-xl">{ley.numero}</CardTitle>
-                      <CardDescription className="dark:text-gray-300 text-base font-medium text-gray-900 mt-1">
+                <CardHeader className="pb-3">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <Badge className={severity.badge}>
+                          {ley.urgencia}
+                        </Badge>
+                        <span
+                          className={`rounded-full px-2 py-1 text-xs font-medium ${severity.surface} ${severity.text}`}
+                        >
+                          {ley.impacto}
+                        </span>
+                      </div>
+                      <CardTitle className="text-xl text-slate-900 dark:text-white leading-snug">
+                        {ley.numero}
+                      </CardTitle>
+                      <CardDescription className="text-sm font-medium text-slate-600 dark:text-slate-300 mt-1">
                         {ley.titulo}
                       </CardDescription>
                     </div>
-                    <Badge
-                      className={`ml-3 shrink-0 ${
-                        ley.urgencia === "Crítico"
-                          ? "bg-red-600 text-white"
-                          : ley.urgencia === "Alto"
-                          ? "bg-orange-600 text-white"
-                          : ley.urgencia === "Medio"
-                          ? "bg-yellow-600 text-white"
-                          : "bg-blue-600 text-white"
-                      }`}
-                    >
-                      {ley.urgencia}
-                    </Badge>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 mb-4">{ley.descripcion}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 font-medium">
-                    {ley.impacto}
+                <CardContent className="pt-0">
+                  <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 mb-4">
+                    {ley.descripcion}
                   </p>
 
                   {ley.puntosClave.length > 0 && (
-                    <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
-                      <ul className="space-y-3 text-sm">
-                        {ley.puntosClave.map((punto, idx) => (
-                          <li key={idx} className="flex items-start space-x-2">
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                            <span>{punto}</span>
-                          </li>
-                        ))}
+                    <div className="rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-4">
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                        {ley.puntosClave.map((punto) => {
+                          const bullet = splitBullet(punto);
+
+                          return (
+                            <li key={punto} className="flex items-start gap-3">
+                              <div
+                                className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${severity.dot}`}
+                              ></div>
+                              <span className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                                {bullet.label && (
+                                  <strong className="text-slate-900 dark:text-white">
+                                    {bullet.label}:{" "}
+                                  </strong>
+                                )}
+                                {bullet.body}
+                              </span>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   )}
                 </CardContent>
               </Card>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
