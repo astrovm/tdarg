@@ -22,11 +22,7 @@ const mainNavigationItems = [
 const guidesItems = [
   { href: "/diagnostico", label: "Diagnóstico" },
   { href: "/tratamientos", label: "Tratamientos" },
-  { href: "/adultos", label: "TDAH Adulto" },
   { href: "/comorbilidades", label: "Comorbilidades" },
-  { href: "/autismo", label: "TDAH y Autismo" },
-  { href: "/impacto", label: "Impacto" },
-  { href: "/mitos", label: "Mitos" },
   { href: "/herramientas", label: "Herramientas" },
 ];
 

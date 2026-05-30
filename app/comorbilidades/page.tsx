@@ -4,11 +4,9 @@ import { useStepProgress } from "@/hooks/use-step-progress";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,98 +21,20 @@ import {
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { StepDefinition } from "@/lib/steps";
-import Link from "next/link";
 import { CitationLink } from "@/components/citation-link";
 import { References, type Reference } from "@/components/references";
 
 const steps = [
-  {
-    id: 1,
-    title: "¿Qué son?",
-    subtitle: "Definición y prevalencia",
-    icon: Activity,
-    description: "Las comorbilidades y su frecuencia en TDAH",
-  },
-  {
-    id: 2,
-    title: "TDAH + Ansiedad",
-    subtitle: "La comorbilidad más común",
-    icon: Zap,
-    description: "Cómo se relacionan y cómo tratarlas",
-  },
-  {
-    id: 3,
-    title: "TDAH + Depresión",
-    subtitle: "Relación compleja",
-    icon: Brain,
-    description: "Tipos de relación y diferenciación",
-  },
-  {
-    id: 4,
-    title: "TDAH + Autismo",
-    subtitle: "Comorbilidad neurológica",
-    icon: Heart,
-    description: "Diagnóstico dual y características",
-  },
-  {
-    id: 5,
-    title: "Evaluación integral",
-    subtitle: "Manejo y tratamiento",
-    icon: Users,
-    description: "Principios para tratamiento integral",
-  },
-  {
-    id: 6,
-    title: "TDAH + Adicciones",
-    subtitle: "Uso de sustancias y pantallas",
-    icon: AlertTriangle,
-    description:
-      "Mayor vulnerabilidad al alcohol, drogas y adicciones conductuales",
-  },
-  {
-    id: 7,
-    title: "TDAH + TLP",
-    subtitle: "Trastorno Límite de la Personalidad",
-    icon: Zap,
-    description:
-      "Impulsividad y desregulación emocional que requieren abordaje dual",
-  },
-  {
-    id: 8,
-    title: "TDAH + Bipolaridad",
-    subtitle: "Confusión frecuente",
-    icon: Activity,
-    description:
-      "Comorbilidad relevante que exige diagnóstico diferencial antes de indicar estimulantes",
-  },
-  {
-    id: 9,
-    title: "TDAH + TCA",
-    subtitle: "Trastornos alimentarios",
-    icon: Heart,
-    description:
-      "Mayor riesgo de atracones o bulimia por impulsividad y falla ejecutiva",
-  },
-  {
-    id: 10,
-    title: "TDAH y salud física",
-    subtitle: "Comorbilidades médicas",
-    icon: Activity,
-    description:
-      "Celiaquía, migrañas, asma y piernas inquietas también pueden coexistir",
-  },
+  { id: 1, title: "¿Qué son?", subtitle: "Definición y prevalencia", icon: Activity },
+  { id: 2, title: "TDAH + Ansiedad", subtitle: "La comorbilidad más común", icon: Zap },
+  { id: 3, title: "TDAH + Depresión", subtitle: "Relación compleja", icon: Brain },
+  { id: 4, title: "TDAH + Autismo", subtitle: "Comorbilidad neurológica", icon: Heart },
+  { id: 5, title: "Evaluación integral", subtitle: "Manejo y tratamiento", icon: Users },
 ] satisfies StepDefinition[];
 
 export default function ComorbilidadesPage() {
-  const {
-    currentStep,
-    completedCount,
-    next,
-    prev,
-    goTo,
-    progress,
-    isDone,
-  } = useStepProgress({ totalSteps: steps.length });
+  const { currentStep, completedCount, next, prev, goTo, progress, isDone } =
+    useStepProgress({ totalSteps: steps.length });
   const activeStep = steps[currentStep - 1];
   const ActiveIcon = activeStep.icon;
 
@@ -137,688 +57,225 @@ export default function ComorbilidadesPage() {
             </div>
             <div>
               <CardTitle className="text-xl">{activeStep.title}</CardTitle>
-              <CardDescription>{activeStep.description}</CardDescription>
             </div>
           </div>
         </CardHeader>
 
-          <CardContent className="space-y-6">
-            {currentStep === 1 && (
-              <>
-                <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-950/30">
-                  <CardHeader>
-                    <CardTitle className="text-base">
-                      ¿Qué son las comorbilidades?
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm mb-4">
-                      El término <strong>comorbilidad</strong> describe
-                      condiciones que coexisten con el TDAH: no son causadas
-                      por él, pero se influyen mutuamente y complican tanto el
-                      diagnóstico como el tratamiento.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <h5 className="font-semibold mb-2">
-                          Tipos principales:
-                        </h5>
-                        <ul className="space-y-1">
-                          <li>
-                            • <strong>Psiquiátricas:</strong> Ansiedad,
-                            depresión, bipolar
-                          </li>
-                          <li>
-                            • <strong>Médicas:</strong> Diabetes, asma, obesidad
-                          </li>
-                          <li>
-                            • <strong>Neurológicas:</strong> Autismo, epilepsia
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold mb-2">
-                          ¿Por qué son importantes?
-                        </h5>
-                        <ul className="space-y-1">
-                          <li>• Complican el diagnóstico</li>
-                          <li>• Afectan el tratamiento</li>
-                          <li>• Empeoran el pronóstico</li>
-                        </ul>
-                      </div>
+        <CardContent className="space-y-6">
+          {currentStep === 1 && (
+            <>
+              <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-950/30">
+                <CardHeader><CardTitle className="text-base">¿Qué son las comorbilidades?</CardTitle></CardHeader>
+                <CardContent className="text-sm">
+                  <p className="mb-3">El término <strong>comorbilidad</strong> describe condiciones que coexisten con el TDAH: no son causadas por él, pero se influyen mutuamente y complican tanto el diagnóstico como el tratamiento.</p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <div className="font-semibold mb-1">Tipos principales:</div>
+                      <div>• Psiquiátricas: Ansiedad, depresión, bipolar</div>
+                      <div>• Médicas: Diabetes, asma, obesidad</div>
+                      <div>• Neurológicas: Autismo, epilepsia</div>
                     </div>
-                  </CardContent>
-                </Card>
-
-                <Alert>
-                  <AlertTriangle className="h-4 w-4" />
-                  <AlertDescription>
-                    <strong>Realidad:</strong> Entre el 70% y 80%
-                    <CitationLink number={1} /> de las personas con TDAH
-                    desarrollan al menos una condición comórbida. La
-                    comorbilidad es la norma, no la excepción.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Comorbilidades psiquiátricas más frecuentes
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Trastornos de Ansiedad</span>
-                        <span className="text-sm font-bold">50-60%</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Trastornos del Sueño</span>
-                        <span className="text-sm font-bold">50-70%</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Depresión Mayor</span>
-                        <span className="text-sm font-bold">40-50%</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">TEA (Autismo)</span>
-                        <span className="text-sm font-bold">29.4%</span>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Comorbilidades médicas
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Obesidad</span>
-                        <span className="text-sm font-bold">3x riesgo</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Asma</span>
-                        <span className="text-sm font-bold">45% ↑</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Diabetes Tipo 2</span>
-                        <span className="text-sm font-bold">3x riesgo</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Demencia (adultos)</span>
-                        <span className="text-sm font-bold">3.4x riesgo</span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </>
-            )}
-
-            {currentStep === 2 && (
-              <>
-                <Alert className="border-amber-200 dark:border-amber-800 bg-amber-50/30 dark:bg-amber-950/30">
-                  <Zap className="h-4 w-4" />
-                  <AlertDescription>
-                    <strong>La más común:</strong> 50-60% de adultos con TDAH
-                    desarrollan trastornos de ansiedad
-                    <CitationLink number={1} />. Las dificultades crónicas del
-                    TDAH generan preocupación constante.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        ¿Por qué ocurre?
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>
-                          • Las dificultades crónicas del TDAH generan
-                          preocupación
-                        </li>
-                        <li>• Miedo al fracaso por experiencias pasadas</li>
-                        <li>• Ansiedad anticipatoria por olvidos o errores</li>
-                        <li>• Sobrecarga sensorial e hipervigilancia</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Tratamiento recomendado
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="p-3 bg-green-50 dark:bg-green-950 rounded">
-                          <h5 className="font-semibold text-sm mb-1">
-                            ✅ Recomendado
-                          </h5>
-                          <ul className="text-xs space-y-1">
-                            <li>
-                              • Estimulantes o atomoxetina según severidad de
-                              ansiedad y tolerancia
-                            </li>
-                            <li>• TCC para ambas condiciones</li>
-                            <li>• Técnicas de relajación</li>
-                          </ul>
-                        </div>
-                        <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded">
-                          <h5 className="font-semibold text-sm mb-1">
-                            ⚠️ Precaución
-                          </h5>
-                          <ul className="text-xs space-y-1">
-                            <li>• Estimulantes pueden aumentar ansiedad</li>
-                            <li>• Monitoreo cuidadoso inicial</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </>
-            )}
-
-            {currentStep === 3 && (
-              <>
-                <div className="grid md:grid-cols-3 gap-4 mb-6">
-                  <div className="text-center p-4 border rounded-lg bg-blue-50 dark:bg-blue-950">
-                    <div className="text-2xl font-bold text-blue-500 mb-1">
-                      40-50%
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      Prevalencia en adultos
+                    <div>
+                      <div className="font-semibold mb-1">¿Por qué son importantes?</div>
+                      <div>• Complican el diagnóstico</div>
+                      <div>• Afectan el tratamiento</div>
+                      <div>• Empeoran el pronóstico</div>
                     </div>
                   </div>
-                  <div className="text-center p-4 border rounded-lg bg-green-50 dark:bg-green-950">
-                    <div className="text-2xl font-bold text-green-500 mb-1">
-                      2x
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      Mayor riesgo
-                    </div>
-                  </div>
-                  <div className="text-center p-4 border rounded-lg bg-purple-50 dark:bg-purple-950">
-                    <div className="text-2xl font-bold text-purple-500 mb-1">
-                      70%
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      Mejora al tratar TDAH
-                    </div>
-                  </div>
-                </div>
+                </CardContent>
+              </Card>
 
-                <div className="space-y-4">
-                  <Card className="border-blue-200 dark:border-blue-800">
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Depresión Secundaria (más común)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm">
-                        Surge como resultado de las dificultades crónicas del
-                        TDAH: fracasos repetidos, baja autoestima, problemas
-                        laborales
-                      </p>
-                    </CardContent>
-                  </Card>
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription><strong>Realidad:</strong> Entre el 70% y 80% de las personas con TDAH desarrollan al menos una condición comórbida. La comorbilidad es la norma, no la excepción.<CitationLink number={1} /></AlertDescription>
+              </Alert>
 
-                  <Card className="border-green-200 dark:border-green-800">
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Comorbilidad Verdadera
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm">
-                        Ambas condiciones coexisten independientemente, cada una
-                        requiere tratamiento específico
-                      </p>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-purple-200 dark:border-purple-800">
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Sintomatología Superpuesta
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm">
-                        Dificultades de concentración y motivación pueden
-                        confundir el diagnóstico
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </>
-            )}
-
-            {currentStep === 4 && (
-              <>
-                <Alert>
-                  <Brain className="h-4 w-4" />
-                  <AlertDescription>
-                    <strong>Diagnóstico dual:</strong> El DSM-5 permite el
-                    diagnóstico de TDAH + TEA desde 2013. 29.4% de adolescentes
-                    masculinos con TDAH tienen autismo
-                    <CitationLink number={1} />.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Características clave
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Síntomas pueden superponerse y confundirse</li>
-                        <li>• Diagnóstico diferencial muy complejo</li>
-                        <li>• Requiere evaluación por especialista en TEA</li>
-                        <li>• Tratamiento necesita adaptaciones específicas</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Información adicional
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm mb-4">
-                        Para diagnóstico diferencial detallado, tratamiento
-                        específico y características completas:
-                      </p>
-                      <Link
-                        href="/autismo"
-                        className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium w-fit"
-                      >
-                        Ver Guía TDAH y Autismo
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </CardContent>
-                  </Card>
-                </div>
-              </>
-            )}
-
-            {currentStep === 5 && (
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">
-                      Principios generales
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <ul className="space-y-2 text-sm">
-                        <li className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            1
-                          </Badge>
-                          <span>
-                            Identificar todas las condiciones presentes
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            2
-                          </Badge>
-                          <span>Evaluar cuál genera mayor deterioro</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            3
-                          </Badge>
-                          <span>Tratar primero la condición más grave</span>
-                        </li>
-                      </ul>
-                      <ul className="space-y-2 text-sm">
-                        <li className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            4
-                          </Badge>
-                          <span>Considerar interacciones medicamentosas</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            5
-                          </Badge>
-                          <span>Monitoreo continuo especializado</span>
-                        </li>
-                      </ul>
-                    </div>
+                  <CardHeader><CardTitle className="text-base">Comorbilidades psiquiátricas más frecuentes</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-1">
+                    <div className="flex justify-between"><span>Trastornos de Ansiedad</span><span className="font-bold">50-60%</span></div>
+                    <div className="flex justify-between"><span>Trastornos del Sueño</span><span className="font-bold">50-70%</span></div>
+                    <div className="flex justify-between"><span>Depresión Mayor</span><span className="font-bold">40-50%</span></div>
+                    <div className="flex justify-between"><span>TEA (Autismo)</span><span className="font-bold">29.4%</span></div>
                   </CardContent>
                 </Card>
-
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">
-                      Orden de tratamiento
-                    </CardTitle>
+                  <CardHeader><CardTitle className="text-base">Comorbilidades médicas</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-1">
+                    <div className="flex justify-between"><span>Obesidad</span><span className="font-bold">3x riesgo</span></div>
+                    <div className="flex justify-between"><span>Asma</span><span className="font-bold">45% ↑</span></div>
+                    <div className="flex justify-between"><span>Diabetes Tipo 2</span><span className="font-bold">3x riesgo</span></div>
+                    <div className="flex justify-between"><span>Demencia (adultos)</span><span className="font-bold">3.4x riesgo</span></div>
+                  </CardContent>
+                </Card>
+              </div>
+            </>
+          )}
+
+          {currentStep === 2 && (
+            <>
+              <Alert className="border-amber-200 dark:border-amber-800 bg-amber-50/30 dark:bg-amber-950/30">
+                <Zap className="h-4 w-4" />
+                <AlertDescription><strong>La más común:</strong> 50-60% de adultos con TDAH desarrollan trastornos de ansiedad. Las dificultades crónicas del TDAH generan preocupación constante.<CitationLink number={1} /></AlertDescription>
+              </Alert>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <Card>
+                  <CardHeader><CardTitle className="text-base">¿Por qué ocurre?</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-1">
+                    <div>• Las dificultades crónicas del TDAH generan preocupación</div>
+                    <div>• Miedo al fracaso por experiencias pasadas</div>
+                    <div>• Ansiedad anticipatoria por olvidos o errores</div>
+                    <div>• Sobrecarga sensorial e hipervigilancia</div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader><CardTitle className="text-base">Tratamiento recomendado</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-2">
+                    <div className="p-3 bg-green-50 dark:bg-green-950 rounded">
+                      <div className="font-semibold mb-1">✅ Recomendado</div>
+                      <div>• Estimulantes o atomoxetina según severidad</div>
+                      <div>• TCC para ambas condiciones</div>
+                      <div>• Técnicas de relajación</div>
+                    </div>
+                    <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded">
+                      <div className="font-semibold mb-1">⚠️ Precaución</div>
+                      <div>• Estimulantes pueden aumentar ansiedad</div>
+                      <div>• Monitoreo cuidadoso inicial</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </>
+          )}
+
+          {currentStep === 3 && (
+            <>
+              <div className="grid md:grid-cols-3 gap-3 mb-4 text-center">
+                <div className="p-3 border rounded bg-blue-50 dark:bg-blue-950"><div className="text-2xl font-bold text-blue-500">40-50%</div><div className="text-xs">Prevalencia en adultos</div></div>
+                <div className="p-3 border rounded bg-green-50 dark:bg-green-950"><div className="text-2xl font-bold text-green-500">2x</div><div className="text-xs">Mayor riesgo</div></div>
+                <div className="p-3 border rounded bg-purple-50 dark:bg-purple-950"><div className="text-2xl font-bold text-purple-500">70%</div><div className="text-xs">Mejora al tratar TDAH</div></div>
+              </div>
+
+              <div className="space-y-3">
+                <Card className="border-blue-200 dark:border-blue-800"><CardHeader><CardTitle className="text-base">Depresión Secundaria (más común)</CardTitle></CardHeader><CardContent className="text-sm">Surge como resultado de las dificultades crónicas del TDAH: fracasos repetidos, baja autoestima, problemas laborales.</CardContent></Card>
+                <Card className="border-green-200 dark:border-green-800"><CardHeader><CardTitle className="text-base">Comorbilidad Verdadera</CardTitle></CardHeader><CardContent className="text-sm">Ambas condiciones coexisten independientemente. Cada una requiere tratamiento específico.</CardContent></Card>
+                <Card className="border-purple-200 dark:border-purple-800"><CardHeader><CardTitle className="text-base">Sintomatología Superpuesta</CardTitle></CardHeader><CardContent className="text-sm">Dificultades de concentración y motivación pueden confundir el diagnóstico.</CardContent></Card>
+              </div>
+            </>
+          )}
+
+          {currentStep === 4 && (
+            <>
+              <Alert>
+                <Brain className="h-4 w-4" />
+                <AlertDescription><strong>Diagnóstico dual:</strong> El DSM-5 permite el diagnóstico de TDAH + TEA desde 2013. 29.4% de adolescentes masculinos con TDAH tienen autismo.<CitationLink number={1} /></AlertDescription>
+              </Alert>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {/* Card 1: Diferencias clave */}
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base">Diferencias clave TDAH vs TEA</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="p-3 bg-red-50 dark:bg-red-950 rounded-lg">
-                        <h5 className="font-semibold text-sm">
-                          🔴 Primera prioridad
-                        </h5>
-                        <p className="text-xs">
-                          Trastorno bipolar, psicosis, ideas suicidas o
-                          adicciones severas
-                        </p>
+                  <CardContent className="text-sm space-y-3">
+                    <div>
+                      <div className="font-medium text-blue-600 dark:text-blue-400">Atención</div>
+                      <div className="text-muted-foreground">TDAH: dificultad general para sostener el foco</div>
+                      <div>TEA: hiperfoco intenso en intereses restringidos</div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-blue-600 dark:text-blue-400">Comportamiento</div>
+                      <div className="text-muted-foreground">TDAH: impulsividad e inquietud</div>
+                      <div>TEA: rutinas rígidas y rituales</div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-blue-600 dark:text-blue-400">Flexibilidad</div>
+                      <div className="text-muted-foreground">TDAH: puede cambiar de actividad</div>
+                      <div>TEA: dificultad extrema para tolerar cambios</div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-blue-600 dark:text-blue-400">Social</div>
+                      <div className="text-muted-foreground">TDAH: problemas por impulsividad</div>
+                      <div>TEA: dificultades en reciprocidad y conexión</div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-blue-600 dark:text-blue-400">Comunicación</div>
+                      <div className="text-muted-foreground">TDAH: interrumpe, habla en exceso</div>
+                      <div>TEA: patrones atípicos (ecolalia, literalidad)</div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Card 2: Señales y abordaje */}
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base">Señales de comorbilidad y abordaje</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-sm space-y-4">
+                    <div>
+                      <div className="font-medium mb-1">Señales que sugieren ambas condiciones</div>
+                      <div className="space-y-1 text-muted-foreground">
+                        <div>• Infancia: intereses intensos + desatención general, rutinas + impulsividad, sensorialidad + hiperactividad</div>
+                        <div>• Adultez: organización extremadamente difícil, hiperfoco alternado con dispersión, sobrecarga sensorial + inquietud interna</div>
                       </div>
-                      <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded-lg">
-                        <h5 className="font-semibold text-sm">
-                          🟡 Segunda prioridad
-                        </h5>
-                        <p className="text-xs">
-                          TDAH, depresión mayor, ansiedad severa
-                        </p>
-                      </div>
-                      <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg">
-                        <h5 className="font-semibold text-sm">
-                          🟢 Tercera prioridad
-                        </h5>
-                        <p className="text-xs">
-                          Condiciones médicas, trastornos del sueño
-                        </p>
+                    </div>
+
+                    <div>
+                      <div className="font-medium mb-1">Principios de tratamiento dual</div>
+                      <div className="space-y-1 text-muted-foreground">
+                        <div>• Establecer rutinas visuales y predecibles</div>
+                        <div>• Usar comunicación clara, concreta y directa</div>
+                        <div>• Coordinar entre psiquiatra y profesional especializado en TEA</div>
+                        <div>• Monitorear ansiedad y rigidez al iniciar medicación para TDAH</div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
-            )}
+            </>
+          )}
 
-            {currentStep === 6 && (
-              <div className="space-y-6">
-                <Alert className="border-orange-200 dark:border-orange-800 bg-orange-50/50 dark:bg-orange-950/30">
-                  <AlertTriangle className="h-4 w-4" />
-                  <AlertDescription>
-                    En adultos, el TDAH aumenta la vulnerabilidad al alcohol,
-                    drogas y adicciones conductuales como videojuegos, compras o
-                    apuestas. No es falta de voluntad: suele mezclarse búsqueda
-                    de dopamina, impulsividad y automedicación.
-                  </AlertDescription>
-                </Alert>
+          {currentStep === 5 && (
+            <div className="space-y-4">
+              <Card>
+                <CardHeader><CardTitle className="text-base">Principios generales</CardTitle></CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-3 text-sm">
+                    <div className="space-y-1">
+                      <div>1. Identificar todas las condiciones presentes</div>
+                      <div>2. Evaluar cuál genera mayor deterioro</div>
+                      <div>3. Tratar primero la condición más grave</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div>4. Considerar interacciones medicamentosas</div>
+                      <div>5. Monitoreo continuo especializado</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Por qué pasa
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Búsqueda rápida de recompensa o alivio</li>
-                        <li>• Baja tolerancia al aburrimiento y la espera</li>
-                        <li>• Sueño irregular y peor control de impulsos</li>
-                        <li>• Uso de sustancias para rendir, dormir o calmarse</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
+              <Card>
+                <CardHeader><CardTitle className="text-base">Orden de tratamiento</CardTitle></CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="p-3 bg-red-50 dark:bg-red-950 rounded"><strong>🔴 Primera prioridad:</strong> Trastorno bipolar, psicosis, ideas suicidas o adicciones severas</div>
+                  <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded"><strong>🟡 Segunda prioridad:</strong> TDAH, depresión mayor, ansiedad severa</div>
+                  <div className="p-3 bg-green-50 dark:bg-green-950 rounded"><strong>🟢 Tercera prioridad:</strong> Condiciones médicas, trastornos del sueño</div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </CardContent>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Qué conviene evaluar
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Consumo actual y antecedentes familiares</li>
-                        <li>• Pantallas, compras, apuestas o comida compulsiva</li>
-                        <li>• Ansiedad, depresión, sueño y trauma</li>
-                        <li>• Plan que trate TDAH y consumo al mismo tiempo</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            )}
+        <div className="flex justify-between items-center p-6 border-t">
+          <Button variant="outline" onClick={prev} disabled={currentStep === 1}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
+          <span className="text-sm text-muted-foreground">{currentStep} de {steps.length}</span>
+          <Button onClick={next}>{currentStep === steps.length ? "Finalizar" : "Siguiente"} <ArrowRight className="h-4 w-4 ml-2" /></Button>
+        </div>
+      </Card>
 
-            {currentStep === 7 && (
-              <div className="space-y-6">
-                <Alert className="border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-950/30">
-                  <Zap className="h-4 w-4" />
-                  <AlertDescription>
-                    El TDAH y el TLP pueden compartir impulsividad, crisis
-                    emocionales y relaciones inestables. Cuando conviven, el
-                    tratamiento tiene que mirar ambos problemas, no elegir uno y
-                    descartar el otro.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Lo que se puede confundir
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Impulsividad y decisiones de alto riesgo</li>
-                        <li>• Cambios emocionales intensos y rápidos</li>
-                        <li>• Rechazo, culpa y conflictos vinculares</li>
-                        <li>• Dificultad para sostener rutinas y tratamientos</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Manejo recomendado
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Diferenciar TLP, bipolaridad, trauma y TDAH</li>
-                        <li>• Psicoterapia enfocada en regulación emocional</li>
-                        <li>• Evaluación médica si el TDAH es claro</li>
-                        <li>• Tratamiento dual y seguimiento cercano</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            )}
-
-            {currentStep === 8 && (
-              <div className="space-y-6">
-                <Alert className="border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/30">
-                  <Activity className="h-4 w-4" />
-                  <AlertDescription>
-                    El trastorno bipolar y el TDAH pueden compartir
-                    impulsividad, locuacidad, inquietud y pensamiento acelerado.
-                    Diferenciarlos es clave: indicar estimulantes sin estabilizar
-                    el ánimo puede empeorar o precipitar un episodio maníaco.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Señales que confunden
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Impulsividad y conductas de riesgo</li>
-                        <li>• Hablar mucho o sentirse acelerado</li>
-                        <li>• Irritabilidad y cambios de energía</li>
-                        <li>• Menor sueño sin registrar cansancio</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Qué evaluar antes
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Episodios claros de manía o hipomanía</li>
-                        <li>• Historia familiar de bipolaridad</li>
-                        <li>• Cambios episódicos vs síntomas de toda la vida</li>
-                        <li>• Estabilización del ánimo antes de estimulantes</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            )}
-
-            {currentStep === 9 && (
-              <div className="space-y-6">
-                <Alert className="border-pink-200 dark:border-pink-800 bg-pink-50/50 dark:bg-pink-950/30">
-                  <Heart className="h-4 w-4" />
-                  <AlertDescription>
-                    Los trastornos alimentarios, especialmente atracones y
-                    bulimia, pueden aparecer junto al TDAH. En mujeres, el riesgo
-                    es mayor por la combinación de impulsividad, regulación
-                    emocional difícil y falla ejecutiva.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Cómo puede verse
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Atracones como regulación emocional rápida</li>
-                        <li>• Dietas rígidas que no se sostienen</li>
-                        <li>• Culpa, vergüenza y ciclos de restricción</li>
-                        <li>• Dificultad para planificar comidas y compras</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Abordaje útil
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>• Evaluar TDAH, ánimo, ansiedad e imagen corporal</li>
-                        <li>• Plan alimentario realista, no punitivo</li>
-                        <li>• Estrategias externas para compras y horarios</li>
-                        <li>• Tratamiento coordinado con salud mental y nutrición</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            )}
-
-            {currentStep === 10 && (
-              <div className="space-y-6">
-                  <Alert className="border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/30">
-                    <Activity className="h-4 w-4" />
-                    <AlertDescription>
-                    El TDAH no solo afecta tu mente: también impacta en el
-                    cuerpo. Migrañas, trastornos del sueño, asma y celiaquía
-                    pueden empeorar atención, energía y respuesta al tratamiento.
-                  </AlertDescription>
-                </Alert>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Digestivo y respiratorio
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>
-                          • <strong>Celiaquía:</strong> puede coexistir con TDAH;
-                          si está presente, la dieta sin gluten puede mejorar
-                          síntomas atencionales.
-                        </li>
-                        <li>
-                          • <strong>Asma:</strong> aparece con mayor frecuencia
-                          en adultos con TDAH y puede afectar sueño, energía y
-                          rendimiento.
-                        </li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        Neurológico y sueño
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="text-sm space-y-2">
-                        <li>
-                          • <strong>Migrañas:</strong> coexistencia frecuente,
-                          especialmente cuando hay síntomas visuales; puede
-                          afectar a casi 30% de los pacientes.
-                        </li>
-                        <li>
-                          • <strong>Sueño y apnea:</strong> insomnio, pausas en
-                          la respiración o síndrome de piernas inquietas pueden
-                          parecer hiperactividad nocturna y empeorar la atención.
-                        </li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            )}
-          </CardContent>
-
-          {/* Navigation */}
-          <div className="flex justify-between items-center p-6 border-t">
-            <Button
-              variant="outline"
-              onClick={prev}
-              disabled={currentStep === 1}
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Anterior
-            </Button>
-
-            <span className="text-sm text-muted-foreground">
-              {currentStep} de {steps.length}
-            </span>
-
-            <Button onClick={next} className="flex items-center gap-2">
-              {currentStep === steps.length ? "Finalizar" : "Siguiente"}
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </Card>
-
-        <References references={comorbilidadesReferences} />
+      <References references={comorbilidadesReferences} />
     </StepGuideLayout>
   );
 }
@@ -826,21 +283,10 @@ export default function ComorbilidadesPage() {
 const comorbilidadesReferences: Reference[] = [
   {
     id: 1,
-    title:
-      "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
     authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
     url: "/international-consensus-208-conclusions.pdf",
-    description:
-      "Datos sobre cuántas personas con TDAH tienen también otras condiciones.",
+    description: "Datos sobre cuántas personas con TDAH tienen también otras condiciones.",
     year: "2021",
-  },
-  {
-    id: 2,
-    title: "Primer Consenso Argentino sobre TDAH: Parte 2",
-    authors: "Andrea Abadi, Marcelo Cetkovich-Bakmas, Hernán Klijnjan et al.",
-    url: "/primer-consenso-argentino-tdah-2.pdf",
-    description:
-      "Segunda parte del consenso nacional argentino enfocada en comorbilidades y tratamiento integral.",
-    year: "2024",
   },
 ];

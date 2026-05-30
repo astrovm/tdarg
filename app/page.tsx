@@ -13,9 +13,7 @@ import {
   TrendingUp,
   AlertCircle,
   BookOpen,
-  Users,
   Heart,
-  Lightbulb,
 } from "lucide-react";
 import { Header } from "@/components/header";
 
@@ -172,7 +170,7 @@ export default function HomePage() {
               necesitás saber.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-blue-900/20 border-0 shadow-lg hover:-translate-y-1">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -211,25 +209,6 @@ export default function HomePage() {
               </CardHeader>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-orange-50 dark:from-slate-800 dark:to-orange-900/20 border-0 shadow-lg hover:-translate-y-1">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Users className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/adultos"
-                    className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
-                  >
-                    TDAH Adulto
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Cómo se ve el TDAH en adultos: síntomas, diagnóstico y vida diaria.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
             <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-lg hover:-translate-y-1">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -245,63 +224,6 @@ export default function HomePage() {
                 </CardTitle>
                 <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                   Ansiedad, depresión, TEA y otras condiciones que suelen ir de la mano.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-teal-50 dark:from-slate-800 dark:to-teal-900/20 border-0 shadow-lg hover:-translate-y-1">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Brain className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/autismo"
-                    className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
-                  >
-                    TDAH y Autismo
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Cuándo se dan juntos, cómo se diferencian y cómo abordarlos.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-yellow-50 dark:from-slate-800 dark:to-yellow-900/20 border-0 shadow-lg hover:-translate-y-1">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Lightbulb className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/mitos"
-                    className="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
-                  >
-                    Mitos y Realidad
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Las mentiras más comunes sobre TDAH y por qué están mal.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-rose-50 dark:from-slate-800 dark:to-rose-900/20 border-0 shadow-lg hover:-translate-y-1">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <TrendingUp className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/impacto"
-                    className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
-                  >
-                    Impacto
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Qué pasa si no se trata: trabajo, relaciones y calidad de vida.
                 </CardDescription>
               </CardHeader>
             </Card>
