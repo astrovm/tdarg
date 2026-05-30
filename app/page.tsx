@@ -31,9 +31,8 @@ export default function HomePage() {
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Precios de Farmacity actualizados automáticamente.
-            Especialistas verificados por provincia. Análisis claro de las leyes que afectan tu tratamiento.
-            Guías paso a paso con evidencia y normativa argentina.
+            Precios de medicamentos, especialistas por provincia, legislación
+            y guías prácticas sobre TDAH en Argentina.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="primaryGradient" asChild>
