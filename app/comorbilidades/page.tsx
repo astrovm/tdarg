@@ -17,6 +17,7 @@ import {
   Users,
   ArrowRight,
   ArrowLeft,
+  AlertTriangle,
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { StepDefinition } from "@/lib/steps";
@@ -31,7 +32,9 @@ const steps = [
   { id: 5, title: "TDAH + Bipolaridad", subtitle: "Riesgo de episodio maníaco", icon: Zap },
   { id: 6, title: "TDAH + Trastornos Alimentarios", subtitle: "Atracones e impulsividad", icon: Heart },
   { id: 7, title: "TDAH + Problemas Físicos", subtitle: "Comorbilidades somáticas", icon: Activity },
-  { id: 8, title: "Evaluación integral", subtitle: "Manejo y tratamiento", icon: Users },
+  { id: 8, title: "TDAH + TLP", subtitle: "Límite de la Personalidad", icon: Zap },
+  { id: 9, title: "TDAH + Adicciones", subtitle: "Uso de Sustancias", icon: AlertTriangle },
+  { id: 10, title: "Evaluación integral", subtitle: "Manejo y tratamiento", icon: Users },
 ] satisfies StepDefinition[];
 
 export default function ComorbilidadesPage() {
@@ -301,24 +304,72 @@ export default function ComorbilidadesPage() {
              </>
            )}
 
-           {currentStep === 8 && (
-            <div className="space-y-4">
-              <Card>
-                <CardHeader><CardTitle className="text-base">Principios generales</CardTitle></CardHeader>
-                <CardContent>
-                  <div className="grid md:grid-cols-2 gap-3 text-sm">
-                    <div className="space-y-1">
-                      <div>1. Identificar todas las condiciones presentes</div>
-                      <div>2. Evaluar cuál genera mayor deterioro</div>
-                      <div>3. Tratar primero la condición más grave</div>
+            {currentStep === 8 && (
+              <CardContent className="space-y-4">
+                <p className="text-gray-700 dark:text-gray-300">
+                  La superposición entre el TDAH adulto y el Trastorno Límite de la Personalidad (TLP) es altísima, presentándose comorbilidad en el 30% a 60% de los casos.
+                </p>
+                <ul className="space-y-4 text-sm mt-4">
+                  <li className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-100 dark:border-red-800">
+                    <Zap className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block mb-1">El peligro de confundirlos:</strong>
+                      Ambos comparten la impulsividad grave, la desregulación emocional severa y los problemas interpersonales. Sin embargo, en el TLP la impulsividad empeora bruscamente bajo estrés o miedo al abandono, mientras que en el TDAH es un déficit más constante.
                     </div>
-                    <div className="space-y-1">
-                      <div>4. Considerar interacciones medicamentosas</div>
-                      <div>5. Monitoreo continuo especializado</div>
+                  </li>
+                  <li className="flex items-start gap-3 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-100 dark:border-orange-800">
+                    <AlertTriangle className="h-5 w-5 text-orange-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block mb-1">Impacto cruzado:</strong>
+                      Esta combinación eleva drásticamente los comportamientos de riesgo y autolesivos. Exige un diagnóstico diferencial experto, ya que los síntomas ruidosos del TLP suelen enmascarar por completo los déficits silenciosos del TDAH.
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </li>
+                </ul>
+              </CardContent>
+            )}
+
+            {currentStep === 9 && (
+              <CardContent className="space-y-4">
+                <p className="text-gray-700 dark:text-gray-300">
+                  Hasta un 43% de los adultos con TDAH desarrollan Trastorno por Uso de Sustancias (TUS) a lo largo de su vida. La falla en el sistema de recompensa (búsqueda de dopamina) los hace doblemente vulnerables a las adicciones.
+                </p>
+                <ul className="space-y-4 text-sm mt-4">
+                  <li className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
+                    <Brain className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block mb-1">Adicciones conductuales («sin sustancia»):</strong>
+                      No solo hay riesgo con drogas o alcohol. El adulto con TDAH busca estimulación constante, siendo altamente propenso a las compras compulsivas, consumo de pornografía, ludopatía (apuestas) y adicción a internet/redes sociales.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800">
+                    <Activity className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block mb-1">El mito de la pastilla estimulante:</strong>
+                      El Consenso Internacional es unánime: tratar el TDAH con medicación estimulante <strong>NO</strong> incrementa el riesgo de caer en adicciones. Por el contrario, un tratamiento temprano y adecuado previene activamente el consumo problemático.
+                    </div>
+                  </li>
+                </ul>
+              </CardContent>
+            )}
+
+            {currentStep === 10 && (
+             <div className="space-y-4">
+               <Card>
+                 <CardHeader><CardTitle className="text-base">Principios generales</CardTitle></CardHeader>
+                 <CardContent>
+                   <div className="grid md:grid-cols-2 gap-3 text-sm">
+                     <div className="space-y-1">
+                       <div>1. Identificar todas las condiciones presentes</div>
+                       <div>2. Evaluar cuál genera mayor deterioro</div>
+                       <div>3. Tratar primero la condición más grave</div>
+                     </div>
+                     <div className="space-y-1">
+                       <div>4. Considerar interacciones medicamentosas</div>
+                       <div>5. Monitoreo continuo especializado</div>
+                     </div>
+                   </div>
+                 </CardContent>
+               </Card>
 
               <Card>
                 <CardHeader><CardTitle className="text-base">Orden de tratamiento</CardTitle></CardHeader>

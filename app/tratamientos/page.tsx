@@ -52,40 +52,33 @@ export default function TratamientosPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-3 gap-4">
-                <Card className="text-center">
-                  <CardHeader><div className="text-5xl mb-2">💊</div><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Reduce síntomas nucleares</div>
-                    <div>• Inicio rápido con estimulantes</div>
-                    <div>• Mayor respuesta con 1ra línea</div>
+                <Card className="text-center border-2 border-blue-100 dark:border-blue-900">
+                  <CardHeader className="pb-2"><div className="text-5xl mb-2">💊</div><CardTitle className="text-lg">Medicación</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-3 text-left">
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></div><span><strong>1ra línea:</strong> Estimulantes de acción prolongada (Lisdexanfetamina o Metilfenidato OROS).</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-slate-500 rounded-full shrink-0"></div><span><strong>Descansos terapéuticos:</strong> Pausar la pastilla los fines de semana o en verano es una estrategia válida para aliviar efectos secundarios, pero no es obligatorio si respondés bien. Evaluá el costo-beneficio según tus planes: al pausarla, la impulsividad vuelve de inmediato, lo que eleva el riesgo de choques o gastos excesivos al salir de noche.</span></div>
                   </CardContent>
                 </Card>
-                <Card className="text-center">
-                  <CardHeader><div className="text-5xl mb-2">🧠</div><CardTitle className="text-lg">Terapia</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Habilidades para toda la vida</div>
-                    <div>• Mejora autoestima</div>
-                    <div>• Reduce ansiedad/depresión</div>
+
+                <Card className="text-center border-2 border-blue-100 dark:border-blue-900">
+                  <CardHeader className="pb-2"><div className="text-5xl mb-2">🧠</div><CardTitle className="text-lg">Terapia</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-3 text-left">
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></div><span><strong>Exigí TCC:</strong> La Terapia Cognitivo-Conductual es la que tiene mayor respaldo científico en adultos para entrenar funciones ejecutivas, organización y regular emociones.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-red-500 rounded-full shrink-0"></div><span><strong>Terapias ineficaces:</strong> El psicoanálisis tradicional demostró una eficacia pobre (apenas 36%) para tratar los síntomas centrales neurológicos del TDAH.</span></div>
                   </CardContent>
                 </Card>
-                <Card className="text-center">
-                  <CardHeader><div className="text-5xl mb-2">💪</div><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-1">
-                    <div>• Ejercicio mejora atención</div>
-                    <div>• Sueño reparador esencial</div>
-                    <div>• Organización reduce estrés</div>
+
+                <Card className="text-center border-2 border-blue-100 dark:border-blue-900">
+                  <CardHeader className="pb-2"><div className="text-5xl mb-2">💪</div><CardTitle className="text-lg">Estilo de vida</CardTitle></CardHeader>
+                  <CardContent className="text-sm space-y-3 text-left">
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></div><span><strong>Sueño:</strong> El 80% de los adultos con TDAH padece insomnio o síndrome de piernas inquietas, lo que arruina la cognición al día siguiente.</span></div>
+                    <div className="flex gap-2 items-start"><div className="mt-1 w-1.5 h-1.5 bg-red-500 rounded-full shrink-0"></div><span><strong>Riesgo vial:</strong> Sin tratamiento, la impulsividad y la distracción aumentan hasta un 62% las probabilidades de sufrir accidentes de tránsito graves.</span></div>
                   </CardContent>
                 </Card>
               </div>
 
               <Alert>
                 <AlertDescription>El abordaje suele combinar medicación, herramientas psicológicas y cambios de rutina. La proporción depende del perfil clínico, comorbilidades y acceso.</AlertDescription>
-              </Alert>
-
-              <Alert className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
-                <AlertDescription>
-                  <strong>La trampa de la terapia:</strong> No gastes tiempo ni dinero en psicoanálisis tradicional para tratar los síntomas nucleares del TDAH (su eficacia es pobre, apenas 36%). La evidencia científica y el Consenso Argentino exigen <strong>Terapia Cognitivo-Conductual (TCC)</strong> para entrenar funciones ejecutivas, organizar el tiempo y controlar impulsos.
-                </AlertDescription>
               </Alert>
             </CardContent>
           </Card>
