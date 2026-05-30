@@ -137,81 +137,69 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Brain className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/diagnostico"
-                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                  >
+            <Link href="/diagnostico" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Brain className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
                     Diagnóstico
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Autoevaluación, ruta diagnóstica, qué llevar y cómo se ve el TDAH en adultos.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    Autoevaluación, ruta diagnóstica, qué llevar y cómo se ve el TDAH en adultos.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Heart className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/tratamientos"
-                    className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
-                  >
+            <Link href="/tratamientos" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Heart className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
                     Tratamientos
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Medicación (con tabla CADDRA), terapia cognitivo-conductual y cambios de estilo de vida.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    Medicación (con tabla CADDRA), terapia cognitivo-conductual y cambios de estilo de vida.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Users className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/comorbilidades"
-                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                  >
+            <Link href="/comorbilidades" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Users className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
                     Comorbilidades
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Ansiedad, depresión, autismo y otras condiciones que suelen ir de la mano.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    Ansiedad, depresión, autismo y otras condiciones que suelen ir de la mano.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
 
-            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
-              <CardHeader className="p-5">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Wrench className="h-5 w-5 text-white" />
-                </div>
-                <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white">
-                  <Link
-                    href="/herramientas"
-                    className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  >
+            <Link href="/herramientas" className="group">
+              <Card className="h-full bg-white dark:bg-slate-800 border shadow-sm transition-colors hover:border-primary/40">
+                <CardHeader className="p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Wrench className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-lg mb-2 text-slate-800 dark:text-white group-hover:text-primary">
                     Herramientas
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                  Organización, foco, regulación emocional y estrategias reales para la vida adulta con TDAH.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                  </CardTitle>
+                  <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    Organización, foco, regulación emocional y estrategias reales para la vida adulta con TDAH.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
