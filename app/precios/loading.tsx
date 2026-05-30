@@ -11,12 +11,8 @@ export default function PreciosLoading() {
 
       <PageHero
         title="Precios de medicamentos"
-        description="Precios actualizados de Farmacity para medicamentos de TDAH"
+        description="Compará precio, presentación y estimación con cobertura."
       >
-        <div className="mb-6 flex justify-center">
-          <Skeleton className="h-8 w-64 rounded-full" />
-        </div>
-
         <div className="flex gap-4">
           <div className="relative flex-1">
             <Skeleton className="h-10 w-full rounded-lg" />

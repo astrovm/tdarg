@@ -120,12 +120,8 @@ export default function PreciosPage() {
 
         <PageHero
           title="Precios de medicamentos"
-          description="Precios actualizados de Farmacity para medicamentos de TDAH"
+          description="Compará precio, presentación y estimación con cobertura."
         >
-          <div className="mb-6 flex justify-center">
-            <Skeleton className="h-8 w-64 rounded-full" />
-          </div>
-
           <div className="flex gap-4">
             <div className="relative flex-1">
               <Skeleton className="h-10 w-full rounded-lg" />
@@ -236,24 +232,8 @@ export default function PreciosPage() {
       {/* Header Section */}
         <PageHero
           title="Precios de medicamentos"
-          description="Precios de Farmacity actualizados automáticamente. Incluye precio por mg y estimación con cobertura."
+          description="Compará precio, presentación y estimación con cobertura."
         >
-        {/* Info rápida */}
-        {estadisticas && (
-          <div className="mb-6 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full border bg-muted/40 px-3 py-1.5">
-              <Package className="h-4 w-4 text-primary" />
-              <span className="text-sm text-slate-700 dark:text-slate-300">
-                <span className="font-semibold text-foreground">
-                  {estadisticas.con_precio}
-                </span>{" "}
-                de <span className="font-medium">{estadisticas.total}</span>{" "}
-                medicamentos con precios disponibles
-              </span>
-            </div>
-          </div>
-        )}
-
         {/* Búsqueda */}
         <div className="flex gap-4">
           <div className="relative flex-1">
@@ -273,6 +253,12 @@ export default function PreciosPage() {
             Actualizar
           </Button>
         </div>
+        {estadisticas && (
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            {estadisticas.con_precio} de {estadisticas.total} medicamentos con
+            precio disponible.
+          </p>
+        )}
       </PageHero>
 
       {/* Content Section */}
