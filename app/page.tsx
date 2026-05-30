@@ -19,15 +19,12 @@ import { Header } from "@/components/header";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
-      {/* Header */}
+    <div className="min-h-screen bg-white dark:bg-slate-950">
       <Header />
 
-      {/* Hero Section - Gradiente moderno */}
-      <section className="relative py-16 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-100 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-900/30 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 dark:from-purple-500/5 dark:to-indigo-500/5"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl font-bold text-purple-600 mb-4">
+      <section className="border-b bg-white py-12 dark:bg-slate-950 dark:border-slate-800">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             TDAH en Argentina
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -35,43 +32,26 @@ export default function HomePage() {
             y guías prácticas sobre TDAH en Argentina.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="primaryGradient" asChild>
+            <Button size="lg" asChild>
               <Link href="/precios">
                 <TrendingUp className="mr-2 h-5 w-5" />
-                Ver Precios
+                Ver precios
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/30 text-primary hover:bg-accent dark:border-primary/50 dark:text-primary"
-              asChild
-            >
+            <Button size="lg" variant="outline" asChild>
               <Link href="/especialistas">
                 <Stethoscope className="mr-2 h-5 w-5" />
-                Buscar Especialistas
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="shadow-md hover:shadow-lg transition-all duration-300"
-              asChild
-            >
-              <Link href="/legislacion">
-                <Scale className="mr-2 h-5 w-5" />
-                Ver Legislación
+                Buscar especialistas
               </Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Features Grid - Herramientas principales */}
-      <section className="py-14 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
+      <section className="py-14 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-center text-slate-700 dark:text-slate-200 mb-10">
-            Lo más buscado
+            Recursos principales
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/precios" className="group">
@@ -84,7 +64,7 @@ export default function HomePage() {
                     Precios de medicamentos
                   </CardTitle>
                   <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Metilfenidato, lisdexanfetamina, atomoxetina y más. Precios que se pagan en Farmacity.
+                    Metilfenidato, lisdexanfetamina, atomoxetina y más.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -100,7 +80,7 @@ export default function HomePage() {
                     Especialistas
                   </CardTitle>
                   <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Profesionales de TDAH en cada provincia. Encontrá el tuyo.
+                    Directorio por provincia y especialidad.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -116,7 +96,7 @@ export default function HomePage() {
                     Legislación
                   </CardTitle>
                   <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Las leyes y decretos que afectan a quienes tienen TDAH.
+                    Leyes, decretos y normativa relacionada con TDAH.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -125,8 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Educational Guides Section - Nueva sección para las guías */}
-      <section className="py-14 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
+      <section className="py-14 bg-white dark:bg-slate-950">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
@@ -163,7 +142,7 @@ export default function HomePage() {
                     Tratamientos
                   </CardTitle>
                   <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                    Medicación (con tabla CADDRA), terapia cognitivo-conductual y cambios de estilo de vida.
+                    Medicación, terapia cognitivo-conductual y cambios de rutina.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -179,7 +158,7 @@ export default function HomePage() {
                     Comorbilidades
                   </CardTitle>
                   <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                    Ansiedad, depresión, autismo y otras condiciones que suelen ir de la mano.
+                    Ansiedad, depresión, autismo y otras condiciones frecuentes.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -195,7 +174,7 @@ export default function HomePage() {
                     Herramientas
                   </CardTitle>
                   <CardDescription className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                    Organización, foco, regulación emocional y estrategias reales para la vida adulta con TDAH.
+                    Organización, foco y regulación emocional.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -203,8 +182,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }
