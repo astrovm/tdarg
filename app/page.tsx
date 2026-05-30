@@ -67,44 +67,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section - Diseño moderno con cards */}
-      <section className="py-12 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100 dark:border-purple-900/30">
-              <div className="text-4xl font-bold text-purple-600 mb-3">
-                5-7%
-              </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Prevalencia en niños
-              </div>
-            </div>
-            <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 dark:border-indigo-900/30">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">
-                2.5%
-              </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Prevalencia en adultos
-              </div>
-            </div>
-            <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 dark:border-blue-900/30">
-              <div className="text-3xl font-bold text-blue-600 mb-2">2.4:1</div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Proporción hombres:mujeres
-              </div>
-            </div>
-            <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 dark:border-emerald-900/30">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">
-                ~67%
-              </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Persistencia en la adultez
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Features Grid - Herramientas principales */}
       <section className="py-14 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
         <div className="container mx-auto px-4">
