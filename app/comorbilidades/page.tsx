@@ -737,13 +737,12 @@ export default function ComorbilidadesPage() {
 
             {currentStep === 10 && (
               <div className="space-y-6">
-                <Alert className="border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/30">
-                  <Activity className="h-4 w-4" />
-                  <AlertDescription>
-                    El TDAH no convive solo con problemas psiquiátricos. Algunas
-                    condiciones físicas pueden empeorar atención, sueño y
-                    energía, por eso conviene buscarlas si los síntomas no
-                    cierran o el tratamiento responde poco.
+                  <Alert className="border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/30">
+                    <Activity className="h-4 w-4" />
+                    <AlertDescription>
+                    El TDAH no solo afecta tu mente: también impacta en el
+                    cuerpo. Migrañas, trastornos del sueño, asma y celiaquía
+                    pueden empeorar atención, energía y respuesta al tratamiento.
                   </AlertDescription>
                 </Alert>
 
@@ -780,12 +779,13 @@ export default function ComorbilidadesPage() {
                       <ul className="text-sm space-y-2">
                         <li>
                           • <strong>Migrañas:</strong> coexistencia frecuente,
-                          especialmente cuando hay síntomas visuales.
+                          especialmente cuando hay síntomas visuales; puede
+                          afectar a casi 30% de los pacientes.
                         </li>
                         <li>
-                          • <strong>Síndrome de piernas inquietas:</strong> puede
-                          parecer hiperactividad nocturna, fragmentar el sueño y
-                          empeorar la atención diurna.
+                          • <strong>Sueño y apnea:</strong> insomnio, pausas en
+                          la respiración o síndrome de piernas inquietas pueden
+                          parecer hiperactividad nocturna y empeorar la atención.
                         </li>
                       </ul>
                     </CardContent>

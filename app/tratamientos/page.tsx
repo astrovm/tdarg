@@ -288,12 +288,11 @@ export default function TratamientosPage() {
                 <CardContent>
                   <Alert className="mb-6 border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/30">
                     <AlertDescription>
-                      <strong>El mito de las vacaciones terapéuticas:</strong>{" "}
-                      en Argentina es común suspender medicación fines de semana
-                      o verano. El TDAH afecta todos los días, no solo para
-                      estudiar o trabajar. Suspender sin indicación médica puede
-                      aumentar riesgo de accidentes, peleas y consumo de alcohol
-                      o drogas.
+                      <strong>El mito de los descansos de fin de semana:</strong>{" "}
+                      suspender la medicación para salir o porque es sábado no es
+                      inocuo. El TDAH no desaparece el fin de semana. Cortar sin
+                      indicación médica puede subir la impulsividad y el riesgo de
+                      choques, peleas y consumo de alcohol o drogas.
                     </AlertDescription>
                   </Alert>
 
@@ -718,11 +717,12 @@ export default function TratamientosPage() {
                 <CardContent>
                   <Alert className="mb-6 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
                     <AlertDescription>
-                      <strong>No cualquier terapia sirve:</strong> no gastes
-                      tiempo y dinero en terapias que solo indagan en tu
-                      infancia. La evidencia científica exige Terapia
-                      Cognitivo-Conductual (TCC): entrena funciones ejecutivas,
-                      organización y control de impulsos.
+                      <strong>Atención con tu psicólogo:</strong> no gastes
+                      tiempo y dinero en terapias tradicionales que solo buscan
+                      el origen de tus problemas en la infancia. La terapia con
+                      evidencia para TDAH es la Terapia Cognitivo-Conductual
+                      (TCC), porque entrena funciones ejecutivas, organización y
+                      control de impulsos.
                     </AlertDescription>
                   </Alert>
 

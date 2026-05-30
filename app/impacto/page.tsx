@@ -437,14 +437,17 @@ export default function ImpactoPage() {
 
                             <div>
                               <h4 className="font-semibold mb-3">
-                                Relaciones Sociales
+                                Riesgo sexual
                               </h4>
                               <ul className="text-sm space-y-1">
-                                <li>• Menor cantidad de amistades duraderas</li>
-                                <li>• Dificultades para mantener vínculos</li>
-                                <li>• Malentendidos frecuentes</li>
-                                <li>• Aislamiento social progresivo</li>
-                                <li>• Problemas de integración grupal</li>
+                                <li>
+                                  • Más del doble de riesgo de embarazos no
+                                  planificados
+                                </li>
+                                <li>• Menor previsión de consecuencias</li>
+                                <li>• Decisiones impulsivas bajo alcohol</li>
+                                <li>• Dificultad para sostener anticoncepción</li>
+                                <li>• Mayor exposición a vínculos inestables</li>
                               </ul>
                             </div>
                           </div>
