@@ -494,18 +494,19 @@ export default function ImpactoPage() {
                             <div className="space-y-3">
                               <div className="text-center p-3 bg-red-50 dark:bg-red-950 rounded-lg">
                                 <div className="text-2xl font-bold text-red-500">
-                                  62%
+                                  37%
                                   <CitationLink number={1} />
                                 </div>
                                 <div className="text-sm text-muted-foreground">
-                                  Más probabilidad de choques graves
+                                  Más probabilidad de choques
                                 </div>
                               </div>
 
                               <p className="text-sm">
-                                Sin tratamiento, la impulsividad y la
-                                distracción al volante aumentan el riesgo de
-                                choques automovilísticos e infracciones graves.
+                                La impulsividad y la inatención al volante son
+                                letales: doble riesgo de manejar alcoholizado y
+                                150% más probabilidades de recibir infracciones
+                                graves de tránsito.
                               </p>
 
                               <h5 className="font-semibold text-sm">

@@ -251,11 +251,11 @@ export default function DiagnosticoPage() {
                   <Alert className="mb-6 bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800">
                     <Brain className="h-4 w-4" />
                     <AlertDescription>
-                      Si vas a consultar en Argentina, buscá una evaluación con
-                      entrevista estructurada, como DIVA-5, y escalas de
-                      autoinforme validadas localmente: ASRS-v1.1 para síntomas
-                      actuales y WURS-25 para reconstruir síntomas de la
-                      infancia. El TDAH adulto no se diagnostica solo charlando.
+                      Un diagnóstico serio no se hace en una charla de 15
+                      minutos. Asegurate de que tu profesional use entrevistas
+                      estructuradas como DIVA-5, y escalas validadas en
+                      Argentina como ASRS-v1.1 para síntomas actuales y WURS-25
+                      para rastrear síntomas de la niñez.
                     </AlertDescription>
                   </Alert>
 

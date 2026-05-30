@@ -1,59 +1,41 @@
 // Legislación relevante para TDAH en Argentina
 export const leyes = [
   {
-    numero: "1. La odisea de la receta en papel",
-    titulo: "Leyes 19.303 y 27.553",
+    numero: "1. La odisea de la receta: Leyes 19.303, 27.553 y la transición digital",
+    titulo: "El problema de la receta digital",
     urgencia: "Crítico",
-    impacto: "Puede frenarte en la farmacia",
+    impacto: "Te deja sin medicación en el mostrador",
     descripcion:
-      "Metilfenidato y lisdexanfetamina son Psicotropicos Lista II. Aunque la receta electronica existe, el circuito digital de alta seguridad sigue incompleto para estos estimulantes.",
+      "Los estimulantes para el TDAH son Psicotrópicos Lista II de alta seguridad. Aunque la Resolución 2214/2025 estableció los protocolos para digitalizarlos, dio un plazo de 120 días para adaptar los sistemas provinciales.",
     puntosClave: [
-      "Que dice la norma: Nacion intento avanzar con ReNaPDiS, auditoria de plataformas y validacion biometrica de prescriptores.",
-      "Que pasa en la practica: PBA formalizo con la Resolucion 140/2025 que para Lista II sigue haciendo falta formulario oficial manuscrito por triplicado.",
-      "La falla del sistema: sin validacion completa de prescriptor, repositorio, farmacia y jurisdiccion, la receta digital no se acepta para estos farmacos.",
-      "Que se podria hacer: trazabilidad digital real, con validacion nacional y registro de dispensa, para reemplazar el papel fisico sin perder control sanitario.",
+      "El cuello de botella: El software médico debe validar tu receta con el registro federal (REFEPS) en tiempo real. Como el sistema está en plena transición tecnológica, las apps de prepagas aún no sirven para estos fármacos.",
+      "La regla práctica: Provincias como Buenos Aires (Res. 140/2025) dictaminaron que es obligatorio seguir llevando el formulario oficial físico por triplicado, manuscrito de puño y letra por tu médico.",
+      "Validez: Tu receta física tiene exactamente 30 días de validez desde la fecha de emisión para ir a comprarla.",
     ],
   },
   {
-    numero: "2. La trampa de la cronicidad en el PMO",
-    titulo: "Resolucion 310/2004, costos y CUD",
+    numero: "2. La trampa de la cronicidad: PMO y Resolución 310/2004",
+    titulo: "Costos y el Certificado de Discapacidad",
     urgencia: "Alto",
-    impacto: "Aumenta gasto de bolsillo",
+    impacto: "Aumenta drásticamente tu gasto de bolsillo",
     descripcion:
-      "La Resolucion 310/2004 divide medicamentos comunes con 40% de cobertura y enfermedades cronicas prevalentes con 70%. El problema es que el TDAH sigue fuera de ese reconocimiento burocratico.",
+      "La normativa divide los descuentos en 40% (medicamentos comunes) y 70% (patologías crónicas). El Estado argentino se niega a reconocer burocráticamente al TDAH como crónico.",
     puntosClave: [
-      "Que dice la norma: metilfenidato queda en el 40% habitual; TDAH no entra en el listado de cronicos con 70%.",
-      "Que pasa en la practica: el paciente absorbe el 60% de cada aumento y las opciones modernas suelen quedar fuera del PMO base.",
-      "El CUD como parche legal: si hay limitacion funcional significativa, la Ley 24.901 puede obligar cobertura integral, pero no deberia ser la unica via para acceder a medicacion indicada.",
-      "Que se podria hacer: actualizar PMO con guias modernas como CADDRA, incluir tratamientos de liberacion prolongada y reconocer el TDAH cronico cuando corresponda.",
+      "El impacto en tu bolsillo: Al tratarlo como un medicamento ambulatorio común, el sistema te estanca de por vida en el 40%, obligándote a absorber el 60% restante ante cada aumento de la inflación.",
+      "Nuevas drogas denegadas: Si te recetan fármacos modernos (Lisdexanfetamina o Atomoxetina), las prepagas suelen rechazarlas de entrada por no figurar explícitamente en el PMO base.",
+      "El CUD como parche: Como el sistema de salud estándar falla, los pacientes con casos severos se ven forzados a tramitar el Certificado Único de Discapacidad (CUD) como único 'escudo legal' para obligar a la obra social a cubrir el 100%.",
     ],
   },
   {
-    numero: "3. Discapacidad y educacion",
-    titulo: "CUD, Ley 24.901 y Ley 27.306",
+    numero: "3. Discapacidad y educación: Ley 27.306",
+    titulo: "Acompañamiento escolar y universitario",
     urgencia: "Medio",
-    impacto: "Orienta reclamos sin prometer automaticidad",
+    impacto: "Garantiza condiciones justas de evaluación",
     descripcion:
-      "El CUD y la Ley DEA son herramientas utiles, pero no automaticas. Sirven cuando hay impacto funcional o dificultades de aprendizaje que necesitan apoyos concretos.",
+      "La Ley de Dificultades Específicas del Aprendizaje (DEA) obliga legalmente a todo el sistema educativo a realizar adaptaciones curriculares. No es una ventaja, es tu derecho.",
     puntosClave: [
-      "CUD: una junta interdisciplinaria debe certificar una limitacion funcional significativa; el diagnostico de TDAH solo no alcanza.",
-      "Cobertura: con CUD aprobado, la medicacion y terapias vinculadas pueden pasar a cobertura integral.",
-      "Escuela y universidad: la Ley 27.306 permite pedir mas tiempo, examenes orales, uso de computadora o calculadora, y alternativas a copiados extensos.",
-      "Que se podria hacer: orientar mejor a familias, adultos e instituciones para que estos derechos se pidan con documentacion clara y expectativas realistas.",
-    ],
-  },
-  {
-    numero: "4. Avances regulatorios",
-    titulo: "Nuevos farmacos y cobertura pendiente",
-    urgencia: "Novedad",
-    impacto: "Mas opciones, misma pelea por cobertura",
-    descripcion:
-      "La llegada de nuevas opciones como lisdexanfetamina mejora el arsenal terapeutico y puede fomentar competencia. El problema es que la cobertura no se actualiza al mismo ritmo.",
-    puntosClave: [
-      "Lisdexanfetamina (Ludoxa 30/50/70 mg, Monte Verde S.A. - Adium, ex Raffo) fue registrada en 2025 y entro en comercializacion desde 2026.",
-      "Al ser nueva, no suele estar automaticamente cubierta por obras sociales o prepagas.",
-      "La competitividad de mercado puede ayudar, pero sin PMO actualizado el paciente sigue dependiendo de bolsillo, CUD o reclamos administrativos.",
-      "Que se podria hacer: seguimiento publico de registro, VNM, precios y cobertura obligatoria para que el avance regulatorio llegue al mostrador.",
+      "Las instituciones educativas suelen desconocer la norma o resistirse a aplicarla.",
+      "Con la presentación formal del diagnóstico, tenés derecho a exigir: más tiempo para rendir evaluaciones, priorización de exámenes orales sobre los escritos, y permiso para usar calculadoras o computadoras evitando copiados extensos.",
     ],
   },
 ];

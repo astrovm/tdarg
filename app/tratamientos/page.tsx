@@ -66,25 +66,7 @@ type CaddraMedication = {
 
 const caddraMedicationMap: CaddraMedication[] = [
   {
-    name: "Adderall XR",
-    group: "Estimulante anfetamínico",
-    forms: "Cápsulas 5, 10, 15, 20, 25, 30 mg",
-    duration: "~12 h",
-    caddraLine: "Primera línea",
-    argentina: "No disponible",
-    localNote: "No hay equivalente anfetamínico comercial local.",
-  },
-  {
-    name: "Dyanavel XR",
-    group: "Estimulante anfetamínico",
-    forms: "Masticables 5, 10, 15, 20 mg; LiquiXR",
-    duration: "~13 h",
-    caddraLine: "Primera línea en 6-12; primera línea adultos",
-    argentina: "No disponible",
-    localNote: "No comercializado en Argentina.",
-  },
-  {
-    name: "Vyvanse",
+    name: "Vyvanse / Ludoxa",
     group: "Lisdexanfetamina",
     forms: "Cápsulas 10, 20, 30, 40, 50, 60, 70 mg; masticables 10-60 mg",
     duration: "~13-14 h",
@@ -95,25 +77,7 @@ const caddraMedicationMap: CaddraMedication[] = [
       "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
   {
-    name: "Dexedrine",
-    group: "Estimulante anfetamínico",
-    forms: "Comprimidos 5 mg; spansules 10, 15 mg",
-    duration: "~4 h / ~6-8 h",
-    caddraLine: "Segunda línea",
-    argentina: "No disponible",
-    localNote: "No hay dexanfetamina comercial local.",
-  },
-  {
-    name: "Biphentin",
-    group: "Metilfenidato",
-    forms: "Cápsulas 10, 15, 20, 30, 40, 50, 60, 80 mg",
-    duration: "~10-12 h",
-    caddraLine: "Primera línea",
-    argentina: "No disponible",
-    localNote: "No comercializado en Argentina.",
-  },
-  {
-    name: "Concerta",
+    name: "Concerta / Consiv",
     group: "Metilfenidato OROS",
     forms: "Comprimidos de liberación prolongada 18, 27, 36, 54 mg",
     duration: "~12 h",
@@ -124,51 +88,13 @@ const caddraMedicationMap: CaddraMedication[] = [
       "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
   {
-    name: "Foquest",
-    group: "Metilfenidato",
-    forms: "Cápsulas 25, 35, 45, 55, 70, 85, 100 mg",
-    duration: "~13-16 h",
-    caddraLine: "Primera línea",
-    argentina: "No disponible",
-    localNote: "No comercializado en Argentina.",
-  },
-  {
-    name: "Jornay PM",
-    group: "Metilfenidato nocturno",
-    forms: "Cápsulas 20, 40, 60, 80, 100 mg",
-    duration: "Inicio 8-10 h; efecto ~12 h",
-    caddraLine: "Primera línea en 6-12; segunda línea adultos",
-    argentina: "No disponible",
-    localNote: "No hay formulación nocturna equivalente local.",
-  },
-  {
-    name: "Quillivant ER",
-    group: "Metilfenidato",
-    forms: "Masticables 20, 30, 40 mg; suspensión oral",
-    duration: "~8-12 h / ~12 h",
-    caddraLine: "Primera línea en 6-12; segunda línea adultos",
-    argentina: "No disponible",
-    localNote: "No hay metilfenidato masticable o suspensión ER local.",
-  },
-  {
-    name: "Metilfenidato acción corta",
-    group: "Metilfenidato IR",
+    name: "Ritalina / Rubifen",
+    group: "Metilfenidato IR/SR",
     forms: "Comprimidos 5 mg genérico; 10, 20 mg",
     duration: "~3-4 h",
     caddraLine: "Segunda línea",
     argentina: "Disponible",
-    localNote: "Disponible como Ritalina/Rubifen y similares según stock.",
-    recetaNote:
-      "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
-  },
-  {
-    name: "Ritalin SR",
-    group: "Metilfenidato SR",
-    forms: "Comprimidos 20 mg",
-    duration: "~8 h",
-    caddraLine: "Segunda línea",
-    argentina: "Disponible",
-    localNote: "Disponible como Ritalina LA/SR o Rubifen LA/SR según producto.",
+    localNote: "Disponible en formulaciones IR/SR/LA según marca y stock.",
     recetaNote:
       "Requiere receta física oficial por triplicado (Psicotrópico Lista II). No sirve receta digital.",
   },
@@ -202,15 +128,6 @@ const caddraMedicationMap: CaddraMedication[] = [
     argentina: "Magistral",
     localNote:
       "Puede considerarse si hay tics, Tourette, agresividad severa o problemas de sueño. Requiere seguimiento médico.",
-  },
-  {
-    name: "Intuniv XR",
-    group: "Guanfacina XR",
-    forms: "Comprimidos XR 1, 2, 3, 4 mg",
-    duration: "Hasta 24 h",
-    caddraLine: "Segunda línea en menores; otra opción en adultos",
-    argentina: "No disponible",
-    localNote: "No comercializada localmente.",
   },
 ];
 
@@ -384,7 +301,7 @@ export default function TratamientosPage() {
                     </div>
                     <div className="text-center p-4 bg-blue-100 dark:bg-blue-900 rounded-lg">
                       <div className="text-3xl font-bold text-blue-600 mb-1">
-                        3
+                        5
                       </div>
                       <div className="text-sm text-blue-700 dark:text-blue-300">
                         principios activos locales
@@ -392,10 +309,10 @@ export default function TratamientosPage() {
                     </div>
                     <div className="text-center p-4 bg-purple-100 dark:bg-purple-900 rounded-lg">
                       <div className="text-3xl font-bold text-purple-600 mb-1">
-                        13
+                        6
                       </div>
                       <div className="text-sm text-purple-700 dark:text-purple-300">
-                        opciones en guía CADDRA
+                        opciones reales en Argentina
                       </div>
                     </div>
                   </div>
@@ -685,9 +602,8 @@ export default function TratamientosPage() {
                             Brecha Argentina
                           </p>
                           <p className="text-xs text-muted-foreground mt-1">
-                            Argentina tiene metilfenidato, lisdexanfetamina y
-                            atomoxetina, pero no varias formulaciones de larga
-                            duración ni guanfacina XR.
+                            El mapa muestra solo fármacos que podés conseguir:
+                            estimulantes, atomoxetina y opciones off-label.
                           </p>
                         </div>
                         <div className="rounded-md border p-3">
@@ -790,14 +706,11 @@ export default function TratamientosPage() {
                 <CardContent>
                   <Alert className="mb-6 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
                     <AlertDescription>
-                      <strong>Atención con el tipo de terapia:</strong> la
-                      recomendada como primera línea, con mayor evidencia
-                      empírica, es la Terapia Cognitivo Conductual (TCC). Ayuda
-                      a entrenar funciones ejecutivas, organizar el tiempo y
-                      regular emociones. En Argentina es común el psicoanálisis
-                      tradicional, pero tiene eficacia pobre para síntomas
-                      nucleares del TDAH; buscá profesionales especializados en
-                      TCC.
+                      <strong>No cualquier terapia sirve:</strong> no gastes
+                      tiempo y dinero en terapias que solo indagan en tu
+                      infancia. La evidencia científica exige Terapia
+                      Cognitivo-Conductual (TCC): entrena funciones ejecutivas,
+                      organización y control de impulsos.
                     </AlertDescription>
                   </Alert>
 
