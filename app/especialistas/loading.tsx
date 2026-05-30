@@ -5,14 +5,14 @@ import { PageHero } from "@/components/page-hero";
 
 export default function EspecialistasLoading() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
       <PageHero
         title="Especialistas en TDAH"
         description="Profesionales que diagnostican y tratan TDAH en cada provincia. Filtrá por ubicación y especialidad."
       >
-        <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl backdrop-blur-sm">
+        <Card className="bg-card border shadow-sm">
           <CardHeader className="pb-4">
             <Skeleton className="h-6 w-44" />
           </CardHeader>
@@ -26,7 +26,7 @@ export default function EspecialistasLoading() {
         </Card>
       </PageHero>
 
-      <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+      <div className="bg-slate-100 dark:bg-slate-950">
         <div className="container mx-auto px-4 py-8">
           <div className="mb-6">
             <Skeleton className="h-7 w-48" />
@@ -36,7 +36,7 @@ export default function EspecialistasLoading() {
             {Array.from({ length: 4 }).map((_, index) => (
               <Card
                 key={index}
-                className="bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                className="bg-card border"
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -101,10 +101,10 @@ export default function EspecialistasLoading() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 border-y border-gray-300 dark:border-gray-700">
+      <div className="bg-slate-100 dark:bg-slate-950">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="bg-white dark:bg-gray-800 border-2 border-blue-200 dark:border-blue-700">
+            <Card className="bg-card border">
               <CardHeader>
                 <Skeleton className="h-6 w-40" />
               </CardHeader>
@@ -117,7 +117,7 @@ export default function EspecialistasLoading() {
                 ))}
               </CardContent>
             </Card>
-            <Card className="bg-white dark:bg-gray-800 border-2 border-orange-200 dark:border-orange-700">
+            <Card className="bg-card border">
               <CardHeader>
                 <Skeleton className="h-6 w-40" />
               </CardHeader>
@@ -130,7 +130,7 @@ export default function EspecialistasLoading() {
                 ))}
               </CardContent>
             </Card>
-            <Card className="bg-white dark:bg-gray-800 border-2 border-green-200 dark:border-green-700">
+            <Card className="bg-card border">
               <CardHeader>
                 <Skeleton className="h-6 w-40" />
               </CardHeader>

@@ -117,7 +117,7 @@ export default function PreciosPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+      <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
         <Header />
 
         <PageHero
@@ -136,10 +136,10 @@ export default function PreciosPage() {
           </div>
         </PageHero>
 
-        <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+        <div className="bg-slate-100 dark:bg-slate-950">
           <div className="container mx-auto px-4 py-8">
             <div className="space-y-8 mt-6">
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
+                <div className="bg-card p-6 rounded-lg border">
                   <div className="flex items-center gap-2 mb-4">
                     <Skeleton className="h-1 w-8 rounded" />
                     <Skeleton className="h-8 w-72" />
@@ -151,7 +151,7 @@ export default function PreciosPage() {
                       <Skeleton className="h-7 w-56 mb-4" />
                       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                         {Array.from({ length: 3 }).map((_, j) => (
-                          <Card key={j} className="border-l-4 border-l-green-500 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md">
+                          <Card key={j} className="bg-card border shadow-sm">
                             <CardHeader className="pb-3">
                               <Skeleton className="h-6 w-3/4 mb-2" />
                               <div className="flex gap-2">
@@ -171,7 +171,7 @@ export default function PreciosPage() {
                   ))}
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+                <div className="bg-card p-6 rounded-lg border">
                   <div className="flex items-center gap-2 mb-4">
                     <Skeleton className="h-1 w-8 rounded" />
                     <Skeleton className="h-8 w-64" />
@@ -181,7 +181,7 @@ export default function PreciosPage() {
                     <Skeleton className="h-7 w-48 mb-4" />
                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                       {Array.from({ length: 2 }).map((_, j) => (
-                        <Card key={j} className="border-l-4 border-l-blue-500 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md">
+                        <Card key={j} className="bg-card border shadow-sm">
                           <CardHeader className="pb-3">
                             <Skeleton className="h-6 w-3/4 mb-2" />
                             <div className="flex gap-2">
@@ -211,7 +211,7 @@ export default function PreciosPage() {
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
         <Header />
         <div className="container mx-auto px-4 py-8">
-          <Alert variant="destructive" className="bg-white border-2">
+          <Alert variant="destructive" className="bg-card border">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
               Error al cargar los precios: {error}
@@ -232,7 +232,7 @@ export default function PreciosPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
       {/* Header Section */}
@@ -243,10 +243,10 @@ export default function PreciosPage() {
         {/* Info rápida */}
         {estadisticas && (
           <div className="mb-6 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur-sm dark:border-purple-800 dark:bg-slate-900/60">
-              <Package className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+            <div className="inline-flex items-center gap-2 rounded-full border bg-muted/40 px-3 py-1.5">
+              <Package className="h-4 w-4 text-primary" />
               <span className="text-sm text-slate-700 dark:text-slate-300">
-                <span className="font-semibold text-purple-700 dark:text-purple-300">
+                <span className="font-semibold text-foreground">
                   {estadisticas.con_precio}
                 </span>{" "}
                 de <span className="font-medium">{estadisticas.total}</span>{" "}
@@ -269,7 +269,7 @@ export default function PreciosPage() {
           </div>
           <Button
             onClick={() => refetch(true)}
-            className="h-10 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-xl"
+            className="h-10 px-4"
           >
             <RefreshCw className="h-5 w-5 mr-2" />
             Actualizar
@@ -278,10 +278,10 @@ export default function PreciosPage() {
       </PageHero>
 
       {/* Content Section */}
-      <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+      <div className="bg-slate-100 dark:bg-slate-950">
         <div className="container mx-auto px-4 py-8">
           {medicamentosFiltrados.length === 0 ? (
-            <Alert className="bg-white border-2 border-amber-300">
+            <Alert className="bg-card border">
               <AlertCircle className="h-4 w-4" />
               <AlertDescription>
                 No se encontraron medicamentos que coincidan con lo que
@@ -292,9 +292,8 @@ export default function PreciosPage() {
             <div className="space-y-8 mt-6">
                 {/* Estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
+                  <div className="bg-card p-6 rounded-lg border">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="h-1 w-8 bg-green-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         Estimulantes usados para TDAH
                       </h2>
@@ -308,9 +307,9 @@ export default function PreciosPage() {
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           {principio === "lisdexanfetamina" && (
-                            <Alert className="mb-4 border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+                            <Alert className="mb-4 bg-muted/40 border">
                               <AlertCircle className="h-4 w-4 text-amber-600" />
-                              <AlertDescription className="text-sm text-amber-800 dark:text-amber-200">
+                              <AlertDescription className="text-sm text-foreground">
                                 La lisdexanfetamina es nueva en Argentina. Las
                                 obras sociales y prepagas todavía no suelen
                                 cubrirla y no está incluida en el PMO. El precio
@@ -322,7 +321,7 @@ export default function PreciosPage() {
                             {meds.map((medicamento) => (
                               <Card
                                 key={medicamento.codigo}
-                                className="hover:shadow-md transition-shadow border-l-4 border-l-green-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                                className="bg-card border shadow-sm"
                               >
                                 <CardHeader className="pb-3">
                                   <div className="flex justify-between items-start">
@@ -376,7 +375,7 @@ export default function PreciosPage() {
                                       <div className="text-sm text-gray-500 mb-1">
                                         Precio sin cobertura
                                       </div>
-                                      <span className="text-2xl font-bold text-green-600">
+                                      <span className="text-2xl font-bold text-foreground">
                                         {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
@@ -390,15 +389,15 @@ export default function PreciosPage() {
                                         </span>
                                       </div>
                                     )}
-                                    <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                                      <Shield className="h-4 w-4 text-blue-600" />
+                                    <div className="flex items-center gap-2 p-2 bg-muted/40 rounded-lg border">
+                                      <Shield className="h-4 w-4 text-primary" />
                                       <div>
-                                        <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                        <div className="text-sm font-medium text-foreground">
                                           {isLisdexanfetamina(medicamento)
                                             ? "Precio teórico con 40% desc."
                                             : "Con prepaga/obra social (40% desc.)"}
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                        <span className="text-xl font-bold text-foreground">
                                           {formatPrice(
                                             priceWithCoverage(
                                               medicamento.precio
@@ -421,9 +420,8 @@ export default function PreciosPage() {
                 {/* No estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.noestimulantes).length >
                   0 && (
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+                  <div className="bg-card p-6 rounded-lg border">
                     <div className="flex items-center gap-2 mb-6">
-                      <div className="h-1 w-8 bg-blue-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         No estimulantes usados para TDAH
                       </h2>
@@ -439,7 +437,7 @@ export default function PreciosPage() {
                             {meds.map((medicamento) => (
                               <Card
                                 key={medicamento.codigo}
-                                className="hover:shadow-md transition-shadow border-l-4 border-l-blue-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                                className="bg-card border shadow-sm"
                               >
                                 <CardHeader className="pb-3">
                                   <div className="flex justify-between items-start">
@@ -493,7 +491,7 @@ export default function PreciosPage() {
                                       <div className="text-sm text-gray-500 mb-1">
                                         Precio sin cobertura
                                       </div>
-                                      <span className="text-2xl font-bold text-green-600">
+                                      <span className="text-2xl font-bold text-foreground">
                                         {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
@@ -507,13 +505,13 @@ export default function PreciosPage() {
                                         </span>
                                       </div>
                                     )}
-                                    <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                                      <Shield className="h-4 w-4 text-blue-600" />
+                                    <div className="flex items-center gap-2 p-2 bg-muted/40 rounded-lg border">
+                                      <Shield className="h-4 w-4 text-primary" />
                                       <div>
-                                        <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                        <div className="text-sm font-medium text-foreground">
                                           Con prepaga/obra social (40% desc.)
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                        <span className="text-xl font-bold text-foreground">
                                           {formatPrice(
                                             priceWithCoverage(
                                               medicamento.precio
@@ -535,17 +533,16 @@ export default function PreciosPage() {
 
                 {/* Medicamentos con uso off-label para TDAH */}
                 {Object.keys(medicamentosAgrupados.offlabel).length > 0 && (
-                  <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-orange-300 dark:border-orange-700">
+                  <div className="bg-card p-6 rounded-lg border">
                     <div className="flex items-center gap-2 mb-6">
-                      <div className="h-1 w-8 bg-orange-500 rounded"></div>
                       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                         Medicamentos con uso off-label para TDAH
                       </h2>
                     </div>
 
-                    <Alert className="mb-6 border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-950 border-2">
-                      <AlertCircle className="h-4 w-4 text-orange-600" />
-                      <AlertDescription className="text-orange-800 dark:text-orange-200">
+                    <Alert className="mb-6 bg-muted/40 border">
+                      <AlertCircle className="h-4 w-4 text-primary" />
+                      <AlertDescription className="text-foreground">
                         Estos medicamentos pueden usarse en algunos casos de
                         TDAH, pero no son la indicación principal. Consultá con
                         tu médico antes de usar cualquier medicamento.
@@ -562,7 +559,7 @@ export default function PreciosPage() {
                             {meds.map((medicamento) => (
                               <Card
                                 key={medicamento.codigo}
-                                className="hover:shadow-md transition-shadow border-l-4 border-l-orange-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600"
+                                className="bg-card border shadow-sm"
                               >
                                 <CardHeader className="pb-3">
                                   <div className="flex justify-between items-start">
@@ -616,7 +613,7 @@ export default function PreciosPage() {
                                       <div className="text-sm text-gray-500 mb-1">
                                         Precio sin cobertura
                                       </div>
-                                      <span className="text-2xl font-bold text-green-600">
+                                      <span className="text-2xl font-bold text-foreground">
                                         {formatPrice(medicamento.precio)}
                                       </span>
                                     </div>
@@ -630,13 +627,13 @@ export default function PreciosPage() {
                                         </span>
                                       </div>
                                     )}
-                                    <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                                      <Shield className="h-4 w-4 text-blue-600" />
+                                    <div className="flex items-center gap-2 p-2 bg-muted/40 rounded-lg border">
+                                      <Shield className="h-4 w-4 text-primary" />
                                       <div>
-                                        <div className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                                        <div className="text-sm font-medium text-foreground">
                                           Con prepaga/obra social (40% desc.)
                                         </div>
-                                        <span className="text-xl font-bold text-blue-700 dark:text-blue-300">
+                                        <span className="text-xl font-bold text-foreground">
                                           {formatPrice(
                                             priceWithCoverage(
                                               medicamento.precio

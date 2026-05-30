@@ -52,7 +52,7 @@ export default function LegislacionPage() {
       badge: "bg-blue-600 text-white",
       dot: "bg-blue-500",
       surface: "bg-blue-50 dark:bg-blue-900/20",
-      text: "text-blue-700 dark:text-blue-300",
+      text: "text-foreground",
     };
   };
 
@@ -70,7 +70,7 @@ export default function LegislacionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
       <PageHero
@@ -96,7 +96,7 @@ export default function LegislacionPage() {
               return (
               <Card
                 key={ley.numero}
-                className={`overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md border-l-4 ${severity.border}`}
+                className={`overflow-hidden bg-card border shadow-sm border-l-4 ${severity.border}`}
               >
                 <CardHeader className="pb-3">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -159,12 +159,12 @@ export default function LegislacionPage() {
       </div>
 
       {/* Fuentes Section */}
-      <section className="bg-gray-800 dark:bg-gray-900 text-white py-8">
+      <section className="bg-slate-100 dark:bg-slate-950 border-t py-8">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6 text-center">
             De dónde sacamos la info
           </h2>
-          <div className="max-w-4xl mx-auto text-sm text-gray-300">
+          <div className="max-w-4xl mx-auto text-sm text-slate-600 dark:text-slate-300">
             <p className="mb-4">{fuentesDocumentacion.descripcion}</p>
             <ul className="list-disc list-inside space-y-2 mb-6">
               {fuentesDocumentacion.fuentes.map((fuente, index) => (

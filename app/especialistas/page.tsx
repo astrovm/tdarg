@@ -139,18 +139,18 @@ export default function EspecialistasPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
       <PageHero
         title="Especialistas en TDAH"
         description="Profesionales que diagnostican y tratan TDAH en cada provincia. Filtrá por ubicación y especialidad."
       >
-        <Card className="bg-gradient-to-r from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-xl backdrop-blur-sm">
+        <Card className="bg-card border shadow-sm">
           <CardHeader className="pb-4">
             <CardTitle className="text-xl text-slate-800 dark:text-white flex items-center">
-              <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
-                <Search className="h-4 w-4 text-white" />
+              <div className="w-6 h-6 bg-primary/10 text-primary rounded-lg flex items-center justify-center mr-3">
+                <Search className="h-4 w-4" />
               </div>
               Buscá especialistas
             </CardTitle>
@@ -201,11 +201,11 @@ export default function EspecialistasPage() {
       </PageHero>
 
       {/* Results Section */}
-      <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+      <div className="bg-slate-100 dark:bg-slate-950">
         <div className="container mx-auto px-4 py-8">
           {/* Results */}
           <div className="mb-6">
-            <p className="text-gray-700 dark:text-gray-300 text-lg">
+            <p className="text-slate-700 dark:text-slate-300 text-lg">
               {especialistasFiltrados.length} especialista
               {especialistasFiltrados.length !== 1 ? "s" : ""}
               {provincia !== "todas" && ` en ${provincia}`}
@@ -224,7 +224,7 @@ export default function EspecialistasPage() {
                 return (
                   <Card
                     key={index}
-                    className="flex h-full flex-col hover:shadow-xl transition-all bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border-0 shadow-md hover:-translate-y-0.5"
+                    className="flex h-full flex-col bg-card border shadow-sm"
                   >
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -232,7 +232,7 @@ export default function EspecialistasPage() {
                         <CardTitle className="text-xl">
                           {especialista.nombre}
                         </CardTitle>
-                        <CardDescription className="text-base font-medium text-blue-600 mb-2">
+                        <CardDescription className="text-base font-medium text-primary mb-2">
                           {especialista.especialidad}
                         </CardDescription>
                         <div className="flex items-center gap-2">
@@ -266,10 +266,10 @@ export default function EspecialistasPage() {
                             <div className="font-medium">
                               {especialista.ciudad}, {especialista.provincia}
                             </div>
-                            <div className="text-gray-600 dark:text-gray-300">
+                            <div className="text-slate-600 dark:text-slate-300">
                               {especialista.direccion}
                             </div>
-                            <div className="text-gray-600 dark:text-gray-300">
+                            <div className="text-slate-600 dark:text-slate-300">
                               {especialista.hospital}
                             </div>
                           </div>
@@ -405,7 +405,7 @@ export default function EspecialistasPage() {
 
           {/* No Results - Only show if there are no results */}
           {especialistasFiltrados.length === 0 && (
-              <Card className="text-center py-12 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+              <Card className="text-center py-12 bg-card border">
               <CardContent>
                 <div className="text-gray-500 mb-4">
                   <Search className="h-12 w-12 mx-auto mb-4" />
@@ -429,114 +429,6 @@ export default function EspecialistasPage() {
         </div>
       </div>
 
-      {/* Additional Info Section */}
-      <div className="bg-white dark:bg-gray-800 border-y border-gray-300 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="bg-white dark:bg-gray-800 border-2 border-blue-200 dark:border-blue-700">
-              <CardHeader>
-                <CardTitle>Cómo se diagnostica</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Primera entrevista con el profesional
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Tests y más charlas para conocer tu historia
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Descartar otras condiciones parecidas
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Ver si tenés algo más (TEA, TOC, etc.)
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white dark:bg-gray-800 border-2 border-orange-200 dark:border-orange-700">
-              <CardHeader>
-                <CardTitle>Costos y cobertura</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    El diagnóstico tiene un costo, pero no tenerlo puede salir más caro
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Hospital Italiano tiene cobertura para sus afiliados
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    INECO tiene diagnóstico acelerado (ideal si venís del interior)
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-orange-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Muchas obras sociales cubren medicamentos para crónicos
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white dark:bg-gray-800 border-2 border-green-200 dark:border-green-700">
-              <CardHeader>
-                <CardTitle>Datos útiles</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Preguntá si chequearon otras condiciones (ansiedad, TEA, etc.)
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Entendé por qué te recetaron tal medicamento
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Preguntá qué opciones considera: metilfenidato, lisdexanfetamina o atomoxetina
-                  </p>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">
-                      Metilfenidato y lisdexanfetamina pueden requerir receta oficial en papel según jurisdicción y farmacia
-                    </p>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">
-                        Llevá boletines antiguos y antecedentes para demostrar inicio antes de los 12 años
-                      </p>
-                    </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

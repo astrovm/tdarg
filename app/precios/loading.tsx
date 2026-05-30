@@ -6,7 +6,7 @@ import { PageHero } from "@/components/page-hero";
 
 export default function PreciosLoading() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
       <PageHero
@@ -25,16 +25,16 @@ export default function PreciosLoading() {
         </div>
       </PageHero>
 
-      <div className="bg-gray-200 dark:bg-gray-700 border-y border-gray-300 dark:border-gray-600">
+      <div className="bg-slate-100 dark:bg-slate-950">
         <div className="container mx-auto px-4 py-8">
           <Tabs defaultValue="agrupado" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+            <TabsList className="grid w-full grid-cols-2 bg-card border">
               <TabsTrigger value="agrupado">Por tipo</TabsTrigger>
               <TabsTrigger value="lista">Lista Completa</TabsTrigger>
             </TabsList>
 
             <TabsContent value="agrupado" className="space-y-8 mt-6">
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-green-300 dark:border-green-700">
+              <div className="bg-card p-6 rounded-lg border">
                 <div className="flex items-center gap-2 mb-4">
                   <Skeleton className="h-1 w-8 rounded" />
                   <Skeleton className="h-8 w-72" />
@@ -46,7 +46,7 @@ export default function PreciosLoading() {
                     <Skeleton className="h-7 w-56 mb-4" />
                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                       {Array.from({ length: 3 }).map((_, j) => (
-                        <Card key={j} className="border-l-4 border-l-green-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+                        <Card key={j} className="bg-card border shadow-sm">
                           <CardHeader className="pb-3">
                             <Skeleton className="h-6 w-3/4 mb-2" />
                             <div className="flex gap-2">
@@ -66,7 +66,7 @@ export default function PreciosLoading() {
                 ))}
               </div>
 
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border-2 border-blue-300 dark:border-blue-700">
+              <div className="bg-card p-6 rounded-lg border">
                 <div className="flex items-center gap-2 mb-4">
                   <Skeleton className="h-1 w-8 rounded" />
                   <Skeleton className="h-8 w-64" />
@@ -76,7 +76,7 @@ export default function PreciosLoading() {
                   <Skeleton className="h-7 w-48 mb-4" />
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {Array.from({ length: 2 }).map((_, j) => (
-                      <Card key={j} className="border-l-4 border-l-blue-500 bg-white dark:bg-gray-800 border-2 dark:border-gray-600">
+                      <Card key={j} className="bg-card border shadow-sm">
                         <CardHeader className="pb-3">
                           <Skeleton className="h-6 w-3/4 mb-2" />
                           <div className="flex gap-2">
