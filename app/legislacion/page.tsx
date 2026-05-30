@@ -7,56 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  FileText,
-  Calendar,
-  ExternalLink,
-  Clock,
-  LinkIcon,
-} from "lucide-react";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 import {
   fuentesDocumentacion,
   leyes,
-  problemasReales,
-  propuestasNecesarias,
 } from "@/lib/legislacion-data";
 
 export default function LegislacionPage() {
-  const formatText = (text: string) => {
-    return text.split("\n\n").map((paragraph, pIndex) => {
-      if (paragraph.includes("•")) {
-        const lines = paragraph.split("\n");
-        const title = lines[0];
-        const bullets = lines
-          .slice(1)
-          .filter((line) => line.trim().startsWith("•"));
-
-        return (
-          <div key={pIndex} className="mb-3">
-            {title && <p className="mb-2 font-medium">{title}</p>}
-            <ul className="space-y-1 ml-4">
-              {bullets.map((bullet, bIndex) => (
-                <li key={bIndex} className="text-sm flex items-start">
-                  <span className="text-blue-600 mr-2 mt-0.5">•</span>
-                  <span>{bullet.replace("•", "").trim()}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        );
-      }
-      return (
-        <p key={pIndex} className="mb-3">
-          {paragraph}
-        </p>
-      );
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
       <Header />
@@ -66,200 +25,16 @@ export default function LegislacionPage() {
         description="Qué dice la ley hoy, qué funciona mal y qué se podría hacer para resolverlo de forma concreta."
       />
 
-      {/* Problems Section */}
-      <div className="bg-gradient-to-br from-red-50/50 to-orange-50/50 dark:from-red-900/10 dark:to-orange-900/10 border-y border-red-100 dark:border-red-800/30">
-        <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold text-red-600 mb-4 text-center">
-            Los problemas de verdad
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
-            Estas son las trabas que todavía complican el acceso al tratamiento
-          </p>
-
-          {/* Explicación de niveles de urgencia */}
-          <div className="mb-6 p-4 bg-gradient-to-r from-white to-blue-50 dark:from-slate-800 dark:to-blue-900/20 rounded-xl shadow-lg border border-blue-200 dark:border-blue-800/50">
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center">
-              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white text-xs">📊</span>
-              </div>
-              Qué tan grave es cada problema
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-start space-x-2 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800/50">
-                <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full mt-1 flex-shrink-0"></div>
-                <div>
-                  <span className="font-bold text-red-700 dark:text-red-300">
-                    Crítico:
-                  </span>
-                  <p className="text-red-600 dark:text-red-200 text-sm mt-1">
-                    Te deja sin medicación directamente
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-2 p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-800/50">
-                <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mt-1 flex-shrink-0"></div>
-                <div>
-                  <span className="font-bold text-orange-700 dark:text-orange-300">
-                    Alto:
-                  </span>
-                  <p className="text-orange-600 dark:text-orange-200 text-sm mt-1">
-                    Te complica mucho conseguir el tratamiento
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800/50">
-                <div className="w-3 h-3 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full mt-1 flex-shrink-0"></div>
-                <div>
-                  <span className="font-bold text-yellow-700 dark:text-yellow-300">
-                    Medio:
-                  </span>
-                  <p className="text-yellow-600 dark:text-yellow-200 text-sm mt-1">
-                    Trae complicaciones, pero se puede resolver
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {problemasReales.map((item, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-xl transition-all duration-500 bg-gradient-to-br from-white to-red-50 dark:from-slate-800 dark:to-red-900/20 border-0 shadow-lg hover:-translate-y-1"
-              >
-                <CardHeader className="p-6 relative">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-orange-400"></div>
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge
-                      className={`px-2 py-1 text-xs font-semibold ${
-                        item.urgencia === "Crítico"
-                          ? "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md"
-                          : item.urgencia === "Alto"
-                          ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-md"
-                          : "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-md"
-                      }`}
-                    >
-                      {item.urgencia}
-                    </Badge>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      {item.impacto}
-                    </span>
-                  </div>
-                  <CardTitle className="text-lg text-slate-800 dark:text-white leading-tight mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
-                    {item.problema}
-                  </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    <div>{formatText(item.descripcion)}</div>
-                  </CardDescription>
-                  <div className="mt-3 p-2 bg-slate-100 dark:bg-slate-700 rounded-lg">
-                    <p className="text-xs text-slate-600 dark:text-slate-300 italic">
-                      {item.resumen}
-                    </p>
-                  </div>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Solutions Section */}
-      <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 dark:from-green-900/10 dark:to-emerald-900/10 border-y border-green-100 dark:border-green-800/30">
-        <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold text-green-600 mb-4 text-center">
-            Qué se podría hacer
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 text-center max-w-3xl mx-auto">
-            Ideas concretas para arreglar esto
-          </p>
-          <div className="space-y-6">
-            {propuestasNecesarias.map((propuesta, index) => (
-              <Card
-                key={index}
-                className="border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-900/10 border-2 dark:border-blue-800"
-              >
-                <CardHeader>
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl text-blue-900 dark:text-blue-100 mb-1">
-                        {propuesta.titulo}
-                      </CardTitle>
-                      <CardDescription className="text-sm text-blue-800 dark:text-blue-200 mb-2">
-                        <div>{formatText(propuesta.resumenEjecutivo)}</div>
-                      </CardDescription>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">
-                        🎯 {propuesta.problemaQueResuelve}
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <h5 className="font-medium text-green-700 dark:text-green-400 mb-2 text-sm">
-                        Qué cambiaría
-                      </h5>
-                      <ul className="space-y-1 text-sm">
-                        {propuesta.beneficiosClave.map((beneficio, idx) => (
-                          <li key={idx} className="text-sm">
-                            {beneficio}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-blue-700 dark:text-blue-400 mb-2 text-sm">
-                        Por qué funciona
-                      </h5>
-                      <ul className="space-y-1 text-sm">
-                        {propuesta.ventajas.map((ventaja, idx) => (
-                          <li key={idx} className="text-sm">
-                            {ventaja}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 text-sm">
-                    <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
-                      <div className="font-medium text-green-800 dark:text-green-200">
-                        Impacto
-                      </div>
-                      <div className="text-green-700 dark:text-green-300">
-                        {propuesta.impacto}
-                      </div>
-                    </div>
-                    <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg">
-                      <div className="font-medium text-purple-800 dark:text-purple-200">
-                        Responsable
-                      </div>
-                      <div className="text-purple-700 dark:text-purple-300">
-                        {propuesta.responsable}
-                      </div>
-                    </div>
-                    <div className="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg">
-                      <div className="font-medium text-orange-800 dark:text-orange-200">
-                        Próximo Paso
-                      </div>
-                      <div className="text-orange-700 dark:text-orange-300">
-                        {propuesta.accionNecesaria}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Laws Section */}
       <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10 border-y border-blue-100 dark:border-blue-800/30">
         <div className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold text-blue-600 mb-6 text-center">
-            Las leyes que existen hoy
+            El problema legal y tus derechos hoy
           </h2>
+          <p className="text-center text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+            Un solo mapa: qué dice la ley, qué falla en la práctica y qué
+            solución concreta debería existir.
+          </p>
           <div className="space-y-6">
             {leyes.map((ley, index) => (
               <Card
@@ -270,107 +45,43 @@ export default function LegislacionPage() {
                   <div className="flex items-start justify-between">
                     <div>
                       <CardTitle className="text-xl">{ley.numero}</CardTitle>
-                      <CardDescription className="text-base font-medium text-gray-900 mt-1">
+                      <CardDescription className="dark:text-gray-300 text-base font-medium text-gray-900 mt-1">
                         {ley.titulo}
                       </CardDescription>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Badge
-                        variant={
-                          ley.estado === "Vigente" ? "default" : "secondary"
-                        }
-                      >
-                        {ley.estado}
-                      </Badge>
-                      <Badge
-                        variant={
-                          ley.impactoReal === "alto"
-                            ? "default"
-                            : ley.impactoReal === "medio"
-                            ? "secondary"
-                            : "outline"
-                        }
-                      >
-                        Impacto {ley.impactoReal}
-                      </Badge>
-                    </div>
+                    <Badge
+                      className={`ml-3 shrink-0 ${
+                        ley.urgencia === "Crítico"
+                          ? "bg-red-600 text-white"
+                          : ley.urgencia === "Alto"
+                          ? "bg-orange-600 text-white"
+                          : ley.urgencia === "Medio"
+                          ? "bg-yellow-600 text-white"
+                          : "bg-blue-600 text-white"
+                      }`}
+                    >
+                      {ley.urgencia}
+                    </Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700 mb-4">{ley.descripcion}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 font-medium">
+                    {ley.impacto}
+                  </p>
 
-                  <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 dark:border-gray-600">
-                    <h4 className="font-semibold mb-3">
-                      Derechos y barreras practicas
-                    </h4>
-                    <ul className="space-y-2 text-sm">
-                      {ley.puntosClave.map((punto, idx) => (
-                        <li key={idx} className="flex items-start space-x-2">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{punto}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      Sancionada:{" "}
-                      {new Date(ley.fecha).toLocaleDateString("es-AR")}
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Clock className="h-4 w-4 mr-2" />
-                      Actualizada:{" "}
-                      {new Date(ley.ultimaActualizacion).toLocaleDateString(
-                        "es-AR"
-                      )}
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <FileText className="h-4 w-4 mr-2" />
-                      Organismo: {ley.organismo}
-                    </div>
-                  </div>
-
-                  {ley.referencias && (
-                    <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-2 dark:border-blue-800">
-                      <h4 className="font-semibold mb-3 flex items-center space-x-2">
-                        <LinkIcon className="h-4 w-4" />
-                        <span>Referencias oficiales</span>
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {ley.referencias.map((referencia, idx) =>
-                          referencia.url ? (
-                            <Button
-                              key={idx}
-                              size="sm"
-                              variant="outline"
-                              onClick={() =>
-                                window.open(referencia.url, "_blank")
-                              }
-                            >
-                              <ExternalLink className="h-4 w-4 mr-2" />
-                              {referencia.titulo}
-                            </Button>
-                          ) : (
-                            <Badge key={idx} variant="secondary">
-                              {referencia.titulo}
-                            </Badge>
-                          )
-                        )}
-                      </div>
+                  {ley.puntosClave.length > 0 && (
+                    <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border dark:border-gray-600">
+                      <ul className="space-y-3 text-sm">
+                        {ley.puntosClave.map((punto, idx) => (
+                          <li key={idx} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                            <span>{punto}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
-
-                  <div className="flex space-x-2">
-                    <Button
-                      size="sm"
-                      onClick={() => window.open(ley.url, "_blank")}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver fuente principal
-                    </Button>
-                  </div>
                 </CardContent>
               </Card>
             ))}
