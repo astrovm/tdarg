@@ -9,13 +9,10 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
-  ArrowLeft,
   Calendar,
   Focus,
   Brain,
   User,
-  CheckCircle,
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { StepDefinition } from "@/lib/steps";
@@ -27,7 +24,6 @@ const steps = [
   { id: 2, title: "Atención", subtitle: "Concentración y foco", icon: Focus },
   { id: 3, title: "Manejo Emocional", subtitle: "Regulación y comunicación", icon: Brain },
   { id: 4, title: "Adultos aplicado", subtitle: "Herramientas para la vida diaria", icon: User },
-  { id: 5, title: "Resumen", subtitle: "Checklist final", icon: CheckCircle },
 ] satisfies StepDefinition[];
 
 const references: Reference[] = [
@@ -42,7 +38,7 @@ const references: Reference[] = [
 ];
 
 export default function HerramientasPage() {
-  const { currentStep, completedCount, progress, goTo, next, prev, isDone } =
+  const { currentStep, completedCount, progress, goTo, isDone } =
     useStepProgress({ totalSteps: steps.length });
 
   return (
@@ -86,9 +82,6 @@ export default function HerramientasPage() {
                 </Card>
               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg">Siguiente: Atención <ArrowRight className="h-4 w-4 ml-2" /></Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -128,10 +121,6 @@ export default function HerramientasPage() {
                 </Card>
               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: Manejo Emocional <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -165,10 +154,6 @@ export default function HerramientasPage() {
                 </Card>
               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: Consecuencias <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -214,50 +199,23 @@ export default function HerramientasPage() {
                     <div>• Explicar el TDAH a personas cercanas</div>
                   </CardContent>
                 </Card>
-              </div>
+               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: Resumen <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
+             </CardContent>
+           </Card>
+         )}
+       </div>
 
-         {currentStep === 5 && (
-          <Card className="border-green-200 dark:border-green-800 bg-green-50/30 dark:bg-green-950/30">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl flex items-center justify-center gap-2">
-                <CheckCircle className="h-8 w-8 text-green-500" />Checklist final
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm">
-              <div className="space-y-1.5">
-                <div>✅ Organización externa supera a la fuerza de voluntad (sistemas ganan)</div>
-                <div>✅ Bloques cortos (25-45 min) + descansos programados</div>
-                <div>✅ Medicación no reemplaza habilidades entrenadas</div>
-                <div>✅ TCC + estrategias externas = cambio sostenible</div>
-                <div>✅ Monitorear sueño, ejercicio y comorbilidades siempre</div>
-                <div>✅ Pedir ayuda profesional sin vergüenza (es tratamiento)</div>
-              </div>
+       <div className="flex flex-col sm:flex-row gap-3 justify-center pb-6">
+         <Button asChild size="lg">
+           <Link href="/especialistas">Encontrar especialistas</Link>
+         </Button>
+         <Button variant="outline" asChild>
+           <Link href="/tratamientos">Ver tratamientos</Link>
+         </Button>
+       </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-                <Button asChild size="lg">
-                  <Link href="/especialistas">Encontrar especialistas</Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link href="/tratamientos">Ver tratamientos</Link>
-                </Button>
-                <Button variant="outline" onClick={prev}>
-                  <ArrowLeft className="h-4 w-4 mr-2" />Anterior
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
-
-      <References references={references} />
-    </StepGuideLayout>
-  );
-}
+       <References references={references} />
+     </StepGuideLayout>
+   );
+ }

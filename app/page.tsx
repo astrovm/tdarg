@@ -171,7 +171,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-blue-50 dark:from-slate-800 dark:to-blue-900/20 border-0 shadow-lg hover:-translate-y-1">
+            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Brain className="h-5 w-5 text-white" />
@@ -190,7 +190,7 @@ export default function HomePage() {
               </CardHeader>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-green-50 dark:from-slate-800 dark:to-green-900/20 border-0 shadow-lg hover:-translate-y-1">
+            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Heart className="h-5 w-5 text-white" />
@@ -209,7 +209,7 @@ export default function HomePage() {
               </CardHeader>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-purple-50 dark:from-slate-800 dark:to-purple-900/20 border-0 shadow-lg hover:-translate-y-1">
+            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Users className="h-5 w-5 text-white" />
@@ -228,7 +228,7 @@ export default function HomePage() {
               </CardHeader>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-indigo-50 dark:from-slate-800 dark:to-indigo-900/20 border-0 shadow-lg hover:-translate-y-1">
+            <Card className="hover:shadow-md transition-shadow bg-white dark:bg-slate-800 border">
               <CardHeader className="p-5">
                 <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   <Wrench className="h-5 w-5 text-white" />

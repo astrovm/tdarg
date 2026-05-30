@@ -12,7 +12,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  ArrowRight,
   ArrowLeft,
   CheckCircle,
   Clock,
@@ -39,7 +38,7 @@ const steps = [
 ] satisfies StepDefinition[];
 
 export default function DiagnosticoPage() {
-  const { currentStep, progress, completedCount, goTo, next, prev, isDone } =
+  const { currentStep, progress, completedCount, goTo, prev, isDone } =
     useStepProgress({ totalSteps: steps.length });
 
   const inattentiveSymptoms = [
@@ -197,10 +196,6 @@ export default function DiagnosticoPage() {
               </Alert>
 
               <p className="text-xs text-muted-foreground text-center">Esta lista es una guía breve inspirada en DSM-5 y ASRS-v1.1. No alcanza para diagnosticar.</p>
-
-              <div className="text-center">
-                <Button onClick={next} size="lg">Siguiente: Evaluación clínica <ArrowRight className="h-4 w-4 ml-2" /></Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -256,10 +251,6 @@ export default function DiagnosticoPage() {
                 ))}
               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: El proceso <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -298,10 +289,6 @@ export default function DiagnosticoPage() {
                 ))}
               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: Preparación <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
             </CardContent>
           </Card>
         )}

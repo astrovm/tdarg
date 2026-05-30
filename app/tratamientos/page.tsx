@@ -10,7 +10,6 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowLeft,
   Pill,
   Brain,
@@ -29,7 +28,7 @@ const steps = [
 ] satisfies StepDefinition[];
 
 export default function TratamientosPage() {
-  const { currentStep, progress, completedCount, goTo, next, prev, isDone } =
+  const { currentStep, progress, completedCount, goTo, prev, isDone } =
     useStepProgress({ totalSteps: steps.length });
 
   return (
@@ -82,10 +81,6 @@ export default function TratamientosPage() {
               <Alert>
                 <AlertDescription>El abordaje suele combinar medicación, herramientas psicológicas y cambios de rutina. La proporción depende del perfil clínico, comorbilidades y acceso.</AlertDescription>
               </Alert>
-
-              <div className="text-center">
-                <Button onClick={next} size="lg">Siguiente: Medicamentos <ArrowRight className="h-4 w-4 ml-2" /></Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -162,11 +157,6 @@ export default function TratamientosPage() {
                   <strong>Cuándo priorizar atomoxetina:</strong> antecedentes de adicciones (bajo potencial de abuso), ansiedad severa (estimulantes pueden empeorarla), tics o Tourette (estimulantes a veces los agravan).
                 </AlertDescription>
               </Alert>
-
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: Terapias <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
             </CardContent>
           </Card>
         )}
@@ -210,10 +200,6 @@ export default function TratamientosPage() {
                 </div>
               </div>
 
-              <div className="text-center">
-                <Button onClick={next} size="lg" className="mr-4">Siguiente: Estilo de vida <ArrowRight className="h-4 w-4 ml-2" /></Button>
-                <Button variant="outline" onClick={prev}><ArrowLeft className="h-4 w-4 mr-2" />Anterior</Button>
-              </div>
             </CardContent>
           </Card>
         )}

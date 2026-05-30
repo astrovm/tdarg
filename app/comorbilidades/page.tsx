@@ -62,7 +62,7 @@ export default function ComorbilidadesPage() {
         <CardContent className="space-y-6">
           {currentStep === 1 && (
             <>
-              <Card className="border-blue-200 dark:border-blue-800 bg-blue-50/30 dark:bg-blue-950/30">
+              <Card>
                 <CardHeader><CardTitle className="text-base">¿Qué son las comorbilidades?</CardTitle></CardHeader>
                 <CardContent className="text-sm">
                   <p className="mb-3">El término <strong>comorbilidad</strong> describe condiciones que coexisten con el TDAH: no son causadas por él, pero se influyen mutuamente y complican tanto el diagnóstico como el tratamiento.</p>
@@ -120,18 +120,11 @@ export default function ComorbilidadesPage() {
                 </Card>
                 <Card>
                   <CardHeader><CardTitle className="text-base">Tratamiento recomendado</CardTitle></CardHeader>
-                  <CardContent className="text-sm space-y-2">
-                    <div className="p-3 bg-green-50 dark:bg-green-950 rounded">
-                      <div className="font-semibold mb-1">✅ Recomendado</div>
-                      <div>• Estimulantes o atomoxetina según severidad</div>
-                      <div>• TCC para ambas condiciones</div>
-                      <div>• Técnicas de relajación (respiración 4-7-8, grounding 5-4-3-2-1)</div>
-                    </div>
-                    <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded">
-                      <div className="font-semibold mb-1">⚠️ Precaución</div>
-                      <div>• Estimulantes pueden aumentar ansiedad</div>
-                      <div>• Monitoreo cuidadoso inicial</div>
-                    </div>
+                  <CardContent className="text-sm space-y-1">
+                    <div>• Estimulantes o atomoxetina (según severidad + comorbilidades)</div>
+                    <div>• TCC para ambas condiciones</div>
+                    <div>• Técnicas de relajación: respiración 4-7-8, grounding 5-4-3-2-1</div>
+                    <div className="text-amber-600 dark:text-amber-400">• Estimulantes pueden subir ansiedad inicial → monitoreo cercano</div>
                   </CardContent>
                 </Card>
               </div>
@@ -147,9 +140,9 @@ export default function ComorbilidadesPage() {
               </div>
 
               <div className="space-y-3">
-                <Card className="border-blue-200 dark:border-blue-800"><CardHeader><CardTitle className="text-base">Depresión Secundaria (más común)</CardTitle></CardHeader><CardContent className="text-sm">Surge como resultado de las dificultades crónicas del TDAH: fracasos repetidos, baja autoestima, problemas laborales.</CardContent></Card>
-                <Card className="border-green-200 dark:border-green-800"><CardHeader><CardTitle className="text-base">Comorbilidad Verdadera</CardTitle></CardHeader><CardContent className="text-sm">Ambas condiciones coexisten independientemente. Cada una requiere tratamiento específico.</CardContent></Card>
-                <Card className="border-purple-200 dark:border-purple-800"><CardHeader><CardTitle className="text-base">Sintomatología Superpuesta</CardTitle></CardHeader><CardContent className="text-sm">Dificultades de concentración y motivación pueden confundir el diagnóstico. Si los síntomas de ánimo son episódicos y los de TDAH son de toda la vida, priorizá tratar el TDAH primero.</CardContent></Card>
+                <Card><CardHeader><CardTitle className="text-base">Depresión Secundaria (más común)</CardTitle></CardHeader><CardContent className="text-sm">Surge como resultado de las dificultades crónicas del TDAH: fracasos repetidos, baja autoestima, problemas laborales.</CardContent></Card>
+                <Card><CardHeader><CardTitle className="text-base">Comorbilidad Verdadera</CardTitle></CardHeader><CardContent className="text-sm">Ambas condiciones coexisten independientemente. Cada una requiere tratamiento específico.</CardContent></Card>
+                <Card><CardHeader><CardTitle className="text-base">Sintomatología Superpuesta</CardTitle></CardHeader><CardContent className="text-sm">Dificultades de concentración y motivación pueden confundir el diagnóstico. Si los síntomas de ánimo son episódicos y los de TDAH son de toda la vida, priorizá tratar el TDAH primero.</CardContent></Card>
               </div>
             </>
           )}
@@ -241,10 +234,10 @@ export default function ComorbilidadesPage() {
 
               <Card>
                 <CardHeader><CardTitle className="text-base">Orden de tratamiento</CardTitle></CardHeader>
-                <CardContent className="space-y-2 text-sm">
-                  <div className="p-3 bg-red-50 dark:bg-red-950 rounded"><strong>🔴 Primera prioridad:</strong> Trastorno bipolar, psicosis, ideas suicidas o adicciones severas</div>
-                  <div className="p-3 bg-amber-50 dark:bg-amber-950 rounded"><strong>🟡 Segunda prioridad:</strong> TDAH, depresión mayor, ansiedad severa</div>
-                  <div className="p-3 bg-green-50 dark:bg-green-950 rounded"><strong>🟢 Tercera prioridad:</strong> Condiciones médicas, trastornos del sueño</div>
+                <CardContent className="space-y-1 text-sm">
+                  <div><strong>1. Primera prioridad:</strong> Trastorno bipolar, psicosis, ideas suicidas o adicciones severas</div>
+                  <div><strong>2. Segunda prioridad:</strong> TDAH, depresión mayor, ansiedad severa</div>
+                  <div><strong>3. Tercera prioridad:</strong> Condiciones médicas, trastornos del sueño</div>
                 </CardContent>
               </Card>
             </div>
