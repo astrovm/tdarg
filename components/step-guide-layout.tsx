@@ -61,12 +61,12 @@ export function StepGuideLayout({
   const gridClassName = getGridClassName(steps.length);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
       <Header />
 
       <div
         className={cn(
-          "relative border-b bg-white dark:border-slate-800 dark:bg-slate-950",
+          "relative border-b bg-slate-50 dark:border-slate-800 dark:bg-slate-900",
           heroClassName,
         )}
       >
@@ -106,10 +106,10 @@ export function StepGuideLayout({
                   className={cn(
                     "p-3 rounded-lg text-left transition-all",
                     isActive
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                      ? "bg-slate-800 text-white dark:bg-slate-700 dark:text-white"
                       : done
-                      ? "bg-white text-slate-700 border border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-700"
-                      : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700",
+                      ? "bg-slate-50 text-slate-700 border border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-700"
+                      : "bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-700",
                   )}
                 >
                   <div className="flex items-center gap-2 mb-1">
