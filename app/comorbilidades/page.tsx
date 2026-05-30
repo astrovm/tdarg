@@ -301,7 +301,10 @@ export default function ComorbilidadesPage() {
                             ✅ Recomendado
                           </h5>
                           <ul className="text-xs space-y-1">
-                            <li>• Atomoxetina como primera línea</li>
+                            <li>
+                              • Estimulantes o atomoxetina según severidad de
+                              ansiedad y tolerancia
+                            </li>
                             <li>• TCC para ambas condiciones</li>
                             <li>• Técnicas de relajación</li>
                           </ul>
@@ -514,7 +517,7 @@ export default function ComorbilidadesPage() {
                           🔴 Primera prioridad
                         </h5>
                         <p className="text-xs">
-                          Trastorno bipolar, psicosis, ideas suicidas, abuso
+                          Trastorno bipolar, psicosis, ideas suicidas o TUS
                           severo
                         </p>
                       </div>

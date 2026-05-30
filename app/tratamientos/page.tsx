@@ -62,6 +62,7 @@ type CaddraMedication = {
   argentina: string;
   localNote: string;
   recetaNote?: string;
+  usoEstrategico?: string[];
 };
 
 const caddraMedicationMap: CaddraMedication[] = [
@@ -105,9 +106,16 @@ const caddraMedicationMap: CaddraMedication[] = [
     duration: "Hasta 24 h",
     caddraLine: "Segunda línea",
     argentina: "Disponible",
-    localNote: "No es estimulante; inicio de efecto más lento.",
+    localNote:
+      "No es Lista II, por lo que es más fácil de conseguir en la farmacia sin receta por triplicado. Tarda de 3 a 6 semanas en hacer efecto pleno.",
     recetaNote:
       "No es Lista II: suele ser más simple de prescribir y conseguir. Tarda semanas en hacer efecto.",
+    usoEstrategico: [
+      "Aunque es de segunda línea, los psiquiatras suelen elegirla como plan B o alternativa principal en estos casos:",
+      "Antecedentes de adicciones: como no es un estimulante y no genera euforia, su potencial de abuso es casi nulo.",
+      "Ansiedad severa: si los estimulantes tradicionales te aceleran demasiado o disparan ataques de ansiedad o pánico.",
+      "Tics motores o verbales: si los estimulantes tradicionales empeoran los tics o el Síndrome de Tourette.",
+    ],
   },
   {
     name: "Bupropión",
@@ -635,14 +643,17 @@ export default function TratamientosPage() {
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <h5 className="font-semibold text-sm mb-2">
-                              Cuándo considerar:
+                              ¿Cuándo se elige?
                             </h5>
                             <ul className="text-sm space-y-1">
-                              <li>• Intolerancia a estimulantes</li>
-                              <li>• Comorbilidad con tics</li>
-                              <li>• Antecedentes de uso problemático</li>
-                              <li>• Ansiedad severa coexistente</li>
-                              <li>• Preferencia del paciente</li>
+                              {caddraMedicationMap
+                                .find(
+                                  (medication) =>
+                                    medication.name === "Atomoxetina",
+                                )
+                                ?.usoEstrategico?.map((item) => (
+                                  <li key={item}>• {item}</li>
+                                ))}
                             </ul>
                           </div>
                           <div>
@@ -651,7 +662,8 @@ export default function TratamientosPage() {
                             </h5>
                             <ul className="text-sm space-y-1">
                               <li>
-                                • <strong>Ventaja:</strong> Sin potencial de abuso
+                                • <strong>Ventaja:</strong> Potencial de abuso
+                                casi nulo
                               </li>
                               <li>
                                 • <strong>Ventaja:</strong> Efecto 24 horas
@@ -1224,18 +1236,20 @@ export default function TratamientosPage() {
                               (metilfenidato o lisdexanfetamina)
                             </li>
                             <li>
-                              <strong>Si hay:</strong> Tics → Atomoxetina
+                              <strong>Plan B útil:</strong> tics que empeoran
+                              con estimulantes
                             </li>
                             <li>
-                              <strong>Si hay:</strong> Ansiedad severa →
-                              Atomoxetina
+                              <strong>Plan B útil:</strong> ansiedad severa o
+                              pánico disparado por estimulantes
                             </li>
                             <li>
-                              <strong>Si hay:</strong> Historia abuso →
-                              Atomoxetina
+                              <strong>Plan B útil:</strong> antecedentes de
+                              adicciones o TUS
                             </li>
                             <li>
-                              <strong>Si hay:</strong> Intolerancia → Cambiar
+                              <strong>Si hay intolerancia:</strong> cambiar
+                              formulación o principio activo
                             </li>
                           </ul>
                         </CardContent>
