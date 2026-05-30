@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -27,7 +26,6 @@ import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 import type { Medicamento } from "@/lib/medicamentos/types";
-import { getMedicamentoSourceLabel } from "@/lib/medicamentos/source-label";
 import {
   formatMedicationName,
   formatMedicationPresentation,
@@ -324,23 +322,10 @@ export default function PreciosPage() {
                                 className="bg-card border shadow-sm"
                               >
                                 <CardHeader className="pb-3">
-                                  <div className="flex justify-between items-start">
+                                  <div>
                                     <CardTitle className="text-lg leading-tight">
                                       {formatMedicationName(medicamento.marca)}
                                     </CardTitle>
-                                    <div className="flex flex-col gap-1">
-                                      <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                        {getMedicamentoSourceLabel(
-                                          medicamento.source
-                                        )}
-                                      </Badge>
-                                      <Badge
-                                        variant="secondary"
-                                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs"
-                                      >
-                                        Estimulante
-                                      </Badge>
-                                    </div>
                                   </div>
                                   <CardDescription>
                                     {medicamento.concentracion}
@@ -440,23 +425,10 @@ export default function PreciosPage() {
                                 className="bg-card border shadow-sm"
                               >
                                 <CardHeader className="pb-3">
-                                  <div className="flex justify-between items-start">
+                                  <div>
                                     <CardTitle className="text-lg leading-tight">
                                       {formatMedicationName(medicamento.marca)}
                                     </CardTitle>
-                                    <div className="flex flex-col gap-1">
-                                      <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                        {getMedicamentoSourceLabel(
-                                          medicamento.source
-                                        )}
-                                      </Badge>
-                                      <Badge
-                                        variant="secondary"
-                                        className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-xs"
-                                      >
-                                        No Estimulante
-                                      </Badge>
-                                    </div>
                                   </div>
                                   <CardDescription>
                                     {medicamento.concentracion}
@@ -562,23 +534,10 @@ export default function PreciosPage() {
                                 className="bg-card border shadow-sm"
                               >
                                 <CardHeader className="pb-3">
-                                  <div className="flex justify-between items-start">
+                                  <div>
                                     <CardTitle className="text-lg leading-tight">
                                       {formatMedicationName(medicamento.marca)}
                                     </CardTitle>
-                                    <div className="flex flex-col gap-1">
-                                      <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                        {getMedicamentoSourceLabel(
-                                          medicamento.source
-                                        )}
-                                      </Badge>
-                                      <Badge
-                                        variant="secondary"
-                                        className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300 text-xs"
-                                      >
-                                        Uso off-label
-                                      </Badge>
-                                    </div>
                                   </div>
                                   <CardDescription>
                                     {medicamento.concentracion}

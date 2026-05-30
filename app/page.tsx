@@ -18,6 +18,17 @@ import {
 import { Header } from "@/components/header";
 
 export default function HomePage() {
+  const accent = {
+    prices:
+      "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
+    specialists: "bg-sky-500/12 text-sky-700 dark:text-sky-300",
+    legislation: "bg-amber-500/14 text-amber-700 dark:text-amber-300",
+    diagnosis: "bg-violet-500/12 text-violet-700 dark:text-violet-300",
+    treatments: "bg-rose-500/12 text-rose-700 dark:text-rose-300",
+    comorbidities: "bg-cyan-500/12 text-cyan-700 dark:text-cyan-300",
+    tools: "bg-indigo-500/12 text-indigo-700 dark:text-indigo-300",
+  };
+
   return (
     <div className="min-h-screen bg-muted/30">
       <Header />
@@ -57,7 +68,7 @@ export default function HomePage() {
             <Link href="/precios" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-6">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${accent.prices}`}>
                     <TrendingUp className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-xl mb-2 text-card-foreground group-hover:text-primary">
@@ -73,7 +84,7 @@ export default function HomePage() {
             <Link href="/especialistas" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-6">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${accent.specialists}`}>
                     <Stethoscope className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-xl mb-2 text-card-foreground group-hover:text-primary">
@@ -89,7 +100,7 @@ export default function HomePage() {
             <Link href="/legislacion" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-6">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${accent.legislation}`}>
                     <Scale className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-xl mb-2 text-card-foreground group-hover:text-primary">
@@ -119,7 +130,7 @@ export default function HomePage() {
             <Link href="/diagnostico" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${accent.diagnosis}`}>
                     <Brain className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
@@ -135,7 +146,7 @@ export default function HomePage() {
             <Link href="/tratamientos" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${accent.treatments}`}>
                     <Heart className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
@@ -151,7 +162,7 @@ export default function HomePage() {
             <Link href="/comorbilidades" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${accent.comorbidities}`}>
                     <Users className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
@@ -167,7 +178,7 @@ export default function HomePage() {
             <Link href="/herramientas" className="group">
               <Card className="h-full bg-card border shadow-sm transition-colors hover:border-primary/40">
                 <CardHeader className="p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg ${accent.tools}`}>
                     <Wrench className="h-5 w-5" />
                   </div>
                   <CardTitle className="text-lg mb-2 text-card-foreground group-hover:text-primary">
