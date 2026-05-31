@@ -16,6 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { InfoCard } from "@/components/info-card";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import { useStepProgress } from "@/hooks/use-step-progress";
 import type { StepDefinition } from "@/lib/steps";
@@ -33,30 +34,6 @@ const accentByStep = [
   "bg-sky-500/12 text-sky-700 dark:text-sky-300",
   "bg-rose-500/12 text-rose-700 dark:text-rose-300",
 ];
-
-function InfoCard({
-  title,
-  items,
-}: {
-  title: string;
-  items: string[];
-}) {
-  return (
-    <Card className="bg-card border">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-base">{title}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-2 text-sm text-muted-foreground">
-        {items.map((item) => (
-          <div key={item} className="flex gap-2">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
-            <span>{item}</span>
-          </div>
-        ))}
-      </CardContent>
-    </Card>
-  );
-}
 
 function MedicationDetailCard({
   title,
