@@ -129,7 +129,7 @@ export default function TratamientosPage() {
                 <InfoCard
                   title="Estimulantes"
                   items={[
-                    "Metilfenidato y lisdexanfetamina son opciones frecuentes de primera línea.",
+                    "Lisdexanfetamina y metilfenidato son opciones frecuentes de primera línea.",
                     "Suelen actuar el mismo día y permiten ajustar respuesta con controles.",
                     "En Argentina son Psicotrópicos Lista II y requieren receta física.",
                   ]}

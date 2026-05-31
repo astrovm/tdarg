@@ -235,8 +235,8 @@ function eliminarDuplicados(medicamentos: Medicamento[]): Medicamento[] {
 async function obtenerMedicamentosTDAH(): Promise<Medicamento[]> {
   const terminos = [
     "atomoxetina",
-    "metilfenidato",
     "lisdexanfetamina",
+    "metilfenidato",
     "modafinilo",
     "armodafinilo",
     "bupropion",

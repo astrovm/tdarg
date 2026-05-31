@@ -75,7 +75,7 @@ export default function HomePage() {
                     Precios de medicamentos
                   </CardTitle>
                   <CardDescription className="text-muted-foreground leading-relaxed">
-                    Metilfenidato, lisdexanfetamina, atomoxetina y más.
+                    Lisdexanfetamina, metilfenidato, atomoxetina y más.
                   </CardDescription>
                 </CardHeader>
               </Card>

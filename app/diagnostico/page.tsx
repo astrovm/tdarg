@@ -410,7 +410,7 @@ export default function DiagnosticoPage() {
                 <InfoCard
                   title="Marco local"
                   items={[
-                    "Metilfenidato y lisdexanfetamina son Psicotrópicos Lista II.",
+                    "Lisdexanfetamina y metilfenidato son Psicotrópicos Lista II.",
                     "La farmacia pide receta física además de electrónica.",
                     "El CUD no sale automático por tener diagnóstico de TDAH.",
                   ]}
