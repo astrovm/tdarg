@@ -105,11 +105,6 @@ export default function LegislacionPage() {
                         <Badge className={severity.badge}>
                           {ley.urgencia}
                         </Badge>
-                        <span
-                          className={`rounded-full px-2 py-1 text-xs font-medium ${severity.surface} ${severity.text}`}
-                        >
-                          {ley.impacto}
-                        </span>
                       </div>
                       <CardTitle className="text-xl text-foreground leading-snug">
                         {ley.numero}
