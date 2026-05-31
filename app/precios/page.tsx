@@ -53,6 +53,112 @@ function isLisdexanfetamina(medicamento: Medicamento): boolean {
   return medicamento.nombre.toLowerCase().includes("lisdexanfetamina");
 }
 
+const priceTone = {
+  stimulant: {
+    section: "border-emerald-500/30 bg-emerald-500/5",
+    rail: "before:bg-emerald-500",
+    heading: "text-emerald-700 dark:text-emerald-300",
+    price: "text-emerald-700 dark:text-emerald-300",
+    chip: "border-emerald-500/25 bg-emerald-500/10",
+    icon: "text-emerald-600 dark:text-emerald-300",
+  },
+  nonstimulant: {
+    section: "border-sky-500/30 bg-sky-500/5",
+    rail: "before:bg-sky-500",
+    heading: "text-sky-700 dark:text-sky-300",
+    price: "text-sky-700 dark:text-sky-300",
+    chip: "border-sky-500/25 bg-sky-500/10",
+    icon: "text-sky-600 dark:text-sky-300",
+  },
+  offlabel: {
+    section: "border-amber-500/30 bg-amber-500/5",
+    rail: "before:bg-amber-500",
+    heading: "text-amber-700 dark:text-amber-300",
+    price: "text-amber-700 dark:text-amber-300",
+    chip: "border-amber-500/25 bg-amber-500/10",
+    icon: "text-amber-600 dark:text-amber-300",
+  },
+};
+
+type PriceTone = keyof typeof priceTone;
+
+function MedicationPriceCard({
+  medicamento,
+  tone,
+  coverageLabel,
+}: {
+  medicamento: Medicamento;
+  tone: PriceTone;
+  coverageLabel: string;
+}) {
+  const style = priceTone[tone];
+  const perMg = pricePerMg(medicamento);
+
+  return (
+    <Card
+      className={`relative overflow-hidden bg-card border shadow-sm before:absolute before:inset-y-0 before:left-0 before:w-1 ${style.rail}`}
+    >
+      <CardHeader className="pb-3 pl-6">
+        <CardTitle className="text-lg leading-tight">
+          {formatMedicationName(medicamento.marca)}
+        </CardTitle>
+        <CardDescription className="text-base font-medium">
+          {medicamento.concentracion}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4 pl-6">
+        <div className="grid gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Building2 className="h-4 w-4" />
+            <span>{medicamento.laboratorio}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Package className="h-4 w-4" />
+            <span>{formatMedicationPresentation(medicamento)}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4" />
+            <span>
+              {new Date(medicamento.fechaActualizacion).toLocaleDateString(
+                "es-AR"
+              )}
+            </span>
+          </div>
+        </div>
+
+        <div className="border-t pt-4">
+          <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            Precio sin cobertura
+          </div>
+          <div className={`mt-1 text-3xl font-bold ${style.price}`}>
+            {formatPrice(medicamento.precio)}
+          </div>
+          {perMg && (
+            <div className="mt-2 text-sm text-muted-foreground">
+              Precio por mg{" "}
+              <span className="font-semibold text-foreground">
+                {formatPrice(perMg)}
+              </span>
+            </div>
+          )}
+        </div>
+
+        <div className={`flex items-center gap-3 rounded-lg border p-3 ${style.chip}`}>
+          <Shield className={`h-4 w-4 shrink-0 ${style.icon}`} />
+          <div>
+            <div className="text-xs font-medium text-muted-foreground">
+              {coverageLabel}
+            </div>
+            <div className="text-xl font-bold text-foreground">
+              {formatPrice(priceWithCoverage(medicamento.precio))}
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function PreciosPage() {
   const [filtro, setFiltro] = useState("");
   const [medicamentosFiltrados, setMedicamentosFiltrados] = useState<
@@ -276,8 +382,9 @@ export default function PreciosPage() {
             <div className="space-y-8 mt-6">
                 {/* Estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
-                  <div className="bg-card p-6 rounded-lg border">
-                    <div className="flex items-center gap-2 mb-4">
+                  <div className={`p-6 rounded-lg border ${priceTone.stimulant.section}`}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-8 w-1.5 rounded-full bg-emerald-500" />
                       <h2 className="text-2xl font-bold text-foreground">
                         Estimulantes usados para TDAH
                       </h2>
@@ -287,11 +394,11 @@ export default function PreciosPage() {
                      {estimulantesOrdenados.map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 text-foreground">
+                          <h3 className={`text-xl font-semibold mb-4 ${priceTone.stimulant.heading}`}>
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           {principio === "lisdexanfetamina" && (
-                            <Alert className="mb-4 bg-muted/40 border">
+                            <Alert className="mb-4 border-amber-500/30 bg-amber-500/10">
                               <AlertCircle className="h-4 w-4 text-amber-600" />
                               <AlertDescription className="text-sm text-foreground">
                                 La lisdexanfetamina es nueva en Argentina. Las
@@ -303,83 +410,16 @@ export default function PreciosPage() {
                           )}
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
-                              <Card
+                              <MedicationPriceCard
                                 key={medicamento.codigo}
-                                className="bg-card border shadow-sm"
-                              >
-                                <CardHeader className="pb-3">
-                                  <div>
-                                    <CardTitle className="text-lg leading-tight">
-                                      {formatMedicationName(medicamento.marca)}
-                                    </CardTitle>
-                                  </div>
-                                  <CardDescription>
-                                    {medicamento.concentracion}
-                                  </CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-3">
-                                  <div className="flex items-center gap-2">
-                                    <Building2 className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {medicamento.laboratorio}
-                                    </span>
-                                  </div>
-
-                                  <div className="flex items-center gap-2">
-                                    <Package className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {formatMedicationPresentation(medicamento)}
-                                    </span>
-                                  </div>
-
-                                  <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {new Date(
-                                        medicamento.fechaActualizacion
-                                      ).toLocaleDateString("es-AR")}
-                                    </span>
-                                  </div>
-
-                                  <div className="pt-2 border-t space-y-2">
-                                    <div>
-                                      <div className="text-sm text-muted-foreground mb-1">
-                                        Precio sin cobertura
-                                      </div>
-                                      <span className="text-2xl font-bold text-foreground">
-                                        {formatPrice(medicamento.precio)}
-                                      </span>
-                                    </div>
-                                    {pricePerMg(medicamento) && (
-                                      <div>
-                                        <div className="text-sm text-muted-foreground mb-1">
-                                          Precio por mg
-                                        </div>
-                                        <span className="text-lg font-semibold text-foreground">
-                                          {formatPrice(pricePerMg(medicamento)!)}
-                                        </span>
-                                      </div>
-                                    )}
-                                    <div className="flex items-center gap-2 p-2 bg-muted/40 rounded-lg border">
-                                      <Shield className="h-4 w-4 text-primary" />
-                                      <div>
-                                        <div className="text-sm font-medium text-foreground">
-                                          {isLisdexanfetamina(medicamento)
-                                            ? "Precio teórico con 40% desc."
-                                            : "Con prepaga/obra social (40% desc.)"}
-                                        </div>
-                                        <span className="text-xl font-bold text-foreground">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
+                                medicamento={medicamento}
+                                tone="stimulant"
+                                coverageLabel={
+                                  isLisdexanfetamina(medicamento)
+                                    ? "Precio teórico con 40% desc."
+                                    : "Con prepaga/obra social"
+                                }
+                              />
                             ))}
                           </div>
                         </div>
@@ -391,8 +431,9 @@ export default function PreciosPage() {
                 {/* No estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.noestimulantes).length >
                   0 && (
-                  <div className="bg-card p-6 rounded-lg border">
-                    <div className="flex items-center gap-2 mb-6">
+                  <div className={`p-6 rounded-lg border ${priceTone.nonstimulant.section}`}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-8 w-1.5 rounded-full bg-sky-500" />
                       <h2 className="text-2xl font-bold text-foreground">
                         No estimulantes usados para TDAH
                       </h2>
@@ -401,86 +442,17 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.noestimulantes).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 text-foreground">
+                          <h3 className={`text-xl font-semibold mb-4 ${priceTone.nonstimulant.heading}`}>
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
-                              <Card
+                              <MedicationPriceCard
                                 key={medicamento.codigo}
-                                className="bg-card border shadow-sm"
-                              >
-                                <CardHeader className="pb-3">
-                                  <div>
-                                    <CardTitle className="text-lg leading-tight">
-                                      {formatMedicationName(medicamento.marca)}
-                                    </CardTitle>
-                                  </div>
-                                  <CardDescription>
-                                    {medicamento.concentracion}
-                                  </CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-3">
-                                  <div className="flex items-center gap-2">
-                                    <Building2 className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {medicamento.laboratorio}
-                                    </span>
-                                  </div>
-
-                                  <div className="flex items-center gap-2">
-                                    <Package className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {formatMedicationPresentation(medicamento)}
-                                    </span>
-                                  </div>
-
-                                  <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {new Date(
-                                        medicamento.fechaActualizacion
-                                      ).toLocaleDateString("es-AR")}
-                                    </span>
-                                  </div>
-
-                                  <div className="pt-2 border-t space-y-2">
-                                    <div>
-                                      <div className="text-sm text-muted-foreground mb-1">
-                                        Precio sin cobertura
-                                      </div>
-                                      <span className="text-2xl font-bold text-foreground">
-                                        {formatPrice(medicamento.precio)}
-                                      </span>
-                                    </div>
-                                    {pricePerMg(medicamento) && (
-                                      <div>
-                                        <div className="text-sm text-muted-foreground mb-1">
-                                          Precio por mg
-                                        </div>
-                                        <span className="text-lg font-semibold text-foreground">
-                                          {formatPrice(pricePerMg(medicamento)!)}
-                                        </span>
-                                      </div>
-                                    )}
-                                    <div className="flex items-center gap-2 p-2 bg-muted/40 rounded-lg border">
-                                      <Shield className="h-4 w-4 text-primary" />
-                                      <div>
-                                        <div className="text-sm font-medium text-foreground">
-                                          Con prepaga/obra social (40% desc.)
-                                        </div>
-                                        <span className="text-xl font-bold text-foreground">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
+                                medicamento={medicamento}
+                                tone="nonstimulant"
+                                coverageLabel="Con prepaga/obra social"
+                              />
                             ))}
                           </div>
                         </div>
@@ -491,15 +463,16 @@ export default function PreciosPage() {
 
                 {/* Medicamentos con uso off-label para TDAH */}
                 {Object.keys(medicamentosAgrupados.offlabel).length > 0 && (
-                  <div className="bg-card p-6 rounded-lg border">
-                    <div className="flex items-center gap-2 mb-6">
+                  <div className={`p-6 rounded-lg border ${priceTone.offlabel.section}`}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-8 w-1.5 rounded-full bg-amber-500" />
                       <h2 className="text-2xl font-bold text-foreground">
                         Medicamentos con uso off-label para TDAH
                       </h2>
                     </div>
 
-                    <Alert className="mb-6 bg-muted/40 border">
-                      <AlertCircle className="h-4 w-4 text-primary" />
+                    <Alert className="mb-6 border-amber-500/30 bg-amber-500/10">
+                      <AlertCircle className="h-4 w-4 text-amber-600" />
                       <AlertDescription className="text-foreground">
                         Estos medicamentos pueden usarse en algunos casos de
                         TDAH, pero no son la indicación principal. Consultá con
@@ -510,86 +483,17 @@ export default function PreciosPage() {
                     {Object.entries(medicamentosAgrupados.offlabel).map(
                       ([principio, meds]) => (
                         <div key={principio} className="mb-8">
-                          <h3 className="text-xl font-semibold mb-4 text-foreground">
+                          <h3 className={`text-xl font-semibold mb-4 ${priceTone.offlabel.heading}`}>
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
-                              <Card
+                              <MedicationPriceCard
                                 key={medicamento.codigo}
-                                className="bg-card border shadow-sm"
-                              >
-                                <CardHeader className="pb-3">
-                                  <div>
-                                    <CardTitle className="text-lg leading-tight">
-                                      {formatMedicationName(medicamento.marca)}
-                                    </CardTitle>
-                                  </div>
-                                  <CardDescription>
-                                    {medicamento.concentracion}
-                                  </CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-3">
-                                  <div className="flex items-center gap-2">
-                                    <Building2 className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {medicamento.laboratorio}
-                                    </span>
-                                  </div>
-
-                                  <div className="flex items-center gap-2">
-                                    <Package className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {formatMedicationPresentation(medicamento)}
-                                    </span>
-                                  </div>
-
-                                  <div className="flex items-center gap-2">
-                                    <Clock className="h-4 w-4 text-muted-foreground" />
-                                    <span className="text-sm">
-                                      {new Date(
-                                        medicamento.fechaActualizacion
-                                      ).toLocaleDateString("es-AR")}
-                                    </span>
-                                  </div>
-
-                                  <div className="pt-2 border-t space-y-2">
-                                    <div>
-                                      <div className="text-sm text-muted-foreground mb-1">
-                                        Precio sin cobertura
-                                      </div>
-                                      <span className="text-2xl font-bold text-foreground">
-                                        {formatPrice(medicamento.precio)}
-                                      </span>
-                                    </div>
-                                    {pricePerMg(medicamento) && (
-                                      <div>
-                                        <div className="text-sm text-muted-foreground mb-1">
-                                          Precio por mg
-                                        </div>
-                                        <span className="text-lg font-semibold text-foreground">
-                                          {formatPrice(pricePerMg(medicamento)!)}
-                                        </span>
-                                      </div>
-                                    )}
-                                    <div className="flex items-center gap-2 p-2 bg-muted/40 rounded-lg border">
-                                      <Shield className="h-4 w-4 text-primary" />
-                                      <div>
-                                        <div className="text-sm font-medium text-foreground">
-                                          Con prepaga/obra social (40% desc.)
-                                        </div>
-                                        <span className="text-xl font-bold text-foreground">
-                                          {formatPrice(
-                                            priceWithCoverage(
-                                              medicamento.precio
-                                            )
-                                          )}
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
+                                medicamento={medicamento}
+                                tone="offlabel"
+                                coverageLabel="Con prepaga/obra social"
+                              />
                             ))}
                           </div>
                         </div>
