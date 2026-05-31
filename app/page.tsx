@@ -78,7 +78,7 @@ const links = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="bg-muted/30">
       <Header />
 
       <main>
