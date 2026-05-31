@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { Header } from "@/components/header";
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -101,26 +101,17 @@ export default function HomePage() {
                 Precios de medicación, especialistas, receta, cobertura y guías
                 clínicas.
               </p>
-              <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button size="lg" asChild>
-                  <Link href="/precios">
-                    <TrendingUp className="mr-2 h-5 w-5" />
-                    Ver precios
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/legislacion">
-                    <Scale className="mr-2 h-5 w-5" />
-                    Ver receta y cobertura
-                  </Link>
-                </Button>
+              <div className="mt-7 flex flex-col items-center gap-3">
+                <Link href="/precios" className="group">
+                  <HomeLivePrices />
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
         <section className="border-b bg-secondary/45">
-          <div className="container mx-auto px-4 py-10">
+          <div className="container mx-auto px-4 py-8">
             <div className="grid gap-4 md:grid-cols-3">
               {primaryLinks.map((item) => {
                 const Icon = item.icon;
@@ -129,18 +120,21 @@ export default function HomePage() {
                   <Link key={item.href} href={item.href} className="group">
                     <Card className="h-full border bg-card shadow-sm transition-colors hover:border-primary/40">
                       <CardHeader className="p-5">
-                        <div
-                          className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${item.tone}`}
-                        >
-                          <Icon className="h-5 w-5" />
+                        <div className="flex items-start gap-3">
+                          <div
+                            className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
+                          >
+                            <Icon className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <CardTitle className="text-xl text-card-foreground group-hover:text-primary">
+                              {item.title}
+                            </CardTitle>
+                            <CardDescription className="mt-2 leading-relaxed text-muted-foreground">
+                              {item.description}
+                            </CardDescription>
+                          </div>
                         </div>
-                        <CardTitle className="text-xl text-card-foreground group-hover:text-primary">
-                          {item.title}
-                        </CardTitle>
-                        <CardDescription className="leading-relaxed text-muted-foreground">
-                          {item.description}
-                        </CardDescription>
-                        {item.href === "/precios" && <HomeLivePrices />}
                       </CardHeader>
                     </Card>
                   </Link>

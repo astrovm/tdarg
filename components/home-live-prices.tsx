@@ -57,37 +57,36 @@ export function HomeLivePrices() {
   }
 
   return (
-    <div className="mt-3 space-y-1.5 border-t pt-3 text-xs">
-      {selected.map(({ label, rows }) => (
-        <div key={label} className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span className="font-medium text-foreground">{label}</span>
-          {rows.map(({ dose, medicamento }, index) => (
-            <span
-              key={`${label}-${dose}`}
-              className="inline-flex items-center gap-1 text-muted-foreground"
-            >
-              {index > 0 && <span className="text-border">·</span>}
-              {loading && !medicamento ? (
-                <>
-                  <span>{dose}</span>
+    <div className="flex cursor-pointer flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm text-muted-foreground transition-colors group-hover:text-foreground">
+      <span className="relative mr-1.5 inline-flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+      </span>
+
+      {selected.map((target, targetIndex) => (
+        <span key={target.label} className="inline-flex flex-wrap items-center">
+          <span className="font-medium text-foreground">{target.label}</span>
+          <span className="mx-1.5 inline-flex flex-wrap items-center gap-x-1">
+            {target.rows.map(({ dose, medicamento }, doseIndex) => (
+              <span key={dose} className="inline-flex items-center gap-x-1">
+                {doseIndex > 0 && (
+                  <span className="text-muted-foreground/40">·</span>
+                )}
+                <span>{dose}</span>
+                {loading && !medicamento ? (
                   <Loader2 className="h-3 w-3 animate-spin" />
-                </>
-              ) : medicamento ? (
-                <>
-                  <span className="text-muted-foreground">{dose}</span>
+                ) : medicamento ? (
                   <span className="font-medium text-foreground">
                     {formatCompactPrice(medicamento.precio)}
                   </span>
-                </>
-              ) : (
-                <>
-                  <span>{dose}</span>
-                  <span>sin precio</span>
-                </>
-              )}
-            </span>
-          ))}
-        </div>
+                ) : null}
+              </span>
+            ))}
+          </span>
+          {targetIndex < selected.length - 1 && (
+            <span className="mx-2 text-muted-foreground/25">|</span>
+          )}
+        </span>
       ))}
     </div>
   );
