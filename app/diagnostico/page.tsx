@@ -411,7 +411,7 @@ export default function DiagnosticoPage() {
                   title="Marco local"
                   items={[
                     "Metilfenidato y lisdexanfetamina son Psicotrópicos Lista II.",
-                    "La farmacia puede pedir receta física además de electrónica.",
+                    "La farmacia pide receta física además de electrónica.",
                     "El CUD no sale automático por tener diagnóstico de TDAH.",
                   ]}
                 />

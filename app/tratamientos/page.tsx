@@ -131,13 +131,13 @@ export default function TratamientosPage() {
                   items={[
                     "Metilfenidato y lisdexanfetamina son opciones frecuentes de primera línea.",
                     "Suelen actuar el mismo día y permiten ajustar respuesta con controles.",
-                    "En Argentina son Psicotrópicos Lista II y pueden requerir receta física.",
+                    "En Argentina son Psicotrópicos Lista II y requieren receta física.",
                   ]}
                 />
                 <InfoCard
                   title="No estimulantes"
                   items={[
-                    "Atomoxetina puede ser útil si hay ansiedad, tics o riesgo de abuso.",
+                    "Atomoxetina puede ser útil si hay ansiedad, tics o riesgo de adicción.",
                     "Tiene inicio más lento y se evalúa por continuidad, no por efecto inmediato.",
                     "La indicación depende del perfil clínico y de tratamientos previos.",
                   ]}
