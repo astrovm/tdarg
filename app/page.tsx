@@ -13,6 +13,7 @@ import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -32,14 +33,14 @@ const primaryLinks = [
   {
     href: "/precios",
     title: "Precios",
-    description: "Compará medicación por dosis, cobertura y costo por mg.",
+    description: "Medicamentos, dosis, precio por mg y estimación con cobertura.",
     icon: TrendingUp,
     tone: accent.prices,
   },
   {
     href: "/especialistas",
     title: "Especialistas",
-    description: "Encontrá profesionales por provincia, enfoque y cobertura.",
+    description: "Profesionales por provincia, especialidad y cobertura.",
     icon: Stethoscope,
     tone: accent.specialists,
   },
@@ -92,27 +93,27 @@ export default function HomePage() {
         <section className="border-b bg-background">
           <div className="container mx-auto px-4 py-14">
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-bold text-foreground">
-                TDAH en Argentina
-              </h1>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                Precios de medicación, especialistas, receta, cobertura y guías
-                clínicas.
-              </p>
-              <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button size="lg" asChild>
-                  <Link href="/precios">
-                    <TrendingUp className="mr-2 h-5 w-5" />
-                    Ver precios
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/legislacion">
-                    <Scale className="mr-2 h-5 w-5" />
-                    Ver receta y cobertura
-                  </Link>
-                </Button>
-              </div>
+                <h1 className="text-4xl font-bold text-foreground">
+                  TDAH en Argentina
+                </h1>
+                <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                  Precios de medicación, especialistas, receta, cobertura y
+                  guías clínicas.
+                </p>
+                <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+                  <Button size="lg" asChild>
+                    <Link href="/precios">
+                      <TrendingUp className="mr-2 h-5 w-5" />
+                      Ver precios
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/legislacion">
+                      <Scale className="mr-2 h-5 w-5" />
+                      Ver receta y cobertura
+                    </Link>
+                  </Button>
+                </div>
             </div>
           </div>
         </section>
@@ -147,10 +148,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-muted/30">
+        <section className="border-b bg-secondary/40">
           <div className="container mx-auto px-4 py-10">
-            <div className="mb-5 flex items-end justify-between gap-4">
-              <div>
+            <div className="rounded-xl border bg-card p-5 shadow-sm">
+              <div className="mb-5">
                 <h2 className="text-2xl font-semibold text-foreground">
                   Guías prácticas
                 </h2>
@@ -158,36 +159,36 @@ export default function HomePage() {
                   Diagnóstico, tratamiento, comorbilidades y herramientas.
                 </p>
               </div>
-            </div>
 
-            <div className="grid gap-3 md:grid-cols-4">
-              {guideLinks.map((item) => {
-                const Icon = item.icon;
+              <div className="grid gap-2 md:grid-cols-2">
+                {guideLinks.map((item) => {
+                  const Icon = item.icon;
 
-                return (
-                  <Link key={item.href} href={item.href} className="group">
-                    <Card className="h-full border bg-card shadow-sm transition-colors hover:border-primary/40">
-                      <CardHeader className="p-4">
-                        <div className="flex items-start gap-3">
-                          <div
-                            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
-                          >
-                            <Icon className="h-4 w-4" />
+                  return (
+                    <Link key={item.href} href={item.href} className="group">
+                      <Card className="h-full border bg-background/70 shadow-none transition-colors hover:border-primary/40 hover:bg-background">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-3">
+                            <div
+                              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
+                            >
+                              <Icon className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <CardTitle className="text-base text-card-foreground group-hover:text-primary">
+                                {item.title}
+                              </CardTitle>
+                              <CardDescription className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                {item.description}
+                              </CardDescription>
+                            </div>
                           </div>
-                          <div>
-                            <CardTitle className="text-base text-card-foreground group-hover:text-primary">
-                              {item.title}
-                            </CardTitle>
-                            <CardDescription className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                              {item.description}
-                            </CardDescription>
-                          </div>
-                        </div>
-                      </CardHeader>
-                    </Card>
-                  </Link>
-                );
-              })}
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
