@@ -58,6 +58,39 @@ function InfoCard({
   );
 }
 
+function MedicationDetailCard({
+  title,
+  line,
+  marker,
+  items,
+}: {
+  title: string;
+  line: string;
+  marker: string;
+  items: { label: string; value: string }[];
+}) {
+  return (
+    <Card className="overflow-hidden bg-card border">
+      <CardHeader className="pb-2">
+        <div className={`w-fit rounded-full border px-2 py-0.5 text-xs font-medium ${marker}`}>
+          {line}
+        </div>
+        <CardTitle className="text-base">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm">
+        {items.map((item) => (
+          <div key={item.label}>
+            <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              {item.label}
+            </div>
+            <div className="mt-1 text-foreground">{item.value}</div>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function TratamientosPage() {
   const { currentStep, progress, completedCount, next, prev, goTo, isDone } =
     useStepProgress({ totalSteps: steps.length });
@@ -125,36 +158,112 @@ export default function TratamientosPage() {
 
           {currentStep === 2 && (
             <>
-              <div className="grid gap-4 md:grid-cols-3">
-                <InfoCard
-                  title="Estimulantes"
+              <div className="rounded-lg border border-emerald-500/25 bg-emerald-500/10 p-4 text-sm text-foreground">
+                <strong>Primera línea:</strong> los estimulantes suelen ser la
+                opción más efectiva. Actúan el mismo día y su efecto termina al
+                cerrar su ventana de duración.
+              </div>
+
+              <div className="grid gap-4 lg:grid-cols-2">
+                <MedicationDetailCard
+                  title="Lisdexanfetamina"
+                  line="Estimulante"
+                  marker="border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
                   items={[
-                    "Lisdexanfetamina y metilfenidato son opciones frecuentes de primera línea.",
-                    "Suelen actuar el mismo día y permiten ajustar respuesta con controles.",
-                    "En Argentina son Psicotrópicos Lista II y requieren receta física.",
+                    {
+                      label: "Duración",
+                      value: "10 a 14 h.",
+                    },
+                    {
+                      label: "Dosis adulta orientativa",
+                      value: "Inicio frecuente en 30 mg; máximo 70 mg/día.",
+                    },
+                    {
+                      label: "Notas",
+                      value:
+                        "Suele preferirse cuando se busca una cobertura larga y estable. Incluye presentaciones como Vyvanse o Ludoxa, según mercado y disponibilidad.",
+                    },
                   ]}
                 />
-                <InfoCard
-                  title="No estimulantes"
+                <MedicationDetailCard
+                  title="Metilfenidato"
+                  line="Estimulante"
+                  marker="border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
                   items={[
-                    "Atomoxetina puede ser útil si hay ansiedad, tics o riesgo de adicción.",
-                    "Tiene inicio más lento y se evalúa por continuidad, no por efecto inmediato.",
-                    "La indicación depende del perfil clínico y de tratamientos previos.",
+                    {
+                      label: "Duración",
+                      value:
+                        "3 a 4 h en liberación inmediata; 10 a 12 h en liberación prolongada OROS.",
+                    },
+                    {
+                      label: "Dosis adulta orientativa",
+                      value: "10 a 72 mg/día; máximo habitual 80 mg/día.",
+                    },
+                    {
+                      label: "Notas",
+                      value:
+                        "Incluye presentaciones como Ritalina, Concerta o equivalentes locales.",
+                    },
                   ]}
                 />
-                <InfoCard
-                  title="Off-label"
+              </div>
+
+              <div className="rounded-lg border border-amber-500/25 bg-amber-500/10 p-4 text-sm text-foreground">
+                <strong>Argentina:</strong> lisdexanfetamina y metilfenidato
+                son Psicotrópicos Lista II. En farmacia requieren receta física
+                oficial por triplicado.
+              </div>
+
+              <div className="grid gap-4 lg:grid-cols-2">
+                <MedicationDetailCard
+                  title="Atomoxetina"
+                  line="Segunda línea"
+                  marker="border-sky-500/25 bg-sky-500/10 text-sky-700 dark:text-sky-300"
                   items={[
-                    "Bupropión u otras opciones pueden considerarse en casos específicos.",
-                    "Suelen evaluarse cuando hay depresión, tabaquismo u otras comorbilidades.",
-                    "No reemplazan una indicación individual hecha por profesional.",
+                    {
+                      label: "Duración",
+                      value: "Hasta 24 h, con acción continua.",
+                    },
+                    {
+                      label: "Dosis adulta orientativa",
+                      value: "Inicio frecuente en 40 mg; máximo 100 mg/día.",
+                    },
+                    {
+                      label: "Uso estratégico",
+                      value:
+                        "Plan B si los estimulantes fallan o si hay antecedentes de adicciones, tics severos o ansiedad marcada. El efecto pleno puede demorar 3 a 6 semanas.",
+                    },
+                  ]}
+                />
+                <MedicationDetailCard
+                  title="Opciones off-label"
+                  line="Off-label"
+                  marker="border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-300"
+                  items={[
+                    {
+                      label: "Bupropión",
+                      value:
+                        "24 h en formulaciones XL. Rango adulto usual 150 a 300 mg/día; puede considerarse si coexiste depresión o tabaquismo.",
+                    },
+                    {
+                      label: "Clonidina",
+                      value:
+                        "Duración variable. Puede ser útil con hiperactivación severa, conductas agresivas, Tourette o tics difíciles.",
+                    },
+                    {
+                      label: "Modafinilo / armodafinilo",
+                      value:
+                        "Se evalúan si predominan fatiga mental extrema, somnolencia diurna o enlentecimiento cognitivo.",
+                    },
                   ]}
                 />
               </div>
 
               <div className="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
-                La continuidad, pausa o cambio de medicación se decide con el
-                médico según respuesta, efectos adversos, rutina y objetivos.
+                Rangos orientativos para conversación clínica. La elección,
+                dosis, continuidad, pausa o cambio de medicación se decide con
+                profesional según respuesta, efectos adversos, comorbilidades,
+                rutina y objetivos.
               </div>
             </>
           )}
