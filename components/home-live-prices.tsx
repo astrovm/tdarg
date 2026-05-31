@@ -57,21 +57,18 @@ export function HomeLivePrices() {
   }
 
   return (
-    <div className="flex cursor-pointer flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm text-muted-foreground transition-colors group-hover:text-foreground">
-      <span className="relative mr-1.5 inline-flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-      </span>
-
+    <div className="grid w-full max-w-sm cursor-pointer gap-2 text-sm text-muted-foreground transition-colors group-hover:text-foreground sm:max-w-none sm:grid-cols-2">
       {selected.map((target, targetIndex) => (
-        <span key={target.label} className="inline-flex flex-wrap items-center">
-          <span className="font-medium text-foreground">{target.label}</span>
-          <span className="mx-1.5 inline-flex flex-wrap items-center gap-x-1">
-            {target.rows.map(({ dose, medicamento }, doseIndex) => (
-              <span key={dose} className="inline-flex items-center gap-x-1">
-                {doseIndex > 0 && (
-                  <span className="text-muted-foreground/40">·</span>
-                )}
+        <div key={target.label} className="min-w-0">
+          <div className="mb-1 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            {target.label}
+          </div>
+          <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap">
+            {target.rows.map(({ dose, medicamento }) => (
+              <span
+                key={dose}
+                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-md border bg-card px-2 text-xs"
+              >
                 <span>{dose}</span>
                 {loading && !medicamento ? (
                   <Loader2 className="h-3 w-3 animate-spin" />
@@ -82,11 +79,11 @@ export function HomeLivePrices() {
                 ) : null}
               </span>
             ))}
-          </span>
+          </div>
           {targetIndex < selected.length - 1 && (
-            <span className="mx-2 text-muted-foreground/25">|</span>
+            <div className="mt-2 border-t sm:hidden" />
           )}
-        </span>
+        </div>
       ))}
     </div>
   );

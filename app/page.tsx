@@ -92,16 +92,16 @@ export default function HomePage() {
 
       <main>
         <section className="bg-background">
-          <div className="container mx-auto px-4 py-14">
+          <div className="container mx-auto px-4 py-10 md:py-14">
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-bold text-foreground">
+              <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
                 TDAH en Argentina
               </h1>
-              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
                 Precios de medicación, especialistas, receta, cobertura y guías
                 clínicas.
               </p>
-              <div className="mt-7 flex flex-col items-center gap-3">
+              <div className="mt-6 flex flex-col items-center gap-3 sm:mt-7">
                 <Link href="/precios" className="group">
                   <HomeLivePrices />
                 </Link>
