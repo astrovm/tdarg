@@ -1,5 +1,6 @@
 "use client";
 
+import { BookOpen, GraduationCap, ReceiptText } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -15,34 +16,6 @@ import {
 } from "@/lib/legislacion-data";
 
 export default function LegislacionPage() {
-  const getSeverityClasses = (urgencia: string) => {
-    if (urgencia === "Importante") {
-      return {
-        border: "border-l-amber-500",
-        dot: "bg-amber-500",
-      };
-    }
-
-    if (urgencia === "Relevante") {
-      return {
-        border: "border-l-sky-500",
-        dot: "bg-sky-500",
-      };
-    }
-
-    if (urgencia === "Administrativo") {
-      return {
-        border: "border-l-emerald-500",
-        dot: "bg-emerald-500",
-      };
-    }
-
-    return {
-      border: "border-l-blue-500",
-      dot: "bg-blue-500",
-    };
-  };
-
   const splitBullet = (text: string) => {
     const separatorIndex = text.indexOf(":");
 
@@ -64,6 +37,25 @@ export default function LegislacionPage() {
     url: "#",
   }));
 
+  const lawIcons = [ReceiptText, BookOpen, GraduationCap];
+  const lawTones = [
+    {
+      icon: "bg-amber-500/12 text-amber-700 dark:text-amber-300",
+      label: "text-amber-700 dark:text-amber-300",
+      dot: "bg-amber-500",
+    },
+    {
+      icon: "bg-sky-500/12 text-sky-700 dark:text-sky-300",
+      label: "text-sky-700 dark:text-sky-300",
+      dot: "bg-sky-500",
+    },
+    {
+      icon: "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
+      label: "text-emerald-700 dark:text-emerald-300",
+      dot: "bg-emerald-500",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-muted/30">
       <Header />
@@ -76,29 +68,22 @@ export default function LegislacionPage() {
       {/* Laws Section */}
       <div className="bg-muted/30 border-y">
         <div className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4 text-center">
-            Normativa y cobertura
-          </h2>
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8">
-            Un mapa simple: receta, cobertura de medicamentos y adaptaciones
-            educativas.
-          </p>
-
           <div className="max-w-5xl mx-auto space-y-4">
-            {leyes.map((ley) => {
-              const severity = getSeverityClasses(ley.urgencia);
+            {leyes.map((ley, index) => {
+              const Icon = lawIcons[index] ?? BookOpen;
+              const tone = lawTones[index] ?? lawTones[0];
 
               return (
               <Card
                 key={ley.numero}
-                className={`overflow-hidden bg-card border shadow-sm border-l ${severity.border}`}
+                className="overflow-hidden bg-card border shadow-sm"
               >
                 <CardHeader className="pb-3">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex gap-3">
+                    <div className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${tone.icon}`}>
+                      <Icon className="h-5 w-5" />
+                    </div>
                     <div className="min-w-0">
-                      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                        {ley.urgencia}
-                      </div>
                       <CardTitle className="text-xl text-foreground leading-snug">
                         {ley.numero}
                       </CardTitle>
@@ -112,15 +97,16 @@ export default function LegislacionPage() {
 
                   {ley.puntosClave.length > 0 && (
                     <div className="rounded-md border bg-muted/40 p-4">
+                      <div className={`mb-3 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
+                        Puntos prácticos
+                      </div>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                         {ley.puntosClave.map((punto) => {
                           const bullet = splitBullet(punto);
 
                           return (
                             <li key={punto} className="flex items-start gap-3">
-                              <div
-                                className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${severity.dot}`}
-                              ></div>
+                              <div className={`mt-1.5 h-2 w-2 flex-shrink-0 rounded-full ${tone.dot}`} />
                               <span className="text-muted-foreground leading-relaxed">
                                 {bullet.label && (
                                   <strong className="text-foreground">
