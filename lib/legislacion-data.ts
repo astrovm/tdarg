@@ -18,7 +18,7 @@ export const resumenLegislacion = [
   {
     titulo: "Educación",
     descripcion:
-      "Con diagnóstico formal se pueden pedir adaptaciones razonables para estudiar.",
+      "Con diagnóstico formal se pueden pedir adaptaciones educativas.",
   },
 ];
 
@@ -27,16 +27,16 @@ export const leyes = [
     etiqueta: "Receta",
     numero: "Conseguir medicación",
     descripcion:
-      "Los estimulantes usados para TDAH son Psicotrópicos Lista II. La receta digital está en transición, pero para retirar medicación la regla práctica sigue siendo física y oficial.",
+      "Los estimulantes usados para TDAH son Psicotrópicos Lista II. Nación exige receta electrónica, pero la dispensa depende de sistemas habilitados y reglas jurisdiccionales.",
     puntosClave: [
       "Qué llevar: Receta física oficial por triplicado, manuscrita por el profesional.",
       "Qué no alcanza: PDF, foto o receta común de una app de prepaga.",
       "Validez: La receta física tiene 30 días desde la fecha de emisión.",
     ],
     jurisdicciones: [
-      "Nación: La receta electrónica avanza, pero los Lista II exigen controles de seguridad más altos.",
+      "Nación: La receta electrónica es obligatoria también para medicamentos de prescripción restringida.",
       "PBA: La Resolución 140/2025 mantiene el formulario físico por triplicado para Lista II.",
-      "CABA: La receta digital no elimina los requisitos especiales para psicotrópicos.",
+      "CABA: La receta digital no reemplaza el recetario oficial para psicotrópicos.",
     ],
   },
   {
@@ -47,7 +47,7 @@ export const leyes = [
     puntosClave: [
       "Cobertura base: Los medicamentos para TDAH quedan en el descuento ambulatorio del 40%.",
       "Tratamiento crónico: La categoría de crónicos cubre 70%, pero TDAH no está incluido legalmente en esa categoría.",
-      "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden tener rechazos iniciales por no figurar explícitamente en el PMO base.",
+      "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden ser rechazados si no figuran explícitamente en el PMO base.",
       "CUD: No es una vía habitual para TDAH. Solo puede cambiar la cobertura si una junta interdisciplinaria certifica discapacidad funcional.",
     ],
   },
@@ -66,11 +66,11 @@ export const leyes = [
 
 export const fuentesDocumentacion = {
   titulo: "Fuentes y Documentación",
-  descripcion: "El análisis se basa en revisión exhaustiva de legislación vigente, consensos de especialistas y producción académica relevante:",
+  descripcion: "Fuentes usadas para normativa, cobertura y contexto clínico:",
   fuentes: [
     {
       titulo: "Primer Consenso Argentino sobre TDAH en Adultos",
-      descripcion: "Proporciona base clínica y científica para propuestas de reforma y actualización normativa.",
+      descripcion: "Criterios clínicos y recomendaciones para TDAH en adultos.",
       referencia: "(Vertex, 2025)"
     },
     {
@@ -80,7 +80,7 @@ export const fuentesDocumentacion = {
     },
     {
       titulo: "The Journey of ADHD in Argentina",
-      descripcion: "Explora el contexto histórico y las tensiones profesionales en torno al TDAH en el país.",
+      descripcion: "Contexto histórico del diagnóstico y tratamiento en Argentina.",
       referencia: "(Faraone & Bianchi, 2018)"
     },
     {
@@ -90,14 +90,14 @@ export const fuentesDocumentacion = {
     },
     {
       titulo: "CUD y prestaciones por discapacidad",
-      descripcion: "Se revisaron fuentes oficiales sobre CUD, evaluación por junta interdisciplinaria y cobertura de prestaciones vinculadas con lo certificado como discapacidad.",
+      descripcion: "Fuentes oficiales sobre CUD, junta interdisciplinaria y prestaciones por discapacidad.",
       referencia: "(ANDIS, Argentina.gob.ar, Ley 24.901)"
     },
     {
-      titulo: "Estado operativo de receta electrónica",
-      descripcion: "Se revisaron fuentes públicas sobre implementación real: página nacional de receta electrónica, Receta Electrónica Bonaerense, Resolución PBA 140/2025 y comunicación COLFARMA sobre formulario triplicado para Lista II.",
+      titulo: "Receta electrónica y Lista II",
+      descripcion: "Normativa sobre receta electrónica y requisito de formulario triplicado para Lista II.",
       referencia: "(Ministerio de Salud, Salud Digital Bonaerense, Normas PBA, COLFARMA)"
     }
   ],
-  notaLegal: "Este es un análisis independiente. No hablamos en nombre del gobierno. Toda la info se puede chequear en fuentes públicas."
+  notaLegal: "Información educativa basada en fuentes públicas."
 };
