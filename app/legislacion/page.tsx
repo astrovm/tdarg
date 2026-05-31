@@ -31,15 +31,20 @@ const leyes = [
   },
   {
     etiqueta: "Cobertura",
-    numero: "Cobertura de medicamentos",
+    numero: "Por qué la cobertura suele quedar corta",
     descripcion:
-      "La cobertura de medicación no depende solo del diagnóstico: depende del PMO, vademécum, condición de expendio y criterio del financiador.",
+      "El PMO no cubre “TDAH” como diagnóstico: cubre medicamentos concretos dentro de listados, porcentajes y precios de referencia. En la Resolución 310/2004, metilfenidato figura con cobertura del 40%. El 70% está reservado para medicamentos destinados a patologías crónicas prevalentes incluidas en ese esquema; TDAH no está reconocido legalmente como crónico para esa cobertura.",
     puntosClave: [
-      "Ambulatorio PMO: La cobertura base de medicamentos ambulatorios es 40%.",
-      "Crónicos PMO: La cobertura para medicamentos de uso crónico es 70%.",
-      "TDAH: No está listado legalmente como patología crónica para acceder automáticamente al 70%.",
-      "Excepción: Se puede pedir cobertura mayor, pero requiere prescripción fundada, historia clínica y justificación de respuesta terapéutica.",
-      "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden tener más rechazo si no están incorporadas explícitamente al plan del financiador.",
+      "Metilfenidato: Figura en PMO con 40%, no 70%.",
+      "Lisdexanfetamina y atomoxetina: No aparecen en la Resolución 310/2004; si tienen cobertura, depende del plan o vademécum del financiador.",
+      "Uso crónico: Que el tratamiento sea continuo no convierte legalmente al medicamento en cobertura obligatoria del 70%.",
+      "Precio de referencia: El porcentaje puede aplicarse sobre precio de referencia o reglas del plan, no necesariamente sobre el precio final de farmacia.",
+      "Reclamos: Se puede reclamar una negativa o pedir revisión, pero la norma citada no obliga a cubrir TDAH al 70%.",
+    ],
+    jurisdicciones: [
+      "PMO: Define el piso obligatorio para medicamentos listados.",
+      "Financiador: Aplica vademécum, precios de referencia y reglas de plan sobre ese piso.",
+      "Paciente: Puede pedir explicación por escrito de una negativa, pero no hay garantía legal de 70% para TDAH en esta norma.",
     ],
   },
   {
