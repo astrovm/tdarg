@@ -99,17 +99,17 @@ export default function TratamientosPage() {
                 <div className="rounded-lg border bg-muted/30 p-4">
                   <h4 className="mb-1 font-semibold text-foreground">Primera Línea</h4>
                   <p>
-                    Los psicoestimulantes de acción prolongada son la opción más recomendada porque son más efectivos, tienen un menor riesgo de efectos adversos y de abuso, y mejoran la adherencia al evitar la toma de múltiples pastillas al día. Sin embargo, <strong>en el mercado de la Argentina, las opciones están limitadas al metilfenidato</strong>, ya que es el único medicamento de este grupo comercialmente disponible en el país en la actualidad.
+                    Los psicoestimulantes de acción prolongada son la opción más recomendada porque son más efectivos, tienen un menor riesgo de efectos adversos y de abuso, y mejoran la adherencia al evitar la toma de múltiples pastillas al día. En Argentina, los estimulantes disponibles son el <strong>metilfenidato</strong> (liberación prolongada OROS e inmediata) y la <strong>lisdexanfetamina</strong> (p.ej. Ludoxa), esta última con cobertura de acción de 10 a 14 horas.
                   </p>
                   <p className="mt-2 text-xs text-muted-foreground">
-                    <em>Nota legal (Argentina):</em> La Ley 19.303/71 sobre psicotrópicos exige que el metilfenidato se prescriba con un formulario oficial por triplicado, limitando las recetas a un máximo de 20 días de tratamiento.
+                    <em>Nota legal (Argentina):</em> La Ley 19.303/71 sobre psicotrópicos exige que metilfenidato y lisdexanfetamina se prescriban con formulario oficial por triplicado, limitando las recetas a un máximo de 20 días de tratamiento.
                   </p>
                 </div>
 
                 <div className="rounded-lg border bg-muted/30 p-4">
                   <h4 className="mb-1 font-semibold text-foreground">Segunda Línea</h4>
                   <p>
-                    Los fármacos no estimulantes. Aquí destaca la <strong>atomoxetina</strong>, que es el único agente de este tipo disponible en Argentina. Se utiliza cuando el metilfenidato resulta ineficaz, no se tolera bien, está contraindicado, o cuando el paciente tiene una comorbilidad severa con trastornos de ansiedad o riesgo de abuso de sustancias.
+                    Los fármacos no estimulantes. Aquí destaca la <strong>atomoxetina</strong>, que es el único agente de este tipo disponible en Argentina. Se utiliza cuando los estimulantes resultan ineficaces, no se toleran bien, están contraindicados, o cuando el paciente tiene una comorbilidad severa con trastornos de ansiedad o riesgo de abuso de sustancias.
                   </p>
                 </div>
 
