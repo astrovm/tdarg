@@ -34,12 +34,12 @@ export function Header() {
 
   return (
     <header className="border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Brain className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold text-foreground">
+            <Brain className="h-7 w-7 text-primary sm:h-8 sm:w-8" />
+            <h1 className="text-xl font-bold text-foreground sm:text-2xl">
               Tdarg
             </h1>
           </Link>
@@ -87,7 +87,7 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 lg:hidden">
+          <div className="flex items-center space-x-2 sm:space-x-4 lg:hidden">
             <ThemeToggle />
             <Button
               variant="ghost"

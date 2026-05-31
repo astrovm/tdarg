@@ -35,12 +35,12 @@ export function PageHero({
       {overlayClassName ? (
         <div className={cn("absolute inset-0", overlayClassName)} />
       ) : null}
-      <div className={cn("container mx-auto px-4 py-12 relative z-10", containerClassName)}>
-        <h1 className={cn("text-4xl font-bold text-foreground mb-4", titleClassName)}>{title}</h1>
+      <div className={cn("container mx-auto px-4 py-8 sm:py-12 relative z-10", containerClassName)}>
+        <h1 className={cn("text-3xl font-bold text-foreground mb-3 sm:text-4xl sm:mb-4", titleClassName)}>{title}</h1>
         {description ? (
           <p
             className={cn(
-              "text-lg text-muted-foreground max-w-3xl leading-relaxed mb-6",
+              "text-base text-muted-foreground max-w-3xl leading-relaxed mb-5 sm:text-lg sm:mb-6",
               descriptionClassName,
             )}
           >

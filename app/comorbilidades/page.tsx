@@ -72,7 +72,7 @@ export default function ComorbilidadesPage() {
       onSelectStep={goTo}
       isStepDone={isDone}
     >
-      <Card className="min-h-[560px] bg-card border">
+      <Card className="bg-card border md:min-h-[560px]">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div
@@ -221,7 +221,7 @@ export default function ComorbilidadesPage() {
           )}
         </CardContent>
 
-        <div className="flex items-center justify-between border-t p-6">
+        <div className="flex items-center justify-between border-t p-4 sm:p-6">
           <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
             <ArrowLeft className="mr-2 h-4 w-4" />
             Anterior

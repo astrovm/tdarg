@@ -51,18 +51,18 @@ export function StepGuideLayout({
           heroClassName,
         )}
       >
-        <div className="container mx-auto px-4 py-8 relative z-10">
-          <h1 className={cn("text-3xl font-bold text-foreground mb-3", titleClassName)}>{title}</h1>
+        <div className="container mx-auto px-4 py-6 sm:py-8 relative z-10">
+          <h1 className={cn("text-2xl font-bold text-foreground mb-2 sm:text-3xl sm:mb-3", titleClassName)}>{title}</h1>
           {description ? (
-            <p className={cn("text-lg text-muted-foreground mb-5", descriptionClassName)}>
+            <p className={cn("text-base text-muted-foreground mb-4 sm:text-lg sm:mb-5", descriptionClassName)}>
               {description}
             </p>
           ) : null}
 
           {heroChildren}
 
-          <div className="rounded-xl border bg-card/70 p-3">
-            <div className="mb-3">
+          <div className="rounded-xl border bg-card/70 p-2.5 sm:p-3">
+            <div className="mb-2.5 sm:mb-3">
               <div className="mb-2 flex items-center justify-between gap-3">
                 <span className="text-sm font-medium text-muted-foreground">
                   Progreso
@@ -74,7 +74,7 @@ export function StepGuideLayout({
               <Progress value={progress} className="h-1.5" />
             </div>
 
-            <div className="grid grid-cols-2 gap-2 md:flex md:flex-wrap">
+            <div className="grid grid-cols-2 gap-1.5 md:flex md:flex-wrap md:gap-2">
               {steps.map((step) => {
                 const Icon = step.icon;
                 const isActive = currentStep === step.id;
@@ -86,7 +86,7 @@ export function StepGuideLayout({
                     type="button"
                     onClick={() => onSelectStep(step.id)}
                     className={cn(
-                      "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors md:justify-start",
+                      "inline-flex min-h-9 items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium transition-colors sm:min-h-10 sm:gap-2 sm:px-3 sm:py-2 md:justify-start",
                       isActive
                         ? "bg-primary text-primary-foreground"
                         : done

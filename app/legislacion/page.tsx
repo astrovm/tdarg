@@ -68,7 +68,7 @@ export default function LegislacionPage() {
 
       {/* Laws Section */}
       <div className="bg-muted/30 border-y">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto space-y-4">
             <div className="rounded-xl border bg-card p-5 shadow-sm">
               <h2 className="text-xl font-semibold text-foreground">
