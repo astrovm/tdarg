@@ -19,7 +19,7 @@ export const leyes = [
     puntosClave: [
       "Cobertura habitual: Si el medicamento se trata como ambulatorio, la cobertura suele quedar en 40% y el resto queda a cargo del paciente.",
       "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden tener rechazos iniciales por no figurar explícitamente en el PMO base.",
-      "CUD: En casos con discapacidad certificada, el Certificado Único de Discapacidad puede habilitar otra vía de cobertura según evaluación interdisciplinaria.",
+      "CUD: No es una vía habitual para TDAH. Solo puede cambiar la cobertura si una junta interdisciplinaria certifica discapacidad funcional.",
     ],
   },
   {
