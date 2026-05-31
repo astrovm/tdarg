@@ -1,5 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FileText, ExternalLink } from "lucide-react"
+import { ExternalLink, FileText } from "lucide-react"
 
 export interface Reference {
   id: number
@@ -16,57 +15,61 @@ interface ReferencesProps {
 
 export function References({ references }: ReferencesProps) {
   return (
-    <section className="mt-12 pt-8 border-t">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-xl">
-            <FileText className="h-5 w-5" />
-            Referencias
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ol className="space-y-4">
-            {references.map((ref) => (
-              <li key={ref.id} id={`ref-${ref.id}`} className="flex gap-4">
-                <span className="font-bold text-primary min-w-[2rem]">
-                  [{ref.id}]
-                </span>
-                <div className="flex-1">
-                  <div className="mb-2">
-                    {ref.authors && (
-                      <span className="text-foreground font-medium">
-                        {ref.authors}.{" "}
-                      </span>
-                    )}
-                    <span className="text-foreground font-semibold">
-                      {ref.title}
+    <section className="mt-10 border-t pt-6">
+      <details className="group rounded-lg border bg-card">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4">
+          <span className="flex items-center gap-2 font-semibold">
+            <FileText className="h-4 w-4" />
+            Fuentes
+          </span>
+          <span className="text-sm text-muted-foreground">
+            {references.length} documento{references.length !== 1 ? "s" : ""}
+          </span>
+        </summary>
+        <ol className="space-y-3 border-t p-4 text-sm">
+          {references.map((ref) => (
+            <li key={ref.id} id={`ref-${ref.id}`} className="flex gap-3">
+              <span className="min-w-[2rem] font-semibold text-muted-foreground">
+                [{ref.id}]
+              </span>
+              <div className="flex-1">
+                <div>
+                  {ref.authors && (
+                    <span className="font-medium text-foreground">
+                      {ref.authors}.{" "}
                     </span>
-                    {ref.year && (
-                      <span className="text-muted-foreground">
-                        {" "}({ref.year})
-                      </span>
-                    )}
-                  </div>
-                  {ref.description && (
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {ref.description}
-                    </p>
                   )}
+                  <span className="font-semibold text-foreground">
+                    {ref.title}
+                  </span>
+                  {ref.year && (
+                    <span className="text-muted-foreground">
+                      {" "}
+                      ({ref.year})
+                    </span>
+                  )}
+                </div>
+                {ref.description && (
+                  <p className="mt-1 text-muted-foreground">
+                    {ref.description}
+                  </p>
+                )}
+                {ref.url !== "#" && (
                   <a
                     href={ref.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    className="mt-1 inline-flex items-center gap-1 text-primary hover:underline"
                   >
                     <ExternalLink className="h-3 w-3" />
                     Ver documento
                   </a>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </CardContent>
-      </Card>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </details>
     </section>
   )
 }

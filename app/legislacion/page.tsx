@@ -6,9 +6,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
+import { References } from "@/components/references";
 import {
   fuentesDocumentacion,
   leyes,
@@ -19,39 +19,27 @@ export default function LegislacionPage() {
     if (urgencia === "Importante") {
       return {
         border: "border-l-amber-500",
-        badge: "bg-amber-100 text-amber-900 dark:bg-amber-900/40 dark:text-amber-200",
         dot: "bg-amber-500",
-        surface: "bg-amber-50 dark:bg-amber-900/20",
-        text: "text-amber-800 dark:text-amber-200",
       };
     }
 
     if (urgencia === "Relevante") {
       return {
         border: "border-l-sky-500",
-        badge: "bg-sky-100 text-sky-900 dark:bg-sky-900/40 dark:text-sky-200",
         dot: "bg-sky-500",
-        surface: "bg-sky-50 dark:bg-sky-900/20",
-        text: "text-sky-800 dark:text-sky-200",
       };
     }
 
     if (urgencia === "Administrativo") {
       return {
         border: "border-l-emerald-500",
-        badge: "bg-emerald-100 text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-200",
         dot: "bg-emerald-500",
-        surface: "bg-emerald-50 dark:bg-emerald-900/20",
-        text: "text-emerald-800 dark:text-emerald-200",
       };
     }
 
     return {
       border: "border-l-blue-500",
-      badge: "bg-blue-600 text-white",
       dot: "bg-blue-500",
-      surface: "bg-blue-50 dark:bg-blue-900/20",
-      text: "text-foreground",
     };
   };
 
@@ -67,6 +55,14 @@ export default function LegislacionPage() {
       body: text.slice(separatorIndex + 1).trim(),
     };
   };
+
+  const references = fuentesDocumentacion.fuentes.map((fuente, index) => ({
+    id: index + 1,
+    title: fuente.titulo,
+    description: fuente.descripcion,
+    year: fuente.referencia?.replace(/[()]/g, ""),
+    url: "#",
+  }));
 
   return (
     <div className="min-h-screen bg-muted/30">
@@ -100,10 +96,8 @@ export default function LegislacionPage() {
                 <CardHeader className="pb-3">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <Badge className={severity.badge}>
-                          {ley.urgencia}
-                        </Badge>
+                      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                        {ley.urgencia}
                       </div>
                       <CardTitle className="text-xl text-foreground leading-snug">
                         {ley.numero}
@@ -149,24 +143,11 @@ export default function LegislacionPage() {
         </div>
       </div>
 
-      {/* Fuentes Section */}
-      <section className="bg-muted/30 border-t py-8">
+      <section className="bg-muted/30 py-8">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            De dónde sacamos la info
-          </h2>
-          <div className="max-w-4xl mx-auto text-sm text-muted-foreground">
-            <p className="mb-4">{fuentesDocumentacion.descripcion}</p>
-            <ul className="list-disc list-inside space-y-2 mb-6">
-              {fuentesDocumentacion.fuentes.map((fuente, index) => (
-                <li key={index}>
-                  <strong>{fuente.titulo}</strong>{" "}
-                  {fuente.referencia && fuente.referencia} -{" "}
-                  {fuente.descripcion}
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs text-center italic">
+          <div className="mx-auto max-w-5xl">
+            <References references={references} />
+            <p className="mt-3 text-center text-xs text-muted-foreground">
               {fuentesDocumentacion.notaLegal}
             </p>
           </div>
