@@ -1,8 +1,7 @@
 // Legislación relevante para TDAH en Argentina
 export const leyes = [
   {
-    numero: "1. Receta para psicotrópicos: Leyes 19.303, 27.553 y transición digital",
-    titulo: "El problema de la receta digital",
+    numero: "Receta para psicotrópicos: el problema de la transición digital (Leyes 19.303 y 27.553)",
     urgencia: "Importante",
     descripcion:
       "Los estimulantes para el TDAH son Psicotrópicos Lista II de alta seguridad. Aunque la Resolución 2214/2025 estableció los protocolos para digitalizarlos, dio un plazo de 120 días para adaptar los sistemas provinciales.",
@@ -13,8 +12,7 @@ export const leyes = [
     ],
   },
   {
-    numero: "2. Cobertura: PMO, Resolución 310/2004 y CUD",
-    titulo: "Costos y el Certificado de Discapacidad",
+    numero: "Cobertura y costos: PMO, Resolución 310/2004 y CUD",
     urgencia: "Relevante",
     descripcion:
       "La normativa divide los descuentos entre medicamentos ambulatorios y tratamientos para patologías crónicas. En la práctica, el TDAH suele quedar cubierto como medicamento ambulatorio.",
@@ -25,8 +23,7 @@ export const leyes = [
     ],
   },
   {
-    numero: "3. Discapacidad y educación: Ley 27.306",
-    titulo: "Acompañamiento escolar y universitario",
+    numero: "Discapacidad y educación: acompañamiento escolar y universitario (Ley 27.306)",
     urgencia: "Administrativo",
     descripcion:
       "La Ley de Dificultades Específicas del Aprendizaje (DEA) prevé adaptaciones curriculares para estudiantes con diagnóstico formal. No es una ventaja: es una adecuación de acceso.",

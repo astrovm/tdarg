@@ -3,7 +3,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -109,9 +108,6 @@ export default function LegislacionPage() {
                       <CardTitle className="text-xl text-foreground leading-snug">
                         {ley.numero}
                       </CardTitle>
-                      <CardDescription className="text-sm font-medium text-muted-foreground mt-1">
-                        {ley.titulo}
-                      </CardDescription>
                     </div>
                   </div>
                 </CardHeader>
