@@ -106,7 +106,6 @@ const fuentesDocumentacion = {
       url: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-310-2004-94218/texto",
     },
   ],
-  notaLegal: "Información educativa basada en fuentes públicas. No reemplaza asesoramiento médico ni legal.",
 };
 
 export default function LegislacionPage() {
@@ -155,7 +154,7 @@ export default function LegislacionPage() {
       />
 
       {/* Laws Section */}
-      <div className="bg-muted/30 border-y">
+      <div className="bg-muted/30 border-t">
         <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="max-w-5xl mx-auto space-y-4">
             {leyes.map((ley, index) => {
@@ -249,9 +248,6 @@ export default function LegislacionPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl">
             <References references={references} />
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              {fuentesDocumentacion.notaLegal}
-            </p>
           </div>
         </div>
       </section>
