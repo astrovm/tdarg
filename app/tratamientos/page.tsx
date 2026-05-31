@@ -297,7 +297,7 @@ const tratamientosReferences: Reference[] = [
     id: 4,
     title: "CADDRA Guide to ADHD Pharmacological Treatments in Canada",
     authors: "Canadian ADHD Resource Alliance (CADDRA)",
-    url: "#",
+    url: "/caddra-adhd-medication-chart-2026.pdf",
     description: "Guía farmacológica sobre tratamientos para el TDAH.",
     year: "2026",
   },
