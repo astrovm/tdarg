@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "download-laws": "node scripts/download-laws.js",
+    "download-laws": "bunx tsx scripts/download-laws.ts",
     "lint": "next lint",
     "start": "next start",
     "test": "bun test"

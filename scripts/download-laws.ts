@@ -11,7 +11,8 @@ interface LawConfig {
   id: string;
   name: string;
   url: string;
-  type: 'ley' | 'decreto';
+  type: 'ley' | 'decreto' | 'resolucion' | 'disposicion';
+  format?: 'html' | 'pdf';
 }
 
 interface DownloadResult {
@@ -32,6 +33,7 @@ interface ProcessingResult {
 }
 
 type MetadataRecord = Record<string, LawMetadata>;
+type DownloadFormat = NonNullable<LawConfig['format']>;
 
 // Configuration of laws to download using InfoLeg URLs
 const LAWS_CONFIG: LawConfig[] = [
@@ -72,6 +74,24 @@ const LAWS_CONFIG: LawConfig[] = [
     type: 'decreto'
   },
   {
+    id: 'decreto-98-2023-recetas-electronicas',
+    name: 'Decreto 98/2023 - Reglamentación Ley 27.553',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/380000-384999/380005/norma.htm',
+    type: 'decreto'
+  },
+  {
+    id: 'resolucion-201-2002-pmoe',
+    name: 'Resolución 201/2002 - Programa Médico Obligatorio de Emergencia',
+    url: 'https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-201-2002-73649/texto',
+    type: 'resolucion'
+  },
+  {
+    id: 'resolucion-310-2004-cobertura-medicamentos',
+    name: 'Resolución 310/2004 - Cobertura de Medicamentos PMO',
+    url: 'https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-310-2004-94218/texto',
+    type: 'resolucion'
+  },
+  {
     id: 'ley-26657-salud-mental',
     name: 'Ley 26.657 - Ley Nacional de Salud Mental',
     url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/175000-179999/175977/norma.htm',
@@ -90,16 +110,41 @@ const LAWS_CONFIG: LawConfig[] = [
     type: 'ley'
   },
   {
+    id: 'ley-24901-prestaciones-discapacidad',
+    name: 'Ley 24.901 - Prestaciones Básicas por Discapacidad',
+    url: 'https://www.argentina.gob.ar/normativa/nacional/ley-24901-47677/actualizacion',
+    type: 'ley'
+  },
+  {
+    id: 'ley-22431-proteccion-discapacidad',
+    name: 'Ley 22.431 - Sistema de Protección Integral de Discapacidad',
+    url: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20620/norma.htm',
+    type: 'ley'
+  },
+  {
     id: 'disposicion-1-2025-sistemas-informacion-sanitaria',
     name: 'Disposición 1/2025 - Sistemas de Información Sanitaria',
     url: 'https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-1-2025-415504/texto',
-    type: 'decreto'
+    type: 'disposicion'
   },
   {
     id: 'resolucion-2214-2025-recetas-electronicas',
     name: 'Resolución 2214/2025 - Recetas Electrónicas',
     url: 'https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-2214-2025-415349/texto',
-    type: 'decreto'
+    type: 'resolucion'
+  },
+  {
+    id: 'resolucion-pba-140-2025-receta-electronica',
+    name: 'PBA Resolución 140/2025 - Receta Electrónica y Psicotrópicos',
+    url: 'https://normas.gba.gob.ar/documentos/BMaJDOca.pdf',
+    type: 'resolucion',
+    format: 'pdf'
+  },
+  {
+    id: 'ley-caba-6439-recetas-electronicas',
+    name: 'CABA Ley 6439 - Recetas Papel, Electrónicas y Digitales',
+    url: 'https://boletinoficial.buenosaires.gob.ar/normativaba/norma/564546',
+    type: 'ley'
   }
 ];
 
@@ -111,8 +156,12 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
+function filenameForLaw(law: LawConfig): string {
+  return `${law.id}.${law.format ?? 'html'}`;
+}
+
 // Helper function to download a URL
-function downloadFile(url: string, filename: string): Promise<DownloadResult> {
+function downloadFile(url: string, filename: string, format: DownloadFormat = 'html'): Promise<DownloadResult> {
   return new Promise((resolve, reject) => {
     console.log(`📥 Downloading: ${filename}`);
 
@@ -125,7 +174,7 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
       rejectUnauthorized: false,
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; TDAH-Argentina-Bot/1.0; +https://tdarg.com.ar)',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept': format === 'pdf' ? 'application/pdf,*/*;q=0.8' : 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'es-AR,es;q=0.9,en;q=0.8',
         'Accept-Encoding': 'identity',
         'Connection': 'keep-alive',
@@ -167,6 +216,20 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
 
       stream.on('end', () => {
         try {
+          const filePath = path.join(DATA_DIR, filename);
+
+          if (format === 'pdf') {
+            fs.writeFileSync(filePath, buffer);
+            console.log(`✅ Saved: ${filename} (${buffer.length} bytes)`);
+            resolve({
+              filename,
+              size: buffer.length,
+              downloadedAt: new Date().toISOString(),
+              url: url
+            });
+            return;
+          }
+
           // Convert buffer to string with proper encoding detection
           let data: string;
           const bufferString = buffer.toString();
@@ -180,7 +243,6 @@ function downloadFile(url: string, filename: string): Promise<DownloadResult> {
             data = buffer.toString('utf8');
           }
 
-          const filePath = path.join(DATA_DIR, filename);
           fs.writeFileSync(filePath, data, 'utf8');
           console.log(`✅ Saved: ${filename} (${data.length} bytes)`);
           resolve({
@@ -232,8 +294,8 @@ function saveMetadata(metadata: MetadataRecord): void {
 }
 
 // Check if file needs update (simple check based on existence)
-function needsUpdate(lawId: string, metadata: MetadataRecord): boolean {
-  const filename = `${lawId}.html`;
+function needsUpdate(law: LawConfig, metadata: MetadataRecord): boolean {
+  const filename = filenameForLaw(law);
   const filePath = path.join(DATA_DIR, filename);
 
   // If file doesn't exist, definitely needs update
@@ -242,33 +304,44 @@ function needsUpdate(lawId: string, metadata: MetadataRecord): boolean {
   }
 
   // If no metadata, assume it needs update
-  if (!metadata[lawId]) {
+  if (!metadata[law.id]) {
+    return true;
+  }
+
+  if (metadata[law.id].url !== law.url || metadata[law.id].filename !== filename) {
     return true;
   }
 
   // For now, always update if file is older than 24 hours
-  const lastDownload = new Date(metadata[lawId].downloadedAt);
+  const lastDownload = new Date(metadata[law.id].downloadedAt);
   const now = new Date();
   const hoursSinceDownload = (now.getTime() - lastDownload.getTime()) / (1000 * 60 * 60);
 
   return hoursSinceDownload > 24;
 }
 
+function pruneMetadata(metadata: MetadataRecord): MetadataRecord {
+  const lawIds = new Set(LAWS_CONFIG.map(law => law.id));
+  return Object.fromEntries(
+    Object.entries(metadata).filter(([lawId]) => lawIds.has(lawId))
+  );
+}
+
 // Main download function
 async function downloadLaws(): Promise<void> {
   console.log('🚀 Starting law download process...');
 
-  const metadata = loadMetadata();
+  const metadata = pruneMetadata(loadMetadata());
   const results: ProcessingResult[] = [];
 
   for (const law of LAWS_CONFIG) {
-    const filename = `${law.id}.html`;
+    const filename = filenameForLaw(law);
 
     try {
-      if (needsUpdate(law.id, metadata)) {
+      if (needsUpdate(law, metadata)) {
         console.log(`📋 Processing: ${law.name}`);
 
-        const result = await downloadFile(law.url, filename);
+        const result = await downloadFile(law.url, filename, law.format);
 
         // Update metadata
         metadata[law.id] = {
