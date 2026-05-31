@@ -411,7 +411,7 @@ export default function PreciosPage() {
                                 coverageLabel={
                                   isLisdexanfetamina(medicamento)
                                     ? "Precio teórico con 40% desc."
-                                    : "Con prepaga/obra social"
+                                    : "Con prepaga/obra social (40% desc.)"
                                 }
                               />
                             ))}
@@ -445,7 +445,7 @@ export default function PreciosPage() {
                                 key={medicamento.codigo}
                                 medicamento={medicamento}
                                 tone="nonstimulant"
-                                coverageLabel="Con prepaga/obra social"
+                                coverageLabel="Con prepaga/obra social (40% desc.)"
                               />
                             ))}
                           </div>
@@ -486,7 +486,7 @@ export default function PreciosPage() {
                                 key={medicamento.codigo}
                                 medicamento={medicamento}
                                 tone="offlabel"
-                                coverageLabel="Con prepaga/obra social"
+                                coverageLabel="Con prepaga/obra social (40% desc.)"
                               />
                             ))}
                           </div>
