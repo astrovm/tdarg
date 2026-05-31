@@ -91,7 +91,7 @@ export default function HomePage() {
       <Header />
 
       <main>
-        <section className="border-b bg-background">
+        <section className="bg-background">
           <div className="container mx-auto px-4 py-14">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="text-4xl font-bold text-foreground">
@@ -110,7 +110,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-b bg-secondary/45">
+        <section className="bg-secondary/45">
           <div className="container mx-auto px-4 py-8">
             <div className="grid gap-4 md:grid-cols-3">
               {primaryLinks.map((item) => {
@@ -144,47 +144,45 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-b bg-secondary/40">
+        <section className="bg-secondary/40">
           <div className="container mx-auto px-4 py-10">
-            <div className="rounded-xl border bg-card p-5 shadow-sm">
-              <div className="mb-5">
-                <h2 className="text-2xl font-semibold text-foreground">
-                  Guías prácticas
-                </h2>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Diagnóstico, tratamiento, comorbilidades y herramientas.
-                </p>
-              </div>
+            <div className="mb-6">
+              <h2 className="text-2xl font-semibold text-foreground">
+                Guías prácticas
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Diagnóstico, tratamiento, comorbilidades y herramientas.
+              </p>
+            </div>
 
-              <div className="grid gap-2 md:grid-cols-2">
-                {guideLinks.map((item) => {
-                  const Icon = item.icon;
+            <div className="grid gap-3 md:grid-cols-2">
+              {guideLinks.map((item) => {
+                const Icon = item.icon;
 
-                  return (
-                    <Link key={item.href} href={item.href} className="group">
-                      <Card className="h-full border bg-background/70 shadow-none transition-colors hover:border-primary/40 hover:bg-background">
-                        <CardContent className="p-4">
-                          <div className="flex items-center gap-3">
-                            <div
-                              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
-                            >
-                              <Icon className="h-4 w-4" />
-                            </div>
-                            <div>
-                              <CardTitle className="text-base text-card-foreground group-hover:text-primary">
-                                {item.title}
-                              </CardTitle>
-                              <CardDescription className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                                {item.description}
-                              </CardDescription>
-                            </div>
+                return (
+                  <Link key={item.href} href={item.href} className="group">
+                    <Card className="h-full border bg-background/70 shadow-none transition-colors hover:border-primary/40 hover:bg-background">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
+                          >
+                            <Icon className="h-4 w-4" />
                           </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  );
-                })}
-              </div>
+                          <div>
+                            <CardTitle className="text-base text-card-foreground group-hover:text-primary">
+                              {item.title}
+                            </CardTitle>
+                            <CardDescription className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                              {item.description}
+                            </CardDescription>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
