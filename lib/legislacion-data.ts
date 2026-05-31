@@ -1,35 +1,65 @@
 // Legislación relevante para TDAH en Argentina
+export const resumenLegislacion = [
+  {
+    titulo: "Receta",
+    descripcion:
+      "Metilfenidato y lisdexanfetamina requieren receta física oficial por triplicado.",
+  },
+  {
+    titulo: "App o PDF",
+    descripcion:
+      "Para Psicotrópicos Lista II, una receta común de app o prepaga no alcanza.",
+  },
+  {
+    titulo: "Cobertura",
+    descripcion:
+      "Ambulatorios suelen cubrirse al 40%; tratamientos crónicos, al 70%. TDAH suele quedar en el primer grupo.",
+  },
+  {
+    titulo: "Educación",
+    descripcion:
+      "Con diagnóstico formal se pueden pedir adaptaciones razonables para estudiar.",
+  },
+];
+
 export const leyes = [
   {
-    numero: "Receta para psicotrópicos: el problema de la transición digital (Leyes 19.303 y 27.553)",
-    urgencia: "Importante",
+    etiqueta: "Receta",
+    numero: "Conseguir medicación",
     descripcion:
-      "Los estimulantes para el TDAH son Psicotrópicos Lista II de alta seguridad. Aunque la Resolución 2214/2025 estableció los protocolos para digitalizarlos, dio un plazo de 120 días para adaptar los sistemas provinciales.",
+      "Los estimulantes usados para TDAH son Psicotrópicos Lista II. La receta digital está en transición, pero para retirar medicación la regla práctica sigue siendo física y oficial.",
     puntosClave: [
-      "Punto operativo: El software médico debe validar la receta con el registro federal (REFEPS) en tiempo real. Durante la transición tecnológica, muchas apps de prepagas todavía no sirven para estos fármacos.",
-      "La regla práctica: Provincias como Buenos Aires (Res. 140/2025) dictaminaron que es obligatorio seguir llevando el formulario oficial físico por triplicado, manuscrito de puño y letra por tu médico.",
-      "Validez: Tu receta física tiene exactamente 30 días de validez desde la fecha de emisión para ir a comprarla.",
+      "Qué llevar: Receta física oficial por triplicado, manuscrita por el profesional.",
+      "Qué no alcanza: PDF, foto o receta común de una app de prepaga.",
+      "Validez: La receta física tiene 30 días desde la fecha de emisión.",
+    ],
+    jurisdicciones: [
+      "Nación: La receta electrónica avanza, pero los Lista II exigen controles de seguridad más altos.",
+      "PBA: La Resolución 140/2025 mantiene el formulario físico por triplicado para Lista II.",
+      "CABA: La receta digital no elimina los requisitos especiales para psicotrópicos.",
     ],
   },
   {
-    numero: "Cobertura y costos: PMO, Resolución 310/2004 y CUD",
-    urgencia: "Relevante",
+    etiqueta: "Cobertura",
+    numero: "Pedir cobertura",
     descripcion:
-      "La normativa divide los descuentos entre medicamentos ambulatorios y tratamientos para patologías crónicas. En la práctica, el TDAH suele quedar cubierto como medicamento ambulatorio.",
+      "El PMO distingue medicamentos ambulatorios, con cobertura habitual del 40%, y tratamientos crónicos, con cobertura del 70%. En TDAH, la cobertura suele quedar en el esquema ambulatorio salvo evaluación específica.",
     puntosClave: [
-      "Cobertura habitual: Si el medicamento se trata como ambulatorio, la cobertura suele quedar en 40% y el resto queda a cargo del paciente.",
+      "Cobertura habitual: Si el medicamento entra como ambulatorio, el descuento suele ser 40%.",
+      "Tratamiento crónico: La categoría de crónicos puede cubrir 70%, pero TDAH no siempre queda reconocido ahí en la práctica.",
       "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden tener rechazos iniciales por no figurar explícitamente en el PMO base.",
       "CUD: No es una vía habitual para TDAH. Solo puede cambiar la cobertura si una junta interdisciplinaria certifica discapacidad funcional.",
     ],
   },
   {
-    numero: "Discapacidad y educación: acompañamiento escolar y universitario (Ley 27.306)",
-    urgencia: "Administrativo",
+    etiqueta: "Educación",
+    numero: "Pedir adaptaciones educativas",
     descripcion:
-      "La Ley de Dificultades Específicas del Aprendizaje (DEA) prevé adaptaciones curriculares para estudiantes con diagnóstico formal. No es una ventaja: es una adecuación de acceso.",
+      "La Ley 27.306 sobre Dificultades Específicas del Aprendizaje permite pedir adecuaciones para cursar y rendir en mejores condiciones.",
     puntosClave: [
-      "Las instituciones educativas suelen desconocer la norma o resistirse a aplicarla.",
-      "Con la presentación formal del diagnóstico, tenés derecho a exigir: más tiempo para rendir evaluaciones, priorización de exámenes orales sobre los escritos, y permiso para usar calculadoras o computadoras evitando copiados extensos.",
+      "Qué pedir: Más tiempo en evaluaciones, modalidad oral cuando corresponda y uso de herramientas tecnológicas.",
+      "Cómo pedirlo: Presentar diagnóstico formal y dejar el pedido por escrito.",
+      "Criterio: No es una ventaja; es una adecuación de acceso.",
     ],
   },
 ];

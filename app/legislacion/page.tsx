@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, GraduationCap, ReceiptText } from "lucide-react";
+import { BookOpen, CheckCircle2, GraduationCap, ReceiptText } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -13,6 +13,7 @@ import { References } from "@/components/references";
 import {
   fuentesDocumentacion,
   leyes,
+  resumenLegislacion,
 } from "@/lib/legislacion-data";
 
 export default function LegislacionPage() {
@@ -69,6 +70,28 @@ export default function LegislacionPage() {
       <div className="bg-muted/30 border-y">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-5xl mx-auto space-y-4">
+            <div className="rounded-xl border bg-card p-5 shadow-sm">
+              <h2 className="text-xl font-semibold text-foreground">
+                Lo que tenés que saber
+              </h2>
+              <div className="mt-4 grid gap-3 md:grid-cols-4">
+                {resumenLegislacion.map((item) => (
+                  <div
+                    key={item.titulo}
+                    className="rounded-lg bg-muted/45 p-3"
+                  >
+                    <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-primary" />
+                      {item.titulo}
+                    </div>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {item.descripcion}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {leyes.map((ley, index) => {
               const Icon = lawIcons[index] ?? BookOpen;
               const tone = lawTones[index] ?? lawTones[0];
@@ -84,6 +107,9 @@ export default function LegislacionPage() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
+                      <div className={`mb-1 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
+                        {ley.etiqueta}
+                      </div>
                       <CardTitle className="text-xl text-foreground leading-snug">
                         {ley.numero}
                       </CardTitle>
@@ -119,6 +145,30 @@ export default function LegislacionPage() {
                           );
                         })}
                       </ul>
+                    </div>
+                  )}
+
+                  {ley.jurisdicciones && (
+                    <div className="mt-4 grid gap-3 md:grid-cols-3">
+                      {ley.jurisdicciones.map((item) => {
+                        const bullet = splitBullet(item);
+
+                        return (
+                          <div
+                            key={item}
+                            className="rounded-md bg-muted/35 p-3 text-sm leading-relaxed"
+                          >
+                            {bullet.label && (
+                              <div className="mb-1 font-semibold text-foreground">
+                                {bullet.label}
+                              </div>
+                            )}
+                            <p className="text-muted-foreground">
+                              {bullet.body}
+                            </p>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </CardContent>
