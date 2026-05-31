@@ -18,6 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { HomeLivePrices } from "@/components/home-live-prices";
 
 const accent = {
   prices: "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
@@ -93,27 +94,27 @@ export default function HomePage() {
         <section className="border-b bg-background">
           <div className="container mx-auto px-4 py-14">
             <div className="mx-auto max-w-3xl text-center">
-                <h1 className="text-4xl font-bold text-foreground">
-                  TDAH en Argentina
-                </h1>
-                <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                  Precios de medicación, especialistas, receta, cobertura y
-                  guías clínicas.
-                </p>
-                <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                  <Button size="lg" asChild>
-                    <Link href="/precios">
-                      <TrendingUp className="mr-2 h-5 w-5" />
-                      Ver precios
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="/legislacion">
-                      <Scale className="mr-2 h-5 w-5" />
-                      Ver receta y cobertura
-                    </Link>
-                  </Button>
-                </div>
+              <h1 className="text-4xl font-bold text-foreground">
+                TDAH en Argentina
+              </h1>
+              <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                Precios de medicación, especialistas, receta, cobertura y guías
+                clínicas.
+              </p>
+              <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+                <Button size="lg" asChild>
+                  <Link href="/precios">
+                    <TrendingUp className="mr-2 h-5 w-5" />
+                    Ver precios
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/legislacion">
+                    <Scale className="mr-2 h-5 w-5" />
+                    Ver receta y cobertura
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -139,6 +140,7 @@ export default function HomePage() {
                         <CardDescription className="leading-relaxed text-muted-foreground">
                           {item.description}
                         </CardDescription>
+                        {item.href === "/precios" && <HomeLivePrices />}
                       </CardHeader>
                     </Card>
                   </Link>
