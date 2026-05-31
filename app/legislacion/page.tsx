@@ -14,19 +14,19 @@ import { References } from "@/components/references";
 const leyes = [
   {
     etiqueta: "Receta",
-    numero: "Receta para estimulantes",
+    numero: "Por qué sigue siendo difícil conseguir estimulantes",
     descripcion:
-      "Para estimulantes de TDAH, el punto crítico no es solo si existe receta electrónica: importa si la jurisdicción tiene un circuito oficial habilitado para psicotrópicos Lista II.",
+      "Metilfenidato y lisdexanfetamina están en Lista II de la Ley 19.303. Esa ley no los trata como una receta común: exige un circuito oficial de control entre médico, farmacia y autoridad sanitaria. La receta electrónica nacional ya debería reemplazar ese circuito en papel, pero para Lista II todavía depende de que jurisdicciones, plataformas, repositorios y farmacias estén adaptados.",
     puntosClave: [
-      "Lista II: Metilfenidato y lisdexanfetamina requieren recetario oficial.",
-      "No alcanza: PDF, foto, receta simple de prepaga o receta electrónica no integrada al circuito oficial.",
-      "Farmacia: La validación de cobertura puede ser necesaria, pero no reemplaza el requisito legal de receta.",
-      "Plazo: La receta de psicotrópicos tiene validez limitada; en la práctica se usa 30 días desde la emisión.",
+      "Circuito original: Ley 19.303 exige formulario oficial por triplicado: una parte queda en farmacia, otra va a la autoridad sanitaria y otra queda con el médico.",
+      "Circuito digital: Resolución 2214/2025 exige receta electrónica para medicamentos de expendio legalmente restringido, con plataforma registrada, repositorio, CUIR, firma, REFEPS, libro digital y acceso para fiscalización.",
+      "Plazo vencido: El plazo nacional de adecuación para Lista II ya venció, pero eso no significa que el circuito funcione en cada farmacia.",
+      "Problema para el paciente: Si el circuito digital no está operativo, la farmacia vuelve al papel oficial. El costo lo paga el paciente: más trámites, demoras y riesgo de quedarse sin medicación.",
     ],
     jurisdicciones: [
-      "Nación: Ley 27.553, Decreto 98/2023, Decreto 345/2024, Resolución 2214/2025 y Disposición 1/2025 ordenan el marco de receta electrónica, plataformas registradas e interoperabilidad.",
-      "PBA: Resolución 140/2025 autoriza comprobantes de validación para Psicotrópicos Lista III/IV y Estupefacientes Lista III. Para Lista II, hasta que exista receta oficial electrónica, mantiene formularios oficiales.",
-      "CABA: Ley 6439 permite receta papel, electrónica o digital, pero aclara que no modifica los circuitos especiales de psicotrópicos y estupefacientes.",
+      "Nación: Define el estándar digital y la obligación de receta electrónica para estos medicamentos.",
+      "Jurisdicción local: Debe adaptar permisos, fiscalización, registros y reglas para que el circuito digital reemplace al recetario físico.",
+      "Farmacia/plataforma: Tiene que poder validar la receta, registrarla, archivarla y dejarla disponible para control sanitario.",
     ],
   },
   {
