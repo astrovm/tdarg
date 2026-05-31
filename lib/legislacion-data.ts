@@ -13,7 +13,7 @@ export const resumenLegislacion = [
   {
     titulo: "Cobertura",
     descripcion:
-      "Ambulatorios suelen cubrirse al 40%; tratamientos crónicos, al 70%. TDAH suele quedar en el primer grupo.",
+      "Ambulatorios se cubren al 40%; crónicos, al 70%. TDAH no está reconocido legalmente como crónico para esa cobertura.",
   },
   {
     titulo: "Educación",
@@ -43,10 +43,10 @@ export const leyes = [
     etiqueta: "Cobertura",
     numero: "Pedir cobertura",
     descripcion:
-      "El PMO distingue medicamentos ambulatorios, con cobertura habitual del 40%, y tratamientos crónicos, con cobertura del 70%. En TDAH, la cobertura suele quedar en el esquema ambulatorio salvo evaluación específica.",
+      "El PMO distingue medicamentos ambulatorios, con cobertura del 40%, y tratamientos crónicos, con cobertura del 70%. TDAH no está reconocido legalmente como patología crónica para esa cobertura.",
     puntosClave: [
-      "Cobertura habitual: Si el medicamento entra como ambulatorio, el descuento suele ser 40%.",
-      "Tratamiento crónico: La categoría de crónicos puede cubrir 70%, pero TDAH no siempre queda reconocido ahí en la práctica.",
+      "Cobertura base: Los medicamentos para TDAH quedan en el descuento ambulatorio del 40%.",
+      "Tratamiento crónico: La categoría de crónicos cubre 70%, pero TDAH no está incluido legalmente en esa categoría.",
       "Medicamentos nuevos: Lisdexanfetamina o atomoxetina pueden tener rechazos iniciales por no figurar explícitamente en el PMO base.",
       "CUD: No es una vía habitual para TDAH. Solo puede cambiar la cobertura si una junta interdisciplinaria certifica discapacidad funcional.",
     ],
