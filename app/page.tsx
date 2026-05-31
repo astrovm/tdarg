@@ -34,7 +34,7 @@ const primaryLinks = [
   {
     href: "/precios",
     title: "Precios",
-    description: "Medicamentos, dosis, precio por mg y estimación con cobertura.",
+    description: "Medicamentos, dosis, precio por mg y precio con 40%.",
     icon: TrendingUp,
     tone: accent.prices,
   },
@@ -98,8 +98,7 @@ export default function HomePage() {
                 TDAH en Argentina
               </h1>
               <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
-                Precios de medicación, especialistas, receta, cobertura y guías
-                clínicas.
+                Precios de medicación, especialistas, receta, cobertura y guías.
               </p>
               <div className="mt-6 flex flex-col items-center gap-3 sm:mt-7">
                 <Link href="/precios" className="group">
@@ -148,7 +147,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 py-10">
             <div className="mb-6">
               <h2 className="text-2xl font-semibold text-foreground">
-                Guías prácticas
+                Guías
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 Diagnóstico, tratamiento, comorbilidades y herramientas.

@@ -43,7 +43,7 @@ export default function HerramientasPage() {
   return (
     <StepGuideLayout
       title="Herramientas para el día a día"
-      description="Estrategias simples para organizarte, enfocarte y regularte mejor"
+      description="Organización, foco y regulación emocional"
       steps={steps}
       currentStep={currentStep}
       progress={progress}
@@ -203,7 +203,7 @@ const references: Reference[] = [
     title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
     authors: "Hallowell, E. M., & Ratey, J. J.",
     url: "/adhd-2.0.pdf",
-    description: "Fuente de estrategias prácticas y enfoque de fortalezas.",
+    description: "Estrategias conductuales para organización, foco y regulación.",
     year: "2021",
   },
 ];

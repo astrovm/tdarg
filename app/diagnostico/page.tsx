@@ -265,7 +265,7 @@ export default function DiagnosticoPage() {
                   <strong className="text-foreground">
                     Marcaste un patrón compatible. Si los síntomas llevan más de
                     6 meses, empezaron antes de los 12 años y no se explican
-                    mejor por otro cuadro, conviene pedir evaluación clínica.
+                    mejor por otro cuadro, pedí evaluación clínica.
                   </strong>
                 ) : (
                   <span>
@@ -349,9 +349,9 @@ export default function DiagnosticoPage() {
               <InfoCard
                 title="Ejemplos concretos"
                 items={[
-                  "Situaciones reales de olvidos, demoras, impulsividad o desorganización.",
+                  "Ejemplos fechados de olvidos, demoras, impulsividad o desorganización.",
                   "Impacto en estudio, trabajo, vínculos, dinero o manejo diario.",
-                  "Estrategias probadas y qué funcionó o no funcionó.",
+                  "Qué intentaste para manejarlo y con qué resultado.",
                 ]}
               />
               <InfoCard
@@ -395,7 +395,7 @@ export default function DiagnosticoPage() {
               </div>
 
               <div className="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
-                En adultos, el TDAH suele verse más como desorganización,
+                En adultos, el TDAH puede aparecer como desorganización,
                 inquietud interna, impulsividad, procrastinación y regulación
                 emocional difícil que como hiperactividad visible.
               </div>

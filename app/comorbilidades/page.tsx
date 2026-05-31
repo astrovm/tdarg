@@ -109,7 +109,7 @@ export default function ComorbilidadesPage() {
                   ]}
                 />
                 <InfoCard
-                  title="Qué conviene ordenar"
+                  title="Qué revisar"
                   items={[
                     "Historia desde la infancia: síntomas persistentes vs episodios.",
                     "Sueño, ansiedad, ánimo, consumo de sustancias y riesgo actual.",
@@ -125,8 +125,8 @@ export default function ComorbilidadesPage() {
               <InfoCard
                 title="Ansiedad"
                 items={[
-                  "Puede aparecer por años de olvidos, errores, demoras y sobrecarga.",
-                  "También puede existir como trastorno propio y necesitar tratamiento específico.",
+                  "Puede aparecer después de años de olvidos, errores, demoras y sobrecarga.",
+                  "También puede ser un trastorno propio y requerir tratamiento.",
                   "Al iniciar medicación para TDAH conviene monitorear ansiedad y sueño.",
                 ]}
               />
@@ -134,7 +134,7 @@ export default function ComorbilidadesPage() {
                 title="Depresión"
                 items={[
                   "Puede ser secundaria a frustración crónica, baja autoestima o problemas laborales.",
-                  "También puede coexistir de forma independiente.",
+                  "También puede ser un cuadro independiente.",
                   "Concentración baja, fatiga y falta de motivación pueden confundir ambos cuadros.",
                 ]}
               />
@@ -142,8 +142,8 @@ export default function ComorbilidadesPage() {
                 title="Sueño"
                 items={[
                   "Insomnio, sueño irregular o piernas inquietas pueden empeorar atención y ánimo.",
-                  "Antes de subir medicación, conviene revisar horarios, descanso y consumo de cafeína.",
-                  "Dormir mal puede parecer TDAH más severo aunque el problema principal sea otro.",
+                  "Antes de ajustar medicación, revisar horarios, descanso y consumo de cafeína.",
+                  "Dormir mal puede aumentar síntomas parecidos a TDAH.",
                 ]}
               />
             </div>
@@ -154,7 +154,7 @@ export default function ComorbilidadesPage() {
               <InfoCard
                 title="Diferencias útiles"
                 items={[
-                  "TDAH: dificultad más general para sostener foco, regular impulsos y organizarse.",
+          "TDAH: dificultad persistente para sostener foco, regular impulsos y organizarse.",
                   "TEA: intereses intensos, rigidez, sensorialidad y dificultad con cambios.",
                   "Pueden coexistir: hiperfoco, desorganización, sobrecarga sensorial e inquietud interna.",
                 ]}
@@ -176,15 +176,15 @@ export default function ComorbilidadesPage() {
                 title="Bipolaridad y TLP"
                 items={[
                   "Bipolaridad: buscar episodios de ánimo, energía y sueño claramente distintos del estado habitual.",
-                  "TLP: impulsividad y desregulación suelen variar más con estrés interpersonal.",
+                  "TLP: impulsividad y desregulación ligadas a estrés interpersonal.",
                   "Si hay sospecha de bipolaridad, se evalúa estabilización del ánimo antes de estimulantes.",
                 ]}
               />
               <InfoCard
                 title="TCA y consumos"
                 items={[
-                  "La impulsividad y la desorganización pueden favorecer atracones o comidas muy irregulares.",
-                  "También pueden aparecer compras compulsivas, apuestas o uso problemático de internet.",
+                  "Impulsividad y desorganización pueden acompañarse de atracones o comidas muy irregulares.",
+                  "Revisar compras compulsivas, apuestas o uso problemático de internet.",
                   "La medicación estimulante bien indicada no implica por sí sola consumo problemático; requiere seguimiento.",
                 ]}
               />
@@ -214,7 +214,7 @@ export default function ComorbilidadesPage() {
 
               <div className="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
                 La clave no es tratar todo a la vez. Es identificar qué cuadro
-                explica mejor el deterioro actual y ajustar el orden del
+                pesa más en el deterioro actual y ajustar el orden del
                 tratamiento con seguimiento profesional.
               </div>
             </>
@@ -250,7 +250,7 @@ export default function ComorbilidadesPage() {
               <Link href="/tratamientos">Ver tratamientos</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/herramientas">Ver herramientas prácticas</Link>
+              <Link href="/herramientas">Ver herramientas</Link>
             </Button>
           </div>
         )}

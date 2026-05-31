@@ -118,7 +118,7 @@ export default function TratamientosPage() {
                 title="Terapia"
                 items={[
                   "Ayuda a ordenar hábitos, funciones ejecutivas y regulación emocional.",
-                  "La TCC suele usarse para trabajar organización, planificación y pensamientos rígidos.",
+                  "La TCC trabaja organización, planificación y pensamientos rígidos.",
                   "Puede combinarse con medicación o usarse como apoyo principal según el caso.",
                 ]}
               />
@@ -126,7 +126,7 @@ export default function TratamientosPage() {
                 title="Rutina"
                 items={[
                   "Sueño, ejercicio y estructura diaria modifican el nivel de síntomas.",
-                  "Los cambios funcionan mejor cuando son simples y sostenibles.",
+                  "Conviene cambiar pocas cosas por vez y sostenerlas.",
                   "El objetivo no es disciplina perfecta, sino menos fricción diaria.",
                 ]}
               />
@@ -136,8 +136,8 @@ export default function TratamientosPage() {
           {currentStep === 2 && (
             <>
               <div className="rounded-lg border border-emerald-500/25 bg-emerald-500/10 p-4 text-sm text-foreground">
-                <strong>Primera línea:</strong> los estimulantes suelen ser la
-                opción más efectiva. Actúan el mismo día y su efecto termina al
+                <strong>Primera línea:</strong> los estimulantes tienen mayor
+                efecto sobre síntomas centrales. Actúan el mismo día y su efecto termina al
                 cerrar su ventana de duración.
               </div>
 
@@ -206,7 +206,7 @@ export default function TratamientosPage() {
                       value: "Inicio frecuente en 40 mg; máximo 100 mg/día.",
                     },
                     {
-                      label: "Uso estratégico",
+                      label: "Cuándo se considera",
                       value:
                         "Plan B si los estimulantes fallan o si hay antecedentes de adicciones, tics severos o ansiedad marcada. El efecto pleno puede demorar 3 a 6 semanas.",
                     },
@@ -220,7 +220,7 @@ export default function TratamientosPage() {
                     {
                       label: "Bupropión",
                       value:
-                        "24 h en formulaciones XL. Rango adulto usual 150 a 300 mg/día; puede considerarse si coexiste depresión o tabaquismo.",
+                        "24 h en formulaciones XL. Rango adulto usual 150 a 300 mg/día; se evalúa si coexiste depresión o tabaquismo.",
                     },
                     {
                       label: "Clonidina",
@@ -230,7 +230,7 @@ export default function TratamientosPage() {
                     {
                       label: "Modafinilo / armodafinilo",
                       value:
-                        "Se evalúan si predominan fatiga mental extrema, somnolencia diurna o enlentecimiento cognitivo.",
+                        "Se evalúan si predominan somnolencia diurna o fatiga marcada.",
                     },
                   ]}
                 />
@@ -287,8 +287,8 @@ export default function TratamientosPage() {
               <InfoCard
                 title="Ejercicio"
                 items={[
-                  "Caminar rápido, bicicleta, natación o deporte pueden ayudar a foco y ánimo.",
-                  "La constancia suele importar más que la intensidad.",
+                  "Caminar rápido, bicicleta, natación o deporte suman movimiento regular.",
+                  "Mejor sostener una rutina breve que depender de entrenamientos largos.",
                   "También sirven actividades de coordinación como yoga, pilates o artes marciales.",
                 ]}
               />

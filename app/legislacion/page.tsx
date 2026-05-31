@@ -63,7 +63,7 @@ export default function LegislacionPage() {
 
       <PageHero
         title="Leyes sobre TDAH en Argentina"
-        description="Qué dice la normativa, cómo se aplica en la práctica y qué puntos conviene revisar antes de pedir cobertura."
+        description="Receta, cobertura de medicación y adaptaciones educativas."
       />
 
       {/* Laws Section */}
@@ -124,7 +124,7 @@ export default function LegislacionPage() {
                   {ley.puntosClave.length > 0 && (
                     <div className="rounded-md border bg-muted/40 p-4">
                       <div className={`mb-3 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
-                        Puntos prácticos
+                        Puntos clave
                       </div>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                         {ley.puntosClave.map((punto) => {
