@@ -22,6 +22,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { InfoCard } from "@/components/info-card";
 import { StepGuideLayout } from "@/components/step-guide-layout";
+import { References, type Reference } from "@/components/references";
 import { useStepProgress } from "@/hooks/use-step-progress";
 import type { StepDefinition } from "@/lib/steps";
 
@@ -45,6 +46,7 @@ const inattentiveSymptoms = [
   { id: "ina-tareas", text: "No termino las tareas que empiezo" },
   { id: "ina-organizacion", text: "Me cuesta organizarme" },
   { id: "ina-objetos", text: "Pierdo objetos importantes" },
+  { id: "ina-divagacion", text: "Mi mente divaga constantemente (mind wandering) con pensamientos inconexos" },
 ] as const;
 
 const hyperactiveSymptoms = [
@@ -59,6 +61,7 @@ const executiveSymptoms = [
   { id: "exec-procrastinacion", text: "Dejo tareas importantes para último momento" },
   { id: "exec-hiperfoco", text: "Me engancho demasiado con tareas de interés" },
   { id: "exec-desregulacion", text: "Tengo reacciones emocionales intensas" },
+  { id: "exec-frustracion", text: "Tengo muy baja tolerancia a la frustración y estallidos de enojo bruscos" },
 ] as const;
 
 function ChecklistGroup({
@@ -123,6 +126,7 @@ export default function DiagnosticoPage() {
   );
   const [ageGroup, setAgeGroup] = useState<"adult" | "minor">("adult");
   const [impairmentConfirmed, setImpairmentConfirmed] = useState(false);
+  const [childhoodOnset, setChildhoodOnset] = useState(false);
 
   const toggleSymptom = (id: string, checked: CheckedState) => {
     setSelectedSymptoms((prevSelected) => {
@@ -151,11 +155,13 @@ export default function DiagnosticoPage() {
     selectedSymptoms.has(symptom.id)
   ).length;
   const symptomThreshold = ageGroup === "adult" ? 5 : 6;
+  // La condicion diagnostica oficial solo cuenta inatencion o hiperactividad/impulsividad
   const meetsThreshold =
     inattentiveCount >= symptomThreshold ||
-    hyperactiveCount >= symptomThreshold ||
-    executiveCount >= symptomThreshold;
-  const showReferralPrompt = meetsThreshold && impairmentConfirmed;
+    hyperactiveCount >= symptomThreshold;
+  // Los sintomas ejecutivos se muestran como informacion de apoyo clinico
+  const hasSupportingSymptoms = executiveCount > 0;
+  const showReferralPrompt = meetsThreshold && impairmentConfirmed && childhoodOnset;
 
   return (
     <StepGuideLayout
@@ -260,12 +266,25 @@ export default function DiagnosticoPage() {
                 </span>
               </label>
 
+              <label className="flex cursor-pointer items-start gap-3 rounded-lg border bg-muted/40 p-4">
+                <Checkbox
+                  checked={childhoodOnset}
+                  onCheckedChange={(checked) =>
+                    setChildhoodOnset(checked === true)
+                  }
+                  className="mt-1"
+                />
+                <span className="text-sm">
+                  Varios de estos síntomas (u otros similares) ya estaban presentes antes de mis 12 años.
+                </span>
+              </label>
+
               <div className="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
                 {showReferralPrompt ? (
                   <strong className="text-foreground">
-                    Marcaste un patrón compatible. Si los síntomas llevan más de
-                    6 meses, empezaron antes de los 12 años y no se explican
-                    mejor por otro cuadro, pedí evaluación clínica.
+                    Marcaste un patrón compatible.
+                    {hasSupportingSymptoms && " Los síntomas ejecutivos/emocionales apoyan el perfil clínico."} Si los síntomas llevan más de
+                    6 meses y no se explican mejor por otro cuadro, pedí evaluación clínica.
                   </strong>
                 ) : (
                   <span>
@@ -282,19 +301,46 @@ export default function DiagnosticoPage() {
             <>
               <div className="grid gap-4 md:grid-cols-3">
                 <InfoCard
-                  title="Qué confirma el diagnóstico"
+                  title="¿Quién diagnostica?"
                   items={[
-                    "Entrevista clínica con historia desde la infancia.",
+                    "El diagnóstico del TDAH solo puede ser realizado por un médico psiquiatra, neurólogo o un psicólogo con entrenamiento en la evaluación clínica del trastorno.",
+                    "Evalúa diagnóstico clínico, comorbilidades y puede indicar medicación si corresponde.",
+                    "Puede emitir receta oficial para estimulantes cuando es necesario.",
+                  ]}
+                />
+                <InfoCard
+                  title="¿Cómo se diagnostica?"
+                  items={[
+                    "El diagnóstico es 100% clínico, basado en entrevistas detalladas sobre la historia del paciente y el impacto en su vida.",
                     "Síntomas persistentes, no solo una etapa de estrés.",
                     "Impacto claro en al menos dos áreas de la vida.",
                   ]}
                 />
                 <InfoCard
-                  title="Herramientas útiles"
+                  title="Derribar mitos"
                   items={[
-                    "DIVA-5 para ordenar la entrevista clínica.",
-                    "ASRS-v1.1 para síntomas actuales.",
-                    "WURS-25 para rastrear síntomas de infancia.",
+                    "El TDAH no puede ser diagnosticado solamente mediante escalas de síntomas, evaluaciones neuropsicológicas, pruebas de laboratorio o métodos de imágenes cerebrales (resonancias, electros, etc.).",
+                    "Las pruebas de atención (como el Test de Stroop o CPT) son solo un complemento para objetivar datos, no hacen el diagnóstico definitivo.",
+                    "No siempre es obligatorio realizar neuropsicología para diagnosticar TDAH.",
+                  ]}
+                />
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                <InfoCard
+                  title="Escalas en Argentina"
+                  items={[
+                    "DIVA-5: entrevista estructurada disponible en español, de uso muy frecuente para ordenar la evaluación.",
+                    "ASRS: escala de autoinforme validada en Buenos Aires para evaluar síntomas actuales.",
+                    "WURS-25: escala de autoinforme para evaluar si los síntomas ya estaban presentes en la infancia.",
+                  ]}
+                />
+                <InfoCard
+                  title="Psicólogo clínico"
+                  items={[
+                    "Evalúa funcionamiento, historia y síntomas con entrevistas estructuradas.",
+                    "Puede usar escalas y entrevistas estructuradas.",
+                    "Puede derivar a evaluación médica si hace falta.",
                   ]}
                 />
                 <InfoCard
@@ -306,33 +352,6 @@ export default function DiagnosticoPage() {
                   ]}
                 />
               </div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                <InfoCard
-                  title="Psiquiatra o neurólogo"
-                  items={[
-                    "Evalúa diagnóstico clínico y comorbilidades.",
-                    "Puede indicar medicación si corresponde.",
-                    "Puede emitir receta oficial para estimulantes.",
-                  ]}
-                />
-                <InfoCard
-                  title="Psicólogo clínico"
-                  items={[
-                    "Evalúa funcionamiento, historia y síntomas.",
-                    "Puede usar escalas y entrevistas estructuradas.",
-                    "Puede derivar a evaluación médica si hace falta.",
-                  ]}
-                />
-                <InfoCard
-                  title="Neuropsicología"
-                  items={[
-                    "Aporta tests de atención y funciones ejecutivas.",
-                    "Puede ayudar en casos complejos o diferenciales.",
-                    "No siempre es obligatorio para diagnosticar TDAH.",
-                  ]}
-                />
-              </div>
             </>
           )}
 
@@ -341,9 +360,9 @@ export default function DiagnosticoPage() {
               <InfoCard
                 title="Documentos"
                 items={[
-                  "Boletines escolares, informes previos o evaluaciones antiguas.",
-                  "Lista de medicación actual y antecedentes familiares.",
-                  "Datos de sueño, consumo de cafeína, alcohol u otras sustancias.",
+                  "Boletines o informes escolares de la escuela primaria y secundaria, para demostrar que los síntomas o el bajo rendimiento existían antes de los 12 años.",
+                  "Historia familiar de primer grado (padres, hermanos): indague si hay TDAH, depresión, bipolaridad, problemas de ansiedad, consumo de sustancias o tics. El TDAH es altamente heredable y la comorbilidad psiquiátrica es la norma y no la excepción.",
+                  "Registros médicos sobre problemas de sueño (muy prevalentes, presentes en el 80% de los adultos con TDAH), asma, obesidad o problemas tiroideos, que sirven para descartar otras patologías que imitan al TDAH.",
                 ]}
               />
               <InfoCard
@@ -434,6 +453,35 @@ export default function DiagnosticoPage() {
           </div>
         )}
       </Card>
+
+      <References references={diagnosticoReferences} />
     </StepGuideLayout>
   );
 }
+
+const diagnosticoReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Primera parte",
+    authors: "AAPB",
+    url: "/primer-consenso-argentino-tdah-1.pdf",
+    description: "Vertex Rev Arg Psiquiatr. 2025",
+    year: "2025",
+  },
+  {
+    id: 2,
+    title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Segunda parte",
+    authors: "AAPB",
+    url: "/primer-consenso-argentino-tdah-2.pdf",
+    description: "Vertex Rev Arg Psiquiatr. 2025",
+    year: "2025",
+  },
+  {
+    id: 3,
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Marco de evidencia internacional sobre diagnóstico y evaluación del TDAH.",
+    year: "2021",
+  },
+];

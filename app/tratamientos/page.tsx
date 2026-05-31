@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { InfoCard } from "@/components/info-card";
 import { StepGuideLayout } from "@/components/step-guide-layout";
+import { References, type Reference } from "@/components/references";
 import { useStepProgress } from "@/hooks/use-step-progress";
 import type { StepDefinition } from "@/lib/steps";
 
@@ -335,6 +336,35 @@ export default function TratamientosPage() {
           </div>
         )}
       </Card>
+
+      <References references={tratamientosReferences} />
     </StepGuideLayout>
   );
 }
+
+const tratamientosReferences: Reference[] = [
+  {
+    id: 1,
+    title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Segunda parte",
+    authors: "AAPB",
+    url: "/primer-consenso-argentino-tdah-2.pdf",
+    description: "Vertex Rev Arg Psiquiatr. 2025",
+    year: "2025",
+  },
+  {
+    id: 2,
+    title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Tercera parte",
+    authors: "AAPB",
+    url: "/primer-consenso-argentino-tdah-3.pdf",
+    description: "Vertex Rev Arg Psiquiatr. 2025",
+    year: "2025",
+  },
+  {
+    id: 3,
+    title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
+    authors: "Stephen V. Faraone, Tobias Banaschewski, David Coghill et al.",
+    url: "/international-consensus-208-conclusions.pdf",
+    description: "Marco de evidencia internacional sobre tratamiento farmacológico y psicosocial del TDAH.",
+    year: "2021",
+  },
+];
