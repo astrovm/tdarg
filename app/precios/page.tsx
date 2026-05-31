@@ -55,24 +55,18 @@ function isLisdexanfetamina(medicamento: Medicamento): boolean {
 
 const priceTone = {
   stimulant: {
-    section: "border-emerald-500/30 bg-emerald-500/5",
-    rail: "before:bg-emerald-500",
     heading: "text-emerald-700 dark:text-emerald-300",
     price: "text-emerald-700 dark:text-emerald-300",
     chip: "border-emerald-500/25 bg-emerald-500/10",
     icon: "text-emerald-600 dark:text-emerald-300",
   },
   nonstimulant: {
-    section: "border-sky-500/30 bg-sky-500/5",
-    rail: "before:bg-sky-500",
     heading: "text-sky-700 dark:text-sky-300",
     price: "text-sky-700 dark:text-sky-300",
     chip: "border-sky-500/25 bg-sky-500/10",
     icon: "text-sky-600 dark:text-sky-300",
   },
   offlabel: {
-    section: "border-amber-500/30 bg-amber-500/5",
-    rail: "before:bg-amber-500",
     heading: "text-amber-700 dark:text-amber-300",
     price: "text-amber-700 dark:text-amber-300",
     chip: "border-amber-500/25 bg-amber-500/10",
@@ -96,7 +90,7 @@ function MedicationPriceCard({
 
   return (
     <Card
-      className={`relative overflow-hidden bg-card border shadow-sm before:absolute before:inset-y-0 before:left-0 before:w-1 ${style.rail}`}
+      className="bg-card border shadow-sm"
     >
       <CardHeader className="pb-3 pl-6">
         <CardTitle className="text-lg leading-tight">
@@ -382,7 +376,7 @@ export default function PreciosPage() {
             <div className="space-y-8 mt-6">
                 {/* Estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.estimulantes).length > 0 && (
-                  <div className={`p-6 rounded-lg border ${priceTone.stimulant.section}`}>
+                  <div className="p-6 rounded-lg border">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="h-8 w-1.5 rounded-full bg-emerald-500" />
                       <h2 className="text-2xl font-bold text-foreground">
@@ -431,7 +425,7 @@ export default function PreciosPage() {
                 {/* No estimulantes usados para TDAH */}
                 {Object.keys(medicamentosAgrupados.noestimulantes).length >
                   0 && (
-                  <div className={`p-6 rounded-lg border ${priceTone.nonstimulant.section}`}>
+                  <div className="p-6 rounded-lg border">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="h-8 w-1.5 rounded-full bg-sky-500" />
                       <h2 className="text-2xl font-bold text-foreground">
@@ -463,7 +457,7 @@ export default function PreciosPage() {
 
                 {/* Medicamentos con uso off-label para TDAH */}
                 {Object.keys(medicamentosAgrupados.offlabel).length > 0 && (
-                  <div className={`p-6 rounded-lg border ${priceTone.offlabel.section}`}>
+                  <div className="p-6 rounded-lg border">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="h-8 w-1.5 rounded-full bg-amber-500" />
                       <h2 className="text-2xl font-bold text-foreground">
