@@ -16,7 +16,7 @@ const leyes = [
     etiqueta: "Receta",
     numero: "Por qué sigue siendo difícil conseguir estimulantes",
     descripcion:
-      "Metilfenidato y lisdexanfetamina están en Lista II de la Ley 19.303. Esa ley no los trata como una receta común: exige un circuito oficial de control entre médico, farmacia y autoridad sanitaria. La receta electrónica nacional ya debería reemplazar ese circuito en papel, pero para Lista II todavía depende de que jurisdicciones, plataformas, repositorios y farmacias estén adaptados.",
+      "Metilfenidato y lisdexanfetamina están en Lista II de la Ley 19.303. Esa ley no los trata como una receta común: exige un circuito oficial de control entre médico, farmacia y autoridad sanitaria. La normativa nacional ya ordenó llevar ese circuito a receta electrónica, pero para Lista II todavía depende de que jurisdicciones, plataformas, repositorios y farmacias estén adaptados.",
     puntosClave: [
       "Circuito original: Ley 19.303 exige formulario oficial por triplicado: una parte queda en farmacia, otra va a la autoridad sanitaria y otra queda con el médico.",
       "Circuito digital: Resolución 2214/2025 exige receta electrónica para medicamentos de expendio legalmente restringido, con plataforma registrada, repositorio, CUIR, firma, REFEPS, libro digital y acceso para fiscalización.",
@@ -31,7 +31,7 @@ const leyes = [
   },
   {
     etiqueta: "Cobertura",
-    numero: "Por qué la cobertura suele quedar corta",
+    numero: "Por qué la cobertura no llega al 70%",
     descripcion:
       "El PMO no cubre “TDAH” como diagnóstico: cubre medicamentos concretos dentro de listados, porcentajes y precios de referencia. En la Resolución 310/2004, metilfenidato figura con cobertura del 40%. El 70% está reservado para medicamentos destinados a patologías crónicas prevalentes incluidas en ese esquema; TDAH no está reconocido legalmente como crónico para esa cobertura.",
     puntosClave: [
@@ -67,7 +67,7 @@ const leyes = [
     puntosClave: [
       "No es automático: El diagnóstico de TDAH no alcanza por sí mismo para obtener CUD.",
       "Evaluación: La discapacidad se define por limitación funcional, no por el nombre del diagnóstico.",
-      "Cobertura: Para medicación de TDAH, la vía habitual es PMO o reclamo al financiador, no CUD.",
+      "Cobertura: Para medicación de TDAH, la discusión habitual es PMO o vademécum del financiador, no CUD.",
     ],
   },
 ];
