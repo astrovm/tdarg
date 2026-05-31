@@ -78,10 +78,10 @@ const links = [
 
 export default function HomePage() {
   return (
-    <div className="bg-muted/30">
+    <div className="flex flex-1 flex-col bg-muted/30">
       <Header />
 
-      <main>
+      <main className="flex flex-1 flex-col">
         <section className="bg-background">
           <div className="container mx-auto px-4 py-10 md:py-14">
             <div className="mx-auto max-w-3xl text-center">
@@ -100,7 +100,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-secondary/45">
+        <section className="flex-1 bg-secondary/45">
           <div className="container mx-auto px-4 py-8 sm:py-10">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {links.map((item) => {
