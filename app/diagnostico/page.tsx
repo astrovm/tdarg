@@ -397,7 +397,7 @@ export default function DiagnosticoPage() {
               <div className="rounded-lg border bg-muted/40 p-4 text-sm text-muted-foreground">
                 En adultos, el TDAH puede aparecer como desorganización,
                 inquietud interna, impulsividad, procrastinación y regulación
-                emocional difícil que como hiperactividad visible.
+                emocional difícil, más que como hiperactividad visible.
               </div>
             </>
           )}
@@ -430,9 +430,6 @@ export default function DiagnosticoPage() {
           <div className="flex flex-wrap justify-center gap-3 border-t px-6 pb-6 pt-4">
             <Button variant="outline" asChild>
               <Link href="/tratamientos">Ver tratamientos</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/herramientas">Ver herramientas</Link>
             </Button>
           </div>
         )}

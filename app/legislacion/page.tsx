@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, GraduationCap, ReceiptText, ShieldCheck } from "lucide-react";
+import { BookOpen, ReceiptText } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -45,29 +45,6 @@ const leyes = [
       "PMO: Define el piso obligatorio para medicamentos listados.",
       "Financiador: Aplica vademécum, precios de referencia y reglas de plan sobre ese piso.",
       "Paciente: Puede pedir explicación por escrito de una negativa, pero no hay garantía legal de 70% para TDAH en esta norma.",
-    ],
-  },
-  {
-    etiqueta: "Educación",
-    numero: "Adaptaciones educativas",
-    descripcion:
-      "La Ley 27.306 permite pedir adecuaciones para cursar y rendir cuando hay diagnóstico formal de dificultad específica del aprendizaje.",
-    puntosClave: [
-      "Qué pedir: Más tiempo, pausas, consignas por escrito, evaluación oral o escrita según necesidad y herramientas tecnológicas.",
-      "Cómo pedirlo: Presentar diagnóstico formal y dejar el pedido por escrito.",
-      "Criterio: No es una ventaja; es una adecuación de acceso.",
-      "CUD: No hace falta CUD para pedir adaptaciones educativas por Ley 27.306.",
-    ],
-  },
-  {
-    etiqueta: "CUD",
-    numero: "CUD y discapacidad",
-    descripcion:
-      "TDAH por sí solo no implica CUD. Solo puede corresponder si una junta interdisciplinaria certifica una limitación funcional significativa.",
-    puntosClave: [
-      "No es automático: El diagnóstico de TDAH no alcanza por sí mismo para obtener CUD.",
-      "Evaluación: La discapacidad se define por limitación funcional, no por el nombre del diagnóstico.",
-      "Cobertura: Para medicación de TDAH, la discusión habitual es PMO o vademécum del financiador, no CUD.",
     ],
   },
 ];
@@ -128,24 +105,6 @@ const fuentesDocumentacion = {
       referencia: "Ministerio de Salud",
       url: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-310-2004-94218/texto",
     },
-    {
-      titulo: "Ley 27.306 - Dificultades Específicas del Aprendizaje",
-      descripcion: "Adecuaciones educativas para dificultades específicas del aprendizaje.",
-      referencia: "InfoLeg",
-      url: "https://servicios.infoleg.gob.ar/infolegInternet/anexos/265000-269999/267234/norma.htm",
-    },
-    {
-      titulo: "Ley 24.901 - Prestaciones básicas por discapacidad",
-      descripcion: "Cobertura integral para personas con discapacidad certificada.",
-      referencia: "Argentina.gob.ar",
-      url: "https://www.argentina.gob.ar/normativa/nacional/ley-24901-47677/actualizacion",
-    },
-    {
-      titulo: "Ley 22.431 - Sistema de protección integral de discapacidad",
-      descripcion: "Definición legal de discapacidad y certificado.",
-      referencia: "InfoLeg",
-      url: "https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20620/norma.htm",
-    },
   ],
   notaLegal: "Información educativa basada en fuentes públicas. No reemplaza asesoramiento médico ni legal.",
 };
@@ -172,7 +131,7 @@ export default function LegislacionPage() {
     url: fuente.url,
   }));
 
-  const lawIcons = [ReceiptText, BookOpen, GraduationCap, ShieldCheck];
+  const lawIcons = [ReceiptText, BookOpen];
   const lawTones = [
     {
       icon: "bg-amber-500/12 text-amber-700 dark:text-amber-300",
@@ -184,16 +143,6 @@ export default function LegislacionPage() {
       label: "text-sky-700 dark:text-sky-300",
       dot: "bg-sky-500",
     },
-    {
-      icon: "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
-      label: "text-emerald-700 dark:text-emerald-300",
-      dot: "bg-emerald-500",
-    },
-    {
-      icon: "bg-violet-500/12 text-violet-700 dark:text-violet-300",
-      label: "text-violet-700 dark:text-violet-300",
-      dot: "bg-violet-500",
-    },
   ];
 
   return (
@@ -202,7 +151,7 @@ export default function LegislacionPage() {
 
       <PageHero
         title="Leyes sobre TDAH en Argentina"
-        description="Receta, cobertura de medicación y adaptaciones educativas."
+        description="Receta y cobertura de medicación."
       />
 
       {/* Laws Section */}

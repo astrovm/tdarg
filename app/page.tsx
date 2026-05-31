@@ -6,14 +6,12 @@ import {
   Stethoscope,
   TrendingUp,
   Users,
-  Wrench,
 } from "lucide-react";
 
 import { Header } from "@/components/header";
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -27,7 +25,6 @@ const accent = {
   diagnosis: "bg-violet-500/12 text-violet-700 dark:text-violet-300",
   treatments: "bg-rose-500/12 text-rose-700 dark:text-rose-300",
   comorbidities: "bg-cyan-500/12 text-cyan-700 dark:text-cyan-300",
-  tools: "bg-indigo-500/12 text-indigo-700 dark:text-indigo-300",
 };
 
 const primaryLinks = [
@@ -48,13 +45,14 @@ const primaryLinks = [
   {
     href: "/legislacion",
     title: "Legislación",
-    description: "Receta física, cobertura y adaptaciones educativas.",
+    description: "Receta física y cobertura de medicamentos.",
     icon: Scale,
     tone: accent.legislation,
   },
 ];
 
-const guideLinks = [
+const links = [
+  ...primaryLinks,
   {
     href: "/diagnostico",
     title: "Diagnóstico",
@@ -75,13 +73,6 @@ const guideLinks = [
     description: "Ansiedad, ánimo, sueño, autismo e impulsividad.",
     icon: Users,
     tone: accent.comorbidities,
-  },
-  {
-    href: "/herramientas",
-    title: "Herramientas",
-    description: "Organización, foco y regulación para el día a día.",
-    icon: Wrench,
-    tone: accent.tools,
   },
 ];
 
@@ -110,9 +101,9 @@ export default function HomePage() {
         </section>
 
         <section className="bg-secondary/45">
-          <div className="container mx-auto px-4 py-8">
-            <div className="grid gap-4 md:grid-cols-3">
-              {primaryLinks.map((item) => {
+          <div className="container mx-auto px-4 py-8 sm:py-10">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {links.map((item) => {
                 const Icon = item.icon;
 
                 return (
@@ -135,49 +126,6 @@ export default function HomePage() {
                           </div>
                         </div>
                       </CardHeader>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-secondary/40">
-          <div className="container mx-auto px-4 py-10">
-            <div className="mb-6">
-              <h2 className="text-2xl font-semibold text-foreground">
-                Guías
-              </h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Diagnóstico, tratamiento, comorbilidades y herramientas.
-              </p>
-            </div>
-
-            <div className="grid gap-3 md:grid-cols-2">
-              {guideLinks.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <Link key={item.href} href={item.href} className="group">
-                    <Card className="h-full border bg-background/70 shadow-none transition-colors hover:border-primary/40 hover:bg-background">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
-                          >
-                            <Icon className="h-4 w-4" />
-                          </div>
-                          <div>
-                            <CardTitle className="text-base text-card-foreground group-hover:text-primary">
-                              {item.title}
-                            </CardTitle>
-                            <CardDescription className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                              {item.description}
-                            </CardDescription>
-                          </div>
-                        </div>
-                      </CardContent>
                     </Card>
                   </Link>
                 );

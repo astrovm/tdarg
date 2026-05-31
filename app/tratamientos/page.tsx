@@ -332,9 +332,6 @@ export default function TratamientosPage() {
             <Button variant="outline" asChild>
               <Link href="/precios">Ver precios</Link>
             </Button>
-            <Button variant="outline" asChild>
-              <Link href="/herramientas">Ver herramientas</Link>
-            </Button>
           </div>
         )}
       </Card>

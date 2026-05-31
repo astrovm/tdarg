@@ -249,9 +249,6 @@ export default function ComorbilidadesPage() {
             <Button asChild variant="outline">
               <Link href="/tratamientos">Ver tratamientos</Link>
             </Button>
-            <Button asChild variant="outline">
-              <Link href="/herramientas">Ver herramientas</Link>
-            </Button>
           </div>
         )}
       </Card>

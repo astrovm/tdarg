@@ -23,7 +23,6 @@ const guidesItems = [
   { href: "/diagnostico", label: "Diagnóstico" },
   { href: "/tratamientos", label: "Tratamientos" },
   { href: "/comorbilidades", label: "Comorbilidades" },
-  { href: "/herramientas", label: "Herramientas" },
 ];
 
 const allNavigationItems = [...mainNavigationItems, ...guidesItems];
