@@ -1,123 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-80126894-1', 'auto');
-  ga('send', 'pageview');
-</script>
+InfoLEG - Ministerio de Justicia y Derechos Humanos - Argentina
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TJE6KQ2XX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8TJE6KQ2XX');
-</script>
+SALUD
 
+Ley 27553
 
+Recetas electrónicas o digitales.
 
+El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de
 
+Ley:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>InfoLEG - Ministerio de Justicia y Derechos Humanos - Argentina</title>
-  
-
-
-  <link rel="StyleSheet" href="/infolegInternet/css/style_normas.css" type="text/css">
-
-  <meta content="Mecon" name="author"></head><body><div id="wrap"><header id="branding" role="banner">    <div id="encabezado_norma">	<img src="/infolegInternet/imagenes/left.png" width="100%" border="0" usemap="#Map" style="max-width: 740px;">        <map name="Map">            <area shape="rect" coords="11,4,192,30" href="//www.infoleg.gob.ar/" target="_blank" alt="inicio sitio infoleg">            <area shape="rect" coords="395,6,614,28" href="//www.jus.gob.ar/" target="_blank" alt="MInisterio de Justicia">        </map><br>    </div></header><div id="cleaner"></div></div>
-<div style="text-align: justify;"><span style="font-weight: bold;">SALUD</span><br style="font-weight: bold;">
-</div>
-<div style="text-align: justify;">
-<br style="font-weight: bold;">
-<span style="font-weight: bold;">Ley 27553</span><br style="font-weight: bold;">
-<br style="font-weight: bold;">
-<span style="font-weight: bold;">Recetas electrónicas o digitales.</span><br>
-<br>
-<div style="text-align: center;">El Senado y Cámara de Diputados de la Nación Argentina reunidos en Congreso, etc. sancionan con fuerza de <br>
-<br>
-Ley:<br>
-</div>
-<br>
-Artículo 1º- La presente ley tiene por objeto:<br>
-
-<br>
+Artículo 1º- La presente ley tiene por objeto:
 
 Establecer que la prescripción y dispensación de medicamentos, y toda
 otra prescripción, solo puedan ser redactadas y firmadas a través de
-plataformas electrónicas habilitadas a tal fin.<br>
-
-<br>
+plataformas electrónicas habilitadas a tal fin.
 
 Establecer que puedan utilizarse plataformas de teleasistencia en
 salud, en todo el territorio nacional, de conformidad con la Ley N°
 25.326 de Protección de los Datos Personales y la Ley N° 26.529 de
-Derechos del Paciente.<br>
+Derechos del Paciente.
 
-<br>
+(Artículo sustituido por art. 307 del  Decreto N° 70/2023  B.O. 21/12/2023)
 
-<span style="font-style: italic;">(Artículo sustituido por art. 307 del <a href="//servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=395521">Decreto N° 70/2023</a> B.O. 21/12/2023)</span><br>
-<br>
 Artículo 2º- La presente ley es de aplicación para toda receta o
 prescripción médica, odontológica o de otros profesionales sanitarios
 legalmente facultados a prescribir, en los respectivos ámbitos de
-asistencia sanitaria y atención farmacéutica pública y privada.<br>
-<br>
+asistencia sanitaria y atención farmacéutica pública y privada.
+
 Los medicamentos prescriptos en recetas electrónicas o digitales deben
 ser dispensados en cualquier farmacia del territorio nacional,
 servicios de farmacia de establecimientos de salud y establecimientos
 del sector salud habilitados para tal fin, acorde a las disposiciones
 vigentes. Asimismo, se aplica para toda plataforma de teleasistencia en
-salud que se utilice en el país.<br>
-<br>
+salud que se utilice en el país.
+
 Artículo 3º- La Autoridad de Aplicación de la presente ley será
 establecida por el Poder Ejecutivo nacional, coordinando su accionar
 con las autoridades jurisdiccionales competentes y los organismos con
-incumbencia en la materia que dichas autoridades determinen.<br>
-
-<br>
+incumbencia en la materia que dichas autoridades determinen.
 
 El Poder Ejecutivo Nacional establece los plazos necesarios para
 alcanzar la digitalización total en prescripción y dispensación de
 medicamentos y toda otra prescripción, el cual no podrá superar el 1°
 de julio de 2024, y regular el uso de plataformas de teleasistencia en
-salud.<br>
-
-<br>
+salud.
 
 El INSTITUTO NACIONAL DE SERVICIOS SOCIALES PARA JUBILADOS Y
 PENSIONADOS deberá ser convocado por la autoridad de aplicación a los
-fines de colaborar en la reglamentación que se dicte a tal efecto.<br>
+fines de colaborar en la reglamentación que se dicte a tal efecto.
 
-<br>
+(Artículo sustituido por art. 308 del  Decreto N° 70/2023  B.O. 21/12/2023)
 
-<span style="font-style: italic;">(Artículo sustituido por art. 308 del <a href="//servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=395521">Decreto N° 70/2023</a> B.O. 21/12/2023)</span><br>
-<br>
 Artículo 4º- Para la implementación de la presente ley se deben
 desarrollar y/o adecuar los sistemas electrónicos existentes y regular
 su implementación para utilizar recetas electrónicas o digitales, y
 plataformas de teleasistencia en salud, todo lo cual debe regular el
 organismo que el Poder Ejecutivo nacional oportunamente establezca y
-los organismos que cada jurisdicción determine.<br>
-<br>
+los organismos que cada jurisdicción determine.
+
 Asimismo, dichos organismos son los responsables de la fiscalización de
 los sistemas de recetas electrónicas o digitales, y de los sistemas de
 plataformas de teleasistencia en salud, quienes deben garantizar la
@@ -127,10 +68,10 @@ establecer los criterios de autorización y control de acceso a dichas
 bases de datos y garantizar el normal funcionamiento y estricto
 cumplimiento de la ley 25.326 de Protección de los Datos Personales, la
 ley 26.529 de Derechos del Paciente y demás normativas vigentes en la
-materia.<br>
-<br>
-Artículo 5º- Modifícase el inciso 7 del artículo 19 de la ley 17.132, el que quedará redactado de la siguiente manera:<br>
-<br>
+materia.
+
+Artículo 5º- Modifícase el inciso 7 del artículo 19 de la ley 17.132, el que quedará redactado de la siguiente manera:
+
 7. Prescribir o certificar en recetas manuscritas, electrónicas o
 digitales, en las que debe constar la siguiente información en idioma
 nacional: nombre, apellido, profesión, número de matrícula, domicilio,
@@ -143,68 +84,68 @@ digital. En caso de ser redactadas electrónicamente, la firma y demás
 requisitos técnicos y legales deben adecuarse a la legislación vigente.
 En caso de utilizar la firma digital, la misma debe adecuarse a la ley
 25.506, de firma digital, adhiriendo al régimen e intermediando una
-autoridad certificante.<br>
-<br>
-Artículo 6º- Incorpórase el artículo 2° bis al título I de la ley 17.132, el que quedará redactado de la siguiente manera:<br>
-<br>
+autoridad certificante.
+
+Artículo 6º- Incorpórase el artículo 2° bis al título I de la ley 17.132, el que quedará redactado de la siguiente manera:
+
 Artículo 2° bis: Se habilita la modalidad de teleasistencia para el
 ejercicio de la medicina, odontología y actividades de colaboración de
 las mismas, garantizando los derechos establecidos en la ley 26.529 de
 Derechos del Paciente. La teleasistencia puede desarrollarse solo para
 prácticas autorizadas a tal fin, de acuerdo a protocolos y plataformas
-aprobadas para la misma por la autoridad de aplicación.<br>
-<br>
-Artículo 7º- Modifícase el artículo 3º de la ley 23.277, el cual quedará redactado de la siguiente manera:<br>
-<br>
+aprobadas para la misma por la autoridad de aplicación.
+
+Artículo 7º- Modifícase el artículo 3º de la ley 23.277, el cual quedará redactado de la siguiente manera:
+
 Artículo 3º: El psicólogo puede ejercer su actividad autónoma en forma
 individual y/o integrando equipos interdisciplinarios, en forma privada
-o en instituciones públicas o privadas que requieran sus servicios.<br>
-<br>
+o en instituciones públicas o privadas que requieran sus servicios.
+
 En ambos casos pueden hacerlo a requerimiento de especialistas en otras
 disciplinas o de personas que voluntariamente soliciten su asistencia
 profesional. Pueden desarrollar el ejercicio de estas actividades a
 través de plataformas de teleasistencia previamente habilitadas para
 tal fin y autorizadas por la autoridad de aplicación, de acuerdo a
 protocolos y plataformas aprobadas por la misma y garantizando los
-derechos establecidos en la ley 26.529 de Derechos del Paciente.<br>
-<br>
-Artículo 8º- Modifícase el artículo 9° de la ley 17.565, el que quedará redactado de la siguiente manera:<br>
-<br>
+derechos establecidos en la ley 26.529 de Derechos del Paciente.
+
+Artículo 8º- Modifícase el artículo 9° de la ley 17.565, el que quedará redactado de la siguiente manera:
+
 Artículo 9°: En las farmacias el expendio de drogas, medicamentos o
 especialidades medicinales se ajusta a las siguientes formas de acuerdo
 a lo que establezca la legislación vigente o determine la autoridad
-sanitaria:<br>
-<br>
-1. Expendio legalmente restringido;<br>
-<br>
-2. Expendio bajo receta archivada;<br>
-<br>
-3. Expendio bajo receta;<br>
-<br>
-4. Expendio libre.<br>
-<br>
+sanitaria:
+
+1. Expendio legalmente restringido;
+
+2. Expendio bajo receta archivada;
+
+3. Expendio bajo receta;
+
+4. Expendio libre.
+
 Deben conservarse las recetas correspondientes a los puntos 1 y 2, en
 formato papel o digital, durante un plazo no menor de tres (3) años,
 después de dicho plazo pueden ser destruidas o borradas, previa
-comunicación a la autoridad sanitaria.<br>
-<br>
-Artículo 9º- Modifícase el artículo 10 de la ley 17.565, el que quedará redactado de la siguiente manera:<br>
-<br>
+comunicación a la autoridad sanitaria.
+
+Artículo 9º- Modifícase el artículo 10 de la ley 17.565, el que quedará redactado de la siguiente manera:
+
 Artículo 10: En las farmacias deben llevarse los siguientes registros o
-archivos digitales habilitados por la autoridad sanitaria:<br>
-<br>
-a) Recetario;<br>
-<br>
-b) Contralor de estupefacientes;<br>
-<br>
-c) Contralor de psicotrópicos;<br>
-<br>
-d) Inspecciones;<br>
-<br>
+archivos digitales habilitados por la autoridad sanitaria:
+
+a) Recetario;
+
+b) Contralor de estupefacientes;
+
+c) Contralor de psicotrópicos;
+
+d) Inspecciones;
+
 e) Otros registros o archivos digitales que la autoridad competente
 estime pertinentes. Éstos deben ser aprobados por la autoridad
-sanitaria.<br>
-<br>
+sanitaria.
+
 Deben llevarse en forma legible y sin dejar espacios en blanco, sin
 alterar el orden de los asientos de las recetas despachadas y sin
 enmiendas ni raspaduras. La autoridad sanitaria puede autorizar otro
@@ -213,32 +154,32 @@ inalterabilidad de los asientos. En caso de que estos libros sean
 llevados electrónicamente, la firma y demás requisitos técnicos y
 legales deben adecuarse a la legislación vigente y a lo que establezca
 la autoridad de aplicación, asegurando la inalterabilidad de los
-registros.<br>
-<br>
-Artículo 10.- Incorpórase el artículo 21 bis a la ley 17.818, el que quedará redactado de la siguiente manera:<br>
-<br>
+registros.
+
+Artículo 10.- Incorpórase el artículo 21 bis a la ley 17.818, el que quedará redactado de la siguiente manera:
+
 Artículo 21 bis: En caso de que las recetas mencionadas en la presente
 ley sean redactadas electrónicamente, o en caso de que los registros
 obligatorios sean llevados electrónicamente, la firma y demás
 requisitos técnicos y legales deben adecuarse a la legislación vigente
-y a lo que establezca la autoridad de aplicación.<br>
-<br>
-Artículo 11.- Incorpórase el artículo 18 bis a la ley 19.303, el que quedará redactado de la siguiente manera:<br>
-<br>
+y a lo que establezca la autoridad de aplicación.
+
+Artículo 11.- Incorpórase el artículo 18 bis a la ley 19.303, el que quedará redactado de la siguiente manera:
+
 Artículo 18 bis: En caso de que las recetas mencionadas en la presente
 ley sean redactadas electrónicamente, o en caso de que los registros
 obligatorios sean llevados electrónicamente, la firma y demás
 requisitos técnicos y legales deben adecuarse a la legislación especial
-vigente y a lo que establezca la autoridad de aplicación.<br>
-<br>
+vigente y a lo que establezca la autoridad de aplicación.
+
 Artículo 12.- Todos los procedimientos relativos a la regulación de la
 prescripción, dispensa y circuitos para la provisión de estupefacientes
 y psicotrópicos (importación, exportación, formularios y recetarios
 oficiales, libros, registros o archivos obligatorios, vales y cualquier
 otra documentación inherente a los mismos) deben, a partir de la
 presente ley, ser digitalizados según los plazos y criterios fijados
-por la autoridad competente.<br>
-<br>
+por la autoridad competente.
+
 Artículo 13.- Los sistemas aludidos en la presente ley deben
 contemplar el cumplimiento de todas las normativas vigentes que regulan
 toda la cadena de comercialización de medicamentos incluyendo los
@@ -248,31 +189,22 @@ teleasistencia, prescripción y dispensación para los pacientes, por vía
 informatizada o impresión de dicha constancia y la posibilidad de
 bloqueo por el farmacéutico cuando exista error manifiesto en la
 prescripción, para que el prescriptor pueda revisar, anular o reactivar
-según el caso.<br>
+según el caso.
 
-<br>
+(Artículo sustituido por art. 309 del  Decreto N° 70/2023  B.O. 21/12/2023)
 
-<span style="font-style: italic;">(Artículo sustituido por art. 309 del <a href="//servicios.infoleg.gob.ar/infolegInternet/verNorma.do?id=395521">Decreto N° 70/2023</a> B.O. 21/12/2023)</span><br>
-<br>
-Artículo 14.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley.<br>
-<br>
+Artículo 14.- Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a adherir a la presente ley.
+
 Artículo 15.- El Poder Ejecutivo nacional reglamentará la presente ley
-dentro de los ciento veinte (120) días de su promulgación.<br>
-<br>
-Artículo 16.- Comuníquese al Poder Ejecutivo nacional.<br>
-<br>
+dentro de los ciento veinte (120) días de su promulgación.
+
+Artículo 16.- Comuníquese al Poder Ejecutivo nacional.
+
 DADA EN LA SALA DE SESIONES DEL CONGRESO ARGENTINO, EN BUENOS AIRES, A
-LOS VEINTITRES DIAS DEL MES DE JULIO DEL AÑO DOS MIL VEINTE.<br>
-<br>
-<div style="text-align: center;">REGISTRADA BAJO EL N° 27553<br>
-</div>
-<br>
-CLAUDIA LEDESMA ABDALA DE ZAMORA - SERGIO MASSA - Marcelo Jorge Fuentes - Eduardo Cergnul<br>
-<br>
-<div style="text-align: right;">e. 11/08/2020 N° 31753/20 v. 11/08/2020<br>
+LOS VEINTITRES DIAS DEL MES DE JULIO DEL AÑO DOS MIL VEINTE.
 
+REGISTRADA BAJO EL N° 27553
 
+CLAUDIA LEDESMA ABDALA DE ZAMORA - SERGIO MASSA - Marcelo Jorge Fuentes - Eduardo Cergnul
 
-</div>
-</div>
-</body></html>
+e. 11/08/2020 N° 31753/20 v. 11/08/2020

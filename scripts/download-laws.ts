@@ -5,6 +5,8 @@ import path from 'path';
 import https from 'https';
 import zlib from 'zlib';
 import { URL } from 'url';
+import { execFileSync } from 'child_process';
+import os from 'os';
 
 // Type definitions
 interface LawConfig {
@@ -157,7 +159,7 @@ if (!fs.existsSync(DATA_DIR)) {
 }
 
 function filenameForLaw(law: LawConfig): string {
-  return `${law.id}.${law.format ?? 'html'}`;
+  return `${law.id}.md`;
 }
 
 // Helper function to download a URL
@@ -218,36 +220,12 @@ function downloadFile(url: string, filename: string, format: DownloadFormat = 'h
         try {
           const filePath = path.join(DATA_DIR, filename);
 
-          if (format === 'pdf') {
-            fs.writeFileSync(filePath, buffer);
-            console.log(`✅ Saved: ${filename} (${buffer.length} bytes)`);
-            resolve({
-              filename,
-              size: buffer.length,
-              downloadedAt: new Date().toISOString(),
-              url: url
-            });
-            return;
-          }
-
-          // Convert buffer to string with proper encoding detection
-          let data: string;
-          const bufferString = buffer.toString();
-
-          // Check if it's likely Windows-1252 by looking for specific byte patterns
-          if (bufferString.includes('�') || bufferString.includes('charset=windows-1252') || bufferString.includes('charset=ISO-8859-1')) {
-            // Try to decode as Windows-1252
-            data = buffer.toString('latin1');
-          } else {
-            // Default to UTF-8
-            data = buffer.toString('utf8');
-          }
-
-          fs.writeFileSync(filePath, data, 'utf8');
-          console.log(`✅ Saved: ${filename} (${data.length} bytes)`);
+          const markdown = convertToMarkdown(buffer, format);
+          fs.writeFileSync(filePath, markdown, 'utf8');
+          console.log(`✅ Saved: ${filename} (${markdown.length} bytes)`);
           resolve({
             filename,
-            size: data.length,
+            size: markdown.length,
             downloadedAt: new Date().toISOString(),
             url: url
           });
@@ -272,6 +250,99 @@ function downloadFile(url: string, filename: string, format: DownloadFormat = 'h
 
     req.end();
   });
+}
+
+function convertToMarkdown(buffer: Buffer, format: DownloadFormat): string {
+  const text = format === 'pdf' ? pdfToText(buffer) : htmlToText(decodeHtmlBuffer(buffer));
+  return normalizeMarkdown(text);
+}
+
+function pdfToText(buffer: Buffer): string {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'tdarg-law-'));
+  const pdfPath = path.join(tempDir, 'source.pdf');
+  const textPath = path.join(tempDir, 'source.txt');
+
+  try {
+    fs.writeFileSync(pdfPath, buffer);
+    execFileSync('pdftotext', ['-layout', pdfPath, textPath]);
+    return fs.readFileSync(textPath, 'utf8');
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+}
+
+function decodeHtmlBuffer(buffer: Buffer): string {
+  const bufferString = buffer.toString();
+
+  if (bufferString.includes('�') || bufferString.includes('charset=windows-1252') || bufferString.includes('charset=ISO-8859-1')) {
+    return buffer.toString('latin1');
+  }
+
+  return buffer.toString('utf8');
+}
+
+function htmlToText(html: string): string {
+  return decodeHtmlEntities(
+    html
+      .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<noscript\b[^>]*>[\s\S]*?<\/noscript>/gi, '')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<\/(p|div|section|article|header|footer|tr|table|h[1-6])>/gi, '\n')
+      .replace(/<li\b[^>]*>/gi, '\n- ')
+      .replace(/<[^>]+>/g, ' ')
+  );
+}
+
+function decodeHtmlEntities(text: string): string {
+  const namedEntities: Record<string, string> = {
+    aacute: 'á',
+    Aacute: 'Á',
+    amp: '&',
+    apos: "'",
+    bull: '-',
+    eacute: 'é',
+    Eacute: 'É',
+    gt: '>',
+    iacute: 'í',
+    Iacute: 'Í',
+    laquo: '"',
+    nbsp: ' ',
+    ntilde: 'ñ',
+    Ntilde: 'Ñ',
+    oacute: 'ó',
+    Oacute: 'Ó',
+    quot: '"',
+    raquo: '"',
+    lt: '<',
+    uacute: 'ú',
+    Uacute: 'Ú',
+    uuml: 'ü',
+    Uuml: 'Ü'
+  };
+
+  return text.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (entity, value: string) => {
+    if (value.startsWith('#x')) {
+      return String.fromCodePoint(Number.parseInt(value.slice(2), 16));
+    }
+
+    if (value.startsWith('#')) {
+      return String.fromCodePoint(Number.parseInt(value.slice(1), 10));
+    }
+
+    return namedEntities[value.toLowerCase()] ?? entity;
+  });
+}
+
+function normalizeMarkdown(text: string): string {
+  return `${text
+    .replace(/\r/g, '')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .split('\n')
+    .map(line => line.trim())
+    .join('\n')
+    .trim()}\n`;
 }
 
 // Load existing metadata
@@ -327,6 +398,16 @@ function pruneMetadata(metadata: MetadataRecord): MetadataRecord {
   );
 }
 
+function removeObsoleteLawFiles(law: LawConfig): void {
+  for (const extension of ['html', 'pdf']) {
+    const obsoleteFile = path.join(DATA_DIR, `${law.id}.${extension}`);
+
+    if (fs.existsSync(obsoleteFile)) {
+      fs.rmSync(obsoleteFile);
+    }
+  }
+}
+
 // Main download function
 async function downloadLaws(): Promise<void> {
   console.log('🚀 Starting law download process...');
@@ -342,6 +423,7 @@ async function downloadLaws(): Promise<void> {
         console.log(`📋 Processing: ${law.name}`);
 
         const result = await downloadFile(law.url, filename, law.format);
+        removeObsoleteLawFiles(law);
 
         // Update metadata
         metadata[law.id] = {
