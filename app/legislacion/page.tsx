@@ -156,7 +156,7 @@ export default function LegislacionPage() {
       {/* Laws Section */}
       <div className="bg-muted/30 border-t">
         <div className="container mx-auto px-4 py-8 sm:py-12">
-          <div className="max-w-5xl mx-auto space-y-4">
+          <div className="space-y-4">
             {leyes.map((ley, index) => {
               const Icon = lawIcons[index] ?? BookOpen;
               const tone = lawTones[index] ?? lawTones[0];
@@ -246,9 +246,7 @@ export default function LegislacionPage() {
 
       <section className="bg-muted/30 py-8">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl">
-            <References references={references} />
-          </div>
+          <References references={references} />
         </div>
       </section>
     </div>
