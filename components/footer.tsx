@@ -1,56 +1,30 @@
-import { Brain, GitBranch } from "lucide-react";
+import { GitBranch, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-card py-12 text-card-foreground">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <Brain className="h-6 w-6" />
-              <span className="text-lg font-semibold">Tdarg</span>
-            </div>
-            <p className="text-muted-foreground">
-              Info sobre TDAH en Argentina: precios de medicamentos,
-              especialistas, legislación y guías prácticas.
-            </p>
-          </div>
-          <div>
-            <h5 className="font-semibold mb-4">Contacto</h5>
-            <p className="text-muted-foreground mb-4">
-              <a
-                href="mailto:tdarg@4st.li"
-                className="hover:text-foreground transition-colors"
-              >
-                tdarg@4st.li
-              </a>
-            </p>
-            <p className="text-muted-foreground text-sm">
-              ¿Viste algo desactualizado? ¿Tenés una sugerencia? Mandanos un
-              mail.
-            </p>
-          </div>
-          <div>
-            <h5 className="font-semibold mb-4">Código Abierto</h5>
-            <p className="text-muted-foreground mb-4">
-              Este proyecto es de código abierto. Podés contribuir mejorando el
-              contenido o reportando issues.
-            </p>
-            <a
-              href="https://github.com/astrovm/tdarg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <GitBranch className="h-4 w-4" />
-              <span>Ver en GitHub</span>
-            </a>
-          </div>
-        </div>
-        <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; {currentYear} Tdarg. Información con fines educativos.</p>
+    <footer className="border-t bg-card py-5 text-sm text-muted-foreground">
+      <div className="container mx-auto flex flex-col gap-3 px-4 md:flex-row md:items-center md:justify-between">
+        <p>&copy; {currentYear} Tdarg. Información con fines educativos.</p>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:tdarg@4st.li"
+            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+          >
+            <Mail className="h-4 w-4" />
+            tdarg@4st.li
+          </a>
+          <a
+            href="https://github.com/astrovm/tdarg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+          >
+            <GitBranch className="h-4 w-4" />
+            GitHub
+          </a>
         </div>
       </div>
     </footer>

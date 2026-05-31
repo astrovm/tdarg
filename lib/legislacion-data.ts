@@ -55,7 +55,7 @@ export const leyes = [
     etiqueta: "Educación",
     numero: "Pedir adaptaciones educativas",
     descripcion:
-      "La Ley 27.306 sobre Dificultades Específicas del Aprendizaje permite pedir adecuaciones para cursar y rendir en mejores condiciones.",
+      "La Ley 27.306 sobre Dificultades Específicas del Aprendizaje permite pedir adecuaciones para cursar y rendir.",
     puntosClave: [
       "Qué pedir: Más tiempo en evaluaciones, modalidad oral cuando corresponda y uso de herramientas tecnológicas.",
       "Cómo pedirlo: Presentar diagnóstico formal y dejar el pedido por escrito.",
