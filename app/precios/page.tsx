@@ -49,10 +49,6 @@ function sortMedicamentosAlphabetically(items: Medicamento[]): Medicamento[] {
   });
 }
 
-function isLisdexanfetamina(medicamento: Medicamento): boolean {
-  return medicamento.nombre.toLowerCase().includes("lisdexanfetamina");
-}
-
 const priceTone = {
   stimulant: {
     heading: "text-emerald-700 dark:text-emerald-300",
@@ -391,28 +387,13 @@ export default function PreciosPage() {
                           <h3 className={`text-xl font-semibold mb-4 ${priceTone.stimulant.heading}`}>
                             <span className="capitalize">{principio}</span> ({meds.length} medicamentos)
                           </h3>
-                          {principio === "lisdexanfetamina" && (
-                            <Alert className="mb-4 border-amber-500/30 bg-amber-500/10">
-                              <AlertCircle className="h-4 w-4 text-amber-600" />
-                              <AlertDescription className="text-sm text-foreground">
-                                La lisdexanfetamina es nueva en Argentina. Las
-                                obras sociales y prepagas todavía no suelen
-                                cubrirla y no está incluida en el PMO. El precio
-                                con descuento es solo una referencia teórica.
-                              </AlertDescription>
-                            </Alert>
-                          )}
                           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {meds.map((medicamento) => (
                               <MedicationPriceCard
                                 key={medicamento.codigo}
                                 medicamento={medicamento}
                                 tone="stimulant"
-                                coverageLabel={
-                                  isLisdexanfetamina(medicamento)
-                                    ? "Precio teórico con 40% desc."
-                                    : "Con prepaga/obra social (40% desc.)"
-                                }
+                                coverageLabel="Con prepaga/obra social (40% desc.)"
                               />
                             ))}
                           </div>
