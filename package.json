@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "start": "next start",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "bun node_modules/@typescript/native/bin/tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.24",
@@ -40,6 +40,7 @@
     "eslint-config-next": "^16.3.6",
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3",
-    "typescript": "6"
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "@typescript/native": "npm:typescript@^7.0.2"
   }
 }
