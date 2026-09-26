@@ -29,7 +29,7 @@ export default function TratamientosPage() {
       description="Opciones para entender cómo se trata el TDAH"
       steps={steps}
       finalActions={finalActions}
-      references={tratamientosReferences}
+      references={treatmentReferences}
     >
       {(currentStep) => (
         <>
@@ -197,7 +197,7 @@ export default function TratamientosPage() {
   );
 }
 
-const tratamientosReferences: Reference[] = [
+const treatmentReferences: Reference[] = [
   {
     id: 1,
     title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Tercera parte: tratamiento integral del TDAH",

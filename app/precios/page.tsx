@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import { Header } from "@/components/header";
-import { getPrecios } from "@/lib/medicamentos/server";
+import { getPrices } from "@/lib/medications/server";
 
-import { PreciosClient } from "./precios-client";
+import { PricesClient } from "./prices-client";
 
 export const metadata: Metadata = {
   title: "Precios de medicamentos para TDAH",
@@ -12,16 +12,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/precios" },
 };
 
-// Mismo intervalo que la caché de precios (15 minutos)
+// Same interval as the price cache (15 minutes)
 export const revalidate = 900;
 
 export default async function PreciosPage() {
-  const precios = await getPrecios();
+  const prices = await getPrices();
 
   return (
     <div className="min-h-screen bg-muted/30">
       <Header />
-      <PreciosClient initial={precios} />
+      <PricesClient initial={prices} />
     </div>
   );
 }

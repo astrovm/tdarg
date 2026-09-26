@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
-// lucide-react 1.x ya no incluye íconos de marcas; estos replican los que
-// tenía la versión 0.x (licencia ISC) con la misma API de props.
+// lucide-react 1.x no longer ships brand icons; these copy the ones from
+// version 0.x (ISC license) with the same props API.
 type IconProps = SVGProps<SVGSVGElement>;
 
 function BaseIcon({ children, ...props }: IconProps) {

@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-import { getPrecios, PRECIOS_REVALIDATE_SECONDS } from "@/lib/medicamentos/server";
+import { getPrices, PRICES_REVALIDATE_SECONDS } from "@/lib/medications/server";
 
 export async function GET() {
-  const { data, updatedAt, stale, error } = await getPrecios();
+  const { data, updatedAt, stale, error } = await getPrices();
 
   if (data.length === 0) {
     return NextResponse.json(
@@ -19,16 +19,16 @@ export async function GET() {
       total: data.length,
       stale,
       error,
-      estadisticas: {
+      stats: {
         total: data.length,
-        con_precio: data.filter((m) => m.precio > 0).length,
+        withPrice: data.filter((m) => m.price > 0).length,
       },
     },
     {
       headers: {
         "Cache-Control": stale
           ? "no-store"
-          : `public, s-maxage=${PRECIOS_REVALIDATE_SECONDS}, stale-while-revalidate=${PRECIOS_REVALIDATE_SECONDS * 4}`,
+          : `public, s-maxage=${PRICES_REVALIDATE_SECONDS}, stale-while-revalidate=${PRICES_REVALIDATE_SECONDS * 4}`,
       },
     }
   );

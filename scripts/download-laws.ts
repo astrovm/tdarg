@@ -150,7 +150,7 @@ const LAWS_CONFIG: LawConfig[] = [
   }
 ];
 
-const DATA_DIR = path.join(__dirname, '../data/leyes');
+const DATA_DIR = path.join(__dirname, '../data/laws');
 const METADATA_FILE = path.join(DATA_DIR, 'metadata.json');
 
 // Ensure data directory exists

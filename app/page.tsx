@@ -17,7 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { HomeLivePrices } from "@/components/home-live-prices";
-import { getPrecios } from "@/lib/medicamentos/server";
+import { getPrices } from "@/lib/medications/server";
 
 // Same interval as the price cache (15 minutes)
 export const revalidate = 900;
@@ -81,7 +81,7 @@ const links = [
 ];
 
 export default async function HomePage() {
-  const { data: medicamentos } = await getPrecios();
+  const { data: medications } = await getPrices();
 
   return (
     <div className="flex flex-1 flex-col bg-muted/30">
@@ -98,7 +98,7 @@ export default async function HomePage() {
                 Precios de medicación, especialistas, receta y cobertura.
               </p>
               <div className="mt-6 flex flex-col items-center gap-3 sm:mt-7">
-                <HomeLivePrices medicamentos={medicamentos} />
+                <HomeLivePrices medications={medications} />
               </div>
             </div>
           </div>

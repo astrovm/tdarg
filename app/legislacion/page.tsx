@@ -17,37 +17,37 @@ export const metadata: Metadata = {
   alternates: { canonical: "/legislacion" },
 };
 
-const leyes = [
+const laws = [
   {
-    etiqueta: "Receta",
-    numero: "Por qué sigue siendo difícil conseguir estimulantes",
-    descripcion:
+    label: "Receta",
+    heading: "Por qué sigue siendo difícil conseguir estimulantes",
+    description:
       "Metilfenidato y lisdexanfetamina están en Lista II de la Ley 19.303. Esa ley no los trata como una receta común: exige un circuito oficial de control entre médico, farmacia y autoridad sanitaria. La normativa nacional ya ordenó llevar ese circuito a receta electrónica, pero para Lista II todavía depende de que jurisdicciones, plataformas, repositorios y farmacias estén adaptados.",
-    puntosClave: [
+    keyPoints: [
       "Circuito original: Ley 19.303 exige formulario oficial por triplicado: una parte queda en farmacia, otra va a la autoridad sanitaria y otra queda con el médico.",
       "Circuito digital: Resolución 2214/2025 exige receta electrónica para medicamentos de expendio legalmente restringido, con plataforma registrada, repositorio, CUIR, firma, REFEPS, libro digital y acceso para fiscalización.",
       "Plazo vencido: El plazo nacional de adecuación para Lista II ya venció, pero eso no significa que el circuito funcione en cada farmacia.",
       "Problema para el paciente: Si el circuito digital no está operativo, la farmacia vuelve al papel oficial. El costo lo paga el paciente: más trámites, demoras y riesgo de quedarse sin medicación.",
     ],
-    jurisdicciones: [
+    jurisdictions: [
       "Nación: Define el estándar digital y la obligación de receta electrónica para estos medicamentos.",
       "Jurisdicción local: Debe adaptar permisos, fiscalización, registros y reglas para que el circuito digital reemplace al recetario físico.",
       "Farmacia/plataforma: Tiene que poder validar la receta, registrarla, archivarla y dejarla disponible para control sanitario.",
     ],
   },
   {
-    etiqueta: "Cobertura",
-    numero: "Por qué la cobertura no llega al 70%",
-    descripcion:
+    label: "Cobertura",
+    heading: "Por qué la cobertura no llega al 70%",
+    description:
       "El PMO no cubre “TDAH” como diagnóstico: cubre medicamentos concretos dentro de listados, porcentajes y precios de referencia. En la Resolución 310/2004, metilfenidato figura con cobertura del 40%. El 70% está reservado para medicamentos destinados a patologías crónicas prevalentes incluidas en ese esquema; TDAH no está reconocido legalmente como crónico para esa cobertura.",
-    puntosClave: [
+    keyPoints: [
       "Metilfenidato: Figura en PMO con 40%, no 70%.",
       "Lisdexanfetamina y atomoxetina: No aparecen en la Resolución 310/2004; si tienen cobertura, depende del plan o vademécum del financiador.",
       "Uso crónico: Que el tratamiento sea continuo no convierte legalmente al medicamento en cobertura obligatoria del 70%.",
       "Precio de referencia: El porcentaje puede aplicarse sobre precio de referencia o reglas del plan, no necesariamente sobre el precio final de farmacia.",
       "Reclamos: Se puede reclamar una negativa o pedir revisión, pero la norma citada no obliga a cubrir TDAH al 70%.",
     ],
-    jurisdicciones: [
+    jurisdictions: [
       "PMO: Define el piso obligatorio para medicamentos listados.",
       "Financiador: Aplica vademécum, precios de referencia y reglas de plan sobre ese piso.",
       "Paciente: Puede pedir explicación por escrito de una negativa, pero no hay garantía legal de 70% para TDAH en esta norma.",
@@ -55,60 +55,60 @@ const leyes = [
   },
 ];
 
-const fuentesDocumentacion = {
-  fuentes: [
+const documentationSources = {
+  sources: [
     {
-      titulo: "Ley 19.303 - Psicotrópicos",
-      descripcion: "Régimen legal de psicotrópicos y formularios oficiales.",
-      referencia: "InfoLeg",
+      title: "Ley 19.303 - Psicotrópicos",
+      description: "Régimen legal de psicotrópicos y formularios oficiales.",
+      reference: "InfoLeg",
       url: "https://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20966/texact.htm",
     },
     {
-      titulo: "Ley 27.553 - Recetas electrónicas o digitales",
-      descripcion: "Marco nacional para prescripción y dispensación electrónica o digital.",
-      referencia: "InfoLeg",
+      title: "Ley 27.553 - Recetas electrónicas o digitales",
+      description: "Marco nacional para prescripción y dispensación electrónica o digital.",
+      reference: "InfoLeg",
       url: "https://servicios.infoleg.gob.ar/infolegInternet/anexos/340000-344999/340919/texact.htm",
     },
     {
-      titulo: "Decreto 98/2023 - Reglamentación Ley 27.553",
-      descripcion: "Reglamentación original de receta electrónica o digital.",
-      referencia: "InfoLeg",
+      title: "Decreto 98/2023 - Reglamentación Ley 27.553",
+      description: "Reglamentación original de receta electrónica o digital.",
+      reference: "InfoLeg",
       url: "https://servicios.infoleg.gob.ar/infolegInternet/anexos/380000-384999/380005/norma.htm",
     },
     {
-      titulo: "Decreto 345/2024 - Receta electrónica",
-      descripcion: "Modifica la reglamentación y define obligatoriedad según adhesión jurisdiccional.",
-      referencia: "InfoLeg",
+      title: "Decreto 345/2024 - Receta electrónica",
+      description: "Modifica la reglamentación y define obligatoriedad según adhesión jurisdiccional.",
+      reference: "InfoLeg",
       url: "https://servicios.infoleg.gob.ar/infolegInternet/anexos/395000-399999/398297/norma.htm",
     },
     {
-      titulo: "Resolución 2214/2025 - Receta electrónica",
-      descripcion: "Define alcance técnico, repositorios, CUIR y subtipos de prescripción.",
-      referencia: "Ministerio de Salud",
+      title: "Resolución 2214/2025 - Receta electrónica",
+      description: "Define alcance técnico, repositorios, CUIR y subtipos de prescripción.",
+      reference: "Ministerio de Salud",
       url: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-2214-2025-415349/texto",
     },
     {
-      titulo: "Disposición 1/2025 - Sistemas de información sanitaria",
-      descripcion: "Requisitos técnicos para plataformas, repositorios e interoperabilidad.",
-      referencia: "Ministerio de Salud",
+      title: "Disposición 1/2025 - Sistemas de información sanitaria",
+      description: "Requisitos técnicos para plataformas, repositorios e interoperabilidad.",
+      reference: "Ministerio de Salud",
       url: "https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-1-2025-415504/texto",
     },
     {
-      titulo: "PBA Resolución 140/2025",
-      descripcion: "Reglas provinciales sobre comprobantes de validación y formularios oficiales.",
-      referencia: "Normas PBA",
+      title: "PBA Resolución 140/2025",
+      description: "Reglas provinciales sobre comprobantes de validación y formularios oficiales.",
+      reference: "Normas PBA",
       url: "https://normas.gba.gob.ar/documentos/BMaJDOca.pdf",
     },
     {
-      titulo: "CABA Ley 6439",
-      descripcion: "Receta papel, electrónica y digital en CABA; exclusión de circuitos especiales.",
-      referencia: "Boletín Oficial CABA",
+      title: "CABA Ley 6439",
+      description: "Receta papel, electrónica y digital en CABA; exclusión de circuitos especiales.",
+      reference: "Boletín Oficial CABA",
       url: "https://boletinoficial.buenosaires.gob.ar/normativaba/norma/564546",
     },
     {
-      titulo: "Resolución 310/2004 - Cobertura de medicamentos",
-      descripcion: "Cobertura PMO para medicamentos ambulatorios y de uso crónico.",
-      referencia: "Ministerio de Salud",
+      title: "Resolución 310/2004 - Cobertura de medicamentos",
+      description: "Cobertura PMO para medicamentos ambulatorios y de uso crónico.",
+      reference: "Ministerio de Salud",
       url: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-310-2004-94218/texto",
     },
   ],
@@ -128,12 +128,12 @@ export default function LegislacionPage() {
     };
   };
 
-  const references = fuentesDocumentacion.fuentes.map((fuente, index) => ({
+  const references = documentationSources.sources.map((source, index) => ({
     id: index + 1,
-    title: fuente.titulo,
-    description: fuente.descripcion,
-    year: fuente.referencia?.replace(/[()]/g, ""),
-    url: fuente.url,
+    title: source.title,
+    description: source.description,
+    year: source.reference?.replace(/[()]/g, ""),
+    url: source.url,
   }));
 
   const lawIcons = [ReceiptText, BookOpen];
@@ -163,13 +163,13 @@ export default function LegislacionPage() {
       <div className="bg-muted/30 border-t">
         <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="space-y-4">
-            {leyes.map((ley, index) => {
+            {laws.map((law, index) => {
               const Icon = lawIcons[index] ?? BookOpen;
               const tone = lawTones[index] ?? lawTones[0];
 
               return (
               <Card
-                key={ley.numero}
+                key={law.heading}
                 className="overflow-hidden bg-card border shadow-sm"
               >
                 <CardHeader className="pb-3">
@@ -179,30 +179,30 @@ export default function LegislacionPage() {
                     </div>
                     <div className="min-w-0">
                       <div className={`mb-1 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
-                        {ley.etiqueta}
+                        {law.label}
                       </div>
                       <CardTitle className="text-xl text-foreground leading-snug" role="heading" aria-level={2}>
-                        {ley.numero}
+                        {law.heading}
                       </CardTitle>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <p className="mb-4 max-w-4xl text-base leading-7 text-foreground/80">
-                    {ley.descripcion}
+                    {law.description}
                   </p>
 
-                  {ley.puntosClave.length > 0 && (
+                  {law.keyPoints.length > 0 && (
                     <div className="rounded-md border bg-muted/40 p-4">
                       <div className={`mb-3 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
                         Puntos clave
                       </div>
                       <ul className="grid grid-cols-1 gap-3 text-[15px] md:grid-cols-2">
-                        {ley.puntosClave.map((punto) => {
-                          const bullet = splitBullet(punto);
+                        {law.keyPoints.map((point) => {
+                          const bullet = splitBullet(point);
 
                           return (
-                            <li key={punto} className="flex items-start gap-3">
+                            <li key={point} className="flex items-start gap-3">
                               <div className={`mt-1.5 h-2 w-2 flex-shrink-0 rounded-full ${tone.dot}`} />
                               <span className="leading-relaxed text-foreground/80">
                                 {bullet.label && (
@@ -219,9 +219,9 @@ export default function LegislacionPage() {
                     </div>
                   )}
 
-                  {ley.jurisdicciones && (
+                  {law.jurisdictions && (
                     <div className="mt-4 grid gap-3 md:grid-cols-3">
-                      {ley.jurisdicciones.map((item) => {
+                      {law.jurisdictions.map((item) => {
                         const bullet = splitBullet(item);
 
                         return (

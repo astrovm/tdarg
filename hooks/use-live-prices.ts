@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react"
 
-import type { PreciosSnapshot } from "@/lib/medicamentos/types"
+import type { PriceSnapshot } from "@/lib/medications/types"
 
-// Los precios llegan renderizados desde el servidor. Solo si el render no tuvo
-// datos (Farmacity caído en ese momento) se vuelven a pedir desde el navegador.
-export function useMedicamentosReales(initial: PreciosSnapshot) {
+// Prices arrive rendered by the server. Only when that render had no data
+// (Farmacity was down at the time) does the browser ask for them again.
+export function useLivePrices(initial: PriceSnapshot) {
   const [snapshot, setSnapshot] = useState(initial)
   const [loading, setLoading] = useState(initial.data.length === 0)
 
@@ -17,10 +17,10 @@ export function useMedicamentosReales(initial: PreciosSnapshot) {
 
     const controller = new AbortController()
 
-    fetch("/api/medicamentos-precios", { signal: controller.signal })
+    fetch("/api/prices", { signal: controller.signal })
       .then(async (response) => {
         const body = (await response.json()) as {
-          data?: PreciosSnapshot["data"]
+          data?: PriceSnapshot["data"]
           timestamp?: string
           stale?: boolean
           error?: string
@@ -35,7 +35,7 @@ export function useMedicamentosReales(initial: PreciosSnapshot) {
         }
       })
       .catch(() => {
-        // Nos quedamos con el estado inicial, que ya explica el error
+        // Keep the initial state, which already explains the error
       })
       .finally(() => {
         if (!controller.signal.aborted) {
