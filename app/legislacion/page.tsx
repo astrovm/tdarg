@@ -139,12 +139,12 @@ export default function LegislacionPage() {
   const lawIcons = [ReceiptText, BookOpen];
   const lawTones = [
     {
-      icon: "bg-amber-500/12 text-amber-700 dark:text-amber-300",
+      icon: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
       label: "text-amber-700 dark:text-amber-300",
       dot: "bg-amber-500",
     },
     {
-      icon: "bg-sky-500/12 text-sky-700 dark:text-sky-300",
+      icon: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
       label: "text-sky-700 dark:text-sky-300",
       dot: "bg-sky-500",
     },
@@ -181,14 +181,14 @@ export default function LegislacionPage() {
                       <div className={`mb-1 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
                         {ley.etiqueta}
                       </div>
-                      <CardTitle className="text-xl text-foreground leading-snug">
+                      <CardTitle className="text-xl text-foreground leading-snug" role="heading" aria-level={2}>
                         {ley.numero}
                       </CardTitle>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-sm leading-relaxed text-muted-foreground mb-4">
+                  <p className="mb-4 max-w-4xl text-base leading-7 text-foreground/80">
                     {ley.descripcion}
                   </p>
 
@@ -197,14 +197,14 @@ export default function LegislacionPage() {
                       <div className={`mb-3 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
                         Puntos clave
                       </div>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                      <ul className="grid grid-cols-1 gap-3 text-[15px] md:grid-cols-2">
                         {ley.puntosClave.map((punto) => {
                           const bullet = splitBullet(punto);
 
                           return (
                             <li key={punto} className="flex items-start gap-3">
                               <div className={`mt-1.5 h-2 w-2 flex-shrink-0 rounded-full ${tone.dot}`} />
-                              <span className="text-muted-foreground leading-relaxed">
+                              <span className="leading-relaxed text-foreground/80">
                                 {bullet.label && (
                                   <strong className="text-foreground">
                                     {bullet.label}:{" "}

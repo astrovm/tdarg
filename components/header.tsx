@@ -2,30 +2,24 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Brain, Menu, X, ChevronDown } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Brain, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const mainNavigationItems = [
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const navigationItems = [
   { href: "/precios", label: "Precios" },
   { href: "/especialistas", label: "Especialistas" },
   { href: "/legislacion", label: "Legislación" },
-];
-
-const guidesItems = [
   { href: "/diagnostico", label: "Diagnóstico" },
   { href: "/tratamientos", label: "Tratamientos" },
   { href: "/comorbilidades", label: "Comorbilidades" },
 ];
 
-const allNavigationItems = [...mainNavigationItems, ...guidesItems];
+const focusRing =
+  "rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background";
 
 export function Header() {
   const pathname = usePathname();
@@ -34,97 +28,78 @@ export function Header() {
   return (
     <header className="border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85">
       <div className="container mx-auto px-4 py-3 sm:py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Brain className="h-7 w-7 text-primary sm:h-8 sm:w-8" />
-            <span className="text-xl font-bold text-foreground sm:text-2xl">
-              Tdarg
-            </span>
+        <div className="flex items-center justify-between gap-4">
+          <Link href="/" className={cn("flex items-center gap-2", focusRing)}>
+            <Brain className="h-7 w-7 text-primary sm:h-8 sm:w-8" aria-hidden="true" />
+            <span className="text-xl font-bold text-foreground sm:text-2xl">Tdarg</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <nav className="flex space-x-6">
-              {/* Main navigation items */}
-        {mainNavigationItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={
-                    pathname === item.href
-          ? "text-primary font-medium"
-          : "text-muted-foreground hover:text-primary transition-colors"
-                  }
-                >
-                  {item.label}
-                </Link>
-              ))}
-              
-              {/* Guides dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className={`flex items-center space-x-1 ${
-                  guidesItems.some(item => pathname === item.href)
-                    ? "text-primary font-medium"
-                    : "text-muted-foreground hover:text-primary transition-colors"
-                }`}>
-                  <span>Guías</span>
-                  <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {guidesItems.map((item) => (
-                    <DropdownMenuItem key={item.href} asChild>
-                      <Link href={item.href} className="w-full">
-                        {item.label}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+          <div className="hidden items-center gap-5 lg:flex">
+            <nav aria-label="Principal" className="flex items-center gap-5">
+              {navigationItems.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      focusRing,
+                      "py-1",
+                      active
+                        ? "font-medium text-primary"
+                        : "text-muted-foreground transition-colors hover:text-primary",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
             <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-2 sm:space-x-4 lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="h-9 w-9 px-0"
               aria-expanded={mobileMenuOpen}
+              aria-controls="menu-movil"
             >
-              {mobileMenuOpen ? (
-                <X className="h-4 w-4" />
-              ) : (
-                <Menu className="h-4 w-4" />
-              )}
-              <span className="sr-only">Abrir/cerrar menú</span>
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="sr-only">{mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}</span>
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t">
-            <nav className="flex flex-col space-y-3 pt-4">
-              {allNavigationItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={
-                    pathname === item.href
-                      ? "text-primary font-medium px-2 py-1"
-                      : "text-muted-foreground hover:text-primary transition-colors px-2 py-1"
-                  }
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+          <nav id="menu-movil" aria-label="Principal" className="mt-3 border-t pt-2 lg:hidden">
+            <ul className="flex flex-col">
+              {navigationItems.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        focusRing,
+                        "flex min-h-11 items-center px-2",
+                        active
+                          ? "font-medium text-primary"
+                          : "text-muted-foreground transition-colors hover:text-primary",
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         )}
       </div>
     </header>

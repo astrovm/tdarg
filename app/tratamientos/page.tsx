@@ -1,86 +1,48 @@
 "use client";
 
-import Link from "next/link";
 import {
-  ArrowLeft,
-  ArrowRight,
   Brain,
   Heart,
   Pill,
   Users,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { StepGuideLayout } from "@/components/step-guide-layout";
-import { References, type Reference } from "@/components/references";
-import { useStepProgress } from "@/hooks/use-step-progress";
-import type { StepDefinition } from "@/lib/steps";
+import type { Reference } from "@/components/references";
+import type { GuideAction, StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Panorama", subtitle: "Qué combina el tratamiento", icon: Brain },
-  { id: 2, title: "Medicación", subtitle: "Opciones y seguimiento", icon: Pill },
-  { id: 3, title: "Terapia", subtitle: "Herramientas psicológicas", icon: Users },
-  { id: 4, title: "Rutina", subtitle: "Sueño, ejercicio y hábitos", icon: Heart },
+  { id: 1, title: "Panorama", subtitle: "Qué combina el tratamiento", icon: Brain, accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300" },
+  { id: 2, title: "Medicación", subtitle: "Opciones y seguimiento", icon: Pill, accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" },
+  { id: 3, title: "Terapia", subtitle: "Herramientas psicológicas", icon: Users, accent: "bg-sky-500/10 text-sky-700 dark:text-sky-300" },
+  { id: 4, title: "Rutina", subtitle: "Sueño, ejercicio y hábitos", icon: Heart, accent: "bg-rose-500/10 text-rose-700 dark:text-rose-300" },
 ] satisfies StepDefinition[];
 
-const accentByStep = [
-  "bg-violet-500/12 text-violet-700 dark:text-violet-300",
-  "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
-  "bg-sky-500/12 text-sky-700 dark:text-sky-300",
-  "bg-rose-500/12 text-rose-700 dark:text-rose-300",
-];
+const finalActions = [
+  { href: "/especialistas", label: "Buscar especialistas" },
+  { href: "/precios", label: "Ver precios" },
+] satisfies GuideAction[];
 
 export default function TratamientosPage() {
-  const { currentStep, progress, completedCount, next, prev, goTo, isDone } =
-    useStepProgress({ totalSteps: steps.length });
-  const activeStep = steps[currentStep - 1];
-  const ActiveIcon = activeStep.icon;
-  const activeAccent = accentByStep[currentStep - 1];
-
   return (
     <StepGuideLayout
       title="Tratamientos para TDAH"
       description="Opciones para entender cómo se trata el TDAH"
       steps={steps}
-      currentStep={currentStep}
-      progress={progress}
-      completedCount={completedCount}
-      onSelectStep={goTo}
-      isStepDone={isDone}
+      finalActions={finalActions}
+      references={tratamientosReferences}
     >
-      <Card className="bg-card border md:min-h-[520px]">
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <div
-              className={`flex h-10 w-10 items-center justify-center rounded-lg ${activeAccent}`}
-            >
-              <ActiveIcon className="h-5 w-5" />
-            </div>
-            <div>
-              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
-              <p className="text-sm text-muted-foreground">
-                {activeStep.subtitle}
-              </p>
-            </div>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-6">
+      {(currentStep) => (
+        <>
           <div hidden={currentStep !== 1}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
-              <h3 className="text-base font-semibold text-foreground">
+            <div className="guide-text">
+              <h3 className="text-lg font-semibold text-foreground">
                 Un enfoque obligatoriamente multimodal
               </h3>
               <p>
                 El tratamiento del TDAH en la edad adulta no se limita a tomar una pastilla; debe ser un abordaje <strong>multimodal</strong>. Esto significa que el plan terapéutico debe combinar psicoeducación, farmacoterapia (medicación), Terapia Cognitivo-Conductual (TCC) y un entrenamiento específico. Si bien la medicación es el pilar primordial para atenuar los síntomas nucleares del trastorno, las intervenciones no farmacológicas (psicológicas y de hábitos) son absolutamente indispensables para mitigar las consecuencias de esos síntomas y lograr una mejora real en el funcionamiento y la calidad de vida.
               </p>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 La evaluación antes de empezar
               </h3>
               <p>
@@ -90,7 +52,7 @@ export default function TratamientosPage() {
           </div>
 
           <div hidden={currentStep !== 2}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p>
                 El tratamiento farmacológico se organiza en &quot;líneas&quot; de prioridad según su eficacia y el respaldo científico. Las opciones se dividen de la siguiente manera:
               </p>
@@ -121,7 +83,7 @@ export default function TratamientosPage() {
                 </div>
               </div>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 Manejo de Efectos Adversos y Mitos
               </h3>
               <p>
@@ -161,12 +123,12 @@ export default function TratamientosPage() {
           </div>
 
           <div hidden={currentStep !== 3}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p>
                 Las pastillas ayudan a frenar los síntomas neurológicos, pero no enseñan las habilidades que el paciente no pudo desarrollar durante su vida. La <strong>Terapia Cognitivo-Conductual (TCC)</strong> es la intervención psicológica que cuenta con el mayor respaldo empírico en el mundo para el TDAH adulto.
               </p>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 Los 6 componentes obligatorios de un programa de TCC para TDAH adulto
               </h3>
 
@@ -200,7 +162,7 @@ export default function TratamientosPage() {
           </div>
 
           <div hidden={currentStep !== 4}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p className="font-medium text-foreground">
                 El estilo de vida de una persona tiene el poder de actuar como una medicina complementaria altamente efectiva.
               </p>
@@ -209,7 +171,7 @@ export default function TratamientosPage() {
                 <div className="rounded-lg border bg-muted/30 p-4">
                   <h4 className="mb-1 font-semibold text-foreground">El poder del ejercicio</h4>
                   <p>
-                    Moverse es como tomar un estimulante natural. El ejercicio físico libera factor neurotrófico derivado del cerebro (BDNF) —una especie de fertilizante para que crezcan nuevas conexiones neuronales— y aumenta la concentración de dopamina y noradrenalina en el cerebro, que son los mismos neurotransmisores que las pastillas buscan regular. Con solo 20 a 30 minutos de ejercicio moderado se logra &quot;cambiar de marcha&quot; en el cerebro, mejorando drásticamente la capacidad de focalizar, planificar y organizar.
+                    Moverse es como tomar un estimulante natural. El ejercicio físico libera factor neurotrófico derivado del cerebro (BDNF), que funciona como un fertilizante para que crezcan nuevas conexiones neuronales. También aumenta la dopamina y la noradrenalina en el cerebro, los mismos neurotransmisores que las pastillas buscan regular. Con solo 20 a 30 minutos de ejercicio moderado se logra &quot;cambiar de marcha&quot; en el cerebro, mejorando drásticamente la capacidad de focalizar, planificar y organizar.
                   </p>
                 </div>
 
@@ -229,41 +191,8 @@ export default function TratamientosPage() {
               </div>
             </div>
           </div>
-        </CardContent>
-
-        <div className="flex items-center justify-between border-t p-4 sm:p-6">
-          <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Anterior
-          </Button>
-          <span className="text-sm text-muted-foreground">
-            {currentStep} de {steps.length}
-          </span>
-          {currentStep === steps.length ? (
-            <Button asChild>
-              <Link href="/especialistas">
-                Buscar especialistas
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          ) : (
-            <Button onClick={next}>
-              Siguiente
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          )}
-        </div>
-
-        {currentStep === steps.length && (
-          <div className="flex flex-wrap justify-center gap-3 border-t px-6 pb-6 pt-4">
-            <Button variant="outline" asChild>
-              <Link href="/precios">Ver precios</Link>
-            </Button>
-          </div>
-        )}
-      </Card>
-
-      <References references={tratamientosReferences} />
+        </>
+      )}
     </StepGuideLayout>
   );
 }

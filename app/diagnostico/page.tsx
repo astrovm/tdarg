@@ -1,78 +1,41 @@
 "use client";
 
-import Link from "next/link";
 import {
-  ArrowLeft,
-  ArrowRight,
   Brain,
-  CheckCircle,
   FileText,
+  Route,
   Stethoscope,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { StepGuideLayout } from "@/components/step-guide-layout";
-import { References, type Reference } from "@/components/references";
-import { useStepProgress } from "@/hooks/use-step-progress";
-import type { StepDefinition } from "@/lib/steps";
+import type { Reference } from "@/components/references";
+import type { GuideAction, StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Autoevaluación", subtitle: "Señales en la adultez", icon: Brain },
-  { id: 2, title: "Evaluación clínica", subtitle: "Cómo se confirma", icon: Stethoscope },
-  { id: 3, title: "Preparar consulta", subtitle: "Qué llevar y preguntar", icon: FileText },
-  { id: 4, title: "Después", subtitle: "Impacto del diagnóstico y plan", icon: CheckCircle },
+  { id: 1, title: "Autoevaluación", subtitle: "Señales en la adultez", icon: Brain, accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300" },
+  { id: 2, title: "Evaluación clínica", subtitle: "Cómo se confirma", icon: Stethoscope, accent: "bg-sky-500/10 text-sky-700 dark:text-sky-300" },
+  { id: 3, title: "Preparar consulta", subtitle: "Qué llevar y preguntar", icon: FileText, accent: "bg-amber-500/15 text-amber-700 dark:text-amber-300" },
+  { id: 4, title: "Después", subtitle: "Impacto del diagnóstico y plan", icon: Route, accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" },
 ] satisfies StepDefinition[];
 
-const accentByStep = [
-  "bg-violet-500/12 text-violet-700 dark:text-violet-300",
-  "bg-sky-500/12 text-sky-700 dark:text-sky-300",
-  "bg-amber-500/14 text-amber-700 dark:text-amber-300",
-  "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
-];
+const finalActions = [
+  { href: "/especialistas", label: "Buscar especialistas" },
+  { href: "/tratamientos", label: "Ver tratamientos" },
+] satisfies GuideAction[];
 
 export default function DiagnosticoPage() {
-  const { currentStep, progress, completedCount, next, prev, goTo, isDone } =
-    useStepProgress({ totalSteps: steps.length });
-  const activeStep = steps[currentStep - 1];
-  const ActiveIcon = activeStep.icon;
-  const activeAccent = accentByStep[currentStep - 1];
-
   return (
     <StepGuideLayout
       title="Cómo se diagnostica el TDAH"
       description="Autoevaluación, consulta clínica y próximos pasos"
       steps={steps}
-      currentStep={currentStep}
-      progress={progress}
-      completedCount={completedCount}
-      onSelectStep={goTo}
-      isStepDone={isDone}
+      finalActions={finalActions}
+      references={diagnosticoReferences}
     >
-      <Card className="bg-card border md:min-h-[560px]">
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <div
-              className={`flex h-10 w-10 items-center justify-center rounded-lg ${activeAccent}`}
-            >
-              <ActiveIcon className="h-5 w-5" />
-            </div>
-            <div>
-              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
-              <CardDescription>{activeStep.subtitle}</CardDescription>
-            </div>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-6">
+      {(currentStep) => (
+        <>
           <div hidden={currentStep !== 1}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
-              <h3 className="text-base font-semibold text-foreground">
+            <div className="guide-text">
+              <h3 className="text-lg font-semibold text-foreground">
                 ¿Cómo se manifiesta el TDAH en adultos?
               </h3>
               <p>
@@ -117,15 +80,15 @@ export default function DiagnosticoPage() {
           </div>
 
           <div hidden={currentStep !== 2}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
-              <h3 className="text-base font-semibold text-foreground">
+            <div className="guide-text">
+              <h3 className="text-lg font-semibold text-foreground">
                 El diagnóstico es 100% clínico
               </h3>
               <p>
                 El diagnóstico del TDAH <strong>solo puede ser realizado por un médico psiquiatra, neurólogo o psicólogo</strong> con entrenamiento específico. Es un error común creer que se necesitan pruebas biológicas: el TDAH <strong>no puede diagnosticarse mediante escáneres o imágenes cerebrales (RMN, PET, SPECT), electroencefalogramas (EEG) ni análisis de laboratorio</strong>. Si bien los estudios de neuroimagen muestran pequeñas diferencias en el cerebro de personas con TDAH, estas diferencias no son útiles ni válidas para diagnosticar el trastorno a nivel individual.
               </p>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 Herramientas utilizadas por el profesional
               </h3>
 
@@ -155,12 +118,12 @@ export default function DiagnosticoPage() {
           </div>
 
           <div hidden={currentStep !== 3}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p className="font-medium text-foreground">
                 Dado que el diagnóstico requiere una reconstrucción histórica de la vida del paciente, ir preparado a la consulta es fundamental para facilitar el trabajo del médico.
               </p>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 Qué información recopilar antes de ir
               </h3>
 
@@ -197,8 +160,8 @@ export default function DiagnosticoPage() {
           </div>
 
           <div hidden={currentStep !== 4}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
-              <h3 className="text-base font-semibold text-foreground">
+            <div className="guide-text">
+              <h3 className="text-lg font-semibold text-foreground">
                 Salir de la invisibilidad
               </h3>
               <p>
@@ -208,7 +171,7 @@ export default function DiagnosticoPage() {
                 Recibir finalmente un diagnóstico de TDAH produce un profundo alivio. Permite reinterpretar una vida marcada por la desorganización, el fracaso académico o la inestabilidad laboral bajo una lente médica y biológica, liberando al paciente del estigma de ser &quot;perezoso&quot; o &quot;irresponsable&quot;, y devolviéndole el control sobre su vida.
               </p>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 El Plan de Acción Multimodal
               </h3>
               <p>
@@ -231,41 +194,8 @@ export default function DiagnosticoPage() {
               </ol>
             </div>
           </div>
-        </CardContent>
-
-        <div className="flex items-center justify-between border-t p-4 sm:p-6">
-          <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Anterior
-          </Button>
-          <span className="text-sm text-muted-foreground">
-            {currentStep} de {steps.length}
-          </span>
-          {currentStep === steps.length ? (
-            <Button asChild>
-              <Link href="/especialistas">
-                Buscar especialistas
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          ) : (
-            <Button onClick={next}>
-              Siguiente
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          )}
-        </div>
-
-        {currentStep === steps.length && (
-          <div className="flex flex-wrap justify-center gap-3 border-t px-6 pb-6 pt-4">
-            <Button variant="outline" asChild>
-              <Link href="/tratamientos">Ver tratamientos</Link>
-            </Button>
-          </div>
-        )}
-      </Card>
-
-      <References references={diagnosticoReferences} />
+        </>
+      )}
     </StepGuideLayout>
   );
 }

@@ -8,21 +8,21 @@ export function Footer() {
       <div className="container mx-auto flex flex-col gap-3 px-4 md:flex-row md:items-center md:justify-between">
         <p>&copy; {currentYear} Tdarg. Información con fines educativos.</p>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-x-5">
           <a
             href="mailto:tdarg@4st.li"
-            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            className="inline-flex min-h-10 items-center gap-2 rounded-md transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <Mail className="h-4 w-4" />
+            <Mail className="h-4 w-4" aria-hidden="true" />
             tdarg@4st.li
           </a>
           <a
             href="https://github.com/astrovm/tdarg"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            className="inline-flex min-h-10 items-center gap-2 rounded-md transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <GitBranch className="h-4 w-4" />
+            <GitBranch className="h-4 w-4" aria-hidden="true" />
             GitHub
           </a>
         </div>
