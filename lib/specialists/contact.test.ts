@@ -49,6 +49,11 @@ describe("whatsappUrl", () => {
     expect(whatsappUrl("+54 11 4412-0880")).toBe("https://wa.me/541144120880");
   });
 
+  test("returns null without a phone number", () => {
+    expect(whatsappUrl("Consultar")).toBeNull();
+    expect(whatsappUrl(undefined)).toBeNull();
+  });
+
   test("returns null for incomplete numbers", () => {
     expect(whatsappUrl("1550637542")).toBeNull();
     expect(whatsappUrl("0810-266-4203")).toBeNull();

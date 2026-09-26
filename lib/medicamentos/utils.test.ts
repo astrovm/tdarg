@@ -161,6 +161,12 @@ describe("formatMedicationPresentation", () => {
     ).toBe("Comprimidos de liberación prolongada x 30");
   });
 
+  test("formats other presentations in display case", () => {
+    expect(formatMedicationPresentation(medication({ marca: "RECIT 10 MG SOBRES X 7" }))).toBe(
+      "Recit 10 mg Sobres x 7"
+    );
+  });
+
   test("returns the raw presentation when no unit count is found", () => {
     expect(formatMedicationPresentation(medication({}))).toBe("Sin Clasificar");
   });
