@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import { BookOpen, ReceiptText } from "lucide-react";
 import {
   Card,
@@ -10,6 +9,13 @@ import {
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 import { References } from "@/components/references";
+
+export const metadata: Metadata = {
+  title: "Legislación: receta y cobertura de medicamentos para TDAH",
+  description:
+    "Por qué sigue siendo difícil conseguir estimulantes en Argentina: receta oficial de Lista II, receta electrónica y cobertura PMO de medicamentos para TDAH.",
+  alternates: { canonical: "/legislacion" },
+};
 
 const leyes = [
   {
