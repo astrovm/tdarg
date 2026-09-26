@@ -289,7 +289,7 @@ const tratamientosReferences: Reference[] = [
     id: 3,
     title: "ADHD 2.0: New Science and Essential Strategies for Thriving with Distraction",
     authors: "Edward M. Hallowell, John J. Ratey",
-    url: "https://search.worldcat.org/search?q=ADHD+2.0+Hallowell+Ratey",
+    url: "/adhd-2.0.pdf",
     description: "Estrategias prácticas y neurociencia del TDAH para adultos.",
     year: "2021",
   },
