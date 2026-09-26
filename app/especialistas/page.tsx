@@ -39,6 +39,7 @@ import {
   provinceOptions,
   specialtyOptions,
   typeLabel,
+  UNKNOWN_PROVINCE,
 } from "@/lib/specialists/filters";
 
 const PAGE_SIZE = 20;
@@ -330,7 +331,9 @@ export default function SpecialistsPage() {
             {filteredSpecialists.length}
           </span>{" "}
           especialista{filteredSpecialists.length !== 1 ? "s" : ""}
-          {province !== "all" && ` en ${province}`}
+          {province === UNKNOWN_PROVINCE
+            ? " con ubicación a confirmar"
+            : province !== "all" && ` en ${province}`}
         </p>
 
         {filteredSpecialists.length > 0 ? (

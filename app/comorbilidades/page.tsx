@@ -39,7 +39,7 @@ function MetricCard({
   );
 }
 
-export default function ComorbilidadesPage() {
+export default function ComorbiditiesPage() {
   return (
     <StepGuideLayout
       title="TDAH y comorbilidades"

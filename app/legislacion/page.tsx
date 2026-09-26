@@ -114,7 +114,7 @@ const documentationSources = {
   ],
 };
 
-export default function LegislacionPage() {
+export default function LegislationPage() {
   const splitBullet = (text: string) => {
     const separatorIndex = text.indexOf(":");
 

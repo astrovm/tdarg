@@ -20,7 +20,7 @@ const CONCERTA: FarmacityMed = {
   package: { potency: 54 },
 };
 
-describe("normalizarNumeroFarmacity", () => {
+describe("parseFarmacityNumber", () => {
   test("parses prices in both number formats", () => {
     expect(parseFarmacityNumber(190776.15)).toBe(190776.15);
     expect(parseFarmacityNumber("190776.15")).toBe(190776.15);
@@ -40,7 +40,7 @@ describe("normalizarNumeroFarmacity", () => {
   });
 });
 
-describe("formatearPotencia", () => {
+describe("formatPotency", () => {
   test("formats single and combination strengths", () => {
     expect(formatPotency(30)).toBe("30 mg");
     expect(formatPotency("2,5")).toBe("2.5 mg");
@@ -53,7 +53,7 @@ describe("formatearPotencia", () => {
   });
 });
 
-describe("extraerConcentracionTexto", () => {
+describe("extractStrength", () => {
   test("extracts the strength from the first text that has one", () => {
     expect(extractStrength(undefined, "CONCERTA 54 MG COMP.X 30")).toBe("54 mg");
     expect(extractStrength("Sin Clasificar", "STRATTERA 2,5mg")).toBe("2.5 mg");
@@ -68,7 +68,7 @@ describe("extraerConcentracionTexto", () => {
   });
 });
 
-describe("convertirMedicamento", () => {
+describe("toMedication", () => {
   test("maps Farmacity fields to a medication", () => {
     expect(toMedication({ ...CONCERTA, barCode: "779" }, DATE)).toEqual({
       code: "779",
@@ -108,7 +108,7 @@ describe("convertirMedicamento", () => {
   });
 });
 
-describe("esMedicamentoTDAH", () => {
+describe("isAdhdMedication", () => {
   test("rejects excluded active ingredients", () => {
     const base = toMedication(CONCERTA, DATE);
 
@@ -117,7 +117,7 @@ describe("esMedicamentoTDAH", () => {
   });
 });
 
-describe("eliminarDuplicados", () => {
+describe("dedupeMedications", () => {
   test("keeps the priced entry among duplicates", () => {
     const base = toMedication({ ...CONCERTA, publicPrice: undefined }, DATE);
     const priced = { ...base, code: "2", price: 5000 };

@@ -22,7 +22,7 @@ const finalActions = [
   { href: "/tratamientos", label: "Ver tratamientos" },
 ] satisfies GuideAction[];
 
-export default function DiagnosticoPage() {
+export default function DiagnosisPage() {
   return (
     <StepGuideLayout
       title="Cómo se diagnostica el TDAH"

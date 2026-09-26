@@ -22,7 +22,7 @@ const finalActions = [
   { href: "/precios", label: "Ver precios" },
 ] satisfies GuideAction[];
 
-export default function TratamientosPage() {
+export default function TreatmentsPage() {
   return (
     <StepGuideLayout
       title="Tratamientos para TDAH"

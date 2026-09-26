@@ -1,9 +1,7 @@
-import { afterEach, beforeAll, describe, expect, mock, spyOn, test } from "bun:test";
+import { afterEach, beforeAll, describe, expect, spyOn, test } from "bun:test";
 
 import type { FarmacityMed } from "./farmacity";
-
-// Outside Next there is no Data Cache: every call hits Farmacity directly
-mock.module("next/cache", () => ({ unstable_cache: <T>(fn: T) => fn }));
+import { getPrices } from "./server";
 
 const SEARCH_RESULTS: Record<string, FarmacityMed[]> = {
   "metilfenidato": [
@@ -31,13 +29,10 @@ function respondLikeFarmacity(url: string): Response {
 
 // The module keeps the last good snapshot between calls, so the "down on first
 // load" test runs first, before any test has stored one.
-let getPrices: typeof import("./server").getPrices;
 
 let fetchSpy: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
 
-beforeAll(async () => {
-  // Imported after the next/cache mock above is registered
-  ({ getPrices } = await import("./server"));
+beforeAll(() => {
   spyOn(console, "warn").mockImplementation(() => {});
   spyOn(console, "error").mockImplementation(() => {});
 });
@@ -46,7 +41,7 @@ afterEach(() => {
   fetchSpy?.mockRestore();
 });
 
-describe("getPrecios", () => {
+describe("getPrices", () => {
   test("returns an empty stale snapshot when Farmacity is down on first load", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockRejectedValue(new Error("timeout"));
 

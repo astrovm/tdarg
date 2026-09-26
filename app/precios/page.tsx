@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 // Same interval as the price cache (15 minutes)
 export const revalidate = 900;
 
-export default async function PreciosPage() {
+export default async function PricesPage() {
   const prices = await getPrices();
 
   return (
