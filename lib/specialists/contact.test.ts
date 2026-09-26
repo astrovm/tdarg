@@ -63,9 +63,9 @@ describe("whatsappUrl", () => {
 describe("specialistWhatsapp", () => {
   test("falls back to the first mobile number", () => {
     expect(
-      specialistWhatsapp({ telefono: "+54 11 4452-8765 | +54 9 11 6627-3265" }),
+      specialistWhatsapp({ phone: "+54 11 4452-8765 | +54 9 11 6627-3265" }),
     ).toBe("https://wa.me/5491166273265");
-    expect(specialistWhatsapp({ telefono: "+54 11 5777-3200" })).toBeNull();
+    expect(specialistWhatsapp({ phone: "+54 11 5777-3200" })).toBeNull();
   });
 
 });

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import type { Medicamento } from "@/lib/medicamentos/types";
+import type { Medication } from "@/lib/medications/types";
 
 const TARGETS = [
   {
@@ -21,22 +21,22 @@ function normalizeDose(dose: string) {
 }
 
 function pickByDose(
-  medicamentos: Medicamento[],
+  medications: Medication[],
   matcher: string,
   dose: string,
 ) {
   const normalizedDose = normalizeDose(dose);
 
-  return medicamentos
-    .filter((medicamento) => {
-      const text = `${medicamento.nombre} ${medicamento.marca}`.toLowerCase();
+  return medications
+    .filter((medication) => {
+      const text = `${medication.name} ${medication.brand}`.toLowerCase();
       return (
         text.includes(matcher) &&
-        normalizeDose(medicamento.concentracion) === normalizedDose
+        normalizeDose(medication.strength) === normalizedDose
       );
     })
-    .filter((medicamento) => medicamento.precio > 0)
-    .sort((a, b) => a.precio - b.precio)[0];
+    .filter((medication) => medication.price > 0)
+    .sort((a, b) => a.price - b.price)[0];
 }
 
 function formatCompactPrice(price: number) {
@@ -45,19 +45,19 @@ function formatCompactPrice(price: number) {
 }
 
 export function HomeLivePrices({
-  medicamentos,
+  medications,
 }: {
-  medicamentos: Medicamento[];
+  medications: Medication[];
 }) {
   const selected = TARGETS.map((target) => ({
     ...target,
     rows: target.doses.map((dose) => ({
       dose,
-      medicamento: pickByDose(medicamentos, target.matcher, dose),
+      medication: pickByDose(medications, target.matcher, dose),
     })),
   }));
 
-  if (!selected.some((target) => target.rows.some((row) => row.medicamento))) {
+  if (!selected.some((target) => target.rows.some((row) => row.medication))) {
     return null;
   }
 
@@ -73,14 +73,14 @@ export function HomeLivePrices({
               {target.label}
             </div>
             <div className="grid grid-cols-3 gap-1.5">
-              {target.rows.map(({ dose, medicamento }) => (
+              {target.rows.map(({ dose, medication }) => (
                 <span
                   key={dose}
                   className="flex min-h-11 flex-col items-center justify-center rounded-md bg-muted/60 px-1 py-1 leading-tight"
                 >
                   <span className="text-xs text-muted-foreground">{dose}</span>
                   <span className="font-semibold text-foreground">
-                    {medicamento ? formatCompactPrice(medicamento.precio) : null}
+                    {medication ? formatCompactPrice(medication.price) : null}
                   </span>
                 </span>
               ))}

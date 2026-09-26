@@ -22,14 +22,14 @@ const finalActions = [
   { href: "/tratamientos", label: "Ver tratamientos" },
 ] satisfies GuideAction[];
 
-export default function DiagnosticoPage() {
+export default function DiagnosisPage() {
   return (
     <StepGuideLayout
       title="Cómo se diagnostica el TDAH"
       description="Autoevaluación, consulta clínica y próximos pasos"
       steps={steps}
       finalActions={finalActions}
-      references={diagnosticoReferences}
+      references={diagnosisReferences}
     >
       {(currentStep) => (
         <>
@@ -200,7 +200,7 @@ export default function DiagnosticoPage() {
   );
 }
 
-const diagnosticoReferences: Reference[] = [
+const diagnosisReferences: Reference[] = [
   {
     id: 1,
     title: "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",

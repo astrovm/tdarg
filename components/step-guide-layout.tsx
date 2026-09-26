@@ -109,7 +109,7 @@ export function StepGuideLayout({
       <main className="container mx-auto max-w-4xl px-4 py-6">
         <article
           ref={cardRef}
-          aria-labelledby="paso-titulo"
+          aria-labelledby="step-title"
           className="scroll-mt-4 rounded-lg border bg-card text-card-foreground shadow-sm"
         >
           <header className="flex items-center gap-3 p-5 sm:p-6">
@@ -122,7 +122,7 @@ export function StepGuideLayout({
               <ActiveIcon className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
-              <h2 id="paso-titulo" className="text-xl font-semibold leading-tight">
+              <h2 id="step-title" className="text-xl font-semibold leading-tight">
                 {activeStep.title}
               </h2>
               <p className="text-sm text-muted-foreground">{activeStep.subtitle}</p>

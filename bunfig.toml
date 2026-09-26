@@ -1,4 +1,6 @@
 [test]
 # `bun test` fails if line or function coverage drops below 95%
+preload = ["./test/dom.ts", "./test/setup.ts"]
 coverage = true
+coveragePathIgnorePatterns = ["test/**"]
 coverageThreshold = { lines = 0.95, functions = 0.95 }
