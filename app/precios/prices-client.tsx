@@ -17,8 +17,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { PageHero } from "@/components/page-hero";
-import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales";
-import type { Medicamento, PreciosSnapshot } from "@/lib/medicamentos/types";
+import { useLivePrices } from "@/hooks/use-live-prices";
+import type { Medication, PriceSnapshot } from "@/lib/medications/types";
 import {
   brandName,
   extractMg,
@@ -27,7 +27,7 @@ import {
   groupByApproval,
   pricePerMg,
   priceWithCoverage,
-} from "@/lib/medicamentos/utils";
+} from "@/lib/medications/utils";
 import { cn } from "@/lib/utils";
 
 const priceTone = {
@@ -35,11 +35,11 @@ const priceTone = {
     heading: "text-emerald-700 dark:text-emerald-300",
     price: "text-emerald-700 dark:text-emerald-300",
   },
-  nonstimulant: {
+  nonStimulant: {
     heading: "text-sky-700 dark:text-sky-300",
     price: "text-sky-700 dark:text-sky-300",
   },
-  offlabel: {
+  offLabel: {
     heading: "text-amber-700 dark:text-amber-300",
     price: "text-amber-700 dark:text-amber-300",
   },
@@ -67,7 +67,7 @@ const INGREDIENT_ORDER = [
 // Only methylphenidate is in the PMO (Res. 310/2004, 40%). Off-label uses are
 // usually not covered, so they get no discounted price.
 function hasCoverage(tone: PriceTone) {
-  return tone !== "offlabel";
+  return tone !== "offLabel";
 }
 
 const dateTimeFormat = new Intl.DateTimeFormat("es-AR", {
@@ -80,14 +80,14 @@ const dateTimeFormat = new Intl.DateTimeFormat("es-AR", {
   timeZone: "America/Argentina/Buenos_Aires",
 });
 
-function sortMedications(items: Medicamento[], sortOrder: SortOrder): Medicamento[] {
-  const byName = (a: Medicamento, b: Medicamento) =>
-    brandName(a.marca).localeCompare(brandName(b.marca), "es", { sensitivity: "base" }) ||
-    (extractMg(a.concentracion) ?? 0) - (extractMg(b.concentracion) ?? 0);
+function sortMedications(items: Medication[], sortOrder: SortOrder): Medication[] {
+  const byName = (a: Medication, b: Medication) =>
+    brandName(a.brand).localeCompare(brandName(b.brand), "es", { sensitivity: "base" }) ||
+    (extractMg(a.strength) ?? 0) - (extractMg(b.strength) ?? 0);
 
   return [...items].sort((a, b) => {
     if (sortOrder === "price") {
-      return a.precio - b.precio || byName(a, b);
+      return a.price - b.price || byName(a, b);
     }
     if (sortOrder === "mg") {
       const mgA = pricePerMg(a) ?? Number.POSITIVE_INFINITY;
@@ -104,19 +104,19 @@ function MedicationPriceRow({
   medication,
   tone,
 }: {
-  medication: Medicamento;
+  medication: Medication;
   tone: PriceTone;
 }) {
   const perMg = pricePerMg(medication);
   const coverage = hasCoverage(tone)
-    ? formatPrice(priceWithCoverage(medication.precio), { decimals: 0 })
+    ? formatPrice(priceWithCoverage(medication.price), { decimals: 0 })
     : null;
 
   return (
     <li className={cn("grid grid-cols-[1fr_auto] gap-x-4 px-4 py-3 md:items-center", COLUMNS)}>
       <div className="min-w-0">
         <div className="font-semibold leading-tight">
-          {brandName(medication.marca)} {medication.concentracion}
+          {brandName(medication.brand)} {medication.strength}
         </div>
         <div className="text-sm text-muted-foreground">
           {formatMedicationPresentation(medication)}
@@ -124,7 +124,7 @@ function MedicationPriceRow({
       </div>
       <div className="text-right">
         <div className={cn("text-lg font-bold tabular-nums", priceTone[tone].price)}>
-          {formatPrice(medication.precio, { decimals: 0 })}
+          {formatPrice(medication.price, { decimals: 0 })}
         </div>
         {coverage ? (
           <div className="text-sm text-muted-foreground tabular-nums md:hidden">
@@ -147,7 +147,7 @@ function PriceGroup({
 }: {
   title: string;
   tone: PriceTone;
-  groups: Array<[string, Medicamento[]]>;
+  groups: Array<[string, Medication[]]>;
 }) {
   if (groups.length === 0) {
     return null;
@@ -177,7 +177,7 @@ function PriceGroup({
             </div>
             <ul className="divide-y">
               {meds.map((medication) => (
-                <MedicationPriceRow key={medication.codigo} medication={medication} tone={tone} />
+                <MedicationPriceRow key={medication.code} medication={medication} tone={tone} />
               ))}
             </ul>
           </div>
@@ -187,7 +187,7 @@ function PriceGroup({
   );
 }
 
-function sortIngredientGroups(entries: Array<[string, Medicamento[]]>) {
+function sortIngredientGroups(entries: Array<[string, Medication[]]>) {
   const index = (key: string) => {
     const i = INGREDIENT_ORDER.indexOf(key);
     return i === -1 ? INGREDIENT_ORDER.length : i;
@@ -195,18 +195,18 @@ function sortIngredientGroups(entries: Array<[string, Medicamento[]]>) {
   return [...entries].sort(([a], [b]) => index(a) - index(b) || a.localeCompare(b, "es"));
 }
 
-export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
+export function PricesClient({ initial }: { initial: PriceSnapshot }) {
   const [query, setQuery] = useState("");
   const [ingredient, setIngredient] = useState("all");
   const [dose, setDose] = useState("all");
   const [sortOrder, setSortOrder] = useState<SortOrder>("price");
   const { data: medications, updatedAt, stale, loading } =
-    useMedicamentosReales(initial);
+    useLivePrices(initial);
 
   const ingredients = useMemo(() => {
     const groups = groupByApproval(medications);
     return sortIngredientGroups(
-      Object.entries({ ...groups.estimulantes, ...groups.noestimulantes, ...groups.offlabel }),
+      Object.entries({ ...groups.stimulants, ...groups.nonStimulants, ...groups.offLabel }),
     ).map(([key]) => key);
   }, [medications]);
 
@@ -214,14 +214,14 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
     () =>
       ingredient === "all"
         ? medications
-        : medications.filter((med) => med.nombre.toLowerCase().includes(ingredient)),
+        : medications.filter((med) => med.name.toLowerCase().includes(ingredient)),
     [medications, ingredient],
   );
 
   const availableDoses = useMemo(() => {
     const values = new Set<number>();
     for (const med of byIngredient) {
-      const mg = extractMg(med.concentracion);
+      const mg = extractMg(med.strength);
       if (mg) values.add(mg);
     }
     return [...values].sort((a, b) => a - b);
@@ -235,11 +235,11 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
     const filtered = byIngredient.filter((med) => {
       const matchesQuery =
         !queryLower ||
-        med.nombre.toLowerCase().includes(queryLower) ||
-        med.marca.toLowerCase().includes(queryLower) ||
-        med.laboratorio.toLowerCase().includes(queryLower);
+        med.name.toLowerCase().includes(queryLower) ||
+        med.brand.toLowerCase().includes(queryLower) ||
+        med.laboratory.toLowerCase().includes(queryLower);
       const matchesDose =
-        activeDose === "all" || extractMg(med.concentracion) === Number(activeDose);
+        activeDose === "all" || extractMg(med.strength) === Number(activeDose);
       return matchesQuery && matchesDose;
     });
 
@@ -359,17 +359,17 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
             <PriceGroup
               title="Estimulantes"
               tone="stimulant"
-              groups={sortIngredientGroups(Object.entries(grouped.groups.estimulantes))}
+              groups={sortIngredientGroups(Object.entries(grouped.groups.stimulants))}
             />
             <PriceGroup
               title="No estimulantes"
-              tone="nonstimulant"
-              groups={sortIngredientGroups(Object.entries(grouped.groups.noestimulantes))}
+              tone="nonStimulant"
+              groups={sortIngredientGroups(Object.entries(grouped.groups.nonStimulants))}
             />
             <PriceGroup
               title="Uso off-label"
-              tone="offlabel"
-              groups={sortIngredientGroups(Object.entries(grouped.groups.offlabel))}
+              tone="offLabel"
+              groups={sortIngredientGroups(Object.entries(grouped.groups.offLabel))}
             />
           </div>
         )}

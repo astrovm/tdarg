@@ -57,13 +57,13 @@ export function whatsappUrl(value?: string | null): string | null {
 // WhatsApp number: the explicit one or, if missing, the first mobile in the list.
 export function specialistWhatsapp(specialist: {
   whatsapp?: string;
-  telefono: string;
+  phone: string;
 }): string | null {
   if (specialist.whatsapp) {
     return whatsappUrl(specialist.whatsapp);
   }
 
-  const mobile = parsePhones(specialist.telefono).find((phone) => phone.mobile);
+  const mobile = parsePhones(specialist.phone).find((phone) => phone.mobile);
   return mobile ? whatsappUrl(mobile.label) : null;
 }
 

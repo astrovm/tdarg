@@ -32,41 +32,20 @@ import {
   parsePhones,
 } from "@/lib/specialists/contact";
 import specialists, { type Specialist } from "@/lib/specialists/data";
+import {
+  formatLocation,
+  matchesProvince,
+  matchesQuery,
+  provinceOptions,
+  specialtyOptions,
+  typeLabel,
+  UNKNOWN_PROVINCE,
+} from "@/lib/specialists/filters";
 
 const PAGE_SIZE = 20;
 
-const typeLabels: Record<string, string> = {
-  privado: "Consulta privada",
-  instituto: "Instituto",
-  centro_especializado: "Centro especializado",
-  hospital: "Hospital",
-  clinica: "Clínica",
-  consultorio: "Consultorio",
-  fundacion: "Fundación",
-};
-
-function getTypeLabel(typeLabel: string) {
-  return typeLabels[typeLabel] ?? typeLabel;
-}
-
-// "CABA/Buenos Aires" covers both provinces
-function provincesOf(specialist: Specialist) {
-  return specialist.provincia
-    .split("/")
-    .map((p) => p.trim())
-    .filter((p) => !isPlaceholder(p));
-}
-
-function countBy(values: string[]) {
-  const counts = new Map<string, number>();
-  for (const value of values) {
-    counts.set(value, (counts.get(value) ?? 0) + 1);
-  }
-  return [...counts.entries()].sort(([a], [b]) => a.localeCompare(b, "es"));
-}
-
-const provinceOptions = countBy(specialists.flatMap(provincesOf));
-const specialtyOptions = countBy(specialists.map((e) => e.especialidad));
+const provinces = provinceOptions(specialists);
+const specialties = specialtyOptions(specialists);
 
 type SocialLink = {
   url: string;
@@ -104,46 +83,39 @@ function parseSocialLinks(socialText?: string, linkedinUrl?: string): SocialLink
   return socialLinks;
 }
 
-function formatLocation(specialist: Specialist) {
-  const parts = [specialist.ciudad, specialist.provincia].filter(
-    (part, index, all) => !isPlaceholder(part) && all.indexOf(part) === index,
-  );
-  return parts.length > 0 ? parts.join(", ") : "Ubicación a confirmar";
-}
-
 function SpecialistCard({ specialist }: { specialist: Specialist }) {
-  const typeLabel = getTypeLabel(specialist.tipo);
+  const specialistType = typeLabel(specialist);
   const childrenOnly = specialist.hospital.includes("Solo niños");
   const hospital = specialist.hospital.replace(/\s*-\s*Solo niños/i, "");
   const showHospital =
     !isPlaceholder(hospital) &&
-    hospital !== typeLabel &&
-    normalizeSearch(hospital) !== normalizeSearch(specialist.nombre);
+    hospital !== specialistType &&
+    normalizeSearch(hospital) !== normalizeSearch(specialist.name);
   const showAddress =
-    !isPlaceholder(specialist.direccion) &&
-    specialist.direccion !== hospital;
+    !isPlaceholder(specialist.address) &&
+    specialist.address !== hospital;
 
-  const phones = parsePhones(specialist.telefono);
+  const phones = parsePhones(specialist.phone);
   const whatsapp = specialistWhatsapp(specialist);
-  const emails = [specialist.email, specialist.emailFundacion].filter(
+  const emails = [specialist.email, specialist.foundationEmail].filter(
     (email): email is string => !isPlaceholder(email),
   );
-  const coverages = specialist.obraSocial.filter((o) => !isPlaceholder(o));
-  const socialLinks = parseSocialLinks(specialist.redes, specialist.linkedin);
+  const coverages = specialist.insurance.filter((o) => !isPlaceholder(o));
+  const socialLinks = parseSocialLinks(specialist.social, specialist.linkedin);
   const hasDetails =
     phones.length > 0 ||
     emails.length > 0 ||
-    !isPlaceholder(specialist.horarios) ||
-    Boolean(specialist.turnos);
+    !isPlaceholder(specialist.hours) ||
+    Boolean(specialist.appointments);
 
   return (
     <article className="flex h-full flex-col gap-4 rounded-lg border bg-card p-5 text-card-foreground shadow-xs">
       <div>
         <h3 className="text-lg font-semibold leading-tight">
-          {specialist.nombre}
+          {specialist.name}
         </h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          {specialist.especialidad}
+          {specialist.specialty}
         </p>
         {childrenOnly ? (
           <Badge variant="secondary" className="mt-2 text-xs">
@@ -160,7 +132,7 @@ function SpecialistCard({ specialist }: { specialist: Specialist }) {
             <div className="text-muted-foreground">{hospital}</div>
           ) : null}
           {showAddress ? (
-            <div className="text-muted-foreground">{specialist.direccion}</div>
+            <div className="text-muted-foreground">{specialist.address}</div>
           ) : null}
         </div>
       </div>
@@ -186,16 +158,16 @@ function SpecialistCard({ specialist }: { specialist: Specialist }) {
               </a>
             </li>
           ))}
-          {!isPlaceholder(specialist.horarios) ? (
+          {!isPlaceholder(specialist.hours) ? (
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-              <span>{specialist.horarios}</span>
+              <span>{specialist.hours}</span>
             </li>
           ) : null}
-          {specialist.turnos ? (
+          {specialist.appointments ? (
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-              <span>Turnos: {specialist.turnos}</span>
+              <span>Turnos: {specialist.appointments}</span>
             </li>
           ) : null}
         </ul>
@@ -259,20 +231,12 @@ export default function SpecialistsPage() {
   const [limit, setLimit] = useState(PAGE_SIZE);
 
   const filteredSpecialists = useMemo(() => {
-    const normalizedQuery = normalizeSearch(query.trim());
-
-    return specialists.filter((specialist) => {
-      const matchesQuery =
-        !normalizedQuery ||
-        [specialist.nombre, specialist.ciudad, specialist.provincia, specialist.hospital]
-          .some((field) => normalizeSearch(field).includes(normalizedQuery));
-      const matchesProvince =
-        province === "all" || provincesOf(specialist).includes(province);
-      const matchesSpecialty =
-        specialty === "all" || specialist.especialidad === specialty;
-
-      return matchesQuery && matchesProvince && matchesSpecialty;
-    });
+    return specialists.filter(
+      (specialist) =>
+        matchesQuery(specialist, query) &&
+        matchesProvince(specialist, province) &&
+        (specialty === "all" || specialist.specialty === specialty),
+    );
   }, [query, province, specialty]);
 
   const visible = filteredSpecialists.slice(0, limit);
@@ -318,9 +282,9 @@ export default function SpecialistsPage() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Todas las provincias</SelectItem>
-              {provinceOptions.map(([name, count]) => (
-                <SelectItem key={name} value={name}>
-                  {name} ({count})
+              {provinces.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label} ({option.count})
                 </SelectItem>
               ))}
             </SelectContent>
@@ -337,9 +301,9 @@ export default function SpecialistsPage() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Todas las especialidades</SelectItem>
-              {specialtyOptions.map(([name, count]) => (
-                <SelectItem key={name} value={name}>
-                  {name} ({count})
+              {specialties.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label} ({option.count})
                 </SelectItem>
               ))}
             </SelectContent>
@@ -367,7 +331,9 @@ export default function SpecialistsPage() {
             {filteredSpecialists.length}
           </span>{" "}
           especialista{filteredSpecialists.length !== 1 ? "s" : ""}
-          {province !== "all" && ` en ${province}`}
+          {province === UNKNOWN_PROVINCE
+            ? " con ubicación a confirmar"
+            : province !== "all" && ` en ${province}`}
         </p>
 
         {filteredSpecialists.length > 0 ? (
@@ -375,7 +341,7 @@ export default function SpecialistsPage() {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
               {visible.map((specialist) => (
                 <SpecialistCard
-                  key={`${specialist.nombre}-${specialist.ciudad}-${specialist.hospital}`}
+                  key={`${specialist.name}-${specialist.city}-${specialist.hospital}`}
                   specialist={specialist}
                 />
               ))}

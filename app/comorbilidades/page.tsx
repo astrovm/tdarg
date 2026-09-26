@@ -39,14 +39,14 @@ function MetricCard({
   );
 }
 
-export default function ComorbilidadesPage() {
+export default function ComorbiditiesPage() {
   return (
     <StepGuideLayout
       title="TDAH y comorbilidades"
       description="Condiciones frecuentes que pueden coexistir con el TDAH"
       steps={steps}
       finalActions={finalActions}
-      references={comorbilidadesReferences}
+      references={comorbiditiesReferences}
     >
       {(currentStep) => (
         <>
@@ -211,7 +211,7 @@ export default function ComorbilidadesPage() {
   );
 }
 
-const comorbilidadesReferences: Reference[] = [
+const comorbiditiesReferences: Reference[] = [
   {
     id: 1,
     title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Segunda parte",

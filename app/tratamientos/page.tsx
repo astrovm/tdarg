@@ -22,14 +22,14 @@ const finalActions = [
   { href: "/precios", label: "Ver precios" },
 ] satisfies GuideAction[];
 
-export default function TratamientosPage() {
+export default function TreatmentsPage() {
   return (
     <StepGuideLayout
       title="Tratamientos para TDAH"
       description="Opciones para entender cómo se trata el TDAH"
       steps={steps}
       finalActions={finalActions}
-      references={tratamientosReferences}
+      references={treatmentReferences}
     >
       {(currentStep) => (
         <>
@@ -197,7 +197,7 @@ export default function TratamientosPage() {
   );
 }
 
-const tratamientosReferences: Reference[] = [
+const treatmentReferences: Reference[] = [
   {
     id: 1,
     title: "Primer Consenso Argentino sobre el manejo del Trastorno por Déficit de Atención e Hiperactividad en la adultez. Tercera parte: tratamiento integral del TDAH",

@@ -1,24 +1,24 @@
 import { afterEach, describe, expect, spyOn, test } from "bun:test";
 
-import * as server from "@/lib/medicamentos/server";
-import type { Medicamento, PreciosSnapshot } from "@/lib/medicamentos/types";
+import * as server from "@/lib/medications/server";
+import type { Medication, PriceSnapshot } from "@/lib/medications/types";
 
 import { GET } from "./route";
 
-const MEDICATION: Medicamento = {
-  codigo: "1",
-  nombre: "metilfenidato",
-  marca: "CONCERTA 54 MG COMP.X 30",
-  laboratorio: "JANSSEN",
+const MEDICATION: Medication = {
+  code: "1",
+  name: "metilfenidato",
+  brand: "CONCERTA 54 MG COMP.X 30",
+  laboratory: "JANSSEN",
   source: "farmacity",
-  precio: 100000,
-  presentacion: "Comprimidos x 30",
-  concentracion: "54 mg",
-  fechaActualizacion: "2026-09-26T00:00:00.000Z",
+  price: 100000,
+  presentation: "Comprimidos x 30",
+  strength: "54 mg",
+  updatedAt: "2026-09-26T00:00:00.000Z",
 };
 
-function mockPrices(snapshot: PreciosSnapshot) {
-  return spyOn(server, "getPrecios").mockResolvedValue(snapshot);
+function mockPrices(snapshot: PriceSnapshot) {
+  return spyOn(server, "getPrices").mockResolvedValue(snapshot);
 }
 
 let spy: ReturnType<typeof mockPrices> | undefined;
@@ -27,10 +27,10 @@ afterEach(() => {
   spy?.mockRestore();
 });
 
-describe("GET /api/medicamentos-precios", () => {
+describe("GET /api/prices", () => {
   test("returns fresh prices with a shared cache header", async () => {
     spy = mockPrices({
-      data: [MEDICATION, { ...MEDICATION, codigo: "2", precio: 0 }],
+      data: [MEDICATION, { ...MEDICATION, code: "2", price: 0 }],
       updatedAt: "2026-09-26T00:00:00.000Z",
       stale: false,
     });
@@ -46,7 +46,7 @@ describe("GET /api/medicamentos-precios", () => {
       timestamp: "2026-09-26T00:00:00.000Z",
       total: 2,
       stale: false,
-      estadisticas: { total: 2, con_precio: 1 },
+      stats: { total: 2, withPrice: 1 },
     });
   });
 
@@ -70,7 +70,7 @@ describe("GET /api/medicamentos-precios", () => {
       data: [],
       updatedAt: "2026-09-26T00:00:00.000Z",
       stale: true,
-      error: "No se encontraron medicamentos",
+      error: "No medications found",
     });
 
     const response = await GET();

@@ -66,7 +66,7 @@ export function Header() {
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
-              aria-controls="menu-movil"
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               <span className="sr-only">{mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}</span>
@@ -75,7 +75,7 @@ export function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <nav id="menu-movil" aria-label="Principal" className="mt-3 border-t pt-2 lg:hidden">
+          <nav id="mobile-menu" aria-label="Principal" className="mt-3 border-t pt-2 lg:hidden">
             <ul className="flex flex-col">
               {navigationItems.map((item) => {
                 const active = pathname === item.href;

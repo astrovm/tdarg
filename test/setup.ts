@@ -1,15 +1,10 @@
-import { afterEach } from "bun:test";
-import { GlobalRegistrator } from "@happy-dom/global-registrator";
+import { afterEach, mock } from "bun:test";
+import { cleanup } from "@testing-library/react";
 
-// Components render into Happy DOM; server code keeps Bun's own fetch and
-// Response so route and price tests exercise the real runtime.
-const { fetch, Request, Response, Headers, URL, URLSearchParams } = globalThis;
-GlobalRegistrator.register({ url: "https://tdarg.com.ar/" });
-Object.assign(globalThis, { fetch, Request, Response, Headers, URL, URLSearchParams });
+afterEach(cleanup);
 
-const { cleanup } = await import("@testing-library/react");
+// Outside Next there is no Data Cache: cached functions run directly
+mock.module("next/cache", () => ({ unstable_cache: <T>(fn: T) => fn }));
 
-afterEach(() => {
-  cleanup();
-  window.history.replaceState(null, "", "/");
-});
+// next/font only works inside the Next compiler
+mock.module("next/font/google", () => ({ Inter: () => ({ className: "font-inter" }) }));
