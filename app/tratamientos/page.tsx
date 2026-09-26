@@ -30,7 +30,6 @@ export default function TratamientosPage() {
       steps={steps}
       finalActions={finalActions}
       references={tratamientosReferences}
-      notice="Esta guía es informativa: no reemplaza la consulta médica. No empieces, cambies ni dejes una medicación sin hablarlo con tu médico."
     >
       {(currentStep) => (
         <>

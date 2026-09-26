@@ -3,7 +3,6 @@ import { expect, test } from "bun:test";
 import {
   extractUnits,
   brandName,
-  formatLaboratorio,
   formatMedicationName,
   formatPrice,
   formatMedicationPresentation,
@@ -120,12 +119,6 @@ test("extracts the commercial brand name", () => {
   expect(brandName("RUBIFEN  SR 20 MG COMP.X 30")).toBe("Rubifen SR");
   expect(brandName("CONSIV  18MG COMP.REC.LIB.PR.X30")).toBe("Consiv");
   expect(brandName("RECIT  10 MG CAPS.X 7")).toBe("Recit");
-});
-
-test("formats laboratory names", () => {
-  expect(formatLaboratorio("JANSSEN CILAG")).toBe("Janssen Cilag");
-  expect(formatLaboratorio("BAGO")).toBe("Bagó");
-  expect(formatLaboratorio("TEVA ARGENTINA")).toBe("Teva Argentina");
 });
 
 test("formats prices without decimals when asked", () => {

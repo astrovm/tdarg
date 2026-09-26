@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Info } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Header } from "@/components/header";
 import { References, type Reference } from "@/components/references";
@@ -18,8 +18,6 @@ export type StepGuideLayoutProps = {
   // Acciones al terminar la guía: la primera se muestra como principal
   finalActions: readonly GuideAction[];
   references?: Reference[];
-  // Aviso breve bajo la descripción (por ejemplo, que no reemplaza la consulta)
-  notice?: string;
   // Recibe el paso actual y devuelve el contenido de todos los pasos
   children: (currentStep: number) => ReactNode;
 };
@@ -30,7 +28,6 @@ export function StepGuideLayout({
   steps,
   finalActions,
   references,
-  notice,
   children,
 }: StepGuideLayoutProps) {
   const { currentStep, goTo } = useGuideStep(steps.length);
@@ -71,17 +68,10 @@ export function StepGuideLayout({
               {description}
             </p>
           ) : null}
-          {notice ? (
-            <p className="mb-5 flex items-start gap-2 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-foreground">
-              <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-300" aria-hidden="true" />
-              {notice}
-            </p>
-          ) : null}
 
           <nav aria-label="Pasos de la guía">
             <ol className="grid grid-cols-1 gap-1.5 min-[420px]:grid-cols-2 md:flex md:flex-wrap md:gap-2">
               {steps.map((step) => {
-                const Icon = step.icon;
                 const isActive = currentStep === step.id;
 
                 return (
@@ -106,10 +96,7 @@ export function StepGuideLayout({
                       >
                         {step.id}
                       </span>
-                      <span className="flex items-center gap-1.5">
-                        <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                        {step.title}
-                      </span>
+                      {step.title}
                     </button>
                   </li>
                 );
@@ -135,9 +122,6 @@ export function StepGuideLayout({
               <ActiveIcon className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                Paso {currentStep} de {steps.length}
-              </p>
               <h2 id="paso-titulo" className="text-xl font-semibold leading-tight">
                 {activeStep.title}
               </h2>
@@ -177,7 +161,7 @@ export function StepGuideLayout({
               </div>
             ) : (
               <Button onClick={() => goTo(currentStep + 1)}>
-                Siguiente<span className="hidden sm:inline">: {steps[currentStep].title}</span>
+                Siguiente
                 <ArrowRight className="h-4 w-4" />
               </Button>
             )}

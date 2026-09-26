@@ -44,18 +44,10 @@ function formatCompactPrice(price: number) {
   return `$${thousands}k`;
 }
 
-const dateFormat = new Intl.DateTimeFormat("es-AR", {
-  day: "numeric",
-  month: "long",
-  timeZone: "America/Argentina/Buenos_Aires",
-});
-
 export function HomeLivePrices({
   medicamentos,
-  updatedAt,
 }: {
   medicamentos: Medicamento[];
-  updatedAt: string;
 }) {
   const selected = TARGETS.map((target) => ({
     ...target,
@@ -88,7 +80,7 @@ export function HomeLivePrices({
                 >
                   <span className="text-xs text-muted-foreground">{dose}</span>
                   <span className="font-semibold text-foreground">
-                    {medicamento ? formatCompactPrice(medicamento.precio) : "–"}
+                    {medicamento ? formatCompactPrice(medicamento.precio) : null}
                   </span>
                 </span>
               ))}
@@ -96,12 +88,9 @@ export function HomeLivePrices({
           </div>
         ))}
       </div>
-      <div className="mt-3 flex items-center justify-between gap-2 border-t pt-3 text-xs text-muted-foreground">
-        <span>Farmacity, {dateFormat.format(new Date(updatedAt))}</span>
-        <span className="inline-flex items-center gap-1 font-medium text-primary">
-          Ver todos los precios
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-        </span>
+      <div className="mt-3 flex items-center justify-center gap-1 text-xs font-medium text-primary">
+        Ver todos los precios
+        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
       </div>
     </Link>
   );

@@ -81,7 +81,7 @@ const links = [
 ];
 
 export default async function HomePage() {
-  const { data: medicamentos, updatedAt } = await getPrecios();
+  const { data: medicamentos } = await getPrecios();
 
   return (
     <div className="flex flex-1 flex-col bg-muted/30">
@@ -98,7 +98,7 @@ export default async function HomePage() {
                 Precios de medicación, especialistas, receta y cobertura.
               </p>
               <div className="mt-6 flex flex-col items-center gap-3 sm:mt-7">
-                <HomeLivePrices medicamentos={medicamentos} updatedAt={updatedAt} />
+                <HomeLivePrices medicamentos={medicamentos} />
               </div>
             </div>
           </div>

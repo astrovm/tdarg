@@ -124,21 +124,6 @@ export function brandName(marca: string) {
     .join(" ");
 }
 
-const LABORATORIOS: Record<string, string> = {
-  BAGO: "Bagó",
-  "BAGÓ": "Bagó",
-  "EUROFARMA ARG.": "Eurofarma",
-  "RAYMOS-MEGALABS": "Raymos-Megalabs",
-};
-
-export function formatLaboratorio(laboratorio: string) {
-  const key = laboratorio.trim().toUpperCase();
-  return (
-    LABORATORIOS[key] ??
-    key.toLowerCase().replace(/(^|[\s-])\p{L}/gu, (match) => match.toUpperCase())
-  );
-}
-
 export function formatMedicationPresentation(medicamento: Medicamento) {
   const source = [medicamento.presentacion, medicamento.marca, medicamento.nombre]
     .find((text) => extractUnits(text));

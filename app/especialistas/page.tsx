@@ -126,12 +126,6 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
     (email): email is string => !isPlaceholder(email),
   );
   const coberturas = especialista.obraSocial.filter((o) => !isPlaceholder(o));
-  const experiencia =
-    !isPlaceholder(especialista.experiencia) &&
-    normalizeSearch(especialista.experiencia) !==
-      normalizeSearch(especialista.especialidad)
-      ? especialista.experiencia
-      : null;
   const redes = parseRedes(especialista.redes, especialista.linkedin);
   const hasDetails =
     phones.length > 0 ||
@@ -146,12 +140,7 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
           {especialista.nombre}
         </h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">
-            {especialista.especialidad}
-          </span>
-          {normalizeSearch(tipo) !== normalizeSearch(especialista.especialidad)
-            ? ` · ${tipo}`
-            : null}
+          {especialista.especialidad}
         </p>
         {soloNinos ? (
           <Badge variant="secondary" className="mt-2 text-xs">
@@ -209,66 +198,53 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
         </ul>
       ) : null}
 
-      {experiencia || coberturas.length > 0 ? (
-        <div className="space-y-2 text-sm">
-          {experiencia ? <p className="text-muted-foreground">{experiencia}</p> : null}
-          {coberturas.length > 0 ? (
-            <div className="flex flex-wrap items-center gap-1.5">
-              <ShieldCheck className="h-4 w-4 text-muted-foreground" aria-label="Cobertura" />
-              {coberturas.map((obra) => (
-                <Badge key={obra} variant="outline" className="text-xs font-normal">
-                  {obra}
-                </Badge>
-              ))}
-            </div>
-          ) : null}
+      {coberturas.length > 0 ? (
+        <div className="flex flex-wrap items-center gap-1.5 text-sm">
+          <ShieldCheck className="h-4 w-4 text-muted-foreground" aria-label="Cobertura" />
+          {coberturas.map((obra) => (
+            <Badge key={obra} variant="outline" className="text-xs font-normal">
+              {obra}
+            </Badge>
+          ))}
         </div>
       ) : null}
 
-      <div className="mt-auto flex flex-wrap gap-2 border-t pt-4">
-        {whatsapp ? (
-          <Button asChild size="sm" className="h-10">
-            <a href={whatsapp} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </a>
-          </Button>
-        ) : phones[0] ? (
-          <Button asChild size="sm" className="h-10">
-            <a href={phones[0].href}>
-              <Phone className="h-4 w-4" />
-              Llamar
-            </a>
-          </Button>
-        ) : null}
-        {emails[0] ? (
-          <Button asChild size="sm" variant="outline" className="h-10">
-            <a href={`mailto:${emails[0]}`}>
-              <Mail className="h-4 w-4" />
-              Email
-            </a>
-          </Button>
-        ) : null}
-        {especialista.url ? (
-          <Button asChild size="sm" variant="outline" className="h-10">
-            <a href={especialista.url} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4" />
-              Sitio web
-            </a>
-          </Button>
-        ) : null}
-        {redes.map((red) => {
-          const Icon = red.icon;
-          return (
-            <Button key={red.url} asChild size="sm" variant="outline" className="h-10">
-              <a href={red.url} target="_blank" rel="noopener noreferrer">
-                <Icon className="h-4 w-4" />
-                {red.label}
+      {whatsapp || especialista.url || redes.length > 0 ? (
+        <div className="mt-auto flex flex-wrap gap-2 pt-1">
+          {whatsapp ? (
+            <Button asChild size="sm" className="h-10">
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
               </a>
             </Button>
-          );
-        })}
-      </div>
+          ) : null}
+          {especialista.url ? (
+            <Button asChild size="sm" variant="outline" className="h-10">
+              <a href={especialista.url} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4" />
+                Sitio web
+              </a>
+            </Button>
+          ) : null}
+          {redes.map((red) => {
+            const Icon = red.icon;
+            return (
+              <Button key={red.url} asChild size="icon" variant="outline">
+                <a
+                  href={red.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={red.label}
+                  title={red.label}
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              </Button>
+            );
+          })}
+        </div>
+      ) : null}
     </article>
   );
 }

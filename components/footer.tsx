@@ -6,10 +6,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-card py-5 text-sm text-muted-foreground">
       <div className="container mx-auto flex flex-col gap-3 px-4 md:flex-row md:items-center md:justify-between">
-        <p>
-          &copy; {currentYear} Tdarg. Información con fines educativos: no reemplaza
-          la consulta con un profesional de la salud.
-        </p>
+        <p>&copy; {currentYear} Tdarg. Información con fines educativos.</p>
 
         <div className="flex flex-wrap items-center gap-x-5">
           <a

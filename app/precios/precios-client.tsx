@@ -1,16 +1,10 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState } from "react";
 import {
   AlertCircle,
-  Building2,
-  Clock,
-  LayoutGrid,
-  List,
   Loader2,
-  Package,
   Search,
-  Shield,
 } from "lucide-react";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -28,7 +22,6 @@ import type { Medicamento, PreciosSnapshot } from "@/lib/medicamentos/types";
 import {
   brandName,
   extractMg,
-  formatLaboratorio,
   formatMedicationPresentation,
   formatPrice,
   groupByApproval,
@@ -41,30 +34,20 @@ const priceTone = {
   stimulant: {
     heading: "text-emerald-700 dark:text-emerald-300",
     price: "text-emerald-700 dark:text-emerald-300",
-    chip: "border-emerald-500/25 bg-emerald-500/10",
-    icon: "text-emerald-600 dark:text-emerald-300",
-    bar: "bg-emerald-500",
   },
   nonstimulant: {
     heading: "text-sky-700 dark:text-sky-300",
     price: "text-sky-700 dark:text-sky-300",
-    chip: "border-sky-500/25 bg-sky-500/10",
-    icon: "text-sky-600 dark:text-sky-300",
-    bar: "bg-sky-500",
   },
   offlabel: {
     heading: "text-amber-700 dark:text-amber-300",
     price: "text-amber-700 dark:text-amber-300",
-    chip: "border-amber-500/25 bg-amber-500/10",
-    icon: "text-amber-600 dark:text-amber-300",
-    bar: "bg-amber-500",
   },
 };
 
 type PriceTone = keyof typeof priceTone;
 
 type Orden = "precio" | "mg" | "nombre";
-type Vista = "lista" | "tarjetas";
 
 const ORDEN_LABELS: Record<Orden, string> = {
   precio: "Menor precio",
@@ -84,16 +67,10 @@ const ORDEN_PRINCIPIOS = [
 // Solo metilfenidato figura en el PMO (Res. 310/2004, 40%). Para el resto el
 // descuento depende de cada obra social o prepaga, y los usos off-label en
 // general no tienen cobertura, así que no mostramos estimación.
-function coverageNote(principio: string, tone: PriceTone): string | null {
-  if (tone === "offlabel") {
-    return null;
-  }
-
-  if (principio === "metilfenidato") {
-    return "Con cobertura PMO: 40% de descuento (Res. 310/2004).";
-  }
-
-  return "Con 40% es una estimación: no está en el PMO y depende de tu obra social o prepaga.";
+// Solo mostramos el 40% para estimulantes y no estimulantes: los usos
+// off-label en general no tienen cobertura.
+function hasCoverage(tone: PriceTone) {
+  return tone !== "offlabel";
 }
 
 const dateTimeFormat = new Intl.DateTimeFormat("es-AR", {
@@ -124,175 +101,45 @@ function sortMedicamentos(items: Medicamento[], orden: Orden): Medicamento[] {
   });
 }
 
-function medicationTitle(medicamento: Medicamento) {
-  return `${brandName(medicamento.marca)} ${medicamento.concentracion}`;
-}
-
-function MedicationPriceCard({
-  medicamento,
-  tone,
-  showCoverage,
-}: {
-  medicamento: Medicamento;
-  tone: PriceTone;
-  showCoverage: boolean;
-}) {
-  const style = priceTone[tone];
-  const perMg = pricePerMg(medicamento);
-
-  return (
-    <article className="rounded-lg border bg-card p-5 text-card-foreground shadow-sm">
-      <h4 className="text-lg font-semibold leading-tight">
-        {medicationTitle(medicamento)}
-      </h4>
-      <div className="mt-2 grid gap-1.5 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <Package className="h-4 w-4" aria-hidden="true" />
-          <span>{formatMedicationPresentation(medicamento)}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Building2 className="h-4 w-4" aria-hidden="true" />
-          <span>{formatLaboratorio(medicamento.laboratorio)}</span>
-        </div>
-      </div>
-
-      <div className="mt-4 border-t pt-4">
-        <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-          Precio sin cobertura
-        </div>
-        <div className={`mt-1 text-3xl font-bold ${style.price}`}>
-          {formatPrice(medicamento.precio, { decimals: 0 })}
-        </div>
-        {perMg ? (
-          <div className="mt-1 text-sm text-muted-foreground">
-            <span className="font-semibold text-foreground">{formatPrice(perMg)}</span> por mg
-          </div>
-        ) : null}
-      </div>
-
-      {showCoverage ? (
-        <div className={`mt-4 flex items-center gap-3 rounded-lg border p-3 ${style.chip}`}>
-          <Shield className={`h-4 w-4 shrink-0 ${style.icon}`} aria-hidden="true" />
-          <div>
-            <div className="text-xs font-medium text-muted-foreground">Con 40% de descuento</div>
-            <div className="text-xl font-bold text-foreground">
-              {formatPrice(priceWithCoverage(medicamento.precio), { decimals: 0 })}
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </article>
-  );
-}
+const COLUMNS = "md:grid-cols-[1fr_8rem_7rem_8rem]";
 
 function MedicationPriceRow({
   medicamento,
   tone,
-  showCoverage,
 }: {
   medicamento: Medicamento;
   tone: PriceTone;
-  showCoverage: boolean;
 }) {
   const perMg = pricePerMg(medicamento);
+  const coverage = hasCoverage(tone)
+    ? formatPrice(priceWithCoverage(medicamento.precio), { decimals: 0 })
+    : null;
 
   return (
-    <li className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-0.5 px-4 py-3 md:grid-cols-[1fr_9rem_7rem_9rem] md:items-center">
+    <li className={cn("grid grid-cols-[1fr_auto] gap-x-4 px-4 py-3 md:items-center", COLUMNS)}>
       <div className="min-w-0">
-        <div className="font-semibold leading-tight">{medicationTitle(medicamento)}</div>
+        <div className="font-semibold leading-tight">
+          {brandName(medicamento.marca)} {medicamento.concentracion}
+        </div>
         <div className="text-sm text-muted-foreground">
-          {formatMedicationPresentation(medicamento)} · {formatLaboratorio(medicamento.laboratorio)}
+          {formatMedicationPresentation(medicamento)}
         </div>
       </div>
-      <div className={cn("text-right text-lg font-bold tabular-nums", priceTone[tone].price)}>
-        {formatPrice(medicamento.precio, { decimals: 0 })}
-      </div>
-      <div className="col-span-2 flex flex-wrap gap-x-1.5 text-sm text-muted-foreground tabular-nums md:col-span-1 md:block md:text-right">
-        {perMg ? (
-          <span>
-            <span className="font-medium text-foreground">{formatPrice(perMg)}</span>
-            <span className="md:hidden"> por mg</span>
-          </span>
-        ) : (
-          <span aria-label="Sin dato">–</span>
-        )}
-        {showCoverage ? (
-          <span className="md:hidden">
-            · Con 40%{" "}
-            <span className="font-medium text-foreground">
-              {formatPrice(priceWithCoverage(medicamento.precio), { decimals: 0 })}
-            </span>
-          </span>
+      <div className="text-right">
+        <div className={cn("text-lg font-bold tabular-nums", priceTone[tone].price)}>
+          {formatPrice(medicamento.precio, { decimals: 0 })}
+        </div>
+        {coverage ? (
+          <div className="text-sm text-muted-foreground tabular-nums md:hidden">
+            40%: {coverage}
+          </div>
         ) : null}
       </div>
-      <div className="hidden text-right text-sm font-medium tabular-nums md:block">
-        {showCoverage
-          ? formatPrice(priceWithCoverage(medicamento.precio), { decimals: 0 })
-          : "–"}
+      <div className="hidden text-right text-sm tabular-nums md:block">
+        {perMg ? formatPrice(perMg) : null}
       </div>
+      <div className="hidden text-right text-sm tabular-nums md:block">{coverage}</div>
     </li>
-  );
-}
-
-function PrincipioGroup({
-  principio,
-  meds,
-  tone,
-  vista,
-}: {
-  principio: string;
-  meds: Medicamento[];
-  tone: PriceTone;
-  vista: Vista;
-}) {
-  const note = coverageNote(principio, tone);
-  const showCoverage = note !== null;
-
-  return (
-    <div>
-      <h3 className={`text-xl font-semibold ${priceTone[tone].heading}`}>
-        <span className="capitalize">{principio}</span>{" "}
-        <span className="text-base font-normal text-muted-foreground">
-          ({meds.length})
-        </span>
-      </h3>
-      {note ? <p className="mt-1 text-sm text-muted-foreground">{note}</p> : null}
-
-      {vista === "lista" ? (
-        <div className="mt-3 overflow-hidden rounded-lg border bg-card">
-          <div
-            className="hidden border-b bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-muted-foreground md:grid md:grid-cols-[1fr_9rem_7rem_9rem] md:gap-x-4"
-            aria-hidden="true"
-          >
-            <span>Medicamento</span>
-            <span className="text-right">Precio</span>
-            <span className="text-right">Por mg</span>
-            <span className="text-right">Con 40% desc.</span>
-          </div>
-          <ul className="divide-y">
-            {meds.map((medicamento) => (
-              <MedicationPriceRow
-                key={medicamento.codigo}
-                medicamento={medicamento}
-                tone={tone}
-                showCoverage={showCoverage}
-              />
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <div className="mt-3 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {meds.map((medicamento) => (
-            <MedicationPriceCard
-              key={medicamento.codigo}
-              medicamento={medicamento}
-              tone={tone}
-              showCoverage={showCoverage}
-            />
-          ))}
-        </div>
-      )}
-    </div>
   );
 }
 
@@ -300,36 +147,44 @@ function PriceGroup({
   title,
   tone,
   groups,
-  vista,
-  children,
 }: {
   title: string;
   tone: PriceTone;
   groups: Array<[string, Medicamento[]]>;
-  vista: Vista;
-  children?: ReactNode;
 }) {
   if (groups.length === 0) {
     return null;
   }
 
   return (
-    <section className="space-y-6">
-      <div className="flex items-center gap-3">
-        <div className={`h-7 w-1.5 rounded-full ${priceTone[tone].bar}`} aria-hidden="true" />
-        <h2 className="text-2xl font-bold text-foreground">{title}</h2>
-      </div>
-
-      {children}
+    <section className="space-y-5">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
 
       {groups.map(([principio, meds]) => (
-        <PrincipioGroup
-          key={principio}
-          principio={principio}
-          meds={meds}
-          tone={tone}
-          vista={vista}
-        />
+        <div key={principio}>
+          <h3 className={`mb-2 text-lg font-semibold capitalize ${priceTone[tone].heading}`}>
+            {principio}
+          </h3>
+          <div className="overflow-hidden rounded-lg border bg-card">
+            <div
+              className={cn(
+                "hidden gap-x-4 border-b bg-muted/40 px-4 py-2 text-xs font-medium uppercase tracking-wide text-muted-foreground md:grid",
+                COLUMNS,
+              )}
+              aria-hidden="true"
+            >
+              <span>Medicamento</span>
+              <span className="text-right">Precio</span>
+              <span className="text-right">Por mg</span>
+              <span className="text-right">{hasCoverage(tone) ? "Con 40% desc." : null}</span>
+            </div>
+            <ul className="divide-y">
+              {meds.map((medicamento) => (
+                <MedicationPriceRow key={medicamento.codigo} medicamento={medicamento} tone={tone} />
+              ))}
+            </ul>
+          </div>
+        </div>
       ))}
     </section>
   );
@@ -343,41 +198,11 @@ function ordenarPrincipios(entries: Array<[string, Medicamento[]]>) {
   return [...entries].sort(([a], [b]) => index(a) - index(b) || a.localeCompare(b, "es"));
 }
 
-function ToggleChip({
-  pressed,
-  onClick,
-  children,
-  className,
-}: {
-  pressed: boolean;
-  onClick: () => void;
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <button
-      type="button"
-      aria-pressed={pressed}
-      onClick={onClick}
-      className={cn(
-        "inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background",
-        pressed
-          ? "border-primary bg-primary text-primary-foreground"
-          : "bg-card text-muted-foreground hover:bg-muted hover:text-foreground",
-        className,
-      )}
-    >
-      {children}
-    </button>
-  );
-}
-
 export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
   const [filtro, setFiltro] = useState("");
   const [principio, setPrincipio] = useState("todos");
   const [dosis, setDosis] = useState("todas");
   const [orden, setOrden] = useState<Orden>("precio");
-  const [vista, setVista] = useState<Vista>("lista");
   const { data: medicamentos, updatedAt, stale, loading } =
     useMedicamentosReales(initial);
 
@@ -427,14 +252,6 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
     };
   }, [delPrincipio, filtro, dosisActiva, orden]);
 
-  const conPrecio = medicamentos.filter((m) => m.precio > 0).length;
-
-  const limpiarFiltros = () => {
-    setFiltro("");
-    setPrincipio("todos");
-    setDosis("todas");
-  };
-
   return (
     <>
       <PageHero
@@ -456,27 +273,22 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
           />
         </div>
 
-        {principios.length > 0 ? (
-          <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Principio activo">
-            <ToggleChip pressed={principio === "todos"} onClick={() => setPrincipio("todos")}>
-              Todos
-            </ToggleChip>
-            {principios.map((key) => (
-              <ToggleChip
-                key={key}
-                pressed={principio === key}
-                onClick={() => setPrincipio(principio === key ? "todos" : key)}
-                className="capitalize"
-              >
-                {key}
-              </ToggleChip>
-            ))}
-          </div>
-        ) : null}
-
-        <div className="mt-3 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center">
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          <Select value={principio} onValueChange={setPrincipio}>
+            <SelectTrigger className="col-span-2 h-10 rounded-lg sm:col-span-1" aria-label="Medicamento">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="todos">Todos los medicamentos</SelectItem>
+              {principios.map((key) => (
+                <SelectItem key={key} value={key} className="capitalize">
+                  {key}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Select value={dosisActiva} onValueChange={setDosis}>
-            <SelectTrigger className="h-10 rounded-lg sm:w-44" aria-label="Dosis">
+            <SelectTrigger className="h-10 rounded-lg" aria-label="Dosis">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -489,7 +301,7 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
             </SelectContent>
           </Select>
           <Select value={orden} onValueChange={(value) => setOrden(value as Orden)}>
-            <SelectTrigger className="h-10 rounded-lg sm:w-52" aria-label="Ordenar por">
+            <SelectTrigger className="h-10 rounded-lg" aria-label="Ordenar por">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -500,30 +312,11 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
               ))}
             </SelectContent>
           </Select>
-          <div
-            className="col-span-2 flex gap-2 sm:ml-auto"
-            role="group"
-            aria-label="Vista"
-          >
-            <ToggleChip pressed={vista === "lista"} onClick={() => setVista("lista")}>
-              <List className="h-4 w-4" aria-hidden="true" />
-              Lista
-            </ToggleChip>
-            <ToggleChip pressed={vista === "tarjetas"} onClick={() => setVista("tarjetas")}>
-              <LayoutGrid className="h-4 w-4" aria-hidden="true" />
-              Tarjetas
-            </ToggleChip>
-          </div>
         </div>
 
         {medicamentos.length > 0 ? (
-          <p className="mt-4 flex items-start gap-1.5 text-sm text-muted-foreground">
-            <Clock className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-            <span>
-              {conPrecio} de {medicamentos.length} con precio. Precios de Farmacity
-              del {dateTimeFormat.format(new Date(updatedAt))}; pueden variar entre
-              farmacias. Esta información no reemplaza la indicación de tu médico.
-            </span>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Farmacity, {dateTimeFormat.format(new Date(updatedAt))}
           </p>
         ) : null}
       </PageHero>
@@ -552,59 +345,28 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
               Probá de nuevo en unos minutos.
             </AlertDescription>
           </Alert>
+        ) : agrupados.total === 0 ? (
+          <p className="py-10 text-center text-muted-foreground">
+            No se encontraron medicamentos que coincidan con lo que buscaste.
+          </p>
         ) : (
-          <>
-            <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">
-              <span className="font-semibold text-foreground">{agrupados.total}</span>{" "}
-              medicamento{agrupados.total !== 1 ? "s" : ""}
-            </p>
-
-            {agrupados.total === 0 ? (
-              <div className="rounded-lg border bg-card px-6 py-10 text-center">
-                <p className="mb-4 text-muted-foreground">
-                  No se encontraron medicamentos que coincidan con lo que buscaste.
-                </p>
-                <button
-                  type="button"
-                  onClick={limpiarFiltros}
-                  className="text-sm font-medium text-primary underline-offset-4 hover:underline"
-                >
-                  Limpiar filtros
-                </button>
-              </div>
-            ) : (
-              <div className="space-y-12">
-                <PriceGroup
-                  title="Estimulantes"
-                  tone="stimulant"
-                  vista={vista}
-                  groups={ordenarPrincipios(Object.entries(agrupados.grupos.estimulantes))}
-                />
-                <PriceGroup
-                  title="No estimulantes"
-                  tone="nonstimulant"
-                  vista={vista}
-                  groups={ordenarPrincipios(Object.entries(agrupados.grupos.noestimulantes))}
-                />
-                <PriceGroup
-                  title="Uso off-label"
-                  tone="offlabel"
-                  vista={vista}
-                  groups={ordenarPrincipios(Object.entries(agrupados.grupos.offlabel))}
-                >
-                  <Alert className="border-amber-500/30 bg-amber-500/10">
-                    <AlertCircle className="h-4 w-4 text-amber-600" />
-                    <AlertDescription className="text-foreground">
-                      Estos medicamentos pueden usarse en algunos casos de TDAH,
-                      pero no son la indicación principal y en general no tienen
-                      cobertura para este uso. Consultá con tu médico antes de
-                      usar cualquier medicamento.
-                    </AlertDescription>
-                  </Alert>
-                </PriceGroup>
-              </div>
-            )}
-          </>
+          <div className="space-y-10">
+            <PriceGroup
+              title="Estimulantes"
+              tone="stimulant"
+              groups={ordenarPrincipios(Object.entries(agrupados.grupos.estimulantes))}
+            />
+            <PriceGroup
+              title="No estimulantes"
+              tone="nonstimulant"
+              groups={ordenarPrincipios(Object.entries(agrupados.grupos.noestimulantes))}
+            />
+            <PriceGroup
+              title="Uso off-label"
+              tone="offlabel"
+              groups={ordenarPrincipios(Object.entries(agrupados.grupos.offlabel))}
+            />
+          </div>
         )}
       </main>
     </>
