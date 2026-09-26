@@ -109,7 +109,7 @@ function SpecialistCard({ specialist }: { specialist: Specialist }) {
     Boolean(specialist.appointments);
 
   return (
-    <article className="flex h-full flex-col gap-4 rounded-lg border bg-card p-5 text-card-foreground shadow-sm">
+    <article className="flex h-full flex-col gap-4 rounded-lg border bg-card p-5 text-card-foreground shadow-xs">
       <div>
         <h3 className="text-lg font-semibold leading-tight">
           {specialist.name}

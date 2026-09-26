@@ -170,7 +170,7 @@ export default function LegislationPage() {
               return (
               <Card
                 key={law.heading}
-                className="overflow-hidden bg-card border shadow-sm"
+                className="overflow-hidden bg-card border shadow-xs"
               >
                 <CardHeader className="pb-3">
                   <div className="flex gap-3">
@@ -203,7 +203,7 @@ export default function LegislationPage() {
 
                           return (
                             <li key={point} className="flex items-start gap-3">
-                              <div className={`mt-1.5 h-2 w-2 flex-shrink-0 rounded-full ${tone.dot}`} />
+                              <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${tone.dot}`} />
                               <span className="leading-relaxed text-foreground/80">
                                 {bullet.label && (
                                   <strong className="text-foreground">

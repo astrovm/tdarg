@@ -29,7 +29,7 @@ export function References({ references }: ReferencesProps) {
         <ol className="space-y-3 border-t p-4 text-sm">
           {references.map((ref) => (
             <li key={ref.id} id={`ref-${ref.id}`} className="flex gap-3">
-              <span className="min-w-[2rem] font-semibold text-muted-foreground">
+              <span className="min-w-8 font-semibold text-muted-foreground">
                 [{ref.id}]
               </span>
               <div className="flex-1">
