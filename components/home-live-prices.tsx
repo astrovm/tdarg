@@ -1,8 +1,5 @@
-"use client";
+import Link from "next/link";
 
-import { Loader2 } from "lucide-react";
-
-import { useMedicamentosReales } from "@/hooks/use-medicamentos-reales";
 import type { Medicamento } from "@/lib/medicamentos/types";
 
 const TARGETS = [
@@ -22,7 +19,11 @@ function normalizeDose(dose: string) {
   return dose.toLowerCase().replace(/\s+/g, " ").trim();
 }
 
-function pickByDose(medicamentos: Medicamento[], matcher: string, dose: string) {
+function pickByDose(
+  medicamentos: Medicamento[],
+  matcher: string,
+  dose: string,
+) {
   const normalizedDose = normalizeDose(dose);
 
   return medicamentos
@@ -42,8 +43,11 @@ function formatCompactPrice(price: number) {
   return `$${thousands}k`;
 }
 
-export function HomeLivePrices() {
-  const { medicamentos, loading, error } = useMedicamentosReales();
+export function HomeLivePrices({
+  medicamentos,
+}: {
+  medicamentos: Medicamento[];
+}) {
   const selected = TARGETS.map((target) => ({
     ...target,
     rows: target.doses.map((dose) => ({
@@ -52,39 +56,39 @@ export function HomeLivePrices() {
     })),
   }));
 
-  if (error && !medicamentos.length) {
+  if (!selected.some((target) => target.rows.some((row) => row.medicamento))) {
     return null;
   }
 
   return (
-    <div className="grid w-full max-w-sm cursor-pointer gap-2 text-sm text-muted-foreground transition-colors group-hover:text-foreground sm:max-w-none sm:grid-cols-2">
-      {selected.map((target, targetIndex) => (
-        <div key={target.label} className="min-w-0">
-          <div className="mb-1 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            {target.label}
+    <Link href="/precios" className="group">
+      <div className="grid w-full max-w-sm cursor-pointer gap-2 text-sm text-muted-foreground transition-colors group-hover:text-foreground sm:max-w-none sm:grid-cols-2">
+        {selected.map((target, targetIndex) => (
+          <div key={target.label} className="min-w-0">
+            <div className="mb-1 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              {target.label}
+            </div>
+            <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap">
+              {target.rows.map(({ dose, medicamento }) => (
+                <span
+                  key={dose}
+                  className="inline-flex min-h-8 items-center justify-center gap-1 rounded-md border bg-card px-2 text-xs"
+                >
+                  <span>{dose}</span>
+                  {medicamento ? (
+                    <span className="font-medium text-foreground">
+                      {formatCompactPrice(medicamento.precio)}
+                    </span>
+                  ) : null}
+                </span>
+              ))}
+            </div>
+            {targetIndex < selected.length - 1 && (
+              <div className="mt-2 border-t sm:hidden" />
+            )}
           </div>
-          <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap">
-            {target.rows.map(({ dose, medicamento }) => (
-              <span
-                key={dose}
-                className="inline-flex min-h-8 items-center justify-center gap-1 rounded-md border bg-card px-2 text-xs"
-              >
-                <span>{dose}</span>
-                {loading && !medicamento ? (
-                  <Loader2 className="h-3 w-3 animate-spin" />
-                ) : medicamento ? (
-                  <span className="font-medium text-foreground">
-                    {formatCompactPrice(medicamento.precio)}
-                  </span>
-                ) : null}
-              </span>
-            ))}
-          </div>
-          {targetIndex < selected.length - 1 && (
-            <div className="mt-2 border-t sm:hidden" />
-          )}
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </Link>
   );
 }

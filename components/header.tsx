@@ -38,9 +38,9 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Brain className="h-7 w-7 text-primary sm:h-8 sm:w-8" />
-            <h1 className="text-xl font-bold text-foreground sm:text-2xl">
+            <span className="text-xl font-bold text-foreground sm:text-2xl">
               Tdarg
-            </h1>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -93,6 +93,7 @@ export function Header() {
               size="sm"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="h-9 w-9 px-0"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
                 <X className="h-4 w-4" />

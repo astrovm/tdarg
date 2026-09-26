@@ -70,7 +70,7 @@ export default function DiagnosticoPage() {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {currentStep === 1 && (
+          <div hidden={currentStep !== 1}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <h3 className="text-base font-semibold text-foreground">
                 ¿Cómo se manifiesta el TDAH en adultos?
@@ -114,9 +114,9 @@ export default function DiagnosticoPage() {
                 Para que estos síntomas configuren un cuadro de TDAH, varios de ellos deben haber estado presentes <strong>antes de los 12 años de edad</strong> y generar un deterioro claro en el funcionamiento social, académico o laboral.
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 2 && (
+          <div hidden={currentStep !== 2}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <h3 className="text-base font-semibold text-foreground">
                 El diagnóstico es 100% clínico
@@ -152,9 +152,9 @@ export default function DiagnosticoPage() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 3 && (
+          <div hidden={currentStep !== 3}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p className="font-medium text-foreground">
                 Dado que el diagnóstico requiere una reconstrucción histórica de la vida del paciente, ir preparado a la consulta es fundamental para facilitar el trabajo del médico.
@@ -194,9 +194,9 @@ export default function DiagnosticoPage() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 4 && (
+          <div hidden={currentStep !== 4}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <h3 className="text-base font-semibold text-foreground">
                 Salir de la invisibilidad
@@ -230,7 +230,7 @@ export default function DiagnosticoPage() {
                 </li>
               </ol>
             </div>
-          )}
+          </div>
         </CardContent>
 
         <div className="flex items-center justify-between border-t p-4 sm:p-6">

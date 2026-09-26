@@ -4,14 +4,14 @@ ADHD information hub for Argentina. Find real-time medication prices, healthcare
 
 ## What it does
 
-- **Real-time Medication Pricing**: Fetches current prices for ADHD medications (methylphenidate, atomoxetine) from Farmacity with intelligent caching
+- **Real-time Medication Pricing**: Current Farmacity prices for ADHD medications (methylphenidate, lisdexamfetamine, atomoxetine and off-label options), rendered on the server and refreshed every 15 minutes
 - **Healthcare Specialists Directory**: Curated database of ADHD specialists across Argentina organized by province
 - **Legal Analysis**: In-depth analysis of Argentine laws affecting ADHD patients, including conflicts between electronic prescription laws and controlled substance regulations
 - **Educational Guides**: Comprehensive information on diagnosis, treatment, adult ADHD, comorbidities, myths, and practical resources
 
 ## Key Features
 
-- Live medication price updates with 15-minute caching
+- Medication prices cached for 15 minutes in Next's data cache, with the last known prices shown if Farmacity is down
 - Professional medical directory with specialist information
 - Detailed legislative analysis with impact assessments
 - Comprehensive ADHD educational content based on medical consensus
@@ -28,7 +28,7 @@ bun dev
 
 ## Tech Stack
 
-- Next.js 15 with App Router
+- Next.js 16 with App Router
 - React 19
 - TypeScript
 - Tailwind CSS
@@ -41,6 +41,8 @@ bun dev
 bun dev          # Development server
 bun build        # Production build
 bun start        # Production server
-bun lint         # Code linting
+bun lint         # ESLint
+bun typecheck    # TypeScript
+bun test         # Unit tests
 bun run download-laws  # Download legal documents
 ```

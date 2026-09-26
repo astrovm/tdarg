@@ -1,129 +1,50 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useEffect, useState } from "react"
 
-import type { Medicamento } from "@/lib/medicamentos/types"
+import type { PreciosSnapshot } from "@/lib/medicamentos/types"
 
-interface ApiResponse {
-  data: Medicamento[]
-  source: string
-  timestamp: string
-  total: number
-  error?: string
-  estadisticas: {
-    total: number
-    con_precio: number
-  }
-}
+// Los precios llegan renderizados desde el servidor. Solo si el render no tuvo
+// datos (Farmacity caído en ese momento) se vuelven a pedir desde el navegador.
+export function useMedicamentosReales(initial: PreciosSnapshot) {
+  const [snapshot, setSnapshot] = useState(initial)
+  const [loading, setLoading] = useState(initial.data.length === 0)
 
-export function useMedicamentosReales() {
-  const [medicamentos, setMedicamentos] = useState<Medicamento[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [estadisticas, setEstadisticas] = useState<ApiResponse["estadisticas"] | null>(null)
-
-  // Ref para evitar llamadas duplicadas
-  const isLoadingRef = useRef(false)
-  const abortControllerRef = useRef<AbortController | null>(null)
-
-  const cargarMedicamentos = useCallback(async (forzarRefresh = false) => {
-    const requestAborted = abortControllerRef.current?.signal.aborted;
-
-    // Evitar llamadas duplicadas activas
-    if (isLoadingRef.current && !forzarRefresh && !requestAborted) {
-      console.log("⏳ Llamada ya en progreso, saltando...")
+  useEffect(() => {
+    if (initial.data.length > 0) {
       return
     }
 
-    // Cancelar llamada anterior si existe
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort()
-    }
+    const controller = new AbortController()
 
-    try {
-      isLoadingRef.current = true
-      setLoading(true)
-      setError(null)
-
-      // Crear nuevo AbortController
-      abortControllerRef.current = new AbortController()
-
-      const url = forzarRefresh ? "/api/medicamentos-precios?refresh=true" : "/api/medicamentos-precios"
-
-      const response = await fetch(url, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        cache: forzarRefresh ? "no-cache" : "default",
-        signal: abortControllerRef.current.signal,
+    fetch("/api/medicamentos-precios", { signal: controller.signal })
+      .then(async (response) => {
+        const body = (await response.json()) as {
+          data?: PreciosSnapshot["data"]
+          timestamp?: string
+          stale?: boolean
+          error?: string
+        }
+        if (body.data?.length) {
+          setSnapshot({
+            data: body.data,
+            updatedAt: body.timestamp ?? new Date().toISOString(),
+            stale: Boolean(body.stale),
+            error: body.error,
+          })
+        }
+      })
+      .catch(() => {
+        // Nos quedamos con el estado inicial, que ya explica el error
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
       })
 
-      if (!response.ok) {
-        throw new Error(`Error HTTP: ${response.status}`)
-      }
+    return () => controller.abort()
+  }, [initial.data.length])
 
-      const data: ApiResponse = await response.json()
-
-      setMedicamentos(data.data)
-      setEstadisticas(data.estadisticas)
-
-      if (data.error) {
-        setError(`Advertencia: ${data.error}`)
-      }
-
-      console.log(`✅ ${data.data.length} medicamentos cargados desde ${data.source}`)
-    } catch (err) {
-      // Ignorar errores de abort
-      if (err instanceof Error && err.name === "AbortError") {
-        console.log("🚫 Llamada cancelada")
-        return
-      }
-
-      const errorMsg = err instanceof Error ? err.message : "Error desconocido"
-      setError(`Error: ${errorMsg}`)
-      console.error("❌ Error:", err)
-    } finally {
-      isLoadingRef.current = false
-      setLoading(false)
-    }
-  }, [])
-
-  const refetch = useCallback(
-    async (forzar = false) => {
-      await cargarMedicamentos(forzar)
-    },
-    [cargarMedicamentos],
-  )
-
-  // Cargar datos iniciales
-  useEffect(() => {
-    cargarMedicamentos()
-
-    // Cleanup al desmontar
-    return () => {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort()
-      }
-    }
-  }, [cargarMedicamentos])
-
-  // Auto-refresh cada 20 minutos
-  useEffect(() => {
-    const interval = setInterval(
-      () => {
-        console.log("⏰ Auto-refresh...")
-        cargarMedicamentos()
-      },
-      20 * 60 * 1000,
-    )
-
-    return () => clearInterval(interval)
-  }, [cargarMedicamentos])
-
-  return {
-    medicamentos,
-    loading,
-    error,
-    estadisticas,
-    refetch,
-  }
+  return { ...snapshot, loading }
 }

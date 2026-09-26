@@ -351,7 +351,7 @@ function loadMetadata(): MetadataRecord {
     try {
       const content = fs.readFileSync(METADATA_FILE, 'utf8');
       return JSON.parse(content) as MetadataRecord;
-    } catch (error) {
+    } catch {
       console.warn('⚠️  Could not load metadata, starting fresh');
       return {};
     }

@@ -8,7 +8,11 @@ import { Footer } from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tdarg - TDAH en Argentina",
+  metadataBase: new URL("https://tdarg.com.ar"),
+  title: {
+    default: "Tdarg - TDAH en Argentina",
+    template: "%s | Tdarg",
+  },
   description:
     "Precios de medicamentos, especialistas, legislación y más sobre TDAH en Argentina.",
   keywords:
@@ -20,7 +24,6 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
-  generator: "v0.dev",
 };
 
 export default function RootLayout({

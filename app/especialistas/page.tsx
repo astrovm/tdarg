@@ -26,10 +26,8 @@ import {
   Clock,
   ExternalLink,
   MessageCircle,
-  Instagram,
-  Facebook,
-  Linkedin,
 } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "@/components/brand-icons";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 
@@ -200,6 +198,20 @@ export default function EspecialistasPage() {
             </SelectContent>
           </Select>
         </div>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Los datos salen de fuentes públicas y pueden estar desactualizados:
+          confirmá antes de pedir turno. Si sos profesional y querés corregir o
+          quitar tus datos,{" "}
+          <a
+            href="https://github.com/astrovm/tdarg/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:text-foreground"
+          >
+            avisanos
+          </a>
+          .
+        </p>
       </PageHero>
 
       {/* Results Section */}

@@ -71,7 +71,7 @@ export default function TratamientosPage() {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {currentStep === 1 && (
+          <div hidden={currentStep !== 1}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <h3 className="text-base font-semibold text-foreground">
                 Un enfoque obligatoriamente multimodal
@@ -87,9 +87,9 @@ export default function TratamientosPage() {
                 Existe el gran mito de que se necesitan estudios cardíacos complejos o encefalogramas antes de poder recibir medicación. Las guías clínicas establecen que <strong>no se recomienda realizar un electrocardiograma (ECG) ni análisis de sangre de rutina</strong> a menos que exista una indicación clínica clara. El ECG o la consulta con un cardiólogo solo son necesarios si el paciente presenta antecedentes personales o familiares de enfermedades cardíacas congénitas, muerte súbita, hipertensión severa o si experimenta síntomas como desmayos o palpitaciones asociadas al esfuerzo físico. Lo único estrictamente obligatorio para iniciar el tratamiento es que el médico mida la presión arterial, la frecuencia cardíaca y el peso basal.
               </p>
             </div>
-          )}
+          </div>
 
-          {currentStep === 2 && (
+          <div hidden={currentStep !== 2}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p>
                 El tratamiento farmacológico se organiza en &quot;líneas&quot; de prioridad según su eficacia y el respaldo científico. Las opciones se dividen de la siguiente manera:
@@ -158,9 +158,9 @@ export default function TratamientosPage() {
                 </p>
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 3 && (
+          <div hidden={currentStep !== 3}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p>
                 Las pastillas ayudan a frenar los síntomas neurológicos, pero no enseñan las habilidades que el paciente no pudo desarrollar durante su vida. La <strong>Terapia Cognitivo-Conductual (TCC)</strong> es la intervención psicológica que cuenta con el mayor respaldo empírico en el mundo para el TDAH adulto.
@@ -197,9 +197,9 @@ export default function TratamientosPage() {
                 </li>
               </ol>
             </div>
-          )}
+          </div>
 
-          {currentStep === 4 && (
+          <div hidden={currentStep !== 4}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p className="font-medium text-foreground">
                 El estilo de vida de una persona tiene el poder de actuar como una medicina complementaria altamente efectiva.
@@ -228,7 +228,7 @@ export default function TratamientosPage() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </CardContent>
 
         <div className="flex items-center justify-between border-t p-4 sm:p-6">

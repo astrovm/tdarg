@@ -89,7 +89,7 @@ export default function ComorbilidadesPage() {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {currentStep === 1 && (
+          <div hidden={currentStep !== 1}>
             <>
               <div className="grid gap-3 md:grid-cols-4">
                 <MetricCard label="Comorbilidad" value="~80%" />
@@ -110,9 +110,9 @@ export default function ComorbilidadesPage() {
                 </p>
               </div>
             </>
-          )}
+          </div>
 
-          {currentStep === 2 && (
+          <div hidden={currentStep !== 2}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p className="font-medium text-foreground">
                 Los trastornos del estado de ánimo, la ansiedad y los problemas de sueño son las compañeras más frecuentes del adulto con TDAH.
@@ -141,9 +141,9 @@ export default function ComorbilidadesPage() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 3 && (
+          <div hidden={currentStep !== 3}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p>
                 El TDAH y el Trastorno del Espectro Autista (TEA) son trastornos del neurodesarrollo que frecuentemente coexisten. La prevalencia de este diagnóstico comórbido (TEA-TDAH) varía ampliamente entre el 4.6% y el 78%.
@@ -175,9 +175,9 @@ export default function ComorbilidadesPage() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 4 && (
+          <div hidden={currentStep !== 4}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p className="font-medium text-foreground">
                 Las fallas en la corteza prefrontal incrementan drásticamente el riesgo de desarrollar condiciones impulsivas severas en la adultez:
@@ -213,9 +213,9 @@ export default function ComorbilidadesPage() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {currentStep === 5 && (
+          <div hidden={currentStep !== 5}>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p>
                 El TDAH tiene un profundo impacto físico. Las personas con TDAH tienen mayores tasas de obesidad (hasta un 32%), migrañas severas, asma y rinitis, y una incidencia altísima de accidentes de tránsito, fracturas y lesiones por quemaduras derivadas del descuido y la impulsividad. También se ha encontrado que dietas libres de gluten reducen los síntomas cognitivos en aquellos pacientes que padecen TDAH y Enfermedad Celíaca al mismo tiempo.
@@ -243,7 +243,7 @@ export default function ComorbilidadesPage() {
                 </li>
               </ol>
             </div>
-          )}
+          </div>
         </CardContent>
 
         <div className="flex items-center justify-between border-t p-4 sm:p-6">
