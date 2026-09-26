@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test";
 
-import especialistas from "./data";
+import specialists from "./data";
 import {
-  especialistaWhatsapp,
+  specialistWhatsapp,
   isPlaceholder,
   normalizeSearch,
   parsePhones,
@@ -10,20 +10,20 @@ import {
 } from "./contact";
 
 describe("parsePhones", () => {
-  test("separa varios números y detecta celulares", () => {
+  test("splits multiple numbers and detects mobiles", () => {
     expect(parsePhones("+54 11 4452-8765 | +54 9 11 6627-3265")).toEqual([
       { label: "+54 11 4452-8765", href: "tel:+541144528765", mobile: false },
       { label: "+54 9 11 6627-3265", href: "tel:+5491166273265", mobile: true },
     ]);
   });
 
-  test("ignora el interno al marcar", () => {
+  test("ignores the extension when dialing", () => {
     expect(parsePhones("+54 11 4909-4100 (interno 4847)")[0].href).toBe(
       "tel:+541149094100",
     );
   });
 
-  test("números 0810 quedan sin prefijo internacional", () => {
+  test("0810 numbers get no international prefix", () => {
     expect(parsePhones("0810-266-4203")[0]).toEqual({
       label: "0810-266-4203",
       href: "tel:08102664203",
@@ -31,7 +31,7 @@ describe("parsePhones", () => {
     });
   });
 
-  test("Consultar no es un teléfono", () => {
+  test("Consultar is not a phone number", () => {
     expect(parsePhones("Consultar")).toEqual([]);
     expect(isPlaceholder("Consultar ubicación específica")).toBe(true);
     expect(isPlaceholder("Consulta privada")).toBe(true);
@@ -40,31 +40,31 @@ describe("parsePhones", () => {
 });
 
 describe("whatsapp", () => {
-  test("arma links válidos", () => {
+  test("builds valid links", () => {
     expect(whatsappUrl("+54 9 11 5063-7542")).toBe("https://wa.me/5491150637542");
     expect(whatsappUrl("+54 11 4412-0880")).toBe("https://wa.me/541144120880");
   });
 
-  test("rechaza números incompletos", () => {
+  test("rejects incomplete numbers", () => {
     expect(whatsappUrl("1550637542")).toBeNull();
     expect(whatsappUrl("0810-266-4203")).toBeNull();
   });
 
-  test("usa el primer celular si no hay WhatsApp explícito", () => {
+  test("uses the first mobile when there is no explicit WhatsApp", () => {
     expect(
-      especialistaWhatsapp({ telefono: "+54 11 4452-8765 | +54 9 11 6627-3265" }),
+      specialistWhatsapp({ telefono: "+54 11 4452-8765 | +54 9 11 6627-3265" }),
     ).toBe("https://wa.me/5491166273265");
-    expect(especialistaWhatsapp({ telefono: "+54 11 5777-3200" })).toBeNull();
+    expect(specialistWhatsapp({ telefono: "+54 11 5777-3200" })).toBeNull();
   });
 
-  test("todos los WhatsApp cargados generan un link válido", () => {
-    const invalid = especialistas
+  test("every WhatsApp number in the data builds a valid link", () => {
+    const invalid = specialists
       .filter((e) => e.whatsapp && !whatsappUrl(e.whatsapp))
       .map((e) => `${e.nombre}: ${e.whatsapp}`);
     expect(invalid).toEqual([]);
   });
 });
 
-test("normalizeSearch ignora tildes y mayúsculas", () => {
+test("normalizeSearch ignores accents and case", () => {
   expect(normalizeSearch("Córdoba")).toBe("cordoba");
 });

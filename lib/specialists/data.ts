@@ -1,4 +1,4 @@
-export interface Especialista {
+export interface Specialist {
   nombre: string;
   especialidad: string;
   provincia: string;
@@ -19,7 +19,7 @@ export interface Especialista {
   turnos?: string;
 }
 
-const especialistas: Especialista[] = [
+const specialists: Specialist[] = [
   // CAPITAL FEDERAL / GBA - ESPECIALISTAS ORIGINALES
   {
     nombre: "Dr. Osvaldo Rovere",
@@ -1472,4 +1472,4 @@ const especialistas: Especialista[] = [
 
 ];
 
-export default especialistas;
+export default specialists;

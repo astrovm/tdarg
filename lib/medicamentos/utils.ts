@@ -106,7 +106,7 @@ export function formatMedicationName(marca: string) {
   return withAccents(toDisplayCase(formatKnownToken(marca)));
 }
 
-// Nombre comercial sin dosis ni presentación: "RITALINA LA  10 MG C#PS.X 30"
+// Brand name without dose or presentation: "RITALINA LA  10 MG C#PS.X 30"
 // -> "Ritalina LA", "RUBIFEN-10  COMP.X 30" -> "Rubifen".
 export function brandName(marca: string) {
   const brand = marca

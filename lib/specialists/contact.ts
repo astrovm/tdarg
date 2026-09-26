@@ -1,6 +1,6 @@
-// Helpers para mostrar los datos de contacto de especialistas.
-// Los teléfonos en los datos están en formato "+54 [9] <área> <número>";
-// el 9 marca un celular (necesario para WhatsApp en números móviles).
+// Helpers for displaying specialist contact details.
+// Phone numbers in the data use the format "+54 [9] <area> <number>";
+// the 9 marks a mobile number (required for WhatsApp links).
 
 export type Phone = {
   label: string;
@@ -8,7 +8,7 @@ export type Phone = {
   mobile: boolean;
 };
 
-// "Consultar", "Consultar ubicación específica", etc. no son datos reales
+// "Consultar", "Consultar ubicación específica", etc. are not real data
 export function isPlaceholder(value?: string | null): boolean {
   const text = value?.trim() ?? "";
   return text === "" || /^consult(ar|a privada)/i.test(text);
@@ -24,7 +24,7 @@ export function parsePhones(value?: string | null): Phone[] {
     .map((part) => part.trim())
     .filter(Boolean)
     .map((label) => {
-      // "(interno 4847)" se muestra pero no se marca
+      // "(interno 4847)" is displayed but not dialed
       const dialable = label.replace(/\(.*?\)/g, "");
       const digits = dialable.replace(/\D/g, "");
       const international = dialable.trim().startsWith("+");
@@ -38,8 +38,8 @@ export function parsePhones(value?: string | null): Phone[] {
     .filter((phone) => phone.href.length > "tel:".length);
 }
 
-// Devuelve el link de WhatsApp solo si el número es argentino completo
-// (54 + 10 dígitos, con o sin el 9 de celular).
+// Returns a WhatsApp link only for a complete Argentine number
+// (54 + 10 digits, with or without the mobile 9).
 export function whatsappUrl(value?: string | null): string | null {
   const [phone] = parsePhones(value);
   if (!phone) {
@@ -54,16 +54,16 @@ export function whatsappUrl(value?: string | null): string | null {
   return `https://wa.me/${digits}`;
 }
 
-// Número de WhatsApp: el explícito o, si no hay, el primer celular de la lista.
-export function especialistaWhatsapp(especialista: {
+// WhatsApp number: the explicit one or, if missing, the first mobile in the list.
+export function specialistWhatsapp(specialist: {
   whatsapp?: string;
   telefono: string;
 }): string | null {
-  if (especialista.whatsapp) {
-    return whatsappUrl(especialista.whatsapp);
+  if (specialist.whatsapp) {
+    return whatsappUrl(specialist.whatsapp);
   }
 
-  const mobile = parsePhones(especialista.telefono).find((phone) => phone.mobile);
+  const mobile = parsePhones(specialist.telefono).find((phone) => phone.mobile);
   return mobile ? whatsappUrl(mobile.label) : null;
 }
 

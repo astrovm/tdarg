@@ -26,16 +26,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  especialistaWhatsapp,
+  specialistWhatsapp,
   isPlaceholder,
   normalizeSearch,
   parsePhones,
-} from "@/lib/especialistas/contact";
-import especialistas, { type Especialista } from "@/lib/especialistas/data";
+} from "@/lib/specialists/contact";
+import specialists, { type Specialist } from "@/lib/specialists/data";
 
 const PAGE_SIZE = 20;
 
-const tipoLabels: Record<string, string> = {
+const typeLabels: Record<string, string> = {
   privado: "Consulta privada",
   instituto: "Instituto",
   centro_especializado: "Centro especializado",
@@ -45,13 +45,13 @@ const tipoLabels: Record<string, string> = {
   fundacion: "Fundación",
 };
 
-function getTipoLabel(tipo: string) {
-  return tipoLabels[tipo] ?? tipo;
+function getTypeLabel(typeLabel: string) {
+  return typeLabels[typeLabel] ?? typeLabel;
 }
 
-// "CABA/Buenos Aires" atiende en las dos provincias
-function provinciasDe(especialista: Especialista) {
-  return especialista.provincia
+// "CABA/Buenos Aires" covers both provinces
+function provincesOf(specialist: Specialist) {
+  return specialist.provincia
     .split("/")
     .map((p) => p.trim())
     .filter((p) => !isPlaceholder(p));
@@ -65,31 +65,31 @@ function countBy(values: string[]) {
   return [...counts.entries()].sort(([a], [b]) => a.localeCompare(b, "es"));
 }
 
-const provinciaOptions = countBy(especialistas.flatMap(provinciasDe));
-const especialidadOptions = countBy(especialistas.map((e) => e.especialidad));
+const provinceOptions = countBy(specialists.flatMap(provincesOf));
+const specialtyOptions = countBy(specialists.map((e) => e.especialidad));
 
-type Red = {
+type SocialLink = {
   url: string;
   icon: typeof Instagram;
   label: string;
 };
 
-function parseRedes(redesString?: string, linkedinUrl?: string): Red[] {
-  const redes: Red[] = [];
+function parseSocialLinks(socialText?: string, linkedinUrl?: string): SocialLink[] {
+  const socialLinks: SocialLink[] = [];
 
-  if (redesString) {
-    const instagram = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
+  if (socialText) {
+    const instagram = socialText.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
     if (instagram) {
-      redes.push({
+      socialLinks.push({
         url: `https://instagram.com/${instagram[1]}`,
         icon: Instagram,
         label: "Instagram",
       });
     }
 
-    const facebook = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
+    const facebook = socialText.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
     if (facebook) {
-      redes.push({
+      socialLinks.push({
         url: `https://facebook.com/${facebook[1]}`,
         icon: Facebook,
         label: "Facebook",
@@ -98,54 +98,54 @@ function parseRedes(redesString?: string, linkedinUrl?: string): Red[] {
   }
 
   if (linkedinUrl) {
-    redes.push({ url: linkedinUrl, icon: Linkedin, label: "LinkedIn" });
+    socialLinks.push({ url: linkedinUrl, icon: Linkedin, label: "LinkedIn" });
   }
 
-  return redes;
+  return socialLinks;
 }
 
-function ubicacion(especialista: Especialista) {
-  const parts = [especialista.ciudad, especialista.provincia].filter(
+function formatLocation(specialist: Specialist) {
+  const parts = [specialist.ciudad, specialist.provincia].filter(
     (part, index, all) => !isPlaceholder(part) && all.indexOf(part) === index,
   );
   return parts.length > 0 ? parts.join(", ") : "Ubicación a confirmar";
 }
 
-function EspecialistaCard({ especialista }: { especialista: Especialista }) {
-  const tipo = getTipoLabel(especialista.tipo);
-  const soloNinos = especialista.hospital.includes("Solo niños");
-  const hospital = especialista.hospital.replace(/\s*-\s*Solo niños/i, "");
+function SpecialistCard({ specialist }: { specialist: Specialist }) {
+  const typeLabel = getTypeLabel(specialist.tipo);
+  const childrenOnly = specialist.hospital.includes("Solo niños");
+  const hospital = specialist.hospital.replace(/\s*-\s*Solo niños/i, "");
   const showHospital =
     !isPlaceholder(hospital) &&
-    hospital !== tipo &&
-    normalizeSearch(hospital) !== normalizeSearch(especialista.nombre);
-  const showDireccion =
-    !isPlaceholder(especialista.direccion) &&
-    especialista.direccion !== hospital;
+    hospital !== typeLabel &&
+    normalizeSearch(hospital) !== normalizeSearch(specialist.nombre);
+  const showAddress =
+    !isPlaceholder(specialist.direccion) &&
+    specialist.direccion !== hospital;
 
-  const phones = parsePhones(especialista.telefono);
-  const whatsapp = especialistaWhatsapp(especialista);
-  const emails = [especialista.email, especialista.emailFundacion].filter(
+  const phones = parsePhones(specialist.telefono);
+  const whatsapp = specialistWhatsapp(specialist);
+  const emails = [specialist.email, specialist.emailFundacion].filter(
     (email): email is string => !isPlaceholder(email),
   );
-  const coberturas = especialista.obraSocial.filter((o) => !isPlaceholder(o));
-  const redes = parseRedes(especialista.redes, especialista.linkedin);
+  const coverages = specialist.obraSocial.filter((o) => !isPlaceholder(o));
+  const socialLinks = parseSocialLinks(specialist.redes, specialist.linkedin);
   const hasDetails =
     phones.length > 0 ||
     emails.length > 0 ||
-    !isPlaceholder(especialista.horarios) ||
-    Boolean(especialista.turnos);
+    !isPlaceholder(specialist.horarios) ||
+    Boolean(specialist.turnos);
 
   return (
     <article className="flex h-full flex-col gap-4 rounded-lg border bg-card p-5 text-card-foreground shadow-sm">
       <div>
         <h3 className="text-lg font-semibold leading-tight">
-          {especialista.nombre}
+          {specialist.nombre}
         </h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          {especialista.especialidad}
+          {specialist.especialidad}
         </p>
-        {soloNinos ? (
+        {childrenOnly ? (
           <Badge variant="secondary" className="mt-2 text-xs">
             Solo niños
           </Badge>
@@ -155,12 +155,12 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
       <div className="flex items-start gap-2 text-sm">
         <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
         <div>
-          <div className="font-medium">{ubicacion(especialista)}</div>
+          <div className="font-medium">{formatLocation(specialist)}</div>
           {showHospital ? (
             <div className="text-muted-foreground">{hospital}</div>
           ) : null}
-          {showDireccion ? (
-            <div className="text-muted-foreground">{especialista.direccion}</div>
+          {showAddress ? (
+            <div className="text-muted-foreground">{specialist.direccion}</div>
           ) : null}
         </div>
       </div>
@@ -186,33 +186,33 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
               </a>
             </li>
           ))}
-          {!isPlaceholder(especialista.horarios) ? (
+          {!isPlaceholder(specialist.horarios) ? (
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-              <span>{especialista.horarios}</span>
+              <span>{specialist.horarios}</span>
             </li>
           ) : null}
-          {especialista.turnos ? (
+          {specialist.turnos ? (
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-              <span>Turnos: {especialista.turnos}</span>
+              <span>Turnos: {specialist.turnos}</span>
             </li>
           ) : null}
         </ul>
       ) : null}
 
-      {coberturas.length > 0 ? (
+      {coverages.length > 0 ? (
         <div className="flex flex-wrap items-center gap-1.5 text-sm">
           <ShieldCheck className="h-4 w-4 text-muted-foreground" aria-label="Cobertura" />
-          {coberturas.map((obra) => (
-            <Badge key={obra} variant="outline" className="text-xs font-normal">
-              {obra}
+          {coverages.map((plan) => (
+            <Badge key={plan} variant="outline" className="text-xs font-normal">
+              {plan}
             </Badge>
           ))}
         </div>
       ) : null}
 
-      {whatsapp || especialista.url || redes.length > 0 ? (
+      {whatsapp || specialist.url || socialLinks.length > 0 ? (
         <div className="mt-auto flex flex-wrap gap-2 pt-1">
           {whatsapp ? (
             <Button asChild size="sm" className="h-10">
@@ -222,24 +222,24 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
               </a>
             </Button>
           ) : null}
-          {especialista.url ? (
+          {specialist.url ? (
             <Button asChild size="sm" variant="outline" className="h-10">
-              <a href={especialista.url} target="_blank" rel="noopener noreferrer">
+              <a href={specialist.url} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4" />
                 Web
               </a>
             </Button>
           ) : null}
-          {redes.map((red) => {
-            const Icon = red.icon;
+          {socialLinks.map((link) => {
+            const Icon = link.icon;
             return (
-              <Button key={red.url} asChild size="icon" variant="outline">
+              <Button key={link.url} asChild size="icon" variant="outline">
                 <a
-                  href={red.url}
+                  href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={red.label}
-                  title={red.label}
+                  aria-label={link.label}
+                  title={link.label}
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -252,31 +252,31 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
   );
 }
 
-export default function EspecialistasPage() {
-  const [filtroNombre, setFiltroNombre] = useState("");
-  const [provincia, setProvincia] = useState("todas");
-  const [especialidad, setEspecialidad] = useState("todas");
+export default function SpecialistsPage() {
+  const [query, setQuery] = useState("");
+  const [province, setProvince] = useState("all");
+  const [specialty, setSpecialty] = useState("all");
   const [limit, setLimit] = useState(PAGE_SIZE);
 
-  const especialistasFiltrados = useMemo(() => {
-    const query = normalizeSearch(filtroNombre.trim());
+  const filteredSpecialists = useMemo(() => {
+    const normalizedQuery = normalizeSearch(query.trim());
 
-    return especialistas.filter((especialista) => {
-      const coincideNombre =
-        !query ||
-        [especialista.nombre, especialista.ciudad, especialista.provincia, especialista.hospital]
-          .some((field) => normalizeSearch(field).includes(query));
-      const coincideProvincia =
-        provincia === "todas" || provinciasDe(especialista).includes(provincia);
-      const coincideEspecialidad =
-        especialidad === "todas" || especialista.especialidad === especialidad;
+    return specialists.filter((specialist) => {
+      const matchesQuery =
+        !normalizedQuery ||
+        [specialist.nombre, specialist.ciudad, specialist.provincia, specialist.hospital]
+          .some((field) => normalizeSearch(field).includes(normalizedQuery));
+      const matchesProvince =
+        province === "all" || provincesOf(specialist).includes(province);
+      const matchesSpecialty =
+        specialty === "all" || specialist.especialidad === specialty;
 
-      return coincideNombre && coincideProvincia && coincideEspecialidad;
+      return matchesQuery && matchesProvince && matchesSpecialty;
     });
-  }, [filtroNombre, provincia, especialidad]);
+  }, [query, province, specialty]);
 
-  const visibles = especialistasFiltrados.slice(0, limit);
-  const restantes = especialistasFiltrados.length - visibles.length;
+  const visible = filteredSpecialists.slice(0, limit);
+  const remaining = filteredSpecialists.length - visible.length;
 
   const resetLimit = () => setLimit(PAGE_SIZE);
 
@@ -298,18 +298,18 @@ export default function EspecialistasPage() {
               type="search"
               placeholder="Nombre, ciudad, provincia u hospital"
               aria-label="Buscar por nombre, ciudad, provincia u hospital"
-              value={filtroNombre}
+              value={query}
               onChange={(e) => {
-                setFiltroNombre(e.target.value);
+                setQuery(e.target.value);
                 resetLimit();
               }}
               className="h-11 rounded-lg pl-12"
             />
           </div>
           <Select
-            value={provincia}
+            value={province}
             onValueChange={(value) => {
-              setProvincia(value);
+              setProvince(value);
               resetLimit();
             }}
           >
@@ -317,18 +317,18 @@ export default function EspecialistasPage() {
               <SelectValue placeholder="Elegí una provincia" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="todas">Todas las provincias</SelectItem>
-              {provinciaOptions.map(([prov, count]) => (
-                <SelectItem key={prov} value={prov}>
-                  {prov} ({count})
+              <SelectItem value="all">Todas las provincias</SelectItem>
+              {provinceOptions.map(([name, count]) => (
+                <SelectItem key={name} value={name}>
+                  {name} ({count})
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
           <Select
-            value={especialidad}
+            value={specialty}
             onValueChange={(value) => {
-              setEspecialidad(value);
+              setSpecialty(value);
               resetLimit();
             }}
           >
@@ -336,10 +336,10 @@ export default function EspecialistasPage() {
               <SelectValue placeholder="Especialidad" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="todas">Todas las especialidades</SelectItem>
-              {especialidadOptions.map(([esp, count]) => (
-                <SelectItem key={esp} value={esp}>
-                  {esp} ({count})
+              <SelectItem value="all">Todas las especialidades</SelectItem>
+              {specialtyOptions.map(([name, count]) => (
+                <SelectItem key={name} value={name}>
+                  {name} ({count})
                 </SelectItem>
               ))}
             </SelectContent>
@@ -364,31 +364,31 @@ export default function EspecialistasPage() {
         <h2 className="sr-only">Resultados</h2>
         <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">
           <span className="font-semibold text-foreground">
-            {especialistasFiltrados.length}
+            {filteredSpecialists.length}
           </span>{" "}
-          especialista{especialistasFiltrados.length !== 1 ? "s" : ""}
-          {provincia !== "todas" && ` en ${provincia}`}
+          especialista{filteredSpecialists.length !== 1 ? "s" : ""}
+          {province !== "all" && ` en ${province}`}
         </p>
 
-        {especialistasFiltrados.length > 0 ? (
+        {filteredSpecialists.length > 0 ? (
           <>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {visibles.map((especialista) => (
-                <EspecialistaCard
-                  key={`${especialista.nombre}-${especialista.ciudad}-${especialista.hospital}`}
-                  especialista={especialista}
+              {visible.map((specialist) => (
+                <SpecialistCard
+                  key={`${specialist.nombre}-${specialist.ciudad}-${specialist.hospital}`}
+                  specialist={specialist}
                 />
               ))}
             </div>
 
-            {restantes > 0 ? (
+            {remaining > 0 ? (
               <div className="mt-8 flex justify-center">
                 <Button
                   variant="outline"
                   className="h-11"
                   onClick={() => setLimit((current) => current + PAGE_SIZE)}
                 >
-                  Ver {Math.min(restantes, PAGE_SIZE)} más ({restantes} restantes)
+                  Ver {Math.min(remaining, PAGE_SIZE)} más ({remaining} restantes)
                 </Button>
               </div>
             ) : null}
@@ -400,9 +400,9 @@ export default function EspecialistasPage() {
             <p className="mb-4 text-muted-foreground">Probá con otros filtros</p>
             <Button
               onClick={() => {
-                setFiltroNombre("");
-                setProvincia("todas");
-                setEspecialidad("todas");
+                setQuery("");
+                setProvince("all");
+                setSpecialty("all");
                 resetLimit();
               }}
             >

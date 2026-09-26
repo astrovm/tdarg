@@ -9,8 +9,8 @@ function readStep(totalSteps: number) {
   return Number.isInteger(value) && value >= 1 && value <= totalSteps ? value : 1;
 }
 
-// El paso actual vive en la URL (?paso=2) para que se pueda compartir, sobreviva
-// a una recarga y el botón "atrás" del navegador vuelva al paso anterior.
+// The current step lives in the URL (?paso=2) so it can be shared, survives a
+// reload, and the browser Back button returns to the previous step.
 export function useGuideStep(totalSteps: number) {
   const [currentStep, setCurrentStep] = useState(1);
 

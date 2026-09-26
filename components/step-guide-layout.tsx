@@ -15,10 +15,10 @@ export type StepGuideLayoutProps = {
   title: string;
   description?: string;
   steps: readonly StepDefinition[];
-  // Acciones al terminar la guía: la primera se muestra como principal
+  // Actions shown after the last step; the first one is the primary button
   finalActions: readonly GuideAction[];
   references?: Reference[];
-  // Recibe el paso actual y devuelve el contenido de todos los pasos
+  // Receives the current step and returns the content for all steps
   children: (currentStep: number) => ReactNode;
 };
 
@@ -34,8 +34,8 @@ export function StepGuideLayout({
   const cardRef = useRef<HTMLElement>(null);
   const previousStep = useRef(currentStep);
 
-  // Al cambiar de paso, si el comienzo del contenido quedó arriba de la
-  // pantalla (por ejemplo al tocar "Siguiente" al final), volvemos a él.
+  // When the step changes and the top of the content is above the viewport
+  // (for example after tapping "Siguiente" at the bottom), scroll back to it.
   useEffect(() => {
     if (previousStep.current === currentStep) {
       return;

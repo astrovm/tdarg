@@ -47,15 +47,15 @@ const priceTone = {
 
 type PriceTone = keyof typeof priceTone;
 
-type Orden = "precio" | "mg" | "nombre";
+type SortOrder = "price" | "mg" | "name";
 
-const ORDEN_LABELS: Record<Orden, string> = {
-  precio: "Menor precio",
+const SORT_LABELS: Record<SortOrder, string> = {
+  price: "Menor precio",
   mg: "Menor precio por mg",
-  nombre: "Nombre",
+  name: "Nombre",
 };
 
-const ORDEN_PRINCIPIOS = [
+const INGREDIENT_ORDER = [
   "lisdexanfetamina",
   "metilfenidato",
   "atomoxetina",
@@ -64,11 +64,8 @@ const ORDEN_PRINCIPIOS = [
   "bupropion",
 ];
 
-// Solo metilfenidato figura en el PMO (Res. 310/2004, 40%). Para el resto el
-// descuento depende de cada obra social o prepaga, y los usos off-label en
-// general no tienen cobertura, así que no mostramos estimación.
-// Solo mostramos el 40% para estimulantes y no estimulantes: los usos
-// off-label en general no tienen cobertura.
+// Only methylphenidate is in the PMO (Res. 310/2004, 40%). Off-label uses are
+// usually not covered, so they get no discounted price.
 function hasCoverage(tone: PriceTone) {
   return tone !== "offlabel";
 }
@@ -83,16 +80,16 @@ const dateTimeFormat = new Intl.DateTimeFormat("es-AR", {
   timeZone: "America/Argentina/Buenos_Aires",
 });
 
-function sortMedicamentos(items: Medicamento[], orden: Orden): Medicamento[] {
+function sortMedications(items: Medicamento[], sortOrder: SortOrder): Medicamento[] {
   const byName = (a: Medicamento, b: Medicamento) =>
     brandName(a.marca).localeCompare(brandName(b.marca), "es", { sensitivity: "base" }) ||
     (extractMg(a.concentracion) ?? 0) - (extractMg(b.concentracion) ?? 0);
 
   return [...items].sort((a, b) => {
-    if (orden === "precio") {
+    if (sortOrder === "price") {
       return a.precio - b.precio || byName(a, b);
     }
-    if (orden === "mg") {
+    if (sortOrder === "mg") {
       const mgA = pricePerMg(a) ?? Number.POSITIVE_INFINITY;
       const mgB = pricePerMg(b) ?? Number.POSITIVE_INFINITY;
       return mgA - mgB || byName(a, b);
@@ -104,30 +101,30 @@ function sortMedicamentos(items: Medicamento[], orden: Orden): Medicamento[] {
 const COLUMNS = "md:grid-cols-[1fr_8rem_7rem_8rem]";
 
 function MedicationPriceRow({
-  medicamento,
+  medication,
   tone,
 }: {
-  medicamento: Medicamento;
+  medication: Medicamento;
   tone: PriceTone;
 }) {
-  const perMg = pricePerMg(medicamento);
+  const perMg = pricePerMg(medication);
   const coverage = hasCoverage(tone)
-    ? formatPrice(priceWithCoverage(medicamento.precio), { decimals: 0 })
+    ? formatPrice(priceWithCoverage(medication.precio), { decimals: 0 })
     : null;
 
   return (
     <li className={cn("grid grid-cols-[1fr_auto] gap-x-4 px-4 py-3 md:items-center", COLUMNS)}>
       <div className="min-w-0">
         <div className="font-semibold leading-tight">
-          {brandName(medicamento.marca)} {medicamento.concentracion}
+          {brandName(medication.marca)} {medication.concentracion}
         </div>
         <div className="text-sm text-muted-foreground">
-          {formatMedicationPresentation(medicamento)}
+          {formatMedicationPresentation(medication)}
         </div>
       </div>
       <div className="text-right">
         <div className={cn("text-lg font-bold tabular-nums", priceTone[tone].price)}>
-          {formatPrice(medicamento.precio, { decimals: 0 })}
+          {formatPrice(medication.precio, { decimals: 0 })}
         </div>
         {coverage ? (
           <div className="text-sm text-muted-foreground tabular-nums md:hidden">
@@ -160,10 +157,10 @@ function PriceGroup({
     <section className="space-y-5">
       <h2 className="text-2xl font-bold text-foreground">{title}</h2>
 
-      {groups.map(([principio, meds]) => (
-        <div key={principio}>
+      {groups.map(([ingredient, meds]) => (
+        <div key={ingredient}>
           <h3 className={`mb-2 text-lg font-semibold capitalize ${priceTone[tone].heading}`}>
-            {principio}
+            {ingredient}
           </h3>
           <div className="overflow-hidden rounded-lg border bg-card">
             <div
@@ -179,8 +176,8 @@ function PriceGroup({
               <span className="text-right">{hasCoverage(tone) ? "Con 40% desc." : null}</span>
             </div>
             <ul className="divide-y">
-              {meds.map((medicamento) => (
-                <MedicationPriceRow key={medicamento.codigo} medicamento={medicamento} tone={tone} />
+              {meds.map((medication) => (
+                <MedicationPriceRow key={medication.codigo} medication={medication} tone={tone} />
               ))}
             </ul>
           </div>
@@ -190,67 +187,67 @@ function PriceGroup({
   );
 }
 
-function ordenarPrincipios(entries: Array<[string, Medicamento[]]>) {
+function sortIngredientGroups(entries: Array<[string, Medicamento[]]>) {
   const index = (key: string) => {
-    const i = ORDEN_PRINCIPIOS.indexOf(key);
-    return i === -1 ? ORDEN_PRINCIPIOS.length : i;
+    const i = INGREDIENT_ORDER.indexOf(key);
+    return i === -1 ? INGREDIENT_ORDER.length : i;
   };
   return [...entries].sort(([a], [b]) => index(a) - index(b) || a.localeCompare(b, "es"));
 }
 
 export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
-  const [filtro, setFiltro] = useState("");
-  const [principio, setPrincipio] = useState("todos");
-  const [dosis, setDosis] = useState("todas");
-  const [orden, setOrden] = useState<Orden>("precio");
-  const { data: medicamentos, updatedAt, stale, loading } =
+  const [query, setQuery] = useState("");
+  const [ingredient, setIngredient] = useState("all");
+  const [dose, setDose] = useState("all");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("price");
+  const { data: medications, updatedAt, stale, loading } =
     useMedicamentosReales(initial);
 
-  const principios = useMemo(() => {
-    const grupos = groupByApproval(medicamentos);
-    return ordenarPrincipios(
-      Object.entries({ ...grupos.estimulantes, ...grupos.noestimulantes, ...grupos.offlabel }),
+  const ingredients = useMemo(() => {
+    const groups = groupByApproval(medications);
+    return sortIngredientGroups(
+      Object.entries({ ...groups.estimulantes, ...groups.noestimulantes, ...groups.offlabel }),
     ).map(([key]) => key);
-  }, [medicamentos]);
+  }, [medications]);
 
-  const delPrincipio = useMemo(
+  const byIngredient = useMemo(
     () =>
-      principio === "todos"
-        ? medicamentos
-        : medicamentos.filter((med) => med.nombre.toLowerCase().includes(principio)),
-    [medicamentos, principio],
+      ingredient === "all"
+        ? medications
+        : medications.filter((med) => med.nombre.toLowerCase().includes(ingredient)),
+    [medications, ingredient],
   );
 
-  const dosisDisponibles = useMemo(() => {
+  const availableDoses = useMemo(() => {
     const values = new Set<number>();
-    for (const med of delPrincipio) {
+    for (const med of byIngredient) {
       const mg = extractMg(med.concentracion);
       if (mg) values.add(mg);
     }
     return [...values].sort((a, b) => a - b);
-  }, [delPrincipio]);
+  }, [byIngredient]);
 
-  const dosisActiva =
-    dosis !== "todas" && dosisDisponibles.includes(Number(dosis)) ? dosis : "todas";
+  const activeDose =
+    dose !== "all" && availableDoses.includes(Number(dose)) ? dose : "all";
 
-  const agrupados = useMemo(() => {
-    const filtroLower = filtro.trim().toLowerCase();
-    const filtrados = delPrincipio.filter((med) => {
-      const coincideTexto =
-        !filtroLower ||
-        med.nombre.toLowerCase().includes(filtroLower) ||
-        med.marca.toLowerCase().includes(filtroLower) ||
-        med.laboratorio.toLowerCase().includes(filtroLower);
-      const coincideDosis =
-        dosisActiva === "todas" || extractMg(med.concentracion) === Number(dosisActiva);
-      return coincideTexto && coincideDosis;
+  const grouped = useMemo(() => {
+    const queryLower = query.trim().toLowerCase();
+    const filtered = byIngredient.filter((med) => {
+      const matchesQuery =
+        !queryLower ||
+        med.nombre.toLowerCase().includes(queryLower) ||
+        med.marca.toLowerCase().includes(queryLower) ||
+        med.laboratorio.toLowerCase().includes(queryLower);
+      const matchesDose =
+        activeDose === "all" || extractMg(med.concentracion) === Number(activeDose);
+      return matchesQuery && matchesDose;
     });
 
     return {
-      total: filtrados.length,
-      grupos: groupByApproval(sortMedicamentos(filtrados, orden)),
+      total: filtered.length,
+      groups: groupByApproval(sortMedications(filtered, sortOrder)),
     };
-  }, [delPrincipio, filtro, dosisActiva, orden]);
+  }, [byIngredient, query, activeDose, sortOrder]);
 
   return (
     <>
@@ -267,54 +264,54 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
             type="search"
             placeholder="Buscá medicamento, marca o laboratorio"
             aria-label="Buscar medicamento, marca o laboratorio"
-            value={filtro}
-            onChange={(e) => setFiltro(e.target.value)}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             className="h-11 rounded-lg pl-12"
           />
         </div>
 
         <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
-          <Select value={principio} onValueChange={setPrincipio}>
+          <Select value={ingredient} onValueChange={setIngredient}>
             <SelectTrigger className="col-span-2 h-10 rounded-lg sm:col-span-1" aria-label="Medicamento">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="todos">Todos los medicamentos</SelectItem>
-              {principios.map((key) => (
+              <SelectItem value="all">Todos los medicamentos</SelectItem>
+              {ingredients.map((key) => (
                 <SelectItem key={key} value={key} className="capitalize">
                   {key}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <Select value={dosisActiva} onValueChange={setDosis}>
+          <Select value={activeDose} onValueChange={setDose}>
             <SelectTrigger className="h-10 rounded-lg" aria-label="Dosis">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="todas">Todas las dosis</SelectItem>
-              {dosisDisponibles.map((mg) => (
+              <SelectItem value="all">Todas las dosis</SelectItem>
+              {availableDoses.map((mg) => (
                 <SelectItem key={mg} value={String(mg)}>
                   {mg} mg
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <Select value={orden} onValueChange={(value) => setOrden(value as Orden)}>
+          <Select value={sortOrder} onValueChange={(value) => setSortOrder(value as SortOrder)}>
             <SelectTrigger className="h-10 rounded-lg" aria-label="Ordenar por">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              {(Object.keys(ORDEN_LABELS) as Orden[]).map((key) => (
+              {(Object.keys(SORT_LABELS) as SortOrder[]).map((key) => (
                 <SelectItem key={key} value={key}>
-                  {ORDEN_LABELS[key]}
+                  {SORT_LABELS[key]}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
 
-        {medicamentos.length > 0 ? (
+        {medications.length > 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">
             Farmacity, {dateTimeFormat.format(new Date(updatedAt))}
           </p>
@@ -322,7 +319,7 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
       </PageHero>
 
       <main className="container mx-auto px-4 py-8">
-        {stale && medicamentos.length > 0 && (
+        {stale && medications.length > 0 && (
           <Alert className="mb-6 border bg-card">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
@@ -337,7 +334,7 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
             <Loader2 className="h-5 w-5 animate-spin" />
             Cargando precios...
           </div>
-        ) : medicamentos.length === 0 ? (
+        ) : medications.length === 0 ? (
           <Alert variant="destructive" className="border bg-card">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
@@ -345,7 +342,7 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
               Probá de nuevo en unos minutos.
             </AlertDescription>
           </Alert>
-        ) : agrupados.total === 0 ? (
+        ) : grouped.total === 0 ? (
           <p className="py-10 text-center text-muted-foreground">
             No se encontraron medicamentos que coincidan con lo que buscaste.
           </p>
@@ -354,17 +351,17 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
             <PriceGroup
               title="Estimulantes"
               tone="stimulant"
-              groups={ordenarPrincipios(Object.entries(agrupados.grupos.estimulantes))}
+              groups={sortIngredientGroups(Object.entries(grouped.groups.estimulantes))}
             />
             <PriceGroup
               title="No estimulantes"
               tone="nonstimulant"
-              groups={ordenarPrincipios(Object.entries(agrupados.grupos.noestimulantes))}
+              groups={sortIngredientGroups(Object.entries(grouped.groups.noestimulantes))}
             />
             <PriceGroup
               title="Uso off-label"
               tone="offlabel"
-              groups={ordenarPrincipios(Object.entries(agrupados.grupos.offlabel))}
+              groups={sortIngredientGroups(Object.entries(grouped.groups.offlabel))}
             />
           </div>
         )}

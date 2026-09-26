@@ -19,7 +19,7 @@ import {
 import { HomeLivePrices } from "@/components/home-live-prices";
 import { getPrecios } from "@/lib/medicamentos/server";
 
-// Mismo intervalo que la caché de precios (15 minutos)
+// Same interval as the price cache (15 minutes)
 export const revalidate = 900;
 
 const accent = {

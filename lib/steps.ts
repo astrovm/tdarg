@@ -5,7 +5,7 @@ export type StepDefinition = {
   title: string;
   subtitle: string;
   icon: LucideIcon;
-  // Clases de color para el ícono del paso (fondo + texto)
+  // Color classes for the step icon (background and text)
   accent: string;
 };
 
