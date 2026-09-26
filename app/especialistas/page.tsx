@@ -26,10 +26,8 @@ import {
   Clock,
   ExternalLink,
   MessageCircle,
-  Instagram,
-  Facebook,
-  Linkedin,
 } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "@/components/brand-icons";
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 
