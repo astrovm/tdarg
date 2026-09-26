@@ -57,3 +57,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Long guide text: 16px and more contrast than muted-foreground */
+  .guide-text {
+    @apply space-y-5 text-base leading-7 text-foreground/80;
+  }
+}

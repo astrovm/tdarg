@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 
-import specialists from "./especialistas-data";
+import { whatsappUrl } from "./contact";
+import specialists from "./data";
 
 // Types that have a label in app/especialistas/page.tsx
 const TYPES = [
@@ -36,6 +37,13 @@ describe("specialists data", () => {
     const invalid = specialists
       .flatMap((e) => (e.url ? [e.url] : []))
       .filter((url) => !URL.canParse(url) || !/^https?:\/\//.test(url));
+    expect(invalid).toEqual([]);
+  });
+
+  test("builds a valid WhatsApp link for every listed number", () => {
+    const invalid = specialists
+      .filter((e) => e.whatsapp && !whatsappUrl(e.whatsapp))
+      .map((e) => `${e.nombre}: ${e.whatsapp}`);
     expect(invalid).toEqual([]);
   });
 });

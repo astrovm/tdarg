@@ -1,42 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import {
   Activity,
-  ArrowLeft,
-  ArrowRight,
   Brain,
   Heart,
   Users,
   Zap,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { StepGuideLayout } from "@/components/step-guide-layout";
-import { References, type Reference } from "@/components/references";
-import { useStepProgress } from "@/hooks/use-step-progress";
-import type { StepDefinition } from "@/lib/steps";
+import type { Reference } from "@/components/references";
+import type { GuideAction, StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Panorama", subtitle: "Qué mirar primero", icon: Activity },
-  { id: 2, title: "Ánimo y ansiedad", subtitle: "Ansiedad, depresión y sueño", icon: Brain },
-  { id: 3, title: "Neurodesarrollo", subtitle: "TDAH y autismo", icon: Users },
-  { id: 4, title: "Impulsividad", subtitle: "Bipolaridad, TLP, TCA y consumos", icon: Zap },
-  { id: 5, title: "Evaluación", subtitle: "Impacto físico y prioridades de tratamiento", icon: Heart },
+  { id: 1, title: "Panorama", subtitle: "Qué mirar primero", icon: Activity, accent: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300" },
+  { id: 2, title: "Ánimo y ansiedad", subtitle: "Ansiedad, depresión y sueño", icon: Brain, accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300" },
+  { id: 3, title: "Neurodesarrollo", subtitle: "TDAH y autismo", icon: Users, accent: "bg-sky-500/10 text-sky-700 dark:text-sky-300" },
+  { id: 4, title: "Impulsividad", subtitle: "Bipolaridad, TLP, TCA y consumos", icon: Zap, accent: "bg-amber-500/15 text-amber-700 dark:text-amber-300" },
+  { id: 5, title: "Evaluación", subtitle: "Impacto físico y prioridades de tratamiento", icon: Heart, accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" },
 ] satisfies StepDefinition[];
 
-const accentByStep = [
-  "bg-cyan-500/12 text-cyan-700 dark:text-cyan-300",
-  "bg-violet-500/12 text-violet-700 dark:text-violet-300",
-  "bg-sky-500/12 text-sky-700 dark:text-sky-300",
-  "bg-amber-500/14 text-amber-700 dark:text-amber-300",
-  "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
-];
+const finalActions = [
+  { href: "/especialistas", label: "Buscar especialistas" },
+  { href: "/tratamientos", label: "Ver tratamientos" },
+] satisfies GuideAction[];
 
 function MetricCard({
   label,
@@ -54,52 +40,27 @@ function MetricCard({
 }
 
 export default function ComorbilidadesPage() {
-  const { currentStep, completedCount, next, prev, goTo, progress, isDone } =
-    useStepProgress({ totalSteps: steps.length });
-  const activeStep = steps[currentStep - 1];
-  const ActiveIcon = activeStep.icon;
-  const activeAccent = accentByStep[currentStep - 1];
-
   return (
     <StepGuideLayout
       title="TDAH y comorbilidades"
       description="Condiciones frecuentes que pueden coexistir con el TDAH"
       steps={steps}
-      currentStep={currentStep}
-      progress={progress}
-      completedCount={completedCount}
-      onSelectStep={goTo}
-      isStepDone={isDone}
+      finalActions={finalActions}
+      references={comorbilidadesReferences}
     >
-      <Card className="bg-card border md:min-h-[560px]">
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <div
-              className={`flex h-10 w-10 items-center justify-center rounded-lg ${activeAccent}`}
-            >
-              <ActiveIcon className="h-5 w-5" />
-            </div>
-            <div>
-              <CardTitle className="text-xl">{activeStep.title}</CardTitle>
-              <p className="text-sm text-muted-foreground">
-                {activeStep.subtitle}
-              </p>
-            </div>
-          </div>
-        </CardHeader>
-
-        <CardContent className="space-y-6">
-          <div hidden={currentStep !== 1}>
+      {(currentStep) => (
+        <>
+          <div hidden={currentStep !== 1} className="space-y-6">
             <>
-              <div className="grid gap-3 md:grid-cols-4">
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 <MetricCard label="Comorbilidad" value="~80%" />
                 <MetricCard label="Ansiedad" value="~50%" />
                 <MetricCard label="Sueño" value="~80%" />
                 <MetricCard label="Depresión" value="18-53%" />
               </div>
 
-              <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
-                <h3 className="text-base font-semibold text-foreground">
+              <div className="guide-text">
+                <h3 className="text-lg font-semibold text-foreground">
                   ¿Por qué el TDAH rara vez viene solo?
                 </h3>
                 <p>
@@ -113,7 +74,7 @@ export default function ComorbilidadesPage() {
           </div>
 
           <div hidden={currentStep !== 2}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p className="font-medium text-foreground">
                 Los trastornos del estado de ánimo, la ansiedad y los problemas de sueño son las compañeras más frecuentes del adulto con TDAH.
               </p>
@@ -144,7 +105,7 @@ export default function ComorbilidadesPage() {
           </div>
 
           <div hidden={currentStep !== 3}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p>
                 El TDAH y el Trastorno del Espectro Autista (TEA) son trastornos del neurodesarrollo que frecuentemente coexisten. La prevalencia de este diagnóstico comórbido (TEA-TDAH) varía ampliamente entre el 4.6% y el 78%.
               </p>
@@ -178,7 +139,7 @@ export default function ComorbilidadesPage() {
           </div>
 
           <div hidden={currentStep !== 4}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p className="font-medium text-foreground">
                 Las fallas en la corteza prefrontal incrementan drásticamente el riesgo de desarrollar condiciones impulsivas severas en la adultez:
               </p>
@@ -216,12 +177,12 @@ export default function ComorbilidadesPage() {
           </div>
 
           <div hidden={currentStep !== 5}>
-            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <div className="guide-text">
               <p>
                 El TDAH tiene un profundo impacto físico. Las personas con TDAH tienen mayores tasas de obesidad (hasta un 32%), migrañas severas, asma y rinitis, y una incidencia altísima de accidentes de tránsito, fracturas y lesiones por quemaduras derivadas del descuido y la impulsividad. También se ha encontrado que dietas libres de gluten reducen los síntomas cognitivos en aquellos pacientes que padecen TDAH y Enfermedad Celíaca al mismo tiempo.
               </p>
 
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 ¿Cómo se establecen las prioridades de tratamiento?
               </h3>
               <p>
@@ -244,41 +205,8 @@ export default function ComorbilidadesPage() {
               </ol>
             </div>
           </div>
-        </CardContent>
-
-        <div className="flex items-center justify-between border-t p-4 sm:p-6">
-          <Button variant="outline" onClick={prev} disabled={currentStep === 1}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Anterior
-          </Button>
-          <span className="text-sm text-muted-foreground">
-            {currentStep} de {steps.length}
-          </span>
-          {currentStep === steps.length ? (
-            <Button asChild>
-              <Link href="/especialistas">
-                Buscar especialistas
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          ) : (
-            <Button onClick={next}>
-              Siguiente
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          )}
-        </div>
-
-        {currentStep === steps.length && (
-          <div className="flex flex-wrap justify-center gap-3 border-t px-6 pb-6 pt-4">
-            <Button asChild variant="outline">
-              <Link href="/tratamientos">Ver tratamientos</Link>
-            </Button>
-          </div>
-        )}
-      </Card>
-
-      <References references={comorbilidadesReferences} />
+        </>
+      )}
     </StepGuideLayout>
   );
 }

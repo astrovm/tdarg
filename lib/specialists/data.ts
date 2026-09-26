@@ -1,4 +1,4 @@
-interface Especialista {
+export interface Specialist {
   nombre: string;
   especialidad: string;
   provincia: string;
@@ -19,7 +19,7 @@ interface Especialista {
   turnos?: string;
 }
 
-const especialistas: Especialista[] = [
+const specialists: Specialist[] = [
   // CAPITAL FEDERAL / GBA - ESPECIALISTAS ORIGINALES
   {
     nombre: "Dr. Osvaldo Rovere",
@@ -42,7 +42,7 @@ const especialistas: Especialista[] = [
     ciudad: "Hurlingham",
     direccion: "Sargento Salazar 1536 entre Hidalgo y Richieri",
     telefono: "+54 11 4452-8765 | +54 9 11 6627-3265",
-    whatsapp: "1541733220",
+    whatsapp: "+54 9 11 4173-3220",
     email: "info@athentun.org",
     hospital: "ATHENTUN",
     experiencia: "Especialista en TDAH",
@@ -59,7 +59,7 @@ const especialistas: Especialista[] = [
     ciudad: "Beccar",
     direccion: "Consultar ubicación",
     telefono: "Consultar",
-    whatsapp: "15 4437 2878",
+    whatsapp: "+54 9 11 4437-2878",
     email: "paulaharrisracedo@gmail.com",
     hospital: "Consulta privada virtual",
     experiencia: "Especialista en TDAH",
@@ -84,7 +84,7 @@ const especialistas: Especialista[] = [
     horarios: "Lun-Vie 14:00-19:00",
     tipo: "consultorio",
     url: "https://www.neuropsicologia.com.ar/",
-    whatsapp: "541166659139",
+    whatsapp: "+54 9 11 6665-9139",
   },
   {
     nombre: "Dra. Natalia Fiorentino",
@@ -295,7 +295,7 @@ const especialistas: Especialista[] = [
     obraSocial: ["Consultar"],
     horarios: "Lun-Vie 8:00-20:00, Sáb 9:00-13:00",
     tipo: "centro_especializado",
-    whatsapp: "(221) 552-6999",
+    whatsapp: "+54 9 221 552-6999",
     turnos: "423-3792",
     redes: "@c.i.e.n.n (Instagram), /neurocienciasCIENN (Facebook)",
   },
@@ -369,7 +369,7 @@ const especialistas: Especialista[] = [
     ciudad: "Bella Vista",
     direccion: "San Martín 2325, Bella Vista, Bs. As.",
     telefono: "Consultar",
-    whatsapp: "11 3005 4000",
+    whatsapp: "+54 9 11 3005-4000",
     email: "maggiepenia@gmail.com",
     hospital: "Consulta privada",
     experiencia: "Psicopedagogía",
@@ -384,7 +384,7 @@ const especialistas: Especialista[] = [
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
     telefono: "+54 11 4326-1971",
-    whatsapp: "1550637542",
+    whatsapp: "+54 9 11 5063-7542",
     email: "contacto@cieintegracion.com",
     hospital: "Centro de integración escolar",
     experiencia: "Acompañamiento escolar",
@@ -957,7 +957,7 @@ const especialistas: Especialista[] = [
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "centro_especializado",
-    whatsapp: "+ 54 9 11 6605-4391",
+    whatsapp: "+54 9 11 6605-4391",
     url: "http://www.integral-mente.com.ar/"
   },
   {
@@ -967,7 +967,7 @@ const especialistas: Especialista[] = [
     ciudad: "Rafaela",
     direccion: "Calle 25 de Mayo 2048 - AMUR",
     telefono: "+54 342 452-5891",
-    whatsapp: "(0342) 4535606",
+    whatsapp: "+54 342 453-5606",
     email: "Consultar",
     hospital: "AMUR",
     experiencia: "Neurólogo y Neuropsicologo - Solo evaluación. No tiene equipo de profesionales (Psiquiatra y Psicólogo) para el tratamiento",
@@ -1003,7 +1003,7 @@ const especialistas: Especialista[] = [
     obraSocial: ["Consultar"],
     horarios: "Consultar",
     tipo: "privado",
-    whatsapp: "11 4412 0880",
+    whatsapp: "+54 11 4412-0880",
     url: "https://forms.gle/xym8jNQ6xMsSBT5T8"
   },
 
@@ -1091,7 +1091,7 @@ const especialistas: Especialista[] = [
     ciudad: "Zona Oeste",
     direccion: "Consultar ubicación específica",
     telefono: "Consultar",
-    whatsapp: "11 6605-4391",
+    whatsapp: "+54 9 11 6605-4391",
     email: "Consultar",
     hospital: "Consulta privada",
     experiencia: "Psicóloga especializada en neurodesarrollo. TCC",
@@ -1136,7 +1136,7 @@ const especialistas: Especialista[] = [
     ciudad: "CABA",
     direccion: "Consultar ubicación específica",
     telefono: "Consultar",
-    whatsapp: "+54 11 2253 1362",
+    whatsapp: "+54 9 11 2253-1362",
     email: "Consultar",
     hospital: "Consulta privada",
     experiencia: "Psicologa infanto-juvenil - autismo, TDAH, TEA, dislexia. Enfoque psicoeducativo",
@@ -1195,7 +1195,7 @@ const especialistas: Especialista[] = [
     ciudad: "Bella Vista",
     direccion: "Consultar ubicación específica",
     telefono: "Consultar",
-    whatsapp: "11 4666-4395",
+    whatsapp: "+54 11 4666-4395",
     email: "tinachisle@hotmail.com",
     hospital: "Consulta privada",
     experiencia: "Psicóloga",
@@ -1282,7 +1282,7 @@ const especialistas: Especialista[] = [
     ciudad: "Vicente Lopez",
     direccion: "Santa Rosa 1393, Vicente Lopez",
     telefono: "Consultar",
-    whatsapp: "11 4089 7200",
+    whatsapp: "+54 11 4089-7200",
     email: "manuelpastene@gmail.com",
     hospital: "Consulta privada",
     experiencia: "Lic. en Psicología y especializado en el diagnóstico y tratamiento para jóvenes y adultos con TDAH",
@@ -1339,7 +1339,7 @@ const especialistas: Especialista[] = [
     provincia: "CABA",
     ciudad: "Palermo",
     direccion: "Ciudad de la Paz 561, Palermo",
-    telefono: "+5491131478100",
+    telefono: "+54 9 11 3147-8100",
     email: "Consultar",
     hospital: "Consulta privada",
     experiencia: "Neuropsicologa - Adultos",
@@ -1398,7 +1398,7 @@ const especialistas: Especialista[] = [
     provincia: "Santa Fe",
     ciudad: "Santa Fe",
     direccion: "San Jerónimo 2020, Santa Fe de la Vera Cruz",
-    telefono: "+5493425032995",
+    telefono: "+54 9 342 503-2995",
     email: "Consultar",
     hospital: "Consulta privada",
     experiencia: "Psicóloga (TCC)",
@@ -1443,7 +1443,7 @@ const especialistas: Especialista[] = [
     ciudad: "Lobos",
     direccion: "Laprida 178, Lobos bs.as y Alberdi 870, Lobos Bs As.",
     telefono: "+54 2227 61-9748",
-    whatsapp: "11-66479010",
+    whatsapp: "+54 9 11 6647-9010",
     email: "espacioparaarmarlobos@gmail.com",
     hospital: "Espacio para Armar",
     experiencia: "Equipo interdisciplinario de atención a niños y adolescentes con desafíos en el desarrollo / Atención a niños y adolescentes con TDAH desde una mirada cognitiva conductual",
@@ -1472,4 +1472,4 @@ const especialistas: Especialista[] = [
 
 ];
 
-export default especialistas;
+export default specialists;

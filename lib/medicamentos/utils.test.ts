@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import type { Medicamento } from "./types";
 import {
+  brandName,
   extractMg,
   extractUnits,
   formatMedicationName,
@@ -111,7 +112,7 @@ describe("pricePerMg", () => {
 describe("formatMedicationName", () => {
   test("expands Farmacity abbreviations into readable names", () => {
     expect(formatMedicationName("LUDOXA  50 mg x 30 c#ps.duras")).toBe(
-      "Ludoxa 50 mg x 30 Capsulas Duras"
+      "Ludoxa 50 mg x 30 Cápsulas Duras"
     );
     expect(formatMedicationName("CONCERTA 54 MG COMP.X 30")).toBe(
       "Concerta 54 mg Comprimidos x 30"
@@ -120,8 +121,19 @@ describe("formatMedicationName", () => {
       "Modialex 150 mg Comprimidos x 30"
     );
     expect(formatMedicationName("CONSIv 18MG COMP.REC.LIB.PR.X30")).toBe(
-      "Consiv 18 mg Comprimidos Recubiertos Liberacion Prolongada x 30"
+      "Consiv 18 mg Comprimidos Recubiertos Liberación Prolongada x 30"
     );
+  });
+});
+
+describe("brandName", () => {
+  test("keeps only the commercial brand", () => {
+    expect(brandName("LUDOXA  30 mg x 30 c#ps.duras")).toBe("Ludoxa");
+    expect(brandName("RITALINA LA  10 MG C#PS.X 30")).toBe("Ritalina LA");
+    expect(brandName("RUBIFEN-10  COMP.X 30")).toBe("Rubifen");
+    expect(brandName("RUBIFEN  SR 20 MG COMP.X 30")).toBe("Rubifen SR");
+    expect(brandName("CONSIV  18MG COMP.REC.LIB.PR.X30")).toBe("Consiv");
+    expect(brandName("RECIT  10 MG CAPS.X 7")).toBe("Recit");
   });
 });
 
@@ -129,7 +141,7 @@ describe("formatMedicationPresentation", () => {
   test("builds the presentation from real package text", () => {
     expect(
       formatMedicationPresentation(medication({ marca: "LUDOXA 50 mg x 30 c#ps.duras" }))
-    ).toBe("Capsulas x 30");
+    ).toBe("Cápsulas x 30");
     expect(
       formatMedicationPresentation(
         medication({
@@ -146,7 +158,7 @@ describe("formatMedicationPresentation", () => {
       formatMedicationPresentation(
         medication({ nombre: "metilfenidato", marca: "CONSIv 18MG COMP.REC.LIB.PR.X30" })
       )
-    ).toBe("Comprimidos recubiertos liberacion prolongada x 30");
+    ).toBe("Comprimidos de liberación prolongada x 30");
   });
 
   test("returns the raw presentation when no unit count is found", () => {
