@@ -171,7 +171,7 @@ export default function TratamientosPage() {
                 <div className="rounded-lg border bg-muted/30 p-4">
                   <h4 className="mb-1 font-semibold text-foreground">El poder del ejercicio</h4>
                   <p>
-                    Moverse es como tomar un estimulante natural. El ejercicio físico libera factor neurotrófico derivado del cerebro (BDNF) —una especie de fertilizante para que crezcan nuevas conexiones neuronales— y aumenta la concentración de dopamina y noradrenalina en el cerebro, que son los mismos neurotransmisores que las pastillas buscan regular. Con solo 20 a 30 minutos de ejercicio moderado se logra &quot;cambiar de marcha&quot; en el cerebro, mejorando drásticamente la capacidad de focalizar, planificar y organizar.
+                    Moverse es como tomar un estimulante natural. El ejercicio físico libera factor neurotrófico derivado del cerebro (BDNF), que funciona como un fertilizante para que crezcan nuevas conexiones neuronales. También aumenta la dopamina y la noradrenalina en el cerebro, los mismos neurotransmisores que las pastillas buscan regular. Con solo 20 a 30 minutos de ejercicio moderado se logra &quot;cambiar de marcha&quot; en el cerebro, mejorando drásticamente la capacidad de focalizar, planificar y organizar.
                   </p>
                 </div>
 
