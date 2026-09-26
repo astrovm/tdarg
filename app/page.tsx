@@ -114,9 +114,9 @@ export default async function HomePage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+                    className="group rounded-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
                   >
-                    <Card className="h-full border bg-card shadow-sm transition-colors hover:border-primary/40">
+                    <Card className="h-full border bg-card shadow-xs transition-colors hover:border-primary/40">
                       <CardHeader className="p-5">
                         <div className="flex items-start gap-3">
                           <div

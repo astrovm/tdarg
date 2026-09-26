@@ -19,14 +19,14 @@ const navigationItems = [
 ];
 
 const focusRing =
-  "rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background";
+  "rounded-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background";
 
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85">
+    <header className="border-b bg-card/95 backdrop-blur-sm supports-backdrop-filter:bg-card/85">
       <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className={cn("flex items-center gap-2", focusRing)}>

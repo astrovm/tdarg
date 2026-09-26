@@ -70,7 +70,7 @@ export function StepGuideLayout({
           ) : null}
 
           <nav aria-label="Pasos de la guía">
-            <ol className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+            <ol className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
               {steps.map((step) => {
                 const isActive = currentStep === step.id;
 
@@ -81,7 +81,7 @@ export function StepGuideLayout({
                       onClick={() => goTo(step.id)}
                       aria-current={isActive ? "step" : undefined}
                       className={cn(
-                        "flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border py-2 pl-2 pr-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
+                        "flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border py-2 pl-2 pr-4 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
                         isActive
                           ? "border-primary bg-primary text-primary-foreground"
                           : "border-border bg-card text-muted-foreground hover:bg-muted hover:text-foreground",
@@ -110,7 +110,7 @@ export function StepGuideLayout({
         <article
           ref={cardRef}
           aria-labelledby="paso-titulo"
-          className="scroll-mt-4 rounded-lg border bg-card text-card-foreground shadow-sm"
+          className="scroll-mt-4 rounded-lg border bg-card text-card-foreground shadow-xs"
         >
           <header className="flex items-center gap-3 p-5 sm:p-6">
             <div

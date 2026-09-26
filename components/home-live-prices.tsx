@@ -64,7 +64,7 @@ export function HomeLivePrices({
   return (
     <Link
       href="/precios"
-      className="group block w-full max-w-md rounded-xl border bg-card p-4 text-sm shadow-sm transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background sm:max-w-2xl"
+      className="group block w-full max-w-md rounded-xl border bg-card p-4 text-sm shadow-xs transition-colors hover:border-primary/40 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background sm:max-w-2xl"
     >
       <div className="grid gap-3 sm:grid-cols-2">
         {selected.map((target) => (
