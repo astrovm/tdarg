@@ -1,4 +1,4 @@
-import { expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
 import {
   convertirMedicamento,
@@ -7,67 +7,128 @@ import {
   extraerConcentracionTexto,
   formatearPotencia,
   normalizarNumeroFarmacity,
+  type FarmacityMed,
 } from "./farmacity";
 
-const FECHA = "2026-09-26T00:00:00.000Z";
+const DATE = "2026-09-26T00:00:00.000Z";
 
-test("parses Farmacity prices in both number formats", () => {
-  expect(normalizarNumeroFarmacity(190776.15)).toBe(190776.15);
-  expect(normalizarNumeroFarmacity("190776.15")).toBe(190776.15);
-  expect(normalizarNumeroFarmacity("190.776,15")).toBe(190776.15);
-  expect(normalizarNumeroFarmacity("190,776.15")).toBe(190776.15);
-  expect(normalizarNumeroFarmacity("$ 190.776")).toBe(190776);
-  expect(normalizarNumeroFarmacity("12,5")).toBe(12.5);
-  expect(normalizarNumeroFarmacity("")).toBe(0);
-  expect(normalizarNumeroFarmacity(undefined)).toBe(0);
-  expect(normalizarNumeroFarmacity(Number.NaN)).toBe(0);
+const CONCERTA: FarmacityMed = {
+  formula: { description: "metilfenidato" },
+  description: "CONCERTA 54 MG COMP.X 30",
+  medicalLaboratory: { abbreviation: "JANSSEN" },
+  publicPrice: "100000",
+  package: { potency: 54 },
+};
+
+describe("normalizarNumeroFarmacity", () => {
+  test("parses prices in both number formats", () => {
+    expect(normalizarNumeroFarmacity(190776.15)).toBe(190776.15);
+    expect(normalizarNumeroFarmacity("190776.15")).toBe(190776.15);
+    expect(normalizarNumeroFarmacity("190.776,15")).toBe(190776.15);
+    expect(normalizarNumeroFarmacity("190,776.15")).toBe(190776.15);
+    expect(normalizarNumeroFarmacity("$ 190.776")).toBe(190776);
+    expect(normalizarNumeroFarmacity("12,5")).toBe(12.5);
+    expect(normalizarNumeroFarmacity("190,776")).toBe(190776);
+  });
+
+  test("returns 0 for empty or invalid values", () => {
+    expect(normalizarNumeroFarmacity("")).toBe(0);
+    expect(normalizarNumeroFarmacity("sin precio")).toBe(0);
+    expect(normalizarNumeroFarmacity(undefined)).toBe(0);
+    expect(normalizarNumeroFarmacity(Number.NaN)).toBe(0);
+    expect(normalizarNumeroFarmacity(Number.POSITIVE_INFINITY)).toBe(0);
+  });
 });
 
-test("formats potency, including combination strengths", () => {
-  expect(formatearPotencia(30)).toBe("30 mg");
-  expect(formatearPotencia("2,5")).toBe("2.5 mg");
-  expect(formatearPotencia("8/90")).toBe("8 mg / 90 mg");
-  expect(formatearPotencia(0)).toBeNull();
+describe("formatearPotencia", () => {
+  test("formats single and combination strengths", () => {
+    expect(formatearPotencia(30)).toBe("30 mg");
+    expect(formatearPotencia("2,5")).toBe("2.5 mg");
+    expect(formatearPotencia("8/90")).toBe("8 mg / 90 mg");
+  });
+
+  test("returns null for a missing or zero strength", () => {
+    expect(formatearPotencia(0)).toBeNull();
+    expect(formatearPotencia(undefined)).toBeNull();
+  });
 });
 
-test("extracts strength from free text", () => {
-  expect(extraerConcentracionTexto(undefined, "CONCERTA 54 MG COMP.X 30")).toBe("54 mg");
-  expect(extraerConcentracionTexto("Sin Clasificar")).toBeNull();
+describe("extraerConcentracionTexto", () => {
+  test("extracts the strength from the first text that has one", () => {
+    expect(extraerConcentracionTexto(undefined, "CONCERTA 54 MG COMP.X 30")).toBe("54 mg");
+    expect(extraerConcentracionTexto("Sin Clasificar", "STRATTERA 2,5mg")).toBe("2.5 mg");
+  });
+
+  test("returns null when no text has a strength", () => {
+    expect(extraerConcentracionTexto("Sin Clasificar")).toBeNull();
+  });
 });
 
-test("uses a stable code when Farmacity sends no barcode or id", () => {
-  const med = {
-    formula: { description: "metilfenidato" },
-    description: "CONCERTA 54 MG COMP.X 30",
-    medicalLaboratory: { abbreviation: "JANSSEN" },
-    publicPrice: "100000",
-    package: { potency: 54 },
-  };
+describe("convertirMedicamento", () => {
+  test("maps Farmacity fields to a medication", () => {
+    expect(convertirMedicamento({ ...CONCERTA, barCode: "779" }, DATE)).toEqual({
+      codigo: "779",
+      nombre: "metilfenidato",
+      marca: "CONCERTA 54 MG COMP.X 30",
+      laboratorio: "JANSSEN",
+      source: "farmacity",
+      precio: 100000,
+      presentacion: "No especificado",
+      concentracion: "54 mg",
+      fechaActualizacion: DATE,
+    });
+  });
 
-  const a = convertirMedicamento(med, FECHA);
-  const b = convertirMedicamento(med, "2026-09-27T00:00:00.000Z");
+  test("falls back to the id and then to a stable generated code", () => {
+    const a = convertirMedicamento(CONCERTA, DATE);
+    const b = convertirMedicamento(CONCERTA, "2026-09-27T00:00:00.000Z");
 
-  expect(a.codigo).toBe(b.codigo);
-  expect(a.codigo).toStartWith("med_");
-  expect(a.concentracion).toBe("54 mg");
-  expect(a.precio).toBe(100000);
-  expect(convertirMedicamento({ ...med, barCode: "779" }, FECHA).codigo).toBe("779");
+    expect(convertirMedicamento({ ...CONCERTA, id: 42 }, DATE).codigo).toBe("42");
+    expect(a.codigo).toBe(b.codigo);
+    expect(a.codigo).toStartWith("med_");
+  });
+
+  test("reads the strength from text when the package has none", () => {
+    const withoutPackage = { ...CONCERTA, package: undefined };
+    expect(convertirMedicamento(withoutPackage, DATE).concentracion).toBe("54 mg");
+  });
+
+  test("fills placeholders for an empty result", () => {
+    expect(convertirMedicamento({}, DATE)).toMatchObject({
+      nombre: "Medicamento",
+      marca: "Sin marca",
+      laboratorio: "No especificado",
+      precio: 0,
+      concentracion: "No especificado",
+    });
+  });
 });
 
-test("filters out non-ADHD search results and keeps priced duplicates", () => {
-  const base = convertirMedicamento(
-    {
-      formula: { description: "atomoxetina" },
-      description: "ATOMOXETINA 40 MG",
-      medicalLaboratory: { abbreviation: "LAB" },
-      package: { potency: 40 },
-    },
-    FECHA
-  );
-  const conPrecio = { ...base, codigo: "2", precio: 5000 };
-  const naltrexona = { ...base, codigo: "3", nombre: "naltrexona+bupropion" };
+describe("esMedicamentoTDAH", () => {
+  test("rejects excluded active ingredients", () => {
+    const base = convertirMedicamento(CONCERTA, DATE);
 
-  expect(esMedicamentoTDAH(naltrexona)).toBe(false);
-  expect(esMedicamentoTDAH(base)).toBe(true);
-  expect(eliminarDuplicados([base, conPrecio])).toEqual([conPrecio]);
+    expect(esMedicamentoTDAH(base)).toBe(true);
+    expect(esMedicamentoTDAH({ ...base, nombre: "Naltrexona+Bupropion" })).toBe(false);
+  });
+});
+
+describe("eliminarDuplicados", () => {
+  test("keeps the priced entry among duplicates", () => {
+    const base = convertirMedicamento({ ...CONCERTA, publicPrice: undefined }, DATE);
+    const priced = { ...base, codigo: "2", precio: 5000 };
+
+    expect(eliminarDuplicados([base, priced])).toEqual([priced]);
+    expect(eliminarDuplicados([priced, base])).toEqual([priced]);
+  });
+
+  test("keeps different strengths and sorts by name", () => {
+    const methylphenidate = convertirMedicamento(CONCERTA, DATE);
+    const otherStrength = { ...methylphenidate, codigo: "2", concentracion: "36 mg" };
+    const atomoxetine = { ...methylphenidate, codigo: "3", nombre: "atomoxetina" };
+
+    expect(
+      eliminarDuplicados([methylphenidate, otherStrength, atomoxetine]).map((m) => m.codigo)
+    ).toEqual(["3", methylphenidate.codigo, "2"]);
+  });
 });

@@ -5,16 +5,34 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
+# A new push to the same branch cancels the previous run (except on main)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
 jobs:
   check:
     runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
     steps:
       - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
+      - uses: actions/cache@v6
+        with:
+          path: |
+            ~/.bun/install/cache
+            .next/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}-
+            ${{ runner.os }}-bun-
       - run: bun install --frozen-lockfile
-      - run: bun run lint
-      - run: bun run typecheck
       - run: bun test
+      - run: bun run lint
+      # next build also type-checks the whole project, tests included
       - run: bun run build
-        env:
-          NEXT_TELEMETRY_DISABLED: 1
