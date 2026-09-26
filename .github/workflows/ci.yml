@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
 
-# Un push nuevo a la misma rama cancela la corrida anterior (salvo en main)
+# A new push to the same branch cancels the previous run (except on main)
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
@@ -34,5 +34,5 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun test
       - run: bun run lint
-      # next build también corre el chequeo de tipos de todo el proyecto (tests incluidos)
+      # next build also type-checks the whole project, tests included
       - run: bun run build

@@ -2,10 +2,10 @@ import { afterEach, beforeAll, describe, expect, mock, spyOn, test } from "bun:t
 
 import type { FarmacityMed } from "./farmacity";
 
-// Sin Next no hay Data Cache: cada llamada consulta Farmacity directamente
+// Outside Next there is no Data Cache: every call hits Farmacity directly
 mock.module("next/cache", () => ({ unstable_cache: <T>(fn: T) => fn }));
 
-const RESULTADOS: Record<string, FarmacityMed[]> = {
+const SEARCH_RESULTS: Record<string, FarmacityMed[]> = {
   metilfenidato: [
     {
       barCode: "1",
@@ -24,15 +24,15 @@ const RESULTADOS: Record<string, FarmacityMed[]> = {
   ],
 };
 
-function responderFarmacity(url: string): Response {
-  const termino = new URL(url).searchParams.get("filter") ?? "";
-  return Response.json({ data: RESULTADOS[termino] ?? [] });
+function respondLikeFarmacity(url: string): Response {
+  const term = new URL(url).searchParams.get("filter") ?? "";
+  return Response.json({ data: SEARCH_RESULTS[term] ?? [] });
 }
 
-// Cada test importa una instancia nueva del módulo, sin el snapshot de otro test
-let instancia = 0;
-async function importarServer() {
-  return (await import(`./server?test=${instancia++}`)) as typeof import("./server");
+// Each test imports a fresh module instance, without another test's snapshot
+let instanceCount = 0;
+async function importFreshServer() {
+  return (await import(`./server?test=${instanceCount++}`)) as typeof import("./server");
 }
 
 let fetchSpy: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
@@ -49,8 +49,8 @@ afterEach(() => {
 describe("getPrecios", () => {
   test("returns ADHD medications from every search term", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
-      responderFarmacity(url)) as typeof fetch);
-    const { getPrecios } = await importarServer();
+      respondLikeFarmacity(url)) as typeof fetch);
+    const { getPrecios } = await importFreshServer();
 
     const snapshot = await getPrecios();
 
@@ -63,9 +63,9 @@ describe("getPrecios", () => {
   test("keeps partial results when some searches fail", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
       url.includes("metilfenidato")
-        ? responderFarmacity(url)
+        ? respondLikeFarmacity(url)
         : new Response("", { status: 500 })) as typeof fetch);
-    const { getPrecios } = await importarServer();
+    const { getPrecios } = await importFreshServer();
 
     const snapshot = await getPrecios();
 
@@ -75,7 +75,7 @@ describe("getPrecios", () => {
 
   test("returns an empty stale snapshot when Farmacity is down on first load", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockRejectedValue(new Error("timeout"));
-    const { getPrecios } = await importarServer();
+    const { getPrecios } = await importFreshServer();
 
     const snapshot = await getPrecios();
 
@@ -86,22 +86,22 @@ describe("getPrecios", () => {
 
   test("serves the last good prices as stale when Farmacity goes down", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
-      responderFarmacity(url)) as typeof fetch);
-    const { getPrecios } = await importarServer();
-    const bueno = await getPrecios();
+      respondLikeFarmacity(url)) as typeof fetch);
+    const { getPrecios } = await importFreshServer();
+    const good = await getPrecios();
 
     fetchSpy.mockRejectedValue(new Error("timeout"));
-    const caido = await getPrecios();
+    const down = await getPrecios();
 
-    expect(caido.stale).toBe(true);
-    expect(caido.data).toEqual(bueno.data);
-    expect(caido.updatedAt).toBe(bueno.updatedAt);
+    expect(down.stale).toBe(true);
+    expect(down.data).toEqual(good.data);
+    expect(down.updatedAt).toBe(good.updatedAt);
   });
 
   test("shares one in-flight request between concurrent callers", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
-      responderFarmacity(url)) as typeof fetch);
-    const { getPrecios } = await importarServer();
+      respondLikeFarmacity(url)) as typeof fetch);
+    const { getPrecios } = await importFreshServer();
 
     const [a, b] = await Promise.all([getPrecios(), getPrecios()]);
 

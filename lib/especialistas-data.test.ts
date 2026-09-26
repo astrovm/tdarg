@@ -1,9 +1,9 @@
 import { describe, expect, test } from "bun:test";
 
-import especialistas from "./especialistas-data";
+import specialists from "./especialistas-data";
 
-// Tipos con etiqueta en app/especialistas/page.tsx
-const TIPOS = [
+// Types that have a label in app/especialistas/page.tsx
+const TYPES = [
   "privado",
   "instituto",
   "centro_especializado",
@@ -13,29 +13,29 @@ const TIPOS = [
   "fundacion",
 ];
 
-describe("especialistas", () => {
+describe("specialists data", () => {
   test("has no duplicate entries", () => {
-    const claves = especialistas.map((e) => `${e.nombre}|${e.direccion}`);
-    expect(new Set(claves).size).toBe(claves.length);
+    const keys = specialists.map((e) => `${e.nombre}|${e.direccion}`);
+    expect(new Set(keys).size).toBe(keys.length);
   });
 
   test("fills every required field", () => {
-    const incompletos = especialistas.filter(
+    const incomplete = specialists.filter(
       (e) =>
         [e.nombre, e.especialidad, e.provincia, e.ciudad, e.tipo].some((v) => !v.trim()) ||
         e.obraSocial.length === 0
     );
-    expect(incompletos).toEqual([]);
+    expect(incomplete).toEqual([]);
   });
 
   test("uses only known types", () => {
-    expect(especialistas.filter((e) => !TIPOS.includes(e.tipo))).toEqual([]);
+    expect(specialists.filter((e) => !TYPES.includes(e.tipo))).toEqual([]);
   });
 
   test("links only to valid http URLs", () => {
-    const invalidas = especialistas
+    const invalid = specialists
       .flatMap((e) => (e.url ? [e.url] : []))
       .filter((url) => !URL.canParse(url) || !/^https?:\/\//.test(url));
-    expect(invalidas).toEqual([]);
+    expect(invalid).toEqual([]);
   });
 });

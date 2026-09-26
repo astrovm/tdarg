@@ -5,26 +5,26 @@ import path from "node:path";
 import robots from "./robots";
 import sitemap from "./sitemap";
 
-// Rutas con page.tsx dentro de app/, p. ej. "" para la home y "/precios"
-function paginas(dir = import.meta.dir, prefijo = ""): string[] {
-  return readdirSync(dir, { withFileTypes: true }).flatMap((entrada) => {
-    if (entrada.isFile()) {
-      return entrada.name === "page.tsx" ? [prefijo] : [];
+// Routes with a page.tsx under app/, e.g. "" for the home page and "/precios"
+function pagePaths(dir = import.meta.dir, prefix = ""): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isFile()) {
+      return entry.name === "page.tsx" ? [prefix] : [];
     }
-    if (entrada.name === "api" || entrada.name.startsWith("_")) {
+    if (entry.name === "api" || entry.name.startsWith("_")) {
       return [];
     }
-    return paginas(path.join(dir, entrada.name), `${prefijo}/${entrada.name}`);
+    return pagePaths(path.join(dir, entry.name), `${prefix}/${entry.name}`);
   });
 }
 
 describe("sitemap", () => {
   test("lists every page exactly once", () => {
-    const urls = sitemap().map((entrada) => entrada.url);
+    const urls = sitemap().map((entry) => entry.url);
 
     expect(new Set(urls).size).toBe(urls.length);
     expect(urls.toSorted()).toEqual(
-      paginas().map((ruta) => `https://tdarg.com.ar${ruta}`).toSorted()
+      pagePaths().map((route) => `https://tdarg.com.ar${route}`).toSorted()
     );
   });
 });

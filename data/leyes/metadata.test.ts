@@ -3,20 +3,20 @@ import { readdirSync } from "node:fs";
 
 import metadata from "./metadata.json";
 
-describe("leyes metadata", () => {
+describe("laws metadata", () => {
   test("describes every downloaded law file exactly once", () => {
-    const archivos = readdirSync(import.meta.dir).filter((f) => f.endsWith(".md"));
+    const files = readdirSync(import.meta.dir).filter((f) => f.endsWith(".md"));
 
-    expect(Object.values(metadata).map((ley) => ley.filename).toSorted()).toEqual(
-      archivos.toSorted()
+    expect(Object.values(metadata).map((law) => law.filename).toSorted()).toEqual(
+      files.toSorted()
     );
   });
 
   test("keys each entry by its id and filename", () => {
-    for (const [clave, ley] of Object.entries(metadata)) {
-      expect(ley.id).toBe(clave);
-      expect(ley.filename).toBe(`${clave}.md`);
-      expect(new URL(ley.url).protocol).toBe("https:");
+    for (const [key, law] of Object.entries(metadata)) {
+      expect(law.id).toBe(key);
+      expect(law.filename).toBe(`${key}.md`);
+      expect(new URL(law.url).protocol).toBe("https:");
     }
   });
 });

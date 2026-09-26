@@ -5,7 +5,7 @@ import type { Medicamento, PreciosSnapshot } from "@/lib/medicamentos/types";
 
 import { GET } from "./route";
 
-const MEDICAMENTO: Medicamento = {
+const MEDICATION: Medicamento = {
   codigo: "1",
   nombre: "metilfenidato",
   marca: "CONCERTA 54 MG COMP.X 30",
@@ -17,11 +17,11 @@ const MEDICAMENTO: Medicamento = {
   fechaActualizacion: "2026-09-26T00:00:00.000Z",
 };
 
-function conPrecios(snapshot: PreciosSnapshot) {
+function mockPrices(snapshot: PreciosSnapshot) {
   return spyOn(server, "getPrecios").mockResolvedValue(snapshot);
 }
 
-let spy: ReturnType<typeof conPrecios> | undefined;
+let spy: ReturnType<typeof mockPrices> | undefined;
 
 afterEach(() => {
   spy?.mockRestore();
@@ -29,8 +29,8 @@ afterEach(() => {
 
 describe("GET /api/medicamentos-precios", () => {
   test("returns fresh prices with a shared cache header", async () => {
-    spy = conPrecios({
-      data: [MEDICAMENTO, { ...MEDICAMENTO, codigo: "2", precio: 0 }],
+    spy = mockPrices({
+      data: [MEDICATION, { ...MEDICATION, codigo: "2", precio: 0 }],
       updatedAt: "2026-09-26T00:00:00.000Z",
       stale: false,
     });
@@ -51,8 +51,8 @@ describe("GET /api/medicamentos-precios", () => {
   });
 
   test("does not cache stale prices", async () => {
-    spy = conPrecios({
-      data: [MEDICAMENTO],
+    spy = mockPrices({
+      data: [MEDICATION],
       updatedAt: "2026-09-26T00:00:00.000Z",
       stale: true,
       error: "timeout",
@@ -66,7 +66,7 @@ describe("GET /api/medicamentos-precios", () => {
   });
 
   test("returns 503 when there are no prices", async () => {
-    spy = conPrecios({
+    spy = mockPrices({
       data: [],
       updatedAt: "2026-09-26T00:00:00.000Z",
       stale: true,

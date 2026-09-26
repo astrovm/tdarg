@@ -12,7 +12,7 @@ import {
   priceWithCoverage,
 } from "./utils";
 
-function medicamento(overrides: Partial<Medicamento>): Medicamento {
+function medication(overrides: Partial<Medicamento>): Medicamento {
   return {
     codigo: "1",
     nombre: "lisdexanfetamina",
@@ -29,7 +29,7 @@ function medicamento(overrides: Partial<Medicamento>): Medicamento {
 
 describe("formatPrice", () => {
   test("formats pesos with two decimals in Argentine locale", () => {
-    // Intl separa el símbolo con un espacio duro (U+00A0)
+    // Intl separates the symbol with a non-breaking space (U+00A0)
     expect(formatPrice(190776.15)).toBe("$ 190.776,15");
     expect(formatPrice(0)).toBe("$ 0,00");
   });
@@ -79,19 +79,19 @@ describe("extractUnits", () => {
 
 describe("pricePerMg", () => {
   test("divides the price by the total package milligrams", () => {
-    expect(pricePerMg(medicamento({ marca: "LUDOXA 30 mg x 30 c#ps.duras" }))).toBe(
+    expect(pricePerMg(medication({ marca: "LUDOXA 30 mg x 30 c#ps.duras" }))).toBe(
       211.9735
     );
   });
 
   test("returns null without a real unit count", () => {
-    expect(pricePerMg(medicamento({}))).toBeNull();
+    expect(pricePerMg(medication({}))).toBeNull();
   });
 
   test("returns null for combination strengths", () => {
     expect(
       pricePerMg(
-        medicamento({
+        medication({
           nombre: "naltrexona+bupropion",
           marca: "NALTREVA comp.x 120",
           presentacion: "comp.x 120",
@@ -103,7 +103,7 @@ describe("pricePerMg", () => {
 
   test("returns null when there is no price", () => {
     expect(
-      pricePerMg(medicamento({ marca: "LUDOXA 30 mg x 30 c#ps.duras", precio: 0 }))
+      pricePerMg(medication({ marca: "LUDOXA 30 mg x 30 c#ps.duras", precio: 0 }))
     ).toBeNull();
   });
 });
@@ -128,11 +128,11 @@ describe("formatMedicationName", () => {
 describe("formatMedicationPresentation", () => {
   test("builds the presentation from real package text", () => {
     expect(
-      formatMedicationPresentation(medicamento({ marca: "LUDOXA 50 mg x 30 c#ps.duras" }))
+      formatMedicationPresentation(medication({ marca: "LUDOXA 50 mg x 30 c#ps.duras" }))
     ).toBe("Capsulas x 30");
     expect(
       formatMedicationPresentation(
-        medicamento({
+        medication({
           nombre: "metilfenidato",
           marca: "CONCERTA 54 MG COMP.X 30",
           presentacion: "Comprimidos x 30",
@@ -144,13 +144,13 @@ describe("formatMedicationPresentation", () => {
   test("keeps extended-release tablets distinct", () => {
     expect(
       formatMedicationPresentation(
-        medicamento({ nombre: "metilfenidato", marca: "CONSIv 18MG COMP.REC.LIB.PR.X30" })
+        medication({ nombre: "metilfenidato", marca: "CONSIv 18MG COMP.REC.LIB.PR.X30" })
       )
     ).toBe("Comprimidos recubiertos liberacion prolongada x 30");
   });
 
   test("returns the raw presentation when no unit count is found", () => {
-    expect(formatMedicationPresentation(medicamento({}))).toBe("Sin Clasificar");
+    expect(formatMedicationPresentation(medication({}))).toBe("Sin Clasificar");
   });
 });
 
@@ -163,18 +163,18 @@ describe("groupByApproval", () => {
       "modafinilo",
       "armodafinilo",
       "bupropion",
-    ].map((nombre, i) => medicamento({ codigo: String(i), nombre }));
+    ].map((nombre, i) => medication({ codigo: String(i), nombre }));
 
-    const grupos = groupByApproval(meds);
+    const groups = groupByApproval(meds);
 
-    expect(Object.keys(grupos.estimulantes)).toEqual(["lisdexanfetamina", "metilfenidato"]);
-    expect(Object.keys(grupos.noestimulantes)).toEqual(["atomoxetina"]);
-    expect(Object.keys(grupos.offlabel)).toEqual(["modafinilo", "armodafinilo", "bupropion"]);
-    expect(grupos.offlabel.armodafinilo.map((m) => m.nombre)).toEqual(["armodafinilo"]);
+    expect(Object.keys(groups.estimulantes)).toEqual(["lisdexanfetamina", "metilfenidato"]);
+    expect(Object.keys(groups.noestimulantes)).toEqual(["atomoxetina"]);
+    expect(Object.keys(groups.offlabel)).toEqual(["modafinilo", "armodafinilo", "bupropion"]);
+    expect(groups.offlabel.armodafinilo.map((m) => m.nombre)).toEqual(["armodafinilo"]);
   });
 
   test("ignores active ingredients outside the known groups", () => {
-    expect(groupByApproval([medicamento({ nombre: "paracetamol" })])).toEqual({
+    expect(groupByApproval([medication({ nombre: "paracetamol" })])).toEqual({
       estimulantes: {},
       noestimulantes: {},
       offlabel: {},
