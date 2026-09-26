@@ -29,15 +29,15 @@ function respondLikeFarmacity(url: string): Response {
   return Response.json({ data: SEARCH_RESULTS[term] ?? [] });
 }
 
-// Each test imports a fresh module instance, without another test's snapshot
-let instanceCount = 0;
-async function importFreshServer() {
-  return (await import(`./server?test=${instanceCount++}`)) as typeof import("./server");
-}
+// The module keeps the last good snapshot between calls, so the "down on first
+// load" test runs first, before any test has stored one.
+let getPrecios: typeof import("./server").getPrecios;
 
 let fetchSpy: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
 
-beforeAll(() => {
+beforeAll(async () => {
+  // Imported after the next/cache mock above is registered
+  ({ getPrecios } = await import("./server"));
   spyOn(console, "warn").mockImplementation(() => {});
   spyOn(console, "error").mockImplementation(() => {});
 });
@@ -47,10 +47,19 @@ afterEach(() => {
 });
 
 describe("getPrecios", () => {
+  test("returns an empty stale snapshot when Farmacity is down on first load", async () => {
+    fetchSpy = spyOn(globalThis, "fetch").mockRejectedValue(new Error("timeout"));
+
+    const snapshot = await getPrecios();
+
+    expect(snapshot.data).toEqual([]);
+    expect(snapshot.stale).toBe(true);
+    expect(snapshot.error).toBe("No se encontraron medicamentos");
+  });
+
   test("returns ADHD medications from every search term", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
       respondLikeFarmacity(url)) as typeof fetch);
-    const { getPrecios } = await importFreshServer();
 
     const snapshot = await getPrecios();
 
@@ -65,7 +74,6 @@ describe("getPrecios", () => {
       url.includes("metilfenidato")
         ? respondLikeFarmacity(url)
         : new Response("", { status: 500 })) as typeof fetch);
-    const { getPrecios } = await importFreshServer();
 
     const snapshot = await getPrecios();
 
@@ -73,21 +81,9 @@ describe("getPrecios", () => {
     expect(snapshot.data.map((m) => m.codigo)).toEqual(["1"]);
   });
 
-  test("returns an empty stale snapshot when Farmacity is down on first load", async () => {
-    fetchSpy = spyOn(globalThis, "fetch").mockRejectedValue(new Error("timeout"));
-    const { getPrecios } = await importFreshServer();
-
-    const snapshot = await getPrecios();
-
-    expect(snapshot.data).toEqual([]);
-    expect(snapshot.stale).toBe(true);
-    expect(snapshot.error).toBe("No se encontraron medicamentos");
-  });
-
   test("serves the last good prices as stale when Farmacity goes down", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
       respondLikeFarmacity(url)) as typeof fetch);
-    const { getPrecios } = await importFreshServer();
     const good = await getPrecios();
 
     fetchSpy.mockRejectedValue(new Error("timeout"));
@@ -101,7 +97,6 @@ describe("getPrecios", () => {
   test("shares one in-flight request between concurrent callers", async () => {
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string) =>
       respondLikeFarmacity(url)) as typeof fetch);
-    const { getPrecios } = await importFreshServer();
 
     const [a, b] = await Promise.all([getPrecios(), getPrecios()]);
 

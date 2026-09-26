@@ -59,6 +59,10 @@ describe("extraerConcentracionTexto", () => {
     expect(extraerConcentracionTexto("Sin Clasificar", "STRATTERA 2,5mg")).toBe("2.5 mg");
   });
 
+  test("skips zero strengths", () => {
+    expect(extraerConcentracionTexto("0 mg", "CONCERTA 54 MG")).toBe("54 mg");
+  });
+
   test("returns null when no text has a strength", () => {
     expect(extraerConcentracionTexto("Sin Clasificar")).toBeNull();
   });
