@@ -1,4 +1,5 @@
 [test]
+preload = ["./test/setup.ts"]
 # `bun test` fails if line or function coverage drops below 95%
 coverage = true
 coverageThreshold = { lines = 0.95, functions = 0.95 }

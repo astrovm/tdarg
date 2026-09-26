@@ -271,7 +271,15 @@ export function PreciosClient({ initial }: { initial: PreciosSnapshot }) {
         </div>
 
         <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
-          <Select value={ingredient} onValueChange={setIngredient}>
+          <Select
+            value={ingredient}
+            onValueChange={(value) => {
+              // A dose picked for another medication would otherwise stay
+              // hidden and come back when switching to all medications
+              setIngredient(value);
+              setDose("all");
+            }}
+          >
             <SelectTrigger className="col-span-2 h-10 rounded-lg sm:col-span-1" aria-label="Medicamento">
               <SelectValue />
             </SelectTrigger>
