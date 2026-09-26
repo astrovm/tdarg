@@ -115,7 +115,10 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
   const tipo = getTipoLabel(especialista.tipo);
   const soloNinos = especialista.hospital.includes("Solo niños");
   const hospital = especialista.hospital.replace(/\s*-\s*Solo niños/i, "");
-  const showHospital = !isPlaceholder(hospital) && hospital !== tipo;
+  const showHospital =
+    !isPlaceholder(hospital) &&
+    hospital !== tipo &&
+    normalizeSearch(hospital) !== normalizeSearch(especialista.nombre);
   const showDireccion =
     !isPlaceholder(especialista.direccion) &&
     especialista.direccion !== hospital;
@@ -223,7 +226,7 @@ function EspecialistaCard({ especialista }: { especialista: Especialista }) {
             <Button asChild size="sm" variant="outline" className="h-10">
               <a href={especialista.url} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4" />
-                Sitio web
+                Web
               </a>
             </Button>
           ) : null}
@@ -343,16 +346,15 @@ export default function EspecialistasPage() {
           </Select>
         </div>
         <p className="mt-4 text-sm text-muted-foreground">
-          Los datos salen de fuentes públicas y pueden estar desactualizados:
-          confirmá antes de pedir turno. Si sos profesional y querés corregir o
-          quitar tus datos,{" "}
+          Datos de fuentes públicas: confirmá antes de pedir turno. ¿Sos
+          profesional y querés corregir tus datos?{" "}
           <a
             href="https://github.com/astrovm/tdarg/issues/new"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 hover:text-foreground"
           >
-            avisanos
+            Avisanos
           </a>
           .
         </p>

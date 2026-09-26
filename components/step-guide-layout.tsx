@@ -70,18 +70,18 @@ export function StepGuideLayout({
           ) : null}
 
           <nav aria-label="Pasos de la guía">
-            <ol className="grid grid-cols-1 gap-1.5 min-[420px]:grid-cols-2 md:flex md:flex-wrap md:gap-2">
+            <ol className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
               {steps.map((step) => {
                 const isActive = currentStep === step.id;
 
                 return (
-                  <li key={step.id}>
+                  <li key={step.id} className="shrink-0">
                     <button
                       type="button"
                       onClick={() => goTo(step.id)}
                       aria-current={isActive ? "step" : undefined}
                       className={cn(
-                        "flex min-h-11 w-full items-center gap-2 rounded-lg border px-3 py-2 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background md:w-auto",
+                        "flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border py-2 pl-2 pr-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
                         isActive
                           ? "border-primary bg-primary text-primary-foreground"
                           : "border-border bg-card text-muted-foreground hover:bg-muted hover:text-foreground",
