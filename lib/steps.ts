@@ -5,5 +5,11 @@ export type StepDefinition = {
   title: string;
   subtitle: string;
   icon: LucideIcon;
-  description?: string;
+  // Clases de color para el ícono del paso (fondo + texto)
+  accent: string;
+};
+
+export type GuideAction = {
+  href: string;
+  label: string;
 };

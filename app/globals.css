@@ -57,3 +57,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Texto largo de las guías: 16px y más contraste que muted-foreground */
+  .guide-text {
+    @apply space-y-5 text-base leading-7 text-foreground/80;
+  }
+}

@@ -1,15 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+  Clock,
+  ExternalLink,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Search,
+  ShieldCheck,
+} from "lucide-react";
+
+import { Facebook, Instagram, Linkedin } from "@/components/brand-icons";
+import { Header } from "@/components/header";
+import { PageHero } from "@/components/page-hero";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -19,136 +26,280 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  Search,
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  ExternalLink,
-  MessageCircle,
-} from "lucide-react";
-import { Facebook, Instagram, Linkedin } from "@/components/brand-icons";
-import { Header } from "@/components/header";
-import { PageHero } from "@/components/page-hero";
+  especialistaWhatsapp,
+  isPlaceholder,
+  normalizeSearch,
+  parsePhones,
+} from "@/lib/especialistas/contact";
+import especialistas, { type Especialista } from "@/lib/especialistas/data";
 
-import especialistas from "@/lib/especialistas-data";
+const PAGE_SIZE = 20;
 
-const provincias = [
-  "Buenos Aires",
-  "CABA",
-  "Córdoba",
-  "Santa Fe",
-  "Mendoza",
-  "Tucumán",
-  "Entre Ríos",
-  "Salta",
-  "Misiones",
-  "Chaco",
-  "Corrientes",
-  "Santiago del Estero",
-  "San Juan",
-  "Jujuy",
-  "Río Negro",
-  "Formosa",
-  "Neuquén",
-  "Chubut",
-  "San Luis",
-  "Catamarca",
-  "La Rioja",
-  "La Pampa",
-  "Santa Cruz",
-  "Tierra del Fuego",
-];
+const tipoLabels: Record<string, string> = {
+  privado: "Consulta privada",
+  instituto: "Instituto",
+  centro_especializado: "Centro especializado",
+  hospital: "Hospital",
+  clinica: "Clínica",
+  consultorio: "Consultorio",
+  fundacion: "Fundación",
+};
 
 function getTipoLabel(tipo: string) {
-  const labels: Record<string, string> = {
-    privado: "Consulta privada",
-    instituto: "Instituto",
-    centro_especializado: "Centro especializado",
-    hospital: "Hospital",
-    clinica: "Clínica",
-    consultorio: "Consultorio",
-    fundacion: "Fundación",
-  };
+  return tipoLabels[tipo] ?? tipo;
+}
 
-  return labels[tipo] ?? tipo;
+// "CABA/Buenos Aires" atiende en las dos provincias
+function provinciasDe(especialista: Especialista) {
+  return especialista.provincia
+    .split("/")
+    .map((p) => p.trim())
+    .filter((p) => !isPlaceholder(p));
+}
+
+function countBy(values: string[]) {
+  const counts = new Map<string, number>();
+  for (const value of values) {
+    counts.set(value, (counts.get(value) ?? 0) + 1);
+  }
+  return [...counts.entries()].sort(([a], [b]) => a.localeCompare(b, "es"));
+}
+
+const provinciaOptions = countBy(especialistas.flatMap(provinciasDe));
+const especialidadOptions = countBy(especialistas.map((e) => e.especialidad));
+
+type Red = {
+  url: string;
+  icon: typeof Instagram;
+  label: string;
+};
+
+function parseRedes(redesString?: string, linkedinUrl?: string): Red[] {
+  const redes: Red[] = [];
+
+  if (redesString) {
+    const instagram = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
+    if (instagram) {
+      redes.push({
+        url: `https://instagram.com/${instagram[1]}`,
+        icon: Instagram,
+        label: "Instagram",
+      });
+    }
+
+    const facebook = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
+    if (facebook) {
+      redes.push({
+        url: `https://facebook.com/${facebook[1]}`,
+        icon: Facebook,
+        label: "Facebook",
+      });
+    }
+  }
+
+  if (linkedinUrl) {
+    redes.push({ url: linkedinUrl, icon: Linkedin, label: "LinkedIn" });
+  }
+
+  return redes;
+}
+
+function ubicacion(especialista: Especialista) {
+  const parts = [especialista.ciudad, especialista.provincia].filter(
+    (part, index, all) => !isPlaceholder(part) && all.indexOf(part) === index,
+  );
+  return parts.length > 0 ? parts.join(", ") : "Ubicación a confirmar";
+}
+
+function EspecialistaCard({ especialista }: { especialista: Especialista }) {
+  const tipo = getTipoLabel(especialista.tipo);
+  const soloNinos = especialista.hospital.includes("Solo niños");
+  const hospital = especialista.hospital.replace(/\s*-\s*Solo niños/i, "");
+  const showHospital = !isPlaceholder(hospital) && hospital !== tipo;
+  const showDireccion =
+    !isPlaceholder(especialista.direccion) &&
+    especialista.direccion !== hospital;
+
+  const phones = parsePhones(especialista.telefono);
+  const whatsapp = especialistaWhatsapp(especialista);
+  const emails = [especialista.email, especialista.emailFundacion].filter(
+    (email): email is string => !isPlaceholder(email),
+  );
+  const coberturas = especialista.obraSocial.filter((o) => !isPlaceholder(o));
+  const experiencia =
+    !isPlaceholder(especialista.experiencia) &&
+    normalizeSearch(especialista.experiencia) !==
+      normalizeSearch(especialista.especialidad)
+      ? especialista.experiencia
+      : null;
+  const redes = parseRedes(especialista.redes, especialista.linkedin);
+  const hasDetails =
+    phones.length > 0 ||
+    emails.length > 0 ||
+    !isPlaceholder(especialista.horarios) ||
+    Boolean(especialista.turnos);
+
+  return (
+    <article className="flex h-full flex-col gap-4 rounded-lg border bg-card p-5 text-card-foreground shadow-sm">
+      <div>
+        <h3 className="text-lg font-semibold leading-tight">
+          {especialista.nombre}
+        </h3>
+        <p className="mt-1 text-sm text-muted-foreground">
+          <span className="font-medium text-foreground">
+            {especialista.especialidad}
+          </span>
+          {normalizeSearch(tipo) !== normalizeSearch(especialista.especialidad)
+            ? ` · ${tipo}`
+            : null}
+        </p>
+        {soloNinos ? (
+          <Badge variant="secondary" className="mt-2 text-xs">
+            Solo niños
+          </Badge>
+        ) : null}
+      </div>
+
+      <div className="flex items-start gap-2 text-sm">
+        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+        <div>
+          <div className="font-medium">{ubicacion(especialista)}</div>
+          {showHospital ? (
+            <div className="text-muted-foreground">{hospital}</div>
+          ) : null}
+          {showDireccion ? (
+            <div className="text-muted-foreground">{especialista.direccion}</div>
+          ) : null}
+        </div>
+      </div>
+
+      {hasDetails ? (
+        <ul className="space-y-1.5 text-sm">
+          {phones.map((phone) => (
+            <li key={phone.href} className="flex items-center gap-2">
+              <Phone className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <a href={phone.href} className="underline-offset-4 hover:underline">
+                {phone.label}
+              </a>
+            </li>
+          ))}
+          {emails.map((email) => (
+            <li key={email} className="flex min-w-0 items-center gap-2">
+              <Mail className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <a
+                href={`mailto:${email}`}
+                className="truncate underline-offset-4 hover:underline"
+              >
+                {email}
+              </a>
+            </li>
+          ))}
+          {!isPlaceholder(especialista.horarios) ? (
+            <li className="flex items-center gap-2">
+              <Clock className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <span>{especialista.horarios}</span>
+            </li>
+          ) : null}
+          {especialista.turnos ? (
+            <li className="flex items-center gap-2">
+              <Clock className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <span>Turnos: {especialista.turnos}</span>
+            </li>
+          ) : null}
+        </ul>
+      ) : null}
+
+      {experiencia || coberturas.length > 0 ? (
+        <div className="space-y-2 text-sm">
+          {experiencia ? <p className="text-muted-foreground">{experiencia}</p> : null}
+          {coberturas.length > 0 ? (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-muted-foreground" aria-label="Cobertura" />
+              {coberturas.map((obra) => (
+                <Badge key={obra} variant="outline" className="text-xs font-normal">
+                  {obra}
+                </Badge>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+
+      <div className="mt-auto flex flex-wrap gap-2 border-t pt-4">
+        {whatsapp ? (
+          <Button asChild size="sm" className="h-10">
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </Button>
+        ) : phones[0] ? (
+          <Button asChild size="sm" className="h-10">
+            <a href={phones[0].href}>
+              <Phone className="h-4 w-4" />
+              Llamar
+            </a>
+          </Button>
+        ) : null}
+        {emails[0] ? (
+          <Button asChild size="sm" variant="outline" className="h-10">
+            <a href={`mailto:${emails[0]}`}>
+              <Mail className="h-4 w-4" />
+              Email
+            </a>
+          </Button>
+        ) : null}
+        {especialista.url ? (
+          <Button asChild size="sm" variant="outline" className="h-10">
+            <a href={especialista.url} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4" />
+              Sitio web
+            </a>
+          </Button>
+        ) : null}
+        {redes.map((red) => {
+          const Icon = red.icon;
+          return (
+            <Button key={red.url} asChild size="sm" variant="outline" className="h-10">
+              <a href={red.url} target="_blank" rel="noopener noreferrer">
+                <Icon className="h-4 w-4" />
+                {red.label}
+              </a>
+            </Button>
+          );
+        })}
+      </div>
+    </article>
+  );
 }
 
 export default function EspecialistasPage() {
   const [filtroNombre, setFiltroNombre] = useState("");
   const [provincia, setProvincia] = useState("todas");
   const [especialidad, setEspecialidad] = useState("todas");
+  const [limit, setLimit] = useState(PAGE_SIZE);
 
-  const parseRedes = (redesString?: string, linkedinUrl?: string) => {
-    const redes = [] as {
-      type: "instagram" | "facebook" | "linkedin";
-      handle: string;
-      url: string;
-      icon: typeof Instagram | typeof Facebook | typeof Linkedin;
-      label: string;
-    }[];
+  const especialistasFiltrados = useMemo(() => {
+    const query = normalizeSearch(filtroNombre.trim());
 
-    if (redesString) {
-      // Buscar Instagram handles
-      const instagramMatch = redesString.match(/@([a-zA-Z0-9._]+).*?Instagram/i);
-      if (instagramMatch) {
-        redes.push({
-          type: "instagram",
-          handle: instagramMatch[1],
-          url: `https://instagram.com/${instagramMatch[1]}`,
-          icon: Instagram,
-          label: "Instagram",
-        });
-      }
+    return especialistas.filter((especialista) => {
+      const coincideNombre =
+        !query ||
+        [especialista.nombre, especialista.ciudad, especialista.provincia, especialista.hospital]
+          .some((field) => normalizeSearch(field).includes(query));
+      const coincideProvincia =
+        provincia === "todas" || provinciasDe(especialista).includes(provincia);
+      const coincideEspecialidad =
+        especialidad === "todas" || especialista.especialidad === especialidad;
 
-      // Buscar Facebook handles
-      const facebookMatch = redesString.match(/\/([a-zA-Z0-9._-]+).*?Facebook/i);
-      if (facebookMatch) {
-        redes.push({
-          type: "facebook",
-          handle: facebookMatch[1],
-          url: `https://facebook.com/${facebookMatch[1]}`,
-          icon: Facebook,
-          label: "Facebook",
-        });
-      }
-    }
+      return coincideNombre && coincideProvincia && coincideEspecialidad;
+    });
+  }, [filtroNombre, provincia, especialidad]);
 
-    if (linkedinUrl) {
-      const linkedinHandle = (() => {
-        try {
-          const url = new URL(linkedinUrl);
-          return url.pathname.replace(/\/$/, "").split("/").pop() ?? "LinkedIn";
-        } catch {
-          return linkedinUrl.replace(/^https?:\/\//i, "");
-        }
-      })();
+  const visibles = especialistasFiltrados.slice(0, limit);
+  const restantes = especialistasFiltrados.length - visibles.length;
 
-      redes.push({
-        type: "linkedin",
-        handle: linkedinHandle,
-        url: linkedinUrl,
-        icon: Linkedin,
-        label: "LinkedIn",
-      });
-    }
-
-    return redes;
-  };
-
-  const especialistasFiltrados = especialistas.filter((especialista) => {
-    const coincideNombre =
-      especialista.nombre.toLowerCase().includes(filtroNombre.toLowerCase()) ||
-      especialista.ciudad.toLowerCase().includes(filtroNombre.toLowerCase()) ||
-      especialista.hospital.toLowerCase().includes(filtroNombre.toLowerCase());
-
-    const coincideProvincia =
-      provincia === "todas" || especialista.provincia === provincia;
-    const coincideEspecialidad =
-      especialidad === "todas" || especialista.especialidad === especialidad;
-
-    return coincideNombre && coincideProvincia && coincideEspecialidad;
-  });
+  const resetLimit = () => setLimit(PAGE_SIZE);
 
   return (
     <div className="min-h-screen bg-muted/30">
@@ -156,45 +307,62 @@ export default function EspecialistasPage() {
 
       <PageHero
         title="Especialistas en TDAH"
-        description="Profesionales que diagnostican y tratan TDAH en cada provincia. Filtrá por ubicación y especialidad."
+        description="Profesionales que diagnostican y tratan TDAH en Argentina. Filtrá por ubicación y especialidad."
       >
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+            <Search
+              className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground"
+              aria-hidden="true"
+            />
             <Input
-              placeholder="Nombre, ciudad u hospital"
+              type="search"
+              placeholder="Nombre, ciudad, provincia u hospital"
+              aria-label="Buscar por nombre, ciudad, provincia u hospital"
               value={filtroNombre}
-              onChange={(e) => setFiltroNombre(e.target.value)}
-              className="h-10 rounded-lg pl-12"
+              onChange={(e) => {
+                setFiltroNombre(e.target.value);
+                resetLimit();
+              }}
+              className="h-11 rounded-lg pl-12"
             />
           </div>
-          <Select value={provincia} onValueChange={setProvincia}>
-            <SelectTrigger className="h-10 rounded-lg">
+          <Select
+            value={provincia}
+            onValueChange={(value) => {
+              setProvincia(value);
+              resetLimit();
+            }}
+          >
+            <SelectTrigger className="h-11 rounded-lg" aria-label="Provincia">
               <SelectValue placeholder="Elegí una provincia" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="todas">Todas las provincias</SelectItem>
-              {provincias.map((prov) => (
+              {provinciaOptions.map(([prov, count]) => (
                 <SelectItem key={prov} value={prov}>
-                  {prov}
+                  {prov} ({count})
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <Select value={especialidad} onValueChange={setEspecialidad}>
-            <SelectTrigger className="h-10 rounded-lg">
+          <Select
+            value={especialidad}
+            onValueChange={(value) => {
+              setEspecialidad(value);
+              resetLimit();
+            }}
+          >
+            <SelectTrigger className="h-11 rounded-lg" aria-label="Especialidad">
               <SelectValue placeholder="Especialidad" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="todas">Todas las especialidades</SelectItem>
-              <SelectItem value="Psiquiatra">Psiquiatra</SelectItem>
-              <SelectItem value="Neuropsicóloga">Neuropsicóloga</SelectItem>
-              <SelectItem value="Neurólogo">Neurólogo</SelectItem>
-              <SelectItem value="Psicólogo">Psicólogo</SelectItem>
-              <SelectItem value="Psicopedagogía">Psicopedagogía</SelectItem>
-              <SelectItem value="Equinoterapia">Equinoterapia</SelectItem>
-              <SelectItem value="Pediatra">Pediatra</SelectItem>
-              <SelectItem value="Centro Especializado">Centro Especializado</SelectItem>
+              {especialidadOptions.map(([esp, count]) => (
+                <SelectItem key={esp} value={esp}>
+                  {esp} ({count})
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
@@ -214,225 +382,57 @@ export default function EspecialistasPage() {
         </p>
       </PageHero>
 
-      {/* Results Section */}
-      <div className="bg-muted/30">
-        <div className="container mx-auto px-4 py-8">
-          {/* Results */}
-          <div className="mb-6 flex items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              Mostrando{" "}
-              <span className="font-semibold text-foreground">
-                {especialistasFiltrados.length}
-              </span>{" "}
-              especialista
-              {especialistasFiltrados.length !== 1 ? "s" : ""}
-              {provincia !== "todas" && ` en ${provincia}`}
-            </p>
-          </div>
+      <main className="container mx-auto px-4 py-8">
+        <h2 className="sr-only">Resultados</h2>
+        <p className="mb-6 text-sm text-muted-foreground" aria-live="polite">
+          <span className="font-semibold text-foreground">
+            {especialistasFiltrados.length}
+          </span>{" "}
+          especialista{especialistasFiltrados.length !== 1 ? "s" : ""}
+          {provincia !== "todas" && ` en ${provincia}`}
+        </p>
 
-          {/* Doctors Grid - Only show if there are results */}
-          {especialistasFiltrados.length > 0 && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {especialistasFiltrados.map((especialista, index) => {
-                const redesSociales = parseRedes(
-                  especialista.redes,
-                  especialista.linkedin
-                );
-
-                return (
-                  <Card
-                    key={index}
-                    className="flex h-full flex-col bg-card border shadow-sm"
-                  >
-                    <CardHeader className="pb-3">
-                      <div className="space-y-3">
-                        <div>
-                          <CardTitle className="text-xl leading-tight">
-                            {especialista.nombre}
-                          </CardTitle>
-                          <CardDescription className="mt-1 text-base font-medium text-foreground">
-                            {especialista.especialidad}
-                          </CardDescription>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            {getTipoLabel(especialista.tipo)}
-                          </Badge>
-                          {especialista.hospital.includes("Solo niños") && (
-                            <Badge variant="secondary" className="text-xs">
-                              Solo niños
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex flex-1 flex-col gap-4">
-                      <div className="rounded-lg border bg-muted/30 p-3">
-                        <div className="flex items-start gap-2">
-                          <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground" />
-                          <div className="text-sm">
-                            <div className="font-medium text-foreground">
-                              {especialista.ciudad}, {especialista.provincia}
-                            </div>
-                            <div className="text-muted-foreground">
-                              {especialista.hospital}
-                            </div>
-                            <div className="text-muted-foreground">
-                              {especialista.direccion}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="grid gap-4 md:grid-cols-2">
-                        <div className="space-y-2 text-sm">
-                          <div className="flex items-center gap-2">
-                            <Phone className="h-4 w-4 text-muted-foreground" />
-                            <span>{especialista.telefono}</span>
-                          </div>
-                          {especialista.whatsapp && (
-                            <div className="flex items-center gap-2">
-                              <MessageCircle className="h-4 w-4 text-muted-foreground" />
-                              <span>{especialista.whatsapp}</span>
-                            </div>
-                          )}
-                          <div className="flex items-center gap-2">
-                            <Mail className="h-4 w-4 text-muted-foreground" />
-                            <span>{especialista.email}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="h-4 w-4 text-muted-foreground" />
-                            <span>{especialista.horarios}</span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-3">
-                          <div>
-                            <div className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                              Experiencia
-                            </div>
-                            <div className="text-sm text-foreground">
-                              {especialista.experiencia}
-                            </div>
-                          </div>
-                          <div>
-                            <div className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                              Cobertura
-                            </div>
-                            <div className="flex flex-wrap gap-1">
-                              {especialista.obraSocial.map((obra, idx) => (
-                                <Badge
-                                  key={idx}
-                                  variant="outline"
-                                  className="text-xs"
-                                >
-                                  {obra}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {redesSociales.length > 0 && (
-                        <div className="flex flex-wrap gap-2 border-t pt-3">
-                          {redesSociales.map((red, idx) => {
-                            const IconComponent = red.icon;
-                            return (
-                              <Button
-                                key={idx}
-                                size="sm"
-                                variant="outline"
-                                className="h-8 px-3"
-                                onClick={() => window.open(red.url, "_blank")}
-                              >
-                                <IconComponent className="mr-1 h-4 w-4" />
-                                {red.label}
-                              </Button>
-                            );
-                          })}
-                        </div>
-                      )}
-
-                    <div className="mt-auto flex space-x-2 pt-2">
-                      {(especialista.whatsapp ||
-                        (especialista.telefono &&
-                          especialista.telefono !== "Consultar")) && (
-                        <Button
-                          className="flex-1"
-                          onClick={() => {
-                            const whatsappNumber =
-                              especialista.whatsapp || especialista.telefono;
-                            if (whatsappNumber && whatsappNumber !== "Consultar") {
-                              window.open(
-                                `https://wa.me/${whatsappNumber.replace(
-                                  /[^0-9]/g,
-                                  ""
-                                )}`
-                              );
-                            }
-                          }}
-                        >
-                          <MessageCircle className="h-4 w-4 mr-1" />
-                          {especialista.whatsapp ? "WhatsApp" : "Contactar"}
-                        </Button>
-                      )}
-                      {especialista.url && (
-                        <Button
-                          variant="outline"
-                          onClick={() =>
-                            window.open(especialista.url, "_blank")
-                          }
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Sitio Web
-                        </Button>
-                      )}
-                      {especialista.email &&
-                        especialista.email !== "Consultar" && (
-                          <Button
-                            variant="outline"
-                            onClick={() =>
-                              window.open(`mailto:${especialista.email}`)
-                            }
-                          >
-                            <Mail className="h-4 w-4" />
-                          </Button>
-                        )}
-                    </div>
-                  </CardContent>
-                  </Card>
-                );
-              })}
+        {especialistasFiltrados.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {visibles.map((especialista) => (
+                <EspecialistaCard
+                  key={`${especialista.nombre}-${especialista.ciudad}-${especialista.hospital}`}
+                  especialista={especialista}
+                />
+              ))}
             </div>
-          )}
 
-          {/* No Results - Only show if there are no results */}
-          {especialistasFiltrados.length === 0 && (
-              <Card className="text-center py-12 bg-card border">
-              <CardContent>
-                <div className="text-muted-foreground mb-4">
-                  <Search className="h-12 w-12 mx-auto mb-4" />
-                  <h3 className="text-lg font-medium">
-                    No encontramos especialistas
-                  </h3>
-                  <p>Probá con otros filtros</p>
-                </div>
+            {restantes > 0 ? (
+              <div className="mt-8 flex justify-center">
                 <Button
-                  onClick={() => {
-                    setFiltroNombre("");
-                    setProvincia("todas");
-                    setEspecialidad("todas");
-                  }}
+                  variant="outline"
+                  className="h-11"
+                  onClick={() => setLimit((current) => current + PAGE_SIZE)}
                 >
-                  Limpiar filtros
+                  Ver {Math.min(restantes, PAGE_SIZE)} más ({restantes} restantes)
                 </Button>
-              </CardContent>
-            </Card>
-          )}
-        </div>
-      </div>
-
+              </div>
+            ) : null}
+          </>
+        ) : (
+          <div className="rounded-lg border bg-card px-6 py-12 text-center">
+            <Search className="mx-auto mb-4 h-12 w-12 text-muted-foreground" aria-hidden="true" />
+            <h2 className="text-lg font-medium">No encontramos especialistas</h2>
+            <p className="mb-4 text-muted-foreground">Probá con otros filtros</p>
+            <Button
+              onClick={() => {
+                setFiltroNombre("");
+                setProvincia("todas");
+                setEspecialidad("todas");
+                resetLimit();
+              }}
+            >
+              Limpiar filtros
+            </Button>
+          </div>
+        )}
+      </main>
     </div>
   );
 }

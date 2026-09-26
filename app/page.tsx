@@ -23,12 +23,12 @@ import { getPrecios } from "@/lib/medicamentos/server";
 export const revalidate = 900;
 
 const accent = {
-  prices: "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
-  specialists: "bg-sky-500/12 text-sky-700 dark:text-sky-300",
-  legislation: "bg-amber-500/14 text-amber-700 dark:text-amber-300",
-  diagnosis: "bg-violet-500/12 text-violet-700 dark:text-violet-300",
-  treatments: "bg-rose-500/12 text-rose-700 dark:text-rose-300",
-  comorbidities: "bg-cyan-500/12 text-cyan-700 dark:text-cyan-300",
+  prices: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+  specialists: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
+  legislation: "bg-amber-500/15 text-amber-700 dark:text-amber-300",
+  diagnosis: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
+  treatments: "bg-rose-500/10 text-rose-700 dark:text-rose-300",
+  comorbidities: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300",
 };
 
 const primaryLinks = [
@@ -81,7 +81,7 @@ const links = [
 ];
 
 export default async function HomePage() {
-  const { data: medicamentos } = await getPrecios();
+  const { data: medicamentos, updatedAt } = await getPrecios();
 
   return (
     <div className="flex flex-1 flex-col bg-muted/30">
@@ -98,7 +98,7 @@ export default async function HomePage() {
                 Precios de medicación, especialistas, receta y cobertura.
               </p>
               <div className="mt-6 flex flex-col items-center gap-3 sm:mt-7">
-                <HomeLivePrices medicamentos={medicamentos} />
+                <HomeLivePrices medicamentos={medicamentos} updatedAt={updatedAt} />
               </div>
             </div>
           </div>
@@ -111,17 +111,21 @@ export default async function HomePage() {
                 const Icon = item.icon;
 
                 return (
-                  <Link key={item.href} href={item.href} className="group">
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+                  >
                     <Card className="h-full border bg-card shadow-sm transition-colors hover:border-primary/40">
                       <CardHeader className="p-5">
                         <div className="flex items-start gap-3">
                           <div
                             className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
                           >
-                            <Icon className="h-4 w-4" />
+                            <Icon className="h-4 w-4" aria-hidden="true" />
                           </div>
                           <div>
-                            <CardTitle className="text-xl text-card-foreground group-hover:text-primary">
+                            <CardTitle className="text-xl text-card-foreground group-hover:text-primary" role="heading" aria-level={2}>
                               {item.title}
                             </CardTitle>
                             <CardDescription className="mt-2 leading-relaxed text-muted-foreground">

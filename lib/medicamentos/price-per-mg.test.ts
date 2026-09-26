@@ -2,7 +2,10 @@ import { expect, test } from "bun:test";
 
 import {
   extractUnits,
+  brandName,
+  formatLaboratorio,
   formatMedicationName,
+  formatPrice,
   formatMedicationPresentation,
   pricePerMg,
 } from "./utils";
@@ -67,7 +70,7 @@ test("calculates price per mg using total package milligrams", () => {
 
 test("formats raw Farmacity medication names consistently", () => {
   expect(formatMedicationName("LUDOXA  50 mg x 30 c#ps.duras")).toBe(
-    "Ludoxa 50 mg x 30 Capsulas Duras"
+    "Ludoxa 50 mg x 30 Cápsulas Duras"
   );
   expect(formatMedicationName("CONCERTA 54 MG COMP.X 30")).toBe(
     "Concerta 54 mg Comprimidos x 30"
@@ -76,7 +79,7 @@ test("formats raw Farmacity medication names consistently", () => {
     "Modialex 150 mg Comprimidos x 30"
   );
   expect(formatMedicationName("CONSIv 18MG COMP.REC.LIB.PR.X30")).toBe(
-    "Consiv 18 mg Comprimidos Recubiertos Liberacion Prolongada x 30"
+    "Consiv 18 mg Comprimidos Recubiertos Liberación Prolongada x 30"
   );
 });
 
@@ -93,7 +96,7 @@ test("formats presentation from real package text only", () => {
       concentracion: "50 mg",
       fechaActualizacion: "2026-05-28T00:00:00.000Z",
     })
-  ).toBe("Capsulas x 30");
+  ).toBe("Cápsulas x 30");
 
   expect(
     formatMedicationPresentation({
@@ -108,4 +111,23 @@ test("formats presentation from real package text only", () => {
       fechaActualizacion: "2026-05-28T00:00:00.000Z",
     })
   ).toBe("Comprimidos x 30");
+});
+
+test("extracts the commercial brand name", () => {
+  expect(brandName("LUDOXA  30 mg x 30 c#ps.duras")).toBe("Ludoxa");
+  expect(brandName("RITALINA LA  10 MG C#PS.X 30")).toBe("Ritalina LA");
+  expect(brandName("RUBIFEN-10  COMP.X 30")).toBe("Rubifen");
+  expect(brandName("RUBIFEN  SR 20 MG COMP.X 30")).toBe("Rubifen SR");
+  expect(brandName("CONSIV  18MG COMP.REC.LIB.PR.X30")).toBe("Consiv");
+  expect(brandName("RECIT  10 MG CAPS.X 7")).toBe("Recit");
+});
+
+test("formats laboratory names", () => {
+  expect(formatLaboratorio("JANSSEN CILAG")).toBe("Janssen Cilag");
+  expect(formatLaboratorio("BAGO")).toBe("Bagó");
+  expect(formatLaboratorio("TEVA ARGENTINA")).toBe("Teva Argentina");
+});
+
+test("formats prices without decimals when asked", () => {
+  expect(formatPrice(206096.54, { decimals: 0 }).replace(/\s/g, " ")).toBe("$ 206.097");
 });

@@ -6,11 +6,12 @@ export type MedicamentosAgrupados = {
   offlabel: Record<string, Medicamento[]>;
 };
 
-export function formatPrice(precio: number, locale = "es-AR", currency = "ARS") {
-  return new Intl.NumberFormat(locale, {
+export function formatPrice(precio: number, { decimals = 2 } = {}) {
+  return new Intl.NumberFormat("es-AR", {
     style: "currency",
-    currency,
-    minimumFractionDigits: 2,
+    currency: "ARS",
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
   }).format(precio);
 }
 
@@ -95,8 +96,47 @@ function toDisplayCase(text: string) {
     .replace(/\bX\b/g, "x");
 }
 
+function withAccents(text: string) {
+  return text
+    .replace(/\b([Cc])apsulas\b/g, "$1ápsulas")
+    .replace(/\b([Ll])iberacion\b/g, "$1iberación");
+}
+
 export function formatMedicationName(marca: string) {
-  return toDisplayCase(formatKnownToken(marca));
+  return withAccents(toDisplayCase(formatKnownToken(marca)));
+}
+
+// Nombre comercial sin dosis ni presentación: "RITALINA LA  10 MG C#PS.X 30"
+// -> "Ritalina LA", "RUBIFEN-10  COMP.X 30" -> "Rubifen".
+export function brandName(marca: string) {
+  const brand = marca
+    .split(/[\s-]*\d|\s+(?:comp|caps?|c#ps?)\b/i)[0]
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return brand
+    .split(" ")
+    .map((word) =>
+      word.length <= 2
+        ? word.toUpperCase()
+        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+    )
+    .join(" ");
+}
+
+const LABORATORIOS: Record<string, string> = {
+  BAGO: "Bagó",
+  "BAGÓ": "Bagó",
+  "EUROFARMA ARG.": "Eurofarma",
+  "RAYMOS-MEGALABS": "Raymos-Megalabs",
+};
+
+export function formatLaboratorio(laboratorio: string) {
+  const key = laboratorio.trim().toUpperCase();
+  return (
+    LABORATORIOS[key] ??
+    key.toLowerCase().replace(/(^|[\s-])\p{L}/gu, (match) => match.toUpperCase())
+  );
 }
 
 export function formatMedicationPresentation(medicamento: Medicamento) {
@@ -116,18 +156,18 @@ export function formatMedicationPresentation(medicamento: Medicamento) {
   const lower = normalized.toLowerCase();
 
   if (lower.includes("capsulas")) {
-    return `Capsulas x ${units}`;
+    return `Cápsulas x ${units}`;
   }
 
   if (lower.includes("comprimidos")) {
     if (lower.includes("recubiertos") && lower.includes("liberacion") && lower.includes("prolongada")) {
-      return `Comprimidos recubiertos liberacion prolongada x ${units}`;
+      return `Comprimidos de liberación prolongada x ${units}`;
     }
 
     return `Comprimidos x ${units}`;
   }
 
-  return toDisplayCase(normalized);
+  return withAccents(toDisplayCase(normalized));
 }
 
 export function groupByApproval(medicamentos: Medicamento[]): MedicamentosAgrupados {
