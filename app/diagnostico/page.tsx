@@ -8,13 +8,14 @@ import {
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { Reference } from "@/components/references";
+import { sectionAccent } from "@/lib/sections";
 import type { GuideAction, StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Autoevaluación", subtitle: "Señales en la adultez", icon: Brain, accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300" },
-  { id: 2, title: "Evaluación clínica", subtitle: "Cómo se confirma", icon: Stethoscope, accent: "bg-sky-500/10 text-sky-700 dark:text-sky-300" },
-  { id: 3, title: "Preparar consulta", subtitle: "Qué llevar y preguntar", icon: FileText, accent: "bg-amber-500/15 text-amber-700 dark:text-amber-300" },
-  { id: 4, title: "Después", subtitle: "Impacto del diagnóstico y plan", icon: Route, accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" },
+  { id: 1, title: "Autoevaluación", subtitle: "Señales en la adultez", icon: Brain },
+  { id: 2, title: "Evaluación clínica", subtitle: "Cómo se confirma", icon: Stethoscope },
+  { id: 3, title: "Preparar consulta", subtitle: "Qué llevar y preguntar", icon: FileText },
+  { id: 4, title: "Después", subtitle: "Impacto del diagnóstico y plan", icon: Route },
 ] satisfies StepDefinition[];
 
 const finalActions = [
@@ -28,6 +29,7 @@ export default function DiagnosisPage() {
       title="Cómo se diagnostica el TDAH"
       description="Autoevaluación, consulta clínica y próximos pasos"
       steps={steps}
+      accent={sectionAccent.diagnosis}
       finalActions={finalActions}
       references={diagnosisReferences}
     >

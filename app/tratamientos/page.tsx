@@ -8,13 +8,14 @@ import {
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { Reference } from "@/components/references";
+import { sectionAccent } from "@/lib/sections";
 import type { GuideAction, StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Panorama", subtitle: "Qué combina el tratamiento", icon: Brain, accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300" },
-  { id: 2, title: "Medicación", subtitle: "Opciones y seguimiento", icon: Pill, accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" },
-  { id: 3, title: "Terapia", subtitle: "Herramientas psicológicas", icon: Users, accent: "bg-sky-500/10 text-sky-700 dark:text-sky-300" },
-  { id: 4, title: "Rutina", subtitle: "Sueño, ejercicio y hábitos", icon: Heart, accent: "bg-rose-500/10 text-rose-700 dark:text-rose-300" },
+  { id: 1, title: "Panorama", subtitle: "Qué combina el tratamiento", icon: Brain },
+  { id: 2, title: "Medicación", subtitle: "Opciones y seguimiento", icon: Pill },
+  { id: 3, title: "Terapia", subtitle: "Herramientas psicológicas", icon: Users },
+  { id: 4, title: "Rutina", subtitle: "Sueño, ejercicio y hábitos", icon: Heart },
 ] satisfies StepDefinition[];
 
 const finalActions = [
@@ -28,6 +29,7 @@ export default function TreatmentsPage() {
       title="Tratamientos para TDAH"
       description="Opciones para entender cómo se trata el TDAH"
       steps={steps}
+      accent={sectionAccent.treatments}
       finalActions={finalActions}
       references={treatmentReferences}
     >

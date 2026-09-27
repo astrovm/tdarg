@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Header } from "@/components/header";
+import { PageHero } from "@/components/page-hero";
 import { References, type Reference } from "@/components/references";
 import { Button } from "@/components/ui/button";
 import { useGuideStep } from "@/hooks/use-guide-step";
@@ -15,6 +16,8 @@ export type StepGuideLayoutProps = {
   title: string;
   description?: string;
   steps: readonly StepDefinition[];
+  // Color classes for the step icon, the same for every step of the guide
+  accent: string;
   // Actions shown after the last step; the first one is the primary button
   finalActions: readonly GuideAction[];
   references?: Reference[];
@@ -26,6 +29,7 @@ export function StepGuideLayout({
   title,
   description,
   steps,
+  accent,
   finalActions,
   references,
   children,
@@ -58,55 +62,44 @@ export function StepGuideLayout({
     <div className="min-h-screen bg-muted/30">
       <Header />
 
-      <div className="border-b bg-background">
-        <div className="container mx-auto max-w-4xl px-4 py-6 sm:py-8">
-          <h1 className="mb-2 text-2xl font-bold text-foreground sm:mb-3 sm:text-3xl">
-            {title}
-          </h1>
-          {description ? (
-            <p className="mb-5 text-base text-muted-foreground sm:text-lg">
-              {description}
-            </p>
-          ) : null}
+      <PageHero title={title} description={description} containerClassName="max-w-4xl">
+        <nav aria-label="Pasos de la guía">
+          <ol className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+            {steps.map((step) => {
+              const isActive = currentStep === step.id;
 
-          <nav aria-label="Pasos de la guía">
-            <ol className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
-              {steps.map((step) => {
-                const isActive = currentStep === step.id;
-
-                return (
-                  <li key={step.id} className="shrink-0">
-                    <button
-                      type="button"
-                      onClick={() => goTo(step.id)}
-                      aria-current={isActive ? "step" : undefined}
+              return (
+                <li key={step.id} className="shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => goTo(step.id)}
+                    aria-current={isActive ? "step" : undefined}
+                    className={cn(
+                      "flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border py-2 pl-2 pr-4 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
+                      isActive
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border bg-card text-muted-foreground hover:bg-muted hover:text-foreground",
+                    )}
+                  >
+                    <span
                       className={cn(
-                        "flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border py-2 pl-2 pr-4 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
-                        isActive
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border bg-card text-muted-foreground hover:bg-muted hover:text-foreground",
+                        "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
+                        isActive ? "bg-primary-foreground/20" : "bg-muted text-foreground",
                       )}
+                      aria-hidden="true"
                     >
-                      <span
-                        className={cn(
-                          "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
-                          isActive ? "bg-primary-foreground/20" : "bg-muted text-foreground",
-                        )}
-                        aria-hidden="true"
-                      >
-                        {step.id}
-                      </span>
-                      {step.title}
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-          </nav>
-        </div>
-      </div>
+                      {step.id}
+                    </span>
+                    {step.title}
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      </PageHero>
 
-      <main className="container mx-auto max-w-4xl px-4 py-6">
+      <main className="container mx-auto max-w-4xl px-4 py-8">
         <article
           ref={cardRef}
           aria-labelledby="step-title"
@@ -116,7 +109,7 @@ export function StepGuideLayout({
             <div
               className={cn(
                 "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
-                activeStep.accent,
+                accent,
               )}
             >
               <ActiveIcon className="h-5 w-5" aria-hidden="true" />

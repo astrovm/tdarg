@@ -18,18 +18,10 @@ import {
 } from "@/components/ui/card";
 import { HomeLivePrices } from "@/components/home-live-prices";
 import { getPrices } from "@/lib/medications/server";
+import { sectionAccent } from "@/lib/sections";
 
 // Same interval as the price cache (15 minutes)
 export const revalidate = 900;
-
-const accent = {
-  prices: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
-  specialists: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
-  legislation: "bg-amber-500/15 text-amber-700 dark:text-amber-300",
-  diagnosis: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
-  treatments: "bg-rose-500/10 text-rose-700 dark:text-rose-300",
-  comorbidities: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300",
-};
 
 const primaryLinks = [
   {
@@ -37,21 +29,21 @@ const primaryLinks = [
     title: "Precios",
     description: "Medicamentos, dosis, precio por mg y cobertura PMO del 40%.",
     icon: TrendingUp,
-    tone: accent.prices,
+    tone: sectionAccent.prices,
   },
   {
     href: "/especialistas",
     title: "Especialistas",
     description: "Profesionales por provincia, especialidad y cobertura.",
     icon: Stethoscope,
-    tone: accent.specialists,
+    tone: sectionAccent.specialists,
   },
   {
     href: "/legislacion",
     title: "Legislación",
     description: "Receta física y cobertura de medicamentos.",
     icon: Scale,
-    tone: accent.legislation,
+    tone: sectionAccent.legislation,
   },
 ];
 
@@ -62,21 +54,21 @@ const links = [
     title: "Diagnóstico",
     description: "Señales, evaluación clínica y preparación de consulta.",
     icon: Brain,
-    tone: accent.diagnosis,
+    tone: sectionAccent.diagnosis,
   },
   {
     href: "/tratamientos",
     title: "Tratamientos",
     description: "Medicación, terapia y cambios de rutina.",
     icon: Heart,
-    tone: accent.treatments,
+    tone: sectionAccent.treatments,
   },
   {
     href: "/comorbilidades",
     title: "Comorbilidades",
     description: "Ansiedad, ánimo, sueño, autismo e impulsividad.",
     icon: Users,
-    tone: accent.comorbidities,
+    tone: sectionAccent.comorbidities,
   },
 ];
 
@@ -104,7 +96,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className="flex-1 bg-secondary/45">
+        <section className="flex-1 border-t bg-muted/30">
           <div className="container mx-auto px-4 py-8 sm:py-10">
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {links.map((item) => {
@@ -120,9 +112,9 @@ export default async function HomePage() {
                       <CardHeader className="p-5">
                         <div className="flex items-start gap-3">
                           <div
-                            className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
+                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${item.tone}`}
                           >
-                            <Icon className="h-4 w-4" aria-hidden="true" />
+                            <Icon className="h-5 w-5" aria-hidden="true" />
                           </div>
                           <div>
                             <CardTitle className="text-xl text-card-foreground group-hover:text-primary" role="heading" aria-level={2}>

@@ -9,6 +9,7 @@ import {
 import { Header } from "@/components/header";
 import { PageHero } from "@/components/page-hero";
 import { References } from "@/components/references";
+import { sectionAccent, sectionText } from "@/lib/sections";
 
 export const metadata: Metadata = {
   title: "Legislación: receta y cobertura de medicamentos para TDAH",
@@ -137,18 +138,11 @@ export default function LegislationPage() {
   }));
 
   const lawIcons = [ReceiptText, BookOpen];
-  const lawTones = [
-    {
-      icon: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
-      label: "text-amber-700 dark:text-amber-300",
-      dot: "bg-amber-500",
-    },
-    {
-      icon: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
-      label: "text-sky-700 dark:text-sky-300",
-      dot: "bg-sky-500",
-    },
-  ];
+  const lawTone = {
+    icon: sectionAccent.legislation,
+    label: sectionText.legislation,
+    dot: "bg-amber-500",
+  };
 
   return (
     <div className="min-h-screen bg-muted/30">
@@ -157,104 +151,97 @@ export default function LegislationPage() {
       <PageHero
         title="Leyes sobre TDAH en Argentina"
         description="Receta y cobertura de medicación."
+        containerClassName="max-w-4xl"
       />
 
-      {/* Laws Section */}
-      <div className="bg-muted/30 border-t">
-        <div className="container mx-auto px-4 py-8 sm:py-12">
-          <div className="space-y-4">
-            {laws.map((law, index) => {
-              const Icon = lawIcons[index] ?? BookOpen;
-              const tone = lawTones[index] ?? lawTones[0];
+      <main className="container mx-auto max-w-4xl px-4 py-8">
+        <div className="space-y-4">
+          {laws.map((law, index) => {
+            const Icon = lawIcons[index] ?? BookOpen;
 
-              return (
-              <Card
-                key={law.heading}
-                className="overflow-hidden bg-card border shadow-xs"
-              >
-                <CardHeader className="pb-3">
-                  <div className="flex gap-3">
-                    <div className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${tone.icon}`}>
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className={`mb-1 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
-                        {law.label}
-                      </div>
-                      <CardTitle className="text-xl text-foreground leading-snug" role="heading" aria-level={2}>
-                        {law.heading}
-                      </CardTitle>
-                    </div>
+            return (
+            <Card
+              key={law.heading}
+              className="overflow-hidden bg-card border shadow-xs"
+            >
+              <CardHeader className="pb-3">
+                <div className="flex gap-3">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${lawTone.icon}`}>
+                    <Icon className="h-5 w-5" />
                   </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="mb-4 max-w-4xl text-base leading-7 text-foreground/80">
-                    {law.description}
-                  </p>
-
-                  {law.keyPoints.length > 0 && (
-                    <div className="rounded-md border bg-muted/40 p-4">
-                      <div className={`mb-3 text-xs font-medium uppercase tracking-wide ${tone.label}`}>
-                        Puntos clave
-                      </div>
-                      <ul className="grid grid-cols-1 gap-3 text-[15px] md:grid-cols-2">
-                        {law.keyPoints.map((point) => {
-                          const bullet = splitBullet(point);
-
-                          return (
-                            <li key={point} className="flex items-start gap-3">
-                              <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${tone.dot}`} />
-                              <span className="leading-relaxed text-foreground/80">
-                                {bullet.label && (
-                                  <strong className="text-foreground">
-                                    {bullet.label}:{" "}
-                                  </strong>
-                                )}
-                                {bullet.body}
-                              </span>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                  <div className="min-w-0">
+                    <div className={`mb-1 text-xs font-medium uppercase tracking-wide ${lawTone.label}`}>
+                      {law.label}
                     </div>
-                  )}
+                    <CardTitle className="text-xl text-foreground leading-snug" role="heading" aria-level={2}>
+                      {law.heading}
+                    </CardTitle>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <p className="mb-4 max-w-4xl text-base leading-7 text-foreground/80">
+                  {law.description}
+                </p>
 
-                  {law.jurisdictions && (
-                    <div className="mt-4 grid gap-3 md:grid-cols-3">
-                      {law.jurisdictions.map((item) => {
-                        const bullet = splitBullet(item);
+                {law.keyPoints.length > 0 && (
+                  <div className="rounded-md border bg-muted/40 p-4">
+                    <div className={`mb-3 text-xs font-medium uppercase tracking-wide ${lawTone.label}`}>
+                      Puntos clave
+                    </div>
+                    <ul className="grid grid-cols-1 gap-3 text-[15px]">
+                      {law.keyPoints.map((point) => {
+                        const bullet = splitBullet(point);
 
                         return (
-                          <div
-                            key={item}
-                            className="rounded-md bg-muted/35 p-3 text-sm leading-relaxed"
-                          >
-                            {bullet.label && (
-                              <div className="mb-1 font-semibold text-foreground">
-                                {bullet.label}
-                              </div>
-                            )}
-                            <p className="text-muted-foreground">
+                          <li key={point} className="flex items-start gap-3">
+                            <div className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${lawTone.dot}`} />
+                            <span className="leading-relaxed text-foreground/80">
+                              {bullet.label && (
+                                <strong className="text-foreground">
+                                  {bullet.label}:{" "}
+                                </strong>
+                              )}
                               {bullet.body}
-                            </p>
-                          </div>
+                            </span>
+                          </li>
                         );
                       })}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+                    </ul>
+                  </div>
+                )}
 
-      <section className="bg-muted/30 py-8">
-        <div className="container mx-auto px-4">
-          <References references={references} />
+                {law.jurisdictions && (
+                  <div className="mt-4 grid gap-3 md:grid-cols-3">
+                    {law.jurisdictions.map((item) => {
+                      const bullet = splitBullet(item);
+
+                      return (
+                        <div
+                          key={item}
+                          className="rounded-md bg-muted/35 p-3 text-sm leading-relaxed"
+                        >
+                          {bullet.label && (
+                            <div className="mb-1 font-semibold text-foreground">
+                              {bullet.label}
+                            </div>
+                          )}
+                          <p className="text-muted-foreground">
+                            {bullet.body}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+            );
+          })}
         </div>
-      </section>
+
+        <References references={references} />
+      </main>
     </div>
   );
 }

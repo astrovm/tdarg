@@ -9,14 +9,15 @@ import {
 } from "lucide-react";
 import { StepGuideLayout } from "@/components/step-guide-layout";
 import type { Reference } from "@/components/references";
+import { sectionAccent } from "@/lib/sections";
 import type { GuideAction, StepDefinition } from "@/lib/steps";
 
 const steps = [
-  { id: 1, title: "Panorama", subtitle: "Qué mirar primero", icon: Activity, accent: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300" },
-  { id: 2, title: "Ánimo y ansiedad", subtitle: "Ansiedad, depresión y sueño", icon: Brain, accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300" },
-  { id: 3, title: "Neurodesarrollo", subtitle: "TDAH y autismo", icon: Users, accent: "bg-sky-500/10 text-sky-700 dark:text-sky-300" },
-  { id: 4, title: "Impulsividad", subtitle: "Bipolaridad, TLP, TCA y consumos", icon: Zap, accent: "bg-amber-500/15 text-amber-700 dark:text-amber-300" },
-  { id: 5, title: "Evaluación", subtitle: "Impacto físico y prioridades de tratamiento", icon: Heart, accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" },
+  { id: 1, title: "Panorama", subtitle: "Qué mirar primero", icon: Activity },
+  { id: 2, title: "Ánimo y ansiedad", subtitle: "Ansiedad, depresión y sueño", icon: Brain },
+  { id: 3, title: "Neurodesarrollo", subtitle: "TDAH y autismo", icon: Users },
+  { id: 4, title: "Impulsividad", subtitle: "Bipolaridad, TLP, TCA y consumos", icon: Zap },
+  { id: 5, title: "Evaluación", subtitle: "Impacto físico y prioridades de tratamiento", icon: Heart },
 ] satisfies StepDefinition[];
 
 const finalActions = [
@@ -45,6 +46,7 @@ export default function ComorbiditiesPage() {
       title="TDAH y comorbilidades"
       description="Condiciones frecuentes que pueden coexistir con el TDAH"
       steps={steps}
+      accent={sectionAccent.comorbidities}
       finalActions={finalActions}
       references={comorbiditiesReferences}
     >

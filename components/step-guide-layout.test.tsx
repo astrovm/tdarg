@@ -10,7 +10,6 @@ const STEPS = [1, 2, 3].map((id) => ({
   title: `Paso ${id}`,
   subtitle: `Detalle ${id}`,
   icon: Brain,
-  accent: "bg-muted",
 }));
 
 function renderGuide(references?: Array<{ id: number; title: string; url: string }>) {
@@ -19,6 +18,7 @@ function renderGuide(references?: Array<{ id: number; title: string; url: string
       title="Guía"
       description="Descripción de la guía"
       steps={STEPS}
+      accent="bg-muted"
       finalActions={[
         { href: "/especialistas", label: "Buscar especialistas" },
         { href: "/tratamientos", label: "Ver tratamientos" },
