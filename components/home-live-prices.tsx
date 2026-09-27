@@ -61,37 +61,39 @@ export function HomeLivePrices({
     return null;
   }
 
+  // A full-width strip at the bottom of the hero
   return (
-    <Link
-      href="/precios"
-      className="group block w-full max-w-md rounded-xl border bg-card p-4 text-sm shadow-xs transition-colors hover:border-primary/40 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background sm:max-w-2xl"
-    >
-      <div className="grid gap-3 sm:grid-cols-2">
-        {selected.map((target) => (
-          <div key={target.label} className="min-w-0">
-            <div className="mb-1.5 text-left text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              {target.label}
-            </div>
-            <div className="grid grid-cols-3 gap-1.5">
-              {target.rows.map(({ dose, medication }) => (
-                <span
-                  key={dose}
-                  className="flex min-h-11 flex-col items-center justify-center rounded-md bg-muted/60 px-1 py-1 leading-tight"
-                >
-                  <span className="text-xs text-muted-foreground">{dose}</span>
-                  <span className="font-semibold text-foreground">
-                    {medication ? formatCompactPrice(medication.price) : null}
-                  </span>
-                </span>
-              ))}
-            </div>
+    <div className="border-t bg-muted/60">
+      <div className="container mx-auto px-4 py-5">
+        <Link
+          href="/precios"
+          className="group mx-auto block w-full max-w-2xl rounded-md text-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 ring-offset-background"
+        >
+          <div className="grid gap-5 sm:grid-cols-2 sm:gap-10">
+            {selected.map((target) => (
+              <div key={target.label} className="min-w-0">
+                <div className="mb-2 text-center text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {target.label}
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {target.rows.map(({ dose, medication }) => (
+                    <span key={dose} className="flex flex-col items-center leading-tight">
+                      <span className="text-xs text-muted-foreground">{dose}</span>
+                      <span className="text-lg font-semibold text-foreground tabular-nums">
+                        {medication ? formatCompactPrice(medication.price) : null}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+          <div className="mt-3 flex items-center justify-center gap-1 text-sm font-medium text-primary">
+            Ver todos los precios
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </div>
+        </Link>
       </div>
-      <div className="mt-3 flex items-center justify-center gap-1 text-xs font-medium text-primary">
-        Ver todos los precios
-        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-      </div>
-    </Link>
+    </div>
   );
 }

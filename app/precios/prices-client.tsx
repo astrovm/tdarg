@@ -28,24 +28,16 @@ import {
   pricePerMg,
   priceWithCoverage,
 } from "@/lib/medications/utils";
+import { sectionText } from "@/lib/sections";
 import { cn } from "@/lib/utils";
 
+// Every group uses the prices section color
 const priceTone = {
-  stimulant: {
-    heading: "text-emerald-700 dark:text-emerald-300",
-    price: "text-emerald-700 dark:text-emerald-300",
-  },
-  nonStimulant: {
-    heading: "text-sky-700 dark:text-sky-300",
-    price: "text-sky-700 dark:text-sky-300",
-  },
-  offLabel: {
-    heading: "text-amber-700 dark:text-amber-300",
-    price: "text-amber-700 dark:text-amber-300",
-  },
+  heading: sectionText.prices,
+  price: sectionText.prices,
 };
 
-type PriceTone = keyof typeof priceTone;
+type PriceTone = "stimulant" | "nonStimulant" | "offLabel";
 
 type SortOrder = "price" | "mg" | "name";
 
@@ -123,7 +115,7 @@ function MedicationPriceRow({
         </div>
       </div>
       <div className="text-right">
-        <div className={cn("text-lg font-bold tabular-nums", priceTone[tone].price)}>
+        <div className={cn("text-lg font-bold tabular-nums", priceTone.price)}>
           {formatPrice(medication.price, { decimals: 0 })}
         </div>
         {coverage ? (
@@ -159,7 +151,7 @@ function PriceGroup({
 
       {groups.map(([ingredient, meds]) => (
         <div key={ingredient}>
-          <h3 className={`mb-2 text-lg font-semibold capitalize ${priceTone[tone].heading}`}>
+          <h3 className={`mb-2 text-lg font-semibold capitalize ${priceTone.heading}`}>
             {ingredient}
           </h3>
           <div className="overflow-hidden rounded-lg border bg-card">
