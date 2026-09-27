@@ -89,11 +89,9 @@ export default async function HomePage() {
               <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
                 Precios de medicación, especialistas, receta y cobertura.
               </p>
-              <div className="mt-6 flex flex-col items-center gap-3 sm:mt-7">
-                <HomeLivePrices medications={medications} />
-              </div>
             </div>
           </div>
+          <HomeLivePrices medications={medications} />
         </section>
 
         <section className="flex-1 border-t bg-muted/30">
