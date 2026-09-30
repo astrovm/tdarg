@@ -45,6 +45,7 @@ describe("formatPotency", () => {
     expect(formatPotency(30)).toBe("30 mg");
     expect(formatPotency("2,5")).toBe("2.5 mg");
     expect(formatPotency("8/90")).toBe("8 mg / 90 mg");
+    expect(formatPotency("0/90")).toBe("90 mg");
   });
 
   test("returns null for a missing or zero strength", () => {
