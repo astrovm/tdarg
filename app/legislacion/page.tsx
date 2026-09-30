@@ -1,3 +1,4 @@
+import { splitBullet } from "@/lib/legislation";
 import type { Metadata } from "next";
 import { BookOpen, ReceiptText } from "lucide-react";
 import {
@@ -116,19 +117,6 @@ const documentationSources = {
 };
 
 export default function LegislationPage() {
-  const splitBullet = (text: string) => {
-    const separatorIndex = text.indexOf(":");
-
-    if (separatorIndex === -1) {
-      return { label: null, body: text };
-    }
-
-    return {
-      label: text.slice(0, separatorIndex),
-      body: text.slice(separatorIndex + 1).trim(),
-    };
-  };
-
   const references = documentationSources.sources.map((source, index) => ({
     id: index + 1,
     title: source.title,
