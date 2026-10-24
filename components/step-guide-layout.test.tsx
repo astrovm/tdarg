@@ -12,17 +12,19 @@ const STEPS = [1, 2, 3].map((id) => ({
   icon: Brain,
 }));
 
-function renderGuide(references?: Array<{ id: number; title: string; url: string }>) {
+const FINAL_ACTIONS = [
+  { href: "/especialistas", label: "Buscar especialistas" },
+  { href: "/tratamientos", label: "Ver tratamientos" },
+];
+
+function renderGuide(references?: Array<{ id: number; title: string; url: string }>, finalActions = FINAL_ACTIONS) {
   return render(
     <StepGuideLayout
       title="Guía"
       description="Descripción de la guía"
       steps={STEPS}
       accent="bg-muted"
-      finalActions={[
-        { href: "/especialistas", label: "Buscar especialistas" },
-        { href: "/tratamientos", label: "Ver tratamientos" },
-      ]}
+      finalActions={finalActions}
       references={references}
     >
       {(currentStep) => <p>Contenido del paso {currentStep}</p>}
@@ -65,6 +67,16 @@ describe("StepGuideLayout", () => {
     expect(screen.getByRole("link", { name: "Ver tratamientos" }).getAttribute("href")).toBe(
       "/tratamientos",
     );
+  });
+
+  test("shows no final actions on the last step when the guide has none", async () => {
+    const user = userEvent.setup();
+    const { container } = renderGuide(undefined, []);
+
+    await user.click(screen.getByRole("button", { name: /Paso 3/ }));
+
+    expect(screen.queryByRole("button", { name: /Siguiente/ })).toBeNull();
+    expect(container.querySelectorAll("article footer a")).toHaveLength(0);
   });
 
   test("scrolls back to the step when its top is out of view", async () => {
