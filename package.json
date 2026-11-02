@@ -47,6 +47,7 @@
   },
   "overrides": {
     "minimatch@^10": "11.0.3",
-    "qs": "6.17.1"
+    "qs": "6.17.1",
+    "minimatch@^3": "file:./tools/minimatch-3-compat"
   }
 }
