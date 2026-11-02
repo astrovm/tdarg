@@ -6,5 +6,5 @@ import nextTs from "eslint-config-next/typescript";
 export default defineConfig([
   // Keep Next's React plugins working with the ESLint 10 rule API.
   ...fixupConfigRules([...nextVitals, ...nextTs]),
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
+  globalIgnores([".next/**", "out/**", "build/**", ".stryker-tmp/**", "reports/**", "next-env.d.ts"]),
 ]);
