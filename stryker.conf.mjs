@@ -9,8 +9,10 @@ const config = {
     // The unit tests of the app only: not test/coverage.test.ts, which imports every file just
     // to make `bun test --coverage` count them, nor the scripts' own tests.
     testFiles: ["app", "components", "hooks", "lib"],
-    // The first run goes through every test one at a time; the default 10 s is too short.
-    timeout: 120_000,
+    // Bounds only the dry run, the whole suite once with coverage (a few seconds here, run one
+    // test at a time). The default 10 s killed the bot's first trial. Mutant runs use Stryker's
+    // own per-mutant timeout.
+    timeout: 600_000,
   },
   coverageAnalysis: "perTest",
   reporters: ["clear-text", "progress", "json"],
