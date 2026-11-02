@@ -44,6 +44,7 @@
     "@typescript/native": "npm:typescript@^7.0.2"
   },
   "overrides": {
-    "minimatch": "^11.0.1"
+    "minimatch@^10": "11.0.3",
+    "minimatch@^3": "file:./tools/minimatch-3-compat"
   }
 }
