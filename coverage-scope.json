@@ -1,0 +1,5 @@
+{
+  "roots": ["app", "components", "hooks", "lib"],
+  "extensions": [".ts", ".tsx"],
+  "exclude": ["*.d.ts", "*.test.ts", "*.test.tsx"]
+}
