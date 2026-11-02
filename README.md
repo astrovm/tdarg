@@ -46,3 +46,14 @@ bun typecheck    # TypeScript
 bun test         # Unit tests
 bun run download-laws  # Download legal documents
 ```
+
+## Mutation testing
+
+Mutation testing checks that the tests notice when the code changes. Stryker changes a line a little, one change at a time, and runs the tests that reach it. A change no test notices is a missing test.
+
+```bash
+bun run scripts/mutants.ts diff origin/main   # the lines this branch changed
+bun run scripts/mutants.ts part 3 64          # the 4th of 64 equal parts of all source lines
+```
+
+It only changes the source that `coverage-scope.json` lists (`app`, `components`, `hooks` and `lib`, without the tests), and it runs the unit tests next to that code. It never blocks a merge. On a pull request, one comment lists the changes no test noticed. Every Saturday a quarter of the 64 parts runs, and what lived goes in the open "Missed mutants" issue. A real gap gets its own pull request; a change that keeps the same behavior can be ignored.
