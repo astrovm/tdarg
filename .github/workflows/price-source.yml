@@ -16,6 +16,11 @@ on:
 permissions:
   contents: read
 
+# A new push to the same branch cancels the previous run
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   check:
     runs-on: ubuntu-26.04
