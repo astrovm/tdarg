@@ -146,6 +146,15 @@ describe("formatMedicationPresentation", () => {
     expect(presentation("54 mg comp.x 30")).toBe("Comprimidos x 30");
     expect(presentation("comp.x 30")).toBe("Comprimidos x 30");
     expect(presentation("18 mg comp.rec.x 30")).toBe("Comprimidos x 30");
+    expect(presentation("comprimidos x 30")).toBe("Comprimidos x 30");
+  });
+
+  test("reads cap. as capsules, but not other words that start with cap", () => {
+    const presentation = (text: string) =>
+      formatMedicationPresentation(medication({ brand: "X", presentation: text }));
+
+    expect(presentation("10 mg cap.x 30")).toBe("Cápsulas x 30");
+    expect(presentation("capa x 30")).toBe("Capa x 30");
   });
 
   test("keeps extended-release tablets distinct", () => {
@@ -161,6 +170,12 @@ describe("formatMedicationPresentation", () => {
     expect(presentation("150mg comp.lib.ext.x 30")).toBe(
       "Comprimidos de liberación extendida x 30"
     );
+    expect(presentation("150 MG COMP.LIB. PROL. X 30")).toBe(
+      "Comprimidos de liberación prolongada x 30"
+    );
+    expect(presentation("150 MG COMP.LIB EXT X 30")).toBe(
+      "Comprimidos de liberación extendida x 30"
+    );
     expect(
       formatMedicationPresentation(
         medication({ name: "metilfenidato", brand: "CONSIv 18MG COMP.REC.LIB.PR.X30" })
@@ -171,6 +186,12 @@ describe("formatMedicationPresentation", () => {
   test("formats other presentations in display case", () => {
     expect(formatMedicationPresentation(medication({ brand: "RECIT 10 MG SOBRES X 7" }))).toBe(
       "Recit 10 mg Sobres x 7"
+    );
+    expect(formatMedicationPresentation(medication({ brand: "RECIT  10MG  SOBRES X7" }))).toBe(
+      "Recit 10 mg Sobres x 7"
+    );
+    expect(formatMedicationPresentation(medication({ brand: "XMG SOBRES X 7" }))).toBe(
+      "Xmg Sobres x 7"
     );
   });
 

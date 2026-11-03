@@ -37,15 +37,21 @@ function respondLikeAlfabeta(url: string | URL | Request): Response {
 // load" test runs first, before any test has stored one.
 
 let fetchSpy: ReturnType<typeof spyOn<typeof globalThis, "fetch">>;
+let warnSpy: ReturnType<typeof spyOn<typeof console, "warn">>;
 
 beforeAll(() => {
-  spyOn(console, "warn").mockImplementation(() => {});
+  warnSpy = spyOn(console, "warn").mockImplementation(() => {});
   spyOn(console, "error").mockImplementation(() => {});
 });
 
 afterEach(() => {
   fetchSpy?.mockRestore();
+  warnSpy.mockClear();
 });
+
+function warnings(): string[] {
+  return warnSpy.mock.calls.map((args) => args.map(String).join(" "));
+}
 
 describe("getPrices", () => {
   test("returns an empty stale snapshot when Alfa Beta is down on first load", async () => {
@@ -75,6 +81,22 @@ describe("getPrices", () => {
       price: 54569.8,
       strength: "10 mg",
     });
+    expect(warnings()).toEqual([]);
+  });
+
+  test("asks Alfa Beta for fresh HTML, with a timeout and a named client", async () => {
+    fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string | URL) =>
+      respondLikeAlfabeta(url)) as typeof fetch);
+
+    await getPrices();
+
+    const [url, init] = fetchSpy.mock.calls[0];
+    expect(String(url)).toStartWith("https://www.alfabeta.net/precio/lista_drogas_detalle.jsp?id=");
+    expect(init).toMatchObject({
+      headers: { Accept: "text/html", "User-Agent": expect.stringContaining("Tdarg") },
+      cache: "no-store",
+    });
+    expect(init?.signal).toBeInstanceOf(AbortSignal);
   });
 
   test("keeps partial results when some pages fail", async () => {
@@ -87,6 +109,10 @@ describe("getPrices", () => {
 
     expect(snapshot.stale).toBe(false);
     expect(snapshot.data.map((m) => m.code)).toEqual(["20562"]);
+    expect(warnings().sort()).toEqual([
+      "Alfa Beta page failed: Error: Alfa Beta returned 500 for concerta.html",
+      "Alfa Beta page failed: Error: Alfa Beta returned 500 for lista_drogas_detalle.jsp?id=1328",
+    ]);
   });
 
   test("serves the last good prices as stale when Alfa Beta goes down", async () => {
@@ -113,17 +139,34 @@ describe("getPrices", () => {
   });
 
   test("decodes pages with a missing or unknown charset as UTF-8", async () => {
+    const contentTypes: Record<string, string> = {
+      "rubifen-10.html": "text/html;charset=bogus",
+      "concerta.html": "text/html",
+    };
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string | URL) => {
       const page = PAGES[pathOf(url)] ?? ingredientPage([]);
-      return pathOf(url) === "rubifen-10.html"
-        ? new Response(page, { headers: { "content-type": "text/html;charset=bogus" } })
-        : new Response(page);
+      const type = contentTypes[pathOf(url)];
+      return new Response(page, type ? { headers: { "content-type": type } } : undefined);
     }) as typeof fetch);
 
     const snapshot = await getPrices();
 
     expect(snapshot.data.find((m) => m.code === "20562")?.laboratory).toBe("Bagó");
+    expect(snapshot.data.find((m) => m.code === "47989")?.laboratory).toBe("Janssen-Cilag");
     expect(snapshot.data).toHaveLength(ALL_CODES.length);
+  });
+
+  test("reads a charset written with spaces or in another case", async () => {
+    fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string | URL) => {
+      const response = respondLikeAlfabeta(url);
+      return new Response(await response.arrayBuffer(), {
+        headers: { "content-type": "text/html; CHARSET= ISO-8859-1 ; x=1" },
+      });
+    }) as typeof fetch);
+
+    const snapshot = await getPrices();
+
+    expect(snapshot.data.find((m) => m.code === "20562")?.laboratory).toBe("Bagó");
   });
 
   test("fetches at most 4 pages at a time", async () => {

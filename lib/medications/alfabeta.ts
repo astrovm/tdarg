@@ -51,53 +51,46 @@ export function parseProductPages(html: string): string[] {
 }
 
 function formatMg(value: number): string {
-  return `${Number.isInteger(value) ? value : value.toFixed(2).replace(/\.?0+$/, "")} mg`;
+  return `${Number(value.toFixed(2))} mg`;
 }
 
-function parseMg(text: string): number {
-  const value = Number.parseFloat(text.replace(",", "."));
-  return Number.isFinite(value) && value > 0 ? value : 0;
+function parseMg(digits: string): number {
+  return Number.parseFloat(digits.replace(",", "."));
 }
 
 // "18mg comp.x30" -> "18 mg". "RUBIFEN 10", whose page has no strength, -> "10 mg".
 export function extractStrength(offerName: string, productName: string): string | null {
   const inOffer = offerName.match(/(\d+(?:[.,]\d+)?)\s*mg\b/i);
-  const fromOffer = inOffer ? parseMg(inOffer[1]) : 0;
-  if (fromOffer) {
-    return formatMg(fromOffer);
+  if (inOffer && parseMg(inOffer[1]) > 0) {
+    return formatMg(parseMg(inOffer[1]));
   }
 
   const trailing = productName.match(/\s(\d+(?:[.,]\d+)?)$/);
-  const fromName = trailing ? parseMg(trailing[1]) : 0;
-  if (fromName) {
-    return formatMg(fromName);
+  if (trailing && parseMg(trailing[1]) > 0) {
+    return formatMg(parseMg(trailing[1]));
   }
 
   return KNOWN_STRENGTHS[productName.toUpperCase()] ?? null;
 }
 
+// Alfa Beta writes prices as "193791.74"
 function parsePrice(value: string | number | undefined): number {
-  const price = typeof value === "number" ? value : Number.parseFloat(value ?? "");
+  const price = Number(value);
   return Number.isFinite(price) && price > 0 ? price : 0;
 }
 
 function productsIn(html: string): AlfabetaProduct[] {
-  const products: AlfabetaProduct[] = [];
-
-  for (const [, json] of html.matchAll(
-    /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
-  )) {
+  return [
+    ...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi),
+  ].flatMap(([, json]) => {
     try {
-      const data: unknown = JSON.parse(json);
-      if ((data as AlfabetaProduct)?.["@type"] === "Product") {
-        products.push(data as AlfabetaProduct);
-      }
+      const data = JSON.parse(json) as AlfabetaProduct;
+      return data["@type"] === "Product" ? [data] : [];
     } catch {
       // Other structured data on the page that is not valid JSON
+      return [];
     }
-  }
-
-  return products;
+  });
 }
 
 // Every presentation on a product's price page that is still sold. Products

@@ -109,31 +109,25 @@ function packageDescription(text: string): string | null {
     : /\bcomp\b|comprimido/.test(t)
       ? "Comprimidos"
       : null;
+  const release = /\blib\b\W*(?:pr|prol)\b|liberacion prolongada/.test(t)
+    ? " de liberación prolongada"
+    : /\blib\b\W*ext\b|liberacion extendida/.test(t)
+      ? " de liberación extendida"
+      : "";
 
-  if (!form) {
-    return null;
-  }
-
-  if (/\blib\b\W*(?:pr|prol)\b|liberacion prolongada/.test(t)) {
-    return `${form} de liberación prolongada`;
-  }
-  if (/\blib\b\W*ext\b|liberacion extendida/.test(t)) {
-    return `${form} de liberación extendida`;
-  }
-  return form;
+  return form ? form + release : null;
 }
 
 export function formatMedicationPresentation(medication: Medication) {
-  const texts = [medication.presentation, medication.brand, medication.name];
-  const source = texts.find((text) => extractUnits(text));
-  const units = source ? extractUnits(source) : null;
-
-  if (!source || !units) {
-    return medication.presentation;
+  for (const text of [medication.presentation, medication.brand, medication.name]) {
+    const units = extractUnits(text);
+    if (units) {
+      const description = packageDescription(text);
+      return description ? `${description} x ${units}` : toDisplayCase(text);
+    }
   }
 
-  const description = packageDescription(source);
-  return description ? `${description} x ${units}` : toDisplayCase(source);
+  return medication.presentation;
 }
 
 // Active ingredients as the app names them, by approval group. Armodafinil

@@ -19,6 +19,13 @@ describe("parseProductPages", () => {
     expect(parseProductPages(html)).toEqual(["concerta.html", "ritalina-la.html"]);
   });
 
+  test("reads lists with ten or more products, however the form is spaced", () => {
+    const pages = Array.from({ length: 12 }, (_, i) => `product-${i}.html`);
+
+    expect(parseProductPages(ingredientPage(pages))).toEqual(pages);
+    expect(parseProductPages('<form  name="pr1"\n  action="ludoxa.html">')).toEqual(["ludoxa.html"]);
+  });
+
   test("ignores forms that are not product pages", () => {
     expect(parseProductPages('<form name="lab1" action="srv" method="post">')).toEqual([]);
     expect(parseProductPages('<form name="pr1" action="../admin/x.html">')).toEqual([]);
@@ -30,11 +37,26 @@ describe("extractStrength", () => {
     expect(extractStrength("18mg comp.rec.lib.pr.x30", "CONSIV")).toBe("18 mg");
     expect(extractStrength("30 mg x 30 cáps.duras", "LUDOXA")).toBe("30 mg");
     expect(extractStrength("2,5 mg comp.x 30", "X")).toBe("2.5 mg");
+    expect(extractStrength("12.25 mg comp.x 30", "X")).toBe("12.25 mg");
+    expect(extractStrength("10.5 mg comp.x 30", "X")).toBe("10.5 mg");
+    expect(extractStrength("1.125 mg comp.x 30", "X")).toBe("1.13 mg");
+  });
+
+  test("skips a zero strength", () => {
+    expect(extractStrength("0 mg comp.x 30", "RUBIFEN 10")).toBe("10 mg");
+    expect(extractStrength("comp.x 30", "PRODUCTO 0")).toBeNull();
   });
 
   test("falls back to a dose at the end of the product name", () => {
     expect(extractStrength("comp.x 30", "RUBIFEN 10")).toBe("10 mg");
     expect(extractStrength("20 mg comp.x 30", "RUBIFEN SR 20")).toBe("20 mg");
+    expect(extractStrength("comp.x 30", "PRODUCTO 2,25")).toBe("2.25 mg");
+    expect(extractStrength("comp.x 30", "PRODUCTO 2,5")).toBe("2.5 mg");
+  });
+
+  test("only reads a dose at the very end of the product name", () => {
+    expect(extractStrength("comp.x 30", "PRODUCTO 10 PLUS")).toBeNull();
+    expect(extractStrength("comp.x 30", "PRODUCTO-10")).toBeNull();
   });
 
   test("knows products whose page never says the strength", () => {
@@ -86,6 +108,63 @@ describe("parseProductPage", () => {
     ]);
 
     expect(parseProductPage(html, "bupropion", DATE)).toEqual([]);
+  });
+
+  test("fills placeholders for missing laboratory, presentation or strength", () => {
+    const html = productPage("  NUEVO   XR ", "  ", "modafinilo", [
+      { sku: "9", name: "", price: "1000" },
+    ]);
+
+    expect(parseProductPage(html, "modafinilo", DATE)).toEqual([
+      expect.objectContaining({
+        brand: "NUEVO XR",
+        laboratory: "No especificado",
+        presentation: "No especificado",
+        strength: "No especificado",
+      }),
+    ]);
+  });
+
+  test("keeps products whose page does not name the ingredient", () => {
+    const html = productPage("RECIT", "Gador", "atomoxetina", [
+      { sku: "1", name: "10 mg cáps.x 7", price: "44618.13" },
+    ]).replace(/"additionalProperty": \[[\s\S]*?\],\n/, "");
+
+    expect(html).not.toContain("Monodroga");
+    expect(parseProductPage(html, "atomoxetina", DATE).map((m) => m.code)).toEqual(["1"]);
+  });
+
+  test("reads the product data whatever other attributes its script tag has", () => {
+    const html = productPage("RECIT", "Gador", "atomoxetina", [
+      { sku: "1", name: "10 mg cáps.x 7", price: "44618.13" },
+    ]).replace(
+      /<script type="application\/ld\+json">\s*\{\s*"@context"/,
+      '<script id="product" type="application/ld+json" nonce="abc">{"@context"',
+    );
+
+    expect(html).toContain('nonce="abc">{"@context"');
+    expect(parseProductPage(html, "atomoxetina", DATE).map((m) => m.code)).toEqual(["1"]);
+  });
+
+  test("ignores structured data that is not a product", () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      "@type": "ItemList",
+      name: "RECIT",
+      offers: [{ sku: "1", name: "10 mg cáps.x 7", price: "44618.13" }],
+    })}</script>`;
+
+    expect(parseProductPage(html, "atomoxetina", DATE)).toEqual([]);
+  });
+
+  test("reads prices written as numbers and rejects impossible ones", () => {
+    const html = productPage("VIGICER", "Beta", "modafinilo", [
+      { sku: "1", name: "200 mg comp.x 15", price: "Infinity" },
+      { sku: "2", name: "200 mg comp.x 15", price: "-5" },
+    ]).replace('"price": "-5"', '"price": 40359.78');
+
+    expect(parseProductPage(html, "modafinilo", DATE).map((m) => [m.code, m.price])).toEqual([
+      ["2", 40359.78],
+    ]);
   });
 
   test("skips presentations without a price, a code or stock", () => {

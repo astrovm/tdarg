@@ -46,7 +46,7 @@ async function mapSettled<T, R>(
   limit: number,
   fn: (item: T) => Promise<R>,
 ): Promise<PromiseSettledResult<R>[]> {
-  const results: PromiseSettledResult<R>[] = new Array(items.length);
+  const results: PromiseSettledResult<R>[] = [];
   let next = 0;
 
   async function worker() {
