@@ -3,7 +3,7 @@ export interface Medication {
   name: string;
   brand: string;
   laboratory: string;
-  source: "farmacity";
+  source: "alfabeta";
   price: number;
   presentation: string;
   strength: string;
@@ -13,7 +13,7 @@ export interface Medication {
 export type PriceSnapshot = {
   data: Medication[];
   updatedAt: string;
-  // true when Farmacity failed and the last known prices (or none) are shown
+  // true when Alfa Beta failed and the last known prices (or none) are shown
   stale: boolean;
   error?: string;
 };

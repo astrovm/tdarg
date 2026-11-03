@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/precios" },
 };
 
-// Same interval as the price cache (15 minutes)
-export const revalidate = 900;
+// Same interval as the price cache (1 hour)
+export const revalidate = 3600;
 
 export default async function PricesPage() {
   const prices = await getPrices();

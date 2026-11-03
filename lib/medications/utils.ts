@@ -66,48 +66,24 @@ export function pricePerMg(medication: Medication): number | null {
   return medication.price / (mg * units);
 }
 
-function formatKnownToken(token: string) {
-  const normalized = token
-    .replace(/\bc#ps?\.?/gi, "capsulas ")
-    .replace(/\bcápsulas\b/gi, "capsulas")
-    .replace(/\bcomp\./gi, "comprimidos ")
-    .replace(/\brec\./gi, "recubiertos ")
-    .replace(/\blib\./gi, "liberacion ")
-    .replace(/\bpr\./gi, "prolongada ")
-    .replace(/\bcaps?\.?(?=\s|x|$)/gi, "capsulas ")
-    .replace(/\bcomp\.?(?=\s|x|$)/gi, "comprimidos ")
-    .replace(/\brec\.?(?=\s|x|$)/gi, "recubiertos ")
-    .replace(/\blib\.?(?=\s|x|$)/gi, "liberacion ")
-    .replace(/\bpr\.?(?=\s|x|$)/gi, "prolongada ")
-    .replace(/(\d)mg\b/gi, "$1 mg")
-    .replace(/(^|\s)x\s*(\d+)/gi, "$1x $2")
-    .replace(/\bx(\d+)/gi, "x $1")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  return normalized.replace(/\bmg\b/gi, "mg");
+function plain(text: string) {
+  return text.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 }
 
 function toDisplayCase(text: string) {
   return text
     .toLowerCase()
-    .replace(/\b\p{L}/gu, (letter) => letter.toUpperCase())
+    .replace(/(\d)mg\b/g, "$1 mg")
+    .replace(/\bx\s*(\d)/g, "x $1")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/(^|\s)(\p{L})/gu, (_, space: string, letter: string) => space + letter.toUpperCase())
     .replace(/\bMg\b/g, "mg")
     .replace(/\bX\b/g, "x");
 }
 
-function withAccents(text: string) {
-  return text
-    .replace(/\b([Cc])apsulas\b/g, "$1ápsulas")
-    .replace(/\b([Ll])iberacion\b/g, "$1iberación");
-}
-
-export function formatMedicationName(brand: string) {
-  return withAccents(toDisplayCase(formatKnownToken(brand)));
-}
-
-// Brand name without dose or presentation: "RITALINA LA  10 MG C#PS.X 30"
-// -> "Ritalina LA", "RUBIFEN-10  COMP.X 30" -> "Rubifen".
+// Brand name without dose or presentation: "RITALINA LA" -> "Ritalina LA",
+// "RUBIFEN SR 20" -> "Rubifen SR", "RUBIFEN-10  COMP.X 30" -> "Rubifen".
 export function brandName(text: string) {
   const brand = text
     .split(/[\s-]*\d|\s+(?:comp|caps?|c#ps?)\b/i)[0]
@@ -124,38 +100,37 @@ export function brandName(text: string) {
     .join(" ");
 }
 
-export function formatMedicationPresentation(medication: Medication) {
-  const source = [medication.presentation, medication.brand, medication.name]
-    .find((text) => extractUnits(text));
-  const units = extractUnits(
-    medication.presentation,
-    medication.brand,
-    medication.name
-  );
+// Package form and release from abbreviations like "18mg comp.rec.lib.pr.x30",
+// "10 mg cáps.x 30" or "150mg comp.lib.ext.x 30"
+function packageDescription(text: string): string | null {
+  const t = plain(text);
+  const form = /\bc(?:a|#)ps?\b|capsula/.test(t)
+    ? "Cápsulas"
+    : /\bcomp\b|comprimido/.test(t)
+      ? "Comprimidos"
+      : null;
+  const release = /\blib\b\W*(?:pr|prol)\b|liberacion prolongada/.test(t)
+    ? " de liberación prolongada"
+    : /\blib\b\W*ext\b|liberacion extendida/.test(t)
+      ? " de liberación extendida"
+      : "";
 
-  if (!source || !units) {
-    return medication.presentation;
-  }
-
-  const normalized = formatKnownToken(source);
-  const lower = normalized.toLowerCase();
-
-  if (lower.includes("capsulas")) {
-    return `Cápsulas x ${units}`;
-  }
-
-  if (lower.includes("comprimidos")) {
-    if (lower.includes("recubiertos") && lower.includes("liberacion") && lower.includes("prolongada")) {
-      return `Comprimidos de liberación prolongada x ${units}`;
-    }
-
-    return `Comprimidos x ${units}`;
-  }
-
-  return withAccents(toDisplayCase(normalized));
+  return form ? form + release : null;
 }
 
-// Active ingredients as Farmacity names them, by approval group. Armodafinil
+export function formatMedicationPresentation(medication: Medication) {
+  for (const text of [medication.presentation, medication.brand, medication.name]) {
+    const units = extractUnits(text);
+    if (units) {
+      const description = packageDescription(text);
+      return description ? `${description} x ${units}` : toDisplayCase(text);
+    }
+  }
+
+  return medication.presentation;
+}
+
+// Active ingredients as the app names them, by approval group. Armodafinil
 // comes before modafinil because "armodafinilo" contains "modafinilo".
 const APPROVAL_GROUPS: Record<keyof GroupedMedications, string[]> = {
   stimulants: ["lisdexanfetamina", "metilfenidato"],

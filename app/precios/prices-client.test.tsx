@@ -65,7 +65,9 @@ describe("PricesClient", () => {
       "Uso off-label",
     ]);
     expect(brandsIn("metilfenidato")).toEqual(["Ritalina 10 mg", "Concerta 54 mg"]);
-    expect(screen.getByText("Farmacity, 26/9/2026, 10:05")).toBeDefined();
+    const source = screen.getByRole("link", { name: "Alfa Beta" });
+    expect(source.getAttribute("href")).toBe("https://www.alfabeta.net/precio/");
+    expect(source.parentElement!.textContent).toBe("Precios de Alfa Beta, 26/9/2026, 10:05");
   });
 
   test("shows the 40% coverage price only for approved medications", () => {

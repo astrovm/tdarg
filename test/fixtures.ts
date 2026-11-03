@@ -6,7 +6,7 @@ export function medication(overrides: Partial<Medication> = {}): Medication {
     name: "lisdexanfetamina",
     brand: "LUDOXA 30 mg x 30 c#ps.duras",
     laboratory: "ADIUM",
-    source: "farmacity",
+    source: "alfabeta",
     price: 190776.15,
     presentation: "Sin Clasificar",
     strength: "30 mg",

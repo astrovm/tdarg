@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select";
 import { PageHero } from "@/components/page-hero";
 import { useLivePrices } from "@/hooks/use-live-prices";
+import { ALFABETA_PRICES_URL } from "@/lib/medications/alfabeta";
 import type { Medication, PriceSnapshot } from "@/lib/medications/types";
 import {
   brandName,
@@ -313,7 +314,16 @@ export function PricesClient({ initial }: { initial: PriceSnapshot }) {
 
         {medications.length > 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">
-            Farmacity, {dateTimeFormat.format(new Date(updatedAt))}
+            Precios de{" "}
+            <a
+              href={ALFABETA_PRICES_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              Alfa Beta
+            </a>
+            , {dateTimeFormat.format(new Date(updatedAt))}
           </p>
         ) : null}
       </PageHero>
@@ -323,7 +333,7 @@ export function PricesClient({ initial }: { initial: PriceSnapshot }) {
           <Alert className="mb-6 border bg-card">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
-              No pudimos actualizar los precios con Farmacity. Mostramos los
+              No pudimos actualizar los precios con Alfa Beta. Mostramos los
               últimos precios que conseguimos.
             </AlertDescription>
           </Alert>
@@ -338,7 +348,7 @@ export function PricesClient({ initial }: { initial: PriceSnapshot }) {
           <Alert variant="destructive" className="border bg-card">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
-              No pudimos conseguir los precios de Farmacity en este momento.
+              No pudimos conseguir los precios de Alfa Beta en este momento.
               Probá de nuevo en unos minutos.
             </AlertDescription>
           </Alert>

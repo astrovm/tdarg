@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import type { PriceSnapshot } from "@/lib/medications/types"
 
 // Prices arrive rendered by the server. Only when that render had no data
-// (Farmacity was down at the time) does the browser ask for them again.
+// (Alfa Beta was down at the time) does the browser ask for them again.
 export function useLivePrices(initial: PriceSnapshot) {
   const [snapshot, setSnapshot] = useState(initial)
   const [loading, setLoading] = useState(initial.data.length === 0)
