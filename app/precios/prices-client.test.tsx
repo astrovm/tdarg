@@ -70,13 +70,18 @@ describe("PricesClient", () => {
     expect(source.parentElement!.textContent).toBe("Precios de Alfa Beta, 26/9/2026, 10:05");
   });
 
-  test("shows the 40% coverage price only for approved medications", () => {
+  test("shows the -40% price for every medication, off-label ones included", () => {
     render(<PricesClient initial={SNAPSHOT} />);
 
+    expect(screen.getAllByRole("listitem")).toHaveLength(MEDICATIONS.length);
+    for (const item of screen.getAllByRole("listitem")) {
+      expect(within(item).getAllByText(/^-40%: \$\s[\d.]+$/).length).toBeGreaterThan(0);
+    }
+
     const ritalina = screen.getByText("Ritalina 10 mg").closest("li")!;
-    expect(within(ritalina).getAllByText(/^\$\s18\.000$/).length).toBeGreaterThan(0);
+    expect(within(ritalina).getAllByText(/^-40%: \$\s18\.000$/).length).toBeGreaterThan(0);
     const modialex = screen.getByText("Modialex 100 mg").closest("li")!;
-    expect(within(modialex).queryByText(/40%/)).toBeNull();
+    expect(within(modialex).getAllByText(/^-40%: \$\s36\.000$/).length).toBeGreaterThan(0);
   });
 
   test("searches by name, brand or laboratory", async () => {

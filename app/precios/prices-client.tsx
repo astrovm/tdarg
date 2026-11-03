@@ -38,8 +38,6 @@ const priceTone = {
   price: sectionText.prices,
 };
 
-type PriceTone = "stimulant" | "nonStimulant" | "offLabel";
-
 type SortOrder = "price" | "mg" | "name";
 
 const SORT_LABELS: Record<SortOrder, string> = {
@@ -57,11 +55,9 @@ const INGREDIENT_ORDER = [
   "bupropion",
 ];
 
-// Only methylphenidate is in the PMO (Res. 310/2004, 40%). Off-label uses are
-// usually not covered, so they get no discounted price.
-function hasCoverage(tone: PriceTone) {
-  return tone !== "offLabel";
-}
+// Price with the PMO's 40% discount (Res. 310/2004), shown for every
+// medication as an estimate
+const DISCOUNT_LABEL = "-40%";
 
 const dateTimeFormat = new Intl.DateTimeFormat("es-AR", {
   day: "numeric",
@@ -93,17 +89,9 @@ function sortMedications(items: Medication[], sortOrder: SortOrder): Medication[
 
 const COLUMNS = "md:grid-cols-[1fr_8rem_7rem_8rem]";
 
-function MedicationPriceRow({
-  medication,
-  tone,
-}: {
-  medication: Medication;
-  tone: PriceTone;
-}) {
+function MedicationPriceRow({ medication }: { medication: Medication }) {
   const perMg = pricePerMg(medication);
-  const coverage = hasCoverage(tone)
-    ? formatPrice(priceWithCoverage(medication.price), { decimals: 0 })
-    : null;
+  const coverage = formatPrice(priceWithCoverage(medication.price), { decimals: 0 });
 
   return (
     <li className={cn("grid grid-cols-[1fr_auto] gap-x-4 px-4 py-3 md:items-center", COLUMNS)}>
@@ -119,27 +107,26 @@ function MedicationPriceRow({
         <div className={cn("text-lg font-bold tabular-nums", priceTone.price)}>
           {formatPrice(medication.price, { decimals: 0 })}
         </div>
-        {coverage ? (
-          <div className="text-sm text-muted-foreground tabular-nums md:hidden">
-            40%: {coverage}
-          </div>
-        ) : null}
+        <div className="text-sm text-muted-foreground tabular-nums md:hidden">
+          {DISCOUNT_LABEL}: {coverage}
+        </div>
       </div>
       <div className="hidden text-right text-sm tabular-nums md:block">
         {perMg ? formatPrice(perMg) : null}
       </div>
-      <div className="hidden text-right text-sm tabular-nums md:block">{coverage}</div>
+      <div className="hidden text-right text-sm tabular-nums md:block">
+        <span className="sr-only">{DISCOUNT_LABEL}: </span>
+        {coverage}
+      </div>
     </li>
   );
 }
 
 function PriceGroup({
   title,
-  tone,
   groups,
 }: {
   title: string;
-  tone: PriceTone;
   groups: Array<[string, Medication[]]>;
 }) {
   if (groups.length === 0) {
@@ -166,11 +153,11 @@ function PriceGroup({
               <span>Medicamento</span>
               <span className="text-right">Precio</span>
               <span className="text-right">Por mg</span>
-              <span className="text-right">{hasCoverage(tone) ? "Con 40% desc." : null}</span>
+              <span className="text-right">{DISCOUNT_LABEL}</span>
             </div>
             <ul className="divide-y">
               {meds.map((medication) => (
-                <MedicationPriceRow key={medication.code} medication={medication} tone={tone} />
+                <MedicationPriceRow key={medication.code} medication={medication} />
               ))}
             </ul>
           </div>
@@ -360,17 +347,14 @@ export function PricesClient({ initial }: { initial: PriceSnapshot }) {
           <div className="space-y-10">
             <PriceGroup
               title="Estimulantes"
-              tone="stimulant"
               groups={sortIngredientGroups(Object.entries(grouped.groups.stimulants))}
             />
             <PriceGroup
               title="No estimulantes"
-              tone="nonStimulant"
               groups={sortIngredientGroups(Object.entries(grouped.groups.nonStimulants))}
             />
             <PriceGroup
               title="Uso off-label"
-              tone="offLabel"
               groups={sortIngredientGroups(Object.entries(grouped.groups.offLabel))}
             />
           </div>
