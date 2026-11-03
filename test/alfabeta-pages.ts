@@ -20,11 +20,12 @@ export function ingredientPage(products: string[]): string {
     .join("\n");
 }
 
-// A product's price page, with its schema.org Product
+// A product's price page, with its schema.org Product. A null monodrug leaves
+// out the "Monodroga" property.
 export function productPage(
   name: string,
   laboratory: string,
-  monodrug: string,
+  monodrug: string | null,
   offers: Offer[],
 ): string {
   const product = {
@@ -33,7 +34,9 @@ export function productPage(
     name,
     brand: { "@type": "Brand", name: laboratory },
     additionalProperty: [
-      { "@type": "PropertyValue", name: "Monodroga", value: monodrug },
+      ...(monodrug === null
+        ? []
+        : [{ "@type": "PropertyValue", name: "Monodroga", value: monodrug }]),
       { "@type": "PropertyValue", name: "Accion terapeutica", value: "Estimulante SNC" },
     ],
     offers: offers.map((offer) => ({

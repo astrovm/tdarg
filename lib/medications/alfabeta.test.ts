@@ -74,7 +74,7 @@ describe("normalizeIngredient", () => {
 describe("parseProductPage", () => {
   test("maps each presentation to a medication", () => {
     const html = productPage("RITALINA LA", "Novartis", "metilfenidato", [
-      { sku: "45421", name: "10 mg cáps.x 30", price: "91817.92" },
+      { sku: "45421", name: " 10 mg cáps.x 30 ", price: "91817.92" },
       { sku: "33839", name: "20 mg cáps.x 30", price: "96890.25" },
     ]);
 
@@ -126,12 +126,30 @@ describe("parseProductPage", () => {
   });
 
   test("keeps products whose page does not name the ingredient", () => {
-    const html = productPage("RECIT", "Gador", "atomoxetina", [
+    const html = productPage("RECIT", "Gador", null, [
       { sku: "1", name: "10 mg cáps.x 7", price: "44618.13" },
-    ]).replace(/"additionalProperty": \[[\s\S]*?\],\n/, "");
+    ]);
 
     expect(html).not.toContain("Monodroga");
+    expect(html).toContain("Accion terapeutica");
     expect(parseProductPage(html, "atomoxetina", DATE).map((m) => m.code)).toEqual(["1"]);
+  });
+
+  test("reads products with missing fields", () => {
+    const page = (product: object) =>
+      `<script type="application/ld+json">${JSON.stringify({ "@type": "Product", ...product })}</script>`;
+    const offer = { sku: "1", price: "1000" };
+
+    expect(parseProductPage(page({ offers: [offer] }), "modafinilo", DATE)).toEqual([]);
+    expect(parseProductPage(page({ name: "NUEVO" }), "modafinilo", DATE)).toEqual([]);
+    expect(parseProductPage(page({ name: "NUEVO", offers: [offer] }), "modafinilo", DATE)).toEqual([
+      expect.objectContaining({
+        code: "1",
+        brand: "NUEVO",
+        laboratory: "No especificado",
+        presentation: "No especificado",
+      }),
+    ]);
   });
 
   test("reads the product data whatever other attributes its script tag has", () => {
@@ -160,6 +178,7 @@ describe("parseProductPage", () => {
     const html = productPage("VIGICER", "Beta", "modafinilo", [
       { sku: "1", name: "200 mg comp.x 15", price: "Infinity" },
       { sku: "2", name: "200 mg comp.x 15", price: "-5" },
+      { sku: "3", name: "200 mg comp.x 15", price: "-1" },
     ]).replace('"price": "-5"', '"price": 40359.78');
 
     expect(parseProductPage(html, "modafinilo", DATE).map((m) => [m.code, m.price])).toEqual([

@@ -73,12 +73,6 @@ export function extractStrength(offerName: string, productName: string): string 
   return KNOWN_STRENGTHS[productName.toUpperCase()] ?? null;
 }
 
-// Alfa Beta writes prices as "193791.74"
-function parsePrice(value: string | number | undefined): number {
-  const price = Number(value);
-  return Number.isFinite(price) && price > 0 ? price : 0;
-}
-
 function productsIn(html: string): AlfabetaProduct[] {
   return [
     ...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi),
@@ -112,10 +106,11 @@ export function parseProductPage(
 
     return (product.offers ?? []).flatMap((offer): Medication[] => {
       const presentation = (offer.name ?? "").trim();
-      const price = parsePrice(offer.price);
+      // Alfa Beta writes prices as "193791.74"
+      const price = Number(offer.price);
       const inStock = !offer.availability || offer.availability.endsWith("/InStock");
 
-      if (!offer.sku || !brand || !price || !inStock) {
+      if (!offer.sku || !brand || !inStock || !(price > 0 && Number.isFinite(price))) {
         return [];
       }
 

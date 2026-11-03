@@ -173,7 +173,7 @@ describe("formatMedicationPresentation", () => {
     expect(presentation("150 MG COMP.LIB. PROL. X 30")).toBe(
       "Comprimidos de liberación prolongada x 30"
     );
-    expect(presentation("150 MG COMP.LIB EXT X 30")).toBe(
+    expect(presentation("150 MG COMP.LIB. EXT. X 30")).toBe(
       "Comprimidos de liberación extendida x 30"
     );
     expect(

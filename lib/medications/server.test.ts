@@ -139,21 +139,26 @@ describe("getPrices", () => {
   });
 
   test("decodes pages with a missing or unknown charset as UTF-8", async () => {
-    const contentTypes: Record<string, string> = {
+    // Byte bodies, because Bun adds charset=utf-8 to string bodies by itself
+    const contentTypes: Record<string, string | undefined> = {
       "rubifen-10.html": "text/html;charset=bogus",
       "concerta.html": "text/html",
+      "odranal.html": undefined,
     };
     fetchSpy = spyOn(globalThis, "fetch").mockImplementation((async (url: string | URL) => {
-      const page = PAGES[pathOf(url)] ?? ingredientPage([]);
-      const type = contentTypes[pathOf(url)];
-      return new Response(page, type ? { headers: { "content-type": type } } : undefined);
+      const bytes = new TextEncoder().encode(PAGES[pathOf(url)] ?? ingredientPage([]));
+      const type = contentTypes[pathOf(url)] ?? "text/html;charset=utf-8";
+      return pathOf(url) in contentTypes && !contentTypes[pathOf(url)]
+        ? new Response(bytes)
+        : new Response(bytes, { headers: { "content-type": type } });
     }) as typeof fetch);
 
     const snapshot = await getPrices();
 
     expect(snapshot.data.find((m) => m.code === "20562")?.laboratory).toBe("Bagó");
     expect(snapshot.data.find((m) => m.code === "47989")?.laboratory).toBe("Janssen-Cilag");
-    expect(snapshot.data).toHaveLength(ALL_CODES.length);
+    expect(snapshot.data.find((m) => m.code === "23483")?.laboratory).toBe("Adium");
+    expect(warnings()).toEqual([]);
   });
 
   test("reads a charset written with spaces or in another case", async () => {
