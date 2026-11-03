@@ -30,9 +30,8 @@ async function fetchPage(path: string): Promise<string> {
   }
 
   // Alfa Beta serves ISO-8859-1, and response.text() always decodes UTF-8.
-  // TextDecoder ignores spaces and case in the label.
-  const charset =
-    response.headers.get("content-type")?.match(/charset=([^;]+)/i)?.[1] ?? "utf-8";
+  // TextDecoder ignores spaces and case in the label, and defaults to UTF-8.
+  const charset = response.headers.get("content-type")?.match(/charset=([^;]+)/i)?.[1];
   const bytes = await response.arrayBuffer();
   try {
     return new TextDecoder(charset).decode(bytes);
