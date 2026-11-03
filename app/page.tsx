@@ -20,8 +20,8 @@ import { HomeLivePrices } from "@/components/home-live-prices";
 import { getPrices } from "@/lib/medications/server";
 import { sectionAccent } from "@/lib/sections";
 
-// Same interval as the price cache (15 minutes)
-export const revalidate = 900;
+// Same interval as the price cache (1 hour)
+export const revalidate = 3600;
 
 const primaryLinks = [
   {

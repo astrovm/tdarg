@@ -10,7 +10,7 @@ const MEDICATION: Medication = {
   name: "metilfenidato",
   brand: "CONCERTA 54 MG COMP.X 30",
   laboratory: "JANSSEN",
-  source: "farmacity",
+  source: "alfabeta",
   price: 100000,
   presentation: "Comprimidos x 30",
   strength: "54 mg",
@@ -40,7 +40,7 @@ describe("GET /api/prices", () => {
 
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe(
-      "public, s-maxage=900, stale-while-revalidate=3600"
+      "public, s-maxage=3600, stale-while-revalidate=14400"
     );
     expect(body).toMatchObject({
       timestamp: "2026-09-26T00:00:00.000Z",

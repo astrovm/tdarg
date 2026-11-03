@@ -5,7 +5,6 @@ import {
   brandName,
   extractMg,
   extractUnits,
-  formatMedicationName,
   formatMedicationPresentation,
   formatPrice,
   groupByApproval,
@@ -19,7 +18,7 @@ function medication(overrides: Partial<Medication>): Medication {
     name: "lisdexanfetamina",
     brand: "LUDOXA 30 mg",
     laboratory: "ADIUM",
-    source: "farmacity",
+    source: "alfabeta",
     price: 190776.15,
     presentation: "Sin Clasificar",
     strength: "30 mg",
@@ -109,23 +108,6 @@ describe("pricePerMg", () => {
   });
 });
 
-describe("formatMedicationName", () => {
-  test("expands Farmacity abbreviations into readable names", () => {
-    expect(formatMedicationName("LUDOXA  50 mg x 30 c#ps.duras")).toBe(
-      "Ludoxa 50 mg x 30 Cápsulas Duras"
-    );
-    expect(formatMedicationName("CONCERTA 54 MG COMP.X 30")).toBe(
-      "Concerta 54 mg Comprimidos x 30"
-    );
-    expect(formatMedicationName("MODIALEX 150 MG COMP.X 30")).toBe(
-      "Modialex 150 mg Comprimidos x 30"
-    );
-    expect(formatMedicationName("CONSIv 18MG COMP.REC.LIB.PR.X30")).toBe(
-      "Consiv 18 mg Comprimidos Recubiertos Liberación Prolongada x 30"
-    );
-  });
-});
-
 describe("brandName", () => {
   test("keeps only the commercial brand", () => {
     expect(brandName("LUDOXA  30 mg x 30 c#ps.duras")).toBe("Ludoxa");
@@ -134,6 +116,8 @@ describe("brandName", () => {
     expect(brandName("RUBIFEN  SR 20 MG COMP.X 30")).toBe("Rubifen SR");
     expect(brandName("CONSIV  18MG COMP.REC.LIB.PR.X30")).toBe("Consiv");
     expect(brandName("RECIT  10 MG CAPS.X 7")).toBe("Recit");
+    expect(brandName("RUBIFEN SR 20")).toBe("Rubifen SR");
+    expect(brandName("WELLBUTRIN XL")).toBe("Wellbutrin XL");
   });
 });
 
@@ -153,7 +137,30 @@ describe("formatMedicationPresentation", () => {
     ).toBe("Comprimidos x 30");
   });
 
+  test("reads Alfa Beta presentations", () => {
+    const presentation = (text: string) =>
+      formatMedicationPresentation(medication({ brand: "X", presentation: text }));
+
+    expect(presentation("10 mg cáps.x 30")).toBe("Cápsulas x 30");
+    expect(presentation("30 mg x 30 cáps.duras")).toBe("Cápsulas x 30");
+    expect(presentation("54 mg comp.x 30")).toBe("Comprimidos x 30");
+    expect(presentation("comp.x 30")).toBe("Comprimidos x 30");
+    expect(presentation("18 mg comp.rec.x 30")).toBe("Comprimidos x 30");
+  });
+
   test("keeps extended-release tablets distinct", () => {
+    const presentation = (text: string) =>
+      formatMedicationPresentation(medication({ brand: "X", presentation: text }));
+
+    expect(presentation("18mg comp.rec.lib.pr.x30")).toBe(
+      "Comprimidos de liberación prolongada x 30"
+    );
+    expect(presentation("150mg comp.lib.prol.x 60")).toBe(
+      "Comprimidos de liberación prolongada x 60"
+    );
+    expect(presentation("150mg comp.lib.ext.x 30")).toBe(
+      "Comprimidos de liberación extendida x 30"
+    );
     expect(
       formatMedicationPresentation(
         medication({ name: "metilfenidato", brand: "CONSIv 18MG COMP.REC.LIB.PR.X30" })
