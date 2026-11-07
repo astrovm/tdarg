@@ -20,10 +20,23 @@ describe("specialists data", () => {
   test("fills every required field", () => {
     const incomplete = specialists.filter(
       (e) =>
-        [e.name, e.specialty, e.city, e.type].some((v) => !v.trim()) ||
-        e.insurance.length === 0
+        [
+          e.name, e.specialty, e.city, e.type, e.address, e.phone, e.email,
+          e.hospital, e.experience, e.hours,
+        ].some((v) => !v.trim()) ||
+        e.insurance.length === 0 ||
+        e.insurance.some((plan) => !plan.trim())
     );
-    expect(incomplete).toEqual([]);
+    expect(incomplete.map((e) => e.name)).toEqual([]);
+  });
+
+  test("never leaves an optional field blank: a blank one hides a button or falls back to another value", () => {
+    const blank = specialists.flatMap((e) =>
+      (["url", "social", "whatsapp", "linkedin", "foundationEmail", "appointments"] as const)
+        .filter((field) => e[field] !== undefined && !e[field].trim())
+        .map((field) => `${e.name}: ${field}`)
+    );
+    expect(blank).toEqual([]);
   });
 
   test("lists each province separately by its official name", () => {
@@ -35,7 +48,7 @@ describe("specialists data", () => {
 
   test("links only to valid http URLs", () => {
     const invalid = specialists
-      .flatMap((e) => (e.url ? [e.url] : []))
+      .flatMap((e) => [e.url, e.linkedin].filter((url): url is string => url !== undefined))
       .filter((url) => !URL.canParse(url) || !/^https?:\/\//.test(url));
     expect(invalid).toEqual([]);
   });

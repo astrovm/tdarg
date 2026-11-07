@@ -53,6 +53,11 @@ describe("extractMg", () => {
     expect(extractMg("18MG")).toBe(18);
   });
 
+  test("keeps every decimal digit", () => {
+    expect(extractMg("2,25 mg")).toBe(2.25);
+    expect(extractMg("12.25 mg")).toBe(12.25);
+  });
+
   test("returns null for combination, missing or zero strengths", () => {
     expect(extractMg("8 mg / 90 mg")).toBeNull();
     expect(extractMg("No especificado")).toBeNull();
@@ -68,6 +73,7 @@ describe("extractUnits", () => {
 
   test("reads counts written before the unit or after 'por'", () => {
     expect(extractUnits("28 comprimidos")).toBe(28);
+    expect(extractUnits("28comp")).toBe(28);
     expect(extractUnits("caja por 60")).toBe(60);
   });
 
@@ -119,6 +125,14 @@ describe("brandName", () => {
     expect(brandName("RUBIFEN SR 20")).toBe("Rubifen SR");
     expect(brandName("WELLBUTRIN XL")).toBe("Wellbutrin XL");
   });
+
+  test("cuts at the presentation word even with no space before the dose", () => {
+    expect(brandName("NALTREVA comp.x 120")).toBe("Naltreva");
+    expect(brandName("RECIT CAP.X 7")).toBe("Recit");
+    expect(brandName("RECIT C#P.X 7")).toBe("Recit");
+    expect(brandName("RUBIFEN10")).toBe("Rubifen");
+    expect(brandName("RUBIFEN - 10")).toBe("Rubifen");
+  });
 });
 
 describe("formatMedicationPresentation", () => {
@@ -141,6 +155,7 @@ describe("formatMedicationPresentation", () => {
     const presentation = (text: string) =>
       formatMedicationPresentation(medication({ brand: "X", presentation: text }));
 
+    expect(presentation("RECIT XR10 SOBRES X 7")).toBe("Recit Xr10 Sobres x 7");
     expect(presentation("10 mg cáps.x 30")).toBe("Cápsulas x 30");
     expect(presentation("30 mg x 30 cáps.duras")).toBe("Cápsulas x 30");
     expect(presentation("54 mg comp.x 30")).toBe("Comprimidos x 30");

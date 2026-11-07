@@ -1,8 +1,9 @@
 import { afterEach, beforeAll, describe, expect, spyOn, test } from "bun:test";
 
 import { ingredientPage, latin1Response, productPage } from "@/test/alfabeta-pages";
+import { cacheCalls } from "@/test/next-cache";
 
-import { getPrices } from "./server";
+import { getPrices, PRICES_REVALIDATE_SECONDS } from "./server";
 
 // What Alfa Beta serves, by path under /precio/
 const PAGES: Record<string, string> = {
@@ -188,5 +189,12 @@ describe("getPrices", () => {
     await getPrices();
 
     expect(most).toBe(4);
+  });
+});
+
+describe("price cache", () => {
+  test("expires after PRICES_REVALIDATE_SECONDS, so prices are refreshed every hour", () => {
+    expect(PRICES_REVALIDATE_SECONDS).toBe(3600);
+    expect(cacheCalls.map((call) => call.options)).toEqual([{ revalidate: PRICES_REVALIDATE_SECONDS }]);
   });
 });

@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { afterEach, describe, expect, spyOn, test } from "bun:test";
 import { act, renderHook } from "@testing-library/react";
 
 import { useGuideStep } from "./use-guide-step";
@@ -62,5 +62,15 @@ describe("useGuideStep", () => {
     });
 
     expect(result.current.currentStep).toBe(2);
+  });
+
+  test("stops listening to the browser Back button on unmount", () => {
+    const remove = spyOn(window, "removeEventListener");
+    const { unmount } = renderHook(() => useGuideStep(4));
+
+    unmount();
+
+    expect(remove).toHaveBeenCalledWith("popstate", expect.any(Function));
+    remove.mockRestore();
   });
 });
