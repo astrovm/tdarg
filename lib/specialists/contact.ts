@@ -8,10 +8,18 @@ export type Phone = {
   mobile: boolean;
 };
 
-// "Consultar", "Consultar ubicación específica", etc. are not real data
+// The data fills a field it has no answer for with one of these texts. Matching the whole
+// text, not its start, keeps real notes such as "Consulta privada virtual" visible.
+const PLACEHOLDERS = new Set([
+  "consultar",
+  "consulta privada",
+  "consultar ubicacion",
+  "consultar ubicacion especifica",
+]);
+
 export function isPlaceholder(value?: string | null): boolean {
-  const text = value?.trim() ?? "";
-  return text === "" || /^consult(ar|a privada)/i.test(text);
+  const text = normalizeSearch(value?.trim() ?? "");
+  return text === "" || PLACEHOLDERS.has(text);
 }
 
 export function parsePhones(value?: string | null): Phone[] {

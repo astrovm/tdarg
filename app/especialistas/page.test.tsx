@@ -56,6 +56,29 @@ describe("SpecialistsPage", () => {
     );
   });
 
+  test("shows real notes that start like a placeholder", async () => {
+    const user = userEvent.setup();
+    render(<SpecialistsPage />);
+
+    await user.type(screen.getByRole("searchbox"), "Paula Harris");
+    expect(within(screen.getByRole("article")).getByText("Consulta privada virtual")).toBeDefined();
+
+    await user.clear(screen.getByRole("searchbox"));
+    await user.type(screen.getByRole("searchbox"), "Paloma Legal");
+    const card = screen.getByRole("article");
+    expect(within(card).getByText("Consulta privada online")).toBeDefined();
+    expect(within(card).getByText("Consulta privada; consultar reintegro")).toBeDefined();
+  });
+
+  test("hides placeholders on the card", async () => {
+    const user = userEvent.setup();
+    render(<SpecialistsPage />);
+
+    await user.type(screen.getByRole("searchbox"), "Rovere");
+
+    expect(within(screen.getByRole("article")).queryByText(/^Consult/)).toBeNull();
+  });
+
   test("filters by specialty and clears filters when nothing matches", async () => {
     const user = userEvent.setup();
     render(<SpecialistsPage />);

@@ -41,6 +41,36 @@ describe("isPlaceholder", () => {
     expect(isPlaceholder("Consulta privada")).toBe(true);
     expect(isPlaceholder("Hospital Italiano")).toBe(false);
   });
+
+  test("detects every placeholder in the data, ignoring case, accents and spaces", () => {
+    for (const value of [
+      "",
+      "  ",
+      null,
+      undefined,
+      "Consultar",
+      " CONSULTAR ",
+      "Consulta privada",
+      "Consultar ubicación",
+      "Consultar ubicación específica",
+      "consultar ubicacion especifica",
+    ]) {
+      expect(isPlaceholder(value)).toBe(true);
+    }
+  });
+
+  test("keeps real text that only starts with or contains a placeholder", () => {
+    for (const value of [
+      "Consulta privada virtual",
+      "Consulta privada online",
+      "Consulta privada; consultar reintegro",
+      "Lun-Vie, consultar horarios",
+      "Consultar con el hospital por turnos",
+      "Consultorio",
+    ]) {
+      expect(isPlaceholder(value)).toBe(false);
+    }
+  });
 });
 
 describe("whatsappUrl", () => {
