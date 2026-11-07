@@ -88,4 +88,26 @@ describe("SpecialistsPage", () => {
       "https://facebook.com/Athentun",
     );
   });
+
+  test("shows each accepted coverage plan as a badge on the card", async () => {
+    const user = userEvent.setup();
+    render(<SpecialistsPage />);
+
+    await user.type(screen.getByRole("searchbox"), "Rovere");
+    const card = screen.getByRole("article");
+
+    expect(within(card).getByText("OSDE")).toBeDefined();
+  });
+
+  test("flags specialists who only see children", async () => {
+    const user = userEvent.setup();
+    render(<SpecialistsPage />);
+
+    await user.type(screen.getByRole("searchbox"), "Di Virgilio");
+    expect(within(screen.getByRole("article")).getByText("Solo niños")).toBeDefined();
+
+    await user.clear(screen.getByRole("searchbox"));
+    await user.type(screen.getByRole("searchbox"), "Rovere");
+    expect(within(screen.getByRole("article")).queryByText("Solo niños")).toBeNull();
+  });
 });
