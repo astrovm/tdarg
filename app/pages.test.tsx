@@ -51,6 +51,23 @@ describe("HomePage", () => {
     }
     expect(screen.getByText("$150k")).toBeDefined();
   });
+
+  test("describes every section under its link", async () => {
+    spy = spyOn(server, "getPrices").mockResolvedValue(SNAPSHOT);
+
+    render(await HomePage());
+
+    for (const description of [
+      "Medicamentos, dosis, precio por mg y cobertura PMO del 40%.",
+      "Profesionales por provincia, especialidad y cobertura.",
+      "Receta física y cobertura de medicamentos.",
+      "Señales, evaluación clínica y preparación de consulta.",
+      "Medicación, terapia y cambios de rutina.",
+      "Ansiedad, ánimo, sueño, autismo e impulsividad.",
+    ]) {
+      expect(screen.getByText(description)).toBeDefined();
+    }
+  });
 });
 
 describe("PricesPage", () => {

@@ -6,10 +6,11 @@
  *   bun run scripts/mutants.ts part 3 64            # the 4th of 64 equal parts of all lines
  *   bun run scripts/mutants.ts diff HEAD^1 --out build/mutants
  *
- * Only what coverage-scope.json counts as source is changed. Lists what lived by file and line;
- * --out also writes it to lived.txt and the tally ("3 of 10") to tally.txt there. Exits 0 once
- * it got to its tally, whatever lived; only a broken run fails. Stryker's full report is in
- * reports/mutation/.
+ * Only what coverage-scope.json counts as source is changed, minus its "mutationExclude" globs
+ * (vendored UI styling and color tokens; the coverage gate still counts them). Lists what lived
+ * by file and line; --out also writes it to lived.txt and the tally ("3 of 10") to tally.txt
+ * there. Exits 0 once it got to its tally, whatever lived; only a broken run fails. Stryker's
+ * full report is in reports/mutation/.
  */
 import { spawnSync } from "node:child_process";
 import {
@@ -22,6 +23,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { join, relative } from "node:path";
+import ts from "typescript";
 
 const ROOT = join(import.meta.dir, "..");
 const REPORT = join(ROOT, "reports/mutation/mutation.json");
@@ -30,6 +32,8 @@ interface Scope {
   roots: string[];
   extensions: string[];
   exclude: string[];
+  /** Files the coverage gate counts but mutation testing skips. */
+  mutationExclude?: string[];
 }
 
 /** A line range of one file, as Stryker's `--mutate` takes it: "lib/a.ts:3-9". */
@@ -39,15 +43,26 @@ export interface Range {
   to: number;
 }
 
+function globMatches(pattern: string, file: string): boolean {
+  const glob = new RegExp(
+    `^${pattern.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*")}$`,
+  );
+  return glob.test(file) || glob.test(`/${file}`);
+}
+
 /** Whether `file` is source the coverage gate counts, by coverage-scope.json's globs. */
 export function inScope(file: string, scope: Scope): boolean {
-  const glob = (pattern: string) =>
-    new RegExp(`^${pattern.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*")}$`);
   return (
     scope.roots.some((root) => file.startsWith(`${root}/`)) &&
     scope.extensions.some((extension) => file.endsWith(extension)) &&
-    !scope.exclude.some((pattern) => glob(pattern).test(file) || glob(pattern).test(`/${file}`))
+    !scope.exclude.some((pattern) => globMatches(pattern, file))
   );
+}
+
+/** Whether `file` is mutated: in scope, and not in the mutation-only exclude list. */
+export function inMutationScope(file: string, scope: Scope): boolean {
+  const skipped = (scope.mutationExclude ?? []).some((pattern) => globMatches(pattern, file));
+  return inScope(file, scope) && !skipped;
 }
 
 /** The ranges of lines a unified diff with no context (`-U0`) adds or changes. */
@@ -93,15 +108,39 @@ export function partRanges(
   return ranges;
 }
 
+/** Include whole syntax nodes that start in the owned lines, including blocks crossing a cut.
+ * Ownership stays with the original ranges, so overlap never duplicates a reported mutant.
+ */
+export function instrumentRanges(ranges: Range[], read = (file: string) => readFileSync(join(ROOT, file), "utf8")): Range[] {
+  const parsed = new Map<string, ts.SourceFile>();
+  return ranges.map((range) => {
+    let source = parsed.get(range.file);
+    if (!source) {
+      source = ts.createSourceFile(range.file, read(range.file), ts.ScriptTarget.Latest, true);
+      parsed.set(range.file, source);
+    }
+    let to = range.to;
+    const visit = (node: ts.Node) => {
+      const start = source.getLineAndCharacterOfPosition(node.getStart(source)).line + 1;
+      if (start >= range.from && start <= range.to && node.kind !== ts.SyntaxKind.SourceFile) {
+        to = Math.max(to, source.getLineAndCharacterOfPosition(node.getEnd()).line + 1);
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(source);
+    return { ...range, to };
+  });
+}
+
 interface Mutant {
   status: string;
   mutatorName: string;
   replacement?: string;
-  location: { start: { line: number } };
+  location: { start: { line: number; column: number }; end: { line: number; column: number } };
 }
 
 /** What no test caught, "lib/a.ts:12  survived: EqualityOperator", by file and line, and how many mutants there were. */
-export function lived(report: { files: Record<string, { mutants: Mutant[] }> }): {
+export function lived(report: { files: Record<string, { mutants: Mutant[] }> }, owned?: Range[]): {
   rows: string[];
   total: number;
 } {
@@ -110,14 +149,16 @@ export function lived(report: { files: Record<string, { mutants: Mutant[] }> }):
   for (const [path, { mutants }] of Object.entries(report.files)) {
     const file = path.startsWith("/") ? relative(ROOT, path) : path;
     for (const mutant of mutants) {
+      if (owned && !owned.some((range) => range.file === file && mutant.location.start.line >= range.from && mutant.location.start.line <= range.to)) continue;
       if (mutant.status === "CompileError" || mutant.status === "Ignored") continue;
       total++;
       if (["Survived", "NoCoverage", "Timeout"].includes(mutant.status)) {
         const status = mutant.status === "NoCoverage" ? "no coverage" : mutant.status.toLowerCase();
-        const line = mutant.location.start.line;
+        const { line, column } = mutant.location.start;
+        const end = mutant.location.end;
         const change =
           mutant.replacement === undefined ? "" : ` → ${JSON.stringify(mutant.replacement)}`;
-        left.push([file, line, `${file}:${line}  ${status}: ${mutant.mutatorName}${change}`]);
+        left.push([file, line, `${file}:${line}:${column}-${end.line}:${end.column}  ${status}: ${mutant.mutatorName}${change}`]);
       }
     }
   }
@@ -137,7 +178,7 @@ function sourceFiles(scope: Scope): { file: string; lines: number }[] {
     for (const name of readdirSync(join(ROOT, dir)).sort()) {
       const path = `${dir}/${name}`;
       if (statSync(join(ROOT, path)).isDirectory()) walk(path);
-      else if (inScope(path, scope)) files.push(path);
+      else if (inMutationScope(path, scope)) files.push(path);
     }
   };
   scope.roots.forEach(walk);
@@ -155,7 +196,7 @@ function main(argv: string[]): number {
   if (argv[0] === "diff" && argv[1]) {
     const since = git("merge-base", argv[1], "HEAD").trim();
     ranges = changedRanges(git("diff", "-U0", "--no-color", since, "HEAD")).filter((range) =>
-      inScope(range.file, scope),
+      inMutationScope(range.file, scope),
     );
   } else if (argv[0] === "part" && argv[1] && argv[2]) {
     ranges = partRanges(sourceFiles(scope), Number(argv[1]), Number(argv[2]));
@@ -172,7 +213,7 @@ function main(argv: string[]): number {
       `${ranges.length} ranges in ${new Set(ranges.map((range) => range.file)).size} files.`,
     );
     rmSync(REPORT, { force: true });
-    const mutate = ranges.map(({ file, from, to }) => `${file}:${from}-${to}`).join(",");
+    const mutate = instrumentRanges(ranges).map(({ file, from, to }) => `${file}:${from}-${to}`).join(",");
     const run = spawnSync("bun", ["x", "stryker", "run", "--mutate", mutate], {
       cwd: ROOT,
       stdio: "inherit",
@@ -181,7 +222,7 @@ function main(argv: string[]): number {
       console.error(`Stryker stopped (exit ${run.status ?? run.signal}) before its report.`);
       return 1;
     }
-    ({ rows, total } = lived(JSON.parse(readFileSync(REPORT, "utf8"))));
+    ({ rows, total } = lived(JSON.parse(readFileSync(REPORT, "utf8")), ranges));
   }
   rows.forEach((row) => console.log(row));
   const tally = `${total - rows.length} of ${total}`;

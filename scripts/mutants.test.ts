@@ -1,6 +1,13 @@
 import { describe, expect, test } from "bun:test";
 import { Glob } from "bun";
-import { changedRanges, inScope, lived, partRanges } from "./mutants";
+import {
+  changedRanges,
+  inMutationScope,
+  inScope,
+  instrumentRanges,
+  lived,
+  partRanges,
+} from "./mutants";
 import scope from "../coverage-scope.json";
 
 describe("mutants", () => {
@@ -20,6 +27,19 @@ describe("mutants", () => {
     ]) {
       expect(inScope(file, scope)).toBe(false);
     }
+  });
+
+  test("vendored UI styling and color tokens count for coverage but are not mutated", () => {
+    expect(scope.mutationExclude).toEqual(["lib/sections.ts", "components/ui/*"]);
+    for (const file of ["lib/sections.ts", "components/ui/badge.tsx", "components/ui/a/b.tsx"]) {
+      expect(inScope(file, scope)).toBe(true);
+      expect(inMutationScope(file, scope)).toBe(false);
+    }
+    for (const file of ["app/page.tsx", "components/header.tsx", "lib/sections.tsx", "lib/a/sections.ts"]) {
+      expect(inMutationScope(file, scope)).toBe(inScope(file, scope));
+    }
+    expect(inMutationScope("lib/sections.ts", { ...scope, mutationExclude: undefined })).toBe(true);
+    expect(inMutationScope("lib/other.ts", scope)).toBe(true);
   });
 
   test("it is the files test/coverage.test.ts loads", () => {
@@ -92,7 +112,7 @@ describe("mutants", () => {
       status,
       mutatorName,
       replacement,
-      location: { start: { line } },
+      location: { start: { line, column: 7 }, end: { line, column: 9 } },
     });
     const { rows, total } = lived({
       files: {
@@ -111,9 +131,22 @@ describe("mutants", () => {
     });
     expect(total).toBe(4);
     expect(rows).toEqual([
-      "lib/a.ts:2  timeout: UpdateOperator",
-      "lib/a.ts:12  no coverage: EqualityOperator",
-      'lib/b.ts:9  survived: BooleanLiteral → "false"',
+      "lib/a.ts:2:7-2:9  timeout: UpdateOperator",
+      "lib/a.ts:12:7-12:9  no coverage: EqualityOperator",
+      'lib/b.ts:9:7-9:9  survived: BooleanLiteral → "false"',
     ]);
   });
+});
+
+
+test("crossing nodes are instrumented whole and owned only by their start lines", () => {
+  const content = "export function f() {\n  if (true) {\n    return 1;\n  }\n}\n";
+  const ranges = [{ file: "src/a.ts", from: 2, to: 2 }];
+  expect(instrumentRanges(ranges, () => content)).toEqual([{ file: "src/a.ts", from: 2, to: 4 }]);
+  const make = (line: number, column: number, end = column + 1) => ({ status: "Survived", mutatorName: "BooleanLiteral", replacement: "false", location: { start: { line, column }, end: { line, column: end } } });
+  const report = { files: { "src/a.ts": { mutants: [make(2, 7, 14), make(2, 7, 21), make(3, 7)] } } };
+  const { rows, total } = lived(report, ranges);
+  expect(total).toBe(2);
+  expect(new Set(rows).size).toBe(2);
+  expect(lived(report, [{ file: "src/a.ts", from: 3, to: 4 }]).rows).toHaveLength(1);
 });
