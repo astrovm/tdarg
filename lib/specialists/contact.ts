@@ -38,8 +38,13 @@ export function parsePhones(value?: string | null): Phone[] {
     .filter((phone) => phone.href.length > "tel:".length);
 }
 
-// Returns a WhatsApp link only for a complete Argentine number
-// (54 + 10 digits, with or without the mobile 9).
+// Argentine national numbers have 10 digits including the area code, and the area code is 11
+// (Buenos Aires area) or starts with 2 or 3. WhatsApp wants a 9 between 54 and the area code
+// for mobiles. The 9 is not one of the 10 digits and is never the start of an area code, so
+// "54 9 11 5063-754" (a digit short) cannot pass as a landline either.
+const WHATSAPP_NUMBER = /^54(?:9)?(?:11\d{8}|[23]\d{9})$/;
+
+// Returns a WhatsApp link only for a complete Argentine number (with or without the mobile 9).
 export function whatsappUrl(value?: string | null): string | null {
   const [phone] = parsePhones(value);
   if (!phone) {
@@ -47,7 +52,7 @@ export function whatsappUrl(value?: string | null): string | null {
   }
 
   const digits = phone.href.replace(/\D/g, "");
-  if (!/^54(9)?\d{10}$/.test(digits)) {
+  if (!WHATSAPP_NUMBER.test(digits)) {
     return null;
   }
 

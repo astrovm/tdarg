@@ -57,6 +57,32 @@ describe("whatsappUrl", () => {
   test("returns null for incomplete numbers", () => {
     expect(whatsappUrl("1550637542")).toBeNull();
     expect(whatsappUrl("0810-266-4203")).toBeNull();
+    expect(whatsappUrl("+54 11 4412-088")).toBeNull();
+    expect(whatsappUrl("+54 221 523-657")).toBeNull();
+  });
+
+  test("returns null for a mobile missing a digit, since the 9 is not part of the 10", () => {
+    expect(whatsappUrl("+54 9 11 5063-754")).toBeNull();
+    expect(whatsappUrl("+54 9 221 552-699")).toBeNull();
+  });
+
+  test("returns null for numbers that are too long or prefixed", () => {
+    expect(whatsappUrl("+54 9 11 5063-75421")).toBeNull();
+    expect(whatsappUrl("+54 11 4412-08801")).toBeNull();
+    expect(whatsappUrl("+1 54 9 11 5063-7542")).toBeNull();
+  });
+
+  test("returns null when the area code cannot exist", () => {
+    // Area codes start with 11, 2 or 3; a 9 right after 54 is the mobile marker, not an area
+    expect(whatsappUrl("+54 99 5063-75421")).toBeNull();
+    expect(whatsappUrl("+54 9 99 5063-7542")).toBeNull();
+    expect(whatsappUrl("+54 4 11 5063-7542")).toBeNull();
+  });
+
+  test("builds links for landlines and mobiles outside Buenos Aires", () => {
+    expect(whatsappUrl("+54 221 523-6577")).toBe("https://wa.me/542215236577");
+    expect(whatsappUrl("+54 9 221 552-6999")).toBe("https://wa.me/5492215526999");
+    expect(whatsappUrl("+54 9 351 555-1234")).toBe("https://wa.me/5493515551234");
   });
 });
 
