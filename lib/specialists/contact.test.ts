@@ -35,6 +35,25 @@ describe("parsePhones", () => {
   });
 });
 
+describe("parsePhones details", () => {
+  test("drops labels without digits instead of showing a dead tel: link", () => {
+    expect(parsePhones("Ver web | +54 11 4452-8765").map((phone) => phone.href)).toEqual([
+      "tel:+541144528765",
+    ]);
+    expect(parsePhones("(interno 4847)")).toEqual([]);
+  });
+
+  test("ignores a leading note in parentheses when dialing and detecting mobiles", () => {
+    expect(parsePhones("(Consultorio) +54 9 11 5063-7542")).toEqual([
+      { label: "(Consultorio) +54 9 11 5063-7542", href: "tel:+5491150637542", mobile: true },
+    ]);
+  });
+
+  test("detects a mobile written without a space after +54", () => {
+    expect(parsePhones("+549 11 5063-7542")[0]).toMatchObject({ href: "tel:+5491150637542", mobile: true });
+  });
+});
+
 describe("isPlaceholder", () => {
   test("detects placeholder text", () => {
     expect(isPlaceholder("Consultar ubicación específica")).toBe(true);
