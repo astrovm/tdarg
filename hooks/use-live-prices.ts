@@ -7,11 +7,12 @@ import type { PriceSnapshot } from "@/lib/medications/types"
 // Prices arrive rendered by the server. Only when that render had no data
 // (Alfa Beta was down at the time) does the browser ask for them again.
 export function useLivePrices(initial: PriceSnapshot) {
-  const [snapshot, setSnapshot] = useState(initial)
-  const [loading, setLoading] = useState(initial.data.length === 0)
+  const [fetched, setFetched] = useState<PriceSnapshot | null>(null)
+  const [settled, setSettled] = useState(false)
+  const hasInitial = initial.data.length > 0
 
   useEffect(() => {
-    if (initial.data.length > 0) {
+    if (hasInitial) {
       return
     }
 
@@ -26,7 +27,7 @@ export function useLivePrices(initial: PriceSnapshot) {
           error?: string
         }
         if (body.data?.length) {
-          setSnapshot({
+          setFetched({
             data: body.data,
             updatedAt: body.timestamp ?? new Date().toISOString(),
             stale: Boolean(body.stale),
@@ -39,12 +40,17 @@ export function useLivePrices(initial: PriceSnapshot) {
       })
       .finally(() => {
         if (!controller.signal.aborted) {
-          setLoading(false)
+          setSettled(true)
         }
       })
 
     return () => controller.abort()
-  }, [initial.data.length])
+  }, [hasInitial])
 
-  return { ...snapshot, loading }
+  // What the server sends always wins, even if it arrives while the request
+  // is in flight. Otherwise the fetched prices, or the empty initial state.
+  if (hasInitial) {
+    return { ...initial, loading: false }
+  }
+  return { ...(fetched ?? initial), loading: !settled }
 }
