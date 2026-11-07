@@ -73,3 +73,11 @@ describe("mutants comment", () => {
     expect(comment("lib/a.ts:3  survived: X\n", false, true)).toEqual([]);
   });
 });
+
+test("long comments fit GitHub and keep whole rows and balanced fences", () => {
+  comment('lib/f.ts:12:3  survived: Literal → "á"\n'.repeat(3000), false);
+  expect(Buffer.byteLength(body)).toBeLessThanOrEqual(60000);
+  expect(body).toContain("Report trimmed. [Full report artifact](https://run#artifacts)");
+  expect(body.match(/^```/gm)?.length).toBe(2);
+  expect(body).not.toContain("�");
+});

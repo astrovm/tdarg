@@ -13,6 +13,8 @@ const config = {
     // test at a time). The default 10 s killed the bot's first trial. Mutant runs use Stryker's
     // own per-mutant timeout.
     timeout: 600_000,
+    // Instrumentation slows individual tests; the runner still stops hanging mutants.
+    bunArgs: ["--timeout", "60000"],
   },
   coverageAnalysis: "perTest",
   reporters: ["clear-text", "progress", "json"],
