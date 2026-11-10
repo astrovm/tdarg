@@ -5,6 +5,6 @@
   "description": "minimatch 3's API (a callable default export) on the patched minimatch 11, for ESLint plugins that still require minimatch 3. Drop it once they move on.",
   "main": "index.cjs",
   "dependencies": {
-    "minimatch-11": "npm:minimatch@11.0.4"
+    "minimatch-11": "npm:minimatch@11.0.5"
   }
 }
