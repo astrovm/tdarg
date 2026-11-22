@@ -26,9 +26,21 @@ describe("parseProductPages", () => {
     expect(parseProductPages('<form  name="pr1"\n  action="ludoxa.html">')).toEqual(["ludoxa.html"]);
   });
 
+  test("reads both the absolute and the relative form action", () => {
+    expect(parseProductPages('<form name="pr0" action="/precio/concerta.html">')).toEqual([
+      "concerta.html",
+    ]);
+    expect(parseProductPages('<form name="pr0" action="concerta.html">')).toEqual([
+      "concerta.html",
+    ]);
+  });
+
   test("ignores forms that are not product pages", () => {
     expect(parseProductPages('<form name="lab1" action="srv" method="post">')).toEqual([]);
     expect(parseProductPages('<form name="pr1" action="../admin/x.html">')).toEqual([]);
+    expect(parseProductPages('<form name="pr1" action="/precio/srv">')).toEqual([]);
+    expect(parseProductPages('<form name="pr1" action="/admin/x.html">')).toEqual([]);
+    expect(parseProductPages('<form name="pr1" action="/precio/../admin/x.html">')).toEqual([]);
   });
 });
 

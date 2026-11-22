@@ -42,11 +42,13 @@ export function normalizeIngredient(text: string): string {
     .trim();
 }
 
-// Price page of every product an ingredient page lists, as "concerta.html"
+// Price page of every product an ingredient page lists, as "concerta.html".
+// Alfa Beta writes the form action as "/precio/concerta.html" (since November
+// 2026) or as "concerta.html".
 export function parseProductPages(html: string): string[] {
-  const pages = [...html.matchAll(/<form\s+name="pr\d+"\s+action="([a-z0-9-]+\.html)"/gi)].map(
-    (match) => match[1],
-  );
+  const pages = [
+    ...html.matchAll(/<form\s+name="pr\d+"\s+action="(?:\/precio\/)?([a-z0-9-]+\.html)"/gi),
+  ].map((match) => match[1]);
   return [...new Set(pages)];
 }
 
