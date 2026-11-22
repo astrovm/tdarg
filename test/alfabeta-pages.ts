@@ -8,14 +8,14 @@ export function ingredientPage(products: string[]): string {
   return products
     .map(
       (page, i) => `
-                <form name="pr${i + 1}" action="${page}" method="post">
+                <form name="pr${i}" action="/precio/${page}" method="post">
                     <input type="hidden" name="src" value="pr">
                     <input type="hidden" name="patron" value="${page.replace(".html", "").toUpperCase()}">
                 </form>
-                <form name="lab${i + 1}" action="srv" method="post">
+                <form name="lab${i}" action="/precio/srv" method="post">
                     <input type="hidden" name="src" value="prs">
                 </form>
-                <a class="rprod" href="javascript:document.pr${i + 1}.submit();">X</a>`,
+                <a class="rprod" href="javascript:document.pr${i}.submit();">X</a>`,
     )
     .join("\n");
 }
